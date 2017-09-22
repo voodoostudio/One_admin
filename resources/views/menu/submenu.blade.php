@@ -1,5 +1,4 @@
-<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-
+<ul class="m-menu__subnav">
     @php
         if (Voyager::translatable($items)) {
             $items = $items->load('translations');
@@ -35,8 +34,8 @@
                         array_push($listItemClass,'active');
                     }
                 }
-                $linkAttributes =  'href="#" class="m-menu__link m-menu__toggle"';
-                array_push($listItemClass, 'dropdown');
+               /* $linkAttributes =  'href="#' . str_slug($item->title, '-') .'-dropdown-element11" ' . ' class="m-menu__link m-menu__toggle"';
+                array_push($listItemClass, 'dropdown');*/
             }
             else
             {
@@ -75,29 +74,16 @@
 
         @endphp
 
-        <li class="m-menu__item  m-menu__item--{{ (implode(" ", $listItemClass) == 'active') ? 'active' : 'submenu'  }}" aria-haspopup="true" {{ (implode(" ", $listItemClass) == 'active') ? '' : 'data-menu-submenu-toggle=hover'  }} >
-            <a {!! $linkAttributes !!} class = "m-menu__link">
-                <i class="m-menu__link-icon {{ $item->icon_class }}"></i>
-                <span class="m-menu__link-text">{{ $item->title }}</span>
-                @if(!$originalItem->children->isEmpty())
-                    <i class="m-menu__ver-arrow la la-angle-right"></i>
-                @endif
+        <li class="m-menu__item {{ (implode(" ", $listItemClass) == 'active') ? 'm-menu__item--parent' : ''  }}" aria-haspopup="true">
+            <a {!! $linkAttributes !!} class = "m-menu__link ">
+                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                    <span></span>
+                </i>
+                <span class="m-menu__link-text">
+                    {{ $item->title }}
+                </span>
             </a>
-            @if(!$originalItem->children->isEmpty())
-                <div class="m-menu__submenu">
-                    <span class="m-menu__arrow"></span>
-                    @include('voyager::menu.submenu', ['items' => $originalItem->children, 'options' => $options, 'innerLoop' => true])
-                </div>
-            @endif
         </li>
 
-        @if($item->title == "Dashboard")
-            <li class="m-menu__section">
-                <h4 class="m-menu__section-text">
-                    Components
-                </h4>
-                <i class="m-menu__section-icon flaticon-more-v3"></i>
-            </li>
-        @endif
     @endforeach
 </ul>

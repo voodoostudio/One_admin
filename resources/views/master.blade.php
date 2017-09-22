@@ -1,57 +1,58 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
+Version: 5.0
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html lang="en" >
+<!-- begin::Head -->
 <head>
+    <meta charset="utf-8" />
     <title>@yield('page_title', setting('admin.title') . " - " . setting('admin.description'))</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Latest updates and statistic charts">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!--begin::Web font -->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+    <!--end::Web font -->
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ voyager_asset('images/logo-icon.png') }}" type="image/x-icon">
 
 
+    <!--begin::Base Styles -->
+    <link href="{{ asset('assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <!--end::Base Styles -->
 
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
 
-    @yield('css')
-
-    <!-- Few Dynamic Styles -->
-    <style type="text/css">
-        .voyager .side-menu .navbar-header {
-            background:{{ config('voyager.primary_color','#22A7F0') }};
-            border-color:{{ config('voyager.primary_color','#22A7F0') }};
-        }
-        .widget .btn-primary{
-            border-color:{{ config('voyager.primary_color','#22A7F0') }};
-        }
-        .widget .btn-primary:focus, .widget .btn-primary:hover, .widget .btn-primary:active, .widget .btn-primary.active, .widget .btn-primary:active:focus{
-            background:{{ config('voyager.primary_color','#22A7F0') }};
-        }
-        .voyager .breadcrumb a{
-            color:{{ config('voyager.primary_color','#22A7F0') }};
-        }
-    </style>
-
-    @if(!empty(config('voyager.additional_css')))<!-- Additional CSS -->
-        @foreach(config('voyager.additional_css') as $css)<link rel="stylesheet" type="text/css" href="{{ asset($css) }}">@endforeach
-    @endif
+    {{--@yield('css')--}}
 
     @yield('head')
 </head>
+<!-- end::Head -->
 
-<body class="voyager @if(isset($dataType) && isset($dataType->slug)){{ $dataType->slug }}@endif">
-
-<div id="voyager-loader">
-    <?php $admin_loader_img = Voyager::setting('admin.loader', ''); ?>
-    @if($admin_loader_img == '')
-        <img src="{{ voyager_asset('images/logo-icon.png') }}" alt="Voyager Loader">
-    @else
-        <img src="{{ Voyager::image($admin_loader_img) }}" alt="Voyager Loader">
-    @endif
-</div>
+{{--<body class="voyager @if(isset($dataType) && isset($dataType->slug)){{ $dataType->slug }}@endif">--}}
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default m-brand--minimize m-aside-left--minimize">
 
 <?php
 $user_avatar = Voyager::image(Auth::user()->avatar);
@@ -60,48 +61,26 @@ if ((substr(Auth::user()->avatar, 0, 7) == 'http://') || (substr(Auth::user()->a
 }
 ?>
 
-<div class="app-container">
-    <div class="fadetoblack visible-xs"></div>
-    <div class="row content-container">
-        @include('voyager::dashboard.navbar')
-        @include('voyager::dashboard.sidebar')
-        <script>
-            (function(){
-                    var appContainer = document.querySelector('.app-container'),
-                        sidebar = appContainer.querySelector('.side-menu'),
-                        navbar = appContainer.querySelector('nav.navbar.navbar-top'),
-                        loader = document.getElementById('voyager-loader'),
-                        hamburgerMenu = document.querySelector('.hamburger'),
-                        sidebarTransition = sidebar.style.transition,
-                        navbarTransition = navbar.style.transition,
-                        containerTransition = appContainer.style.transition;
-
-                    sidebar.style.WebkitTransition = sidebar.style.MozTransition = sidebar.style.transition =
-                    appContainer.style.WebkitTransition = appContainer.style.MozTransition = appContainer.style.transition =
-                    navbar.style.WebkitTransition = navbar.style.MozTransition = navbar.style.transition = 'none';
-
-                    if (window.localStorage && window.localStorage['voyager.stickySidebar'] == 'true') {
-                        appContainer.className += ' expanded no-animation';
-                        loader.style.left = (sidebar.clientWidth/2)+'px';
-                        hamburgerMenu.className += ' is-active no-animation';
-                    }
-
-                   navbar.style.WebkitTransition = navbar.style.MozTransition = navbar.style.transition = navbarTransition;
-                   sidebar.style.WebkitTransition = sidebar.style.MozTransition = sidebar.style.transition = sidebarTransition;
-                   appContainer.style.WebkitTransition = appContainer.style.MozTransition = appContainer.style.transition = containerTransition;
-            })();
-        </script>
-        <!-- Main Content -->
-        <div class="container-fluid">
-            <div class="side-body padding-top">
-                @yield('page_header')
-                <div id="voyager-notifications"></div>
-                @yield('content')
-            </div>
-        </div>
+<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <!-- BEGIN: Header -->
+@include('voyager::dashboard.navbar')
+<!-- END: Header -->
+    <!-- begin::Body -->
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+        <!-- BEGIN: Left Aside -->
+    @include('voyager::dashboard.sidebar')
+    <!-- END: Left Aside -->
+        @yield('content')
     </div>
-</div>
+    <!-- end:: Body -->
+    <!-- begin::Footer -->
 @include('voyager::partials.app-footer')
+<!-- end::Footer -->
+</div>
+<!-- end:: Page -->
+
+{{--@include('voyager::partials.app-footer')--}}
 
 <!-- Javascript Libs -->
 
@@ -130,6 +109,10 @@ if ((substr(Auth::user()->avatar, 0, 7) == 'http://') || (substr(Auth::user()->a
 
     @endif
 </script>
+<!--begin::Base Scripts -->
+<script src="{{ asset('assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
+<!--end::Base Scripts -->
 @yield('javascript')
 
 @if(!empty(config('voyager.additional_js')))<!-- Additional Javascript -->
