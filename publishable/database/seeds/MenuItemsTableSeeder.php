@@ -27,7 +27,7 @@ class MenuItemsTableSeeder extends Seeder
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-boat',
+                    'icon_class' => 'flaticon-line-graph',
                     'color'      => null,
                     'parent_id'  => null,
                     'order'      => 1,
@@ -36,17 +36,17 @@ class MenuItemsTableSeeder extends Seeder
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id'    => $menu->id,
-                'title'      => 'Media',
+                'title'      => 'Pages',
                 'url'        => '',
-                'route'      => 'voyager.media.index',
+                'route'      => 'voyager.pages.index',
             ]);
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-images',
+                    'icon_class' => 'flaticon-interface-6',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 5,
+                    'order'      => 2,
                 ])->save();
             }
 
@@ -59,23 +59,7 @@ class MenuItemsTableSeeder extends Seeder
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-news',
-                    'color'      => null,
-                    'parent_id'  => null,
-                    'order'      => 6,
-                ])->save();
-            }
-
-            $menuItem = MenuItem::firstOrNew([
-                'menu_id'    => $menu->id,
-                'title'      => 'Users',
-                'url'        => '',
-                'route'      => 'voyager.users.index',
-            ]);
-            if (!$menuItem->exists) {
-                $menuItem->fill([
-                    'target'     => '_self',
-                    'icon_class' => 'voyager-person',
+                    'icon_class' => 'flaticon-interface-7',
                     'color'      => null,
                     'parent_id'  => null,
                     'order'      => 3,
@@ -91,26 +75,42 @@ class MenuItemsTableSeeder extends Seeder
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-categories',
+                    'icon_class' => 'flaticon-folder',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 8,
+                    'order'      => 4,
                 ])->save();
             }
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id'    => $menu->id,
-                'title'      => 'Pages',
+                'title'      => 'Media',
                 'url'        => '',
-                'route'      => 'voyager.pages.index',
+                'route'      => 'voyager.media.index',
             ]);
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-file-text',
+                    'icon_class' => 'flaticon-imac',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 7,
+                    'order'      => 5,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id'    => $menu->id,
+                'title'      => 'Users',
+                'url'        => '',
+                'route'      => 'voyager.users.index',
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => 'flaticon-users',
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 6,
                 ])->save();
             }
 
@@ -123,10 +123,10 @@ class MenuItemsTableSeeder extends Seeder
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-lock',
+                    'icon_class' => 'flaticon-warning-2',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 2,
+                    'order'      => 7,
                 ])->save();
             }
 
@@ -138,7 +138,7 @@ class MenuItemsTableSeeder extends Seeder
             if (!$toolsMenuItem->exists) {
                 $toolsMenuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-tools',
+                    'icon_class' => 'flaticon-cogwheel-1',
                     'color'      => null,
                     'parent_id'  => null,
                     'order'      => 9,
@@ -216,7 +216,7 @@ class MenuItemsTableSeeder extends Seeder
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-settings',
+                    'icon_class' => 'flaticon-cogwheel',
                     'color'      => null,
                     'parent_id'  => null,
                     'order'      => 14,
