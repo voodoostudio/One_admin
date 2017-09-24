@@ -149,19 +149,17 @@ return [
     'dashboard' => [
         // Add custom list items to navbar's dropdown
         'navbar_items' => [
-            'Profile' => [
+            'My profile' => [
                 'route'         => 'voyager.profile',
-                'classes'       => 'class-full-of-rum',
-                'icon_class'    => 'voyager-person',
+                'icon_class'    => 'flaticon-profile',
             ],
             'Home' => [
                 'route'         => '/',
-                'icon_class'    => 'voyager-home',
+                'icon_class'    => 'flaticon-share',
                 'target_blank'  => true,
             ],
             'Logout' => [
                 'route'      => 'voyager.logout',
-                'icon_class' => 'voyager-power',
             ],
         ],
 
@@ -196,12 +194,12 @@ return [
     ],
 
     'googlemaps' => [
-         'key'    => env('GOOGLE_MAPS_KEY', ''),
-         'center' => [
-             'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
-             'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
-         ],
-         'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
-     ],
+        'key'    => env('GOOGLE_MAPS_KEY', ''),
+        'center' => [
+            'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
+            'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
+        ],
+        'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
+    ],
 
 ];
