@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
@@ -7,131 +8,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="admin login">
     <title>Admin - {{ Voyager::setting("admin.title") }}</title>
-    <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
-    <style>
-        body {
-            background-image:url('{{ Voyager::image( Voyager::setting("admin.bg_image"), voyager_asset("images/bg.jpg") ) }}');
-            background-color: {{ Voyager::setting("admin.bg_color", "#FFFFFF" ) }};
-        }
-        .login-sidebar{
-            border-top:5px solid {{ config('voyager.primary_color','#22A7F0') }};
-        }
-        @media (max-width: 767px) {
-            .login-sidebar {
-                border-top:0px !important;
-                border-left:5px solid {{ config('voyager.primary_color','#22A7F0') }};
-            }
-        }
-        body.login .form-group-default.focused{
-            border-color:{{ config('voyager.primary_color','#22A7F0') }};
-        }
-        .login-button, .bar:before, .bar:after{
-            background:{{ config('voyager.primary_color','#22A7F0') }};
-        }
-    </style>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<!--begin::Web font -->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+    <!--end::Web font -->
+    <!--begin::Base Styles -->
+    <link href="{{ asset('assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <!--end::Base Styles -->
+    <!--begin::Custom Styles -->
+    <link href="{{ asset('assets_his/css/styles.css') }}" rel="stylesheet" type="text/css" />
+    <!--end::Custom Styles -->
+    <link rel="shortcut icon" href="{{ asset('assets_his/img/favicon.ico') }}" />
 </head>
-<body class="login">
-<div class="container-fluid">
-    <div class="row">
-        <div class="faded-bg animated"></div>
-        <div class="hidden-xs col-sm-7 col-md-8">
-            <div class="clearfix">
-                <div class="col-sm-12 col-md-10 col-md-offset-2">
-                    <div class="logo-title-container">
-                        <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
-                        @if($admin_logo_img == '')
-                        <img class="img-responsive pull-left logo hidden-xs animated fadeIn" src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon">
-                        @else
-                        <img class="img-responsive pull-left logo hidden-xs animated fadeIn" src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon">
-                        @endif
-                        <div class="copy animated fadeIn">
-                            <h1>{{ Voyager::setting('admin.title', 'Voyager') }}</h1>
-                            <p>{{ Voyager::setting('admin.description', __('voyager.login.welcome')) }}</p>
+
+<!-- begin::Body -->
+<body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
+<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-grid--tablet-and-mobile m-grid--hor-tablet-and-mobile 		m-login m-login--1 m-login--singin" id="m_login">
+        <div class="m-grid__item m-grid__item--order-tablet-and-mobile-2 m-login__aside">
+            <div class="m-stack m-stack--hor m-stack--desktop">
+                <div class="m-stack__item m-stack__item--fluid">
+                    <div class="m-login__wrapper">
+                        <div class="m-login__logo">
+                            <a href="#">
+                                <img src="{{ asset('assets_his/img/his_logo.svg') }}">
+                            </a>
                         </div>
-                    </div> <!-- .logo-title-container -->
+                        <div class="m-login__signin">
+                            <div class="m-login__head">
+                                <h3 class="m-login__title">
+                                    Sign In To Admin
+                                </h3>
+                            </div>
+
+                            <form class="m-login__form m-form" action="{{ route('voyager.login') }}" method="POST">
+                                {{ csrf_field() }}
+                                <div class="form-group m-form__group">
+                                    <input class="form-control m-input" type="text" placeholder="{{ __('voyager.generic.email') }}" name="email" id="email" autocomplete="off" value="{{ old('email') }}" required>
+                                </div>
+                                <div class="form-group m-form__group">
+                                    <input class="form-control m-input m-login__form-input--last" type="password" placeholder="{{ __('voyager.generic.password') }}" name="password" required>
+                                </div>
+
+                                <div class="row m-login__form-sub">
+                                    <div class="col m--align-left">
+                                        <label class="m-checkbox m-checkbox--focus">
+                                            <input type="checkbox" name="remember">
+                                            Remember me
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col m--align-right">
+                                        <a href="javascript:;" id="m_login_forget_password" class="m-link">
+                                            Forget Password ?
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="m-login__form-action">
+                                    {{--<button type="submit" id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air signin">--}}
+                                        {{--Sign In--}}
+                                    {{--</button>--}}
+                                    <button type="submit" id="" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air signin">
+                                        Sign In
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="m-login__signup">
+                            <div class="m-login__head">
+                                <h3 class="m-login__title">
+                                    Sign Up
+                                </h3>
+                                <div class="m-login__desc">
+                                    Enter your details to create your account:
+                                </div>
+                            </div>
+                            <form class="m-login__form m-form" action="">
+                                <div class="form-group m-form__group">
+                                    <input class="form-control m-input" type="text" placeholder="Fullname" name="fullname">
+                                </div>
+                                <div class="form-group m-form__group">
+                                    <input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off">
+                                </div>
+                                <div class="form-group m-form__group">
+                                    <input class="form-control m-input" type="password" placeholder="Password" name="password">
+                                </div>
+                                <div class="form-group m-form__group">
+                                    <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password" name="rpassword">
+                                </div>
+                                <div class="row form-group m-form__group m-login__form-sub">
+                                    <div class="col m--align-left">
+                                        <label class="m-checkbox m-checkbox--focus">
+                                            <input type="checkbox" name="agree">
+                                            I Agree the
+                                            <a href="#" class="m-link m-link--focus">
+                                                terms and conditions
+                                            </a>
+                                            .
+                                            <span></span>
+                                        </label>
+                                        <span class="m-form__help"></span>
+                                    </div>
+                                </div>
+                                <div class="m-login__form-action">
+                                    <button id="m_login_signup_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+                                        Sign Up
+                                    </button>
+                                    <button id="m_login_signup_cancel" class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="m-login__forget-password">
+                            <div class="m-login__head">
+                                <h3 class="m-login__title">
+                                    Forgotten Password ?
+                                </h3>
+                                <div class="m-login__desc">
+                                    Enter your email to reset your password:
+                                </div>
+                            </div>
+                            <form class="m-login__form m-form" action="">
+                                <div class="form-group m-form__group">
+                                    <input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
+                                </div>
+                                <div class="m-login__form-action">
+                                    <button id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+                                        Request
+                                    </button>
+                                    <button id="m_login_forget_password_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-stack__item m-stack__item--center">
+                    <div class="m-login__account">
+                                    <span class="m-login__account-msg">
+                                        Don't have an account yet ?
+                                    </span>
+                        &nbsp;&nbsp;
+                        <a href="javascript:;" id="m_login_signup" class="m-link m-link--focus m-login__account-link">
+                            Sign Up
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-xs-12 col-sm-5 col-md-4 login-sidebar">
-            
-            <div class="login-container">
-                
-                <p>{{ __('voyager.login.signin_below') }}</p>
-
-                <form action="{{ route('voyager.login') }}" method="POST">
-                    {{ csrf_field() }}
-                    <div class="form-group form-group-default" id="emailGroup">
-                        <label>Email</label>
-                        <div class="controls">
-                            <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('voyager.generic.email') }}" class="form-control" required>
-                         </div>
-                    </div>
-
-                    <div class="form-group form-group-default" id="passwordGroup">
-                        <label>Password</label>
-                        <div class="controls">
-                            <input type="password" name="password" placeholder="{{ __('voyager.generic.password') }}" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-block login-button">
-                        <span class="signingin hidden"><span class="voyager-refresh"></span> {{ __('voyager.login.loggingin') }}...</span>
-                        <span class="signin">{{ __('voyager.generic.login') }}</span>
-                    </button>
-
-              </form>
-
-              <div style="clear:both"></div>
-
-              @if(!$errors->isEmpty())
-              <div class="alert alert-red">
-                <ul class="list-unstyled">
-                    @foreach($errors->all() as $err)
-                    <li>{{ $err }}</li>
-                    @endforeach
-                </ul>
-              </div>
-              @endif
-
-            </div> <!-- .login-container -->
-
-        </div> <!-- .login-sidebar -->
-    </div> <!-- .row -->
-</div> <!-- .container-fluid -->
-<script>
-    var btn = document.querySelector('button[type="submit"]');
-    var form = document.forms[0];
-    var email = document.querySelector('[name="email"]');
-    var password = document.querySelector('[name="password"]');
-    btn.addEventListener('click', function(ev){
-        if (form.checkValidity()) {
-            btn.querySelector('.signingin').className = 'signingin';
-            btn.querySelector('.signin').className = 'signin hidden';
-        } else {
-            ev.preventDefault();
-        }
-    });
-    email.focus();
-    document.getElementById('emailGroup').classList.add("focused");
-    
-    // Focus events for email and password fields
-    email.addEventListener('focusin', function(e){
-        document.getElementById('emailGroup').classList.add("focused");
-    });
-    email.addEventListener('focusout', function(e){
-       document.getElementById('emailGroup').classList.remove("focused");
-    });
-
-    password.addEventListener('focusin', function(e){
-        document.getElementById('passwordGroup').classList.add("focused");
-    });
-    password.addEventListener('focusout', function(e){
-       document.getElementById('passwordGroup').classList.remove("focused");
-    });
-
-</script>
+        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content" style="background-image: url({{ asset('assets_his/img/his_login_bg.jpg') }})">
+            <div class="m-grid__item m-grid__item--middle">
+                <h3 class="m-login__welcome">
+                    Join Our Community
+                </h3>
+                <p class="m-login__msg">
+                    Lorem ipsum dolor sit amet, coectetuer adipiscing
+                    <br>
+                    elit sed diam nonummy et nibh euismod
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:: Page -->
+<!--begin::Base Scripts -->
+<script src="{{ asset('assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
+<!--end::Base Scripts -->
+<!--begin::Page Snippets -->
+<script src="{{ asset('assets/snippets/pages/user/login.js') }}" type="text/javascript"></script>
+<!--end::Page Snippets -->
 </body>
+<!-- end::Body -->
 </html>
