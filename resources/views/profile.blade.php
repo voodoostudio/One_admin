@@ -1,4 +1,4 @@
-@extends('voyager::master')
+@extends('voyager::master_metronic')
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ voyager_asset('css/ga-embed.css') }}">

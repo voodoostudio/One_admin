@@ -1,80 +1,352 @@
-@extends('voyager::master')
+@extends('voyager::master_metronic')
 
 @section('content')
-    <div class="page-content">
-        @include('voyager::alerts')
-        @include('voyager::dimmers')
-        <div class="analytics-container">
-            <?php $google_analytics_client_id = Voyager::setting("admin.google_analytics_client_id"); ?>
-            @if (isset($google_analytics_client_id) && !empty($google_analytics_client_id))
-                {{-- Google Analytics Embed --}}
-                <div id="embed-api-auth-container"></div>
-            @else
-                <p style="border-radius:4px; padding:20px; background:#fff; margin:0; color:#999; text-align:center;">
-                    {!! __('voyager.analytics.no_client_id') !!}
-                    <a href="https://console.developers.google.com" target="_blank">https://console.developers.google.com</a>
-                </p>
-            @endif
-
-            <div class="Dashboard Dashboard--full" id="analytics-dashboard">
-                <header class="Dashboard-header">
-                    <ul class="FlexGrid">
-                        <li class="FlexGrid-item">
-                            <div class="Titles">
-                                <h1 class="Titles-main" id="view-name">{{ __('voyager.analytics.select_view') }}</h1>
-                                <div class="Titles-sub">{{ __('voyager.analytics.various_visualizations') }}</div>
+    <div class="m-grid__item m-grid__item--fluid m-wrapper">
+        <!-- BEGIN: Subheader -->
+        <div class="m-subheader ">
+            <div class="d-flex align-items-center">
+                <div class="mr-auto">
+                    <h3 class="m-subheader__title m-subheader__title--separator">
+                        Dashboard
+                    </h3>
+                </div>
+                <div>
+                    <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                        <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                            <i class="la la-plus m--hide"></i>
+                            <i class="la la-ellipsis-h"></i>
+                        </a>
+                        <div class="m-dropdown__wrapper">
+                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                            <div class="m-dropdown__inner">
+                                <div class="m-dropdown__body">
+                                    <div class="m-dropdown__content">
+                                        <ul class="m-nav">
+                                            <li class="m-nav__section m-nav__section--first m--hide">
+                                                <span class="m-nav__section-text">
+                                                    Quick Actions
+                                                </span>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a href="" class="m-nav__link">
+                                                    <i class="m-nav__link-icon flaticon-share"></i>
+                                                    <span class="m-nav__link-text">
+                                                        Activity
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a href="" class="m-nav__link">
+                                                    <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                    <span class="m-nav__link-text">
+																	Messages
+																</span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a href="" class="m-nav__link">
+                                                    <i class="m-nav__link-icon flaticon-info"></i>
+                                                    <span class="m-nav__link-text">
+																	FAQ
+																</span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a href="" class="m-nav__link">
+                                                    <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                                    <span class="m-nav__link-text">
+																	Support
+																</span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__separator m-nav__separator--fit"></li>
+                                            <li class="m-nav__item">
+                                                <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                    Submit
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </li>
-                        <li class="FlexGrid-item FlexGrid-item--fixed">
-                            <div id="active-users-container"></div>
-                        </li>
-                    </ul>
-                    <div id="view-selector-container"></div>
-                </header>
-
-                <ul class="FlexGrid FlexGrid--halves">
-                    <li class="FlexGrid-item">
-                        <div class="Chartjs">
-                            <header class="Titles">
-                                <h1 class="Titles-main">{{ __('voyager.analytics.this_vs_last_week') }}</h1>
-                                <div class="Titles-sub">{{ __('voyager.analytics.by_users') }}</div>
-                            </header>
-                            <figure class="Chartjs-figure" id="chart-1-container"></figure>
-                            <ol class="Chartjs-legend" id="legend-1-container"></ol>
                         </div>
-                    </li>
-                    <li class="FlexGrid-item">
-                        <div class="Chartjs">
-                            <header class="Titles">
-                                <h1 class="Titles-main">{{ __('voyager.analytics.this_vs_last_year') }}</h1>
-                                <div class="Titles-sub">{{ __('voyager.analytics.by_users') }}</div>
-                            </header>
-                            <figure class="Chartjs-figure" id="chart-2-container"></figure>
-                            <ol class="Chartjs-legend" id="legend-2-container"></ol>
-                        </div>
-                    </li>
-                    <li class="FlexGrid-item">
-                        <div class="Chartjs">
-                            <header class="Titles">
-                                <h1 class="Titles-main">{{ __('voyager.analytics.top_browsers') }}</h1>
-                                <div class="Titles-sub">{{ __('voyager.analytics.by_pageview') }}</div>
-                            </header>
-                            <figure class="Chartjs-figure" id="chart-3-container"></figure>
-                            <ol class="Chartjs-legend" id="legend-3-container"></ol>
-                        </div>
-                    </li>
-                    <li class="FlexGrid-item">
-                        <div class="Chartjs">
-                            <header class="Titles">
-                                <h1 class="Titles-main">{{ __('voyager.analytics.top_countries') }}</h1>
-                                <div class="Titles-sub">{{ __('voyager.analytics.by_sessions') }}</div>
-                            </header>
-                            <figure class="Chartjs-figure" id="chart-4-container"></figure>
-                            <ol class="Chartjs-legend" id="legend-4-container"></ol>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
+        </div>
+        <!-- END: Subheader -->
+        <div class="m-content">
+            <!--begin:: Widgets/Stats-->
+            <div class="m-portlet">
+                <div class="m-portlet__body  m-portlet__body--no-padding">
+                    <div class="row m-row--no-padding m-row--col-separator-xl">
+                        <div class="col-md-12 col-xl-4">
+                            <!--begin::Total Profit-->
+                            <div class="m-widget24">
+                                <div class="m-widget24__item">
+                                    <h4 class="m-widget24__title">
+                                        Users amount
+                                    </h4>
+                                    <br>
+                                    <span class="m-widget24__desc">
+                                        All Customs Value
+                                    </span>
+                                    <span class="m-widget24__stats m--font-brand">
+                                        {{ $count = Voyager::model('User')->count() }}
+                                    </span>
+                                    <div class="m--space-10"></div>
+                                    <div class="progress m-progress--sm">
+                                        <div class="progress-bar m--bg-brand" role="progressbar" style="width: 100%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span class="m-widget24__change">
+                                        Change
+                                    </span>
+                                    <span class="m-widget24__number">
+                                        100%
+                                    </span>
+                                </div>
+                            </div>
+                            <!--end::Total Profit-->
+                        </div>
+                        <div class="col-md-12 col-xl-4">
+                            <!--begin::New Feedbacks-->
+                            <div class="m-widget24">
+                                <div class="m-widget24__item">
+                                    <h4 class="m-widget24__title">
+                                        Pages amount
+                                    </h4>
+                                    <br>
+                                    <span class="m-widget24__desc">
+                                        Customer Review
+                                    </span>
+                                    <span class="m-widget24__stats m--font-info">
+                                        {{ $count = Voyager::model('Page')->count() }}
+                                    </span>
+                                    <div class="m--space-10"></div>
+                                    <div class="progress m-progress--sm">
+                                        <div class="progress-bar m--bg-info" role="progressbar" style="width: 100%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span class="m-widget24__change">
+                                        Change
+                                    </span>
+                                    <span class="m-widget24__number">
+                                        100%
+                                    </span>
+                                </div>
+                            </div>
+                            <!--end::New Feedbacks-->
+                        </div>
+                        <div class="col-md-12 col-xl-4">
+                            <!--begin::New Orders-->
+                            <div class="m-widget24">
+                                <div class="m-widget24__item">
+                                    <h4 class="m-widget24__title">
+                                        Posts amount
+                                    </h4>
+                                    <br>
+                                    <span class="m-widget24__desc">
+                                        Fresh Order Amount
+                                    </span>
+                                    <span class="m-widget24__stats m--font-danger">
+                                        {{$count = Voyager::model('Post')->count() }}
+                                    </span>
+                                    <div class="m--space-10"></div>
+                                    <div class="progress m-progress--sm">
+                                        <div class="progress-bar m--bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span class="m-widget24__change">
+                                        Change
+                                    </span>
+                                    <span class="m-widget24__number">
+                                        100%
+                                    </span>
+                                </div>
+                            </div>
+                            <!--end::New Orders-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end:: Widgets/Stats-->
+            <!--Begin::Main Portlet-->
+            <div class="m-portlet">
+                <div class="m-portlet__body m-portlet__body--no-padding">
+                    <div class="row m-row--no-padding m-row--col-separator-xl">
+                        <div class="col-md-12 col-lg-12 col-xl-4">
+                            <!--begin:: Widgets/Stats2-1 -->
+                            <div class="m-widget1">
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                Member Profit
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                Awerage Weekly Profit
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-brand">
+                                                +$17,800
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                Orders
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                Weekly Customer Orders
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-danger">
+                                                +1,800
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                Issue Reports
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                System bugs and issues
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-success">
+                                                -27,49%
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end:: Widgets/Stats2-1 -->
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-xl-4">
+                            <!--begin:: Widgets/Stats2-2 -->
+                            <div class="m-widget1">
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                IPO Margin
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                Awerage IPO Margin
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-accent">
+                                                +24%
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                Payments
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                Yearly Expenses
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-info">
+                                                +$560,800
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                Logistics
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                Overall Regional Logistics
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-warning">
+                                                -10%
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--begin:: Widgets/Stats2-2 -->
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-xl-4">
+                            <!--begin:: Widgets/Stats2-3 -->
+                            <div class="m-widget1">
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                Orders
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                Awerage Weekly Orders
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-success">
+                                                +15%
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                Transactions
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                Daily Transaction Increase
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-danger">
+                                                +80%
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">
+                                                Revenue
+                                            </h3>
+                                            <span class="m-widget1__desc">
+                                                Overall Revenue Increase
+                                            </span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-primary">
+                                                +60%
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--begin:: Widgets/Stats2-3 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End::Main Portlet-->
         </div>
     </div>
 @stop

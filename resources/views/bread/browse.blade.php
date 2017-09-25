@@ -1,205 +1,325 @@
-@extends('voyager::master')
+@extends('voyager::master_metronic')
 
 @section('page_title', __('voyager.generic.viewing').' '.$dataType->display_name_plural)
 
-@section('page_header')
-    <div class="container-fluid">
-        <h1 class="page-title">
-            <i class="{{ $dataType->icon }}"></i> {{ $dataType->display_name_plural }}
-        </h1>
-        @can('add',app($dataType->model_name))
-            <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
-                <i class="voyager-plus"></i> <span>{{ __('voyager.generic.add_new') }}</span>
-            </a>
-        @endcan
-        @can('delete',app($dataType->model_name))
-            @include('voyager::partials.bulk-delete')
-        @endcan
-        @include('voyager::multilingual.language-selector')
-    </div>
-@stop
+{{--@section('page_header')--}}
+    {{--<div class="container-fluid">--}}
+        {{--<h1 class="page-title">--}}
+            {{--<i class="{{ $dataType->icon }}"></i> {{ $dataType->display_name_plural }}--}}
+        {{--</h1>--}}
+        {{--@can('add',app($dataType->model_name))--}}
+            {{--<a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">--}}
+                {{--<i class="voyager-plus"></i> <span>{{ __('voyager.generic.add_new') }}</span>--}}
+            {{--</a>--}}
+        {{--@endcan--}}
+        {{--@can('delete',app($dataType->model_name))--}}
+            {{--@include('voyager::partials.bulk-delete')--}}
+        {{--@endcan--}}
+        {{--@include('voyager::multilingual.language-selector')--}}
+    {{--</div>--}}
+{{--@stop--}}
 
 @section('content')
-    <div class="page-content browse container-fluid">
-        @include('voyager::alerts')
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-bordered">
-                    <div class="panel-body table-responsive">
-                        @if ($isServerSide)
-                            <form method="get">
-                                <div id="search-input">
-                                    <select id="search_key" name="key">
-                                        @foreach($searchable as $key)
-                                                <option value="{{ $key }}" @if($search->key == $key){{ 'selected' }}@endif>{{ ucwords(str_replace('_', ' ', $key)) }}</option>
-                                        @endforeach
-                                    </select>
-                                    <select id="filter" name="filter">
-                                        <option value="contains" @if($search->filter == "contains"){{ 'selected' }}@endif>contains</option>
-                                        <option value="equals" @if($search->filter == "equals"){{ 'selected' }}@endif>=</option>
-                                    </select>
-                                    <div class="input-group col-md-12">
-                                        <input type="text" class="form-control" placeholder="Search" name="s" value="{{ $search->value }}">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-info btn-lg" type="submit">
-                                                <i class="voyager-search"></i>
-                                            </button>
-                                        </span>
+
+    <div class="m-grid__item m-grid__item--fluid m-wrapper">
+        <!-- BEGIN: Subheader -->
+        <div class="m-subheader ">
+            <div class="d-flex align-items-center">
+                <div class="mr-auto">
+                    <h3 class="m-subheader__title m-subheader__title--separator">
+                        Local Data
+                    </h3>
+                    <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                        <li class="m-nav__item m-nav__item--home">
+                            <a href="#" class="m-nav__link m-nav__link--icon">
+                                <i class="m-nav__link-icon la la-home"></i>
+                            </a>
+                        </li>
+                        <li class="m-nav__separator">
+                            -
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="" class="m-nav__link">
+                                <span class="m-nav__link-text">
+                                    Datatables
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__separator">
+                            -
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="" class="m-nav__link">
+                                <span class="m-nav__link-text">
+                                    Base
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__separator">
+                            -
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="" class="m-nav__link">
+                                <span class="m-nav__link-text">
+                                    Local Data
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                        <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                            <i class="la la-plus m--hide"></i>
+                            <i class="la la-ellipsis-h"></i>
+                        </a>
+                        <div class="m-dropdown__wrapper">
+                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                            <div class="m-dropdown__inner">
+                                <div class="m-dropdown__body">
+                                    <div class="m-dropdown__content">
+                                        <ul class="m-nav">
+                                            <li class="m-nav__section m-nav__section--first m--hide">
+                                                <span class="m-nav__section-text">
+                                                    Quick Actions
+                                                </span>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a href="" class="m-nav__link">
+                                                    <i class="m-nav__link-icon flaticon-share"></i>
+                                                    <span class="m-nav__link-text">
+                                                        Activity
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a href="" class="m-nav__link">
+                                                    <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                    <span class="m-nav__link-text">
+                                                        Messages
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a href="" class="m-nav__link">
+                                                    <i class="m-nav__link-icon flaticon-info"></i>
+                                                    <span class="m-nav__link-text">
+                                                        FAQ
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a href="" class="m-nav__link">
+                                                    <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                                    <span class="m-nav__link-text">
+                                                        Support
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__separator m-nav__separator--fit"></li>
+                                            <li class="m-nav__item">
+                                                <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                    Submit
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </form>
-                        @endif
-                        <table id="dataTable" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    @foreach($dataType->browseRows as $row)
-                                    <th>
-                                        @if ($isServerSide)
-                                            <a href="{{ $row->sortByUrl() }}">
-                                        @endif
-                                        {{ $row->display_name }}
-                                        @if ($isServerSide)
-                                            @if ($row->isCurrentSortField())
-                                                @if (!isset($_GET['sort_order']) || $_GET['sort_order'] == 'asc')
-                                                    <i class="voyager-angle-up pull-right"></i>
-                                                @else
-                                                    <i class="voyager-angle-down pull-right"></i>
-                                                @endif
-                                            @endif
-                                            </a>
-                                        @endif
-                                    </th>
-                                    @endforeach
-                                    <th class="actions">{{ __('voyager.generic.actions') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($dataTypeContent as $data)
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="row_id" id="checkbox_{{ $data->id }}" value="{{ $data->id }}">
-                                    </td>
-                                    @foreach($dataType->browseRows as $row)
-                                        <td>
-                                            <?php $options = json_decode($row->details); ?>
-                                            @if($row->type == 'image')
-                                                <img src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL)){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif" style="width:100px">
-                                            @elseif($row->type == 'relationship')
-                                                @include('voyager::formfields.relationship', ['view' => 'browse'])
-                                            @elseif($row->type == 'select_multiple')
-                                                @if(property_exists($options, 'relationship'))
-
-                                                    @foreach($data->{$row->field} as $item)
-                                                        @if($item->{$row->field . '_page_slug'})
-                                                        <a href="{{ $item->{$row->field . '_page_slug'} }}">{{ $item->{$row->field} }}</a>@if(!$loop->last), @endif
-                                                        @else
-                                                        {{ $item->{$row->field} }}
-                                                        @endif
-                                                    @endforeach
-
-                                                    {{-- $data->{$row->field}->implode($options->relationship->label, ', ') --}}
-                                                @elseif(property_exists($options, 'options'))
-                                                    @foreach($data->{$row->field} as $item)
-                                                     {{ $options->options->{$item} . (!$loop->last ? ', ' : '') }}
-                                                    @endforeach
-                                                @endif
-
-                                            @elseif($row->type == 'select_dropdown' && property_exists($options, 'options'))
-
-                                                @if($data->{$row->field . '_page_slug'})
-                                                    <a href="{{ $data->{$row->field . '_page_slug'} }}">{!! $options->options->{$data->{$row->field}} !!}</a>
-                                                @else
-                                                    {!! $options->options->{$data->{$row->field}} !!}
-                                                @endif
-
-
-                                            @elseif($row->type == 'select_dropdown' && $data->{$row->field . '_page_slug'})
-                                                <a href="{{ $data->{$row->field . '_page_slug'} }}">{{ $data->{$row->field} }}</a>
-                                            @elseif($row->type == 'date')
-                                            {{ $options && property_exists($options, 'format') ? \Carbon\Carbon::parse($data->{$row->field})->formatLocalized($options->format) : $data->{$row->field} }}
-                                            @elseif($row->type == 'checkbox')
-                                                @if($options && property_exists($options, 'on') && property_exists($options, 'off'))
-                                                    @if($data->{$row->field})
-                                                    <span class="label label-info">{{ $options->on }}</span>
-                                                    @else
-                                                    <span class="label label-primary">{{ $options->off }}</span>
-                                                    @endif
-                                                @else
-                                                {{ $data->{$row->field} }}
-                                                @endif
-                                            @elseif($row->type == 'color')
-                                                <span class="badge badge-lg" style="background-color: {{ $data->{$row->field} }}">{{ $data->{$row->field} }}</span>
-                                            @elseif($row->type == 'text')
-                                                @include('voyager::multilingual.input-hidden-bread-browse')
-                                                <div class="readmore">{{ strlen( $data->{$row->field} ) > 200 ? substr($data->{$row->field}, 0, 200) . ' ...' : $data->{$row->field} }}</div>
-                                            @elseif($row->type == 'text_area')
-                                                @include('voyager::multilingual.input-hidden-bread-browse')
-                                                <div class="readmore">{{ strlen( $data->{$row->field} ) > 200 ? substr($data->{$row->field}, 0, 200) . ' ...' : $data->{$row->field} }}</div>
-                                            @elseif($row->type == 'file' && !empty($data->{$row->field}) )
-                                                @include('voyager::multilingual.input-hidden-bread-browse')
-                                                @if(json_decode($data->{$row->field}))
-                                                    @foreach(json_decode($data->{$row->field}) as $file)
-                                                        <a href="/storage/{{ $file->download_link or '' }}">
-                                                            {{ $file->original_name or '' }}
-                                                        </a>
-                                                        <br/>
-                                                    @endforeach
-                                                @else
-                                                    <a href="/storage/{{ $data->{$row->field} }}">
-                                                        Download
-                                                    </a>
-                                                @endif
-                                            @elseif($row->type == 'rich_text_box')
-                                                @include('voyager::multilingual.input-hidden-bread-browse')
-                                                <div class="readmore">{{ strlen( strip_tags($data->{$row->field}, '<b><i><u>') ) > 200 ? substr(strip_tags($data->{$row->field}, '<b><i><u>'), 0, 200) . ' ...' : strip_tags($data->{$row->field}, '<b><i><u>') }}</div>
-                                            @elseif($row->type == 'coordinates')
-                                                @include('voyager::partials.coordinates-static-image')
-                                            @else
-                                                @include('voyager::multilingual.input-hidden-bread-browse')
-                                                <span>{{ $data->{$row->field} }}</span>
-                                            @endif
-                                        </td>
-                                    @endforeach
-                                    <td class="no-sort no-click" id="bread-actions">
-                                        @can('delete', $data)
-                                            <a href="javascript:;" title="{{ __('voyager.generic.delete') }}" class="btn btn-sm btn-danger pull-right delete" data-id="{{ $data->{$data->getKeyName()} }}" id="delete-{{ $data->{$data->getKeyName()} }}">
-                                                <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">{{ __('voyager.generic.delete') }}</span>
-                                            </a>
-                                        @endcan
-                                        @can('edit', $data)
-                                            <a href="{{ route('voyager.'.$dataType->slug.'.edit', $data->{$data->getKeyName()}) }}" title="{{ __('voyager.generic.edit') }}" class="btn btn-sm btn-primary pull-right edit">
-                                                <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">{{ __('voyager.generic.edit') }}</span>
-                                            </a>
-                                        @endcan
-                                        @can('read', $data)
-                                            <a href="{{ route('voyager.'.$dataType->slug.'.show', $data->{$data->getKeyName()}) }}" title="{{ __('voyager.generic.view') }}" class="btn btn-sm btn-warning pull-right">
-                                                <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">{{ __('voyager.generic.view') }}</span>
-                                            </a>
-                                        @endcan
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        @if ($isServerSide)
-                            <div class="pull-left">
-                                <div role="status" class="show-res" aria-live="polite">{{ trans_choice(
-                                    'voyager.generic.showing_entries', $dataTypeContent->total(), [
-                                        'from' => $dataTypeContent->firstItem(),
-                                        'to' => $dataTypeContent->lastItem(),
-                                        'all' => $dataTypeContent->total()
-                                    ]) }}</div>
                             </div>
-                            <div class="pull-right">
-                                {{ $dataTypeContent->appends([
-                                    's' => $search,
-                                    'order_by' => $orderBy,
-                                    'sort_order' => $sortOrder
-                                ])->links() }}
-                            </div>
-                        @endif
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Subheader -->
+        <div class="m-content">
+            <div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">
+                <div class="m-alert__icon">
+                    <i class="flaticon-exclamation m--font-brand"></i>
+                </div>
+                <div class="m-alert__text">
+                    Here you can see list of all users in your admin. Click "Add user" to add new user.
+                </div>
+            </div>
+            <div class="m-portlet m-portlet--mobile">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <h3 class="m-portlet__head-text">
+                                Local Datatable
+                                <small>
+                                    initialized from javascript array
+                                </small>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="m-portlet__head-tools">
+                        <ul class="m-portlet__nav">
+                            <li class="m-portlet__nav-item">
+                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                                    <a href="#" class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
+                                        <i class="la la-plus m--hide"></i>
+                                        <i class="la la-ellipsis-h m--font-brand"></i>
+                                    </a>
+                                    <div class="m-dropdown__wrapper">
+                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                        <div class="m-dropdown__inner">
+                                            <div class="m-dropdown__body">
+                                                <div class="m-dropdown__content">
+                                                    <ul class="m-nav">
+                                                        <li class="m-nav__section m-nav__section--first">
+                                                            <span class="m-nav__section-text">
+                                                                Quick Actions
+                                                            </span>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    Create Post
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    Send Messages
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-multimedia-2"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    Upload File
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__section">
+                                                            <span class="m-nav__section-text">
+                                                                Useful Links
+                                                            </span>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-info"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    FAQ
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    Support
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
+                                                        <li class="m-nav__item m--hide">
+                                                            <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                                Submit
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <!--begin: Search Form -->
+                    <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                        <div class="row align-items-center">
+                            <div class="col-xl-8 order-2 order-xl-1">
+                                <div class="form-group m-form__group row align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="m-form__group m-form__group--inline">
+                                            <div class="m-form__label">
+                                                <label>
+                                                    Status:
+                                                </label>
+                                            </div>
+                                            <div class="m-form__control">
+                                                <select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_status">
+                                                    <option value="">
+                                                        All
+                                                    </option>
+                                                    <option value="1">
+                                                        Pending
+                                                    </option>
+                                                    <option value="2">
+                                                        Delivered
+                                                    </option>
+                                                    <option value="3">
+                                                        Canceled
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-none m--margin-bottom-10"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="m-form__group m-form__group--inline">
+                                            <div class="m-form__label">
+                                                <label class="m-label m-label--single">
+                                                    Type:
+                                                </label>
+                                            </div>
+                                            <div class="m-form__control">
+                                                <select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_type">
+                                                    <option value="">
+                                                        All
+                                                    </option>
+                                                    <option value="1">
+                                                        Online
+                                                    </option>
+                                                    <option value="2">
+                                                        Retail
+                                                    </option>
+                                                    <option value="3">
+                                                        Direct
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-none m--margin-bottom-10"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="m-input-icon m-input-icon--left">
+                                            <input type="text" class="form-control m-input m-input--solid" placeholder="Search..." id="m_form_search">
+                                            <span class="m-input-icon__icon m-input-icon__icon--left">
+                                                <span>
+                                                    <i class="la la-search"></i>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                                <a href="#" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                                    <span>
+                                        <i class="la la-cart-plus"></i>
+                                        <span>
+                                            New User
+                                        </span>
+                                    </span>
+                                </a>
+                                <div class="m-separator m-separator--dashed d-xl-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end: Search Form -->
+                    <!--begin: Datatable -->
+                    <div class="m_datatable" id="local_data"></div>
+                    <!--end: Datatable -->
                 </div>
             </div>
         </div>
@@ -235,46 +355,51 @@
 @stop
 
 @section('javascript')
-    <!-- DataTables -->
-    @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
-        <script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>
-    @endif
-    <script>
-        $(document).ready(function () {
-            @if (!$dataType->server_side)
-                var table = $('#dataTable').DataTable({!! json_encode(
-                    array_merge([
-                        "order" => [],
-                        "language" => __('voyager.datatable'),
-                    ],
-                    config('voyager.dashboard.data_tables', []))
-                , true) !!});
-            @else
-                $('#search-input select').select2({
-                    minimumResultsForSearch: Infinity
-                });
-            @endif
+    {{--<!-- DataTables -->--}}
+    {{--@if(!$dataType->server_side && config('dashboard.data_tables.responsive'))--}}
+        {{--<script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>--}}
+    {{--@endif--}}
+    {{--<script>--}}
+        {{--$(document).ready(function () {--}}
+            {{--@if (!$dataType->server_side)--}}
+                {{--var table = $('#dataTable').DataTable({!! json_encode(--}}
+                    {{--array_merge([--}}
+                        {{--"order" => [],--}}
+                        {{--"language" => __('voyager.datatable'),--}}
+                    {{--],--}}
+                    {{--config('voyager.dashboard.data_tables', []))--}}
+                {{--, true) !!});--}}
+            {{--@else--}}
+                {{--$('#search-input select').select2({--}}
+                    {{--minimumResultsForSearch: Infinity--}}
+                {{--});--}}
+            {{--@endif--}}
 
-            @if ($isModelTranslatable)
-                $('.side-body').multilingual();
-            @endif
-        });
+            {{--@if ($isModelTranslatable)--}}
+                {{--$('.side-body').multilingual();--}}
+            {{--@endif--}}
+        {{--});--}}
 
 
-        var deleteFormAction;
-        $('td').on('click', '.delete', function (e) {
-            var form = $('#delete_form')[0];
+        {{--var deleteFormAction;--}}
+        {{--$('td').on('click', '.delete', function (e) {--}}
+            {{--var form = $('#delete_form')[0];--}}
 
-            if (!deleteFormAction) { // Save form action initial value
-                deleteFormAction = form.action;
-            }
+            {{--if (!deleteFormAction) { // Save form action initial value--}}
+                {{--deleteFormAction = form.action;--}}
+            {{--}--}}
 
-            form.action = deleteFormAction.match(/\/[0-9]+$/)
-                ? deleteFormAction.replace(/([0-9]+$)/, $(this).data('id'))
-                : deleteFormAction + '/' + $(this).data('id');
-            console.log(form.action);
+            {{--form.action = deleteFormAction.match(/\/[0-9]+$/)--}}
+                {{--? deleteFormAction.replace(/([0-9]+$)/, $(this).data('id'))--}}
+                {{--: deleteFormAction + '/' + $(this).data('id');--}}
+            {{--console.log(form.action);--}}
 
-            $('#delete_modal').modal('show');
-        });
-    </script>
+            {{--$('#delete_modal').modal('show');--}}
+        {{--});--}}
+    {{--</script>--}}
+
+
+    <!--begin::Page Resources -->
+    <script src="../../../assets/demo/default/custom/components/datatables/base/data-local.js" type="text/javascript"></script>
+    <!--end::Page Resources -->
 @stop
