@@ -36,7 +36,8 @@ class VoyagerAuthController extends Controller
         $credentials = $this->credentials($request);
 
         if ($this->guard()->attempt($credentials, $request->has('remember'))) {
-            return $this->sendLoginResponse($request);
+            $this->sendLoginResponse($request);
+            return 200;
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -44,7 +45,8 @@ class VoyagerAuthController extends Controller
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
 
-        return $this->sendFailedLoginResponse($request);
+//        return $this->sendFailedLoginResponse($request); //todo maybe need to fix
+        return 403;
     }
 
     /*
