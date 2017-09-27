@@ -2,24 +2,16 @@
 
 @section('page_title', __('voyager.generic.viewing').' '.$dataType->display_name_plural)
 
-{{--@section('page_header')--}}
-    {{--<div class="container-fluid">--}}
-        {{--<h1 class="page-title">--}}
-            {{--<i class="{{ $dataType->icon }}"></i> {{ $dataType->display_name_plural }}--}}
-        {{--</h1>--}}
-        {{--@can('add',app($dataType->model_name))--}}
-            {{--<a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">--}}
-                {{--<i class="voyager-plus"></i> <span>{{ __('voyager.generic.add_new') }}</span>--}}
-            {{--</a>--}}
-        {{--@endcan--}}
-        {{--@can('delete',app($dataType->model_name))--}}
-            {{--@include('voyager::partials.bulk-delete')--}}
-        {{--@endcan--}}
-        {{--@include('voyager::multilingual.language-selector')--}}
-    {{--</div>--}}
-{{--@stop--}}
-
 @section('content')
+    <?php
+    $arrayJsonData = [];
+    foreach ($dataTypeContent as $data) {
+        foreach ($dataType->browseRows as $row) {
+            $data[$row->display_name] = $data->{$row->field};
+        }
+        $arrayJsonData[] = $data;
+    }
+    ?>
 
     <div class="m-grid__item m-grid__item--fluid m-wrapper">
         <!-- BEGIN: Subheader -->
@@ -27,7 +19,7 @@
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
                     <h3 class="m-subheader__title m-subheader__title--separator">
-                        Local Data
+                        {{ $dataType->display_name_plural }}
                     </h3>
                     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                         <li class="m-nav__item m-nav__item--home">
@@ -146,10 +138,10 @@
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <h3 class="m-portlet__head-text">
-                                Local Datatable
-                                <small>
-                                    initialized from javascript array
-                                </small>
+                                {{ $dataType->display_name_plural }}
+                                {{--<small>--}}
+                                {{--initialized from javascript array--}}
+                                {{--</small>--}}
                             </h3>
                         </div>
                     </div>
@@ -304,11 +296,11 @@
                                 </div>
                             </div>
                             <div class="col-xl-4 order-1 order-xl-2 m--align-right">
-                                <a href="#" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                                <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
                                     <span>
                                         <i class="la la-cart-plus"></i>
                                         <span>
-                                            New User
+                                            {{ __('voyager.generic.add_new') }}
                                         </span>
                                     </span>
                                 </a>
@@ -339,67 +331,396 @@
                         {{ method_field("DELETE") }}
                         {{ csrf_field() }}
                         <input type="submit" class="btn btn-danger pull-right delete-confirm"
-                                 value="{{ __('voyager.generic.delete_confirm') }} {{ strtolower($dataType->display_name_singular) }}">
+                               value="{{ __('voyager.generic.delete_confirm') }} {{ strtolower($dataType->display_name_singular) }}">
                     </form>
                     <button type="button" class="btn btn-default pull-right" data-dismiss="modal">{{ __('voyager.generic.cancel') }}</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-@stop
 
-@section('css')
-@if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
-<link rel="stylesheet" href="{{ voyager_asset('lib/css/responsive.dataTables.min.css') }}">
-@endif
 @stop
 
 @section('javascript')
-    {{--<!-- DataTables -->--}}
-    {{--@if(!$dataType->server_side && config('dashboard.data_tables.responsive'))--}}
-        {{--<script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>--}}
-    {{--@endif--}}
-    {{--<script>--}}
-        {{--$(document).ready(function () {--}}
-            {{--@if (!$dataType->server_side)--}}
-                {{--var table = $('#dataTable').DataTable({!! json_encode(--}}
-                    {{--array_merge([--}}
-                        {{--"order" => [],--}}
-                        {{--"language" => __('voyager.datatable'),--}}
-                    {{--],--}}
-                    {{--config('voyager.dashboard.data_tables', []))--}}
-                {{--, true) !!});--}}
-            {{--@else--}}
-                {{--$('#search-input select').select2({--}}
-                    {{--minimumResultsForSearch: Infinity--}}
-                {{--});--}}
-            {{--@endif--}}
 
-            {{--@if ($isModelTranslatable)--}}
-                {{--$('.side-body').multilingual();--}}
-            {{--@endif--}}
-        {{--});--}}
+    <script>
+        //== Class definition
+
+        var DatatableDataLocalDemo = function () {
+            //== Private functions
+
+            // demo initializer
+            var demo = function () {
+
+                var dataJSONArray = JSON.parse('<?= preg_replace('!\\\n!', "", json_encode($arrayJsonData, JSON_HEX_APOS , JSON_UNESCAPED_SLASHES)) ?>');
+
+                console.log(dataJSONArray);
+
+                var datatable = $('.m_datatable').mDatatable({
+                    // datasource definition
+                    data: {
+                        type: 'local',
+                        source: dataJSONArray,
+                        pageSize: 10
+                    },
+
+                    // layout definition
+                    layout: {
+                        theme: 'default', // datatable theme
+                        class: '', // custom wrapper class
+                        scroll: false, // enable/disable datatable scroll both horizontal and vertical when needed.
+                        height: 450, // datatable's body's fixed height
+                        footer: false // display/hide footer
+                    },
+
+                    // column sorting(refer to Kendo UI)
+                    sortable: true,
+
+                    // column based filtering(refer to Kendo UI)
+                    filterable: false,
+
+                    // pagination
+                    pagination: true,
+
+                    // inline and bactch editing(cooming soon)
+                    // editable: false,
+
+                    // columns definition
+
+                    columns: [{
+                        <?php if($dataType->display_name_plural == 'Pages') { ?>
+
+                        field: "id",
+                        title: "#",
+                        width: 50,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
+                    }, {
+                        field: "title",
+                        title: "Title",
+                        width: 120
+
+                    }, {
+                        field: "slug",
+                        title: "Slug",
+                        width: 100
+
+                    }, {
+                        field: "status",
+                        title: "Status",
+                        width: 80
+
+                    }, {
+                        field: "image",
+                        title: "Image",
+                        width: 100,
+                        template: function (row) {
+                            return '<img style = "max-width: 100px;" src = "../storage/' + row.image + '"/>';
+                        }
+
+                    }, {
+                        field: "created_at",
+                        title: "Create date"
+
+                    }, {
+                        field: "Actions",
+                        width: 110,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                            console.log(row.id);
+                            return '\
+                                <div class="dropdown ' + dropup + '">\
+                                    <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
+                                        <i class="la la-ellipsis-h"></i>\
+                                    </a>\
+                                    <div class="dropdown-menu dropdown-menu-right">\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
+                                        <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                            {{ method_field("DELETE") }}\
+                                            {{ csrf_field() }}\
+                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                        </form>\
+                                    </div>\
+                                </div>\
+                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
+                                    <i class="la la-edit"></i>\
+                                </a>\
+                            ';
+                        }
+
+                        <?php } elseif($dataType->display_name_plural == 'Posts') { ?>
+
+                        field: "id",
+                        title: "#",
+                        width: 20,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
+
+                    }, {
+                        field: "title",
+                        title: "Title",
+                        width: 120
+
+                    }, {
+                        field: "slug",
+                        title: "Slug",
+                        width: 100
+
+                    }, {
+                        field: "status",
+                        title: "Status",
+                        width: 80
+
+                    }, {
+                        field: "image",
+                        title: "Image",
+                        width: 100,
+                        template: function (row) {
+                            return '<img style = "max-width: 100px;" src = "../storage/' + row.image + '"/>';
+                        }
+
+                    }, {
+                        field: "created_at",
+                        title: "Create date"
+
+                    }, {
+                        field: "Actions",
+                        width: 110,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                            console.log(row.id);
+                            return '\
+                                <div class="dropdown ' + dropup + '">\
+                                    <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
+                                        <i class="la la-ellipsis-h"></i>\
+                                    </a>\
+                                    <div class="dropdown-menu dropdown-menu-right">\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
+                                        <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                            {{ method_field("DELETE") }}\
+                                            {{ csrf_field() }}\
+                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                        </form>\
+                                    </div>\
+                                </div>\
+                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
+                                    <i class="la la-edit"></i>\
+                                </a>\
+                            ';
+                        }
+
+                        <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
+
+                        field: "id",
+                        title: "#",
+                        width: 50,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
+
+                    }, {
+                        field: "name",
+                        title: "Name"
+
+                    }, {
+                        field: "parent_id",
+                        title: "Parent"
+
+                    }, {
+                        field: "slug",
+                        title: "Slug"
+
+                    }, {
+                        field: "created_at",
+                        title: "Create date"
+
+                    }, {
+                        field: "Actions",
+                        width: 110,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                            console.log(row.id);
+                            return '\
+                                <div class="dropdown ' + dropup + '">\
+                                    <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
+                                        <i class="la la-ellipsis-h"></i>\
+                                    </a>\
+                                    <div class="dropdown-menu dropdown-menu-right">\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
+                                        <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                            {{ method_field("DELETE") }}\
+                                            {{ csrf_field() }}\
+                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                        </form>\
+                                    </div>\
+                                </div>\
+                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
+                                    <i class="la la-edit"></i>\
+                                </a>\
+                            ';
+                        }
+
+                        <?php } elseif($dataType->display_name_plural == 'Users') { ?>
+
+                        field: "id",
+                        title: "#",
+                        width: 50,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
+
+                    }, {
+                        field: "name",
+                        title: "Name",
+                        width: 150
+
+                    }, {
+                        field: "email",
+                        title: "Email",
+                        width: 200
+
+                    }, {
+                        field: "avatar",
+                        title: "Avatar",
+                        template: function (row) {
+                            return '<img style = "max-width: 100px;" src = "../storage/' + row.avatar + '"/>';
+                        }
+
+                    }, {
+                        field: "created_at",
+                        title: "Create date"
+
+                    }, {
+                        field: "Actions",
+                        width: 110,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                            console.log(row.id);
+                            return '\
+                                <div class="dropdown ' + dropup + '">\
+                                    <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
+                                        <i class="la la-ellipsis-h"></i>\
+                                    </a>\
+                                    <div class="dropdown-menu dropdown-menu-right">\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
+                                        <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                            {{ method_field("DELETE") }}\
+                                            {{ csrf_field() }}\
+                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                        </form>\
+                                    </div>\
+                                </div>\
+                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
+                                    <i class="la la-edit"></i>\
+                                </a>\
+                            ';
+                        }
+                        <?php } elseif($dataType->display_name_plural == 'Roles') { ?>
+
+                        field: "id",
+                        title: "#",
+                        width: 50,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
+
+                    }, {
+                        field: "name",
+                        title: "Name",
+                        width: 150
+
+                    }, {
+                        field: "display_name",
+                        title: "Display name",
+                        width: 200
+
+                    }, {
+                        field: "created_at",
+                        title: "Create date"
+
+                    }, {
+                        field: "Actions",
+                        width: 110,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                            console.log(row.id);
+                            return '\
+                                <div class="dropdown ' + dropup + '">\
+                                    <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
+                                        <i class="la la-ellipsis-h"></i>\
+                                    </a>\
+                                    <div class="dropdown-menu dropdown-menu-right">\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
+                                        <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                            {{ method_field("DELETE") }}\
+                                            {{ csrf_field() }}\
+                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                        </form>\
+                                    </div>\
+                                </div>\
+                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
+                                    <i class="la la-edit"></i>\
+                                </a>\
+                            ';
+                        }
+                        <?php } ?>
+
+                    }]
+                });
 
 
-        {{--var deleteFormAction;--}}
-        {{--$('td').on('click', '.delete', function (e) {--}}
-            {{--var form = $('#delete_form')[0];--}}
 
-            {{--if (!deleteFormAction) { // Save form action initial value--}}
-                {{--deleteFormAction = form.action;--}}
-            {{--}--}}
+                var query = datatable.getDataSourceQuery();
 
-            {{--form.action = deleteFormAction.match(/\/[0-9]+$/)--}}
-                {{--? deleteFormAction.replace(/([0-9]+$)/, $(this).data('id'))--}}
-                {{--: deleteFormAction + '/' + $(this).data('id');--}}
-            {{--console.log(form.action);--}}
+                $('#m_form_search').on('keyup', function (e) {
+                    datatable.search($(this).val().toLowerCase());
+                }).val(query.generalSearch);
 
-            {{--$('#delete_modal').modal('show');--}}
-        {{--});--}}
-    {{--</script>--}}
+                $('#m_form_status').on('change', function () {
+                    datatable.search($(this).val(), 'Status');
+                }).val(typeof query.Status !== 'undefined' ? query.Status : '');
 
+                $('#m_form_type').on('change', function () {
+                    datatable.search($(this).val(), 'Type');
+                }).val(typeof query.Type !== 'undefined' ? query.Type : '');
 
-    <!--begin::Page Resources -->
-    <script src="../../../assets/demo/default/custom/components/datatables/base/data-local.js" type="text/javascript"></script>
-    <!--end::Page Resources -->
+                $('#m_form_status, #m_form_type').selectpicker();
+
+            };
+
+            return {
+                //== Public functions
+                init: function () {
+                    // init dmeo
+                    demo();
+                }
+            };
+        }();
+
+        jQuery(document).ready(function () {
+            DatatableDataLocalDemo.init();
+        });
+    </script>
 @stop
