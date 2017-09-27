@@ -9,7 +9,7 @@
     <meta name="description" content="admin login">
     <title>Admin - {{ Voyager::setting("admin.title") }}</title>
 
-<!--begin::Web font -->
+    <!--begin::Web font -->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
     <script>
         WebFont.load({
@@ -21,13 +21,10 @@
     </script>
     <!--end::Web font -->
     <!--begin::Base Styles -->
-    <link href="{{ asset('assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/metronic_5/theme/dist/html/default/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Base Styles -->
-    <!--begin::Custom Styles -->
-    <link href="{{ asset('assets_his/css/styles.css') }}" rel="stylesheet" type="text/css" />
-    <!--end::Custom Styles -->
-    <link rel="shortcut icon" href="{{ asset('assets_his/img/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('house_invest_spain/img/favicon.ico') }}" />
 </head>
 
 <!-- begin::Body -->
@@ -41,7 +38,7 @@
                     <div class="m-login__wrapper">
                         <div class="m-login__logo">
                             <a href="#">
-                                <img src="{{ asset('assets_his/img/his_logo.svg') }}">
+                                <img src="{{ asset('assets/house_invest_spain/img/his_logo.svg') }}">
                             </a>
                         </div>
                         <div class="m-login__signin">
@@ -154,10 +151,10 @@
                 </div>
                 <div class="m-stack__item m-stack__item--center">
                     <div class="m-login__account">
-                                    <span class="m-login__account-msg">
-                                        Don't have an account yet ?
-                                    </span>
-                        &nbsp;&nbsp;
+                        <span class="m-login__account-msg">
+                            Don't have an account yet ?
+                        </span>
+                        &nbsp;&nbsp
                         <a href="javascript:;" id="m_login_signup" class="m-link m-link--focus m-login__account-link">
                             Sign Up
                         </a>
@@ -165,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content" style="background-image: url({{ asset('assets_his/img/his_login_bg.jpg') }})">
+        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content" style="background-image: url({{ asset('assets/house_invest_spain/img/his_login_bg.jpg') }})">
             <div class="m-grid__item m-grid__item--middle">
                 <h3 class="m-login__welcome">
                     Join Our Community
@@ -181,11 +178,11 @@
 </div>
 <!-- end:: Page -->
 <!--begin::Base Scripts -->
-<script src="{{ asset('assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
 <!--end::Base Scripts -->
 <!--begin::Page Snippets -->
-<script src="{{ asset('assets/snippets/pages/user/login.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/login.js') }}" type="text/javascript"></script>
 <!--end::Page Snippets -->
 </body>
 <!-- end::Body -->

@@ -38,14 +38,15 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
     <!--begin::Base Styles -->
-    <link href="{{ asset('assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/metronic_5/theme/dist/html/default/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Base Styles -->
 
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
 
     {{--@yield('css')--}}
+    <link rel="shortcut icon" href="{{ asset('house_invest_spain/img/favicon.ico') }}" />
 
     @yield('head')
 </head>
@@ -89,9 +90,9 @@ if ((substr(Auth::user()->avatar, 0, 7) == 'http://') || (substr(Auth::user()->a
 
 
 <script>
-    @if(Session::has('alerts'))
-        let alerts = {!! json_encode(Session::get('alerts')) !!};
-        helpers.displayAlerts(alerts, toastr);
+            @if(Session::has('alerts'))
+    let alerts = {!! json_encode(Session::get('alerts')) !!};
+    helpers.displayAlerts(alerts, toastr);
     @endif
 
     @if(Session::has('message'))
@@ -110,13 +111,13 @@ if ((substr(Auth::user()->avatar, 0, 7) == 'http://') || (substr(Auth::user()->a
     @endif
 </script>
 <!--begin::Base Scripts -->
-<script src="{{ asset('assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
 <!--end::Base Scripts -->
 @yield('javascript')
 
 @if(!empty(config('voyager.additional_js')))<!-- Additional Javascript -->
-    @foreach(config('voyager.additional_js') as $js)<script type="text/javascript" src="{{ asset($js) }}"></script>@endforeach
+@foreach(config('voyager.additional_js') as $js)<script type="text/javascript" src="{{ asset($js) }}"></script>@endforeach
 @endif
 
 </body>
