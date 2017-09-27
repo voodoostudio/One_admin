@@ -353,9 +353,6 @@
             var demo = function () {
 
                 var dataJSONArray = JSON.parse('<?= preg_replace('!\\\n!', "", json_encode($arrayJsonData, JSON_HEX_APOS , JSON_UNESCAPED_SLASHES)) ?>');
-
-                console.log(dataJSONArray);
-
                 var datatable = $('.m_datatable').mDatatable({
                     // datasource definition
                     data: {
@@ -431,7 +428,6 @@
                         overflow: 'visible',
                         template: function (row) {
                             var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
-                            console.log(row.id);
                             return '\
                                 <div class="dropdown ' + dropup + '">\
                                     <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
@@ -689,8 +685,6 @@
 
                     }]
                 });
-
-
 
                 var query = datatable.getDataSourceQuery();
 
