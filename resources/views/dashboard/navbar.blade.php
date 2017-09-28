@@ -668,7 +668,7 @@
                                 <div class="m-dropdown__wrapper">
                                     <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                                     <div class="m-dropdown__inner">
-                                        <div class="m-dropdown__header m--align-center" style="background: url({{asset('assets/app/media/img/misc/notification_bg.jpg')}}); background-size: cover;">
+                                        <div class="m-dropdown__header m--align-center" style="background: url({{asset('assets/metronic_5/theme/dist/html/default/assets/app/media/img/misc/notification_bg.jpg')}}); background-size: cover;">
                                             <span class="m-dropdown__header-title">
                                                 9 New
                                             </span>
@@ -877,7 +877,7 @@
                                 <div class="m-dropdown__wrapper">
                                     <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                                     <div class="m-dropdown__inner">
-                                        <div class="m-dropdown__header m--align-center" style="background: url({{asset('assets/app/media/img/misc/quick_actions_bg.jpg')}}); background-size: cover;">
+                                        <div class="m-dropdown__header m--align-center" style="background: url({{asset('assets/metronic_5/theme/dist/html/default/assets/app/media/img/misc/quick_actions_bg.jpg')}}); background-size: cover;">
                                             <span class="m-dropdown__header-title">
                                                 Quick Actions
                                             </span>
@@ -936,10 +936,10 @@
                                 <div class="m-dropdown__wrapper">
                                     <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                                     <div class="m-dropdown__inner">
-                                        <div class="m-dropdown__header m--align-center" style="background: url({{ asset('assets/app/media/img/misc/user_profile_bg.jpg') }}); background-size: cover;">
+                                        <div class="m-dropdown__header m--align-center" style="background: url({{ asset('assets/metronic_5/theme/dist/html/default/assets/app/media/img/misc/user_profile_bg.jpg') }}); background-size: cover;">
                                             <div class="m-card-user m-card-user--skin-dark">
                                                 <div class="m-card-user__pic">
-                                                    <img src="{{ $user_avatar }}" class="m--img-rounded m--marginless" alt=""/> <!-- assets/app/media/img/users/user4.jpg -->
+                                                    <img src="{{ $user_avatar }}" class="m--img-rounded m--marginless" alt=""/>
                                                 </div>
                                                 <div class="m-card-user__details">
                                                     <span class="m-card-user__name m--font-weight-500">

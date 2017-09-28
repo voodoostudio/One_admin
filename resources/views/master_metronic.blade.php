@@ -46,7 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
     {{--<link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">--}}
 
     {{--@yield('css')--}}
-    <link rel="shortcut icon" href="{{ asset('house_invest_spain/img/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/house_invest_spain/img/favicon.ico') }}" />
 
     @yield('head')
 </head>

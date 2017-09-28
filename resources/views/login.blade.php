@@ -24,7 +24,7 @@
     <link href="{{ asset('assets/metronic_5/theme/dist/html/default/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Base Styles -->
-    <link rel="shortcut icon" href="{{ asset('house_invest_spain/img/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/house_invest_spain/img/favicon.ico') }}" />
 </head>
 
 <!-- begin::Body -->
