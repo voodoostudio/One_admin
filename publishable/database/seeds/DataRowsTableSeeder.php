@@ -249,16 +249,192 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'updated_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'timestamp',
+                'type' => 'timestamp',
                 'display_name' => 'updated_at',
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 13,
+                'required' => 0,
+                'browse' => 0,
+                'read' => 0,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '',
+                'order' => 13,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'reference');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Reference',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 14,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'note_transaction');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Note transaction',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 15,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'broker_notes');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Broker notes',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 16,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'important_notes');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Important notes',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 17,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'owner_notes');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Owner notes',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 18,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'mandate_start');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'date',
+                'display_name' => 'Mandate start',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 19,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'term_end');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'date',
+                'display_name' => 'Term end',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 20,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'availability');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'date',
+                'display_name' => 'Availability',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 21,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'availab_from');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'date',
+                'display_name' => 'Availability from',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 22,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'availab_until');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'date',
+                'display_name' => 'Availability until',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 23,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'exclusiveness');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'checkbox',
+                'display_name' => 'Exclusiveness',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 24,
             ])->save();
         }
 
@@ -940,8 +1116,8 @@ class DataRowsTableSeeder extends Seeder
     protected function dataRow($type, $field)
     {
         return DataRow::firstOrNew([
-                'data_type_id' => $type->id,
-                'field'        => $field,
-            ]);
+            'data_type_id' => $type->id,
+            'field'        => $field,
+        ]);
     }
 }

@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->integer('author_id');
             $table->integer('category_id')->nullable();
             $table->string('title');
+            $table->boolean('exclusiveness')->default(0);
             $table->string('seo_title')->nullable();
             $table->text('excerpt');
             $table->text('body');
@@ -26,6 +27,16 @@ class CreatePostsTable extends Migration
             $table->text('meta_description');
             $table->text('meta_keywords');
             $table->enum('status', ['PUBLISHED', 'DRAFT', 'PENDING'])->default('DRAFT');
+            $table->string('reference');
+            $table->string('note_transaction',255);
+            $table->string('broker_notes',255);
+            $table->string('important_notes',255);
+            $table->string('owner_notes',255);
+            $table->date('mandate_start');
+            $table->date('term_end');
+            $table->date('availability');
+            $table->date('availab_from');
+            $table->date('availab_until');
             $table->boolean('featured')->default(0);
             $table->timestamps();
 
