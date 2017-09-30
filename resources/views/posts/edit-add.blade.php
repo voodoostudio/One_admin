@@ -59,7 +59,7 @@
 @stop
 
 @section('content')
-    <div class="page-content container-fluid">
+    <div class="page-content container-fluid" style="margin-bottom: 100px">
         <form class="form-edit-add" role="form" action="@if(isset($dataTypeContent->id)){{ route('voyager.posts.update', $dataTypeContent->id) }}@else{{ route('voyager.posts.store') }}@endif" method="POST" enctype="multipart/form-data">
             <!-- PUT Method if we are editing -->
             @if(isset($dataTypeContent->id))
