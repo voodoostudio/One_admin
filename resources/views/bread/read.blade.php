@@ -225,7 +225,7 @@
                         <div class="m-portlet__body">
                             <div class="m-widget19">
                                 <div class="m-widget19__pic m-portlet-fit--sides" style1="height: 280px">
-                                    <img src="/assets/metronic_5/theme/dist/html/default/assets/app/media/img//blog/blog1.jpg" alt="">
+                                    <img src="/assets/house_invest_spain/img/house.jpeg" alt="">
                                     <h3 class="m-widget19__title m--font-light">
                                         Here will be gallery
                                     </h3>
