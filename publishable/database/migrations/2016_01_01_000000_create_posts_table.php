@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->integer('author_id');
             $table->integer('category_id')->nullable();
             $table->integer('status_id')->nullable();
+            $table->integer('mandate_id')->nullable();
+            $table->integer('origin_id')->nullable();
             $table->string('title');
             $table->boolean('exclusiveness')->default(0);
             $table->string('seo_title')->nullable();

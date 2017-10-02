@@ -279,6 +279,22 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="name">Status</label>
+                                <select class="form-control" name="mandate_id">
+                                    @foreach(TCG\Voyager\Models\Mandate::all() as $mandate)
+                                        <option value="{{ $status->reference }}" @if(isset($dataTypeContent->mandate_id) && $dataTypeContent->mandate_id == $mandate->reference){{ 'selected="selected"' }}@endif>{{ $mandate->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Status</label>
+                                <select class="form-control" name="origin_id">
+                                    @foreach(TCG\Voyager\Models\Origin::all() as $origin)
+                                        <option value="{{ $origin->reference }}" @if(isset($dataTypeContent->origin_id) && $dataTypeContent->origin_id == $origin->reference){{ 'selected="selected"' }}@endif>{{ $origin->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
