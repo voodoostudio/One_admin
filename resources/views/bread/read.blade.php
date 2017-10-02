@@ -1,5 +1,10 @@
 @extends('voyager::master_metronic')
 
+@section('css')
+    <link href="{{ asset('assets/plugins/css/slick.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/css/slick-theme.css') }}" rel="stylesheet" type="text/css" />
+@stop
+
 @section('page_title','View '.$dataType->display_name_singular)
 
 @section('page_header')
@@ -225,9 +230,13 @@
                         <div class="m-portlet__body">
                             <div class="m-widget19">
                                 <div class="m-widget19__pic m-portlet-fit--sides" style1="height: 280px">
-                                    <img src="/assets/house_invest_spain/img/house.jpeg" alt="">
+                                    <div class="object_gallery">
+                                        <div><img src="/assets/house_invest_spain/img/house.jpeg" alt=""></div>
+                                        <div><img src="/assets/house_invest_spain/img/house2.jpeg" alt=""></div>
+                                        <div><img src="/assets/house_invest_spain/img/house3.jpeg" alt=""></div>
+                                    </div>
                                     <h3 class="m-widget19__title m--font-light">
-                                        Here will be gallery
+                                        Title of the object
                                     </h3>
                                     <div class="m-widget19__shadow"></div>
                                 </div>
@@ -262,6 +271,583 @@
                         </div>
                     </div>
                     <!--end:: Widgets/Blog-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Général
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Référence
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Exclusivité
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Catégorie
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sous-catégorie
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Notation
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Courtier
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Statut
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Mandat
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Origine
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Début du mandat
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Fin du mandat
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Disponibilité
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Disponibilité à partir du
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Disponibilité jusqu'au
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Promotion
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Transaction directe
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Note sur la transaction
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Note courtier
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Remarques importantes
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Notes pour le propriétaire
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+            </div>
+            <!--End::Main Portlet-->
+
+
+            <!--Begin::Info Portlet-->
+            <div class="row">
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Adresse
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Adresse
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Rue
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    N°
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Case postale
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Code postale
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Ville
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Pays
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Localisation
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        General
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Parameter (dropdown)
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Parameter (dropdown)
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Parameter (dropdown)
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Parameter (dropdown)
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Parameter (dropdown)
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Value
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Parameter (checkbox)
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
                 </div>
                 <div class="col-xl-4">
                     <!--begin:: Widgets/New Users-->
@@ -373,12 +959,25 @@
                     <!--end:: Widgets/New Users-->
                 </div>
             </div>
-            <!--End::Main Portlet-->
+            <!--End::Info Portlet-->
         </div>
     </div>
 @stop
 
 @section('javascript')
+    <script src="{{ asset('assets/plugins/js/slick.min.js') }}" type="text/javascript"></script>
+    <script>
+        $('.object_gallery').slick({
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            slidesToShow: 1,
+            adaptiveHeight: true,
+            prevArrow: '<button type="button" class="slick-prev"><i class="la la-angle-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="la la-angle-right"></i></button>'
+        });
+    </script>
     @if ($isModelTranslatable)
     <script>
         $(document).ready(function () {

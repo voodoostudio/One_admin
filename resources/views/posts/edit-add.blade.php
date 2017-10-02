@@ -141,7 +141,7 @@
                         <div class="panel-body">
                             @php
                                 $dataTypeRows = $dataType->{(isset($dataTypeContent->id) ? 'editRows' : 'addRows' )};
-                                $exclude = ['title', 'body', 'excerpt', 'slug', 'status', 'category_id', 'author_id', 'featured', 'image', 'meta_description', 'meta_keywords', 'seo_title'];
+                                $exclude = ['title', 'body', 'excerpt', 'slug', 'status', 'category_id', 'author_id', 'status_id', 'mandate_id', 'origin_id', 'featured', 'image', 'meta_description', 'meta_keywords', 'seo_title'];
                             @endphp
 
                             @foreach($dataTypeRows as $row)
@@ -266,6 +266,34 @@
                                     '_field_trans' => get_field_translations($dataTypeContent, 'seo_title')
                                 ])
                                 <input type="text" class="form-control" name="seo_title" placeholder="SEO Title" value="@if(isset($dataTypeContent->seo_title)){{ $dataTypeContent->seo_title }}@endif">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-bordered panel-info">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="name">Status</label>
+                                <select class="form-control" name="status_id">
+                                    @foreach(TCG\Voyager\Models\Status::all() as $status)
+                                        <option value="{{ $status->reference }}" @if(isset($dataTypeContent->status_id) && $dataTypeContent->status_id == $status->reference){{ 'selected="selected"' }}@endif>{{ $status->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Mandate</label>
+                                <select class="form-control" name="mandate_id">
+                                    @foreach(TCG\Voyager\Models\Mandate::all() as $mandate)
+                                        <option value="{{ $mandate->reference }}" @if(isset($dataTypeContent->mandate_id) && $dataTypeContent->mandate_id == $mandate->reference){{ 'selected="selected"' }}@endif>{{ $mandate->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Origin</label>
+                                <select class="form-control" name="origin_id">
+                                    @foreach(TCG\Voyager\Models\Origin::all() as $origin)
+                                        <option value="{{ $origin->reference }}" @if(isset($dataTypeContent->origin_id) && $dataTypeContent->origin_id == $origin->reference){{ 'selected="selected"' }}@endif>{{ $origin->value }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>
