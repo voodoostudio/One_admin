@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('author_id');
             $table->integer('category_id')->nullable();
+            $table->integer('status_id')->nullable();
             $table->string('title');
             $table->boolean('exclusiveness')->default(0);
             $table->string('seo_title')->nullable();
