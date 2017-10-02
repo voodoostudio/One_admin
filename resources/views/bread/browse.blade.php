@@ -352,7 +352,7 @@
             // demo initializer
             var demo = function () {
 
-                var dataJSONArray = JSON.parse('<?= preg_replace('!\\\n!', "", json_encode($arrayJsonData, JSON_HEX_APOS , JSON_UNESCAPED_SLASHES)) ?>');
+                var dataJSONArray = JSON.parse('<?= preg_replace('!\\\r\\\n!', "", json_encode($arrayJsonData, JSON_HEX_APOS , JSON_UNESCAPED_SLASHES)) ?>');
                 var datatable = $('.m_datatable').mDatatable({
                     // datasource definition
                     data: {
