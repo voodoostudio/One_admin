@@ -458,7 +458,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => 'Status',
+                'display_name' => 'Mandate',
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,

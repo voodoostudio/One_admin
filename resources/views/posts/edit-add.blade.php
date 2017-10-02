@@ -283,7 +283,7 @@
                                 <label for="name">Status</label>
                                 <select class="form-control" name="mandate_id">
                                     @foreach(TCG\Voyager\Models\Mandate::all() as $mandate)
-                                        <option value="{{ $status->reference }}" @if(isset($dataTypeContent->mandate_id) && $dataTypeContent->mandate_id == $mandate->reference){{ 'selected="selected"' }}@endif>{{ $mandate->value }}</option>
+                                        <option value="{{ $mandate->reference }}" @if(isset($dataTypeContent->mandate_id) && $dataTypeContent->mandate_id == $mandate->reference){{ 'selected="selected"' }}@endif>{{ $mandate->value }}</option>
                                     @endforeach
                                 </select>
                             </div>
