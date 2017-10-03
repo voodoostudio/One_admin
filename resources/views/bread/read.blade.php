@@ -26,7 +26,7 @@
 @stop
 
 @section('content')
-    <div class="page-content read container-fluid" style="display: none">
+    <div class="page-content read container-fluid" style="padding-top: 30px; padding-bottom: 60px;">
         <div class="row">
             <div class="col-md-12">
 
@@ -120,7 +120,7 @@
         </div>
     </div>
 
-    <div class="m-grid__item m-grid__item--fluid m-wrapper">
+    <div class="m-grid__item m-grid__item--fluid m-wrapper" style="display: none">
         <!-- BEGIN: Subheader -->
         <div class="m-subheader ">
             <div class="d-flex align-items-center">

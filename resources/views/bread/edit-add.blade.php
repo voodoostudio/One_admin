@@ -1,4 +1,4 @@
-@extends('voyager::master')
+@extends('voyager::master_metronic')
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -15,10 +15,9 @@
 @stop
 
 @section('content')
-    <div class="page-content edit-add container-fluid">
+    <div class="page-content edit-add container-fluid" style="margin: 20px 20px 100px;">
         <div class="row">
-            <div class="col-md-12">
-
+            <div class="col-md-5">
                 <div class="panel panel-bordered">
                     <!-- form start -->
                     <form role="form"
