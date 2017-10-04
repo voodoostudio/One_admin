@@ -194,9 +194,9 @@
                                     '_field_trans' => get_field_translations($dataTypeContent, 'slug')
                                 ])
                                 <input type="text" class="form-control" id="slug" name="slug"
-                                    placeholder="slug"
-                                    {{!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}}
-                                    value="@if(isset($dataTypeContent->slug)){{ $dataTypeContent->slug }}@endif">
+                                       placeholder="slug"
+                                       {{!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}}
+                                       value="@if(isset($dataTypeContent->slug)){{ $dataTypeContent->slug }}@endif">
                             </div>
                             <div class="form-group">
                                 <label for="name">{{ __('voyager.post.status') }}</label>
@@ -210,7 +210,11 @@
                                 <label for="name">{{ __('voyager.post.category') }}</label>
                                 <select class="form-control" name="category_id">
                                     @foreach(TCG\Voyager\Models\Category::all() as $category)
-                                        <option value="{{ $category->id }}" @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>
+                                        @if($category->parent_id == null)
+                                            <option style = "font-size: 20px" value="{{ $category->id }}" @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}(Category)(ID: {{ $category->id }})</option>
+                                        @else
+                                            <option value="{{ $category->id }}" @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ 'selected="selected"' }}@endif> - {{ $category->name }}(Category ID: {{ $category->parent_id }})</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -734,16 +738,16 @@
 @stop
 
 @section('javascript')
-    <script src="{{ asset('assets/plugins/js/select2.min.js') }}" type="text/javascript"></script>
-    <script>
-        $('document').ready(function () {
-            $('#slug').slugify();
+    {{--<script src="{{ asset('assets/plugins/js/select2.min.js') }}" type="text/javascript"></script>--}}
+    {{--<script>--}}
+    {{--$('document').ready(function () {--}}
+    {{--$('#slug').slugify();--}}
 
-        @if ($isModelTranslatable)
-            $('.side-body').multilingual({"editing": true});
-        @endif
-        });
+    {{--@if ($isModelTranslatable)--}}
+    {{--$('.side-body').multilingual({"editing": true});--}}
+    {{--@endif--}}
+    {{--});--}}
 
-        $('select').select2();
-    </script>
+    {{--$('select').select2();--}}
+    {{--</script>--}}
 @stop
