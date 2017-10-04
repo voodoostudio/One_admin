@@ -53,20 +53,25 @@ class Post extends Model
         return $this->hasOne(Voyager::modelClass('Category'), 'id', 'category_id');
     }
 
-    public function status()
+    public function property_status()
     {
         return $this->hasOne(Voyager::modelClass('Status'), 'reference', 'status_id');
     }
 
-    public function mandate()
+    public function property_mandate()
     {
         return $this->hasOne(Voyager::modelClass('Mandate'), 'reference', 'mandate_id');
     }
 
-    public function origin()
+    public function property_origin()
     {
         return $this->hasOne(Voyager::modelClass('Origin'), 'reference', 'origin_id');
     }
+
+//    public function property_address()
+//    {
+//        return $this->belongsTo(Voyager::modelClass('Address'), 'property_id');
+//    }
 
     /**
      *   Method for returning specific thumbnail for post.
