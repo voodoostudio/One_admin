@@ -10,11 +10,11 @@ class Category extends Model
 {
     use Translatable;
 
-    protected $translatable = ['slug', 'name'];
+    protected $translatable = ['slug', 'name', 'parent_id'];
 
     protected $table = 'categories';
 
-    protected $fillable = ['slug', 'name'];
+    protected $fillable = ['slug', 'name', 'parent_id'];
 
     public function posts()
     {
