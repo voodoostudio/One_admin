@@ -1,4 +1,6 @@
-@extends('voyager::master_metronic')
+{{--@extends('voyager::master_metronic')--}}
+
+@extends('voyager::master')
 
 @section('page_title', __('voyager.generic.'.(isset($dataTypeContent->id) ? 'edit' : 'add')).' '.$dataType->display_name_singular)
 
