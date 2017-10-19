@@ -176,6 +176,1191 @@
                         </div>
                     </div>
 
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Hello World</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <input  class="form-control" type="text" name="category" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="sub_category">Sub Category</label>
+                                <input  class="form-control" type="text" name="sub_category" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="notation">Notation</label>
+                                <input  class="form-control" type="text" name="notation" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="broker">Broker</label>
+                                <input  class="form-control" type="text" name="broker" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="promorion">Promotion</label>
+                                <input  class="form-control" type="radio" name="promorion" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="direct">Direct transaction</label>
+                                <input  class="form-control" type="radio" name="direct" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Address</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input  class="form-control" type="text" name="address" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="pos_address">Position the address</label>
+                                <input  class="form-control" type="button" name="pos_address" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="str">Street</label>
+                                <input  class="form-control" type="text" name="str" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="nmb">Number</label>
+                                <input  class="form-control" type="text" name="nmb" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="po-box">PO box</label>
+                                <input  class="form-control" type="text" name="po-box" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP code</label>
+                                <input  class="form-control" type="text" name="zip" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="town">Town</label>
+                                <input  class="form-control" type="text" name="town" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select class="form-control" name="country" id="country">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="locat">Location</label>
+                                <select class="form-control" name="locat" id="locat">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="lng">Longitude</label>
+                                <input  class="form-control" type="text" name="lng" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="lat">Latitude</label>
+                                <input  class="form-control" type="text" name="lat" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Redaction</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="language_add">Language of the add</label>
+                                <select class="form-control" name="language_add" id="language_add">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="add_title">Ad Title</label>
+                                <input  class="form-control" type="text" name="add_title" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="desc">Description add</label>
+                                <textarea name="desc" class="form-control"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Prix</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="currency">Currency</label>
+                                <select class="form-control" name="currency" id="currency">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="show_price">Show price</label>
+                                <input class="form-control" type="radio" name="show_price" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input  class="form-control" type="text" name="price" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="price-m">Price per m2</label>
+                                <input  class="form-control" type="text" name="price-m" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="gross_y">Gross yield</label>
+                                <input  class="form-control" type="text" name="gross_y" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="net_r">Net return</label>
+                                <input  class="form-control" type="text" name="net_r" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="owner_a">Owner amount</label>
+                                <input  class="form-control" type="text" name="owner_a" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="client_f">Client fees</label>
+                                <input  class="form-control" type="text" name="client_f" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="owner_f">Owner fees</label>
+                                <input  class="form-control" type="text" name="owner_f" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="negotiable_a">Negotiable amount</label>
+                                <input  class="form-control" type="text" name="negotiable_a" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="estimate_price">Estimate price</label>
+                                <input  class="form-control" type="text" name="estimate_price" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="record_r">Recording rights</label>
+                                <input  class="form-control" type="text" name="record_r" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="regime">Regime</label>
+                                <select class="form-control" name="regime" id="regime">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="heating_l">Heating loads</label>
+                                <input  class="form-control" type="text" name="heating_l" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="ppe_ch">PPE charges</label>
+                                <input  class="form-control" type="text" name="ppe_ch" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="condominium_f">Condominium fees</label>
+                                <input  class="form-control" type="text" name="condominium_f" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="property_t">Property tax</label>
+                                <input  class="form-control" type="text" name="property_t" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="procedur_in_p">Procedure in progress with the copro.</label>
+                                <input class="toggleswitch" type="checkbox" name="procedur_in_p" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="renovation_f">Renovation Fund</label>
+                                <input  class="form-control" type="text" name="renovation_f" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="anual_ch">Annual charges</label>
+                                <input  class="form-control" type="text" name="anual_ch" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="hosing_tax">Housing tax</label>
+                                <input  class="form-control" type="text" name="hosing_tax" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="rsd">Rental security deposit</label>
+                                <input  class="form-control" type="text" name="rsd" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="commercial_p">Commercial property</label>
+                                <input  class="form-control" type="text" name="commercial_p" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="earnings">Earnings</label>
+                                <input  class="form-control" type="text" name="earnings" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="taxes">Taxes</label>
+                                <input  class="form-control" type="text" name="taxes" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Agencement</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="nmb_r">Number of rooms</label>
+                                <input  class="form-control" type="text" name="nmb_r" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="nmb_p">Number of pieces</label>
+                                <input  class="form-control" type="text" name="nmb_p" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="nmb_b">Number of balconies</label>
+                                <input  class="form-control" type="text" name="nmb_b" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="nmb_sh_r">Number of shower rooms</label>
+                                <input  class="form-control" type="text" name="nmb_sh_r" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="nmb_toilets">number of toilets</label>
+                                <input  class="form-control" type="text" name="nmb_toilets" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="nmb_terraces">Number of terraces</label>
+                                <input  class="form-control" type="text" name="nmb_terraces" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="nmb_of_flooring_build">Number of floors in building</label>
+                                <input  class="form-control" type="text" name="nmb_of_flooring_build" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="floor_prop">Floor of the property</label>
+                                <select class="form-control" name="floor_prop" id="floor_prop">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="levels">Levels</label>
+                                <input  class="form-control" type="text" name="levels" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Surface</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="surface_cellar">Surface of the cellar</label>
+                                <input  class="form-control" type="text" name="surface_cellar" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="ceiling_height">Ceiling Height</label>
+                                <input  class="form-control" type="text" name="ceiling_height" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="roof_cover">Roof cover area</label>
+                                <input  class="form-control" type="text" name="roof_cover" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="surface_area">Surface area of the terrace / solarium</label>
+                                <input  class="form-control" type="text" name="surface_area" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="area_veranda">Area of the veranda</label>
+                                <input  class="form-control" type="text" name="area_veranda" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="attic_space">Attic space</label>
+                                <input  class="form-control" type="text" name="attic_space" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="surface_balc">Surface of the balcony</label>
+                                <input  class="form-control" type="text" name="surface_balc" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="basement">Basement Area</label>
+                                <input  class="form-control" type="text" name="basement" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="surface_ground">Surface of the ground</label>
+                                <input  class="form-control" type="text" name="surface_ground" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="ground">Ground</label>
+                                <input  class="form-control" type="text" name="" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviced">Serviced</label>
+                                <input class="toggleswitch" type="checkbox" name="serviced" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="type_of_land">Type of land</label>
+                                <select class="form-control" name="type_of_land" id="type_of_land">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="useful_surface">Useful surface</label>
+                                <input  class="form-control" type="text" name="useful_surface" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="ppe_area">PPE area</label>
+                                <input  class="form-control" type="text" name="ppe_area" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="volume">Volume</label>
+                                <input  class="form-control" type="text" name="volume" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="surface_english">Surface of the English court</label>
+                                <input  class="form-control" type="text" name="surface_english" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="lower_ground">Lower ground floor</label>
+                                <input  class="form-control" type="text" name="lower_ground" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="row_area">Row area</label>
+                                <input  class="form-control" type="text" name="row_area" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="garage_area">Garage area</label>
+                                <input  class="form-control" type="text" name="garage_area" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="weighted_surface">Weighted Surface</label>
+                                <input  class="form-control" type="text" name="weighted_surface" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Stationnement</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="box_interior_garage">Box / interior garage</label>
+                                <input  class="form-control" type="text" name="box_interior_garage" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="box_garage_interior">Box / garage interior double</label>
+                                <input  class="form-control" type="text" name="box_garage_interior" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="outdoor_garage_garage">Outdoor garage / garage</label>
+                                <input  class="form-control" type="text" name="outdoor_garage_garage" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="box_garage_outside">Box / garage outside double</label>
+                                <input  class="form-control" type="text" name="box_garage_outside" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="covered_outdoor_parking">Covered outdoor parking space</label>
+                                <input  class="form-control" type="text" name="covered_outdoor_parking" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="outside_parking_space">Outside parking space uncovered</label>
+                                <input  class="form-control" type="text" name="outside_parking_space" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="number_of_parking">Number of parking spaces</label>
+                                <input  class="form-control" type="text" name="number_of_parking" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="boat_shed">Boat shed</label>
+                                <input  class="form-control" type="text" name="boat_shed" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="mooring">Mooring</label>
+                                <input  class="form-control" type="text" name="mooring" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Cuisine</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                <select class="form-control" name="type" id="type">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="freezer">Freezer</label>
+                                <input class="toggleswitch" type="checkbox" name="freezer" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="cooker">Cooker</label>
+                                <input class="toggleswitch" type="checkbox" name="cooker" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="oven">Oven</label>
+                                <input class="toggleswitch" type="checkbox" name="oven" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="microwave_oven">Microwave oven</label>
+                                <input class="toggleswitch" type="checkbox" name="microwave_oven" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="extractor_hood">Extractor hood</label>
+                                <input class="toggleswitch" type="checkbox" name="extractor_hood" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="washing_machine">Washing machine</label>
+                                <input class="toggleswitch" type="checkbox" name="" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="dishwasher">Dishwasher</label>
+                                <input class="toggleswitch" type="checkbox" name="dishwasher" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="plates">Plates</label>
+                                <input class="toggleswitch" type="checkbox" name="plates" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="induction_plates">Induction Plates</label>
+                                <input class="toggleswitch" type="checkbox" name="induction_plates" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="hotplates">Hotplates</label>
+                                <select class="form-control" name="hotplates" id="hotplates">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="ceramic_plates">Ceramic plates</label>
+                                <input class="toggleswitch" type="checkbox" name="ceramic_plates" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="fridge">Fridge</label>
+                                <input class="toggleswitch" type="checkbox" name="fridge" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="tumble_drier">Tumble drier</label>
+                                <input class="toggleswitch" type="checkbox" name="tumble_drier" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="coffee_maker">Coffee maker</label>
+                                <input class="toggleswitch" type="checkbox" name="coffee_maker" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Chauffage</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="format">Format</label>
+                                <select class="form-control" name="format" id="format">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy">Energy</label>
+                                <select class="form-control" name="energy" id="energy">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="type_of_heating">Type of heating</label>
+                                <select class="form-control" name="type_of_heating" id="type_of_heating">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="type_of_radiator">Type of radiator</label>
+                                <select class="form-control" name="type_of_radiator" id="type_of_radiator">
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Eau chaude</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="distribution">Distribution</label>
+                                <select class="form-control" name="distribution" id="distribution">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_eau">Energy</label>
+                                <select class="form-control" name="energy_eau" id="energy_eau">
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Eau usées</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="distribution_eau">Distribution</label>
+                                <select class="form-control" name="distribution_eau" id="distribution_eau">
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Divers
+                            </h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="d_format">Format</label>
+                                <select class="form-control" name="d_format" id="d_format">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="d_sonority">Sonority</label>
+                                <select class="form-control" name="d_sonority" id="d_sonority">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="d_style">Style</label>
+                                <select class="form-control" name="d_style" id="d_style">
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Conveniences</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="shelter">Shelter</label>
+                                <input class="toggleswitch" type="checkbox" name="shelter" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="access_for_disabled">Access for disabled</label>
+                                <input class="toggleswitch" type="checkbox" name="access_for_disabled" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="water_softener">Water softener</label>
+                                <input class="toggleswitch" type="checkbox" name="water_softener" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="air_conditioning">Air conditioning</label>
+                                <input class="toggleswitch" type="checkbox" name="air_conditioning" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="pets_welcome">Pets welcome</label>
+                                <input class="toggleswitch" type="checkbox" name="pets_welcome" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="fitted_wardrobe">Fitted Wardrobes</label>
+                                <input class="toggleswitch" type="checkbox" name="fitted_wardrobe" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="private_lift">Private lift</label>
+                                <input class="toggleswitch" type="checkbox" name="private_lift" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="central_aspiration">Central aspiration</label>
+                                <input class="toggleswitch" type="checkbox" name="central_aspiration" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="workshop">Workshop</label>
+                                <input class="toggleswitch" type="checkbox" name="workshop" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="patch_panel">Patch panel</label>
+                                <input class="toggleswitch" type="checkbox" name="patch_panel" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="windows">Windows</label>
+                                <input class="toggleswitch" type="checkbox" name="windows" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="bath">Bath</label>
+                                <input class="toggleswitch" type="checkbox" name="bath" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="balneo_bath">Balneo bath</label>
+                                <input class="toggleswitch" type="checkbox" name="balneo_bath" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="private_laundry_room">Private laundry room</label>
+                                <input class="toggleswitch" type="checkbox" name="private_laundry_room" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="cafeteria">Cafeteria</label>
+                                <input class="toggleswitch" type="checkbox" name="cafeteria" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="carnotzet">Carnotzet</label>
+                                <input class="toggleswitch" type="checkbox" name="carnotzet" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="cave">Cave</label>
+                                <input class="toggleswitch" type="checkbox" name="cave" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="wine_cellar">Wine cellar</label>
+                                <input class="toggleswitch" type="checkbox" name="wine_cellar" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="cellar">Cellar</label>
+                                <input class="toggleswitch" type="checkbox" name="cellar" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="fireplace">Fireplace</label>
+                                <input class="toggleswitch" type="checkbox" name="fireplace" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="air_conditioner">Air conditioner</label>
+                                <input class="toggleswitch" type="checkbox" name="air_conditioner" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="removable_partitions">Removable partitions</label>
+                                <input class="toggleswitch" type="checkbox" name="removable_partitions" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="addiction">Addiction</label>
+                                <input class="toggleswitch" type="checkbox" name="addiction" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="automation">Automation</label>
+                                <input class="toggleswitch" type="checkbox" name="automation" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="double_glazing">Double glazing</label>
+                                <input class="toggleswitch" type="checkbox" name="double_glazing" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="shower">Shower</label>
+                                <input class="toggleswitch" type="checkbox" name="shower" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="dressing">Dressing</label>
+                                <input class="toggleswitch" type="checkbox" name="dressing" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="automatic_fire">Automatic fire extinguisher</label>
+                                <input class="toggleswitch" type="checkbox" name="automatic_fire" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="false_ceiling">False ceiling</label>
+                                <input class="toggleswitch" type="checkbox" name="false_ceiling" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="optical_fiber">Optical fiber</label>
+                                <input class="toggleswitch" type="checkbox" name="optical_fiber" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="attic">Attic</label>
+                                <input class="toggleswitch" type="checkbox" name="attic" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="generator">Generator</label>
+                                <input class="toggleswitch" type="checkbox" name="generator" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="hammam">Hammam</label>
+                                <input class="toggleswitch" type="checkbox" name="hammam" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="high_speed_internet">High-speed Internet</label>
+                                <input class="toggleswitch" type="checkbox" name="high_speed_internet" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="jacuzzi">Jacuzzi</label>
+                                <input class="toggleswitch" type="checkbox" name="jacuzzi" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="winter_garden">Winter Garden</label>
+                                <input class="toggleswitch" type="checkbox" name="winter_garden" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="ski_locker">Ski locker</label>
+                                <input class="toggleswitch" type="checkbox" name="ski_locker" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="bicycle_storage">Bicycle storage</label>
+                                <input class="toggleswitch" type="checkbox" name="bicycle_storage" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="loggia">Loggia</label>
+                                <input class="toggleswitch" type="checkbox" name="loggia" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="net">Net</label>
+                                <input class="toggleswitch" type="checkbox" name="net" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="hoist">Hoist</label>
+                                <input class="toggleswitch" type="checkbox" name="hoist" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="open_plan">Open plan</label>
+                                <input class="toggleswitch" type="checkbox" name="open_plan" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="outdoor_pool">Outdoor pool</label>
+                                <input class="toggleswitch" type="checkbox" name="outdoor_pool" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="indoor_pool">Indoor pool</label>
+                                <input class="toggleswitch" type="checkbox" name="indoor_pool" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="ceramic_stove">Ceramic stove</label>
+                                <input class="toggleswitch" type="checkbox" name="ceramic_stove" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="swedish_stove">Swedish stove</label>
+                                <input class="toggleswitch" type="checkbox" name="swedish_stove" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="loading_dock">Loading dock</label>
+                                <input class="toggleswitch" type="checkbox" name="loading_dock" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="connection_for_chimney">Connection for chimney</label>
+                                <input class="toggleswitch" type="checkbox" name="connection_for_chimney" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="connection_for_swedish">Connection for Swedish stove</label>
+                                <input class="toggleswitch" type="checkbox" name="connection_for_swedish" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="reception">Reception</label>
+                                <input class="toggleswitch" type="checkbox" name="reception" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="metallic_curtain">Metallic curtain</label>
+                                <input class="toggleswitch" type="checkbox" name="metallic_curtain" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="armed_with_fire">Armed with fire tap</label>
+                                <input class="toggleswitch" type="checkbox" name="armed_with_fire" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="do_it_yourself_room">Do-it-yourself room</label>
+                                <input class="toggleswitch" type="checkbox" name="do_it_yourself_room" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="theater">Theater</label>
+                                <input class="toggleswitch" type="checkbox" name="theater" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="game_room">Game room</label>
+                                <input class="toggleswitch" type="checkbox" name="game_room" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="fitness_room">Fitness room</label>
+                                <input class="toggleswitch" type="checkbox" name="fitness_room" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="conference_room">Conference room</label>
+                                <input class="toggleswitch" type="checkbox" name="conference_room" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="satellite">Satellite</label>
+                                <input class="toggleswitch" type="checkbox" name="satellite" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="sauna">Sauna</label>
+                                <input class="toggleswitch" type="checkbox" name="sauna" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="subsoil">Subsoil</label>
+                                <input class="toggleswitch" type="checkbox" name="subsoil" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="blinds">Blinds</label>
+                                <input class="toggleswitch" type="checkbox" name="blinds" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="electric_blinds">Electric blinds</label>
+                                <input class="toggleswitch" type="checkbox" name="electric_blinds" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="thermostat_connected">Thermostat connected</label>
+                                <input class="toggleswitch" type="checkbox" name="thermostat_connected" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="triple_glazing">Triple glazing</label>
+                                <input class="toggleswitch" type="checkbox" name="triple_glazing" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="veranda">Veranda</label>
+                                <input class="toggleswitch" type="checkbox" name="veranda" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="crawlspace">Crawlspace</label>
+                                <input class="toggleswitch" type="checkbox" name="crawlspace" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="electric_shutter">Electric shutters</label>
+                                <input class="toggleswitch" type="checkbox" name="electric_shutter" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="tumble_drier">Tumble drier</label>
+                                <input class="toggleswitch" type="checkbox" name="tumble_drier" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="hair_dryer">Hair dryer</label>
+                                <input class="toggleswitch" type="checkbox" name="hair_dryer" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="satellite_tv">Satellite TV</label>
+                                <input class="toggleswitch" type="checkbox" name="satellite_tv" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input class="toggleswitch" type="checkbox" name="phone" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Equipement extérieur
+                            </h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="car_shelter">Car shelter</label>
+                                <input class="toggleswitch" type="checkbox" name="car_shelter" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="spray">Spray</label>
+                                <input class="toggleswitch" type="checkbox" name="spray" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="barbecue">Barbecue</label>
+                                <input class="toggleswitch" type="checkbox" name="barbecue" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="exterior_lighting">Exterior lighting</label>
+                                <input class="toggleswitch" type="checkbox" name="exterior_lighting" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="drilling">Drilling</label>
+                                <input class="toggleswitch" type="checkbox" name="drilling" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="heliport">Heliport</label>
+                                <input class="toggleswitch" type="checkbox" name="heliport" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="well">Well</label>
+                                <input class="toggleswitch" type="checkbox" name="well" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="source">Source</label>
+                                <input class="toggleswitch" type="checkbox" name="source" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Immeuble</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="collective_lift">Collective lift</label>
+                                <input class="toggleswitch" type="checkbox" name="" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="communal_laundry_room">Communal laundry room</label>
+                                <input class="toggleswitch" type="checkbox" name="" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="network_cabling">Network cabling</label>
+                                <input class="toggleswitch" type="checkbox" name="" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="collective_optical_fiber">Collective optical fiber</label>
+                                <input class="toggleswitch" type="checkbox" name="collective_optical_fiber" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="parable">Parable</label>
+                                <input class="toggleswitch" type="checkbox" name="parable" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Sécurité</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="alarm">Alarm</label>
+                                <input  class="form-control" type="text" name="alarm" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="magnetic_card">Magnetic card</label>
+                                <input class="toggleswitch" type="checkbox" name="magnetic_card" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="fenced">Fenced</label>
+                                <input class="toggleswitch" type="checkbox" name="fenced" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="safe">Safe</label>
+                                <input class="toggleswitch" type="checkbox" name="safe" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="digicode">DigiCode</label>
+                                <input class="toggleswitch" type="checkbox" name="digicode" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="guardian">Guardian</label>
+                                <input class="toggleswitch" type="checkbox" name="guardian" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="caretaker">Caretaker</label>
+                                <input class="toggleswitch" type="checkbox" name="caretaker" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="intercom">Intercom</label>
+                                <input class="toggleswitch" type="checkbox" name="intercom" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="electric_gate">Electric gate</label>
+                                <input class="toggleswitch" type="checkbox" name="electric_gate" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="reinforced_door">Reinforced door</label>
+                                <input class="toggleswitch" type="checkbox" name="reinforced_door" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="videophone">Videophone</label>
+                                <input class="toggleswitch" type="checkbox" name="videophone" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Vue</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="clear">Clear</label>
+                                <input class="toggleswitch" type="checkbox" name="clear" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="impregnable">Impregnable</label>
+                                <input class="toggleswitch" type="checkbox" name="impregnable" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="panoramic">Panoramic</label>
+                                <input class="toggleswitch" type="checkbox" name="panoramic" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="courtyard">Courtyard</label>
+                                <input class="toggleswitch" type="checkbox" name="courtyard" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_countryside">On the countryside</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_countryside" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_forest">On the forest</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_forest" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_sea">On the sea</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_sea" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_pool">On the pool</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_pool" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_river">On the river</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_river" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_street">On the street</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_street" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_city">On the city</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_city" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_garden">On the garden</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_garden" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_lake">On the lake</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_lake" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_park">On the park</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_park" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_haven">On the haven</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_haven" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_hills">On the hills</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_hills" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_mountains">On the mountains</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_mountains" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="on_the_ski_slopes">On the ski slopes</label>
+                                <input class="toggleswitch" type="checkbox" name="on_the_ski_slopes" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="vis_a_vis">Vis-a-vis</label>
+                                <input class="toggleswitch" type="checkbox" name="vis_a_vis" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Etat
+                            </h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="interior_condition">Interior Condition</label>
+                                <select class="form-control" name="interior_condition" id="interior_condition">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="type_of_construction">Type of construction</label>
+                                <select class="form-control" name="type_of_construction" id="type_of_construction">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="state_of_the_front">State of the front</label>
+                                <select class="form-control" name="state_of_the_front" id="state_of_the_front">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="external_state">External state</label>
+                                <select class="form-control" name="external_state" id="external_state">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="year_of_construction">Year of construction</label>
+                                <input  class="form-control" type="date" name="year_of_construction" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="year_of_renovation">Year of renovation</label>
+                                <input  class="form-control" type="date" name="year_of_renovation" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Exposition</h3>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="nord">Nord</label>
+                                <input class="toggleswitch" type="checkbox" name="nord" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="south">South</label>
+                                <input class="toggleswitch" type="checkbox" name="south" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="est">Est</label>
+                                <input class="toggleswitch" type="checkbox" name="est" placeholder="" value>
+                            </div>
+                            <div class="form-group">
+                                <label for="west">West</label>
+                                <input class="toggleswitch" type="checkbox" name="west" placeholder="" value>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
                 <div class="col-md-4">
                     <!-- ### DETAILS ### -->
