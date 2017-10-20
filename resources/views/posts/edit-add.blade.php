@@ -1629,16 +1629,26 @@
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
                                     <div class="col-lg-4">
-                                        <label>
-                                            Full Name:
-                                        </label>
-                                        <input type="email" class="form-control m-input" placeholder="Enter full name">
+                                        <label>Référence :</label>
+                                        <input type="email" class="form-control m-input" placeholder="Référence">
                                         <span class="m-form__help">
-                                            Please enter your full name
+                                            Please enter Référence
                                         </span>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select name="object_category" title="">
+                                        <label for="m_select2_1">Catégorie</label>
+                                        <select class="form-control m-select2" id="m_select2_1" name="param1">
+                                            <option value="FR">House</option>
+                                            <option value="MU">Apartment</option>
+                                            <option value="US">Building</option>
+                                            <option value="US">Land</option>
+                                            <option value="US">Building</option>
+                                            <option value="US">Land</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="m_select2_2">Sous-catégorie</label>
+                                        <select class="form-control m-select2" id="m_select2_2" name="param2">
                                             <option value="FR">House</option>
                                             <option value="MU">Apartment</option>
                                             <option value="US">Building</option>
@@ -1646,27 +1656,51 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-4">
-                                        <label class="">
-                                            Email:
-                                        </label>
-                                        <input type="email" class="form-control m-input" placeholder="Enter email">
-                                        <span class="m-form__help">
-                                            Please enter your email
-                                        </span>
+                                        <label class="">Notation</label>
+                                        <input type="email" class="form-control m-input" placeholder="Notation">
+                                        <span class="m-form__help">Please enter your notation</span>
                                     </div>
                                     <div class="col-lg-4">
-                                        <label>
-                                            Username:
+                                        <label for="m_select2_3">Courtier</label>
+                                        <select class="form-control m-select2" id="m_select2_3" name="param3">
+                                            <option value="FR">House</option>
+                                            <option value="MU">Apartment</option>
+                                            <option value="US">Building</option>
+                                            <option value="US">Land</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="m_select2_4">Statut</label>
+                                        <select class="form-control m-select2" id="m_select2_4" name="param4">
+                                            <option value="FR">House</option>
+                                            <option value="MU">Apartment</option>
+                                            <option value="US">Building</option>
+                                            <option value="US">Land</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="m_select2_5">Mandat</label>
+                                        <select class="form-control m-select2" id="m_select2_5" name="param5">
+                                            <option value="FR">House</option>
+                                            <option value="MU">Apartment</option>
+                                            <option value="US">Building</option>
+                                            <option value="US">Land</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="m_select2_6">Origine</label>
+                                        <select class="form-control m-select2" id="m_select2_6" name="param6">
+                                            <option value="FR">House</option>
+                                            <option value="MU">Apartment</option>
+                                            <option value="US">Building</option>
+                                            <option value="US">Land</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label class="m-checkbox">
+                                            <input type="checkbox">Exclusivité
+                                            <span></span>
                                         </label>
-                                        <div class="input-group m-input-group m-input-group--square">
-                                            <span class="input-group-addon">
-                                                <i class="la la-user"></i>
-                                            </span>
-                                            <input type="text" class="form-control m-input" placeholder="">
-                                        </div>
-                                        <span class="m-form__help">
-                                            Please enter your username
-                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
