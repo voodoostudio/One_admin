@@ -1,4 +1,4 @@
-<br>
+{{--<br>--}}
 <?php $checked = false; ?>
 @if(isset($dataTypeContent->{$row->field}) || old($row->field))
     <?php $checked = old($row->field, $dataTypeContent->{$row->field}); ?>
