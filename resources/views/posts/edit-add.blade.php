@@ -1682,7 +1682,7 @@
     </div>
 
     {{--This is mettronic "add object" form: BEGIN--}}
-    <div class="m-grid__item m-grid__item--fluid m-wrapper" style="display: none">
+    <div class="m-grid__item m-grid__item--fluid m-wrapper" style="display: none;">
         <!-- BEGIN: Subheader -->
         <div class="m-subheader ">
             <div class="d-flex align-items-center">
@@ -1791,6 +1791,62 @@
                         <div class="m-portlet__head">
                             <div class="m-portlet__head-caption">
                                 <div class="m-portlet__head-title">
+                                    <span class="m-portlet__head-icon m--hide"><i class="la la-gear"></i></span>
+                                    <h3 class="m-portlet__head-text">Rédaction</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!--begin::Form-->
+                        <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+                            <div class="m-portlet__body">
+                                <div class="form-group m-form__group row">
+                                    <div class="col-lg-3 margin_bottom_10">
+                                        <label for="m_select2_9">Language of the ad</label>
+                                        <select class="form-control m-select2" id="m_select2_9" name="location" data-placeholder="Select Language of the ad">
+                                            <option value=""></option>
+                                            <option value="FR">FR</option>
+                                            <option value="EN">EN</option>
+                                            <option value="RU">RU</option>
+                                            <option value="DE">DE</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-9 margin_bottom_10">
+                                        <label class="">Ad Title</label>
+                                        <input type="email" class="form-control m-input" placeholder="Ad Title">
+                                        <span class="m-form__help">Please enter your Ad Title</span>
+                                    </div>
+                                    <div class="col-lg-12 margin_bottom_10">
+                                        <label for="exampleTextarea">Example textarea</label>
+                                        <textarea class="form-control m-input" id="exampleTextarea" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-lg-12 margin_bottom_10">
+                                        <label>File Type Validation</label>
+                                        <div class="m-dropzone dropzone m-dropzone--success" action="inc/api/dropzone/upload.php" id="m-dropzone-three">
+                                            <div class="m-dropzone__msg dz-message needsclick">
+                                                <h3 class="m-dropzone__msg-title">
+                                                    Drop files here or click to upload.
+                                                </h3>
+                                                <span class="m-dropzone__msg-desc">
+                                                    Only image, pdf and psd files are allowed for upload
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--end::Form-->
+                    </div>
+                    <!--end::Portlet-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--begin::Portlet-->
+                    <div class="m-portlet">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
                                     <span class="m-portlet__head-icon m--hide">
                                         <i class="la la-gear"></i>
                                     </span>
@@ -1804,16 +1860,17 @@
                         <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-4">
-                                        <label>Référence :</label>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Reference</label>
                                         <input type="email" class="form-control m-input" placeholder="Référence">
                                         <span class="m-form__help">
                                             Please enter Référence
                                         </span>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label for="m_select2_1">Catégorie</label>
-                                        <select class="form-control m-select2" id="m_select2_1" name="param1">
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_1">Category</label>
+                                        <select class="form-control m-select2" id="m_select2_1" name="category" data-placeholder="Select a Category">
+                                            <option value=""></option>
                                             <option value="FR">House</option>
                                             <option value="MU">Apartment</option>
                                             <option value="US">Building</option>
@@ -1822,57 +1879,63 @@
                                             <option value="US">Land</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label for="m_select2_2">Sous-catégorie</label>
-                                        <select class="form-control m-select2" id="m_select2_2" name="param2">
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_2">Sub-category</label>
+                                        <select class="form-control m-select2" id="m_select2_2" name="sub_category" data-placeholder="Select a sub-category">
+                                            <option value=""></option>
                                             <option value="FR">House</option>
                                             <option value="MU">Apartment</option>
                                             <option value="US">Building</option>
                                             <option value="US">Land</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 margin_bottom_10">
                                         <label class="">Notation</label>
-                                        <input type="email" class="form-control m-input" placeholder="Notation">
+                                        <input type="number" class="form-control m-input" placeholder="Notation">
                                         <span class="m-form__help">Please enter your notation</span>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label for="m_select2_3">Courtier</label>
-                                        <select class="form-control m-select2" id="m_select2_3" name="param3">
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_3">Broker</label>
+                                        <select class="form-control m-select2" id="m_select2_3" name="broker" data-placeholder="Select a Courtier">
+                                            <option value=""></option>
                                             <option value="FR">House</option>
                                             <option value="MU">Apartment</option>
                                             <option value="US">Building</option>
                                             <option value="US">Land</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label for="m_select2_4">Statut</label>
-                                        <select class="form-control m-select2" id="m_select2_4" name="param4">
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_4">Status</label>
+                                        <select class="form-control m-select2" id="m_select2_4" name="status" data-placeholder="Select a Statut">
+                                            <option value=""></option>
+                                            <option value=""></option>
                                             <option value="FR">House</option>
                                             <option value="MU">Apartment</option>
                                             <option value="US">Building</option>
                                             <option value="US">Land</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label for="m_select2_5">Mandat</label>
-                                        <select class="form-control m-select2" id="m_select2_5" name="param5">
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_5">Mandate</label>
+                                        <select class="form-control m-select2" id="m_select2_5" name="mandate" data-placeholder="Select a Mandat">
+                                            <option value=""></option>
                                             <option value="FR">House</option>
                                             <option value="MU">Apartment</option>
                                             <option value="US">Building</option>
                                             <option value="US">Land</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label for="m_select2_6">Origine</label>
-                                        <select class="form-control m-select2" id="m_select2_6" name="param6">
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_6">Origin</label>
+                                        <select class="form-control m-select2" id="m_select2_6" name="origin" data-placeholder="Select a Origine">
+                                            <option value=""></option>
                                             <option value="FR">House</option>
                                             <option value="MU">Apartment</option>
                                             <option value="US">Building</option>
                                             <option value="US">Land</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 margin_bottom_10">
                                         <label class="m-checkbox">
                                             <input type="checkbox">Exclusivité
                                             <span></span>
@@ -1880,91 +1943,107 @@
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-4">
-                                        <label class="">
-                                            Contact:
-                                        </label>
-                                        <input type="email" class="form-control m-input" placeholder="Enter contact number">
-                                        <span class="m-form__help">
-                                            Please enter your contact
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label class="">
-                                            Fax:
-                                        </label>
-                                        <div class="m-input-icon m-input-icon--right">
-                                            <input type="text" class="form-control m-input" placeholder="Fax number">
-                                            <span class="m-input-icon__icon m-input-icon__icon--right">
-                                                <span>
-                                                    <i class="la la-info-circle"></i>
-                                                </span>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Début du mandat</label>
+                                        <div class='input-group date' id='m_datepicker_2'>
+                                            <input type='text' class="form-control m-input" readonly  placeholder="Select date"/>
+                                            <span class="input-group-addon">
+                                                <i class="la la-calendar-check-o"></i>
                                             </span>
                                         </div>
-                                        <span class="m-form__help">
-                                            Please enter fax
-                                        </span>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label>
-                                            Address:
-                                        </label>
-                                        <div class="m-input-icon m-input-icon--right">
-                                            <input type="text" class="form-control m-input" placeholder="Enter your address">
-                                            <span class="m-input-icon__icon m-input-icon__icon--right">
-                                                <span>
-                                                    <i class="la la-map-marker"></i>
-                                                </span>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Fin du mandat</label>
+                                        <div class='input-group date' id='m_datepicker_2'>
+                                            <input type='text' class="form-control m-input" readonly  placeholder="Select date"/>
+                                            <span class="input-group-addon">
+                                                <i class="la la-calendar-check-o"></i>
                                             </span>
                                         </div>
-                                        <span class="m-form__help">
-                                            Please enter your address
-                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Disponibilité</label>
+                                        <div class='input-group date' id='m_datepicker_2'>
+                                            <input type='text' class="form-control m-input" readonly  placeholder="Select date"/>
+                                            <span class="input-group-addon">
+                                                <i class="la la-calendar-check-o"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Disponibilité à partir du / jusqu'au</label>
+                                        <div class="input-daterange input-group" id="m_datepicker_5">
+                                            <input type="text" class="form-control m-input" name="start" />
+                                            <span class="input-group-addon">
+                                                <i class="la la-ellipsis-h"></i>
+                                            </span>
+                                            <input type="text" class="form-control" name="end" />
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 margin_bottom_10">
                                         <label class="">
-                                            Postcode:
-                                        </label>
-                                        <div class="m-input-icon m-input-icon--right">
-                                            <input type="text" class="form-control m-input" placeholder="Enter your postcode">
-                                            <span class="m-input-icon__icon m-input-icon__icon--right">
-                                                <span>
-                                                    <i class="la la-bookmark-o"></i>
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <span class="m-form__help">
-                                            Please enter your postcode
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label class="">
-                                            User Group:
+                                            Promotion :
                                         </label>
                                         <div class="m-radio-inline">
                                             <label class="m-radio m-radio--solid">
-                                                <input type="radio" name="example_2" checked value="2">
-                                                Sales Person
+                                                <input type="radio" name="promotion_radio" checked value="2">
+                                                Oui
                                                 <span></span>
                                             </label>
                                             <label class="m-radio m-radio--solid">
-                                                <input type="radio" name="example_2" value="2">
-                                                Customer
+                                                <input type="radio" name="promotion_radio" value="2">
+                                                Non
                                                 <span></span>
                                             </label>
                                         </div>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label class="">
+                                            Transaction directe :
+                                        </label>
+                                        <div class="m-radio-inline">
+                                            <label class="m-radio m-radio--solid">
+                                                <input type="radio" name="direct_transaction_radio" checked value="2">
+                                                Oui
+                                                <span></span>
+                                            </label>
+                                            <label class="m-radio m-radio--solid">
+                                                <input type="radio" name="direct_transaction_radio" value="2">
+                                                Non
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Note sur la transaction</label>
+                                        <input type="email" class="form-control m-input" placeholder="Note sur la transaction">
                                         <span class="m-form__help">
-                                            Please select user group
+                                            Please enter Note sur la transaction
                                         </span>
                                     </div>
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label for="exampleTextarea">
-                                        Example textarea
-                                    </label>
-                                    <textarea class="form-control m-input" id="exampleTextarea" rows="3"></textarea>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Note courtier</label>
+                                        <input type="email" class="form-control m-input" placeholder="Note courtier">
+                                        <span class="m-form__help">
+                                            Please enter Note courtier
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Remarques importantes</label>
+                                        <input type="email" class="form-control m-input" placeholder="Remarques importantes">
+                                        <span class="m-form__help">
+                                            Please enter Remarques importantes
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>Notes pour le propriétaire</label>
+                                        <input type="email" class="form-control m-input" placeholder="Notes pour le propriétaire">
+                                        <span class="m-form__help">
+                                            Please enter Notes pour le propriétaire
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -1993,68 +2072,9 @@
                         <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 margin_bottom_10">
                                         <label>
-                                            Full Name:
-                                        </label>
-                                        <input type="email" class="form-control m-input" placeholder="Enter full name">
-                                        <span class="m-form__help">
-                                            Please enter your full name
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label class="">
-                                            Email:
-                                        </label>
-                                        <input type="email" class="form-control m-input" placeholder="Enter email">
-                                        <span class="m-form__help">
-                                            Please enter your email
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label>
-                                            Username:
-                                        </label>
-                                        <div class="input-group m-input-group m-input-group--square">
-                                            <span class="input-group-addon">
-                                                <i class="la la-user"></i>
-                                            </span>
-                                            <input type="text" class="form-control m-input" placeholder="">
-                                        </div>
-                                        <span class="m-form__help">
-                                            Please enter your username
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="form-group m-form__group row">
-                                    <div class="col-lg-4">
-                                        <label class="">
-                                            Contact:
-                                        </label>
-                                        <input type="email" class="form-control m-input" placeholder="Enter contact number">
-                                        <span class="m-form__help">
-                                            Please enter your contact
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label class="">
-                                            Fax:
-                                        </label>
-                                        <div class="m-input-icon m-input-icon--right">
-                                            <input type="text" class="form-control m-input" placeholder="Fax number">
-                                            <span class="m-input-icon__icon m-input-icon__icon--right">
-                                                <span>
-                                                    <i class="la la-info-circle"></i>
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <span class="m-form__help">
-                                            Please enter fax
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label>
-                                            Address:
+                                            Adress
                                         </label>
                                         <div class="m-input-icon m-input-icon--right">
                                             <input type="text" class="form-control m-input" placeholder="Enter your address">
@@ -2068,43 +2088,201 @@
                                             Please enter your address
                                         </span>
                                     </div>
-                                </div>
-                                <div class="form-group m-form__group row">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>
+                                            Street
+                                        </label>
+                                        <input type="email" class="form-control m-input" placeholder="Street name">
+                                        <span class="m-form__help">
+                                            Please enter your street
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
                                         <label class="">
-                                            Postcode:
+                                            Number
+                                        </label>
+                                        <input type="email" class="form-control m-input" placeholder="Number">
+                                        <span class="m-form__help">
+                                            Please enter your number
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>
+                                            PO box
                                         </label>
                                         <div class="m-input-icon m-input-icon--right">
-                                            <input type="text" class="form-control m-input" placeholder="Enter your postcode">
                                             <span class="m-input-icon__icon m-input-icon__icon--right">
                                                 <span>
-                                                    <i class="la la-bookmark-o"></i>
+                                                    <i class="la la-inbox"></i>
+                                                </span>
+                                            </span>
+                                            <input type="number" class="form-control m-input" placeholder="">
+                                        </div>
+                                        <span class="m-form__help">
+                                            Please enter your PO box
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label class="">
+                                            ZIP Code
+                                        </label>
+                                        <input type="email" class="form-control m-input" placeholder="ZIP Code">
+                                        <span class="m-form__help">
+                                            Please enter your ZIP Code
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label class="">
+                                            Town
+                                        </label>
+                                        <input type="email" class="form-control m-input" placeholder="Town">
+                                        <span class="m-form__help">
+                                            Please enter your town
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_7">Country</label>
+                                        <select class="form-control m-select2" id="m_select2_7" name="country" data-placeholder="Select a Country">
+                                            <option value=""></option>
+                                            <option value="FR">Swiss</option>
+                                            <option value="MU">France</option>
+                                            <option value="US">Belgium</option>
+                                            <option value="US">Germany</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_8">Location</label>
+                                        <select class="form-control m-select2" id="m_select2_8" name="location" data-placeholder="Select Location">
+                                            <option value=""></option>
+                                            <option value="FR">House</option>
+                                            <option value="MU">Apartment</option>
+                                            <option value="US">Building</option>
+                                            <option value="US">Land</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--end::Form-->
+                    </div>
+                    <!--end::Portlet-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--begin::Portlet-->
+                    <div class="m-portlet">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <span class="m-portlet__head-icon m--hide">
+                                        <i class="la la-gear"></i>
+                                    </span>
+                                    <h3 class="m-portlet__head-text">Prix</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!--begin::Form-->
+                        <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+                            <div class="m-portlet__body">
+                                <div class="form-group m-form__group row">
+                                    <div class="col-lg-3 margin_bottom_10">
+                                        <label for="m_select2_10">Currency</label>
+                                        <select class="form-control m-select2" id="m_select2_10" name="location" data-placeholder="Select Language of the ad">
+                                            <option value=""></option>
+                                            <option value="FR">EUR</option>
+                                            <option value="EN">CHF</option>
+                                            <option value="RU">USD</option>
+                                            <option value="DE">MDL</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>
+                                            Adress
+                                        </label>
+                                        <div class="m-input-icon m-input-icon--right">
+                                            <input type="text" class="form-control m-input" placeholder="Enter your address">
+                                            <span class="m-input-icon__icon m-input-icon__icon--right">
+                                                <span>
+                                                    <i class="la la-map-marker"></i>
                                                 </span>
                                             </span>
                                         </div>
                                         <span class="m-form__help">
-                                            Please enter your postcode
+                                            Please enter your address
                                         </span>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label class="">
-                                            User Group:
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>
+                                            Street
                                         </label>
-                                        <div class="m-radio-inline">
-                                            <label class="m-radio m-radio--solid">
-                                                <input type="radio" name="example_2" checked value="2">
-                                                Sales Person
-                                                <span></span>
-                                            </label>
-                                            <label class="m-radio m-radio--solid">
-                                                <input type="radio" name="example_2" value="2">
-                                                Customer
-                                                <span></span>
-                                            </label>
+                                        <input type="email" class="form-control m-input" placeholder="Street name">
+                                        <span class="m-form__help">
+                                            Please enter your street
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label class="">
+                                            Number
+                                        </label>
+                                        <input type="email" class="form-control m-input" placeholder="Number">
+                                        <span class="m-form__help">
+                                            Please enter your number
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label>
+                                            PO box
+                                        </label>
+                                        <div class="m-input-icon m-input-icon--right">
+                                            <span class="m-input-icon__icon m-input-icon__icon--right">
+                                                <span>
+                                                    <i class="la la-inbox"></i>
+                                                </span>
+                                            </span>
+                                            <input type="number" class="form-control m-input" placeholder="">
                                         </div>
                                         <span class="m-form__help">
-                                            Please select user group
+                                            Please enter your PO box
                                         </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label class="">
+                                            ZIP Code
+                                        </label>
+                                        <input type="email" class="form-control m-input" placeholder="ZIP Code">
+                                        <span class="m-form__help">
+                                            Please enter your ZIP Code
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label class="">
+                                            Town
+                                        </label>
+                                        <input type="email" class="form-control m-input" placeholder="Town">
+                                        <span class="m-form__help">
+                                            Please enter your town
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_7">Country</label>
+                                        <select class="form-control m-select2" id="m_select2_7" name="country" data-placeholder="Select a Country">
+                                            <option value=""></option>
+                                            <option value="FR">Swiss</option>
+                                            <option value="MU">France</option>
+                                            <option value="US">Belgium</option>
+                                            <option value="US">Germany</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="m_select2_8">Location</label>
+                                        <select class="form-control m-select2" id="m_select2_8" name="location" data-placeholder="Select Location">
+                                            <option value=""></option>
+                                            <option value="FR">House</option>
+                                            <option value="MU">Apartment</option>
+                                            <option value="US">Building</option>
+                                            <option value="US">Land</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -2133,6 +2311,9 @@
 @stop
 
 @section('javascript')
+    <!--begin::Page Resources -->
+    <script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/dropzone.js') }}" type="text/javascript"></script>
+    <!--end::Page Resources -->
     {{--<script src="{{ asset('assets/plugins/js/select2.min.js') }}" type="text/javascript"></script>--}}
     {{--<script>--}}
     {{--$('document').ready(function () {--}}
