@@ -68,6 +68,116 @@ class Post extends Model
         return $this->hasOne(Voyager::modelClass('Origin'), 'reference', 'origin_id');
     }
 
+    public function property_country()
+    {
+        return $this->hasOne(Voyager::modelClass('Country'), 'reference', 'country');
+    }
+
+    public function property_location()
+    {
+        return $this->hasOne(Voyager::modelClass('Location'), 'reference', 'location');
+    }
+
+    public function property_languages()
+    {
+        return $this->hasOne(Voyager::modelClass('Languages'), 'reference', 'lng_of_add');
+    }
+
+    public function property_currency()
+    {
+        return $this->hasOne(Voyager::modelClass('Currency'), 'reference', 'сurrency');
+    }
+
+    public function property_regime()
+    {
+        return $this->hasOne(Voyager::modelClass('Regime'), 'reference', 'regime');
+    }
+
+    public function property_floor()
+    {
+        return $this->hasOne(Voyager::modelClass('Floor'), 'reference', 'floor_property');
+    }
+
+    public function property_type_of_land()
+    {
+        return $this->hasOne(Voyager::modelClass('TypeOfLand'), 'reference', 'type_land');
+    }
+
+    public function property_kitchen()
+    {
+        return $this->hasOne(Voyager::modelClass('Kitchen'), 'reference', 'type');
+    }
+
+    public function property_heating()
+    {
+        return $this->hasOne(Voyager::modelClass('Heating'), 'reference', 'format');
+    }
+
+    public function property_energy()
+    {
+        return $this->hasOne(Voyager::modelClass('Energy'), 'reference', 'chauffage_energy');
+    }
+
+    public function property_heating_type()
+    {
+        return $this->hasOne(Voyager::modelClass('HeatingType'), 'reference', 'type_heating');
+    }
+
+    public function property_radiator()
+    {
+        return $this->hasOne(Voyager::modelClass('Radiator'), 'reference', 'type_radiator');
+    }
+
+    public function property_water_distribution()
+    {
+        return $this->hasOne(Voyager::modelClass('WaterDistribution'), 'reference', 'distribution');
+    }
+
+    public function property_water_energy()
+    {
+        return $this->hasOne(Voyager::modelClass('WaterEnergy'), 'reference', 'eau_chaude_energy');
+    }
+
+    public function property_waste_distribution()
+    {
+        return $this->hasOne(Voyager::modelClass('WasteDistribution'), 'reference', 'usees_distribution');
+    }
+
+    public function property_minergie()
+    {
+        return $this->hasOne(Voyager::modelClass('Minergie'), 'reference', 'divers_format');
+    }
+
+    public function property_sonority()
+    {
+        return $this->hasOne(Voyager::modelClass('Sonority'), 'reference', 'sonority');
+    }
+
+    public function property_style()
+    {
+        return $this->hasOne(Voyager::modelClass('Style'), 'reference', 'style');
+    }
+
+    public function property_interior_condition()
+    {
+        return $this->hasOne(Voyager::modelClass('State'), 'reference', 'interior_condition');
+    }
+
+    public function property_construction()
+    {
+        return $this->hasOne(Voyager::modelClass('Construction'), 'reference', 'type_construction');
+    }
+
+    public function property_state_front()
+    {
+        return $this->hasOne(Voyager::modelClass('State'), 'reference', 'state_front');
+    }
+
+    public function property_external_state()
+    {
+        return $this->hasOne(Voyager::modelClass('State'), 'reference', 'external_state');
+    }
+
 //    public function property_address()
 //    {
 //        return $this->belongsTo(Voyager::modelClass('Address'), 'property_id');

@@ -587,7 +587,7 @@ class DataRowsTableSeeder extends Seeder
             $dataRow->fill([
                 'type'         => 'text',
                 'display_name' => 'Country',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -603,7 +603,7 @@ class DataRowsTableSeeder extends Seeder
             $dataRow->fill([
                 'type'         => 'text',
                 'display_name' => 'Location',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -649,9 +649,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'lng_of_add');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Language of the add',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -697,9 +697,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'сurrency');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Currency',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -889,9 +889,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'regime');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Regime',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -1193,9 +1193,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'floor_property');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Floor of the property',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -1401,9 +1401,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'type_land');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Type of land',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -1689,9 +1689,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'type');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Type',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -1849,7 +1849,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'hotplates');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Hotplates',
                 'required'     => 0,
                 'browse'       => 0,
@@ -1929,9 +1929,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'format');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Format',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -1945,9 +1945,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'chauffage_energy');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Energy',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -1961,9 +1961,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'type_heating');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Type of heating',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -1977,9 +1977,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'type_radiator');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Type of radiator',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -1993,9 +1993,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'distribution');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Distribution',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -2009,9 +2009,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'eau_chaude_energy');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Energy',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -2025,9 +2025,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'usees_distribution');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Distribution',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -2041,9 +2041,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'divers_format');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Format',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -2057,9 +2057,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'sonority');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Sonority',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -2073,9 +2073,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'style');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Style',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -3913,9 +3913,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'interior_condition');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Interior Condition',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -3929,9 +3929,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'type_construction');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'Type of construction',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -3945,9 +3945,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'state_front');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'State of the front',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -3961,9 +3961,9 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'external_state');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'text',
                 'display_name' => 'External state',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -3977,7 +3977,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'year_construction');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'date',
                 'display_name' => 'Year of construction',
                 'required'     => 0,
                 'browse'       => 0,
@@ -3993,7 +3993,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'year_renovation');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'date',
                 'display_name' => 'Year of renovation',
                 'required'     => 0,
                 'browse'       => 0,
