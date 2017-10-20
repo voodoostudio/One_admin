@@ -677,11 +677,23 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Reference</label>
-                                            <input type="email" class="form-control m-input" placeholder="Référence">
+                                            <input type="email" class="form-control m-input" placeholder="Référence" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="reference">
                                             <span class="m-form__help">
                                             Please enter Référence
                                         </span>
                                         </div>
+                                    </div>
+                                    <div class="col-lg-4 margin_bottom_10">
+                                        <label for="category_id">Category</label>
+                                        <select class="form-control m-select2" id="category_id" name="category_id" data-placeholder="Select a Category">
+                                            @foreach(TCG\Voyager\Models\Category::all() as $category)
+                                                @if($category->parent_id == null)
+                                                    <option value="{{ $category->id }}" @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>
+                                                @else
+                                                    <option value="{{ $category->id }}" @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ 'selected="selected"' }}@endif> - {{ $category->name }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
                                     </div>
                                     {{--<div class="col-lg-4">--}}
                                         {{--<div class="form-group">--}}
@@ -712,7 +724,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="">Notation</label>
-                                            <input type="number" class="form-control m-input" placeholder="Notation">
+                                            <input type="number" class="form-control m-input" placeholder="Notation" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="notation">
                                             <span class="m-form__help">Please enter your notation</span>
                                         </div>
                                     </div>
@@ -731,44 +743,37 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Status</label>
-                                            <select class="form-control m-select2 his_select2" name="status" data-placeholder="Select a Statut">
-                                                <option value=""></option>
-                                                <option value=""></option>
-                                                <option value="FR">House</option>
-                                                <option value="MU">Apartment</option>
-                                                <option value="US">Building</option>
-                                                <option value="US">Land</option>
+                                            <select class="form-control m-select2 his_select2" name="status_id" data-placeholder="Select a Statut">
+                                                @foreach(TCG\Voyager\Models\Status::all() as $status)
+                                                    <option value="{{ $status->reference }}" @if(isset($dataTypeContent->status_id) && $dataTypeContent->status_id == $status->reference){{ 'selected="selected"' }}@endif>{{ $status->value }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Mandate</label>
-                                            <select class="form-control m-select2 his_select2" name="mandate" data-placeholder="Select a Mandat">
-                                                <option value=""></option>
-                                                <option value="FR">House</option>
-                                                <option value="MU">Apartment</option>
-                                                <option value="US">Building</option>
-                                                <option value="US">Land</option>
+                                            <select class="form-control m-select2 his_select2" name="mandate_id" data-placeholder="Select a Mandat">
+                                                @foreach(TCG\Voyager\Models\Mandate::all() as $mandate)
+                                                    <option value="{{ $mandate->reference }}" @if(isset($dataTypeContent->mandate_id) && $dataTypeContent->mandate_id == $mandate->reference){{ 'selected="selected"' }}@endif>{{ $mandate->value }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Origin</label>
-                                            <select class="form-control m-select2 his_select2" name="origin" data-placeholder="Select a Origine">
-                                                <option value=""></option>
-                                                <option value="FR">House</option>
-                                                <option value="MU">Apartment</option>
-                                                <option value="US">Building</option>
-                                                <option value="US">Land</option>
+                                            <select class="form-control m-select2 his_select2" name="origin_id" data-placeholder="Select a Origine">
+                                                @foreach(TCG\Voyager\Models\Origin::all() as $origin)
+                                                    <option value="{{ $origin->reference }}" @if(isset($dataTypeContent->origin_id) && $dataTypeContent->origin_id == $origin->reference){{ 'selected="selected"' }}@endif>{{ $origin->value }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="m-checkbox">
-                                                <input type="checkbox">Exclusivité
+                                                <input type="checkbox" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="exclusiveness">Exclusivité
                                                 <span></span>
                                             </label>
                                         </div>
@@ -810,11 +815,11 @@
                                         <div class="form-group">
                                             <label>Disponibilité à partir du / jusqu'au</label>
                                             <div class="input-daterange input-group" id="m_datepicker_5">
-                                                <input type="text" class="form-control m-input" name="start" />
+                                                <input type="text" class="form-control m-input" name="start" name="availab_from" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" />
                                                 <span class="input-group-addon">
                                                     <i class="la la-ellipsis-h"></i>
                                                 </span>
-                                                <input type="text" class="form-control" name="end" />
+                                                <input type="text" class="form-control" name="end" name="availab_until" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" />
                                             </div>
                                         </div>
                                     </div>
@@ -859,28 +864,28 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Note sur la transaction</label>
-                                            <input type="email" class="form-control m-input" placeholder="Note sur la transaction">
+                                            <input type="email" class="form-control m-input" placeholder="Note sur la transaction" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="note_transaction">
                                             <span class="m-form__help">Please enter Note sur la transaction</span>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Note courtier</label>
-                                            <input type="email" class="form-control m-input" placeholder="Note courtier">
+                                            <input type="email" class="form-control m-input" placeholder="Note courtier" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="broker_notes">
                                             <span class="m-form__help">Please enter Note courtier</span>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Remarques importantes</label>
-                                            <input type="email" class="form-control m-input" placeholder="Remarques importantes">
+                                            <input type="email" class="form-control m-input" placeholder="Remarques importantes" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="important_notes">
                                             <span class="m-form__help">Please enter Remarques importantes</span>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Notes pour le propriétaire</label>
-                                            <input type="email" class="form-control m-input" placeholder="Notes pour le propriétaire">
+                                            <input type="email" class="form-control m-input" placeholder="Notes pour le propriétaire" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="owner_notes">
                                             <span class="m-form__help">Please enter Notes pour le propriétaire</span>
                                         </div>
                                     </div>
@@ -917,7 +922,7 @@
                                             Adress
                                         </label>
                                         <div class="m-input-icon m-input-icon--right">
-                                            <input type="text" class="form-control m-input" placeholder="Enter your address">
+                                            <input type="text" class="form-control m-input" placeholder="Enter your address" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="address">
                                             <span class="m-input-icon__icon m-input-icon__icon--right">
                                                 <span>
                                                     <i class="la la-map-marker"></i>
@@ -932,7 +937,7 @@
                                         <label>
                                             Street
                                         </label>
-                                        <input type="email" class="form-control m-input" placeholder="Street name">
+                                        <input type="email" class="form-control m-input" placeholder="Street name" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="street">
                                         <span class="m-form__help">
                                             Please enter your street
                                         </span>
@@ -941,7 +946,7 @@
                                         <label class="">
                                             Number
                                         </label>
-                                        <input type="email" class="form-control m-input" placeholder="Number">
+                                        <input type="email" class="form-control m-input" placeholder="Number" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="number">
                                         <span class="m-form__help">
                                             Please enter your number
                                         </span>
@@ -956,7 +961,7 @@
                                                     <i class="la la-inbox"></i>
                                                 </span>
                                             </span>
-                                            <input type="number" class="form-control m-input" placeholder="">
+                                            <input type="number" class="form-control m-input" placeholder="" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="po_box">
                                         </div>
                                         <span class="m-form__help">
                                             Please enter your PO box
@@ -966,7 +971,7 @@
                                         <label class="">
                                             ZIP Code
                                         </label>
-                                        <input type="email" class="form-control m-input" placeholder="ZIP Code">
+                                        <input type="email" class="form-control m-input" placeholder="ZIP Code" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="zip_code">
                                         <span class="m-form__help">
                                             Please enter your ZIP Code
                                         </span>
@@ -975,7 +980,7 @@
                                         <label class="">
                                             Town
                                         </label>
-                                        <input type="email" class="form-control m-input" placeholder="Town">
+                                        <input type="email" class="form-control m-input" placeholder="Town" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="town">
                                         <span class="m-form__help">
                                             Please enter your town
                                         </span>
@@ -983,21 +988,17 @@
                                     <div class="col-lg-4 margin_bottom_10">
                                         <label>Country</label>
                                         <select class="form-control m-select2 his_select2" name="country" data-placeholder="Select a Country">
-                                            <option value=""></option>
-                                            <option value="FR">Swiss</option>
-                                            <option value="MU">France</option>
-                                            <option value="US">Belgium</option>
-                                            <option value="US">Germany</option>
+                                            @foreach(TCG\Voyager\Models\Country::all() as $country)
+                                                <option value="{{ $country->reference }}" @if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ 'selected="selected"' }}@endif>{{ $country->value }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-lg-4 margin_bottom_10">
                                         <label>Location</label>
                                         <select class="form-control m-select2 his_select2" name="location" data-placeholder="Select Location">
-                                            <option value=""></option>
-                                            <option value="FR">House</option>
-                                            <option value="MU">Apartment</option>
-                                            <option value="US">Building</option>
-                                            <option value="US">Land</option>
+                                            @foreach(TCG\Voyager\Models\Location::all() as $location)
+                                                <option value="{{ $location->reference }}" @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -1029,12 +1030,10 @@
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <label>Currency</label>
-                                            <select class="form-control m-select2 his_select2" name="currency" data-placeholder="Select currency">
-                                                <option value=""></option>
-                                                <option value="FR">EUR</option>
-                                                <option value="EN">CHF</option>
-                                                <option value="RU">USD</option>
-                                                <option value="DE">MDL</option>
+                                            <select class="form-control m-select2 his_select2" name="сurrency" data-placeholder="Select currency">
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    <option value="{{ $сurrency->reference }}" @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ 'selected="selected"' }}@endif>{{ $сurrency->value }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -1059,7 +1058,7 @@
                                         <div class="form-group">
                                             <label>Price</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="...">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="price">
                                                 <span class="input-group-addon">EUR</span>
                                             </div>
                                         </div>
@@ -1068,7 +1067,7 @@
                                         <div class="form-group">
                                             <label>Price per m<sup>2</sup></label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="...">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="price_m2">
                                                 <span class="input-group-addon">EUR/m<sup>2</sup></span>
                                             </div>
                                         </div>
@@ -1077,7 +1076,7 @@
                                         <div class="form-group">
                                             <label>Gross yield</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="...">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="gross_yield">
                                                 <span class="input-group-addon">%</span>
                                             </div>
                                         </div>
@@ -1086,7 +1085,7 @@
                                         <div class="form-group">
                                             <label>Net return</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="...">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="net_return">
                                                 <span class="input-group-addon">%</span>
                                             </div>
                                         </div>
@@ -1095,7 +1094,7 @@
                                         <div class="form-group">
                                             <label>Owner amount</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="...">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif" name="owner_amount">
                                                 <span class="input-group-addon">EUR</span>
                                             </div>
                                         </div>
