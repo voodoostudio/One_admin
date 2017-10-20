@@ -150,7 +150,7 @@
                                     '_field_name'  => 'slug',
                                     '_field_trans' => get_field_translations($dataTypeContent, 'slug')
                                 ])
-                                <input type="text" class="form-control" id="slug" name="slug"
+                                <input required type="text" class="form-control" id="slug" name="slug"
                                        placeholder="slug"
                                        {{!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}}
                                        value="@if(isset($dataTypeContent->slug)){{ $dataTypeContent->slug }}@endif">
