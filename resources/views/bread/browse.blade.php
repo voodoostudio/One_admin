@@ -130,7 +130,7 @@
                     <i class="flaticon-exclamation m--font-brand"></i>
                 </div>
                 <div class="m-alert__text">
-                    Here you can see list of all users in your admin. Click "Add user" to add new user.
+                    Here you can see list of all objects in your current admin page. Click "Add New" to add new object.
                 </div>
             </div>
             <div class="m-portlet m-portlet--mobile">
