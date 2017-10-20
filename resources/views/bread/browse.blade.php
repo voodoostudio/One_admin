@@ -434,20 +434,17 @@
                                         <i class="la la-ellipsis-h"></i>\
                                     </a>\
                                     <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>{{ __('voyager.generic.view') }}</a>\
                                         <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
                                         <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                             {{ method_field("DELETE") }}\
                                             {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>{{ __('voyager.generic.delete') }}</button>\
                                         </form>\
                                     </div>\
                                 </div>\
-                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
-                                    <i class="la la-edit"></i>\
-                                </a>\
                             ';
-                        }
+                        },
 
                         <?php } elseif($dataType->display_name_plural == 'Posts') { ?>
 
@@ -500,20 +497,17 @@
                                         <i class="la la-ellipsis-h"></i>\
                                     </a>\
                                     <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>{{ __('voyager.generic.view') }}</a>\
                                         <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
                                         <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                             {{ method_field("DELETE") }}\
                                             {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>{{ __('voyager.generic.delete') }}</button>\
                                         </form>\
                                     </div>\
                                 </div>\
-                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
-                                    <i class="la la-edit"></i>\
-                                </a>\
                             ';
-                        }
+                        },
 
                         <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
 
@@ -555,20 +549,17 @@
                                         <i class="la la-ellipsis-h"></i>\
                                     </a>\
                                     <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>{{ __('voyager.generic.view') }}</a>\
                                         <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
                                         <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                             {{ method_field("DELETE") }}\
                                             {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>{{ __('voyager.generic.delete') }}</button>\
                                         </form>\
                                     </div>\
                                 </div>\
-                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
-                                    <i class="la la-edit"></i>\
-                                </a>\
                             ';
-                        }
+                        },
 
                         <?php } elseif($dataType->display_name_plural == 'Users') { ?>
 
@@ -615,20 +606,18 @@
                                         <i class="la la-ellipsis-h"></i>\
                                     </a>\
                                     <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>{{ __('voyager.generic.view') }}</a>\
                                         <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
                                         <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                             {{ method_field("DELETE") }}\
                                             {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>{{ __('voyager.generic.delete') }}</button>\
                                         </form>\
                                     </div>\
                                 </div>\
-                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
-                                    <i class="la la-edit"></i>\
-                                </a>\
                             ';
-                        }
+                        },
+
                         <?php } elseif($dataType->display_name_plural == 'Roles') { ?>
 
                         field: "id",
@@ -667,18 +656,15 @@
                                         <i class="la la-ellipsis-h"></i>\
                                     </a>\
                                     <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-leaf"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>{{ __('voyager.generic.view') }}</a>\
                                         <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
                                         <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                             {{ method_field("DELETE") }}\
                                             {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-print"></i>{{ __('voyager.generic.delete') }}</button>\
+                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>{{ __('voyager.generic.delete') }}</button>\
                                         </form>\
                                     </div>\
                                 </div>\
-                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">\
-                                    <i class="la la-edit"></i>\
-                                </a>\
                             ';
                         }
                         <?php } ?>
