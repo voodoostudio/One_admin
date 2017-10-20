@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <!-- ### TITLE ### -->
-                    <div class="panel">
+                    <div class="panel panel-bordered">
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 <ul>
@@ -103,7 +103,7 @@
                     </div>
 
                     <!-- ### CONTENT ### -->
-                    <div class="panel">
+                    <div class="panel panel-bordered">
                         <div class="panel-heading">
                             <h3 class="panel-title"><i class="icon wb-book"></i> {{ __('voyager.post.content') }}</h3>
                             <div class="panel-actions">
@@ -134,7 +134,7 @@
                         {{--</div>--}}
                     {{--</div>--}}
 
-                    <div class="panel">
+                    <div class="panel panel-borderedv">
                         <div class="panel-heading">
                             <h3 class="panel-title">General</h3>
                             <div class="panel-actions">
@@ -1364,7 +1364,7 @@
                 </div>
                 <div class="col-md-4">
                     <!-- ### DETAILS ### -->
-                    <div class="panel panel panel-bordered panel-warning">
+                    <div class="panel panel panel-bordered">
                         <div class="panel-heading">
                             <h3 class="panel-title"><i class="icon wb-clipboard"></i> {{ __('voyager.post.details') }}</h3>
                             <div class="panel-actions">
@@ -1411,7 +1411,7 @@
                     </div>
 
                     <!-- ### IMAGE ### -->
-                    <div class="panel panel-bordered panel-primary">
+                    <div class="panel panel-bordered">
                         <div class="panel-heading">
                             <h3 class="panel-title"><i class="icon wb-image"></i> {{ __('voyager.post.image') }}</h3>
                             <div class="panel-actions">
