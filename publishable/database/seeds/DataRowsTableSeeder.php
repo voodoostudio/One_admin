@@ -98,21 +98,21 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'body');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'rich_text_box',
-                'display_name' => 'Body',
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => '',
-                'order'        => 6,
-            ])->save();
-        }
+//        $dataRow = $this->dataRow($postDataType, 'body');
+//        if (!$dataRow->exists) {
+//            $dataRow->fill([
+//                'type'         => 'rich_text_box',
+//                'display_name' => 'Body',
+//                'required'     => 1,
+//                'browse'       => 0,
+//                'read'         => 1,
+//                'edit'         => 1,
+//                'add'          => 1,
+//                'delete'       => 1,
+//                'details'      => '',
+//                'order'        => 6,
+//            ])->save();
+//        }
 
         $dataRow = $this->dataRow($postDataType, 'image');
         if (!$dataRow->exists) {
@@ -154,26 +154,26 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'slug');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => 'slug',
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => json_encode([
-                    'slugify' => [
-                        'origin'      => 'title',
-                        'forceUpdate' => true,
-                    ],
-                ]),
-                'order'        => 8,
-            ])->save();
-        }
+//        $dataRow = $this->dataRow($postDataType, 'slug');
+//        if (!$dataRow->exists) {
+//            $dataRow->fill([
+//                'type'         => 'text',
+//                'display_name' => 'slug',
+//                'required'     => 1,
+//                'browse'       => 0,
+//                'read'         => 1,
+//                'edit'         => 1,
+//                'add'          => 1,
+//                'delete'       => 1,
+//                'details'      => json_encode([
+//                    'slugify' => [
+//                        'origin'      => 'title',
+//                        'forceUpdate' => true,
+//                    ],
+//                ]),
+//                'order'        => 8,
+//            ])->save();
+//        }
 
         $dataRow = $this->dataRow($postDataType, 'meta_description');
         if (!$dataRow->exists) {
@@ -207,28 +207,28 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'status');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'select_dropdown',
-                'display_name' => 'status',
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => json_encode([
-                    'default' => 'DRAFT',
-                    'options' => [
-                        'PUBLISHED' => 'published',
-                        'DRAFT'     => 'draft',
-                        'PENDING'   => 'pending',
-                    ],
-                ]),
-                'order'        => 11,
-            ])->save();
-        }
+//        $dataRow = $this->dataRow($postDataType, 'status');
+//        if (!$dataRow->exists) {
+//            $dataRow->fill([
+//                'type'         => 'select_dropdown',
+//                'display_name' => 'status',
+//                'required'     => 1,
+//                'browse'       => 1,
+//                'read'         => 1,
+//                'edit'         => 1,
+//                'add'          => 1,
+//                'delete'       => 1,
+//                'details'      => json_encode([
+//                    'default' => 'DRAFT',
+//                    'options' => [
+//                        'PUBLISHED' => 'published',
+//                        'DRAFT'     => 'draft',
+//                        'PENDING'   => 'pending',
+//                    ],
+//                ]),
+//                'order'        => 11,
+//            ])->save();
+//        }
 
         $dataRow = $this->dataRow($postDataType, 'created_at');
         if (!$dataRow->exists) {
@@ -662,21 +662,21 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'add_title');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => 'Add Title',
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 39,
-            ])->save();
-        }
+//        $dataRow = $this->dataRow($postDataType, 'add_title');
+//        if (!$dataRow->exists) {
+//            $dataRow->fill([
+//                'type'         => 'text',
+//                'display_name' => 'Add Title',
+//                'required'     => 0,
+//                'browse'       => 0,
+//                'read'         => 1,
+//                'edit'         => 1,
+//                'add'          => 1,
+//                'delete'       => 0,
+//                'details'      => '',
+//                'order'        => 39,
+//            ])->save();
+//        }
 
         $dataRow = $this->dataRow($postDataType, 'desc_add');
         if (!$dataRow->exists) {
@@ -1270,7 +1270,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'surface_area_terrace_solarium');
+        $dataRow = $this->dataRow($postDataType, 'surf_area_terr_solar');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
@@ -1366,7 +1366,23 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'ground');
+        $dataRow = $this->dataRow($postDataType, 'ground_length');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Ground',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 82,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'ground_width');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
@@ -1558,7 +1574,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'box_garage_interior_double');
+        $dataRow = $this->dataRow($postDataType, 'box_gar_inter_doub');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
@@ -2886,7 +2902,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'metalli_curtain');
+        $dataRow = $this->dataRow($postDataType, 'metallic_curtain');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'checkbox',
@@ -4761,37 +4777,37 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'seo_title');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => 'seo_title',
-                'required'     => 0,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => '',
-                'order'        => 14,
-            ])->save();
-        }
+//        $dataRow = $this->dataRow($postDataType, 'seo_title');
+//        if (!$dataRow->exists) {
+//            $dataRow->fill([
+//                'type'         => 'text',
+//                'display_name' => 'seo_title',
+//                'required'     => 0,
+//                'browse'       => 1,
+//                'read'         => 1,
+//                'edit'         => 1,
+//                'add'          => 1,
+//                'delete'       => 1,
+//                'details'      => '',
+//                'order'        => 14,
+//            ])->save();
+//        }
 
-        $dataRow = $this->dataRow($postDataType, 'featured');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'checkbox',
-                'display_name' => 'featured',
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => '',
-                'order'        => 15,
-            ])->save();
-        }
+//        $dataRow = $this->dataRow($postDataType, 'featured');
+//        if (!$dataRow->exists) {
+//            $dataRow->fill([
+//                'type'         => 'checkbox',
+//                'display_name' => 'featured',
+//                'required'     => 1,
+//                'browse'       => 1,
+//                'read'         => 1,
+//                'edit'         => 1,
+//                'add'          => 1,
+//                'delete'       => 1,
+//                'details'      => '',
+//                'order'        => 15,
+//            ])->save();
+//        }
 
         $dataRow = $this->dataRow($userDataType, 'role_id');
         if (!$dataRow->exists) {
