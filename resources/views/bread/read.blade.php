@@ -1,5 +1,8 @@
 @extends('voyager::master_metronic')
 
+{{--{{ dd($dataTypeContent->toArray()) }}--}}
+
+
 @section('css')
     <link href="{{ asset('assets/plugins/css/slick.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/css/slick-theme.css') }}" rel="stylesheet" type="text/css" />
@@ -26,7 +29,7 @@
 @stop
 
 @section('content')
-    <div class="page-content read container-fluid" style="padding-top: 30px; padding-bottom: 60px;">
+    <div class="page-content read container-fluid" style="padding-top: 30px; padding-bottom: 60px; display:none;">
         <div class="row">
             <div class="col-md-12">
 
@@ -120,7 +123,7 @@
         </div>
     </div>
 
-    <div class="m-grid__item m-grid__item--fluid m-wrapper" style="display: none">
+    <div class="m-grid__item m-grid__item--fluid m-wrapper" style="display: block;">
         <!-- BEGIN: Subheader -->
         <div class="m-subheader ">
             <div class="d-flex align-items-center">
@@ -232,11 +235,9 @@
                                 <div class="m-widget19__pic m-portlet-fit--sides" style1="height: 280px">
                                     <div class="object_gallery">
                                         <div><img src="/assets/house_invest_spain/img/house.jpeg" alt=""></div>
-                                        <div><img src="/assets/house_invest_spain/img/house2.jpeg" alt=""></div>
-                                        <div><img src="/assets/house_invest_spain/img/house3.jpeg" alt=""></div>
                                     </div>
                                     <h3 class="m-widget19__title m--font-light">
-                                        Title of the object
+                                        {{ $dataTypeContent->title }}
                                     </h3>
                                     <div class="m-widget19__shadow"></div>
                                 </div>
@@ -247,7 +248,7 @@
                                         </div>
                                         <div class="m-widget19__info">
                                             <span class="m-widget19__username">
-                                                Anna Krox
+                                                Anna Krox <!-- todo -->
                                             </span>
                                             <br>
                                             <span class="m-widget19__time">
@@ -256,7 +257,9 @@
                                         </div>
                                         <div class="m-widget19__stats object_price">
                                             <span class="m-widget19__number m--font-brand">
-                                               CHF 180.000
+                                                @if($dataTypeContent->show_price != 0)
+                                                    {{ ($dataTypeContent->price != null) ? $dataTypeContent->price : 'None' }}
+                                                @endif
                                             </span>
                                             <span class="m-widget19__comment">
                                                 Price comments
@@ -264,7 +267,7 @@
                                         </div>
                                     </div>
                                     <div class="m-widget19__body">
-                                        This is description text: Lorem Ipsum is simply dummy text of the printing and typesetting industry scrambled it to make text of the printing and typesetting industry scrambled a type specimen book text of the dummy text of the printing printing and typesetting industry scrambled dummy text of the printing.
+                                        {{ $dataTypeContent->desc_add }}
                                     </div>
                                 </div>
                             </div>
@@ -297,7 +300,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->reference }}
                                                 </span>
                                             </div>
                                         </div>
@@ -310,6 +313,10 @@
                                                 <span class="m-widget4__title">
                                                     Exclusivité
                                                 </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->exclusiveness == 0) ? 'None' : 'Yes' }}
+                                                </span>
                                             </div>
                                         </div>
                                         <!--end::Widget 14 Item-->
@@ -319,7 +326,7 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Catégorie
+                                                    Catégorie  <!-- todo -->
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -334,7 +341,7 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Sous-catégorie
+                                                    Sous-catégorie <!-- todo -->
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -353,7 +360,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->notation }}
                                                 </span>
                                             </div>
                                         </div>
@@ -364,7 +371,7 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Courtier
+                                                    Courtier <!-- todo -->
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -379,7 +386,7 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Statut
+                                                    Statut <!-- todo -->
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -394,7 +401,7 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Mandat
+                                                    Mandat <!-- todo -->
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -409,7 +416,7 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Origine
+                                                    Origine <!-- todo -->
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -428,7 +435,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->mandate_start }}
                                                 </span>
                                             </div>
                                         </div>
@@ -443,7 +450,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->term_end }}
                                                 </span>
                                             </div>
                                         </div>
@@ -458,7 +465,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->availability }}
                                                 </span>
                                             </div>
                                         </div>
@@ -473,7 +480,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->availab_from }}
                                                 </span>
                                             </div>
                                         </div>
@@ -488,7 +495,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->availab_until }}
                                                 </span>
                                             </div>
                                         </div>
@@ -503,7 +510,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ ($dataTypeContent->promotion == 0) ? 'Non' : 'Oui' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -518,7 +525,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ ($dataTypeContent->direct_transaction == 0) ? 'Non' : 'Oui' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -533,7 +540,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                     {{ $dataTypeContent->note_transaction }}
                                                 </span>
                                             </div>
                                         </div>
@@ -548,7 +555,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->broker_notes }}
                                                 </span>
                                             </div>
                                         </div>
@@ -563,7 +570,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->important_notes }}
                                                 </span>
                                             </div>
                                         </div>
@@ -578,7 +585,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->owner_notes }}
                                                 </span>
                                             </div>
                                         </div>
@@ -593,7 +600,6 @@
                 </div>
             </div>
             <!--End::Main Portlet-->
-
 
             <!--Begin::Info Portlet-->
             <div class="row">
@@ -622,7 +628,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->address }}
                                                 </span>
                                             </div>
                                         </div>
@@ -637,7 +643,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->street }}
                                                 </span>
                                             </div>
                                         </div>
@@ -652,7 +658,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->number }}
                                                 </span>
                                             </div>
                                         </div>
@@ -667,7 +673,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->po_box }}
                                                 </span>
                                             </div>
                                         </div>
@@ -682,7 +688,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->zip_code }}
                                                 </span>
                                             </div>
                                         </div>
@@ -697,7 +703,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->town }}
                                                 </span>
                                             </div>
                                         </div>
@@ -708,7 +714,75 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Pays
+                                                    Pays <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->country }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Localisation <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->location }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Rédaction
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Langue de l'annonce
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->lng_of_add }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Titre de l'annonce
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -723,7 +797,7 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Localisation
+                                                    Description de l'annonce
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -747,7 +821,7 @@
                             <div class="m-portlet__head-caption">
                                 <div class="m-portlet__head-title">
                                     <h3 class="m-portlet__head-text">
-                                        General
+                                        Prix
                                     </h3>
                                 </div>
                             </div>
@@ -761,11 +835,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Devise <!-- todo -->
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->сurrency }}
                                                 </span>
                                             </div>
                                         </div>
@@ -776,11 +850,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Afficher le prix <!-- todo -->
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ ($dataTypeContent->show_price == 0) ? 'Non' : 'Oui' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -791,11 +865,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Prix
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->price }}
                                                 </span>
                                             </div>
                                         </div>
@@ -806,11 +880,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Prix au m2
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->price_m2 }}
                                                 </span>
                                             </div>
                                         </div>
@@ -821,11 +895,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Rendement brut
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->gross_yield }}
                                                 </span>
                                             </div>
                                         </div>
@@ -836,45 +910,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (checkbox)
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <!--end::Widget 14 Item-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Widget 14-->
-                        </div>
-                    </div>
-                    <!--end:: Widgets/New Users-->
-                </div>
-                <div class="col-xl-4">
-                    <!--begin:: Widgets/New Users-->
-                    <div class="m-portlet m-portlet--full-height">
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <h3 class="m-portlet__head-text">
-                                        General
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-portlet__body">
-                            <!--begin::Widget 14-->
-                            <div class="m-widget4">
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
-                                        <!--begin::Widget 14 Item-->
-                                        <div class="m-widget4__item">
-                                            <div class="m-widget4__info">
-                                                <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Rendement net
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->net_return }}
                                                 </span>
                                             </div>
                                         </div>
@@ -885,11 +925,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Montant propriétaire
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->owner_amount }}
                                                 </span>
                                             </div>
                                         </div>
@@ -900,11 +940,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Honoraire client
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->client_fees }}
                                                 </span>
                                             </div>
                                         </div>
@@ -915,11 +955,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Honoraire propriétaire
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->owner_fees }}
                                                 </span>
                                             </div>
                                         </div>
@@ -930,11 +970,11 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (dropdown)
+                                                    Montant négociable
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    {{ $dataTypeContent->negotiable_amount }}
                                                 </span>
                                             </div>
                                         </div>
@@ -945,7 +985,222 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Parameter (checkbox)
+                                                    Montant estimé
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->estimate_price }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Droits d'enregistremenet
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->recording_rights }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Régime <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->regime }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Charges de chauffage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->heating_loads }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Charges PPE
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->ppe_charges }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Charges de copropriété
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->condominium_fees }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Taxe foncière
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->property_tax }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Procédure en cours auprès de la copro.
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->procedure_in_progress == 0) ? 'no' : 'yes' }}  <!-- todo maybe checked -->
+                                                    {{--<input type="checkbox" value="{{ ($dataTypeContent->procedure_in_progress != 0) ? '' : 'on' }}">--}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Fonds de rénovation
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->renovation_fund }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Charges annuelles
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->annual_charges }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Taxe d'habitation
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->taxes_1 }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Caution locative
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->rental_security }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Fonds de commerce
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->commercial_property }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Revenus
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->earnings }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Impôts
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->taxes }}
                                                 </span>
                                             </div>
                                         </div>
@@ -960,6 +1215,3029 @@
                 </div>
             </div>
             <!--End::Info Portlet-->
+
+            <!--Begin::Info Portlet-->
+            <div class="row">
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Agencement
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre de chambres
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_rooms }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre de pièces
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_pieces }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre de salles d'eau
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_shower_rooms + $dataTypeContent->number_toilets }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre de balcons
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_balconies }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre de salles de douche
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_shower_rooms }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre de WC
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_toilets }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre de terasses
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_terraces }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre d'étage du bâtiment
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_floors_building }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Etage du bien <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->floor_property }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Niveaux
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->levels }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Surface
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface de la cave
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->surface_cellar }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Hauteur des plafonds
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->ceiling_height }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface de l'abri de la toiture
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->roof_cover_area }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface de la terrasse / solarium
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->surf_area_terr_solar }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface de la véranda
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->area_veranda }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface des combles
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->attic_space }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface du balcon
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->surface_balcony }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface du sous-sol
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->basement_area }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface du terrain
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->surface_ground }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Terrain
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    Longeur {{ $dataTypeContent->ground_length }} + Largeur {{ $dataTypeContent->ground_width }} <!-- todo + or  * -->
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Viabilisé
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->serviced == 0) ? 'no' : 'yes' }} <!-- todo mayby checked -->
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Type de terrain <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->type_land }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface utille
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->useful_surface }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface PPE
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->ppe_area }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Volume
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->volume }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface de la cour anglaise
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->surface_eng_court }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface rez-de-chaussée inférieur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->lower_ground_floor }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface de l'emprise
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->row_area }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface du garage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->garage_area }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Surface pondérée
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->weighted_surface }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Stationnement
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Box/garage intérieur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->box_interior_garage }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Box/garage double intérieur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->box_gar_inter_doub }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Box/garage extérieur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->outdoor_garage }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Box/garage double extérieur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->box_garage_outside_double }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Place de parc extérieure couverte
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->covered_outdoor_parking_space }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Place de parc extérieur non-couverte
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->outside_parking_space_uncovered }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nombre de places de parc
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->number_parking_spaces }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Hangar à bateau
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->boat_shed }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Place d'amarrage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->mooring }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+            </div>
+            <!--End::Info Portlet-->
+
+            <!--Begin::Info Portlet-->
+            <div class="row">
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Cuisine
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Type <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->type }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Congélateur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->freezer == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Cusinière
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->cooker == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Four
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->oven == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Four à micro-ondes
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->microwave_oven == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Hotte aspirante
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->extractor_hood == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Lave-linge
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->washmachine == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Lave-vaiselle
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->dishwasher == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Plaques à gaz
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->plates == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Plaques à induction
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->induction_plates == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Plaques électriques
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->hotplates }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Plaques vitrocéram
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->ceramic_plates == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Réfrigérateur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->fridge == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sèche-linge
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->cuisine_tumble_drier == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Cafetière
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->coffee_maker == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Chauffage
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Format <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->format }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Energie <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->chauffage_energy }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Type de chauffage <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->type_heating }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Type de radiateur <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->type_radiator }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Eau chaude
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Distribution <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->distribution }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Energie <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->eau_chaude_energy }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+            </div>
+            <!--End::Info Portlet-->
+
+            <!--Begin::Info Portlet-->
+            <div class="row">
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Eau usées
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Distribution <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->usees_distribution }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            <!--end::Widget 14-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+                <div class="col-xl-4">
+                    <!--begin:: Widgets/New Users-->
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Divers
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Minergie <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->divers_format }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sonorité <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->sonority }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Style <!-- todo -->
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->style }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                    <!--end:: Widgets/New Users-->
+                </div>
+                {{--<div class="col-xl-4">--}}
+                    {{--<!--begin:: Widgets/New Users-->--}}
+                    {{--<div class="m-portlet m-portlet--full-height">--}}
+                        {{--<div class="m-portlet__head">--}}
+                            {{--<div class="m-portlet__head-caption">--}}
+                                {{--<div class="m-portlet__head-title">--}}
+                                    {{--<h3 class="m-portlet__head-text">--}}
+                                        {{--Part--}}
+                                    {{--</h3>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="m-portlet__body">--}}
+                            {{--<!--begin::Widget 14-->--}}
+                            {{--<div class="m-widget4">--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">--}}
+                                        {{--<!--begin::Widget 14 Item-->--}}
+                                        {{--<div class="m-widget4__item">--}}
+                                            {{--<div class="m-widget4__info">--}}
+                                                {{--<span class="m-widget4__title">--}}
+                                                    {{--Parter--}}
+                                                {{--</span>--}}
+                                                {{--<br>--}}
+                                                {{--<span class="m-widget4__sub">--}}
+                                                    {{--value--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!--end::Widget 14-->--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<!--end:: Widgets/New Users-->--}}
+                {{--</div>--}}
+            </div>
+            <!--End::Info Portlet-->
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Commodités
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Abri
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->shelter == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Accès pour handicapé
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->access_disabled == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Adoucisseur d'eau
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->water_softener == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Air conditionné
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->air_conditioning == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Animaux bienvenus
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->pets_welcome == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Armoires encastrées
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->fitted_wardrobes == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Ascenseur privé
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->private_lift == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Aspiration centralisée
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->central_aspiration == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Atelier
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->workshop == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Baie de brassage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->patch_panel == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Baies vitrées
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->windows == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Baignoire
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->bath == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Baignoire balnéo
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->balneo_bath == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Buanderie privée
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->private_laundry_room == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Cafétéria
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->cafeteria == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Carnotzet
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->carnotzet == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Cave
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->cave == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Cave à vin
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->wine_cellar == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Cellier
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->cellar == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Cheminée
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->fireplace == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Climatisation
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->air_conditioner == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Cloisons amovibles
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->removable_partitions == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Dépendance
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->addiction == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Domotique
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->automation == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Double vitrage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->double_glazing == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Douche
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->shower == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Dressing
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->dressing == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Extincteur automatique à eau
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->automatic_fire_extinguisher == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Faux plafond
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->false_ceiling == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Fibre optique
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->optical_fiber == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Grenier
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->attic == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Groupe électrogène
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->generator == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Hammam
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->hammam == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Internet Haut Débit
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->high_internet == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Jacuzzi
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->jacuzzi == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Jardin d'hiver
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->winter_garden == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Local à ski
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->ski_locker == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Local à velo
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->bicycle_storage == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Loggia
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->loggia == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Monstiquaire
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->net == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Monte-charge
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->hoist == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Open-space
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->open_plan == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Piscine extérieure
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->outdoor_pool == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Piscine intérieure
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->indoor_pool == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Poêle en céramique
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->ceramic_stove == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Poêle suédois
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->swedish_stove == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Quai de déchargement
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->loading_dock == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Raccordement pour cheminée
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->connection_chimney == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Raccordement pour poêle suédois
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->connection_swedish_stove == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Réception
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->reception == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Rideau métallique
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->metallic_curtain == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Robinet d'incendie armé
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->armed_with_fire_tap == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Salle de bricolage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->do_it_yourself_room == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Salle de cinéma
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->theater == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Salle de jeux
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->game_room == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Salle fitness
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->fitness_room == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Salle de conférence
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->conference_room == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Satellite
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->satellite == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sauna
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->sauna == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sous-sol
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->subsoil == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Stores
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->blinds == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Stores électriques
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->electric_blinds == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Thermostat connecté
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->thermostat_connected == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Triple vitrage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->triple_glazing == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Véranda
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->veranda == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Vide sanitaire
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->crawlspace == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Volets roulants électriques
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->electric_shutters == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sèche-linge
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->tumble_drier == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sèche-cheveux
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->hair_dryer == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    TV Satellite
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->satellite_tv == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Téléphone
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->phone == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Abri de voiture
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->car_shelter == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Arrosage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->spray == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Barbecue
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->barbecue == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Eclairage extérieur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->exterior_lighting == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Forage
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->drilling == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Héliport
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->heliport == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Puits
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->well == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Source
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->source == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Ascenseur collectif
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->collective_lift == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Buanderie collective
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->communal_laundry_room == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Câblage réseau
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->network_cabling == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Fibre optique collective
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->collective_optical_fiber == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Parabole
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->parable == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Alamre
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->alarm == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Carte magnétique
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->magnetic_card == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Clôturé
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->fenced == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Coffre-fort
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->safe == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    DigiCode
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->digidode == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Gardien
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->guardian == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Gardien d'immeuble
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->caretaker == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Interphone
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->intercom == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Portail électrique
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->electric_gate == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Porte blindée
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->reinforced_door == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Vidéophone
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->videophone == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Vue
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Dégagée
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->clear == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Imprenable
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->impregnable == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Panoramique
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->panoramic == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur cour
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->courtyard == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur la campagne
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_countryside == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur la forêt
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_forest == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur la mer
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_sea == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur la piscine
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_pool == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur la rivière
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_river == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur la rue
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_street == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur la ville
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_city == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur le jardin
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_garden == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur le lac
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_lake == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur le parc
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_park == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur le port
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_haven == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur les collines
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_hills == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur les montagnes
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_mountains == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sur les piste de ski
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->on_ski_slopes == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Vis-à-vis
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->vis_a_vis == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Widget 14-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Etat
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Etat intérieur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->interior_condition }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Type de construction
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->type_construction }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Etat de la façade
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->state_front }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Etat extérieur
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->external_state }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Année de construction
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->year_construction }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Année de rénovation
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ $dataTypeContent->year_renovation }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="m-portlet m-portlet--full-height">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-caption">
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        Exposition
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
+                            <!--begin::Widget 14-->
+                            <div class="m-widget4">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Nord
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->nord == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Sud
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->south == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Est
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->est == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                        <!--begin::Widget 14 Item-->
+                                        <div class="m-widget4__item">
+                                            <div class="m-widget4__info">
+                                                <span class="m-widget4__title">
+                                                    Ouest
+                                                </span>
+                                                <br>
+                                                <span class="m-widget4__sub">
+                                                    {{ ($dataTypeContent->west == 0) ? 'no' : 'yes' }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @stop
