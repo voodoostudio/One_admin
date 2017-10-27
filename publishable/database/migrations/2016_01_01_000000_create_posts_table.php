@@ -142,7 +142,7 @@ class CreatePostsTable extends Migration
             $table->boolean('dishwasher')->default(0);
             $table->boolean('plates')->default(0);
             $table->boolean('induction_plates')->default(0);
-            $table->integer('hotplates')->nullable();
+            $table->boolean('hotplates')->default(0);
             $table->boolean('ceramic_plates')->default(0);
             $table->boolean('fridge')->default(0);
             $table->boolean('cuisine_tumble_drier')->default(0);

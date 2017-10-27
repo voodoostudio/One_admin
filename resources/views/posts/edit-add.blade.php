@@ -421,12 +421,12 @@
                                             </label>
                                             <div class="m-radio-inline">
                                                 <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="promotion" @if(isset($dataTypeContent->promotion) && $dataTypeContent->promotion){{ 'checked="checked"' }}{{ 'checked="checked"' }}@endif>
+                                                    <input type="radio" name="promotion" value="1" checked @if(isset($dataTypeContent->promotion) && $dataTypeContent->promotion == 1){{ 'checked="checked"' }}@endif>
                                                     Oui
                                                     <span></span>
                                                 </label>
                                                 <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="promotion">
+                                                    <input type="radio" name="promotion" value="0" @if(isset($dataTypeContent->promotion) && $dataTypeContent->promotion == 0){{ 'checked="checked"' }}@endif>
                                                     Non
                                                     <span></span>
                                                 </label>
@@ -2756,24 +2756,25 @@
         });
 
         // selects
-        $('label[fuck]').click(function() {
-            var id = $('select[name="category_id"]').val();
+        $('select').on('change', function() {
+
+            var selectedOption = $(this).select2('data')[0]['id'];
             var token = $('input[name="_token"]').val();
 
             $.ajax({
-                url: '../../get-categories/'+id,
+                url: '../../get-categories/'+selectedOption,
                 type: 'post',
                 data: {
                     '_token': token,
-                    'category' : id
+                    'category' : selectedOption
                 },
-                success : function (response) {
-                    console.log(response)
+                success : function (arr) {
+                  console.log(arr);
                 }
 
             });
 
-        });
+        })
 
 
 

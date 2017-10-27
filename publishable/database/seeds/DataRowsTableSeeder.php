@@ -1865,7 +1865,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'hotplates');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'text',
+                'type'         => 'checkbox',
                 'display_name' => 'Hotplates',
                 'required'     => 0,
                 'browse'       => 0,
@@ -4172,6 +4172,22 @@ class DataRowsTableSeeder extends Seeder
                 'delete'       => 0,
                 'details'      => '',
                 'order'        => 255,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'taxes_1');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Taxe d\'habitation',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 256,
             ])->save();
         }
 

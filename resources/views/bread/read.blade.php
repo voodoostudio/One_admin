@@ -2,6 +2,7 @@
 
 {{--{{ dd($dataTypeContent->toArray()) }}--}}
 
+
 @section('css')
     <link href="{{ asset('assets/plugins/css/slick.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/css/slick-theme.css') }}" rel="stylesheet" type="text/css" />
@@ -233,7 +234,7 @@
                             <div class="m-widget19">
                                 <div class="m-widget19__pic m-portlet-fit--sides" style1="height: 280px">
                                     <div class="object_gallery">
-                                        <div><img src="{{ $dataTypeContent->image }}" alt=""></div>
+                                        <div><img src="{{ URL::to('storage') }}/{{ $dataTypeContent->image }}" alt=""></div>
                                     </div>
                                     <h3 class="m-widget19__title m--font-light">
                                         {{ $dataTypeContent->title }}
@@ -329,7 +330,11 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    @foreach(TCG\Voyager\Models\Category::all() as $category)
+                                                        @if($category->parent_id == null)
+                                                            @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ $category->name }}@endif
+                                                        @endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -344,7 +349,11 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    @foreach(TCG\Voyager\Models\Category::all() as $category)
+                                                        @if($category->parent_id != null)
+                                                            @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ $category->name }}@endif
+                                                        @endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -385,11 +394,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Statut <!-- todo -->
+                                                    Statut
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    @foreach(TCG\Voyager\Models\Status::all() as $status)
+                                                        @if(isset($dataTypeContent->status_id) && $dataTypeContent->status_id == $status->reference){{ $status->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -400,11 +411,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Mandat <!-- todo -->
+                                                    Mandat
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    @foreach(TCG\Voyager\Models\Mandate::all() as $mandate)
+                                                        @if(isset($dataTypeContent->mandate_id) && $dataTypeContent->mandate_id == $mandate->reference){{ $mandate->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -419,7 +432,9 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    @foreach(TCG\Voyager\Models\Origin::all() as $origin)
+                                                        @if(isset($dataTypeContent->origin_id) && $dataTypeContent->origin_id == $origin->reference){{ $origin->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -713,11 +728,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Pays <!-- todo -->
+                                                    Pays
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->country }}
+                                                    @foreach(TCG\Voyager\Models\Country::all() as $country)
+                                                        @if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ $country->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -732,7 +749,9 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->location }}
+                                                    @foreach(TCG\Voyager\Models\Location::all() as $location)
+                                                        @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ $location->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -770,7 +789,9 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->lng_of_add }}
+                                                    @foreach(TCG\Voyager\Models\Languages::all() as $lng_of_add)
+                                                        @if(isset($dataTypeContent->lng_of_add) && $dataTypeContent->lng_of_add == $lng_of_add->reference){{ $lng_of_add->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -839,21 +860,6 @@
                                                 <br>
                                                 <span class="m-widget4__sub">
                                                     {{ $dataTypeContent->сurrency }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <!--end::Widget 14 Item-->
-                                    </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
-                                        <!--begin::Widget 14 Item-->
-                                        <div class="m-widget4__item">
-                                            <div class="m-widget4__info">
-                                                <span class="m-widget4__title">
-                                                    Afficher le prix <!-- todo -->
-                                                </span>
-                                                <br>
-                                                <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->show_price == 0) ? 'Non' : 'Oui' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1014,11 +1020,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Régime <!-- todo -->
+                                                    Régime
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->regime }}
+                                                    @foreach(TCG\Voyager\Models\Regime::all() as $regime)
+                                                        @if(isset($dataTypeContent->regime) && $dataTypeContent->regime == $regime->reference){{ $regime->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -1358,11 +1366,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Etage du bien <!-- todo -->
+                                                    Etage du bien
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->floor_property }}
+                                                    @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)
+                                                        @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ $floor_property->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -1576,11 +1586,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Type de terrain <!-- todo -->
+                                                    Type de terrain
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->type_land }}
+                                                    @foreach(TCG\Voyager\Models\TypeOfLand::all() as $type_land)
+                                                        @if(isset($dataTypeContent->type_land) && $dataTypeContent->type_land == $type_land->reference){{ $type_land->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -1897,11 +1909,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Type <!-- todo -->
+                                                    Type
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->type }}
+                                                    @foreach(TCG\Voyager\Models\Kitchen::all() as $type)
+                                                        @if(isset($dataTypeContent->type) && $dataTypeContent->type == $type->reference){{ $type->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2145,11 +2159,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Format <!-- todo -->
+                                                    Format
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->format }}
+                                                    @foreach(TCG\Voyager\Models\Heating::all() as $format)
+                                                        @if(isset($dataTypeContent->format) && $dataTypeContent->format == $format->reference){{ $format->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2160,11 +2176,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Energie <!-- todo -->
+                                                    Energie
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->chauffage_energy }}
+                                                    @foreach(TCG\Voyager\Models\Energy::all() as $chauffage_energy)
+                                                        @if(isset($dataTypeContent->chauffage_energy) && $dataTypeContent->chauffage_energy == $chauffage_energy->reference){{ $chauffage_energy->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2175,11 +2193,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Type de chauffage <!-- todo -->
+                                                    Type de chauffage
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->type_heating }}
+                                                    @foreach(TCG\Voyager\Models\HeatingType::all() as $type_heating)
+                                                        @if(isset($dataTypeContent->type_heating) && $dataTypeContent->type_heating == $type_heating->reference){{ $type_heating->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2190,11 +2210,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Type de radiateur <!-- todo -->
+                                                    Type de radiateur
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->type_radiator }}
+                                                    @foreach(TCG\Voyager\Models\Radiator::all() as $type_radiator)
+                                                        @if(isset($dataTypeContent->type_radiator) && $dataTypeContent->type_radiator == $type_radiator->reference){{ $type_radiator->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2228,11 +2250,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Distribution <!-- todo -->
+                                                    Distribution
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->distribution }}
+                                                    @foreach(TCG\Voyager\Models\WaterDistribution::all() as $distribution)
+                                                        @if(isset($dataTypeContent->distribution) && $dataTypeContent->distribution == $distribution->reference){{ $distribution->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2243,11 +2267,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Energie <!-- todo -->
+                                                    Energie
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->eau_chaude_energy }}
+                                                    @foreach(TCG\Voyager\Models\WaterEnergy::all() as $eau_chaude_energy)
+                                                        @if(isset($dataTypeContent->eau_chaude_energy) && $dataTypeContent->eau_chaude_energy == $eau_chaude_energy->reference){{ $eau_chaude_energy->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2286,11 +2312,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Distribution <!-- todo -->
+                                                    Distribution
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->usees_distribution }}
+                                                    @foreach(TCG\Voyager\Models\WasteDistribution::all() as $usees_distribution)
+                                                        @if(isset($dataTypeContent->usees_distribution) && $dataTypeContent->usees_distribution == $usees_distribution->reference){{ $usees_distribution->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2324,11 +2352,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Minergie <!-- todo -->
+                                                    Minergie
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->divers_format }}
+                                                    @foreach(TCG\Voyager\Models\Minergie::all() as $divers_format)
+                                                        @if(isset($dataTypeContent->divers_format) && $dataTypeContent->divers_format == $divers_format->reference){{ $divers_format->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2339,11 +2369,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Sonorité <!-- todo -->
+                                                    Sonorité
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->sonority }}
+                                                    @foreach(TCG\Voyager\Models\Sonority::all() as $sonority)
+                                                        @if(isset($dataTypeContent->sonority) && $dataTypeContent->sonority == $sonority->reference){{ $sonority->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2354,11 +2386,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Style <!-- todo -->
+                                                    Style
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->style }}
+                                                    @foreach(TCG\Voyager\Models\Style::all() as $style)
+                                                        @if(isset($dataTypeContent->style) && $dataTypeContent->style == $style->reference){{ $style->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -4080,7 +4114,9 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->interior_condition }}
+                                                    @foreach(TCG\Voyager\Models\State::all() as $state_front)
+                                                        @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ $state_front->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -4094,7 +4130,9 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->type_construction }}
+                                                    @foreach(TCG\Voyager\Models\Construction::all() as $type_construction)
+                                                        @if(isset($dataTypeContent->type_construction) && $dataTypeContent->type_construction == $type_construction->reference){{ $type_construction->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -4108,7 +4146,9 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->state_front }}
+                                                    @foreach(TCG\Voyager\Models\State::all() as $state_front)
+                                                        @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ $state_front->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -4122,7 +4162,9 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->external_state }}
+                                                    @foreach(TCG\Voyager\Models\State::all() as $state_front)
+                                                        @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ $state_front->value }}@endif
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
