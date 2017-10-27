@@ -20,12 +20,12 @@ class CreatePostsTable extends Migration
             $table->string('title');
             // Redaction
             $table->integer('lng_of_add');
-//            $table->string('add_title',80)->nullable();
             $table->text('desc_add')->nullable();
             $table->string('image')->nullable();
             $table->string('reference')->nullable();
             $table->boolean('exclusiveness')->default(0);
             $table->integer('category_id')->nullable();
+            $table->integer('sub_category')->nullable();
             $table->integer('notation')->nullable();
             $table->integer('broker')->nullable();
             $table->integer('status_id')->nullable();
@@ -36,7 +36,7 @@ class CreatePostsTable extends Migration
             $table->date('availability')->nullable();
             $table->date('availab_from')->nullable();
             $table->date('availab_until')->nullable();
-            $table->integer('promotion')->nullable();
+            $table->boolean('promotion')->default(0);
             $table->boolean('direct_transaction')->default(0);
             $table->string('note_transaction',255)->nullable();
             $table->string('broker_notes',255)->nullable();

@@ -2,7 +2,6 @@
 
 {{--{{ dd($dataTypeContent->toArray()) }}--}}
 
-
 @section('css')
     <link href="{{ asset('assets/plugins/css/slick.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/css/slick-theme.css') }}" rel="stylesheet" type="text/css" />
@@ -234,7 +233,7 @@
                             <div class="m-widget19">
                                 <div class="m-widget19__pic m-portlet-fit--sides" style1="height: 280px">
                                     <div class="object_gallery">
-                                        <div><img src="/assets/house_invest_spain/img/house.jpeg" alt=""></div>
+                                        <div><img src="{{ $dataTypeContent->image }}" alt=""></div>
                                     </div>
                                     <h3 class="m-widget19__title m--font-light">
                                         {{ $dataTypeContent->title }}
