@@ -1,6 +1,6 @@
 @extends('voyager::master_metronic')
 
-{{--{{ dd($dataTypeContent->toArray()) }}--}}
+{{ dd($dataTypeContent->toArray()) }}
 
 
 @section('css')
@@ -237,7 +237,7 @@
                                         <div><img src="{{ URL::to('storage') }}/{{ $dataTypeContent->image }}" alt=""></div>
                                     </div>
                                     <h3 class="m-widget19__title m--font-light">
-                                        {{ $dataTypeContent->title }}
+                                        {{ $dataTypeContent->title_fr }}
                                     </h3>
                                     <div class="m-widget19__shadow"></div>
                                 </div>
@@ -267,7 +267,7 @@
                                         </div>
                                     </div>
                                     <div class="m-widget19__body">
-                                        {{ $dataTypeContent->desc_add }}
+                                        {{ $dataTypeContent->desc_add_fr }}
                                     </div>
                                 </div>
                             </div>

@@ -66,7 +66,39 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'title');
+        $dataRow = $this->dataRow($postDataType, 'title_en');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Title',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 4,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'title_es');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Title',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 4,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'title_fr');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
@@ -678,7 +710,39 @@ class DataRowsTableSeeder extends Seeder
 //            ])->save();
 //        }
 
-        $dataRow = $this->dataRow($postDataType, 'desc_add');
+        $dataRow = $this->dataRow($postDataType, 'desc_add_en');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text_area',
+                'display_name' => 'Description add',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 40,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'desc_add_es');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text_area',
+                'display_name' => 'Description add',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 40,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'desc_add_fr');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text_area',
@@ -713,7 +777,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'show_price');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'checkbox',
+                'type'         => 'radiobutton',
                 'display_name' => 'Show price',
                 'required'     => 0,
                 'browse'       => 0,
@@ -721,7 +785,13 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'      => '',
+                'details'      => json_encode([
+                    'default' => '1',
+                    'options' => [
+                        '1' => 1,
+                        '0' => 0,
+                    ]
+                ]),
                 'order'        => 42,
             ])->save();
         }
@@ -4130,7 +4200,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'promotion');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'checkbox',
+                'type'         => 'radiobutton',
                 'display_name' => 'Promotion',
                 'required'     => 0,
                 'browse'       => 0,
@@ -4138,7 +4208,13 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'      => '',
+                'details'      => json_encode([
+                    'default' => '1',
+                    'options' => [
+                        '1' => 1,
+                        '0' => 0,
+                    ]
+                ]),
                 'order'        => 253,
             ])->save();
         }
@@ -4146,7 +4222,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'direct_transaction');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'checkbox',
+                'type'         => 'radiobutton',
                 'display_name' => 'Direct transaction',
                 'required'     => 0,
                 'browse'       => 0,
@@ -4154,7 +4230,13 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'      => '',
+                'details'      => json_encode([
+                    'default' => '1',
+                    'options' => [
+                        '1' => 1,
+                        '0' => 0,
+                    ]
+                ]),
                 'order'        => 254,
             ])->save();
         }
@@ -4188,6 +4270,29 @@ class DataRowsTableSeeder extends Seeder
                 'delete'       => 0,
                 'details'      => '',
                 'order'        => 256,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'ann_type');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'radiobutton',
+                'display_name' => 'Announce type',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => json_encode([
+                    'default' => '1',
+                    'options' => [
+                        '1' => 1,
+                        '0' => 0,
+                        ]
+                ]),
+                'order'        => 257,
+
             ])->save();
         }
 

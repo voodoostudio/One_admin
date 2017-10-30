@@ -17,11 +17,16 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('author_id');
 //            $table->string('slug')->unique();
-            $table->string('title');
+            $table->string('title_en');
+            $table->string('title_es');
+            $table->string('title_fr');
+            $table->text('desc_add_en')->nullable();
+            $table->text('desc_add_es')->nullable();
+            $table->text('desc_add_fr')->nullable();
             // Redaction
             $table->integer('lng_of_add');
-            $table->text('desc_add')->nullable();
             $table->string('image')->nullable();
+            $table->boolean('ann_type');
             $table->string('reference')->nullable();
             $table->boolean('exclusiveness')->default(0);
             $table->integer('category_id')->nullable();

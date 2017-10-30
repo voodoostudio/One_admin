@@ -195,12 +195,28 @@
                                                 </select>
                                             </div>
                                             <div class="col-lg-8 margin_bottom_10">
-                                                <label class="">Titre de l'annonce</label>
-                                                <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title }}@endif" class="form-control m-input" placeholder="Ad Title" name="title" required="required">
+                                                <label class="">Titre de l'annonce FR</label>
+                                                <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_fr }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_fr" required="required">
+                                            </div>
+                                            <div class="col-lg-8 margin_bottom_10">
+                                                <label class="">Titre de l'annonce ES</label>
+                                                <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_es }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_es" required="required">
+                                            </div>
+                                            <div class="col-lg-8 margin_bottom_10">
+                                                <label class="">Titre de l'annonce EN</label>
+                                                <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_en }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_en" required="required">
                                             </div>
                                             <div class="col-lg-12 margin_bottom_10">
-                                                <label>Description de l'annonce</label>
-                                                <textarea class="form-control m-input" name="desc_add" rows="3">@if(isset($dataTypeContent->desc_add)){{ $dataTypeContent->desc_add }}@endif</textarea>
+                                                <label>Description de l'annonce FR</label>
+                                                <textarea class="form-control m-input" name="desc_add_fr" rows="3">@if(isset($dataTypeContent->desc_add)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
+                                            </div>
+                                            <div class="col-lg-12 margin_bottom_10">
+                                                <label>Description de l'annonce ES</label>
+                                                <textarea class="form-control m-input" name="desc_add_es" rows="3">@if(isset($dataTypeContent->desc_add)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
+                                            </div>
+                                            <div class="col-lg-12 margin_bottom_10">
+                                                <label>Description de l'annonce EN</label>
+                                                <textarea class="form-control m-input" name="desc_add_en" rows="3">@if(isset($dataTypeContent->desc_add)){{ $dataTypeContent->desc_add_en }}@endif</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -213,7 +229,7 @@
                                                         @if(isset($dataTypeContent->image))
                                                             <img src="{{ filter_var($dataTypeContent->image, FILTER_VALIDATE_URL) ? Voyager::image($dataTypeContent->image) : $dataTypeContent->image }}" style="width:100%" />
                                                         @endif
-                                                        <input type="file" name="image">
+                                                        <input type="file" name="image" multiple>
                                                         {{--<h3 class="m-dropzone__msg-title">--}}
                                                             {{--Drop files here or click to upload.--}}
                                                         {{--</h3>--}}
@@ -236,6 +252,23 @@
                                                         {{--<input type="file" name="image">--}}
                                                     {{--</div>--}}
                                                 {{--</div>--}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 margin_bottom_10">
+                                        <div class="form-group">
+                                            <label class="">Announce type</label>
+                                            <div class="m-radio-inline">
+                                                <label class="m-radio m-radio--solid">
+                                                    <input type="radio" name="ann_type" value="1" {{ ($dataTypeContent->ann_type == 1) ? 'checked' : '' }}>
+                                                    Sale
+                                                    <span></span>
+                                                </label>
+                                                <label class="m-radio m-radio--solid">
+                                                    <input type="radio" name="ann_type" value="0" {{ ($dataTypeContent->ann_type == 0) ? 'checked' : '' }}>
+                                                    Rent
+                                                    <span></span>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -365,7 +398,7 @@
                                         <div class="form-group">
                                             <label>Disponibilité</label>
                                             <div class='input-group date' id='m_datepicker_4'>
-                                                <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->availability)){{ $dataTypeContent->availability }}@endif" readonly  placeholder="Select date" name="availability"/>
+                                                <input type='text' class="form-control m-input date-type rent" value="@if(isset($dataTypeContent->availability)){{ $dataTypeContent->availability }}@endif" readonly  placeholder="Select date" name="availability"/>
                                                 <span class="input-group-addon">
                                                     <i class="la la-calendar-check-o"></i>
                                                 </span>
@@ -421,12 +454,12 @@
                                             </label>
                                             <div class="m-radio-inline">
                                                 <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="promotion" value="1" checked @if(isset($dataTypeContent->promotion) && $dataTypeContent->promotion == 1){{ 'checked="checked"' }}@endif>
+                                                    <input type="radio" name="promotion" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
                                                     Oui
                                                     <span></span>
                                                 </label>
                                                 <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="promotion" value="0" @if(isset($dataTypeContent->promotion) && $dataTypeContent->promotion == 0){{ 'checked="checked"' }}@endif>
+                                                    <input type="radio" name="promotion" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
                                                     Non
                                                     <span></span>
                                                 </label>
@@ -438,12 +471,12 @@
                                             <label class="">Transaction directe :</label>
                                             <div class="m-radio-inline">
                                                 <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="direct_transaction">
+                                                    <input type="radio" name="direct_transaction" value="1" {{ ($dataTypeContent->direct_transaction == 1) ? 'checked' : '' }}>
                                                     Oui
                                                     <span></span>
                                                 </label>
                                                 <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="direct_transaction" checked>
+                                                    <input type="radio" name="direct_transaction" value="0" {{ ($dataTypeContent->direct_transaction == 0) ? 'checked' : '' }}>
                                                     Non
                                                     <span></span>
                                                 </label>
@@ -491,7 +524,8 @@
                                     <div class="col-lg-3 margin_bottom_10">
                                         <label>Adresse</label>
                                         <div class="m-input-icon m-input-icon--right">
-                                            <input type="text" class="form-control m-input" placeholder="Enter your address" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">
+                                            <input type="text" id="pac-input" class="form-control m-input" placeholder="Enter your address" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">
+                                            {{--<input id="pac-input" class="controls" type="text" placeholder="Search Box">--}}
                                             <span class="m-input-icon__icon m-input-icon__icon--right">
                                                 <span>
                                                     <i class="la la-map-marker"></i>
@@ -561,9 +595,11 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-3 margin_bottom_10">
-                                        <button type="button" class="btn btn-secondary">
-                                            Place address on map
-                                        </button>
+
+                                        <a href="#map">
+                                            <button type="button" class="btn btn-secondary">Place address on map</button>
+                                        </a>
+                                        <div style="height:500px;width:1000px;text-align: center;" id="map"></div>
                                     </div>
 
 
@@ -618,12 +654,12 @@
                                             <label class="">Afficher le prix :</label>
                                             <div class="m-radio-inline">
                                                 <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="show_price" checked value="1">
+                                                    <input type="radio" name="show_price" value="1" {{ ($dataTypeContent->show_price == 1) ? 'checked' : '' }}>
                                                     Oui
                                                     <span></span>
                                                 </label>
                                                 <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="show_price" value="0">
+                                                    <input type="radio" name="show_price" value="0" {{ ($dataTypeContent->show_price == 0) ? 'checked' : '' }}>
                                                     Non
                                                     <span></span>
                                                 </label>
@@ -2736,7 +2772,11 @@
     <!--begin::Page Resources -->
     <script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/dropzone.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js') }}" type="text/javascript"></script>
-    <!--end::Page Resources -->
+    <!-- Google Maps -->
+    {{--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&callback=initMap&libraries=places"></script>--}}
+        <!-- Places -->
+    {{--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&libraries=places"></script>--}}
+    <!--end::Google Maps -->
 
     {{--$('document').ready(function () {--}}
     {{--$('#slug').slugify();--}}
@@ -2747,12 +2787,19 @@
     {{--});--}}
     <script>
         $(".years_only").datepicker( {
-            format: "yyyy-mm-dd", // Notice the Extra space at the beginning
+            format: "yyyy", // Notice the Extra space at the beginning
             viewMode: "yyyy",
             minViewMode: "years"
         });
         $('.date-type').datepicker( {
             format: "yyyy-mm-dd" // Notice the Extra space at the beginning
+        });
+
+        // action for change announce type
+        $('input[name="ann_type"]').on("change", function(){
+            if($(this).val() === 1) {
+                $('.rent').attr('disabled', true);
+            }
         });
 
         // selects
@@ -2774,9 +2821,112 @@
 
             });
 
-        })
+        });
 
+        // Google Maps
 
+//        function initMap() {
+        //            var elem = document.getElementById('map');
+        //            var options = {
+        //                zoom : 5,
+        //                center : {lat : 40.415363,lng : -3.707398}
+        //            };
+        //            var myMap = new google.maps.Map(elem, options);
+        //
+        //            function AddMarker(coordinates) {
+        //                var marker = new google.maps.Marker({
+        //                    position : coordinates,
+        //                    map : myMap
+        //                });
+        //            }
+        //            AddMarker({lat : 40.415363,lng : -3.707398});
+        //            AddMarker({lat : 47.003670,lng : 28.907089});
+        //
+        ////            marker.addListener('click', function() {
+        ////                infoWindow.open(myMap, marker);
+        ////            });
+        ////            var infoWindow = new google.maps.InfoWindow({
+        ////                content: '<h3>Plasa Mayor</h3>'
+        ////            });
+        //
+        //        // Places
+        //            ;
+        //
+        //
+        //
+        //
+        //        }
+
+        // Places
+        function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center : {lat : 40.415363,lng : -3.707398},
+                zoom: 7,
+                mapTypeId: 'roadmap'
+            });
+
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+//            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function() {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function() {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function(marker) {
+                    marker.setMap(true);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function(place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
 
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&libraries=places&callback=initAutocomplete"
+            async defer></script>
+
 @stop
