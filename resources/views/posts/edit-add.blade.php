@@ -194,29 +194,29 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="col-lg-8 margin_bottom_10">
-                                                <label class="">Titre de l'annonce FR</label>
+                                            <div class="col-lg-8 margin_bottom_10 lang-fr">
+                                                <label>Titre de l'annonce FR</label>
                                                 <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_fr }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_fr" required="required">
                                             </div>
-                                            <div class="col-lg-8 margin_bottom_10">
-                                                <label class="">Titre de l'annonce ES</label>
+                                            <div class="col-lg-8 margin_bottom_10 lang-es">
+                                                <label>Titre de l'annonce ES</label>
                                                 <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_es }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_es" required="required">
                                             </div>
-                                            <div class="col-lg-8 margin_bottom_10">
-                                                <label class="">Titre de l'annonce EN</label>
+                                            <div class="col-lg-8 margin_bottom_10 lang-en">
+                                                <label>Titre de l'annonce EN</label>
                                                 <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_en }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_en" required="required">
                                             </div>
-                                            <div class="col-lg-12 margin_bottom_10">
+                                            <div class="col-lg-12 margin_bottom_10 lang-fr">
                                                 <label>Description de l'annonce FR</label>
-                                                <textarea class="form-control m-input" name="desc_add_fr" rows="3">@if(isset($dataTypeContent->desc_add)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
+                                                <textarea class="form-control m-input" name="desc_add_fr" rows="3">@if(isset($dataTypeContent->desc_add_fr)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
                                             </div>
-                                            <div class="col-lg-12 margin_bottom_10">
+                                            <div class="col-lg-12 margin_bottom_10 lang-es">
                                                 <label>Description de l'annonce ES</label>
-                                                <textarea class="form-control m-input" name="desc_add_es" rows="3">@if(isset($dataTypeContent->desc_add)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
+                                                <textarea class="form-control m-input" name="desc_add_es" rows="3">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
                                             </div>
-                                            <div class="col-lg-12 margin_bottom_10">
+                                            <div class="col-lg-12 margin_bottom_10 lang-en">
                                                 <label>Description de l'annonce EN</label>
-                                                <textarea class="form-control m-input" name="desc_add_en" rows="3">@if(isset($dataTypeContent->desc_add)){{ $dataTypeContent->desc_add_en }}@endif</textarea>
+                                                <textarea class="form-control m-input" name="desc_add_en" rows="3">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -320,11 +320,12 @@
                                         <div class="form-group">
                                             <label for="m_select2_2">Sous-catégorie</label>
                                             <select class="form-control m-select2 his_select2 sub-category" name="sub_category" data-placeholder="Select a sub-category">
-                                                @foreach(TCG\Voyager\Models\Category::all() as $category)
-                                                    @if($category->parent_id != null)
-                                                        <option value="{{ $category->id }}" @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>
-                                                    @endif
-                                                @endforeach
+                                                {{--@foreach(TCG\Voyager\Models\Category::all() as $category)--}}
+                                                    {{--@if($category->parent_id != null)--}}
+                                                        {{--<option value="{{ $category->id }}" @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>--}}
+                                                    {{--@endif--}}
+                                                {{--@endforeach--}}
+                                                {{--<option value="">Not SubCategories</option>--}}
                                             </select>
                                         </div>
                                     </div>
@@ -2816,11 +2817,14 @@
                     'category' : selectedOption
                 },
                 success : function (arr) {
-                  console.log(arr);
+                    $('select[name="sub_category"]').html('');
+                    $.each( arr, function( key, value ) {
+                        console.log(value.id + ' <= айди ' + value.name + ' <= Name ');
+                        $('select[name="sub_category"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+                    });
                 }
 
             });
-
         });
 
         // Google Maps
