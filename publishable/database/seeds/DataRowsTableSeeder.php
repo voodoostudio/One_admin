@@ -654,21 +654,21 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'lng_of_add');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => 'Language of the add',
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 38,
-            ])->save();
-        }
+//        $dataRow = $this->dataRow($postDataType, 'lng_of_add');
+//        if (!$dataRow->exists) {
+//            $dataRow->fill([
+//                'type'         => 'text',
+//                'display_name' => 'Language of the add',
+//                'required'     => 1,
+//                'browse'       => 0,
+//                'read'         => 1,
+//                'edit'         => 1,
+//                'add'          => 1,
+//                'delete'       => 0,
+//                'details'      => '',
+//                'order'        => 38,
+//            ])->save();
+//        }
 
 //        $dataRow = $this->dataRow($postDataType, 'add_title');
 //        if (!$dataRow->exists) {

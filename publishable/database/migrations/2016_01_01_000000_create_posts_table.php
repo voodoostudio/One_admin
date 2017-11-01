@@ -24,7 +24,6 @@ class CreatePostsTable extends Migration
             $table->text('desc_add_es')->nullable();
             $table->text('desc_add_fr')->nullable();
             // Redaction
-            $table->integer('lng_of_add');
             $table->string('image')->nullable();
             $table->boolean('ann_type');
             $table->string('reference')->nullable();
