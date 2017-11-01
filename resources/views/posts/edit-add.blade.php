@@ -164,118 +164,93 @@
         <!-- END: Subheader -->
         <div class="m-content">
             <!--begin::Form-->
-            <form class="form-edit-add m-form" role="form" action="@if(isset($dataTypeContent->id)){{ route('voyager.posts.update', $dataTypeContent->id) }}@else{{ route('voyager.posts.store') }}@endif" method="POST" enctype="multipart/form-data">
+            <form class="form-edit-add m-form m-form--group-seperator-dashed" role="form" action="@if(isset($dataTypeContent->id)){{ route('voyager.posts.update', $dataTypeContent->id) }}@else{{ route('voyager.posts.store') }}@endif" method="POST" enctype="multipart/form-data">
                 @if(isset($dataTypeContent->id))
                     {{ method_field("PUT") }}
                 @endif
                 {{ csrf_field() }}
                 <!-- Radactation -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!--begin::Portlet-->
-                        <div class="m-portlet">
-                            <div class="m-portlet__head">
-                                <div class="m-portlet__head-caption">
-                                    <div class="m-portlet__head-title">
-                                        <span class="m-portlet__head-icon m--hide"><i class="la la-gear"></i></span>
-                                        <h3 class="m-portlet__head-text">Rédaction</h3>
+                <div class="m-portlet m-portlet--tabs">
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <h3 class="m-portlet__head-text">Rédaction</h3>
+                            </div>
+                        </div>
+                        <div class="m-portlet__head-tools">
+                            <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--right m-tabs-line-danger" role="tablist">
+                                <li class="nav-item m-tabs__item">
+                                    <a class="nav-link m-tabs__link active" data-toggle="tab" href="#fr_redaction" role="tab" aria-expanded="false">Français</a>
+                                </li>
+                                <li class="nav-item m-tabs__item">
+                                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#en_redaction" role="tab" aria-expanded="true">Anglais</a>
+                                </li>
+                                <li class="nav-item m-tabs__item">
+                                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#es_redaction" role="tab" aria-expanded="true">Espagnol</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="form-group m-form__group">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="fr_redaction" role="tabpanel" aria-expanded="true">
+                                    <div class="row">
+                                        <div class="col-12 margin_bottom_10 lang-fr">
+                                            <label>Titre de l'annonce FR</label>
+                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_fr }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_fr" required="required">
+                                        </div>
+                                        <div class="col-12 margin_bottom_10 lang-fr">
+                                            <label>Description de l'annonce FR</label>
+                                            <textarea class="form-control m-input" name="desc_add_fr" rows="8">@if(isset($dataTypeContent->desc_add_fr)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="en_redaction" role="tabpanel" aria-expanded="false">
+                                    <div class="row">
+                                        <div class="col-12 margin_bottom_10 lang-en">
+                                            <label>Titre de l'annonce EN</label>
+                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_en }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_en" required="required">
+                                        </div>
+                                        <div class="col-12 margin_bottom_10 lang-en">
+                                            <label>Description de l'annonce EN</label>
+                                            <textarea class="form-control m-input" name="desc_add_en" rows="8">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="es_redaction" role="tabpanel" aria-expanded="false">
+                                    <div class="row">
+                                        <div class="col-12 margin_bottom_10 lang-es">
+                                            <label>Titre de l'annonce ES</label>
+                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_es }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_es" required="required">
+                                        </div>
+                                        <div class="col-12 margin_bottom_10 lang-es">
+                                            <label>Description de l'annonce ES</label>
+                                            <textarea class="form-control m-input" name="desc_add_es" rows="8">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="m-portlet__body">
-                                <div class="form-group m-form__group row">
-                                    <div class="col-lg-6">
-                                        <div class="row">
-                                            <div class="col-lg-4 margin_bottom_10">
-                                                <label>Langue de l'annonce</label>
-                                                <select class="form-control m-select2 his_select2" name="lng_of_add" data-placeholder="Select Language of the ad">
-                                                    @foreach(TCG\Voyager\Models\Languages::all() as $lng_of_add)
-                                                        <option value="{{ $lng_of_add->reference }}" @if(isset($dataTypeContent->lng_of_add) && $dataTypeContent->lng_of_add == $lng_of_add->reference){{ 'selected="selected"' }}@endif>{{ $lng_of_add->value }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-8 margin_bottom_10 lang-fr">
-                                                <label>Titre de l'annonce FR</label>
-                                                <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_fr }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_fr" required="required">
-                                            </div>
-                                            <div class="col-lg-8 margin_bottom_10 lang-es">
-                                                <label>Titre de l'annonce ES</label>
-                                                <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_es }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_es" required="required">
-                                            </div>
-                                            <div class="col-lg-8 margin_bottom_10 lang-en">
-                                                <label>Titre de l'annonce EN</label>
-                                                <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_en }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_en" required="required">
-                                            </div>
-                                            <div class="col-lg-12 margin_bottom_10 lang-fr">
-                                                <label>Description de l'annonce FR</label>
-                                                <textarea class="form-control m-input" name="desc_add_fr" rows="3">@if(isset($dataTypeContent->desc_add_fr)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
-                                            </div>
-                                            <div class="col-lg-12 margin_bottom_10 lang-es">
-                                                <label>Description de l'annonce ES</label>
-                                                <textarea class="form-control m-input" name="desc_add_es" rows="3">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
-                                            </div>
-                                            <div class="col-lg-12 margin_bottom_10 lang-en">
-                                                <label>Description de l'annonce EN</label>
-                                                <textarea class="form-control m-input" name="desc_add_en" rows="3">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="row">
-                                            <div class="col-lg-12 margin_bottom_10">
-                                                <label>Gallery images dropzone</label>
-                                                <div class="m-dropzone dropzone m-dropzone--success" id="m-dropzone-three"><!--action="inc/api/dropzone/upload.php" -->
-                                                    <div class="m-dropzone__msg dz-message needsclick">
-                                                        @if(isset($dataTypeContent->image))
-                                                            <img src="{{ filter_var($dataTypeContent->image, FILTER_VALIDATE_URL) ? Voyager::image($dataTypeContent->image) : $dataTypeContent->image }}" style="width:100%" />
-                                                        @endif
-                                                        <input type="file" name="image" multiple>
-                                                        {{--<h3 class="m-dropzone__msg-title">--}}
-                                                            {{--Drop files here or click to upload.--}}
-                                                        {{--</h3>--}}
-                                                        {{--<span class="m-dropzone__msg-desc">--}}
-                                                            {{--Only image, pdf and psd files are allowed for upload--}}
-                                                        {{--</span>--}}
-                                                    </div>
-                                                </div>
-                                                {{--<div class="panel panel-bordered panel-primary">--}}
-                                                    {{--<div class="panel-heading">--}}
-                                                        {{--<h3 class="panel-title"><i class="icon wb-image"></i> {{ __('voyager.post.image') }}</h3>--}}
-                                                        {{--<div class="panel-actions">--}}
-                                                            {{--<a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
-                                                    {{--<div class="panel-body">--}}
-                                                        {{--@if(isset($dataTypeContent->image))--}}
-                                                            {{--<img src="{{ filter_var($dataTypeContent->image, FILTER_VALIDATE_URL) ? $dataTypeContent->image : Voyager::image( $dataTypeContent->image ) }}" style="width:100%" />--}}
-                                                        {{--@endif--}}
-                                                        {{--<input type="file" name="image">--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 margin_bottom_10">
-                                        <div class="form-group">
-                                            <label class="">Announce type</label>
-                                            <div class="m-radio-inline">
-                                                <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="ann_type" value="1" {{ ($dataTypeContent->ann_type == 1) ? 'checked' : '' }}>
-                                                    Sale
-                                                    <span></span>
-                                                </label>
-                                                <label class="m-radio m-radio--solid">
-                                                    <input type="radio" name="ann_type" value="0" {{ ($dataTypeContent->ann_type == 0) ? 'checked' : '' }}>
-                                                    Rent
-                                                    <span></span>
-                                                </label>
-                                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 margin_bottom_10">
+                                    <div class="form-group">
+                                        <label class="">Announce type</label>
+                                        <div class="m-radio-inline">
+                                            <label class="m-radio m-radio--solid">
+                                                <input type="radio" name="ann_type" value="1" {{ ($dataTypeContent->ann_type == 1) ? 'checked' : '' }}>
+                                                Sale
+                                                <span></span>
+                                            </label>
+                                            <label class="m-radio m-radio--solid">
+                                                <input type="radio" name="ann_type" value="0" {{ ($dataTypeContent->ann_type == 0) ? 'checked' : '' }}>
+                                                Rent
+                                                <span></span>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--end::Portlet-->
                     </div>
                 </div>
                 <!-- End Radactation -->
@@ -301,52 +276,118 @@
                                 <div class="form-group m-form__group row">
                                     <div class="col-lg-3">
                                         <div class="form-group">
+                                            <label>Courtier</label>
+                                            <select class="form-control m-select2 custom_select2" name="broker" data-placeholder="Select a Courtier">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    {{--<div class="col-lg-3 margin_bottom_10">--}}
+                                        {{--<label categor>Catégorie</label>--}}
+                                        {{--<select class="form-control m-select2 custom_select2 category" name="category_id" data-placeholder="Select a Category">--}}
+                                            {{--@foreach(TCG\Voyager\Models\Category::all() as $category)--}}
+                                                {{--@if($category->parent_id == null)--}}
+                                                    {{--<option value="{{ $category->id }}" @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>--}}
+                                                {{--@endif--}}
+                                            {{--@endforeach--}}
+                                        {{--</select>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col-lg-3">--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="m_select2_2">Sous-catégorie</label>--}}
+                                            {{--<select class="form-control m-select2 custom_select2 sub-category" name="sub_category" data-placeholder="Select a sub-category">--}}
+                                                {{--@foreach(TCG\Voyager\Models\Category::all() as $category)--}}
+                                                {{--@if($category->parent_id != null)--}}
+                                                {{--<option value="{{ $category->id }}" @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>--}}
+                                                {{--@endif--}}
+                                                {{--@endforeach--}}
+                                                {{--<option value="">Not SubCategories</option>--}}
+                                            {{--</select>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    <div class="col-12">
+                                        <ul class="nav nav-tabs  m-tabs-line" role="tablist">
+                                            <li class="nav-item m-tabs__item">
+                                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">Maison</a>
+                                            </li>
+                                            <li class="nav-item m-tabs__item">
+                                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#category_apartment" role="tab" aria-expanded="true">Appartement</a>
+                                            </li>
+                                            <li class="nav-item m-tabs__item">
+                                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#category_land" role="tab" aria-expanded="true">Terrain</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="category_house" role="tabpanel" aria-expanded="false">
+                                                <div class="form-group">
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio btn btn-outline-brand active">
+                                                            <input type="radio" name="category_house" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
+                                                            Subcategory 1
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio btn btn-outline-brand">
+                                                            <input type="radio" name="category_house" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
+                                                            Subcategory 2
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="category_apartment" role="tabpanel" aria-expanded="false">
+                                                <div class="form-group">
+                                                    <label class="">
+                                                        Promotion :
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio m-radio--solid">
+                                                            <input type="radio" name="category_apartment" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
+                                                            Oui
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio m-radio--solid">
+                                                            <input type="radio" name="category_apartment" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
+                                                            Non
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="category_land" role="tabpanel" aria-expanded="true">
+                                                <div class="form-group">
+                                                    <label class="">
+                                                        Promotion :
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio m-radio--solid">
+                                                            <input type="radio" name="category_land" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
+                                                            Oui
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio m-radio--solid">
+                                                            <input type="radio" name="category_land" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
+                                                            Non
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
                                             <label>Référence</label>
                                             <input type="text" class="form-control m-input" placeholder="Référence" value="@if(isset($dataTypeContent->reference)){{ $dataTypeContent->reference }}@endif" name="reference">
                                             <span class="m-form__help">Please enter Référence</span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 margin_bottom_10">
-                                        <label categor>Catégorie</label>
-                                        <select class="form-control m-select2 his_select2 category" name="category_id" data-placeholder="Select a Category">
-                                            @foreach(TCG\Voyager\Models\Category::all() as $category)
-                                                @if($category->parent_id == null)
-                                                    <option value="{{ $category->id }}" @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>
-                                                @endif
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label for="m_select2_2">Sous-catégorie</label>
-                                            <select class="form-control m-select2 his_select2 sub-category" name="sub_category" data-placeholder="Select a sub-category">
-                                                {{--@foreach(TCG\Voyager\Models\Category::all() as $category)--}}
-                                                    {{--@if($category->parent_id != null)--}}
-                                                        {{--<option value="{{ $category->id }}" @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>--}}
-                                                    {{--@endif--}}
-                                                {{--@endforeach--}}
-                                                {{--<option value="">Not SubCategories</option>--}}
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label class="">Notation</label>
-                                            <input type="number" class="form-control m-input" placeholder="Notation" value="@if(isset($dataTypeContent->notation)){{ $dataTypeContent->notation }}@endif" name="notation">
-                                            <span class="m-form__help">Please enter your notation</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Courtier</label>
-                                            <select class="form-control m-select2 his_select2" name="broker" data-placeholder="Select a Courtier">
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Statut</label>
-                                            <select class="form-control m-select2 his_select2" name="status_id" data-placeholder="Select a Statut">
+                                            <select class="form-control m-select2 custom_select2" name="status_id" data-placeholder="Select a Statut">
                                                 @foreach(TCG\Voyager\Models\Status::all() as $status)
                                                     <option value="{{ $status->reference }}" @if(isset($dataTypeContent->status_id) && $dataTypeContent->status_id == $status->reference){{ 'selected="selected"' }}@endif>{{ $status->value }}</option>
                                                 @endforeach
@@ -356,7 +397,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Mandat</label>
-                                            <select class="form-control m-select2 his_select2" name="mandate_id" data-placeholder="Select a Mandat">
+                                            <select class="form-control m-select2 custom_select2" name="mandate_id" data-placeholder="Select a Mandat">
                                                 @foreach(TCG\Voyager\Models\Mandate::all() as $mandate)
                                                     <option value="{{ $mandate->reference }}" @if(isset($dataTypeContent->mandate_id) && $dataTypeContent->mandate_id == $mandate->reference){{ 'selected="selected"' }}@endif>{{ $mandate->value }}</option>
                                                 @endforeach
@@ -366,15 +407,13 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Origine</label>
-                                            <select class="form-control m-select2 his_select2" name="origin_id" data-placeholder="Select a Origine">
+                                            <select class="form-control m-select2 custom_select2" name="origin_id" data-placeholder="Select a Origine">
                                                 @foreach(TCG\Voyager\Models\Origin::all() as $origin)
                                                     <option value="{{ $origin->reference }}" @if(isset($dataTypeContent->origin_id) && $dataTypeContent->origin_id == $origin->reference){{ 'selected="selected"' }}@endif>{{ $origin->value }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group m-form__group row">
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Début du mandat</label>
@@ -422,34 +461,6 @@
                                 <div class="form-group m-form__group row">
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Note sur la transaction</label>
-                                            <input type="text" class="form-control m-input" placeholder="Note sur la transaction" value="@if(isset($dataTypeContent->note_transaction)){{ $dataTypeContent->note_transaction }}@endif" name="note_transaction">
-                                            <span class="m-form__help">Please enter Note sur la transaction</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Note courtier</label>
-                                            <input type="text" class="form-control m-input" placeholder="Note courtier" value="@if(isset($dataTypeContent->broker_notes)){{ $dataTypeContent->broker_notes }}@endif" name="broker_notes">
-                                            <span class="m-form__help">Please enter Note courtier</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Remarques importantes</label>
-                                            <input type="text" class="form-control m-input" placeholder="Remarques importantes" value="@if(isset($dataTypeContent->important_notes)){{ $dataTypeContent->important_notes }}@endif" name="important_notes">
-                                            <span class="m-form__help">Please enter Remarques importantes</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Notes pour le propriétaire</label>
-                                            <input type="text" class="form-control m-input" placeholder="Notes pour le propriétaire" value="@if(isset($dataTypeContent->owner_notes)){{ $dataTypeContent->owner_notes }}@endif" name="owner_notes">
-                                            <span class="m-form__help">Please enter Notes pour le propriétaire</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
                                             <label class="">
                                                 Promotion :
                                             </label>
@@ -486,12 +497,63 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label></label>
-                                            <label class="m-checkbox" style="display: block;">
-                                                <input type="checkbox" @if(isset($dataTypeContent->exclusiveness) && $dataTypeContent->exclusiveness){{ 'checked="checked"' }}@endif name="exclusiveness">
-                                                Exclusivité
-                                                <span></span>
-                                            </label>
+                                            <label class="">Exclusivité</label>
+                                            <div class="">
+                                                <span class="m-switch m-switch--icon">
+                                                    <label>
+                                                        <input type="checkbox" checked="checked" @if(isset($dataTypeContent->exclusiveness) && $dataTypeContent->exclusiveness){{ 'checked="checked"' }}@endif name="exclusiveness">
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="">Notation</label>
+                                            <select class="bar_rating">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                            {{--<input type="number" class="form-control m-input" placeholder="Notation" value="@if(isset($dataTypeContent->notation)){{ $dataTypeContent->notation }}@endif" name="notation">--}}
+                                            <span class="m-form__help">Please enter your notation</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Note sur la transaction</label>
+                                            <input type="text" class="form-control m-input" placeholder="Note sur la transaction" value="@if(isset($dataTypeContent->note_transaction)){{ $dataTypeContent->note_transaction }}@endif" name="note_transaction">
+                                            <textarea name="note_transaction" class="form-control m-input" placeholder="Note sur la transaction" rows="8"></textarea>
+                                            <span class="m-form__help">Please enter Note sur la transaction</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Note courtier</label>
+                                            <input type="text" class="form-control m-input" placeholder="Note courtier" value="@if(isset($dataTypeContent->broker_notes)){{ $dataTypeContent->broker_notes }}@endif" name="broker_notes">
+                                            <textarea name="broker_notes" class="form-control m-input" placeholder="Note courtier" rows="8"></textarea>
+                                            <span class="m-form__help">Please enter Note courtier</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Remarques importantes</label>
+                                            <input type="text" class="form-control m-input" placeholder="Remarques importantes" value="@if(isset($dataTypeContent->important_notes)){{ $dataTypeContent->important_notes }}@endif" name="important_notes">
+                                            <textarea name="important_notes" class="form-control m-input" placeholder="Remarques importantes" rows="8"></textarea>
+                                            <span class="m-form__help">Please enter Remarques importantes</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Notes pour le propriétaire</label>
+                                            <input type="text" class="form-control m-input" placeholder="Notes pour le propriétaire" value="@if(isset($dataTypeContent->owner_notes)){{ $dataTypeContent->owner_notes }}@endif" name="owner_notes">
+                                            <textarea name="owner_notes" class="form-control m-input" placeholder="Notes pour le propriétaire" rows="8"></textarea>
+                                            <span class="m-form__help">Please enter Notes pour le propriétaire</span>
                                         </div>
                                     </div>
                                 </div>
@@ -581,7 +643,7 @@
                                     </div>
                                     <div class="col-lg-3 margin_bottom_10">
                                         <label>Pays</label>
-                                        <select class="form-control m-select2 his_select2" name="country" data-placeholder="Select a Country">
+                                        <select class="form-control m-select2 custom_select2" name="country" data-placeholder="Select a Country">
                                             @foreach(TCG\Voyager\Models\Country::all() as $country)
                                                 <option value="{{ $country->reference }}" @if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ 'selected="selected"' }}@endif>{{ $country->value }}</option>
                                             @endforeach
@@ -589,7 +651,7 @@
                                     </div>
                                     <div class="col-lg-3 margin_bottom_10">
                                         <label>Localisation</label>
-                                        <select class="form-control m-select2 his_select2" name="location" data-placeholder="Select Location">
+                                        <select class="form-control m-select2 custom_select2" name="location" data-placeholder="Select Location">
                                             @foreach(TCG\Voyager\Models\Location::all() as $location)
                                                 <option value="{{ $location->reference }}" @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
                                             @endforeach
@@ -600,7 +662,7 @@
                                         <a href="#map">
                                             <button type="button" class="btn btn-secondary">Place address on map</button>
                                         </a>
-                                        <div style="height:500px;width:1000px;text-align: center;" id="map"></div>
+                                        {{--<div style="height:500px;width:1000px;text-align: center;" id="map"></div>--}}
                                     </div>
 
 
@@ -643,7 +705,7 @@
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <label>Devise</label>
-                                            <select class="form-control m-select2 his_select2" name="сurrency" data-placeholder="Select currency">
+                                            <select class="form-control m-select2 custom_select2" name="сurrency" data-placeholder="Select currency">
                                                 @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
                                                     <option value="{{ $сurrency->reference }}" @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ 'selected="selected"' }}@endif>{{ $сurrency->value }}</option>
                                                 @endforeach
@@ -760,7 +822,7 @@
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <label>Régime</label>
-                                            <select class="form-control m-select2 his_select2" name="regime" data-placeholder="Select currency">
+                                            <select class="form-control m-select2 custom_select2" name="regime" data-placeholder="Select currency">
                                                 @foreach(TCG\Voyager\Models\Regime::all() as $regime)
                                                     <option value="{{ $regime->reference }}" @if(isset($dataTypeContent->regime) && $dataTypeContent->regime == $regime->reference){{ 'selected="selected"' }}@endif>{{ $regime->value }}</option>
                                                 @endforeach
@@ -969,7 +1031,7 @@
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <label>Etage du bien</label>
-                                            <select class="form-control m-select2 his_select2" name="floor_property" data-placeholder="Select Floor">
+                                            <select class="form-control m-select2 custom_select2" name="floor_property" data-placeholder="Select Floor">
                                                 @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)
                                                     <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
                                                 @endforeach
@@ -1105,7 +1167,7 @@
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <label>Type de terrain</label>
-                                            <select class="form-control m-select2 his_select2" name="type_land" data-placeholder="Select Floor">
+                                            <select class="form-control m-select2 custom_select2" name="type_land" data-placeholder="Select Floor">
                                                 @foreach(TCG\Voyager\Models\TypeOfLand::all() as $type_land)
                                                     <option value="{{ $type_land->reference }}" @if(isset($dataTypeContent->type_land) && $dataTypeContent->type_land == $type_land->reference){{ 'selected="selected"' }}@endif>{{ $type_land->value }}</option>
                                                 @endforeach
@@ -1315,7 +1377,7 @@
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <label>Type</label>
-                                            <select class="form-control m-select2 his_select2" name="type" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="type" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\Kitchen::all() as $type)
                                                     <option value="{{ $type->reference }}" @if(isset($dataTypeContent->type) && $dataTypeContent->type == $type->reference){{ 'selected="selected"' }}@endif>{{ $type->value }}</option>
                                                 @endforeach
@@ -1463,7 +1525,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Format</label>
-                                            <select class="form-control m-select2 his_select2" name="format" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="format" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\Heating::all() as $format)
                                                     <option value="{{ $format->reference }}" @if(isset($dataTypeContent->format) && $dataTypeContent->format == $format->reference){{ 'selected="selected"' }}@endif>{{ $format->value }}</option>
                                                 @endforeach
@@ -1473,7 +1535,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Energie</label>
-                                            <select class="form-control m-select2 his_select2" name="chauffage_energy" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="chauffage_energy" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\Energy::all() as $chauffage_energy)
                                                     <option value="{{ $chauffage_energy->reference }}" @if(isset($dataTypeContent->chauffage_energy) && $dataTypeContent->chauffage_energy == $chauffage_energy->reference){{ 'selected="selected"' }}@endif>{{ $chauffage_energy->value }}</option>
                                                 @endforeach
@@ -1483,7 +1545,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Type de chauffage</label>
-                                            <select class="form-control m-select2 his_select2" name="type_heating" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="type_heating" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\HeatingType::all() as $type_heating)
                                                     <option value="{{ $type_heating->reference }}" @if(isset($dataTypeContent->type_heating) && $dataTypeContent->type_heating == $type_heating->reference){{ 'selected="selected"' }}@endif>{{ $type_heating->value }}</option>
                                                 @endforeach
@@ -1493,7 +1555,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Type de radiateur</label>
-                                            <select class="form-control m-select2 his_select2" name="type_radiator" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="type_radiator" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\Radiator::all() as $type_radiator)
                                                     <option value="{{ $type_radiator->reference }}" @if(isset($dataTypeContent->type_radiator) && $dataTypeContent->type_radiator == $type_radiator->reference){{ 'selected="selected"' }}@endif>{{ $type_radiator->value }}</option>
                                                 @endforeach
@@ -1527,7 +1589,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Distribution</label>
-                                            <select class="form-control m-select2 his_select2" name="distribution" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="distribution" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\WaterDistribution::all() as $distribution)
                                                     <option value="{{ $distribution->reference }}" @if(isset($dataTypeContent->distribution) && $dataTypeContent->distribution == $distribution->reference){{ 'selected="selected"' }}@endif>{{ $distribution->value }}</option>
                                                 @endforeach
@@ -1537,7 +1599,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Energie</label>
-                                            <select class="form-control m-select2 his_select2" name="eau_chaude_energy" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="eau_chaude_energy" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\WaterEnergy::all() as $eau_chaude_energy)
                                                     <option value="{{ $eau_chaude_energy->reference }}" @if(isset($dataTypeContent->eau_chaude_energy) && $dataTypeContent->eau_chaude_energy == $eau_chaude_energy->reference){{ 'selected="selected"' }}@endif>{{ $eau_chaude_energy->value }}</option>
                                                 @endforeach
@@ -1571,7 +1633,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Distribution</label>
-                                            <select class="form-control m-select2 his_select2" name="usees_distribution" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="usees_distribution" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\WasteDistribution::all() as $usees_distribution)
                                                     <option value="{{ $usees_distribution->reference }}" @if(isset($dataTypeContent->usees_distribution) && $dataTypeContent->usees_distribution == $usees_distribution->reference){{ 'selected="selected"' }}@endif>{{ $usees_distribution->value }}</option>
                                                 @endforeach
@@ -1605,7 +1667,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Minergie</label>
-                                            <select class="form-control m-select2 his_select2" name="divers_format" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="divers_format" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\Minergie::all() as $divers_format)
                                                     <option value="{{ $divers_format->reference }}" @if(isset($dataTypeContent->divers_format) && $dataTypeContent->divers_format == $divers_format->reference){{ 'selected="selected"' }}@endif>{{ $divers_format->value }}</option>
                                                 @endforeach
@@ -1615,7 +1677,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Sonorité</label>
-                                            <select class="form-control m-select2 his_select2" name="sonority" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="sonority" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\Sonority::all() as $sonority)
                                                     <option value="{{ $sonority->reference }}" @if(isset($dataTypeContent->sonority) && $dataTypeContent->sonority == $sonority->reference){{ 'selected="selected"' }}@endif>{{ $sonority->value }}</option>
                                                 @endforeach
@@ -1625,7 +1687,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Style</label>
-                                            <select class="form-control m-select2 his_select2" name="style" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="style" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\Style::all() as $style)
                                                     <option value="{{ $style->reference }}" @if(isset($dataTypeContent->style) && $dataTypeContent->style == $style->reference){{ 'selected="selected"' }}@endif>{{ $style->value }}</option>
                                                 @endforeach
@@ -2627,7 +2689,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Etat intérieur</label>
-                                            <select class="form-control m-select2 his_select2" name="interior_condition" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="interior_condition" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\State::all() as $state_front)
                                                     <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                 @endforeach
@@ -2637,7 +2699,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Type de construction</label>
-                                            <select class="form-control m-select2 his_select2" name="type_construction" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="type_construction" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\Construction::all() as $type_construction)
                                                     <option value="{{ $type_construction->reference }}" @if(isset($dataTypeContent->type_construction) && $dataTypeContent->type_construction == $type_construction->reference){{ 'selected="selected"' }}@endif>{{ $type_construction->value }}</option>
                                                 @endforeach
@@ -2647,7 +2709,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Etat de la façade</label>
-                                            <select class="form-control m-select2 his_select2" name="state_front" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="state_front" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\State::all() as $state_front)
                                                     <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                 @endforeach
@@ -2657,7 +2719,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Etat extérieur</label>
-                                            <select class="form-control m-select2 his_select2" name="external_state" data-placeholder="Select Type">
+                                            <select class="form-control m-select2 custom_select2" name="external_state" data-placeholder="Select Type">
                                                 @foreach(TCG\Voyager\Models\State::all() as $state_front)
                                                     <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                 @endforeach
@@ -2698,7 +2760,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <!--begin::Portlet-->
-                        <div class="m-portlet">
+                        <div class="m-portlet" data-portlet="true">
                             <div class="m-portlet__head">
                                 <div class="m-portlet__head-caption">
                                     <div class="m-portlet__head-title">
@@ -2707,6 +2769,22 @@
                                         </span>
                                         <h3 class="m-portlet__head-text">Exposition</h3>
                                     </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    <ul class="m-portlet__nav">
+                                        <li class="m-portlet__nav-item">
+                                            <a href="#" data-portlet-tool="reload" class="m-portlet__nav-link m-portlet__nav-link--icon" title="" data-original-title="Reload"><i class="la la-refresh"></i></a>
+                                        </li>
+                                        <li class="m-portlet__nav-item">
+                                            <a href="#" data-portlet-tool="toggle" class="m-portlet__nav-link m-portlet__nav-link--icon" title="" data-original-title="Collapse"><i class="la la-angle-down"></i></a>
+                                        </li>
+                                        <li class="m-portlet__nav-item">
+                                            <a href="#" data-portlet-tool="fullscreen" class="m-portlet__nav-link m-portlet__nav-link--icon" title="" data-original-title="Fullscreen"><i class="la la-expand"></i></a>
+                                        </li>
+                                        <li class="m-portlet__nav-item">
+                                            <a href="#" data-portlet-tool="remove" class="m-portlet__nav-link m-portlet__nav-link--icon" title="" data-original-title="Remove"><i class="la la-close"></i></a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="m-portlet__body">
@@ -2742,6 +2820,61 @@
                                                 <span></span>
                                             </label>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Exposition -->
+
+                <!-- Eau Exposition -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!--begin::Portlet-->
+                        <div class="m-portlet">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <span class="m-portlet__head-icon m--hide">
+                                            <i class="la la-gear"></i>
+                                        </span>
+                                        <h3 class="m-portlet__head-text">Gallery</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <div class="row">
+                                    <div class="col-lg-12 margin_bottom_10">
+                                        <label>Gallery images dropzone</label>
+                                        <div class="m-dropzone dropzone m-dropzone--success" id="m-dropzone-three"><!--action="inc/api/dropzone/upload.php" -->
+                                            <div class="m-dropzone__msg dz-message needsclick">
+                                                @if(isset($dataTypeContent->image))
+                                                    <img src="{{ filter_var($dataTypeContent->image, FILTER_VALIDATE_URL) ? Voyager::image($dataTypeContent->image) : $dataTypeContent->image }}" style="width:100%" />
+                                                @endif
+                                                <input type="file" name="image" multiple>
+                                                {{--<h3 class="m-dropzone__msg-title">--}}
+                                                {{--Drop files here or click to upload.--}}
+                                                {{--</h3>--}}
+                                                {{--<span class="m-dropzone__msg-desc">--}}
+                                                {{--Only image, pdf and psd files are allowed for upload--}}
+                                                {{--</span>--}}
+                                            </div>
+                                        </div>
+                                        {{--<div class="panel panel-bordered panel-primary">--}}
+                                        {{--<div class="panel-heading">--}}
+                                        {{--<h3 class="panel-title"><i class="icon wb-image"></i> {{ __('voyager.post.image') }}</h3>--}}
+                                        {{--<div class="panel-actions">--}}
+                                        {{--<a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>--}}
+                                        {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="panel-body">--}}
+                                        {{--@if(isset($dataTypeContent->image))--}}
+                                        {{--<img src="{{ filter_var($dataTypeContent->image, FILTER_VALIDATE_URL) ? $dataTypeContent->image : Voyager::image( $dataTypeContent->image ) }}" style="width:100%" />--}}
+                                        {{--@endif--}}
+                                        {{--<input type="file" name="image">--}}
+                                        {{--</div>--}}
+                                        {{--</div>--}}
                                     </div>
                                 </div>
                             </div>
@@ -2804,7 +2937,7 @@
         });
 
         // selects
-        $('select').on('change', function() {
+        $('select.custom_select2').on('change', function() {
 
             var selectedOption = $(this).select2('data')[0]['id'];
             var token = $('input[name="_token"]').val();
@@ -2819,7 +2952,7 @@
                 success : function (arr) {
                     $('select[name="sub_category"]').html('');
                     $.each( arr, function( key, value ) {
-                        console.log(value.id + ' <= айди ' + value.name + ' <= Name ');
+//                        console.log(value.id + ' <= ID ' + value.name + ' <= Name ');
                         $('select[name="sub_category"]').append('<option value="' + value.id + '">' + value.name + '</option>');
                     });
                 }
@@ -2827,39 +2960,11 @@
             });
         });
 
-        // Google Maps
-
-//        function initMap() {
-        //            var elem = document.getElementById('map');
-        //            var options = {
-        //                zoom : 5,
-        //                center : {lat : 40.415363,lng : -3.707398}
-        //            };
-        //            var myMap = new google.maps.Map(elem, options);
-        //
-        //            function AddMarker(coordinates) {
-        //                var marker = new google.maps.Marker({
-        //                    position : coordinates,
-        //                    map : myMap
-        //                });
-        //            }
-        //            AddMarker({lat : 40.415363,lng : -3.707398});
-        //            AddMarker({lat : 47.003670,lng : 28.907089});
-        //
-        ////            marker.addListener('click', function() {
-        ////                infoWindow.open(myMap, marker);
-        ////            });
-        ////            var infoWindow = new google.maps.InfoWindow({
-        ////                content: '<h3>Plasa Mayor</h3>'
-        ////            });
-        //
-        //        // Places
-        //            ;
-        //
-        //
-        //
-        //
-        //        }
+        $(function() {
+            $('.bar_rating').barrating({
+                theme: 'fontawesome-stars'
+            });
+        });
 
         // Places
         function initAutocomplete() {
