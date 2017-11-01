@@ -149,40 +149,16 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'image');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'image',
-                'display_name' => 'Post Image',
-                'required'     => 0,
+                'type'         => 'multiple_images',
+                'display_name' => 'image',
+                'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
-                    'resize' => [
-                        'width'  => '1000',
-                        'height' => 'null',
-                    ],
-                    'quality'    => '70%',
-                    'upsize'     => true,
-                    'thumbnails' => [
-                        [
-                            'name'  => 'medium',
-                            'scale' => '50%',
-                        ],
-                        [
-                            'name'  => 'small',
-                            'scale' => '25%',
-                        ],
-                        [
-                            'name' => 'cropped',
-                            'crop' => [
-                                'width'  => '300',
-                                'height' => '250',
-                            ],
-                        ],
-                    ],
-                ]),
-                'order' => 7,
+                'details'      => '',
+                'order'        => 7,
             ])->save();
         }
 

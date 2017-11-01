@@ -6,11 +6,27 @@
     <?php
     $arrayJsonData = [];
     foreach ($dataTypeContent as $data) {
-        foreach ($dataType->browseRows as $row) {
-            $data[$row->display_name] = $data->{$row->field};
+        if($dataType->display_name_plural == 'Posts') {
+            $arrayJsonData[] = [
+                'id' => $data->id,
+                'title_fr' => $data->title_fr,
+                'image_multiple' => json_decode($data->image)[0],
+                'created_at' => $data->created_at->format('d F Y')
+            ];
+        } else {
+            foreach ($dataType->browseRows as $row) {
+                $data[$row->display_name] = $data->{$row->field};
+            }
+            $arrayJsonData[] = $data;
         }
-        $arrayJsonData[] = $data;
     }
+
+
+    //    foreach($arrayJsonData as $key => $item) {
+    //        foreach(json_decode($item->image_multiple) as $image) {
+    //            dump($key);
+    //        }
+    //    }
     ?>
 
     <div class="m-grid__item m-grid__item--fluid m-wrapper">
@@ -461,16 +477,6 @@
                         width: 120
 
                     }, {
-                        field: "slug",
-                        title: "Slug",
-                        width: 100
-
-                    }, {
-                        field: "status",
-                        title: "Status",
-                        width: 80
-
-                    }, {
                         field: "image",
                         title: "Image",
                         width: 100,
@@ -488,15 +494,15 @@
                         width: 300,
                         template: function (row) {
                             return '<form action="{{ URL::to('/admin/confirm-email') }}" id="property_send" method="POST">{{ csrf_field() }}' +
-                                        '<div style="float:left;">' +
-                                            '<input type="email" name="email" class="form-control m-input" placeholder="email" />' +
-                                            '<div class="message_status"></div>' +
-                                            '<input type="hidden" name="property_id" value="' + row.id + '" />' +
-                                        '</div>' +
-                                        '<div style="float:left; padding-left: 5px;">' +
-                                            '<button type="submit" class="btn">Send</button>' +
-                                        '</div>' +
-                                    '</form>';
+                                '<div style="float:left;">' +
+                                '<input type="email" name="email" class="form-control m-input" placeholder="email" />' +
+                                '<div class="message_status"></div>' +
+                                '<input type="hidden" name="property_id" value="' + row.id + '" />' +
+                                '</div>' +
+                                '<div style="float:left; padding-left: 5px;">' +
+                                '<button type="submit" class="btn">Send</button>' +
+                                '</div>' +
+                                '</form>';
                         }
 
                     }, {

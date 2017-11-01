@@ -1,8 +1,5 @@
 @extends('voyager::master_metronic')
 
-{{ dd($dataTypeContent->toArray()) }}
-
-
 @section('css')
     <link href="{{ asset('assets/plugins/css/slick.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/css/slick-theme.css') }}" rel="stylesheet" type="text/css" />
@@ -15,10 +12,10 @@
         <i class="{{ $dataType->icon }}"></i> {{ __('voyager.generic.viewing') }} {{ ucfirst($dataType->display_name_singular) }} &nbsp;
 
         @can('edit', $dataTypeContent)
-        <a href="{{ route('voyager.'.$dataType->slug.'.edit', $dataTypeContent->getKey()) }}" class="btn btn-info">
-            <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-            {{ __('voyager.generic.edit') }}
-        </a>
+            <a href="{{ route('voyager.'.$dataType->slug.'.edit', $dataTypeContent->getKey()) }}" class="btn btn-info">
+                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                {{ __('voyager.generic.edit') }}
+            </a>
         @endcan
         <a href="{{ route('voyager.'.$dataType->slug.'.index') }}" class="btn btn-warning">
             <span class="glyphicon glyphicon-list"></span>&nbsp;
@@ -52,7 +49,7 @@
                                 <img class="img-responsive"
                                      src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
                             @elseif($row->type == 'relationship')
-                                 @include('voyager::formfields.relationship', ['view' => 'read', 'options' => $rowDetails])
+                                @include('voyager::formfields.relationship', ['view' => 'read', 'options' => $rowDetails])
                             @elseif($row->type == 'select_dropdown' && property_exists($rowDetails, 'options') &&
                                     !empty($rowDetails->options->{$dataTypeContent->{$row->field}})
                             )
@@ -65,15 +62,15 @@
 
                                     @foreach($dataTypeContent->{$row->field} as $item)
                                         @if($item->{$row->field . '_page_slug'})
-                                        <a href="{{ $item->{$row->field . '_page_slug'} }}">{{ $item->{$row->field}  }}</a>@if(!$loop->last), @endif
+                                            <a href="{{ $item->{$row->field . '_page_slug'} }}">{{ $item->{$row->field}  }}</a>@if(!$loop->last), @endif
                                         @else
-                                        {{ $item->{$row->field}  }}
+                                            {{ $item->{$row->field}  }}
                                         @endif
                                     @endforeach
 
                                 @elseif(property_exists($rowDetails, 'options'))
                                     @foreach($dataTypeContent->{$row->field} as $item)
-                                     {{ $rowDetails->options->{$item} . (!$loop->last ? ', ' : '') }}
+                                        {{ $rowDetails->options->{$item} . (!$loop->last ? ', ' : '') }}
                                     @endforeach
                                 @endif
                             @elseif($row->type == 'date')
@@ -81,12 +78,12 @@
                             @elseif($row->type == 'checkbox')
                                 @if($rowDetails && property_exists($rowDetails, 'on') && property_exists($rowDetails, 'off'))
                                     @if($dataTypeContent->{$row->field})
-                                    <span class="label label-info">{{ $rowDetails->on }}</span>
+                                        <span class="label label-info">{{ $rowDetails->on }}</span>
                                     @else
-                                    <span class="label label-primary">{{ $rowDetails->off }}</span>
+                                        <span class="label label-primary">{{ $rowDetails->off }}</span>
                                     @endif
                                 @else
-                                {{ $dataTypeContent->{$row->field} }}
+                                    {{ $dataTypeContent->{$row->field} }}
                                 @endif
                             @elseif($row->type == 'color')
                                 <span class="badge badge-lg" style="background-color: {{ $dataTypeContent->{$row->field} }}">{{ $dataTypeContent->{$row->field} }}</span>
@@ -234,7 +231,9 @@
                             <div class="m-widget19">
                                 <div class="m-widget19__pic m-portlet-fit--sides" style1="height: 280px">
                                     <div class="object_gallery">
-                                        <div><img src="{{ URL::to('storage') }}/{{ $dataTypeContent->image }}" alt=""></div>
+                                        @foreach(json_decode($dataTypeContent->image_multiple) as $image)
+                                            <div><img src="{{ URL::to('storage') }}/{{ $image }}" alt=""></div>
+                                        @endforeach
                                     </div>
                                     <h3 class="m-widget19__title m--font-light">
                                         {{ $dataTypeContent->title_fr }}
@@ -1102,7 +1101,7 @@
                                                 <br>
                                                 <span class="m-widget4__sub">
                                                     {{ ($dataTypeContent->procedure_in_progress == 0) ? 'no' : 'yes' }}  <!-- todo maybe checked -->
-                                                    {{--<input type="checkbox" value="{{ ($dataTypeContent->procedure_in_progress != 0) ? '' : 'on' }}">--}}
+                                                        {{--<input type="checkbox" value="{{ ($dataTypeContent->procedure_in_progress != 0) ? '' : 'on' }}">--}}
                                                 </span>
                                             </div>
                                         </div>
@@ -1459,8 +1458,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1474,8 +1473,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1489,8 +1488,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1504,8 +1503,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1519,8 +1518,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1534,8 +1533,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1549,8 +1548,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1564,8 +1563,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1579,8 +1578,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1596,8 +1595,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1611,8 +1610,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1626,8 +1625,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1641,8 +1640,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1656,8 +1655,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1671,8 +1670,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1686,8 +1685,8 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
+                                        <!--end::Widget 14 Item-->
+                                    </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1701,7 +1700,7 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
+                                        <!--end::Widget 14 Item-->
                                     </div>
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                         <!--begin::Widget 14 Item-->
@@ -1716,7 +1715,7 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    <!--end::Widget 14 Item-->
+                                        <!--end::Widget 14 Item-->
                                     </div>
                                 </div>
                             </div>
@@ -2325,7 +2324,7 @@
                                         <!--end::Widget 14 Item-->
                                     </div>
                                 </div>
-                            <!--end::Widget 14-->
+                                <!--end::Widget 14-->
                             </div>
                         </div>
                     </div>
@@ -2406,41 +2405,41 @@
                     <!--end:: Widgets/New Users-->
                 </div>
                 {{--<div class="col-xl-4">--}}
-                    {{--<!--begin:: Widgets/New Users-->--}}
-                    {{--<div class="m-portlet m-portlet--full-height">--}}
-                        {{--<div class="m-portlet__head">--}}
-                            {{--<div class="m-portlet__head-caption">--}}
-                                {{--<div class="m-portlet__head-title">--}}
-                                    {{--<h3 class="m-portlet__head-text">--}}
-                                        {{--Part--}}
-                                    {{--</h3>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="m-portlet__body">--}}
-                            {{--<!--begin::Widget 14-->--}}
-                            {{--<div class="m-widget4">--}}
-                                {{--<div class="row">--}}
-                                    {{--<div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">--}}
-                                        {{--<!--begin::Widget 14 Item-->--}}
-                                        {{--<div class="m-widget4__item">--}}
-                                            {{--<div class="m-widget4__info">--}}
-                                                {{--<span class="m-widget4__title">--}}
-                                                    {{--Parter--}}
-                                                {{--</span>--}}
-                                                {{--<br>--}}
-                                                {{--<span class="m-widget4__sub">--}}
-                                                    {{--value--}}
-                                                {{--</span>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<!--end::Widget 14-->--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<!--end:: Widgets/New Users-->--}}
+                {{--<!--begin:: Widgets/New Users-->--}}
+                {{--<div class="m-portlet m-portlet--full-height">--}}
+                {{--<div class="m-portlet__head">--}}
+                {{--<div class="m-portlet__head-caption">--}}
+                {{--<div class="m-portlet__head-title">--}}
+                {{--<h3 class="m-portlet__head-text">--}}
+                {{--Part--}}
+                {{--</h3>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="m-portlet__body">--}}
+                {{--<!--begin::Widget 14-->--}}
+                {{--<div class="m-widget4">--}}
+                {{--<div class="row">--}}
+                {{--<div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">--}}
+                {{--<!--begin::Widget 14 Item-->--}}
+                {{--<div class="m-widget4__item">--}}
+                {{--<div class="m-widget4__info">--}}
+                {{--<span class="m-widget4__title">--}}
+                {{--Parter--}}
+                {{--</span>--}}
+                {{--<br>--}}
+                {{--<span class="m-widget4__sub">--}}
+                {{--value--}}
+                {{--</span>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--<!--end::Widget 14-->--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--<!--end:: Widgets/New Users-->--}}
                 {{--</div>--}}
             </div>
             <!--End::Info Portlet-->
@@ -4298,11 +4297,11 @@
         });
     </script>
     @if ($isModelTranslatable)
-    <script>
-        $(document).ready(function () {
-            $('.side-body').multilingual();
-        });
-    </script>
-    <script src="{{ voyager_asset('js/multilingual.js') }}"></script>
+        <script>
+            $(document).ready(function () {
+                $('.side-body').multilingual();
+            });
+        </script>
+        <script src="{{ voyager_asset('js/multilingual.js') }}"></script>
     @endif
 @stop

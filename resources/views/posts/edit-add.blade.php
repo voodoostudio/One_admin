@@ -2855,7 +2855,7 @@
                                                 @if(isset($dataTypeContent->image))
                                                     <img src="{{ filter_var($dataTypeContent->image, FILTER_VALIDATE_URL) ? Voyager::image($dataTypeContent->image) : $dataTypeContent->image }}" style="width:100%" />
                                                 @endif
-                                                <input type="file" name="image" multiple>
+                                                    <input type="file" name="image[]" multiple="multiple">
                                                 {{--<h3 class="m-dropzone__msg-title">--}}
                                                 {{--Drop files here or click to upload.--}}
                                                 {{--</h3>--}}
