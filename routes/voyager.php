@@ -12,6 +12,8 @@ use TCG\Voyager\Models\DataType;
 |
 */
 
+
+
 Route::group(['as' => 'voyager.'], function () {
     event('voyager.routing', app('router'));
 
@@ -19,6 +21,8 @@ Route::group(['as' => 'voyager.'], function () {
 
     Route::get('login', ['uses' => $namespacePrefix.'VoyagerAuthController@login',     'as' => 'login']);
     Route::post('login', ['uses' => $namespacePrefix.'VoyagerAuthController@postLogin', 'as' => 'postlogin']);
+
+    Route::get('property-email', ['uses' =>  $namespacePrefix.'VoyagerMailController@sendPropertyEmail', 'as' => 'property_mail']);
 
     Route::group(['middleware' => 'admin.user'], function () use ($namespacePrefix) {
         event('voyager.admin.routing', app('router'));
@@ -29,6 +33,11 @@ Route::group(['as' => 'voyager.'], function () {
         Route::post('upload', ['uses' => $namespacePrefix.'VoyagerController@upload',  'as' => 'upload']);
 
         Route::get('profile', ['uses' => $namespacePrefix.'VoyagerController@profile', 'as' => 'profile']);
+
+        /* Mailer (send confirmation) */
+        Route::post('confirm-email', ['uses' => $namespacePrefix.'VoyagerMailController@confirmEmail', 'as' => 'confirm_mail']);
+
+
 
         try {
             foreach (DataType::all() as $dataType) {

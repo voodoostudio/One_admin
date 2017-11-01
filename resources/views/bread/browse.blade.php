@@ -456,7 +456,7 @@
                         textAlign: 'center'
 
                     }, {
-                        field: "title",
+                        field: "title_fr",
                         title: "Title",
                         width: 120
 
@@ -481,6 +481,23 @@
                     }, {
                         field: "created_at",
                         title: "Create date"
+
+                    }, {
+                        field: "Email",
+                        title: "Email",
+                        width: 300,
+                        template: function (row) {
+                            return '<form action="{{ URL::to('/admin/confirm-email') }}" id="property_send" method="POST">{{ csrf_field() }}' +
+                                        '<div style="float:left;">' +
+                                            '<input type="email" name="email" class="form-control m-input" placeholder="email" />' +
+                                            '<div class="message_status"></div>' +
+                                            '<input type="hidden" name="property_id" value="' + row.id + '" />' +
+                                        '</div>' +
+                                        '<div style="float:left; padding-left: 5px;">' +
+                                            '<button type="submit" class="btn">Send</button>' +
+                                        '</div>' +
+                                    '</form>';
+                        }
 
                     }, {
                         field: "Actions",
@@ -702,5 +719,39 @@
         jQuery(document).ready(function () {
             DatatableDataLocalDemo.init();
         });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery("#property_send").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                submitHandler: function (form) {
+                    console.log($(form).serialize());
+                    $.ajax({
+                        type: form.method,
+                        url: form.action,
+                        data: $(form).serialize(),
+                        cache: false
+                    }).done(function (data) {
+
+                        $('.message_status').append('<small style="color:limegreen">Message send successful!</small>');
+                        if(data.status === 'success') {
+                            setTimeout(function(){
+                                $('.message_status').fadeOut('500');
+                            }, 1500);
+                            form.reset();
+                        }
+                    })
+
+                }
+            })
+        })
     </script>
 @stop
