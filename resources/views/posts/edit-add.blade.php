@@ -193,6 +193,24 @@
                     </div>
                     <div class="m-portlet__body">
                         <div class="form-group m-form__group">
+                            <div class="row">
+                                <div class="col-lg-12 margin_bottom_10">
+                                    <div class="form-group">
+                                        <div class="m-radio-inline">
+                                            <label class="m-radio m-radio--solid">
+                                                <input type="radio" name="ann_type" value="1" {{ ($dataTypeContent->ann_type == 1) ? 'checked' : '' }}>
+                                                Vente
+                                                <span></span>
+                                            </label>
+                                            <label class="m-radio m-radio--solid">
+                                                <input type="radio" name="ann_type" value="0" {{ ($dataTypeContent->ann_type == 0) ? 'checked' : '' }}>
+                                                Location
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="fr_redaction" role="tabpanel" aria-expanded="true">
                                     <div class="row">
@@ -227,25 +245,6 @@
                                         <div class="col-12 margin_bottom_10 lang-es">
                                             <label>Description de l'annonce ES</label>
                                             <textarea class="form-control m-input" name="desc_add_es" rows="8">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2 margin_bottom_10">
-                                    <div class="form-group">
-                                        <label class="">Announce type</label>
-                                        <div class="m-radio-inline">
-                                            <label class="m-radio m-radio--solid">
-                                                <input type="radio" name="ann_type" value="1" {{ ($dataTypeContent->ann_type == 1) ? 'checked' : '' }}>
-                                                Sale
-                                                <span></span>
-                                            </label>
-                                            <label class="m-radio m-radio--solid">
-                                                <input type="radio" name="ann_type" value="0" {{ ($dataTypeContent->ann_type == 0) ? 'checked' : '' }}>
-                                                Rent
-                                                <span></span>
-                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -418,7 +417,7 @@
                                         <div class="form-group">
                                             <label>Début du mandat</label>
                                             <div class='input-group date'>
-                                                <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->mandate_start)){{ $dataTypeContent->mandate_start }}@endif" readonly  placeholder="Select date" name="mandate_start"/>
+                                                <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->mandate_start)){{ $dataTypeContent->mandate_start }}@endif" readonly  placeholder="Sélectionner la date" name="mandate_start"/>
                                                 <span class="input-group-addon">
                                                     <i class="la la-calendar-check-o"></i>
                                                 </span>
@@ -429,7 +428,7 @@
                                         <div class="form-group">
                                             <label>Fin du mandat</label>
                                             <div class='input-group date'>
-                                                <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->term_end)){{ $dataTypeContent->term_end }}@endif" readonly  placeholder="Select date" name="term_end"/>
+                                                <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->term_end)){{ $dataTypeContent->term_end }}@endif" readonly  placeholder="Sélectionner la date" name="term_end"/>
                                                 <span class="input-group-addon"><i class="la la-calendar-check-o"></i></span>
                                             </div>
                                         </div>
@@ -438,7 +437,7 @@
                                         <div class="form-group">
                                             <label>Disponibilité</label>
                                             <div class='input-group date' id='m_datepicker_4'>
-                                                <input type='text' class="form-control m-input date-type rent" value="@if(isset($dataTypeContent->availability)){{ $dataTypeContent->availability }}@endif" readonly  placeholder="Select date" name="availability"/>
+                                                <input type='text' class="form-control m-input date-type rent" value="@if(isset($dataTypeContent->availability)){{ $dataTypeContent->availability }}@endif" readonly  placeholder="Sélectionner la date" name="availability"/>
                                                 <span class="input-group-addon">
                                                     <i class="la la-calendar-check-o"></i>
                                                 </span>
@@ -519,7 +518,6 @@
                                                 <option value="5">5</option>
                                             </select>
                                             {{--<input type="number" class="form-control m-input" placeholder="Notation" value="@if(isset($dataTypeContent->notation)){{ $dataTypeContent->notation }}@endif" name="notation">--}}
-                                            <span class="m-form__help">Please enter your notation</span>
                                         </div>
                                     </div>
                                 </div>
@@ -527,33 +525,29 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Note sur la transaction</label>
-                                            <input type="text" class="form-control m-input" placeholder="Note sur la transaction" value="@if(isset($dataTypeContent->note_transaction)){{ $dataTypeContent->note_transaction }}@endif" name="note_transaction">
+                                            {{--<input type="text" class="form-control m-input" placeholder="Note sur la transaction" value="@if(isset($dataTypeContent->note_transaction)){{ $dataTypeContent->note_transaction }}@endif" name="note_transaction">--}}
                                             <textarea name="note_transaction" class="form-control m-input" placeholder="Note sur la transaction" rows="8"></textarea>
-                                            <span class="m-form__help">Please enter Note sur la transaction</span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Note courtier</label>
-                                            <input type="text" class="form-control m-input" placeholder="Note courtier" value="@if(isset($dataTypeContent->broker_notes)){{ $dataTypeContent->broker_notes }}@endif" name="broker_notes">
+                                            {{--<input type="text" class="form-control m-input" placeholder="Note courtier" value="@if(isset($dataTypeContent->broker_notes)){{ $dataTypeContent->broker_notes }}@endif" name="broker_notes">--}}
                                             <textarea name="broker_notes" class="form-control m-input" placeholder="Note courtier" rows="8"></textarea>
-                                            <span class="m-form__help">Please enter Note courtier</span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Remarques importantes</label>
-                                            <input type="text" class="form-control m-input" placeholder="Remarques importantes" value="@if(isset($dataTypeContent->important_notes)){{ $dataTypeContent->important_notes }}@endif" name="important_notes">
+                                            {{--<input type="text" class="form-control m-input" placeholder="Remarques importantes" value="@if(isset($dataTypeContent->important_notes)){{ $dataTypeContent->important_notes }}@endif" name="important_notes">--}}
                                             <textarea name="important_notes" class="form-control m-input" placeholder="Remarques importantes" rows="8"></textarea>
-                                            <span class="m-form__help">Please enter Remarques importantes</span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Notes pour le propriétaire</label>
-                                            <input type="text" class="form-control m-input" placeholder="Notes pour le propriétaire" value="@if(isset($dataTypeContent->owner_notes)){{ $dataTypeContent->owner_notes }}@endif" name="owner_notes">
+                                            {{--<input type="text" class="form-control m-input" placeholder="Notes pour le propriétaire" value="@if(isset($dataTypeContent->owner_notes)){{ $dataTypeContent->owner_notes }}@endif" name="owner_notes">--}}
                                             <textarea name="owner_notes" class="form-control m-input" placeholder="Notes pour le propriétaire" rows="8"></textarea>
-                                            <span class="m-form__help">Please enter Notes pour le propriétaire</span>
                                         </div>
                                     </div>
                                 </div>
@@ -584,10 +578,10 @@
                             </div>
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-3 margin_bottom_10">
+                                    <div class="col-lg-6 margin_bottom_10">
                                         <label>Adresse</label>
                                         <div class="m-input-icon m-input-icon--right">
-                                            <input type="text" id="pac-input" class="form-control m-input" placeholder="Enter your address" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">
+                                            <input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">
                                             {{--<input id="pac-input" class="controls" type="text" placeholder="Search Box">--}}
                                             <span class="m-input-icon__icon m-input-icon__icon--right">
                                                 <span>
@@ -595,51 +589,32 @@
                                                 </span>
                                             </span>
                                         </div>
-                                        <span class="m-form__help">
-                                            Please enter your address
-                                        </span>
                                     </div>
+                                    <div class="col-lg-3 margin_bottom_10">
+                                        <button type="button" class="btn btn-secondary">Placer l’adresse sur la carte</button>
+                                        {{--<div style="height:500px;width:1000px;text-align: center;" id="map"></div>--}}
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
                                     <div class="col-lg-3 margin_bottom_10">
                                         <label>Rue</label>
-                                        <input type="text" class="form-control m-input" placeholder="Street name" value="@if(isset($dataTypeContent->street)){{ $dataTypeContent->street }}@endif" name="street">
-                                        <span class="m-form__help">
-                                            Please enter your street
-                                        </span>
+                                        <input type="text" class="form-control m-input" placeholder="Rue" value="@if(isset($dataTypeContent->street)){{ $dataTypeContent->street }}@endif" name="street">
                                     </div>
-                                    <div class="col-lg-3 margin_bottom_10">
+                                    <div class="col-lg-2 margin_bottom_10">
                                         <label>N°</label>
-                                        <input type="text" class="form-control m-input" placeholder="Number" value="@if(isset($dataTypeContent->number)){{ $dataTypeContent->number }}@endif" name="number">
-                                        <span class="m-form__help">
-                                            Please enter your number
-                                        </span>
+                                        <input type="text" class="form-control m-input" placeholder="N°" value="@if(isset($dataTypeContent->number)){{ $dataTypeContent->number }}@endif" name="number">
                                     </div>
-                                    <div class="col-lg-3 margin_bottom_10">
-                                        <label>Case postale</label>
-                                        <div class="m-input-icon m-input-icon--right">
-                                            <span class="m-input-icon__icon m-input-icon__icon--right">
-                                                <span>
-                                                    <i class="la la-inbox"></i>
-                                                </span>
-                                            </span>
-                                            <input type="number" class="form-control m-input" placeholder="" value="@if(isset($dataTypeContent->po_box)){{ $dataTypeContent->po_box }}@endif" name="po_box">
-                                        </div>
-                                        <span class="m-form__help">
-                                            Please enter your PO box
-                                        </span>
+                                    <div class="col-lg-2 margin_bottom_10">
+                                        <label>CP</label>
+                                        <input type="number" class="form-control m-input" placeholder="CP" value="@if(isset($dataTypeContent->po_box)){{ $dataTypeContent->po_box }}@endif" name="po_box">
                                     </div>
-                                    <div class="col-lg-3 margin_bottom_10">
-                                        <label>Code postal</label>
-                                        <input type="text" class="form-control m-input" placeholder="ZIP Code" value="@if(isset($dataTypeContent->zip_code)){{ $dataTypeContent->zip_code }}@endif" name="zip_code">
-                                        <span class="m-form__help">
-                                            Please enter your ZIP Code
-                                        </span>
+                                    <div class="col-lg-2 margin_bottom_10">
+                                        <label>NPA</label>
+                                        <input type="text" class="form-control m-input" placeholder="NPA" value="@if(isset($dataTypeContent->zip_code)){{ $dataTypeContent->zip_code }}@endif" name="zip_code">
                                     </div>
                                     <div class="col-lg-3 margin_bottom_10">
                                         <label>Ville</label>
-                                        <input type="text" class="form-control m-input" placeholder="Town" value="@if(isset($dataTypeContent->town)){{ $dataTypeContent->town }}@endif" name="town">
-                                        <span class="m-form__help">
-                                            Please enter your town
-                                        </span>
+                                        <input type="text" class="form-control m-input" placeholder="Ville" value="@if(isset($dataTypeContent->town)){{ $dataTypeContent->town }}@endif" name="town">
                                     </div>
                                     <div class="col-lg-3 margin_bottom_10">
                                         <label>Pays</label>
@@ -649,6 +624,14 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <div class="col-lg-3">
+                                        <label>Longitude</label>
+                                        <input disabled="disabled" type="number" class="form-control m-input" placeholder="Longitude" name="longitude">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label>Latitude</label>
+                                        <input disabled="disabled" type="number" class="form-control m-input" placeholder="Longitude" name="latitude">
+                                    </div>
                                     <div class="col-lg-3 margin_bottom_10">
                                         <label>Localisation</label>
                                         <select class="form-control m-select2 custom_select2" name="location" data-placeholder="Select Location">
@@ -656,26 +639,6 @@
                                                 <option value="{{ $location->reference }}" @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <div class="col-lg-3 margin_bottom_10">
-
-                                        <a href="#map">
-                                            <button type="button" class="btn btn-secondary">Place address on map</button>
-                                        </a>
-                                        {{--<div style="height:500px;width:1000px;text-align: center;" id="map"></div>--}}
-                                    </div>
-
-
-                                    {{--The following fields we are not displaying for now.--}}
-                                    <div style="display: none">
-                                        <div class="col-lg-2">
-                                            <label>Longitude</label>
-                                            <input type="number" class="form-control m-input" placeholder="Longitude" name="longitude">
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <label>Latitude</label>
-                                            <input type="number" class="form-control m-input" placeholder="Longitude" name="latitude">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -704,17 +667,7 @@
                                 <div class="form-group m-form__group row">
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Devise</label>
-                                            <select class="form-control m-select2 custom_select2" name="сurrency" data-placeholder="Select currency">
-                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
-                                                    <option value="{{ $сurrency->reference }}" @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ 'selected="selected"' }}@endif>{{ $сurrency->value }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 margin_bottom_10">
-                                        <div class="form-group">
-                                            <label class="">Afficher le prix :</label>
+                                            <label class="">Afficher le prix</label>
                                             <div class="m-radio-inline">
                                                 <label class="m-radio m-radio--solid">
                                                     <input type="radio" name="show_price" value="1" {{ ($dataTypeContent->show_price == 1) ? 'checked' : '' }}>
@@ -731,14 +684,26 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>prix</label>
+                                            <label>Devise</label>
+                                            <select class="form-control m-select2 custom_select2" name="сurrency" data-placeholder="Select currency">
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    <option value="{{ $сurrency->reference }}" @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ 'selected="selected"' }}@endif>{{ $сurrency->value }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Prix</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->price)){{ $dataTypeContent->price }}@endif" name="price">
                                                 <span class="input-group-addon">EUR</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Prix au m<sup>2</sup></label>
                                             <div class="input-group">
@@ -747,7 +712,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Rendement brut</label>
                                             <div class="input-group">
@@ -756,12 +721,32 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Rendement net</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->net_return)){{ $dataTypeContent->net_return }}@endif" name="net_return">
                                                 <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label>Montant négociable</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->negotiable_amount)){{ $dataTypeContent->negotiable_amount }}@endif" name="negotiable_amount">
+                                                <span class="input-group-addon">EUR</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label>Montant estimé</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->estimate_price)){{ $dataTypeContent->estimate_price }}@endif" name="estimate_price">
+                                                <span class="input-group-addon">EUR</span>
                                             </div>
                                         </div>
                                     </div>
@@ -794,24 +779,6 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant négociable</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->negotiable_amount)){{ $dataTypeContent->negotiable_amount }}@endif" name="negotiable_amount">
-                                                <span class="input-group-addon">EUR</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Montant estimé</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->estimate_price)){{ $dataTypeContent->estimate_price }}@endif" name="estimate_price">
-                                                <span class="input-group-addon">EUR</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
                                             <label>Droits d'enregistremenet</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->recording_rights)){{ $dataTypeContent->recording_rights }}@endif" name="recording_rights">
@@ -819,16 +786,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Régime</label>
-                                            <select class="form-control m-select2 custom_select2" name="regime" data-placeholder="Select currency">
-                                                @foreach(TCG\Voyager\Models\Regime::all() as $regime)
-                                                    <option value="{{ $regime->reference }}" @if(isset($dataTypeContent->regime) && $dataTypeContent->regime == $regime->reference){{ 'selected="selected"' }}@endif>{{ $regime->value }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <label>Charges de chauffage</label>
@@ -858,24 +817,6 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Taxe foncière</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->property_tax)){{ $dataTypeContent->property_tax }}@endif" name="property_tax">
-                                                <span class="input-group-addon">EUR</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Fonds de rénovation</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->renovation_fund)){{ $dataTypeContent->renovation_fund }}@endif" name="renovation_fund">
-                                                <span class="input-group-addon">EUR</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
                                             <label>Charges annuelles</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->annual_charges)){{ $dataTypeContent->annual_charges }}@endif" name="annual_charges">
@@ -894,6 +835,15 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
+                                            <label>Taxe foncière</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->property_tax)){{ $dataTypeContent->property_tax }}@endif" name="property_tax">
+                                                <span class="input-group-addon">EUR</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
                                             <label>Caution locative</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->rental_security)){{ $dataTypeContent->rental_security }}@endif" name="rental_security">
@@ -903,9 +853,9 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Fonds de commerce</label>
+                                            <label>Fonds de rénovation</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->commercial_property)){{ $dataTypeContent->commercial_property }}@endif" name="commercial_property">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->renovation_fund)){{ $dataTypeContent->renovation_fund }}@endif" name="renovation_fund">
                                                 <span class="input-group-addon">EUR</span>
                                             </div>
                                         </div>
@@ -928,11 +878,30 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label>Fonds de commerce</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->commercial_property)){{ $dataTypeContent->commercial_property }}@endif" name="commercial_property">
+                                                <span class="input-group-addon">EUR</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label>Régime</label>
+                                            <select class="form-control m-select2 custom_select2" name="regime" data-placeholder="Select currency">
+                                                @foreach(TCG\Voyager\Models\Regime::all() as $regime)
+                                                    <option value="{{ $regime->reference }}" @if(isset($dataTypeContent->regime) && $dataTypeContent->regime == $regime->reference){{ 'selected="selected"' }}@endif>{{ $regime->value }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="m-checkbox">
                                                 <input type="checkbox" @if(isset($dataTypeContent->procedure_in_progress) && $dataTypeContent->procedure_in_progress){{ 'checked="checked"' }}@endif name="procedure_in_progress">
-                                                Procédure en cours auprès de la copro.
+                                                Procédure en cours auprès de la copropriété
                                                 <span></span>
                                             </label>
                                         </div>
@@ -964,7 +933,15 @@
                                 <div class="form-group m-form__group row">
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Nombre de chambres</label>
+                                            <label>Nb de pièces</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_pieces)){{ $dataTypeContent->number_pieces }}@endif" name="number_pieces">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label>Nb de chambres</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_rooms)){{ $dataTypeContent->number_rooms }}@endif" name="number_rooms">
                                             </div>
@@ -972,33 +949,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Nombre de pièces</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_pieces)){{ $dataTypeContent->number_pieces }}@endif" name="number_pieces">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{--The following fields we are not displaying for now.--}}
-                                    <div class="col-lg-2" style="display: none">
-                                        <div class="form-group">
-                                            <label>Nombre de salles d'eau</label>
-                                            <div class="input-group">
-                                                <input type="number" readonly class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{--end--}}
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Nombre de balcons</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_balconies)){{ $dataTypeContent->number_balconies }}@endif" name="number_balconies">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Nombre de salles de douche</label>
+                                            <label>Nb de salles de douche</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_shower_rooms)){{ $dataTypeContent->number_shower_rooms }}@endif" name="number_shower_rooms">
                                             </div>
@@ -1006,7 +957,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Nombre de WC</label>
+                                            <label>Nb de WC</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_toilets)){{ $dataTypeContent->number_toilets }}@endif" name="number_toilets">
                                             </div>
@@ -1014,7 +965,23 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Nombre de terasses</label>
+                                            <label>Nb de salles d'eau</label>
+                                            <div class="input-group">
+                                                <input type="number" disabled class="form-control m-input" placeholder="Nb douche + Nb de WC" value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label>Niveaux</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..."  value="@if(isset($dataTypeContent->levels)){{ $dataTypeContent->levels }}@endif" name="levels">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label>Nb de terasses</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_terraces)){{ $dataTypeContent->number_terraces }}@endif" name="number_terraces">
                                             </div>
@@ -1022,9 +989,9 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Nombre d'étage du bâtiment</label>
+                                            <label>Nb de balcons</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_floors_building)){{ $dataTypeContent->number_floors_building }}@endif" name="number_floors_building">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_balconies)){{ $dataTypeContent->number_balconies }}@endif" name="number_balconies">
                                             </div>
                                         </div>
                                     </div>
@@ -1040,9 +1007,9 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Niveaux</label>
+                                            <label>Nb d'étage du bâtiment</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..."  value="@if(isset($dataTypeContent->levels)){{ $dataTypeContent->levels }}@endif" name="levels">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_floors_building)){{ $dataTypeContent->number_floors_building }}@endif" name="number_floors_building">
                                             </div>
                                         </div>
                                     </div>
@@ -1070,101 +1037,141 @@
                             </div>
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
-
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Surface de la cave</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_cellar)){{ $dataTypeContent->surface_cellar }}@endif" name="surface_cellar">
-                                                <span class="input-group-addon">m<sup>2</sup></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Hauteur des plafonds</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->ceiling_height)){{ $dataTypeContent->ceiling_height }}@endif" name="ceiling_height">
-                                                <span class="input-group-addon">m</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Surface de l'abri de la toiture</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->roof_cover_area)){{ $dataTypeContent->roof_cover_area }}@endif" name="roof_cover_area">
-                                                <span class="input-group-addon">m<sup>2</sup></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Surface de la terrasse / solarium</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surf_area_terr_solar)){{ $dataTypeContent->surf_area_terr_solar }}@endif" name="surf_area_terr_solar">
-                                                <span class="input-group-addon">m<sup>2</sup></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Surface de la véranda</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->area_veranda)){{ $dataTypeContent->area_veranda }}@endif" name="area_veranda">
-                                                <span class="input-group-addon">m<sup>2</sup></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Surface des combles</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->attic_space)){{ $dataTypeContent->attic_space }}@endif" name="attic_space">
                                                 <span class="input-group-addon">m<sup>2</sup></span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
+                                                </span>
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Surface du balcon</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_balcony)){{ $dataTypeContent->surface_balcony }}@endif" name="surface_balcony">
                                                 <span class="input-group-addon">m<sup>2</sup></span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
+                                                </span>
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Surface du sous-sol</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->basement_area)){{ $dataTypeContent->basement_area }}@endif" name="basement_area">
                                                 <span class="input-group-addon">m<sup>2</sup></span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
+                                                </span>
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Surface du terrain</label>
+                                            <label>Surface de la cave</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_ground)){{ $dataTypeContent->surface_ground }}@endif" name="surface_ground">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_cellar)){{ $dataTypeContent->surface_cellar }}@endif" name="surface_cellar">
+                                                <span class="input-group-addon">m<sup>2</sup></span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
+                                                </span>
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Surface de la terrasse solarium</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surf_area_terr_solar)){{ $dataTypeContent->surf_area_terr_solar }}@endif" name="surf_area_terr_solar">
+                                                <span class="input-group-addon">m<sup>2</sup></span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
+                                                </span>
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Surface de l'abri de la toiture</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->roof_cover_area)){{ $dataTypeContent->roof_cover_area }}@endif" name="roof_cover_area">
+                                                <span class="input-group-addon">m<sup>2</sup></span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
+                                                </span>
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Surface de la véranda</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->area_veranda)){{ $dataTypeContent->area_veranda }}@endif" name="area_veranda">
+                                                <span class="input-group-addon">m<sup>2</sup></span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
+                                                </span>
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Surface de la cour anglaise</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_eng_court)){{ $dataTypeContent->surface_eng_court }}@endif" name="surface_eng_court">
+                                                <span class="input-group-addon">m<sup>2</sup></span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
+                                                </span>
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Surface pondérée</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" disabled="disabled" placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
                                                 <span class="input-group-addon">m<sup>2</sup></span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Terrain</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="Longeur" value="@if(isset($dataTypeContent->ground_length)){{ $dataTypeContent->ground_length }}@endif" name="ground_length" />
-                                                <span class="input-group-addon">
-                                                    <i class="la la-ellipsis-h"></i>
+                                                <span class="input-group-addon">m</span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-close"></i>
                                                 </span>
                                                 <input type="number" class="form-control" placeholder="Largeur" value="@if(isset($dataTypeContent->ground_width)){{ $dataTypeContent->ground_width }}@endif" name="ground_width" />
+                                                <span class="input-group-addon">m</span>
+                                                <span class="input-group-addon custom_additional_addon">
+                                                    <i class="la la-pause" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);transform: rotate(90deg);"></i>
+                                                </span>
+                                                <input type="number" class="form-control" placeholder="Total" disabled="disabled" value="@if(isset($dataTypeContent->surface_ground)){{ $dataTypeContent->surface_ground }}@endif" name="surface_ground" />
+                                                <span class="input-group-addon">m<sup>2</sup></span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Type de terrain</label>
                                             <select class="form-control m-select2 custom_select2" name="type_land" data-placeholder="Select Floor">
@@ -1174,16 +1181,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Surface utille</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->useful_surface)){{ $dataTypeContent->useful_surface }}@endif" name="useful_surface">
-                                                <span class="input-group-addon">m<sup>2</sup></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Surface PPE</label>
                                             <div class="input-group">
@@ -1192,25 +1190,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Volume</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->volume)){{ $dataTypeContent->volume }}@endif" name="volume">
-                                                <span class="input-group-addon">m<sup>3</sup></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Surface de la cour anglaise</label>
-                                            <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_eng_court)){{ $dataTypeContent->surface_eng_court }}@endif" name="surface_eng_court">
-                                                <span class="input-group-addon">m<sup>2</sup></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Surface rez-de-chaussée inférieur</label>
                                             <div class="input-group">
@@ -1219,7 +1199,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Volume</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->volume)){{ $dataTypeContent->volume }}@endif" name="volume">
+                                                <span class="input-group-addon">m<sup>3</sup></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Surface de l'emprise</label>
                                             <div class="input-group">
@@ -1228,7 +1217,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Surface du garage</label>
                                             <div class="input-group">
@@ -1237,21 +1226,35 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Surface pondérée</label>
+                                            <label>Surface utille</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->useful_surface)){{ $dataTypeContent->useful_surface }}@endif" name="useful_surface">
                                                 <span class="input-group-addon">m<sup>2</sup></span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label class="m-checkbox" style="margin-top: 30px">
-                                                <input type="checkbox" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced){{ 'checked="checked"' }}@endif name="serviced">Viabilisé
-                                                <span></span>
-                                            </label>
+                                            <label>Hauteur des plafonds</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->ceiling_height)){{ $dataTypeContent->ceiling_height }}@endif" name="ceiling_height">
+                                                <span class="input-group-addon">m</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="">Viabilisé</label>
+                                            <div class="">
+                                                <span class="m-switch m-switch--icon">
+                                                    <label>
+                                                        <input type="checkbox" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced){{ 'checked="checked"' }}@endif name="serviced">
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2730,7 +2733,7 @@
                                         <div class="form-group">
                                             <label>Année de construction</label>
                                             <div class="input-group date years_only">
-                                                <input type="text" class="form-control m-input " readonly="" placeholder="Select date" name="year_construction">
+                                                <input type="text" class="form-control m-input " readonly="" placeholder="Sélectionner la date" name="year_construction">
                                                 <span class="input-group-addon">
 													<i class="la la-calendar-check-o"></i>
 												</span>
@@ -2742,7 +2745,7 @@
                                         <div class="form-group">
                                             <label>Année de rénovation</label>
                                             <div class="input-group date years_only">
-                                                <input type="text" class="form-control m-input " readonly="" placeholder="Select date" name="year_renovation">
+                                                <input type="text" class="form-control m-input " readonly="" placeholder="Sélectionner la date" name="year_renovation">
                                                 <span class="input-group-addon">
 													<i class="la la-calendar-check-o"></i>
 												</span>
