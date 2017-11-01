@@ -10,7 +10,7 @@
             $arrayJsonData[] = [
                 'id' => $data->id,
                 'title_fr' => $data->title_fr,
-                'image_multiple' => json_decode($data->image)[0],
+                'image' => json_decode($data->image)[0],
                 'created_at' => $data->created_at->format('d F Y')
             ];
         } else {
