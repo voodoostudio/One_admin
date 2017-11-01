@@ -231,9 +231,11 @@
                             <div class="m-widget19">
                                 <div class="m-widget19__pic m-portlet-fit--sides" style1="height: 280px">
                                     <div class="object_gallery">
-                                        @foreach(json_decode($dataTypeContent->image) as $image)
-                                            <div><img src="{{ URL::to('storage') }}/{{ $image }}" alt=""></div>
-                                        @endforeach
+                                        @if(!empty(json_decode($dataTypeContent->image)))
+                                            @foreach(json_decode($dataTypeContent->image) as $image)
+                                                <div><img src="{{ URL::to('storage') }}/{{ $image }}" alt=""></div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                     <h3 class="m-widget19__title m--font-light">
                                         {{ $dataTypeContent->title_fr }}
