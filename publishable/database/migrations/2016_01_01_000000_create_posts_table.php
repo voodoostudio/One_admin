@@ -27,7 +27,7 @@ class CreatePostsTable extends Migration
             $table->string('image', 2048)->nullable();
             $table->boolean('ann_type');
             $table->string('reference')->nullable();
-            $table->boolean('exclusiveness')->default(0);
+            $table->boolean('exclusiveness')->default(1);
             $table->integer('category_id')->nullable();
             $table->integer('sub_category')->nullable();
             $table->integer('notation')->nullable();

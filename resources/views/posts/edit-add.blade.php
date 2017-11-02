@@ -216,7 +216,7 @@
                                     <div class="row">
                                         <div class="col-12 margin_bottom_10 lang-fr">
                                             <label>Titre de l'annonce FR</label>
-                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_fr }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_fr" required="required">
+                                            <input type="text" value="{{ $dataTypeContent->title_fr }}" class="form-control m-input" placeholder="Ad Title" name="title_fr" required="required">
                                         </div>
                                         <div class="col-12 margin_bottom_10 lang-fr">
                                             <label>Description de l'annonce FR</label>
@@ -228,7 +228,7 @@
                                     <div class="row">
                                         <div class="col-12 margin_bottom_10 lang-en">
                                             <label>Titre de l'annonce EN</label>
-                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_en }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_en" required="required">
+                                            <input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Ad Title" name="title_en" required="required">
                                         </div>
                                         <div class="col-12 margin_bottom_10 lang-en">
                                             <label>Description de l'annonce EN</label>
@@ -240,7 +240,7 @@
                                     <div class="row">
                                         <div class="col-12 margin_bottom_10 lang-es">
                                             <label>Titre de l'annonce ES</label>
-                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_es }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_es" required="required">
+                                            <input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Ad Title" name="title_es" required="required">
                                         </div>
                                         <div class="col-12 margin_bottom_10 lang-es">
                                             <label>Description de l'annonce ES</label>
@@ -310,74 +310,16 @@
                                             @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                 @if($category->parent_id == null)
                                                     <li class="nav-item m-tabs__item">
-                                                        <a class="nav-link m-tabs__link @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ 'active' }}@endif" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">{{ $category->name }}</a>
+                                                        <a class="nav-link m-tabs__link @if(isset($dataTypeContent->$category->id) && $dataTypeContent->category_id == $category->id){{ 'active' }}@endif" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">{{ $category->name }}</a>
+                                                        <input name="category_id"  type="hidden">
                                                     </li>
                                                 @endif
                                             @endforeach
                                         </ul>
-                                        <ul class="nav nav-tabs  m-tabs-line" role="tablist">
-                                            <li class="nav-item m-tabs__item">
-                                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">Maison</a>
-                                            </li>
-                                            <li class="nav-item m-tabs__item">
-                                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#category_apartment" role="tab" aria-expanded="true">Appartement</a>
-                                            </li>
-                                            <li class="nav-item m-tabs__item">
-                                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#category_land" role="tab" aria-expanded="true">Terrain</a>
-                                            </li>
-                                        </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="category_house" role="tabpanel" aria-expanded="false">
                                                 <div class="form-group">
-                                                    <div class="m-radio-inline">
-                                                        <label class="m-radio btn btn-outline-brand active">
-                                                            <input type="radio" name="category_house" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
-                                                            Subcategory 1
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="m-radio btn btn-outline-brand">
-                                                            <input type="radio" name="category_house" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
-                                                            Subcategory 2
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="category_apartment" role="tabpanel" aria-expanded="false">
-                                                <div class="form-group">
-                                                    <label class="">
-                                                        Promotion :
-                                                    </label>
-                                                    <div class="m-radio-inline">
-                                                        <label class="m-radio m-radio--solid">
-                                                            <input type="radio" name="category_apartment" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
-                                                            Oui
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="m-radio m-radio--solid">
-                                                            <input type="radio" name="category_apartment" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
-                                                            Non
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="category_land" role="tabpanel" aria-expanded="true">
-                                                <div class="form-group">
-                                                    <label class="">
-                                                        Promotion :
-                                                    </label>
-                                                    <div class="m-radio-inline">
-                                                        <label class="m-radio m-radio--solid">
-                                                            <input type="radio" name="category_land" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
-                                                            Oui
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="m-radio m-radio--solid">
-                                                            <input type="radio" name="category_land" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
-                                                            Non
-                                                            <span></span>
-                                                        </label>
+                                                    <div class="m-radio-inline sub_cat">
                                                     </div>
                                                 </div>
                                             </div>
@@ -509,7 +451,7 @@
                                             <div class="">
                                                 <span class="m-switch m-switch--icon">
                                                     <label>
-                                                        <input type="checkbox" checked="checked" @if(isset($dataTypeContent->exclusiveness) && $dataTypeContent->exclusiveness){{ 'checked="checked"' }}@endif name="exclusiveness">
+                                                        <input value="1" type="checkbox" checked {{ ($dataTypeContent->exclusiveness == 1) ? 'checked' : '' }} name="exclusiveness">
                                                         <span></span>
                                                     </label>
                                                 </span>
@@ -587,7 +529,7 @@
                             </div>
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-9 margin_bottom_10">
+                                    <div class="col-lg-6 margin_bottom_10">
                                         <label>Adresse</label>
                                         <div class="m-input-icon m-input-icon--right">
                                             <input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">
@@ -600,7 +542,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 margin_bottom_10">
-                                        <button type="button" class="btn btn-secondary" style="margin-top: 28px; width: 100%">Placer l’adresse sur la carte</button>
+                                        <button type="button" class="btn btn-secondary">Placer l’adresse sur la carte</button>
                                         {{--<div style="height:500px;width:1000px;text-align: center;" id="map"></div>--}}
                                     </div>
                                 </div>
@@ -743,7 +685,7 @@
                                 <div class="form-group m-form__group row">
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant négociable <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation du prix de vente possible honoraires inclus - ou - simulation du prix de location honoraires exclus" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Montant négociable</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->negotiable_amount)){{ $dataTypeContent->negotiable_amount }}@endif" name="negotiable_amount">
                                                 <span class="input-group-addon">EUR</span>
@@ -752,7 +694,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant estimé <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="A titre indicatif le prix estimé pour vos avis de valeur" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Montant estimé</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->estimate_price)){{ $dataTypeContent->estimate_price }}@endif" name="estimate_price">
                                                 <span class="input-group-addon">EUR</span>
@@ -761,7 +703,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Montant propriétaire</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_amount)){{ $dataTypeContent->owner_amount }}@endif" name="owner_amount">
                                                 <span class="input-group-addon">EUR</span>
@@ -770,7 +712,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Honoraire client <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du client acheteur. Dans le cadre d'une location : constitution du dossier, visite et rédaction du contrat" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Honoraire client</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->client_fees)){{ $dataTypeContent->client_fees }}@endif" name="client_fees">
                                                 <span class="input-group-addon">EUR</span>
@@ -779,7 +721,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Honoraire propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Honoraire propriétaire</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_fees)){{ $dataTypeContent->owner_fees }}@endif" name="owner_fees">
                                                 <span class="input-group-addon">EUR</span>
@@ -788,7 +730,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Droits d'enregistremenet <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation des frais de notaire et des droits de mutation" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Droits d'enregistremenet</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->recording_rights)){{ $dataTypeContent->recording_rights }}@endif" name="recording_rights">
                                                 <span class="input-group-addon">EUR</span>
@@ -1055,7 +997,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                {{--<input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />--}}
                                             </div>
                                         </div>
                                     </div>
@@ -2941,35 +2883,119 @@
             format: "yyyy-mm-dd" // Notice the Extra space at the beginning
         });
 
-        // action for change announce type
+        /* action for change announce type */
         $('input[name="ann_type"]').on("change", function(){
             if($(this).val() === 1) {
                 $('.rent').attr('disabled', true);
             }
         });
 
-        // selects
-        $('select.custom_select2').on('change', function() {
+//        $('a[cat_id]').click(function() {
+//            var selectedTab = $(this).attr('cat_id');
+//
+//        console.log($('input[data]').attr('data').val() + 'бляхамуха');
 
-            var selectedOption = $(this).select2('data')[0]['id'];
+        /* selects */
+        $('a[cat_id]').click(function() {
+
+            var selectedTab = $(this).attr('cat_id');
+            $('input[name="category_id"]').attr('value',selectedTab);
+//            console.log(selectedTab + 'sdgkl');
             var token = $('input[name="_token"]').val();
 
+            /* repeating fields */
+            var propTax = $('input[name="property_tax"]'),
+                commercialProp = $('input[name="commercial_property"]'),
+                floorProp = $('select[name="floor_property"]'),
+                serviced = $('input[name="serviced"]'),
+                removPartitions = $('input[name="removable_partitions"]'),
+                hoist = $('input[name="hoist"]'),
+                openPlan = $('input[name="open_plan"]'),
+                loadingDock = $('input[name="loading_dock"]'),
+                reception = $('input[name="reception"]'),
+                collectiveLift = $('input[name="collective_lift"]'),
+                comLaundryRoom = $('input[name="communal_laundry_room"]'),
+                netCabling = $('input[name="network_cabling"]'),
+                collectivopticFiber = $('input[name="collective_optical_fiber"]'),
+                parable = $('input[name="parable"]'),
+                stateFront = $('select[name="state_front"]');
+
+            function addClassAndAttr (element) {
+                element.attr('disabled',true);
+                element.parent().parent().addClass('disabled_element');
+            }
+            function addClass (element) {
+                element.parent().parent().addClass('disabled_element');
+            }
+            function addAttr (element) {
+                element.attr('disabled',true);
+            }
+
+            switch (selectedTab) {
+                case '1' :
+                    addClassAndAttr(propTax);
+                    addClassAndAttr(commercialProp);
+                    addClassAndAttr($('input[name="number_floors_building"]'));
+                    addAttr(floorProp);
+                    floorProp.parent().addClass('disabled_element');
+                    addClassAndAttr(serviced);
+                    addClassAndAttr($('input[name="ppe_area"]'));
+                    addClassAndAttr(removPartitions);
+                    addClassAndAttr(hoist);
+                    addClassAndAttr(openPlan);
+                    addClassAndAttr(loadingDock);
+                    addClassAndAttr(reception);
+                    addClassAndAttr(collectiveLift);
+                    addClassAndAttr(comLaundryRoom);
+                    addClassAndAttr(netCabling);
+                    addClassAndAttr(collectivopticFiber);
+                    addClassAndAttr(parable);
+                    addAttr(stateFront);
+                    stateFront.parent().addClass('disabled_element');
+                    break;
+                case '2' :
+                    addClassAndAttr(propTax);
+                    break;
+                case '3' :
+                    console.log('case 3 selected');
+                    break;
+                case '4' :
+                    console.log('case 4 selected');
+                    break;
+                case '5' :
+                    console.log('case 5 selected');
+                    break;
+                case '6' :
+                    console.log('case 6 selected');
+                    break;
+                case '7' :
+                    console.log('case 7 selected');
+                    break;
+                case '8' :
+                    console.log('case 8 selected');
+                    break;
+            }
+
             $.ajax({
-                url: '../../get-categories/'+selectedOption,
+                url: '{{ URL::to('/') }}' + '/admin/get-categories/'+selectedTab,
                 type: 'post',
                 data: {
                     '_token': token,
-                    'category' : selectedOption
+                    'category' : selectedTab
                 },
                 success : function (arr) {
-                    $('select[name="sub_category"]').html('');
+                    $('div.sub_cat').html('');
                     $.each( arr, function( key, value ) {
-//                        console.log(value.id + ' <= ID ' + value.name + ' <= Name ');
-                        $('select[name="sub_category"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+                        $('div.sub_cat').append('' +
+                            '<label class="m-radio btn btn-outline-brand">' +
+                            '<input type="radio" name="sub_category" value="' + value.id +'">' + value.name +'' +
+                            '<span></span>' +
+                            '</label>');
                     });
                 }
 
             });
+
         });
 
         $(function() {

@@ -441,7 +441,13 @@ class DataRowsTableSeeder extends Seeder
                 'edit' => 1,
                 'add' => 1,
                 'delete' => 1,
-                'details' => '',
+                'details'      => json_encode([
+                    'default' => '1',
+                    'options' => [
+                        '1' => 1,
+                        '0' => 0,
+                    ]
+                ]),
                 'order' => 24,
             ])->save();
         }
