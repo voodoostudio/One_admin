@@ -310,7 +310,7 @@
                                             @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                 @if($category->parent_id == null)
                                                     <li class="nav-item m-tabs__item">
-                                                        <a class="nav-link m-tabs__link {{ ($category->id == 1) ? 'active' : '' }}" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">{{ $category->name }}</a>
+                                                        <a class="nav-link m-tabs__link @if(isset($dataTypeContent->$category->id) && $dataTypeContent->category_id == $category->id){{ 'active' }}@endif" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">{{ $category->name }}</a>
                                                         <input name="category_id"  type="hidden">
                                                     </li>
                                                 @endif
@@ -529,7 +529,7 @@
                             </div>
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-6 margin_bottom_10">
                                         <label>Adresse</label>
                                         <div class="m-input-icon m-input-icon--right">
                                             <input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">
@@ -541,8 +541,8 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <button type="button" class="btn btn-secondary" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                    <div class="col-lg-3 margin_bottom_10">
+                                        <button type="button" class="btn btn-secondary">Placer l’adresse sur la carte</button>
                                         {{--<div style="height:500px;width:1000px;text-align: center;" id="map"></div>--}}
                                     </div>
                                 </div>
@@ -685,7 +685,7 @@
                                 <div class="form-group m-form__group row">
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant négociable <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation du prix de vente possible honoraires inclus - ou - simulation du prix de location honoraires exclus" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Montant négociable</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->negotiable_amount)){{ $dataTypeContent->negotiable_amount }}@endif" name="negotiable_amount">
                                                 <span class="input-group-addon">EUR</span>
@@ -694,7 +694,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant estimé <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="A titre indicatif le prix estimé pour vos avis de valeur" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Montant estimé</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->estimate_price)){{ $dataTypeContent->estimate_price }}@endif" name="estimate_price">
                                                 <span class="input-group-addon">EUR</span>
@@ -703,7 +703,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Montant propriétaire</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_amount)){{ $dataTypeContent->owner_amount }}@endif" name="owner_amount">
                                                 <span class="input-group-addon">EUR</span>
@@ -712,7 +712,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Honoraire client <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du client acheteur. Dans le cadre d'une location : constitution du dossier, visite et rédaction du contrat" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Honoraire client</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->client_fees)){{ $dataTypeContent->client_fees }}@endif" name="client_fees">
                                                 <span class="input-group-addon">EUR</span>
@@ -721,7 +721,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Honoraire propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Honoraire propriétaire</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_fees)){{ $dataTypeContent->owner_fees }}@endif" name="owner_fees">
                                                 <span class="input-group-addon">EUR</span>
@@ -730,7 +730,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Droits d'enregistremenet <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation des frais de notaire et des droits de mutation" data-original-title=""><i class="la la-question-circle"></i></a></label>
+                                            <label>Droits d'enregistremenet</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->recording_rights)){{ $dataTypeContent->recording_rights }}@endif" name="recording_rights">
                                                 <span class="input-group-addon">EUR</span>
@@ -2858,7 +2858,7 @@
 
 @section('javascript')
     <!--begin::Page Resources -->
-    {{--<script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/dropzone.js') }}" type="text/javascript"></script>--}}
+    <script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/dropzone.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js') }}" type="text/javascript"></script>
     <!-- Google Maps -->
     {{--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&callback=initMap&libraries=places"></script>--}}
@@ -2889,6 +2889,11 @@
                 $('.rent').attr('disabled', true);
             }
         });
+
+//        $('a[cat_id]').click(function() {
+//            var selectedTab = $(this).attr('cat_id');
+//
+//        console.log($('input[data]').attr('data').val() + 'бляхамуха');
 
         /* selects */
         $('a[cat_id]').click(function() {
@@ -2982,17 +2987,15 @@
                     $('div.sub_cat').html('');
                     $.each( arr, function( key, value ) {
                         $('div.sub_cat').append('' +
-                            '<div class="label_container">' +
-                                '<label class="m-radio btn btn-outline-brand">' +
-                                    '<input type="radio" name="sub_category" value="' + value.id +'"><span class="sub_cat_title">' + value.name +'</span>' +
-                                    '<span></span>' +
-                                '</label>' +
-                            '</div>'
-                        );
+                            '<label class="m-radio btn btn-outline-brand">' +
+                            '<input type="radio" name="sub_category" value="' + value.id +'">' + value.name +'' +
+                            '<span></span>' +
+                            '</label>');
                     });
                 }
 
             });
+
         });
 
         $(function() {
@@ -3002,75 +3005,75 @@
         });
 
         // Places
-//        function initAutocomplete() {
-//            var map = new google.maps.Map(document.getElementById('map'), {
-//                center : {lat : 40.415363,lng : -3.707398},
-//                zoom: 7,
-//                mapTypeId: 'roadmap'
-//            });
-//
-//            // Create the search box and link it to the UI element.
-//            var input = document.getElementById('pac-input');
-//            var searchBox = new google.maps.places.SearchBox(input);
-////            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-//
-//            // Bias the SearchBox results towards current map's viewport.
-//            map.addListener('bounds_changed', function() {
-//                searchBox.setBounds(map.getBounds());
-//            });
-//
-//            var markers = [];
-//            // Listen for the event fired when the user selects a prediction and retrieve
-//            // more details for that place.
-//            searchBox.addListener('places_changed', function() {
-//                var places = searchBox.getPlaces();
-//
-//                if (places.length == 0) {
-//                    return;
-//                }
-//
-//                // Clear out the old markers.
-//                markers.forEach(function(marker) {
-//                    marker.setMap(true);
-//                });
-//                markers = [];
-//
-//                // For each place, get the icon, name and location.
-//                var bounds = new google.maps.LatLngBounds();
-//                places.forEach(function(place) {
-//                    if (!place.geometry) {
-//                        console.log("Returned place contains no geometry");
-//                        return;
-//                    }
-//                    var icon = {
-//                        url: place.icon,
-//                        size: new google.maps.Size(71, 71),
-//                        origin: new google.maps.Point(0, 0),
-//                        anchor: new google.maps.Point(17, 34),
-//                        scaledSize: new google.maps.Size(25, 25)
-//                    };
-//
-//                    // Create a marker for each place.
-//                    markers.push(new google.maps.Marker({
-//                        map: map,
-//                        icon: icon,
-//                        title: place.name,
-//                        position: place.geometry.location
-//                    }));
-//
-//                    if (place.geometry.viewport) {
-//                        // Only geocodes have viewport.
-//                        bounds.union(place.geometry.viewport);
-//                    } else {
-//                        bounds.extend(place.geometry.location);
-//                    }
-//                });
-//                map.fitBounds(bounds);
-//            });
-//        }
+        function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center : {lat : 40.415363,lng : -3.707398},
+                zoom: 7,
+                mapTypeId: 'roadmap'
+            });
 
-        $('a[cat_id = "1"]').trigger('click');
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+//            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function() {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function() {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function(marker) {
+                    marker.setMap(true);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function(place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
+
     </script>
-    {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&libraries=places&callback=initAutocomplete"async defer></script>--}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&libraries=places&callback=initAutocomplete"
+            async defer></script>
 
 @stop

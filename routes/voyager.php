@@ -22,7 +22,11 @@ Route::group(['as' => 'voyager.'], function () {
     Route::get('login', ['uses' => $namespacePrefix.'VoyagerAuthController@login',     'as' => 'login']);
     Route::post('login', ['uses' => $namespacePrefix.'VoyagerAuthController@postLogin', 'as' => 'postlogin']);
 
+    /* Mailer */
     Route::get('property-email', ['uses' =>  $namespacePrefix.'VoyagerMailController@sendPropertyEmail', 'as' => 'property_mail']);
+
+    /* ajax (get subcategories in create object page)  */
+    Route::post('get-categories/{id}', ['uses' =>  $namespacePrefix.'VoyagerAdminController@getSubCategories', 'as' => 'get-categories/{id}']);
 
     Route::group(['middleware' => 'admin.user'], function () use ($namespacePrefix) {
         event('voyager.admin.routing', app('router'));
