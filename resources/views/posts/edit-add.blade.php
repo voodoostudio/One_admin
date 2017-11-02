@@ -216,7 +216,7 @@
                                     <div class="row">
                                         <div class="col-12 margin_bottom_10 lang-fr">
                                             <label>Titre de l'annonce FR</label>
-                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_fr }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_fr" required="required">
+                                            <input type="text" value="{{ $dataTypeContent->title_fr }}" class="form-control m-input" placeholder="Ad Title" name="title_fr" required="required">
                                         </div>
                                         <div class="col-12 margin_bottom_10 lang-fr">
                                             <label>Description de l'annonce FR</label>
@@ -228,7 +228,7 @@
                                     <div class="row">
                                         <div class="col-12 margin_bottom_10 lang-en">
                                             <label>Titre de l'annonce EN</label>
-                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_en }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_en" required="required">
+                                            <input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Ad Title" name="title_en" required="required">
                                         </div>
                                         <div class="col-12 margin_bottom_10 lang-en">
                                             <label>Description de l'annonce EN</label>
@@ -240,7 +240,7 @@
                                     <div class="row">
                                         <div class="col-12 margin_bottom_10 lang-es">
                                             <label>Titre de l'annonce ES</label>
-                                            <input type="text" value="@if(isset($dataTypeContent->lng_of_add)){{ $dataTypeContent->title_es }}@endif" class="form-control m-input" placeholder="Ad Title" name="title_es" required="required">
+                                            <input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Ad Title" name="title_es" required="required">
                                         </div>
                                         <div class="col-12 margin_bottom_10 lang-es">
                                             <label>Description de l'annonce ES</label>
@@ -310,74 +310,16 @@
                                             @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                 @if($category->parent_id == null)
                                                     <li class="nav-item m-tabs__item">
-                                                        <a class="nav-link m-tabs__link @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ 'active' }}@endif" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">{{ $category->name }}</a>
+                                                        <a class="nav-link m-tabs__link {{ ($category->id == 1) ? 'active' : '' }}" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">{{ $category->name }}</a>
+                                                        <input name="category_id"  type="hidden">
                                                     </li>
                                                 @endif
                                             @endforeach
                                         </ul>
-                                        <ul class="nav nav-tabs  m-tabs-line" role="tablist">
-                                            <li class="nav-item m-tabs__item">
-                                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">Maison</a>
-                                            </li>
-                                            <li class="nav-item m-tabs__item">
-                                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#category_apartment" role="tab" aria-expanded="true">Appartement</a>
-                                            </li>
-                                            <li class="nav-item m-tabs__item">
-                                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#category_land" role="tab" aria-expanded="true">Terrain</a>
-                                            </li>
-                                        </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="category_house" role="tabpanel" aria-expanded="false">
                                                 <div class="form-group">
-                                                    <div class="m-radio-inline">
-                                                        <label class="m-radio btn btn-outline-brand active">
-                                                            <input type="radio" name="category_house" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
-                                                            Subcategory 1
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="m-radio btn btn-outline-brand">
-                                                            <input type="radio" name="category_house" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
-                                                            Subcategory 2
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="category_apartment" role="tabpanel" aria-expanded="false">
-                                                <div class="form-group">
-                                                    <label class="">
-                                                        Promotion :
-                                                    </label>
-                                                    <div class="m-radio-inline">
-                                                        <label class="m-radio m-radio--solid">
-                                                            <input type="radio" name="category_apartment" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
-                                                            Oui
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="m-radio m-radio--solid">
-                                                            <input type="radio" name="category_apartment" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
-                                                            Non
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="category_land" role="tabpanel" aria-expanded="true">
-                                                <div class="form-group">
-                                                    <label class="">
-                                                        Promotion :
-                                                    </label>
-                                                    <div class="m-radio-inline">
-                                                        <label class="m-radio m-radio--solid">
-                                                            <input type="radio" name="category_land" value="1" {{ ($dataTypeContent->promotion == 1) ? 'checked' : '' }}>
-                                                            Oui
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="m-radio m-radio--solid">
-                                                            <input type="radio" name="category_land" value="0" {{ ($dataTypeContent->promotion == 0) ? 'checked' : '' }}>
-                                                            Non
-                                                            <span></span>
-                                                        </label>
+                                                    <div class="m-radio-inline sub_cat">
                                                     </div>
                                                 </div>
                                             </div>
@@ -509,7 +451,7 @@
                                             <div class="">
                                                 <span class="m-switch m-switch--icon">
                                                     <label>
-                                                        <input type="checkbox" checked="checked" @if(isset($dataTypeContent->exclusiveness) && $dataTypeContent->exclusiveness){{ 'checked="checked"' }}@endif name="exclusiveness">
+                                                        <input value="1" type="checkbox" checked {{ ($dataTypeContent->exclusiveness == 1) ? 'checked' : '' }} name="exclusiveness">
                                                         <span></span>
                                                     </label>
                                                 </span>
@@ -587,7 +529,7 @@
                             </div>
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-9 margin_bottom_10">
+                                    <div class="col-lg-9">
                                         <label>Adresse</label>
                                         <div class="m-input-icon m-input-icon--right">
                                             <input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">
@@ -599,8 +541,8 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 margin_bottom_10">
-                                        <button type="button" class="btn btn-secondary" style="margin-top: 28px; width: 100%">Placer l’adresse sur la carte</button>
+                                    <div class="col-lg-3">
+                                        <button type="button" class="btn btn-secondary" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                         {{--<div style="height:500px;width:1000px;text-align: center;" id="map"></div>--}}
                                     </div>
                                 </div>
@@ -1055,7 +997,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="attic_space_child"/>
                                             </div>
                                         </div>
                                     </div>
@@ -1068,7 +1010,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_balcony_child)){{ $dataTypeContent->surface_balcony_child }}@endif" name="surface_balcony_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1081,7 +1023,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->basement_area_child)){{ $dataTypeContent->basement_area_child }}@endif" name="basement_area_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1094,7 +1036,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_cellar_child)){{ $dataTypeContent->surface_cellar_child }}@endif" name="surface_cellar_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1107,7 +1049,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surf_area_terr_solar_child)){{ $dataTypeContent->surf_area_terr_solar_child }}@endif" name="surf_area_terr_solar_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1120,7 +1062,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1133,7 +1075,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" value="@if(isset($dataTypeContent->area_veranda_child)){{ $dataTypeContent->area_veranda_child }}@endif" name="area_veranda_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1146,7 +1088,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_eng_court_child)){{ $dataTypeContent->surface_eng_court_child }}@endif" name="surface_eng_court_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -2916,7 +2858,7 @@
 
 @section('javascript')
     <!--begin::Page Resources -->
-    <script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/dropzone.js') }}" type="text/javascript"></script>
+    {{--<script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/dropzone.js') }}" type="text/javascript"></script>--}}
     <script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js') }}" type="text/javascript"></script>
     <!-- Google Maps -->
     {{--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&callback=initMap&libraries=places"></script>--}}
@@ -2941,31 +2883,112 @@
             format: "yyyy-mm-dd" // Notice the Extra space at the beginning
         });
 
-        // action for change announce type
+        /* action for change announce type */
         $('input[name="ann_type"]').on("change", function(){
             if($(this).val() === 1) {
                 $('.rent').attr('disabled', true);
             }
         });
 
-        // selects
-        $('select.custom_select2').on('change', function() {
+        /* selects */
+        $('a[cat_id]').click(function() {
 
-            var selectedOption = $(this).select2('data')[0]['id'];
+            var selectedTab = $(this).attr('cat_id');
+            $('input[name="category_id"]').attr('value',selectedTab);
+//            console.log(selectedTab + 'sdgkl');
             var token = $('input[name="_token"]').val();
 
+            /* repeating fields */
+            var propTax = $('input[name="property_tax"]'),
+                commercialProp = $('input[name="commercial_property"]'),
+                floorProp = $('select[name="floor_property"]'),
+                serviced = $('input[name="serviced"]'),
+                removPartitions = $('input[name="removable_partitions"]'),
+                hoist = $('input[name="hoist"]'),
+                openPlan = $('input[name="open_plan"]'),
+                loadingDock = $('input[name="loading_dock"]'),
+                reception = $('input[name="reception"]'),
+                collectiveLift = $('input[name="collective_lift"]'),
+                comLaundryRoom = $('input[name="communal_laundry_room"]'),
+                netCabling = $('input[name="network_cabling"]'),
+                collectivopticFiber = $('input[name="collective_optical_fiber"]'),
+                parable = $('input[name="parable"]'),
+                stateFront = $('select[name="state_front"]');
+
+            function addClassAndAttr (element) {
+                element.attr('disabled',true);
+                element.parent().parent().addClass('disabled_element');
+            }
+            function addClass (element) {
+                element.parent().parent().addClass('disabled_element');
+            }
+            function addAttr (element) {
+                element.attr('disabled',true);
+            }
+
+            switch (selectedTab) {
+                case '1' :
+                    addClassAndAttr(propTax);
+                    addClassAndAttr(commercialProp);
+                    addClassAndAttr($('input[name="number_floors_building"]'));
+                    addAttr(floorProp);
+                    floorProp.parent().addClass('disabled_element');
+                    addClassAndAttr(serviced);
+                    addClassAndAttr($('input[name="ppe_area"]'));
+                    addClassAndAttr(removPartitions);
+                    addClassAndAttr(hoist);
+                    addClassAndAttr(openPlan);
+                    addClassAndAttr(loadingDock);
+                    addClassAndAttr(reception);
+                    addClassAndAttr(collectiveLift);
+                    addClassAndAttr(comLaundryRoom);
+                    addClassAndAttr(netCabling);
+                    addClassAndAttr(collectivopticFiber);
+                    addClassAndAttr(parable);
+                    addAttr(stateFront);
+                    stateFront.parent().addClass('disabled_element');
+                    break;
+                case '2' :
+                    addClassAndAttr(propTax);
+                    break;
+                case '3' :
+                    console.log('case 3 selected');
+                    break;
+                case '4' :
+                    console.log('case 4 selected');
+                    break;
+                case '5' :
+                    console.log('case 5 selected');
+                    break;
+                case '6' :
+                    console.log('case 6 selected');
+                    break;
+                case '7' :
+                    console.log('case 7 selected');
+                    break;
+                case '8' :
+                    console.log('case 8 selected');
+                    break;
+            }
+
             $.ajax({
-                url: '../../get-categories/'+selectedOption,
+                url: '{{ URL::to('/') }}' + '/admin/get-categories/'+selectedTab,
                 type: 'post',
                 data: {
                     '_token': token,
-                    'category' : selectedOption
+                    'category' : selectedTab
                 },
                 success : function (arr) {
-                    $('select[name="sub_category"]').html('');
+                    $('div.sub_cat').html('');
                     $.each( arr, function( key, value ) {
-//                        console.log(value.id + ' <= ID ' + value.name + ' <= Name ');
-                        $('select[name="sub_category"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+                        $('div.sub_cat').append('' +
+                            '<div class="label_container">' +
+                                '<label class="m-radio btn btn-outline-brand">' +
+                                    '<input type="radio" name="sub_category" value="' + value.id +'"><span class="sub_cat_title">' + value.name +'</span>' +
+                                    '<span></span>' +
+                                '</label>' +
+                            '</div>'
+                        );
                     });
                 }
 
@@ -2979,75 +3002,75 @@
         });
 
         // Places
-        function initAutocomplete() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center : {lat : 40.415363,lng : -3.707398},
-                zoom: 7,
-                mapTypeId: 'roadmap'
-            });
+//        function initAutocomplete() {
+//            var map = new google.maps.Map(document.getElementById('map'), {
+//                center : {lat : 40.415363,lng : -3.707398},
+//                zoom: 7,
+//                mapTypeId: 'roadmap'
+//            });
+//
+//            // Create the search box and link it to the UI element.
+//            var input = document.getElementById('pac-input');
+//            var searchBox = new google.maps.places.SearchBox(input);
+////            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+//
+//            // Bias the SearchBox results towards current map's viewport.
+//            map.addListener('bounds_changed', function() {
+//                searchBox.setBounds(map.getBounds());
+//            });
+//
+//            var markers = [];
+//            // Listen for the event fired when the user selects a prediction and retrieve
+//            // more details for that place.
+//            searchBox.addListener('places_changed', function() {
+//                var places = searchBox.getPlaces();
+//
+//                if (places.length == 0) {
+//                    return;
+//                }
+//
+//                // Clear out the old markers.
+//                markers.forEach(function(marker) {
+//                    marker.setMap(true);
+//                });
+//                markers = [];
+//
+//                // For each place, get the icon, name and location.
+//                var bounds = new google.maps.LatLngBounds();
+//                places.forEach(function(place) {
+//                    if (!place.geometry) {
+//                        console.log("Returned place contains no geometry");
+//                        return;
+//                    }
+//                    var icon = {
+//                        url: place.icon,
+//                        size: new google.maps.Size(71, 71),
+//                        origin: new google.maps.Point(0, 0),
+//                        anchor: new google.maps.Point(17, 34),
+//                        scaledSize: new google.maps.Size(25, 25)
+//                    };
+//
+//                    // Create a marker for each place.
+//                    markers.push(new google.maps.Marker({
+//                        map: map,
+//                        icon: icon,
+//                        title: place.name,
+//                        position: place.geometry.location
+//                    }));
+//
+//                    if (place.geometry.viewport) {
+//                        // Only geocodes have viewport.
+//                        bounds.union(place.geometry.viewport);
+//                    } else {
+//                        bounds.extend(place.geometry.location);
+//                    }
+//                });
+//                map.fitBounds(bounds);
+//            });
+//        }
 
-            // Create the search box and link it to the UI element.
-            var input = document.getElementById('pac-input');
-            var searchBox = new google.maps.places.SearchBox(input);
-//            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function() {
-                searchBox.setBounds(map.getBounds());
-            });
-
-            var markers = [];
-            // Listen for the event fired when the user selects a prediction and retrieve
-            // more details for that place.
-            searchBox.addListener('places_changed', function() {
-                var places = searchBox.getPlaces();
-
-                if (places.length == 0) {
-                    return;
-                }
-
-                // Clear out the old markers.
-                markers.forEach(function(marker) {
-                    marker.setMap(true);
-                });
-                markers = [];
-
-                // For each place, get the icon, name and location.
-                var bounds = new google.maps.LatLngBounds();
-                places.forEach(function(place) {
-                    if (!place.geometry) {
-                        console.log("Returned place contains no geometry");
-                        return;
-                    }
-                    var icon = {
-                        url: place.icon,
-                        size: new google.maps.Size(71, 71),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(17, 34),
-                        scaledSize: new google.maps.Size(25, 25)
-                    };
-
-                    // Create a marker for each place.
-                    markers.push(new google.maps.Marker({
-                        map: map,
-                        icon: icon,
-                        title: place.name,
-                        position: place.geometry.location
-                    }));
-
-                    if (place.geometry.viewport) {
-                        // Only geocodes have viewport.
-                        bounds.union(place.geometry.viewport);
-                    } else {
-                        bounds.extend(place.geometry.location);
-                    }
-                });
-                map.fitBounds(bounds);
-            });
-        }
-
+        $('a[cat_id = "1"]').trigger('click');
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&libraries=places&callback=initAutocomplete"
-            async defer></script>
+    {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfzuy0q5WLCVDU8E1LKj_wqdOFF_UKlDo&libraries=places&callback=initAutocomplete"async defer></script>--}}
 
 @stop
