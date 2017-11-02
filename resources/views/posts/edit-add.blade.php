@@ -307,6 +307,15 @@
                                     {{--</div>--}}
                                     <div class="col-12">
                                         <ul class="nav nav-tabs  m-tabs-line" role="tablist">
+                                            @foreach(TCG\Voyager\Models\Category::all() as $category)
+                                                @if($category->parent_id == null)
+                                                    <li class="nav-item m-tabs__item">
+                                                        <a class="nav-link m-tabs__link @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ 'active' }}@endif" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">{{ $category->name }}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                        <ul class="nav nav-tabs  m-tabs-line" role="tablist">
                                             <li class="nav-item m-tabs__item">
                                                 <a class="nav-link m-tabs__link active" data-toggle="tab" href="#category_house" role="tab" aria-expanded="false">Maison</a>
                                             </li>
@@ -578,7 +587,7 @@
                             </div>
                             <div class="m-portlet__body">
                                 <div class="form-group m-form__group row">
-                                    <div class="col-lg-6 margin_bottom_10">
+                                    <div class="col-lg-9 margin_bottom_10">
                                         <label>Adresse</label>
                                         <div class="m-input-icon m-input-icon--right">
                                             <input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">
@@ -591,7 +600,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 margin_bottom_10">
-                                        <button type="button" class="btn btn-secondary">Placer l’adresse sur la carte</button>
+                                        <button type="button" class="btn btn-secondary" style="margin-top: 28px; width: 100%">Placer l’adresse sur la carte</button>
                                         {{--<div style="height:500px;width:1000px;text-align: center;" id="map"></div>--}}
                                     </div>
                                 </div>
@@ -734,7 +743,7 @@
                                 <div class="form-group m-form__group row">
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant négociable</label>
+                                            <label>Montant négociable <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation du prix de vente possible honoraires inclus - ou - simulation du prix de location honoraires exclus" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->negotiable_amount)){{ $dataTypeContent->negotiable_amount }}@endif" name="negotiable_amount">
                                                 <span class="input-group-addon">EUR</span>
@@ -743,7 +752,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant estimé</label>
+                                            <label>Montant estimé <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="A titre indicatif le prix estimé pour vos avis de valeur" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->estimate_price)){{ $dataTypeContent->estimate_price }}@endif" name="estimate_price">
                                                 <span class="input-group-addon">EUR</span>
@@ -752,7 +761,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Montant propriétaire</label>
+                                            <label>Montant propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_amount)){{ $dataTypeContent->owner_amount }}@endif" name="owner_amount">
                                                 <span class="input-group-addon">EUR</span>
@@ -761,7 +770,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Honoraire client</label>
+                                            <label>Honoraire client <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du client acheteur. Dans le cadre d'une location : constitution du dossier, visite et rédaction du contrat" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->client_fees)){{ $dataTypeContent->client_fees }}@endif" name="client_fees">
                                                 <span class="input-group-addon">EUR</span>
@@ -770,7 +779,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Honoraire propriétaire</label>
+                                            <label>Honoraire propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_fees)){{ $dataTypeContent->owner_fees }}@endif" name="owner_fees">
                                                 <span class="input-group-addon">EUR</span>
@@ -779,7 +788,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <label>Droits d'enregistremenet</label>
+                                            <label>Droits d'enregistremenet <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation des frais de notaire et des droits de mutation" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->recording_rights)){{ $dataTypeContent->recording_rights }}@endif" name="recording_rights">
                                                 <span class="input-group-addon">EUR</span>
