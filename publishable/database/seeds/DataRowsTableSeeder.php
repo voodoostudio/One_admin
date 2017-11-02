@@ -1290,6 +1290,22 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($postDataType, 'surface_cellar_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => '',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 73,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($postDataType, 'ceiling_height');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -1322,11 +1338,43 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($postDataType, 'roof_cover_area_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Roof cover area',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 75,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($postDataType, 'surf_area_terr_solar');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
                 'display_name' => 'Surface area of the terrace / solarium',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 76,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'surf_area_terr_solar_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => '',
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
@@ -1354,11 +1402,43 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($postDataType, 'area_veranda_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => '',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 77,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($postDataType, 'attic_space');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
                 'display_name' => 'Attic space',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 78,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'attic_space_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => '',
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
@@ -1386,11 +1466,43 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($postDataType, 'surface_balcony_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => '',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 79,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($postDataType, 'basement_area');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
                 'display_name' => 'Basement Area',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 80,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'basement_area_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => '',
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
@@ -1535,6 +1647,22 @@ class DataRowsTableSeeder extends Seeder
             $dataRow->fill([
                 'type'         => 'text',
                 'display_name' => 'Surface of the English court',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 88,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($postDataType, 'surface_eng_court_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => '',
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,

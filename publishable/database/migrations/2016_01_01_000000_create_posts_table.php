@@ -24,7 +24,7 @@ class CreatePostsTable extends Migration
             $table->text('desc_add_es')->nullable();
             $table->text('desc_add_fr')->nullable();
             // Redaction
-            $table->string('image', 2048)->nullable();
+            $table->string('image')->nullable();
             $table->boolean('ann_type');
             $table->string('reference')->nullable();
             $table->boolean('exclusiveness')->default(1);
@@ -105,13 +105,20 @@ class CreatePostsTable extends Migration
             $table->string('levels',25)->nullable();
             // Surface
             $table->integer('surface_cellar')->nullable();
+            $table->integer('surface_cellar_child')->nullable();
             $table->integer('ceiling_height')->nullable();
             $table->integer('roof_cover_area')->nullable();
+            $table->integer('roof_cover_area_child')->nullable();
             $table->integer('surf_area_terr_solar')->nullable();
+            $table->integer('surf_area_terr_solar_child')->nullable();
             $table->integer('area_veranda')->nullable();
+            $table->integer('area_veranda_child')->nullable();
             $table->integer('attic_space')->nullable();
+            $table->integer('attic_space_child')->nullable();
             $table->integer('surface_balcony')->nullable();
+            $table->integer('surface_balcony_child')->nullable();
             $table->integer('basement_area')->nullable();
+            $table->integer('basement_area_child')->nullable();
             $table->integer('surface_ground')->nullable();
             $table->integer('ground_length')->nullable();
             $table->integer('ground_width')->nullable();
@@ -121,6 +128,7 @@ class CreatePostsTable extends Migration
             $table->integer('ppe_area')->nullable();
             $table->integer('volume')->nullable();
             $table->integer('surface_eng_court')->nullable();
+            $table->integer('surface_eng_court_child')->nullable();
             $table->integer('lower_ground_floor')->nullable();
             $table->integer('row_area')->nullable();
             $table->integer('garage_area')->nullable();

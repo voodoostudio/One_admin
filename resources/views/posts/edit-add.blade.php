@@ -997,7 +997,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                {{--<input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />--}}
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="attic_space_child"/>
                                             </div>
                                         </div>
                                     </div>
@@ -1010,7 +1010,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_balcony_child)){{ $dataTypeContent->surface_balcony_child }}@endif" name="surface_balcony_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1023,7 +1023,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->basement_area_child)){{ $dataTypeContent->basement_area_child }}@endif" name="basement_area_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1036,7 +1036,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_cellar_child)){{ $dataTypeContent->surface_cellar_child }}@endif" name="surface_cellar_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1049,7 +1049,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surf_area_terr_solar_child)){{ $dataTypeContent->surf_area_terr_solar_child }}@endif" name="surf_area_terr_solar_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1062,7 +1062,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1075,7 +1075,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" value="@if(isset($dataTypeContent->area_veranda_child)){{ $dataTypeContent->area_veranda_child }}@endif" name="area_veranda_child" />
                                             </div>
                                         </div>
                                     </div>
@@ -1088,7 +1088,7 @@
                                                 <span class="input-group-addon custom_additional_addon">
                                                     <i class="la la-close"></i>
                                                 </span>
-                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="" name="" />
+                                                <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_eng_court_child)){{ $dataTypeContent->surface_eng_court_child }}@endif" name="surface_eng_court_child" />
                                             </div>
                                         </div>
                                     </div>
