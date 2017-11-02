@@ -451,7 +451,11 @@
                                             <div class="">
                                                 <span class="m-switch m-switch--icon">
                                                     <label>
-                                                        <input value="1" type="checkbox" checked {{ ($dataTypeContent->exclusiveness == 1) ? 'checked' : '' }} name="exclusiveness">
+                                                        @if(isset($dataTypeContent->id))
+                                                            <input value="{{ $dataTypeContent->exclusiveness }}" type="checkbox" {{ ($dataTypeContent->exclusiveness == 1) ? 'checked' : '' }} name="exclusiveness">
+                                                        @else
+                                                            <input value="1" checked type="checkbox" name="exclusiveness">
+                                                        @endif
                                                         <span></span>
                                                     </label>
                                                 </span>
@@ -461,12 +465,12 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label class="">Notation</label>
-                                            <select class="bar_rating">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                            <select class="bar_rating" name="notation">
+                                                <option value="1" @if(isset($dataTypeContent->notation) && $dataTypeContent->notation == '1'){{ 'selected="selected"' }}@endif>1</option>
+                                                <option value="2" @if(isset($dataTypeContent->notation) && $dataTypeContent->notation == '2'){{ 'selected="selected"' }}@endif>2</option>
+                                                <option value="3" @if(isset($dataTypeContent->notation) && $dataTypeContent->notation == '3'){{ 'selected="selected"' }}@endif>3</option>
+                                                <option value="4" @if(isset($dataTypeContent->notation) && $dataTypeContent->notation == '4'){{ 'selected="selected"' }}@endif>4</option>
+                                                <option value="5" @if(isset($dataTypeContent->notation) && $dataTypeContent->notation == '5'){{ 'selected="selected"' }}@endif>5</option>
                                             </select>
                                             {{--<input type="number" class="form-control m-input" placeholder="Notation" value="@if(isset($dataTypeContent->notation)){{ $dataTypeContent->notation }}@endif" name="notation">--}}
                                         </div>
