@@ -1690,6 +1690,22 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($postDataType, 'lower_ground_floor_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => '',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 89,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($postDataType, 'row_area');
         if (!$dataRow->exists) {
             $dataRow->fill([

@@ -337,7 +337,7 @@
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12">
-                                                    <ul class="nav nav-tabs  m-tabs-line" role="tablist">
+                                                    <ul id="categories_ul" class="nav nav-tabs  m-tabs-line" role="tablist">
                                                         @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                             @if($category->parent_id == null)
                                                                 <li class="nav-item m-tabs__item">
@@ -793,7 +793,7 @@
                                                     <div class="form-group">
                                                         <label>Charges de chauffage</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->heating_loads)){{ $dataTypeContent->heating_loads }}@endif" name="heating_loads">
+                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->heating_loads)){{ $dataTypeContent->heating_loads }}@endif" name="heating_loads">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -802,7 +802,7 @@
                                                     <div class="form-group">
                                                         <label>Charges PPE</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->ppe_charges)){{ $dataTypeContent->ppe_charges }}@endif" name="ppe_charges">
+                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->ppe_charges)){{ $dataTypeContent->ppe_charges }}@endif" name="ppe_charges">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -811,7 +811,7 @@
                                                     <div class="form-group">
                                                         <label>Charges de copropriété</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->condominium_fees)){{ $dataTypeContent->condominium_fees }}@endif" name="condominium_fees">
+                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->condominium_fees)){{ $dataTypeContent->condominium_fees }}@endif" name="condominium_fees">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -829,7 +829,7 @@
                                                     <div class="form-group">
                                                         <label>Taxe d'habitation</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->taxes_1)){{ $dataTypeContent->taxes_1 }}@endif" name="taxes_1">
+                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->taxes_1)){{ $dataTypeContent->taxes_1 }}@endif" name="taxes_1">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -838,7 +838,7 @@
                                                     <div class="form-group">
                                                         <label>Taxe foncière</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->property_tax)){{ $dataTypeContent->property_tax }}@endif" name="property_tax">
+                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->property_tax)){{ $dataTypeContent->property_tax }}@endif" name="property_tax">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -847,7 +847,7 @@
                                                     <div class="form-group">
                                                         <label>Caution locative</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->rental_security)){{ $dataTypeContent->rental_security }}@endif" name="rental_security">
+                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->rental_security)){{ $dataTypeContent->rental_security }}@endif" name="rental_security">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -865,7 +865,7 @@
                                                     <div class="form-group">
                                                         <label>Revenus</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->earnings)){{ $dataTypeContent->earnings }}@endif" name="earnings">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->earnings)){{ $dataTypeContent->earnings }}@endif" name="earnings">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -874,7 +874,7 @@
                                                     <div class="form-group">
                                                         <label>Impôts</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->taxes)){{ $dataTypeContent->taxes }}@endif" name="taxes">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->taxes)){{ $dataTypeContent->taxes }}@endif" name="taxes">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -883,7 +883,7 @@
                                                     <div class="form-group">
                                                         <label>Fonds de commerce</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->commercial_property)){{ $dataTypeContent->commercial_property }}@endif" name="commercial_property">
+                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->commercial_property)){{ $dataTypeContent->commercial_property }}@endif" name="commercial_property">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -937,7 +937,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de pièces</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_pieces)){{ $dataTypeContent->number_pieces }}@endif" name="number_pieces">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_pieces)){{ $dataTypeContent->number_pieces }}@endif" name="number_pieces">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -945,7 +945,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de chambres</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_rooms)){{ $dataTypeContent->number_rooms }}@endif" name="number_rooms">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_rooms)){{ $dataTypeContent->number_rooms }}@endif" name="number_rooms">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -953,7 +953,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de salles de douche</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_shower_rooms)){{ $dataTypeContent->number_shower_rooms }}@endif" name="number_shower_rooms">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_shower_rooms)){{ $dataTypeContent->number_shower_rooms }}@endif" name="number_shower_rooms">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -961,7 +961,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de WC</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_toilets)){{ $dataTypeContent->number_toilets }}@endif" name="number_toilets">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_toilets)){{ $dataTypeContent->number_toilets }}@endif" name="number_toilets">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -969,7 +969,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de salles d'eau</label>
                                                         <div class="input-group">
-                                                            <input type="number" disabled class="form-control m-input" placeholder="Nb douche + Nb de WC" value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
+                                                            <input type="number" disabled class="form-control m-input elem-categories" placeholder="Nb douche + Nb de WC" value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -977,7 +977,7 @@
                                                     <div class="form-group">
                                                         <label>Niveaux</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..."  value="@if(isset($dataTypeContent->levels)){{ $dataTypeContent->levels }}@endif" name="levels">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..."  value="@if(isset($dataTypeContent->levels)){{ $dataTypeContent->levels }}@endif" name="levels">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -985,7 +985,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de terasses</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_terraces)){{ $dataTypeContent->number_terraces }}@endif" name="number_terraces">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_terraces)){{ $dataTypeContent->number_terraces }}@endif" name="number_terraces">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -993,14 +993,14 @@
                                                     <div class="form-group">
                                                         <label>Nb de balcons</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_balconies)){{ $dataTypeContent->number_balconies }}@endif" name="number_balconies">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_balconies)){{ $dataTypeContent->number_balconies }}@endif" name="number_balconies">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Etage du bien</label>
-                                                        <select class="form-control m-select2 custom_select2" name="floor_property" data-placeholder="Select Floor">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="floor_property" data-placeholder="Select Floor">
                                                             @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)
                                                                 <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
                                                             @endforeach
@@ -1011,14 +1011,14 @@
                                                     <div class="form-group">
                                                         <label>Nb d'étage du bâtiment</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number_floors_building)){{ $dataTypeContent->number_floors_building }}@endif" name="number_floors_building">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_floors_building)){{ $dataTypeContent->number_floors_building }}@endif" name="number_floors_building">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Style</label>
-                                                        <select class="form-control m-select2 custom_select2" name="style" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="style" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\Style::all() as $style)
                                                                 <option value="{{ $style->reference }}" @if(isset($dataTypeContent->style) && $dataTypeContent->style == $style->reference){{ 'selected="selected"' }}@endif>{{ $style->value }}</option>
                                                             @endforeach
@@ -1028,7 +1028,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Minergie</label>
-                                                        <select class="form-control m-select2 custom_select2" name="divers_format" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="divers_format" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\Minergie::all() as $divers_format)
                                                                 <option value="{{ $divers_format->reference }}" @if(isset($dataTypeContent->divers_format) && $dataTypeContent->divers_format == $divers_format->reference){{ 'selected="selected"' }}@endif>{{ $divers_format->value }}</option>
                                                             @endforeach
@@ -1038,7 +1038,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Sonorité</label>
-                                                        <select class="form-control m-select2 custom_select2" name="sonority" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="sonority" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\Sonority::all() as $sonority)
                                                                 <option value="{{ $sonority->reference }}" @if(isset($dataTypeContent->sonority) && $dataTypeContent->sonority == $sonority->reference){{ 'selected="selected"' }}@endif>{{ $sonority->value }}</option>
                                                             @endforeach
@@ -1074,12 +1074,12 @@
                                                     <div class="form-group">
                                                         <label>Surface rez-de-chaussée inférieur</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->lower_ground_floor)){{ $dataTypeContent->lower_ground_floor }}@endif" name="lower_ground_floor">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->lower_ground_floor)){{ $dataTypeContent->lower_ground_floor }}@endif" name="lower_ground_floor">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="lower_ground_floor_child"/>
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->lower_ground_floor_child)){{ $dataTypeContent->lower_ground_floor_child }}@endif" name="lower_ground_floor_child"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1087,12 +1087,12 @@
                                                     <div class="form-group">
                                                         <label>Surface des combles</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->attic_space)){{ $dataTypeContent->attic_space }}@endif" name="attic_space">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->attic_space)){{ $dataTypeContent->attic_space }}@endif" name="attic_space">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="attic_space_child"/>
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="attic_space_child"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1100,12 +1100,12 @@
                                                     <div class="form-group">
                                                         <label>Surface du balcon</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_balcony)){{ $dataTypeContent->surface_balcony }}@endif" name="surface_balcony">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_balcony)){{ $dataTypeContent->surface_balcony }}@endif" name="surface_balcony">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_balcony_child)){{ $dataTypeContent->surface_balcony_child }}@endif" name="surface_balcony_child" />
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_balcony_child)){{ $dataTypeContent->surface_balcony_child }}@endif" name="surface_balcony_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1113,12 +1113,12 @@
                                                     <div class="form-group">
                                                         <label>Surface du sous-sol</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->basement_area)){{ $dataTypeContent->basement_area }}@endif" name="basement_area">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->basement_area)){{ $dataTypeContent->basement_area }}@endif" name="basement_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->basement_area_child)){{ $dataTypeContent->basement_area_child }}@endif" name="basement_area_child" />
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->basement_area_child)){{ $dataTypeContent->basement_area_child }}@endif" name="basement_area_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1126,12 +1126,12 @@
                                                     <div class="form-group">
                                                         <label>Surface de la cave</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_cellar)){{ $dataTypeContent->surface_cellar }}@endif" name="surface_cellar">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_cellar)){{ $dataTypeContent->surface_cellar }}@endif" name="surface_cellar">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_cellar_child)){{ $dataTypeContent->surface_cellar_child }}@endif" name="surface_cellar_child" />
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_cellar_child)){{ $dataTypeContent->surface_cellar_child }}@endif" name="surface_cellar_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1139,12 +1139,12 @@
                                                     <div class="form-group">
                                                         <label>Surface de la terrasse solarium</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surf_area_terr_solar)){{ $dataTypeContent->surf_area_terr_solar }}@endif" name="surf_area_terr_solar">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surf_area_terr_solar)){{ $dataTypeContent->surf_area_terr_solar }}@endif" name="surf_area_terr_solar">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surf_area_terr_solar_child)){{ $dataTypeContent->surf_area_terr_solar_child }}@endif" name="surf_area_terr_solar_child" />
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surf_area_terr_solar_child)){{ $dataTypeContent->surf_area_terr_solar_child }}@endif" name="surf_area_terr_solar_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1157,7 +1157,7 @@
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1165,12 +1165,12 @@
                                                     <div class="form-group">
                                                         <label>Surface de la véranda</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->area_veranda)){{ $dataTypeContent->area_veranda }}@endif" name="area_veranda">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->area_veranda)){{ $dataTypeContent->area_veranda }}@endif" name="area_veranda">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" value="@if(isset($dataTypeContent->area_veranda_child)){{ $dataTypeContent->area_veranda_child }}@endif" name="area_veranda_child" />
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" value="@if(isset($dataTypeContent->area_veranda_child)){{ $dataTypeContent->area_veranda_child }}@endif" name="area_veranda_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1178,12 +1178,12 @@
                                                     <div class="form-group">
                                                         <label>Surface de la cour anglaise</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->surface_eng_court)){{ $dataTypeContent->surface_eng_court }}@endif" name="surface_eng_court">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_eng_court)){{ $dataTypeContent->surface_eng_court }}@endif" name="surface_eng_court">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient" placeholder="" value="@if(isset($dataTypeContent->surface_eng_court_child)){{ $dataTypeContent->surface_eng_court_child }}@endif" name="surface_eng_court_child" />
+                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_eng_court_child)){{ $dataTypeContent->surface_eng_court_child }}@endif" name="surface_eng_court_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1191,7 +1191,7 @@
                                                     <div class="form-group">
                                                         <label>Surface pondérée</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" disabled="disabled" placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
+                                                            <input type="number" class="form-control m-input elem-categories" disabled="disabled" placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1202,7 +1202,7 @@
                                                     <div class="form-group">
                                                         <label>Surface PPE</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->ppe_area)){{ $dataTypeContent->ppe_area }}@endif" name="ppe_area">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->ppe_area)){{ $dataTypeContent->ppe_area }}@endif" name="ppe_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1211,7 +1211,7 @@
                                                     <div class="form-group">
                                                         <label>Surface utille</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->useful_surface)){{ $dataTypeContent->useful_surface }}@endif" name="useful_surface">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->useful_surface)){{ $dataTypeContent->useful_surface }}@endif" name="useful_surface">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1220,7 +1220,7 @@
                                                     <div class="form-group">
                                                         <label>Surface du garage</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->garage_area)){{ $dataTypeContent->garage_area }}@endif" name="garage_area">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->garage_area)){{ $dataTypeContent->garage_area }}@endif" name="garage_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1229,7 +1229,7 @@
                                                     <div class="form-group">
                                                         <label>Surface de l'emprise</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->row_area)){{ $dataTypeContent->row_area }}@endif" name="row_area">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->row_area)){{ $dataTypeContent->row_area }}@endif" name="row_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1238,7 +1238,7 @@
                                                     <div class="form-group">
                                                         <label>Volume</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->volume)){{ $dataTypeContent->volume }}@endif" name="volume">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->volume)){{ $dataTypeContent->volume }}@endif" name="volume">
                                                             <span class="input-group-addon">m<sup>3</sup></span>
                                                         </div>
                                                     </div>
@@ -1247,7 +1247,7 @@
                                                     <div class="form-group">
                                                         <label>Hauteur des plafonds</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->ceiling_height)){{ $dataTypeContent->ceiling_height }}@endif" name="ceiling_height">
+                                                            <input type="number" class="form-control m-input elem-categorieselem-categories" placeholder="..." value="@if(isset($dataTypeContent->ceiling_height)){{ $dataTypeContent->ceiling_height }}@endif" name="ceiling_height">
                                                             <span class="input-group-addon">m</span>
                                                         </div>
                                                     </div>
@@ -1258,12 +1258,12 @@
                                                     <div class="form-group">
                                                         <label>Terrain</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="Longeur" value="@if(isset($dataTypeContent->ground_length)){{ $dataTypeContent->ground_length }}@endif" name="ground_length" />
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="Longeur" value="@if(isset($dataTypeContent->ground_length)){{ $dataTypeContent->ground_length }}@endif" name="ground_length" />
                                                             <span class="input-group-addon">m</span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-close"></i>
                                                     </span>
-                                                            <input type="number" class="form-control" placeholder="Largeur" value="@if(isset($dataTypeContent->ground_width)){{ $dataTypeContent->ground_width }}@endif" name="ground_width" />
+                                                            <input type="number" class="form-control elem-categories" placeholder="Largeur" value="@if(isset($dataTypeContent->ground_width)){{ $dataTypeContent->ground_width }}@endif" name="ground_width" />
                                                             <span class="input-group-addon">m</span>
                                                             <span class="input-group-addon custom_additional_addon">
                                                         <i class="la la-pause" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);transform: rotate(90deg);"></i>
@@ -1276,7 +1276,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Type de terrain</label>
-                                                        <select class="form-control m-select2 custom_select2" name="type_land" data-placeholder="Select Floor">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="type_land" data-placeholder="Select Floor">
                                                             @foreach(TCG\Voyager\Models\TypeOfLand::all() as $type_land)
                                                                 <option value="{{ $type_land->reference }}" @if(isset($dataTypeContent->type_land) && $dataTypeContent->type_land == $type_land->reference){{ 'selected="selected"' }}@endif>{{ $type_land->value }}</option>
                                                             @endforeach
@@ -1289,7 +1289,7 @@
                                                         <div class="">
                                                     <span class="m-switch m-switch--icon">
                                                         <label>
-                                                            <input type="checkbox" checked="checked" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced){{ 'checked="checked"' }}@endif name="serviced">
+                                                            <input type="checkbox" class="elem-categories" checked="checked" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced){{ 'checked="checked"' }}@endif name="serviced">
                                                             <span></span>
                                                         </label>
                                                     </span>
@@ -1325,7 +1325,7 @@
                                                     <div class="form-group">
                                                         <label>Box/garage int.</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->box_interior_garage)){{ $dataTypeContent->box_interior_garage }}@endif" name="box_interior_garage">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_interior_garage)){{ $dataTypeContent->box_interior_garage }}@endif" name="box_interior_garage">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1333,7 +1333,7 @@
                                                     <div class="form-group">
                                                         <label>Box/garage double int.</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->box_gar_inter_doub)){{ $dataTypeContent->box_gar_inter_doub }}@endif" name="box_gar_inter_doub">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_gar_inter_doub)){{ $dataTypeContent->box_gar_inter_doub }}@endif" name="box_gar_inter_doub">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1341,7 +1341,7 @@
                                                     <div class="form-group">
                                                         <label>Box/garage ext.</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->outdoor_garage)){{ $dataTypeContent->outdoor_garage }}@endif" name="outdoor_garage">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->outdoor_garage)){{ $dataTypeContent->outdoor_garage }}@endif" name="outdoor_garage">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1349,7 +1349,7 @@
                                                     <div class="form-group">
                                                         <label>Box/garage double ext.</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->box_garage_outside_double)){{ $dataTypeContent->box_garage_outside_double }}@endif" name="box_garage_outside_double">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_garage_outside_double)){{ $dataTypeContent->box_garage_outside_double }}@endif" name="box_garage_outside_double">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1357,7 +1357,7 @@
                                                     <div class="form-group">
                                                         <label>Place de parc ext. couverte</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->covered_outdoor_parking_space)){{ $dataTypeContent->covered_outdoor_parking_space }}@endif" name="covered_outdoor_parking_space">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->covered_outdoor_parking_space)){{ $dataTypeContent->covered_outdoor_parking_space }}@endif" name="covered_outdoor_parking_space">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1365,7 +1365,7 @@
                                                     <div class="form-group">
                                                         <label>Place de parc ext. non-couverte</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->outside_parking_space_uncovered)){{ $dataTypeContent->outside_parking_space_uncovered }}@endif" name="outside_parking_space_uncovered">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->outside_parking_space_uncovered)){{ $dataTypeContent->outside_parking_space_uncovered }}@endif" name="outside_parking_space_uncovered">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1373,7 +1373,7 @@
                                                     <div class="form-group">
                                                         <label>Nombre de places de parc</label>
                                                         <div class="input-group">
-                                                            <input type="number" disabled="disabled" class="form-control m-input" placeholder="sum of all" value="@if(isset($dataTypeContent->number_parking_spaces)){{ $dataTypeContent->number_parking_spaces }}@endif" name="number_parking_spaces">
+                                                            <input type="number" disabled="disabled" class="form-control m-input elem-categories" placeholder="sum of all" value="@if(isset($dataTypeContent->number_parking_spaces)){{ $dataTypeContent->number_parking_spaces }}@endif" name="number_parking_spaces">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1383,7 +1383,7 @@
                                                     <div class="form-group">
                                                         <label>Hangar à bateau</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->boat_shed)){{ $dataTypeContent->boat_shed }}@endif" name="boat_shed">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->boat_shed)){{ $dataTypeContent->boat_shed }}@endif" name="boat_shed">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1391,7 +1391,7 @@
                                                     <div class="form-group">
                                                         <label>Place d'amarrage</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->mooring)){{ $dataTypeContent->mooring }}@endif" name="mooring">
+                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->mooring)){{ $dataTypeContent->mooring }}@endif" name="mooring">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1423,7 +1423,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Type</label>
-                                                        <select class="form-control m-select2 custom_select2" name="type" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="type" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\Kitchen::all() as $type)
                                                                 <option value="{{ $type->reference }}" @if(isset($dataTypeContent->type) && $dataTypeContent->type == $type->reference){{ 'selected="selected"' }}@endif>{{ $type->value }}</option>
                                                             @endforeach
@@ -1435,7 +1435,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->freezer) && $dataTypeContent->freezer){{ 'checked="checked"' }}@endif name="freezer">Congélateur
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->freezer) && $dataTypeContent->freezer){{ 'checked="checked"' }}@endif name="freezer">Congélateur
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1443,7 +1443,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->cooker) && $dataTypeContent->cooker){{ 'checked="checked"' }}@endif name="cooker">Cusinière
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->cooker) && $dataTypeContent->cooker){{ 'checked="checked"' }}@endif name="cooker">Cusinière
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1451,7 +1451,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->oven) && $dataTypeContent->oven){{ 'checked="checked"' }}@endif name="oven">Four
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->oven) && $dataTypeContent->oven){{ 'checked="checked"' }}@endif name="oven">Four
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1459,7 +1459,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->microwave_oven) && $dataTypeContent->microwave_oven){{ 'checked="checked"' }}@endif name="microwave_oven">Four à micro-ondes
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->microwave_oven) && $dataTypeContent->microwave_oven){{ 'checked="checked"' }}@endif name="microwave_oven">Four à micro-ondes
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1467,7 +1467,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->extractor_hood) && $dataTypeContent->extractor_hood){{ 'checked="checked"' }}@endif name="extractor_hood">Hotte aspirante
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->extractor_hood) && $dataTypeContent->extractor_hood){{ 'checked="checked"' }}@endif name="extractor_hood">Hotte aspirante
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1475,7 +1475,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->washmachine) && $dataTypeContent->washmachine){{ 'checked="checked"' }}@endif name="washmachine">Lave-linge
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->washmachine) && $dataTypeContent->washmachine){{ 'checked="checked"' }}@endif name="washmachine">Lave-linge
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1483,7 +1483,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->dishwasher) && $dataTypeContent->dishwasher){{ 'checked="checked"' }}@endif name="dishwasher">Lave-vaiselle
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->dishwasher) && $dataTypeContent->dishwasher){{ 'checked="checked"' }}@endif name="dishwasher">Lave-vaiselle
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1491,7 +1491,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->plates) && $dataTypeContent->plates){{ 'checked="checked"' }}@endif name="plates">Plaques à gaz
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->plates) && $dataTypeContent->plates){{ 'checked="checked"' }}@endif name="plates">Plaques à gaz
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1499,7 +1499,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->induction_plates) && $dataTypeContent->induction_plates){{ 'checked="checked"' }}@endif name="induction_plates">Plaques à induction
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->induction_plates) && $dataTypeContent->induction_plates){{ 'checked="checked"' }}@endif name="induction_plates">Plaques à induction
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1507,7 +1507,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->hotplates) && $dataTypeContent->hotplates){{ 'checked="checked"' }}@endif name="hotplates">Plaques électriques
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->hotplates) && $dataTypeContent->hotplates){{ 'checked="checked"' }}@endif name="hotplates">Plaques électriques
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1515,7 +1515,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->ceramic_plates) && $dataTypeContent->ceramic_plates){{ 'checked="checked"' }}@endif name="ceramic_plates">Plaques vitrocéram
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->ceramic_plates) && $dataTypeContent->ceramic_plates){{ 'checked="checked"' }}@endif name="ceramic_plates">Plaques vitrocéram
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1523,7 +1523,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->fridge) && $dataTypeContent->fridge){{ 'checked="checked"' }}@endif name="fridge">Réfrigérateur
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->fridge) && $dataTypeContent->fridge){{ 'checked="checked"' }}@endif name="fridge">Réfrigérateur
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1531,7 +1531,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->cuisine_tumble_drier) && $dataTypeContent->cuisine_tumble_drier){{ 'checked="checked"' }}@endif name="cuisine_tumble_drier">Sèche-linge
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->cuisine_tumble_drier) && $dataTypeContent->cuisine_tumble_drier){{ 'checked="checked"' }}@endif name="cuisine_tumble_drier">Sèche-linge
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1539,7 +1539,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->coffee_maker) && $dataTypeContent->coffee_maker){{ 'checked="checked"' }}@endif name="coffee_maker">Cafetière
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->coffee_maker) && $dataTypeContent->coffee_maker){{ 'checked="checked"' }}@endif name="coffee_maker">Cafetière
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1572,7 +1572,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Format</label>
-                                                        <select class="form-control m-select2 custom_select2" name="format" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="format" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\Heating::all() as $format)
                                                                 <option value="{{ $format->reference }}" @if(isset($dataTypeContent->format) && $dataTypeContent->format == $format->reference){{ 'selected="selected"' }}@endif>{{ $format->value }}</option>
                                                             @endforeach
@@ -1582,7 +1582,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Energie</label>
-                                                        <select class="form-control m-select2 custom_select2" name="chauffage_energy" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="chauffage_energy" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\Energy::all() as $chauffage_energy)
                                                                 <option value="{{ $chauffage_energy->reference }}" @if(isset($dataTypeContent->chauffage_energy) && $dataTypeContent->chauffage_energy == $chauffage_energy->reference){{ 'selected="selected"' }}@endif>{{ $chauffage_energy->value }}</option>
                                                             @endforeach
@@ -1592,7 +1592,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Type de chauffage</label>
-                                                        <select class="form-control m-select2 custom_select2" name="type_heating" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="type_heating" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\HeatingType::all() as $type_heating)
                                                                 <option value="{{ $type_heating->reference }}" @if(isset($dataTypeContent->type_heating) && $dataTypeContent->type_heating == $type_heating->reference){{ 'selected="selected"' }}@endif>{{ $type_heating->value }}</option>
                                                             @endforeach
@@ -1602,7 +1602,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Type de radiateur</label>
-                                                        <select class="form-control m-select2 custom_select2" name="type_radiator" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="type_radiator" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\Radiator::all() as $type_radiator)
                                                                 <option value="{{ $type_radiator->reference }}" @if(isset($dataTypeContent->type_radiator) && $dataTypeContent->type_radiator == $type_radiator->reference){{ 'selected="selected"' }}@endif>{{ $type_radiator->value }}</option>
                                                             @endforeach
@@ -1637,7 +1637,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Distribution de l’eau chaude</label>
-                                                        <select class="form-control m-select2 custom_select2" name="distribution" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="distribution" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\WaterDistribution::all() as $distribution)
                                                                 <option value="{{ $distribution->reference }}" @if(isset($dataTypeContent->distribution) && $dataTypeContent->distribution == $distribution->reference){{ 'selected="selected"' }}@endif>{{ $distribution->value }}</option>
                                                             @endforeach
@@ -1647,7 +1647,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Energie de l’eau chaude</label>
-                                                        <select class="form-control m-select2 custom_select2" name="eau_chaude_energy" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="eau_chaude_energy" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\WaterEnergy::all() as $eau_chaude_energy)
                                                                 <option value="{{ $eau_chaude_energy->reference }}" @if(isset($dataTypeContent->eau_chaude_energy) && $dataTypeContent->eau_chaude_energy == $eau_chaude_energy->reference){{ 'selected="selected"' }}@endif>{{ $eau_chaude_energy->value }}</option>
                                                             @endforeach
@@ -1659,7 +1659,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Distribution des eaux usées</label>
-                                                        <select class="form-control m-select2 custom_select2" name="usees_distribution" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="usees_distribution" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\WasteDistribution::all() as $usees_distribution)
                                                                 <option value="{{ $usees_distribution->reference }}" @if(isset($dataTypeContent->usees_distribution) && $dataTypeContent->usees_distribution == $usees_distribution->reference){{ 'selected="selected"' }}@endif>{{ $usees_distribution->value }}</option>
                                                             @endforeach
@@ -1694,7 +1694,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->shelter) && $dataTypeContent->shelter){{ 'checked="checked"' }}@endif name="shelter">Abri
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->shelter) && $dataTypeContent->shelter){{ 'checked="checked"' }}@endif name="shelter">Abri
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1702,7 +1702,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->access_disabled) && $dataTypeContent->access_disabled){{ 'checked="checked"' }}@endif name="access_disabled">Accès pour handicapé
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->access_disabled) && $dataTypeContent->access_disabled){{ 'checked="checked"' }}@endif name="access_disabled">Accès pour handicapé
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1710,7 +1710,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->water_softener) && $dataTypeContent->water_softener){{ 'checked="checked"' }}@endif name="water_softener">Adoucisseur d'eau
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->water_softener) && $dataTypeContent->water_softener){{ 'checked="checked"' }}@endif name="water_softener">Adoucisseur d'eau
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1718,7 +1718,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->air_conditioning) && $dataTypeContent->air_conditioning){{ 'checked="checked"' }}@endif name="air_conditioning">Air conditionné
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->air_conditioning) && $dataTypeContent->air_conditioning){{ 'checked="checked"' }}@endif name="air_conditioning">Air conditionné
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1726,7 +1726,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->pets_welcome) && $dataTypeContent->pets_welcome){{ 'checked="checked"' }}@endif name="pets_welcome">Animaux bienvenus
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->pets_welcome) && $dataTypeContent->pets_welcome){{ 'checked="checked"' }}@endif name="pets_welcome">Animaux bienvenus
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1734,7 +1734,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->titlfitted_wardrobese) && $dataTypeContent->fitted_wardrobes){{ 'checked="checked"' }}@endif name="fitted_wardrobes">Armoires encastrées
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->titlfitted_wardrobese) && $dataTypeContent->fitted_wardrobes){{ 'checked="checked"' }}@endif name="fitted_wardrobes">Armoires encastrées
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1742,7 +1742,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->private_lift) && $dataTypeContent->private_lift){{ 'checked="checked"' }}@endif name="private_lift">Ascenseur privé
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->private_lift) && $dataTypeContent->private_lift){{ 'checked="checked"' }}@endif name="private_lift">Ascenseur privé
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1750,7 +1750,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->central_aspiration) && $dataTypeContent->central_aspiration){{ 'checked="checked"' }}@endif name="central_aspiration">Aspiration centralisée
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->central_aspiration) && $dataTypeContent->central_aspiration){{ 'checked="checked"' }}@endif name="central_aspiration">Aspiration centralisée
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1758,7 +1758,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->workshop) && $dataTypeContent->workshop){{ 'checked="checked"' }}@endif name="workshop">Atelier
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->workshop) && $dataTypeContent->workshop){{ 'checked="checked"' }}@endif name="workshop">Atelier
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1766,7 +1766,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->patch_panel) && $dataTypeContent->patch_panel){{ 'checked="checked"' }}@endif name="patch_panel">Baie de brassage
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->patch_panel) && $dataTypeContent->patch_panel){{ 'checked="checked"' }}@endif name="patch_panel">Baie de brassage
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1774,7 +1774,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->windows) && $dataTypeContent->windows){{ 'checked="checked"' }}@endif name="windows">Baies vitrées
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->windows) && $dataTypeContent->windows){{ 'checked="checked"' }}@endif name="windows">Baies vitrées
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1782,7 +1782,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->bath) && $dataTypeContent->bath){{ 'checked="checked"' }}@endif name="bath">Baignoire
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->bath) && $dataTypeContent->bath){{ 'checked="checked"' }}@endif name="bath">Baignoire
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1790,7 +1790,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->balneo_bath) && $dataTypeContent->balneo_bath){{ 'checked="checked"' }}@endif name="balneo_bath">Baignoire balnéo
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->balneo_bath) && $dataTypeContent->balneo_bath){{ 'checked="checked"' }}@endif name="balneo_bath">Baignoire balnéo
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1798,7 +1798,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->private_laundry_room) && $dataTypeContent->private_laundry_room){{ 'checked="checked"' }}@endif name="private_laundry_room">Buanderie privée
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->private_laundry_room) && $dataTypeContent->private_laundry_room){{ 'checked="checked"' }}@endif name="private_laundry_room">Buanderie privée
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1806,7 +1806,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->cafeteria) && $dataTypeContent->cafeteria){{ 'checked="checked"' }}@endif name="cafeteria">Cafétéria
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->cafeteria) && $dataTypeContent->cafeteria){{ 'checked="checked"' }}@endif name="cafeteria">Cafétéria
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1814,7 +1814,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->carnotzet) && $dataTypeContent->carnotzet){{ 'checked="checked"' }}@endif name="carnotzet">Carnotzet
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->carnotzet) && $dataTypeContent->carnotzet){{ 'checked="checked"' }}@endif name="carnotzet">Carnotzet
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1822,7 +1822,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->cave) && $dataTypeContent->cave){{ 'checked="checked"' }}@endif name="cave">Cave
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->cave) && $dataTypeContent->cave){{ 'checked="checked"' }}@endif name="cave">Cave
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1830,7 +1830,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->wine_cellar) && $dataTypeContent->wine_cellar){{ 'checked="checked"' }}@endif name="wine_cellar">Cave à vin
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->wine_cellar) && $dataTypeContent->wine_cellar){{ 'checked="checked"' }}@endif name="wine_cellar">Cave à vin
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1838,7 +1838,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->cellar) && $dataTypeContent->cellar){{ 'checked="checked"' }}@endif name="cellar">Cellier
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->cellar) && $dataTypeContent->cellar){{ 'checked="checked"' }}@endif name="cellar">Cellier
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1846,7 +1846,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->fireplace) && $dataTypeContent->fireplace){{ 'checked="checked"' }}@endif name="fireplace">Cheminée
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->fireplace) && $dataTypeContent->fireplace){{ 'checked="checked"' }}@endif name="fireplace">Cheminée
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1862,7 +1862,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->removable_partitions) && $dataTypeContent->removable_partitions){{ 'checked="checked"' }}@endif name="removable_partitions">Cloisons amovibles
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->removable_partitions) && $dataTypeContent->removable_partitions){{ 'checked="checked"' }}@endif name="removable_partitions">Cloisons amovibles
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1870,7 +1870,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->addiction) && $dataTypeContent->addiction){{ 'checked="checked"' }}@endif name="addiction">Dépendance
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->addiction) && $dataTypeContent->addiction){{ 'checked="checked"' }}@endif name="addiction">Dépendance
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1878,7 +1878,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->automation) && $dataTypeContent->automation){{ 'checked="checked"' }}@endif name="automation">Domotique
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->automation) && $dataTypeContent->automation){{ 'checked="checked"' }}@endif name="automation">Domotique
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1886,7 +1886,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->double_glazing) && $dataTypeContent->double_glazing){{ 'checked="checked"' }}@endif name="double_glazing">Double vitrage
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->double_glazing) && $dataTypeContent->double_glazing){{ 'checked="checked"' }}@endif name="double_glazing">Double vitrage
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1894,7 +1894,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->shower) && $dataTypeContent->shower){{ 'checked="checked"' }}@endif name="shower">Douche
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->shower) && $dataTypeContent->shower){{ 'checked="checked"' }}@endif name="shower">Douche
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1902,7 +1902,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->dressing) && $dataTypeContent->dressing){{ 'checked="checked"' }}@endif name="dressing">Dressing
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->dressing) && $dataTypeContent->dressing){{ 'checked="checked"' }}@endif name="dressing">Dressing
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1910,7 +1910,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->automatic_fire_extinguisher) && $dataTypeContent->automatic_fire_extinguisher){{ 'checked="checked"' }}@endif name="automatic_fire_extinguisher">Extincteur automatique à eau
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->automatic_fire_extinguisher) && $dataTypeContent->automatic_fire_extinguisher){{ 'checked="checked"' }}@endif name="automatic_fire_extinguisher">Extincteur automatique à eau
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1918,7 +1918,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->false_ceiling) && $dataTypeContent->false_ceiling){{ 'checked="checked"' }}@endif name="false_ceiling">Faux plafond
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->false_ceiling) && $dataTypeContent->false_ceiling){{ 'checked="checked"' }}@endif name="false_ceiling">Faux plafond
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1926,7 +1926,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->optical_fiber) && $dataTypeContent->optical_fiber){{ 'checked="checked"' }}@endif name="optical_fiber">Fibre optique
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->optical_fiber) && $dataTypeContent->optical_fiber){{ 'checked="checked"' }}@endif name="optical_fiber">Fibre optique
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1934,7 +1934,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->attic) && $dataTypeContent->attic){{ 'checked="checked"' }}@endif name="attic">Grenier
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->attic) && $dataTypeContent->attic){{ 'checked="checked"' }}@endif name="attic">Grenier
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1942,7 +1942,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->generator) && $dataTypeContent->generator){{ 'checked="checked"' }}@endif name="generator">Groupe électrogène
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->generator) && $dataTypeContent->generator){{ 'checked="checked"' }}@endif name="generator">Groupe électrogène
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1950,7 +1950,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->hammam) && $dataTypeContent->hammam){{ 'checked="checked"' }}@endif name="hammam">Hammam
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->hammam) && $dataTypeContent->hammam){{ 'checked="checked"' }}@endif name="hammam">Hammam
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1958,7 +1958,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->high_internet) && $dataTypeContent->high_internet){{ 'checked="checked"' }}@endif name="high_internet">Internet Haut Débit
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->high_internet) && $dataTypeContent->high_internet){{ 'checked="checked"' }}@endif name="high_internet">Internet Haut Débit
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1966,7 +1966,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->jacuzzi) && $dataTypeContent->jacuzzi){{ 'checked="checked"' }}@endif name="jacuzzi">Jacuzzi
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->jacuzzi) && $dataTypeContent->jacuzzi){{ 'checked="checked"' }}@endif name="jacuzzi">Jacuzzi
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1974,7 +1974,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->winter_garden) && $dataTypeContent->winter_garden){{ 'checked="checked"' }}@endif name="winter_garden">Jardin d'hiver
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->winter_garden) && $dataTypeContent->winter_garden){{ 'checked="checked"' }}@endif name="winter_garden">Jardin d'hiver
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1982,7 +1982,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->ski_locker) && $dataTypeContent->ski_locker){{ 'checked="checked"' }}@endif name="ski_locker">Local à ski
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->ski_locker) && $dataTypeContent->ski_locker){{ 'checked="checked"' }}@endif name="ski_locker">Local à ski
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1990,7 +1990,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->bicycle_storage) && $dataTypeContent->bicycle_storage){{ 'checked="checked"' }}@endif name="bicycle_storage">Local à velo
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->bicycle_storage) && $dataTypeContent->bicycle_storage){{ 'checked="checked"' }}@endif name="bicycle_storage">Local à velo
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -1998,7 +1998,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->loggia) && $dataTypeContent->loggia){{ 'checked="checked"' }}@endif name="loggia">Loggia
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->loggia) && $dataTypeContent->loggia){{ 'checked="checked"' }}@endif name="loggia">Loggia
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2006,7 +2006,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->net) && $dataTypeContent->net){{ 'checked="checked"' }}@endif name="net">Monstiquaire
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->net) && $dataTypeContent->net){{ 'checked="checked"' }}@endif name="net">Monstiquaire
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2014,7 +2014,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->hoist) && $dataTypeContent->hoist){{ 'checked="checked"' }}@endif name="hoist">Monte-charge
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->hoist) && $dataTypeContent->hoist){{ 'checked="checked"' }}@endif name="hoist">Monte-charge
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2022,7 +2022,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->open_plan) && $dataTypeContent->open_plan){{ 'checked="checked"' }}@endif name="open_plan">Open-space
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->open_plan) && $dataTypeContent->open_plan){{ 'checked="checked"' }}@endif name="open_plan">Open-space
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2030,7 +2030,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->outdoor_pool) && $dataTypeContent->outdoor_pool){{ 'checked="checked"' }}@endif name="outdoor_pool">Piscine extérieure
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->outdoor_pool) && $dataTypeContent->outdoor_pool){{ 'checked="checked"' }}@endif name="outdoor_pool">Piscine extérieure
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2038,7 +2038,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->indoor_pool) && $dataTypeContent->indoor_pool){{ 'checked="checked"' }}@endif name="indoor_pool">Piscine intérieure
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->indoor_pool) && $dataTypeContent->indoor_pool){{ 'checked="checked"' }}@endif name="indoor_pool">Piscine intérieure
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2046,7 +2046,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->ceramic_stove) && $dataTypeContent->ceramic_stove){{ 'checked="checked"' }}@endif name="ceramic_stove">Poêle en céramique
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->ceramic_stove) && $dataTypeContent->ceramic_stove){{ 'checked="checked"' }}@endif name="ceramic_stove">Poêle en céramique
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2054,7 +2054,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->swedish_stove) && $dataTypeContent->swedish_stove){{ 'checked="checked"' }}@endif name="swedish_stove">Poêle suédois
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->swedish_stove) && $dataTypeContent->swedish_stove){{ 'checked="checked"' }}@endif name="swedish_stove">Poêle suédois
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2062,7 +2062,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->loading_dock) && $dataTypeContent->loading_dock){{ 'checked="checked"' }}@endif name="loading_dock">Quai de déchargement
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->loading_dock) && $dataTypeContent->loading_dock){{ 'checked="checked"' }}@endif name="loading_dock">Quai de déchargement
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2070,7 +2070,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->connection_chimney) && $dataTypeContent->connection_chimney){{ 'checked="checked"' }}@endif name="connection_chimney">Raccord. pour cheminée
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->connection_chimney) && $dataTypeContent->connection_chimney){{ 'checked="checked"' }}@endif name="connection_chimney">Raccord. pour cheminée
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2078,7 +2078,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->connection_swedish_stove) && $dataTypeContent->connection_swedish_stove){{ 'checked="checked"' }}@endif name="connection_swedish_stove">Raccord. pour poêle suédois
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->connection_swedish_stove) && $dataTypeContent->connection_swedish_stove){{ 'checked="checked"' }}@endif name="connection_swedish_stove">Raccord. pour poêle suédois
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2086,7 +2086,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->reception) && $dataTypeContent->reception){{ 'checked="checked"' }}@endif name="reception">Réception
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->reception) && $dataTypeContent->reception){{ 'checked="checked"' }}@endif name="reception">Réception
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2094,7 +2094,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->metallic_curtain) && $dataTypeContent->metallic_curtain){{ 'checked="checked"' }}@endif name="metallic_curtain">Rideau métallique
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->metallic_curtain) && $dataTypeContent->metallic_curtain){{ 'checked="checked"' }}@endif name="metallic_curtain">Rideau métallique
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2102,7 +2102,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->armed_with_fire_tap) && $dataTypeContent->armed_with_fire_tap){{ 'checked="checked"' }}@endif name="armed_with_fire_tap">Robinet d'incendie armé
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->armed_with_fire_tap) && $dataTypeContent->armed_with_fire_tap){{ 'checked="checked"' }}@endif name="armed_with_fire_tap">Robinet d'incendie armé
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2110,7 +2110,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->do_it_yourself_room) && $dataTypeContent->do_it_yourself_room){{ 'checked="checked"' }}@endif name="do_it_yourself_room">Salle de bricolage
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->do_it_yourself_room) && $dataTypeContent->do_it_yourself_room){{ 'checked="checked"' }}@endif name="do_it_yourself_room">Salle de bricolage
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2118,7 +2118,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->theater) && $dataTypeContent->theater){{ 'checked="checked"' }}@endif name="theater">Salle de cinéma
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->theater) && $dataTypeContent->theater){{ 'checked="checked"' }}@endif name="theater">Salle de cinéma
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2126,7 +2126,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->game_room) && $dataTypeContent->game_room){{ 'checked="checked"' }}@endif name="game_room">Salle de jeux
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->game_room) && $dataTypeContent->game_room){{ 'checked="checked"' }}@endif name="game_room">Salle de jeux
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2134,7 +2134,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->fitness_room) && $dataTypeContent->fitness_room){{ 'checked="checked"' }}@endif name="fitness_room">Salle fitness
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->fitness_room) && $dataTypeContent->fitness_room){{ 'checked="checked"' }}@endif name="fitness_room">Salle fitness
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2142,7 +2142,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->conference_room) && $dataTypeContent->conference_room){{ 'checked="checked"' }}@endif name="conference_room">Salle de conférence
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->conference_room) && $dataTypeContent->conference_room){{ 'checked="checked"' }}@endif name="conference_room">Salle de conférence
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2150,7 +2150,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->satellite) && $dataTypeContent->satellite){{ 'checked="checked"' }}@endif name="satellite">Satellite
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->satellite) && $dataTypeContent->satellite){{ 'checked="checked"' }}@endif name="satellite">Satellite
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2158,7 +2158,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->sauna) && $dataTypeContent->sauna){{ 'checked="checked"' }}@endif name="sauna">Sauna
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->sauna) && $dataTypeContent->sauna){{ 'checked="checked"' }}@endif name="sauna">Sauna
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2166,7 +2166,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->subsoil) && $dataTypeContent->subsoil){{ 'checked="checked"' }}@endif name="subsoil">Sous-sol
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->subsoil) && $dataTypeContent->subsoil){{ 'checked="checked"' }}@endif name="subsoil">Sous-sol
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2174,7 +2174,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->blinds) && $dataTypeContent->blinds){{ 'checked="checked"' }}@endif name="blinds">Stores
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->blinds) && $dataTypeContent->blinds){{ 'checked="checked"' }}@endif name="blinds">Stores
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2182,7 +2182,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->electric_blinds) && $dataTypeContent->electric_blinds){{ 'checked="checked"' }}@endif name="electric_blinds">Stores électriques
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->electric_blinds) && $dataTypeContent->electric_blinds){{ 'checked="checked"' }}@endif name="electric_blinds">Stores électriques
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2190,7 +2190,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->thermostat_connected) && $dataTypeContent->thermostat_connected){{ 'checked="checked"' }}@endif name="thermostat_connected">Thermostat connecté
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->thermostat_connected) && $dataTypeContent->thermostat_connected){{ 'checked="checked"' }}@endif name="thermostat_connected">Thermostat connecté
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2198,7 +2198,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->triple_glazing) && $dataTypeContent->triple_glazing){{ 'checked="checked"' }}@endif name="triple_glazing">Triple vitrage
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->triple_glazing) && $dataTypeContent->triple_glazing){{ 'checked="checked"' }}@endif name="triple_glazing">Triple vitrage
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2206,7 +2206,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->veranda) && $dataTypeContent->veranda){{ 'checked="checked"' }}@endif name="veranda">Véranda
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->veranda) && $dataTypeContent->veranda){{ 'checked="checked"' }}@endif name="veranda">Véranda
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2214,7 +2214,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->crawlspace) && $dataTypeContent->crawlspace){{ 'checked="checked"' }}@endif name="crawlspace">Vide sanitaire
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->crawlspace) && $dataTypeContent->crawlspace){{ 'checked="checked"' }}@endif name="crawlspace">Vide sanitaire
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2222,7 +2222,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->electric_shutters) && $dataTypeContent->electric_shutters){{ 'checked="checked"' }}@endif name="electric_shutters">Volets roulants électriques
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->electric_shutters) && $dataTypeContent->electric_shutters){{ 'checked="checked"' }}@endif name="electric_shutters">Volets roulants électriques
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2230,7 +2230,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->tumble_drier) && $dataTypeContent->tumble_drier){{ 'checked="checked"' }}@endif name="tumble_drier">Sèche-linge
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->tumble_drier) && $dataTypeContent->tumble_drier){{ 'checked="checked"' }}@endif name="tumble_drier">Sèche-linge
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2238,7 +2238,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->hair_dryer) && $dataTypeContent->hair_dryer){{ 'checked="checked"' }}@endif name="hair_dryer">Sèche-cheveux
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->hair_dryer) && $dataTypeContent->hair_dryer){{ 'checked="checked"' }}@endif name="hair_dryer">Sèche-cheveux
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2246,7 +2246,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->satellite_tv) && $dataTypeContent->satellite_tv){{ 'checked="checked"' }}@endif name="satellite_tv">TV Satellite
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->satellite_tv) && $dataTypeContent->satellite_tv){{ 'checked="checked"' }}@endif name="satellite_tv">TV Satellite
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2254,7 +2254,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->phone) && $dataTypeContent->phone){{ 'checked="checked"' }}@endif name="phone">Téléphone
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->phone) && $dataTypeContent->phone){{ 'checked="checked"' }}@endif name="phone">Téléphone
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2265,7 +2265,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->car_shelter) && $dataTypeContent->car_shelter){{ 'checked="checked"' }}@endif name="car_shelter">Abri de voiture
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->car_shelter) && $dataTypeContent->car_shelter){{ 'checked="checked"' }}@endif name="car_shelter">Abri de voiture
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2273,7 +2273,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->spray) && $dataTypeContent->spray){{ 'checked="checked"' }}@endif name="spray">Arrosage
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->spray) && $dataTypeContent->spray){{ 'checked="checked"' }}@endif name="spray">Arrosage
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2281,7 +2281,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->barbecue) && $dataTypeContent->barbecue){{ 'checked="checked"' }}@endif name="barbecue">Barbecue
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->barbecue) && $dataTypeContent->barbecue){{ 'checked="checked"' }}@endif name="barbecue">Barbecue
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2289,7 +2289,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->exterior_lighting) && $dataTypeContent->exterior_lighting){{ 'checked="checked"' }}@endif name="exterior_lighting">Eclairage extérieur
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->exterior_lighting) && $dataTypeContent->exterior_lighting){{ 'checked="checked"' }}@endif name="exterior_lighting">Eclairage extérieur
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2297,7 +2297,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->drilling) && $dataTypeContent->drilling){{ 'checked="checked"' }}@endif name="drilling">Forage
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->drilling) && $dataTypeContent->drilling){{ 'checked="checked"' }}@endif name="drilling">Forage
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2305,7 +2305,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->heliport) && $dataTypeContent->heliport){{ 'checked="checked"' }}@endif name="heliport">Héliport
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->heliport) && $dataTypeContent->heliport){{ 'checked="checked"' }}@endif name="heliport">Héliport
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2313,7 +2313,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->well) && $dataTypeContent->well){{ 'checked="checked"' }}@endif name="well">Puits
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->well) && $dataTypeContent->well){{ 'checked="checked"' }}@endif name="well">Puits
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2321,7 +2321,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->source) && $dataTypeContent->source){{ 'checked="checked"' }}@endif name="source">Source
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->source) && $dataTypeContent->source){{ 'checked="checked"' }}@endif name="source">Source
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2331,7 +2331,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->collective_lift) && $dataTypeContent->collective_lift){{ 'checked="checked"' }}@endif name="collective_lift">Ascenseur collectif
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->collective_lift) && $dataTypeContent->collective_lift){{ 'checked="checked"' }}@endif name="collective_lift">Ascenseur collectif
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2339,7 +2339,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->communal_laundry_room) && $dataTypeContent->communal_laundry_room){{ 'checked="checked"' }}@endif name="communal_laundry_room">Buanderie collective
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->communal_laundry_room) && $dataTypeContent->communal_laundry_room){{ 'checked="checked"' }}@endif name="communal_laundry_room">Buanderie collective
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2347,7 +2347,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->network_cabling) && $dataTypeContent->network_cabling){{ 'checked="checked"' }}@endif name="network_cabling">Câblage réseau
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->network_cabling) && $dataTypeContent->network_cabling){{ 'checked="checked"' }}@endif name="network_cabling">Câblage réseau
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2355,7 +2355,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->collective_optical_fiber) && $dataTypeContent->collective_optical_fiber){{ 'checked="checked"' }}@endif name="collective_optical_fiber">Fibre optique collective
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->collective_optical_fiber) && $dataTypeContent->collective_optical_fiber){{ 'checked="checked"' }}@endif name="collective_optical_fiber">Fibre optique collective
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2363,7 +2363,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->parable) && $dataTypeContent->parable){{ 'checked="checked"' }}@endif name="parable">Parabole
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->parable) && $dataTypeContent->parable){{ 'checked="checked"' }}@endif name="parable">Parabole
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2374,7 +2374,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->alarm) && $dataTypeContent->alarm){{ 'checked="checked"' }}@endif name="alarm">Alamre
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->alarm) && $dataTypeContent->alarm){{ 'checked="checked"' }}@endif name="alarm">Alamre
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2390,7 +2390,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->fenced) && $dataTypeContent->fenced){{ 'checked="checked"' }}@endif name="fenced">Clôturé
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->fenced) && $dataTypeContent->fenced){{ 'checked="checked"' }}@endif name="fenced">Clôturé
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2398,7 +2398,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->safe) && $dataTypeContent->safe){{ 'checked="checked"' }}@endif name="safe">Coffre-fort
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->safe) && $dataTypeContent->safe){{ 'checked="checked"' }}@endif name="safe">Coffre-fort
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2406,7 +2406,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->digidode) && $dataTypeContent->digidode){{ 'checked="checked"' }}@endif name="digidode">DigiCode
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->digidode) && $dataTypeContent->digidode){{ 'checked="checked"' }}@endif name="digidode">DigiCode
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2414,7 +2414,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->guardian) && $dataTypeContent->guardian){{ 'checked="checked"' }}@endif name="guardian">Gardien
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->guardian) && $dataTypeContent->guardian){{ 'checked="checked"' }}@endif name="guardian">Gardien
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2422,7 +2422,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->caretaker) && $dataTypeContent->caretaker){{ 'checked="checked"' }}@endif name="caretaker">Gardien d'immeuble
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->caretaker) && $dataTypeContent->caretaker){{ 'checked="checked"' }}@endif name="caretaker">Gardien d'immeuble
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2430,7 +2430,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->intercom) && $dataTypeContent->intercom){{ 'checked="checked"' }}@endif name="intercom">Interphone
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->intercom) && $dataTypeContent->intercom){{ 'checked="checked"' }}@endif name="intercom">Interphone
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2438,7 +2438,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->electric_gate) && $dataTypeContent->electric_gate){{ 'checked="checked"' }}@endif name="electric_gate">Portail électrique
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->electric_gate) && $dataTypeContent->electric_gate){{ 'checked="checked"' }}@endif name="electric_gate">Portail électrique
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2446,7 +2446,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->reinforced_door) && $dataTypeContent->reinforced_door){{ 'checked="checked"' }}@endif name="reinforced_door">Porte blindée
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->reinforced_door) && $dataTypeContent->reinforced_door){{ 'checked="checked"' }}@endif name="reinforced_door">Porte blindée
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2454,7 +2454,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->videophone) && $dataTypeContent->videophone){{ 'checked="checked"' }}@endif name="videophone">Vidéophone
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->videophone) && $dataTypeContent->videophone){{ 'checked="checked"' }}@endif name="videophone">Vidéophone
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2487,7 +2487,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->clear) && $dataTypeContent->clear){{ 'checked="checked"' }}@endif name="clear">Dégagée
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->clear) && $dataTypeContent->clear){{ 'checked="checked"' }}@endif name="clear">Dégagée
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2495,7 +2495,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->impregnable) && $dataTypeContent->impregnable){{ 'checked="checked"' }}@endif name="impregnable">Imprenable
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->impregnable) && $dataTypeContent->impregnable){{ 'checked="checked"' }}@endif name="impregnable">Imprenable
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2503,7 +2503,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->panoramic) && $dataTypeContent->panoramic){{ 'checked="checked"' }}@endif name="panoramic">Panoramique
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->panoramic) && $dataTypeContent->panoramic){{ 'checked="checked"' }}@endif name="panoramic">Panoramique
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2511,7 +2511,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->courtyard) && $dataTypeContent->courtyard){{ 'checked="checked"' }}@endif name="courtyard">Sur cour
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->courtyard) && $dataTypeContent->courtyard){{ 'checked="checked"' }}@endif name="courtyard">Sur cour
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2519,7 +2519,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_countryside) && $dataTypeContent->on_countryside){{ 'checked="checked"' }}@endif name="on_countryside">Sur la campagne
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_countryside) && $dataTypeContent->on_countryside){{ 'checked="checked"' }}@endif name="on_countryside">Sur la campagne
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2527,7 +2527,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_forest) && $dataTypeContent->on_forest){{ 'checked="checked"' }}@endif name="on_forest">Sur la forêt
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_forest) && $dataTypeContent->on_forest){{ 'checked="checked"' }}@endif name="on_forest">Sur la forêt
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2535,7 +2535,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_sea) && $dataTypeContent->on_sea){{ 'checked="checked"' }}@endif name="on_sea">Sur la mer
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_sea) && $dataTypeContent->on_sea){{ 'checked="checked"' }}@endif name="on_sea">Sur la mer
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2543,7 +2543,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_pool) && $dataTypeContent->on_pool){{ 'checked="checked"' }}@endif name="on_pool">Sur la piscine
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_pool) && $dataTypeContent->on_pool){{ 'checked="checked"' }}@endif name="on_pool">Sur la piscine
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2551,7 +2551,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_river) && $dataTypeContent->on_river){{ 'checked="checked"' }}@endif name="on_river">Sur la rivière
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_river) && $dataTypeContent->on_river){{ 'checked="checked"' }}@endif name="on_river">Sur la rivière
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2559,7 +2559,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_street) && $dataTypeContent->on_street){{ 'checked="checked"' }}@endif name="on_street">Sur la rue
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_street) && $dataTypeContent->on_street){{ 'checked="checked"' }}@endif name="on_street">Sur la rue
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2567,7 +2567,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_city) && $dataTypeContent->on_city){{ 'checked="checked"' }}@endif name="on_city">Sur la ville
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_city) && $dataTypeContent->on_city){{ 'checked="checked"' }}@endif name="on_city">Sur la ville
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2575,7 +2575,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_garden) && $dataTypeContent->on_garden){{ 'checked="checked"' }}@endif name="on_garden">Sur le jardin
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_garden) && $dataTypeContent->on_garden){{ 'checked="checked"' }}@endif name="on_garden">Sur le jardin
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2583,7 +2583,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_lake) && $dataTypeContent->on_lake){{ 'checked="checked"' }}@endif name="on_lake">Sur le lac
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_lake) && $dataTypeContent->on_lake){{ 'checked="checked"' }}@endif name="on_lake">Sur le lac
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2591,7 +2591,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_park) && $dataTypeContent->on_park){{ 'checked="checked"' }}@endif name="on_park">Sur le parc
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_park) && $dataTypeContent->on_park){{ 'checked="checked"' }}@endif name="on_park">Sur le parc
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2599,7 +2599,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_haven) && $dataTypeContent->on_haven){{ 'checked="checked"' }}@endif name="on_haven">Sur le port
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_haven) && $dataTypeContent->on_haven){{ 'checked="checked"' }}@endif name="on_haven">Sur le port
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2607,7 +2607,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_hills) && $dataTypeContent->on_hills){{ 'checked="checked"' }}@endif name="on_hills">Sur les collines
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_hills) && $dataTypeContent->on_hills){{ 'checked="checked"' }}@endif name="on_hills">Sur les collines
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2615,7 +2615,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_mountains) && $dataTypeContent->on_mountains){{ 'checked="checked"' }}@endif name="on_mountains">Sur les montagnes
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_mountains) && $dataTypeContent->on_mountains){{ 'checked="checked"' }}@endif name="on_mountains">Sur les montagnes
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2623,7 +2623,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->on_ski_slopes) && $dataTypeContent->on_ski_slopes){{ 'checked="checked"' }}@endif name="on_ski_slopes">Sur les piste de ski
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->on_ski_slopes) && $dataTypeContent->on_ski_slopes){{ 'checked="checked"' }}@endif name="on_ski_slopes">Sur les piste de ski
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2631,7 +2631,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->vis_a_vis) && $dataTypeContent->vis_a_vis){{ 'checked="checked"' }}@endif name="vis_a_vis">Vis-à-vis
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->vis_a_vis) && $dataTypeContent->vis_a_vis){{ 'checked="checked"' }}@endif name="vis_a_vis">Vis-à-vis
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2664,7 +2664,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Etat intérieur</label>
-                                                        <select class="form-control m-select2 custom_select2" name="interior_condition" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="interior_condition" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\State::all() as $state_front)
                                                                 <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                             @endforeach
@@ -2674,7 +2674,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Etat extérieur</label>
-                                                        <select class="form-control m-select2 custom_select2" name="external_state" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="external_state" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\State::all() as $state_front)
                                                                 <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                             @endforeach
@@ -2684,7 +2684,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Etat de la façade</label>
-                                                        <select class="form-control m-select2 custom_select2" name="state_front" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="state_front" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\State::all() as $state_front)
                                                                 <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                             @endforeach
@@ -2694,7 +2694,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Type de construction</label>
-                                                        <select class="form-control m-select2 custom_select2" name="type_construction" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="type_construction" data-placeholder="Select Type">
                                                             @foreach(TCG\Voyager\Models\Construction::all() as $type_construction)
                                                                 <option value="{{ $type_construction->reference }}" @if(isset($dataTypeContent->type_construction) && $dataTypeContent->type_construction == $type_construction->reference){{ 'selected="selected"' }}@endif>{{ $type_construction->value }}</option>
                                                             @endforeach
@@ -2705,7 +2705,7 @@
                                                     <div class="form-group">
                                                         <label>Année de construction</label>
                                                         <div class="input-group date years_only">
-                                                            <input type="text" class="form-control m-input " readonly="" placeholder="Sélectionner la date" name="year_construction">
+                                                            <input type="text" class="form-control m-input elem-categories" readonly="" placeholder="Sélectionner la date" name="year_construction">
                                                             <span class="input-group-addon">
                                                         <i class="la la-calendar-check-o"></i>
                                                     </span>
@@ -2717,7 +2717,7 @@
                                                     <div class="form-group">
                                                         <label>Année de rénovation</label>
                                                         <div class="input-group date years_only">
-                                                            <input type="text" class="form-control m-input " readonly="" placeholder="Sélectionner la date" name="year_renovation">
+                                                            <input type="text" class="form-control m-input elem-categories" readonly="" placeholder="Sélectionner la date" name="year_renovation">
                                                             <span class="input-group-addon">
                                                         <i class="la la-calendar-check-o"></i>
                                                     </span>
@@ -2752,7 +2752,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->nord) && $dataTypeContent->nord){{ 'checked="checked"' }}@endif name="nord">Nord
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->nord) && $dataTypeContent->nord){{ 'checked="checked"' }}@endif name="nord">Nord
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2760,7 +2760,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->south) && $dataTypeContent->south){{ 'checked="checked"' }}@endif name="south">Sud
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->south) && $dataTypeContent->south){{ 'checked="checked"' }}@endif name="south">Sud
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2768,7 +2768,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->est) && $dataTypeContent->est){{ 'checked="checked"' }}@endif name="est">Est
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->est) && $dataTypeContent->est){{ 'checked="checked"' }}@endif name="est">Est
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2776,7 +2776,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->west) && $dataTypeContent->west){{ 'checked="checked"' }}@endif name="west">Ouest
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->west) && $dataTypeContent->west){{ 'checked="checked"' }}@endif name="west">Ouest
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2934,93 +2934,263 @@
             }
         });
 
-        /* selects */
-        $('a[cat_id]').click(function() {
-
-            var selectedTab = $(this).attr('cat_id');
-            $('input[name="category_id"]').attr('value',selectedTab);
-//            console.log(selectedTab + 'sdgkl');
-            var token = $('input[name="_token"]').val();
-
-            /* repeating fields */
-            var propTax = $('input[name="property_tax"]'),
-                commercialProp = $('input[name="commercial_property"]'),
-                floorProp = $('select[name="floor_property"]'),
-                serviced = $('input[name="serviced"]'),
-                removPartitions = $('input[name="removable_partitions"]'),
-                hoist = $('input[name="hoist"]'),
-                openPlan = $('input[name="open_plan"]'),
-                loadingDock = $('input[name="loading_dock"]'),
-                reception = $('input[name="reception"]'),
-                collectiveLift = $('input[name="collective_lift"]'),
-                comLaundryRoom = $('input[name="communal_laundry_room"]'),
-                netCabling = $('input[name="network_cabling"]'),
-                collectivopticFiber = $('input[name="collective_optical_fiber"]'),
-                parable = $('input[name="parable"]'),
-                stateFront = $('select[name="state_front"]');
-
-            function addClassAndAttr (element) {
-                element.attr('disabled',true);
-                element.parent().parent().addClass('disabled_element');
-            }
-            function addClass (element) {
-                element.parent().parent().addClass('disabled_element');
-            }
-            function addAttr (element) {
-                element.attr('disabled',true);
-            }
-
-            switch (selectedTab) {
-                case '1' :
-                    addClassAndAttr(propTax);
-                    addClassAndAttr(commercialProp);
-                    addClassAndAttr($('input[name="number_floors_building"]'));
-                    addAttr(floorProp);
-                    floorProp.parent().addClass('disabled_element');
-                    addClassAndAttr(serviced);
-                    addClassAndAttr($('input[name="ppe_area"]'));
-                    addClassAndAttr(removPartitions);
-                    addClassAndAttr(hoist);
-                    addClassAndAttr(openPlan);
-                    addClassAndAttr(loadingDock);
-                    addClassAndAttr(reception);
-                    addClassAndAttr(collectiveLift);
-                    addClassAndAttr(comLaundryRoom);
-                    addClassAndAttr(netCabling);
-                    addClassAndAttr(collectivopticFiber);
-                    addClassAndAttr(parable);
-                    addAttr(stateFront);
-                    stateFront.parent().addClass('disabled_element');
-                    break;
-                case '2' :
-                    addClassAndAttr(propTax);
-                    break;
-                case '3' :
-                    console.log('case 3 selected');
-                    break;
-                case '4' :
-                    console.log('case 4 selected');
-                    break;
-                case '5' :
-                    console.log('case 5 selected');
-                    break;
-                case '6' :
-                    console.log('case 6 selected');
-                    break;
-                case '7' :
-                    console.log('case 7 selected');
-                    break;
-                case '8' :
-                    console.log('case 8 selected');
-                    break;
-            }
-        });
-
         $(function() {
             $('.bar_rating').barrating({
                 theme: 'fontawesome-stars'
             });
         });
+
+        /* hide or show inputs*/
+        var fields = [
+            { id: 1, field: $('input[name="heating_loads"]') },
+            { id: 2, field: $('input[name="ppe_charges"]') },
+            { id: 3, field: $('input[name="condominium_fees"]') },
+            { id: 4, field: $('input[name="property_tax"]') },
+            { id: 5, field: $('input[name="taxes_1"]') },
+            { id: 6, field: $('input[name="rental_security"]') },
+            { id: 7, field: $('input[name="commercial_property"]') },
+            { id: 8, field: $('input[name="number_rooms"]') },
+            { id: 9, field: $('input[name="number_pieces"]') },
+            { id: 10, field: $('input[name="number_balconies"]') },
+            { id: 11, field: $('input[name="number_shower_rooms"]') },
+            { id: 12, field: $('input[name="number_toilets"]') },
+            { id: 13, field: $('input[name="number_terraces"]') },
+            { id: 14, field: $('input[name="number_floors_building"]') },
+            { id: 15, field: $('select[name="floor_property"]') },
+            { id: 16, field: $('input[name="levels"]') },
+            { id: 17, field: $('input[name="surface_cellar"]') },
+            { id: 18, field: $('input[name="surface_cellar_child"]') },// вместе
+            { id: 19, field: $('input[name="ceiling_height"]') },
+            { id: 20, field: $('input[name="roof_cover_area"]') },
+            { id: 21, field: $('input[name="roof_cover_area_child"]') },
+            { id: 22, field: $('input[name="surf_area_terr_solar"]') },
+            { id: 23, field: $('input[name="surf_area_terr_solar_child"]') },
+            { id: 24, field: $('input[name="area_veranda"]') },
+            { id: 25, field: $('input[name="area_veranda_child"]') },
+            { id: 26, field: $('input[name="attic_space"]') },
+            { id: 27, field: $('input[name="attic_space_child"]') },
+            { id: 28, field: $('input[name="surface_balcony"]') },
+            { id: 29, field: $('input[name="surface_balcony_child"]') },
+            { id: 30, field: $('input[name="basement_area"]') },
+            { id: 31, field: $('input[name="basement_area_child"]') },
+            { id: 32, field: $('input[name="surface_ground"]') },
+            { id: 33, field: $('input[name="ground_length"]') },
+            { id: 34, field: $('input[name="ground_width"]') },
+            { id: 35, field: $('input[name="serviced"]') },
+            { id: 36, field: $('select[name="type_land"]') },
+            { id: 37, field: $('input[name="useful_surface"]') },
+            { id: 38, field: $('input[name="ppe_area"]') },
+            { id: 39, field: $('input[name="volume"]') },
+            { id: 40, field: $('input[name="surface_eng_court"]') },
+            { id: 41, field: $('input[name="surface_eng_court_child"]') },
+            { id: 42, field: $('input[name="lower_ground_floor"]') },
+            { id: 43, field: $('input[name="lower_ground_floor_child"]') },
+            { id: 44, field: $('input[name="row_area"]') },
+            { id: 45, field: $('input[name="garage_area"]') },
+            { id: 46, field: $('input[name="weighted_surface"]') },
+            { id: 47, field: $('input[name="box_interior_garage"]') },
+            { id: 48, field: $('input[name="box_gar_inter_doub"]') },
+            { id: 49, field: $('input[name="outdoor_garage"]') },
+            { id: 50, field: $('input[name="box_garage_outside_double"]') },
+            { id: 51, field: $('input[name="covered_outdoor_parking_space"]') },
+            { id: 52, field: $('input[name="outside_parking_space_uncovered"]') },
+            { id: 53, field: $('input[name="number_parking_spaces"]') },
+            { id: 54, field: $('input[name="boat_shed"]') },
+            { id: 55, field: $('input[name="mooring"]') },
+            { id: 56, field: $('select[name="type"]') },
+            { id: 57, field: $('input[name="freezer"]') },
+            { id: 58, field: $('input[name="cooker"]') },
+            { id: 59, field: $('input[name="oven"]') },
+            { id: 60, field: $('input[name="microwave_oven"]') },
+            { id: 61, field: $('input[name="extractor_hood"]') },
+            { id: 62, field: $('input[name="washmachine"]') },
+            { id: 63, field: $('input[name="dishwasher"]') },
+            { id: 64, field: $('input[name="plates"]') },
+            { id: 65, field: $('input[name="induction_plates"]') },
+            { id: 66, field: $('input[name="hotplates"]') },
+            { id: 67, field: $('input[name="ceramic_plates"]') },
+            { id: 68, field: $('input[name="fridge"]') },
+            { id: 69, field: $('input[name="cuisine_tumble_drier"]') },
+            { id: 70, field: $('input[name="coffee_maker"]') },
+            { id: 71, field: $('select[name="format"]') },
+            { id: 72, field: $('select[name="chauffage_energy"]') },
+            { id: 73, field: $('select[name="type_heating"]') },
+            { id: 74, field: $('select[name="type_radiator"]') },
+            { id: 75, field: $('select[name="distribution"]') },
+            { id: 76, field: $('select[name="eau_chaude_energy"]') },
+            { id: 77, field: $('select[name="usees_distribution"]') },
+            { id: 78, field: $('select[name="divers_format"]') },
+            { id: 79, field: $('select[name="sonority"]') },
+            { id: 80, field: $('select[name="style"]') },
+            { id: 81, field: $('input[name="shelter"]') },
+            { id: 82, field: $('input[name="access_disabled"]') },
+            { id: 83, field: $('input[name="water_softener"]') },
+            { id: 84, field: $('input[name="air_conditioning"]') },
+            { id: 85, field: $('input[name="pets_welcome"]') },
+            { id: 86, field: $('input[name="fitted_wardrobes"]') },
+            { id: 87, field: $('input[name="private_lift"]') },
+            { id: 88, field: $('input[name="central_aspiration"]') },
+            { id: 89, field: $('input[name="workshop"]') },
+            { id: 90, field: $('input[name="patch_panel"]') },
+            { id: 91, field: $('input[name="windows"]') },
+            { id: 92, field: $('input[name="bath"]') },
+            { id: 93, field: $('input[name="balneo_bath"]') },
+            { id: 94, field: $('input[name="private_laundry_room"]') },
+            { id: 95, field: $('input[name="cafeteria"]') },
+            { id: 96, field: $('input[name="carnotzet"]') },
+            { id: 97, field: $('input[name="cave"]') },
+            { id: 98, field: $('input[name="wine_cellar"]') },
+            { id: 99, field: $('input[name="cellar"]') },
+            { id: 100, field: $('input[name="fireplace"]') },
+            { id: 101, field: $('input[name="removable_partitions"]') },
+            { id: 102, field: $('input[name="addiction"]') },
+            { id: 103, field: $('input[name="automation"]') },
+            { id: 104, field: $('input[name="double_glazing"]') },
+            { id: 105, field: $('input[name="shower"]') },
+            { id: 106, field: $('input[name="dressing"]') },
+            { id: 107, field: $('input[name="automatic_fire_extinguisher"]') },
+            { id: 108, field: $('input[name="false_ceiling"]') },
+            { id: 109, field: $('input[name="optical_fiber"]') },
+            { id: 110, field: $('input[name="attic"]') },
+            { id: 111, field: $('input[name="generator"]') },
+            { id: 112, field: $('input[name="hammam"]') },
+            { id: 113, field: $('input[name="high_internet"]') },
+            { id: 114, field: $('input[name="jacuzzi"]') },
+            { id: 115, field: $('input[name="winter_garden"]') },
+            { id: 116, field: $('input[name="ski_locker"]') },
+            { id: 117, field: $('input[name="bicycle_storage"]') },
+            { id: 118, field: $('input[name="loggia"]') },
+            { id: 119, field: $('input[name="net"]') },
+            { id: 120, field: $('input[name="hoist"]') },
+            { id: 121, field: $('input[name="open_plan"]') },
+            { id: 122, field: $('input[name="outdoor_pool"]') },
+            { id: 123, field: $('input[name="indoor_pool"]') },
+            { id: 124, field: $('input[name="ceramic_stove"]') },
+            { id: 125, field: $('input[name="swedish_stove"]') },
+            { id: 126, field: $('input[name="loading_dock"]') },
+            { id: 127, field: $('input[name="connection_chimney"]') },
+            { id: 128, field: $('input[name="connection_swedish_stove"]') },
+            { id: 129, field: $('input[name="reception"]') },
+            { id: 130, field: $('input[name="metallic_curtain"]') },
+            { id: 131, field: $('input[name="armed_with_fire_tap"]') },
+            { id: 132, field: $('input[name="do_it_yourself_room"]') },
+            { id: 133, field: $('input[name="theater"]') },
+            { id: 134, field: $('input[name="game_room"]') },
+            { id: 135, field: $('input[name="fitness_room"]') },
+            { id: 136, field: $('input[name="conference_room"]') },
+            { id: 137, field: $('input[name="satellite"]') },
+            { id: 138, field: $('input[name="sauna"]') },
+            { id: 139, field: $('input[name="subsoil"]') },
+            { id: 140, field: $('input[name="blinds"]') },
+            { id: 141, field: $('input[name="electric_blinds"]') },
+            { id: 142, field: $('input[name="thermostat_connected"]') },
+            { id: 143, field: $('input[name="triple_glazing"]') },
+            { id: 144, field: $('input[name="veranda"]') },
+            { id: 145, field: $('input[name="crawlspace"]') },
+            { id: 146, field: $('input[name="electric_shutters"]') },
+            { id: 147, field: $('input[name="tumble_drier"]') },
+            { id: 148, field: $('input[name="hair_dryer"]') },
+            { id: 149, field: $('input[name="satellite_tv"]') },
+            { id: 150, field: $('input[name="phone"]') },
+            { id: 151, field: $('input[name="car_shelter"]') },
+            { id: 152, field: $('input[name="spray"]') },
+            { id: 153, field: $('input[name="barbecue"]') },
+            { id: 154, field: $('input[name="exterior_lighting"]') },
+            { id: 155, field: $('input[name="drilling"]') },
+            { id: 156, field: $('input[name="heliport"]') },
+            { id: 157, field: $('input[name="well"]') },
+            { id: 158, field: $('input[name="source"]') },
+            { id: 159, field: $('input[name="collective_lift"]') },
+            { id: 160, field: $('input[name="communal_laundry_room"]') },
+            { id: 161, field: $('input[name="network_cabling"]') },
+            { id: 162, field: $('input[name="collective_optical_fiber"]') },
+            { id: 163, field: $('input[name="parable"]') },
+            { id: 164, field: $('input[name="alarm"]') },
+            { id: 165, field: $('input[name="magnetic_card"]') },
+            { id: 166, field: $('input[name="fenced"]') },
+            { id: 167, field: $('input[name="safe"]') },
+            { id: 168, field: $('input[name="digidode"]') },
+            { id: 169, field: $('input[name="guardian"]') },
+            { id: 170, field: $('input[name="caretaker"]') },
+            { id: 171, field: $('input[name="intercom"]') },
+            { id: 172, field: $('input[name="electric_gate"]') },
+            { id: 173, field: $('input[name="reinforced_door"]') },
+            { id: 174, field: $('input[name="videophone"]') },
+            { id: 175, field: $('input[name="clear"]') },
+            { id: 176, field: $('input[name="impregnable"]') },
+            { id: 177, field: $('input[name="panoramic"]') },
+            { id: 178, field: $('input[name="courtyard"]') },
+            { id: 179, field: $('input[name="on_countryside"]') },
+            { id: 180, field: $('input[name="on_forest"]') },
+            { id: 181, field: $('input[name="on_sea"]') },
+            { id: 182, field: $('input[name="on_pool"]') },
+            { id: 183, field: $('input[name="on_river"]') },
+            { id: 184, field: $('input[name="on_street"]') },
+            { id: 185, field: $('input[name="on_city"]') },
+            { id: 186, field: $('input[name="on_garden"]') },
+            { id: 187, field: $('input[name="on_lake"]') },
+            { id: 188, field: $('input[name="on_park"]') },
+            { id: 189, field: $('input[name="on_haven"]') },
+            { id: 190, field: $('input[name="on_hills"]') },
+            { id: 191, field: $('input[name="on_mountains"]') },
+            { id: 192, field: $('input[name="on_ski_slopes"]') },
+            { id: 193, field: $('input[name="vis_a_vis"]') },
+            { id: 194, field: $('select[name="interior_condition"]') },
+            { id: 195, field: $('select[name="type_construction"]') },
+            { id: 196, field: $('select[name="state_front"]') },
+            { id: 197, field: $('select[name="external_state"]') },
+            { id: 198, field: $('input[name="year_construction"]') },
+            { id: 199, field: $('input[name="year_renovation"]') },
+            { id: 200, field: $('input[name="nord"]') },
+            { id: 201, field: $('input[name="south"]') },
+            { id: 202, field: $('input[name="est"]') },
+            { id: 203, field: $('input[name="west"]') }
+        ];
+
+        var categories = [
+            { id: 1, name: 'Maison', fields: [4,7,14,15,35,38,101,120,121,126,129,159,160,161,162,163,196] },
+            { id: 2, name: 'Appartement', fields: [4,7,15,35,101,120,126,129,155,195] },
+            { id: 3, name: 'Terrain constructible', fields: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199] },
+            { id: 4, name: 'Terrain non-constructible', fields: [1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199] },
+            { id: 5, name: 'Surface commerciale', fields: [4,15,116,35,102,106,195,197] },
+            { id: 6, name: 'Immeuble', fields: [4,6,8,9,10,11,12,13,16,17,18,22,23,24,25,26,27,28,29,35,46,87,89,96,98,99,102,106,115,118,119,121,124,125,127,128,132,134,135,136,138,197] },
+            { id: 7, name: 'Stationnement', fields: [1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203] },
+            { id: 8, name: 'Autre', fields: [4,20,21,35,102,197] }
+        ];
+
+        function setCategoryFields(category_id) {
+
+            // Находим все поля относязиеся к категориям
+            var elems = $('body').find($('.elem-categories'));
+
+            // Очищаем их
+            $.each(elems, function () {
+                $(this).removeAttr('disabled');
+                $(this).parent().parent().removeClass('disabled_element');
+            });
+
+            // Стилизуем только необходимые
+            $.each(categories, function () {
+                var category = this;
+
+                if (category.id === parseInt(category_id)) {
+                    for (var i = 0; i < category.fields.length; i++) {
+                        $.each(fields, function () {
+                            if (this.id === category.fields[i]) {
+                                this.field.attr('disabled', true);
+                                this.field.parent().parent().addClass('disabled_element');
+                            }
+                        })
+                    }
+                }
+            })
+        }
+
+        $('a[cat_id]').on('click', function(e) {
+            setCategoryFields($(this).attr('cat_id'));
+        });
+
+
     </script>
 
     <script>

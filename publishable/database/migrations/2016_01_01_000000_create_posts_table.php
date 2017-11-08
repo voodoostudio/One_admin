@@ -130,6 +130,7 @@ class CreatePostsTable extends Migration
             $table->integer('surface_eng_court')->nullable();
             $table->integer('surface_eng_court_child')->nullable();
             $table->integer('lower_ground_floor')->nullable();
+            $table->integer('lower_ground_floor_child')->nullable();
             $table->integer('row_area')->nullable();
             $table->integer('garage_area')->nullable();
             $table->integer('weighted_surface')->nullable();
