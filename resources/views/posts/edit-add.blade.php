@@ -252,12 +252,12 @@
                                                         <div class="form-group">
                                                             <div class="m-radio-inline">
                                                                 <label class="m-radio m-radio--solid">
-                                                                    <input type="radio" name="ann_type" value="1" {{ ($dataTypeContent->ann_type == 1) ? 'checked' : '' }}>
+                                                                    <input type="radio" class="announce_type" name="ann_type" value="1" {{ ($dataTypeContent->ann_type == 1) ? 'checked' : '' }}>
                                                                     Vente
                                                                     <span></span>
                                                                 </label>
                                                                 <label class="m-radio m-radio--solid">
-                                                                    <input type="radio" name="ann_type" value="0" {{ ($dataTypeContent->ann_type == 0) ? 'checked' : '' }}>
+                                                                    <input type="radio" class="announce_type" name="ann_type" value="0" {{ ($dataTypeContent->ann_type == 0) ? 'checked' : '' }}>
                                                                     Location
                                                                     <span></span>
                                                                 </label>
@@ -331,6 +331,9 @@
                                                     <div class="form-group">
                                                         <label>Courtier</label>
                                                         <select class="form-control m-select2 custom_select2" name="broker" data-placeholder="Sélectionner un courtier">
+                                                            @foreach(TCG\Voyager\Models\User::all() as $user)
+                                                                <option value="{{ $user->id }}">{{  $user->name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -432,7 +435,7 @@
                                                     <div class="form-group">
                                                         <label>Disponibilité</label>
                                                         <div class='input-group date' id='m_datepicker_4'>
-                                                            <input type='text' class="form-control m-input date-type rent" value="@if(isset($dataTypeContent->availability)){{ $dataTypeContent->availability }}@endif" readonly  placeholder="Sélectionner la date" name="availability"/>
+                                                            <input type='text' class="form-control m-input date-type rent for-type" value="@if(isset($dataTypeContent->availability)){{ $dataTypeContent->availability }}@endif" readonly  placeholder="Sélectionner la date" name="availability"/>
                                                             <span class="input-group-addon">
                                                         <i class="la la-calendar-check-o"></i>
                                                     </span>
@@ -443,11 +446,11 @@
                                                     <div class="form-group">
                                                         <label>Disponibilité à partir du / jusqu'au</label>
                                                         <div class="input-daterange input-group" id="m_datepicker_5">
-                                                            <input type="text" class="form-control m-input date-type" name="availab_from" value="@if(isset($dataTypeContent->availab_from)){{ $dataTypeContent->availab_from }}@endif" />
+                                                            <input type="text" class="form-control m-input date-type for-type" name="availab_from" value="@if(isset($dataTypeContent->availab_from)){{ $dataTypeContent->availab_from }}@endif" />
                                                             <span class="input-group-addon">
                                                         <i class="la la-ellipsis-h"></i>
                                                     </span>
-                                                            <input type="text" class="form-control date-type" name="availab_until" value="@if(isset($dataTypeContent->availab_until)){{ $dataTypeContent->availab_until }}@endif" />
+                                                            <input type="text" class="form-control date-type for-type" name="availab_until" value="@if(isset($dataTypeContent->availab_until)){{ $dataTypeContent->availab_until }}@endif" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3173,6 +3176,7 @@
             $.each(categories, function () {
                 var category = this;
 
+
                 if (category.id === parseInt(category_id)) {
                     for (var i = 0; i < category.fields.length; i++) {
                         $.each(fields, function () {
@@ -3189,6 +3193,64 @@
         $('a[cat_id]').on('click', function(e) {
             setCategoryFields($(this).attr('cat_id'));
         });
+
+        $('input.announce_type').click(function() {
+            var type = $(this).attr('value');
+            var availability = $('input[name="availability"]'),
+                availab_from = $('input[name="availab_from"]'),
+                availab_until = $('input[name="availab_until"]');
+
+            var forType = $('body').find($('.for-type'));
+
+            $.each(forType, function () {
+                $(this).removeAttr('disabled');
+//                $(this).parent().parent().removeClass('disabled_element'); // todo дописать
+            });
+
+            if(parseInt(type) === 1) {
+                availability.attr('disabled', true);
+            } else {
+                availab_from.attr('disabled', true);
+                availab_until.attr('disabled', true);
+            }
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            var ann_type = $('.announce_type:checked').attr('value');
+            $('input[name="rental_security"]').removeAttr('disabled');
+            $('input[name="rental_security"]').parent().parent().removeClass('disabled_element');
+
+            if(parseInt(ann_type) === 1) {
+                $('input[name="rental_security"]').attr('disabled', true);
+                $('input[name="rental_security"]').parent().parent().addClass('disabled_element');
+            }
+
+            $('a[cat_id]').click(function(e) {
+                var catId = $(this).attr('cat_id');
+//                var ann_type = $('.announce_type:checked').attr('value');
+
+                $('input[name="rental_security"]').removeAttr('disabled');
+                $('input[name="rental_security"]').parent().parent().removeClass('disabled_element');
+
+                if(parseInt(catId) === 1 || parseInt(catId) === 4 || parseInt(catId) === 7) {
+                    console.log('success CAtegorie');
+                    if(parseInt(ann_type) === 1) {
+                        console.log('success Announce');
+                        $('input[name="rental_security"]').attr('disabled', true);
+                        $('input[name="rental_security"]').parent().parent().addClass('disabled_element');
+                    }
+                }
+            });
+
+
+        });
+
+
+
+
+
+
+
+
 
 
     </script>
