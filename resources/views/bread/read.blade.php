@@ -618,7 +618,7 @@
 
             <!--Begin::Info Portlet-->
             <div class="row">
-                <div class="col-xl-4">
+                <div class="col-xl-6">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -765,7 +765,7 @@
                     </div>
                     <!--end:: Widgets/New Users-->
                 </div>
-                <div class="col-xl-4">
+                <div class="col-xl-6">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -835,7 +835,12 @@
                     </div>
                     <!--end:: Widgets/New Users-->
                 </div>
-                <div class="col-xl-4">
+            </div>
+            <!--End::Info Portlet-->
+
+            <!--Begin::Info Portlet-->
+            <div class="row">
+                <div class="col-xl-12">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -851,7 +856,7 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -866,7 +871,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -881,7 +886,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -896,7 +901,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -911,7 +916,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -926,7 +931,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -941,7 +946,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -956,7 +961,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -971,7 +976,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -986,7 +991,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1001,7 +1006,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1016,7 +1021,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1033,7 +1038,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1048,7 +1053,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1063,7 +1068,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1078,7 +1083,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1093,7 +1098,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1109,7 +1114,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1124,7 +1129,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1139,7 +1144,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1154,7 +1159,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1169,7 +1174,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1184,7 +1189,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1199,7 +1204,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1226,7 +1231,7 @@
 
             <!--Begin::Info Portlet-->
             <div class="row">
-                <div class="col-xl-4">
+                <div class="col-xl-12">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -1242,7 +1247,7 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1257,7 +1262,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1272,7 +1277,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1287,7 +1292,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1302,7 +1307,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1317,7 +1322,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1332,7 +1337,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1347,7 +1352,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1362,7 +1367,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1379,7 +1384,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1401,7 +1406,12 @@
                     </div>
                     <!--end:: Widgets/New Users-->
                 </div>
-                <div class="col-xl-4">
+            </div>
+            <!--End::Info Portlet-->
+
+            <!--Begin::Info Portlet-->
+            <div class="row">
+                <div class="col-xl-12">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -1417,7 +1427,7 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1432,7 +1442,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1447,7 +1457,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1462,7 +1472,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1477,7 +1487,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1492,7 +1502,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1507,7 +1517,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1522,7 +1532,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1537,7 +1547,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1552,7 +1562,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1567,7 +1577,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1582,7 +1592,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1599,7 +1609,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1614,7 +1624,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1629,7 +1639,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1644,7 +1654,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1659,7 +1669,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1674,7 +1684,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1689,7 +1699,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1704,7 +1714,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1726,7 +1736,12 @@
                     </div>
                     <!--end:: Widgets/New Users-->
                 </div>
-                <div class="col-xl-4">
+            </div>
+            <!--End::Info Portlet-->
+
+            <!--Begin::Info Portlet-->
+            <div class="row">
+                <div class="col-xl-12">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -1742,7 +1757,7 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1757,7 +1772,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1772,7 +1787,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1787,7 +1802,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1802,7 +1817,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1817,7 +1832,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1832,7 +1847,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1847,7 +1862,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1862,7 +1877,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1889,7 +1904,7 @@
 
             <!--Begin::Info Portlet-->
             <div class="row">
-                <div class="col-xl-4">
+                <div class="col-xl-12">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -1905,7 +1920,7 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1922,7 +1937,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1937,7 +1952,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1952,7 +1967,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1967,7 +1982,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1982,7 +1997,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -1997,7 +2012,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2012,7 +2027,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2027,7 +2042,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2042,7 +2057,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2057,7 +2072,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2072,7 +2087,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2087,7 +2102,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2102,7 +2117,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2117,7 +2132,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -2139,7 +2154,12 @@
                     </div>
                     <!--end:: Widgets/New Users-->
                 </div>
-                <div class="col-xl-4">
+            </div>
+            <!--End::Info Portlet-->
+
+            <!--Begin::Info Portlet-->
+            <div class="row">
+                <div class="col-xl-6">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -2230,7 +2250,7 @@
                     </div>
                     <!--end:: Widgets/New Users-->
                 </div>
-                <div class="col-xl-4">
+                <div class="col-xl-6">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -2292,7 +2312,7 @@
 
             <!--Begin::Info Portlet-->
             <div class="row">
-                <div class="col-xl-4">
+                <div class="col-xl-6">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -2332,7 +2352,7 @@
                     </div>
                     <!--end:: Widgets/New Users-->
                 </div>
-                <div class="col-xl-4">
+                <div class="col-xl-6">
                     <!--begin:: Widgets/New Users-->
                     <div class="m-portlet m-portlet--full-height">
                         <div class="m-portlet__head">
@@ -2406,43 +2426,6 @@
                     </div>
                     <!--end:: Widgets/New Users-->
                 </div>
-                {{--<div class="col-xl-4">--}}
-                {{--<!--begin:: Widgets/New Users-->--}}
-                {{--<div class="m-portlet m-portlet--full-height">--}}
-                {{--<div class="m-portlet__head">--}}
-                {{--<div class="m-portlet__head-caption">--}}
-                {{--<div class="m-portlet__head-title">--}}
-                {{--<h3 class="m-portlet__head-text">--}}
-                {{--Part--}}
-                {{--</h3>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="m-portlet__body">--}}
-                {{--<!--begin::Widget 14-->--}}
-                {{--<div class="m-widget4">--}}
-                {{--<div class="row">--}}
-                {{--<div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">--}}
-                {{--<!--begin::Widget 14 Item-->--}}
-                {{--<div class="m-widget4__item">--}}
-                {{--<div class="m-widget4__info">--}}
-                {{--<span class="m-widget4__title">--}}
-                {{--Parter--}}
-                {{--</span>--}}
-                {{--<br>--}}
-                {{--<span class="m-widget4__sub">--}}
-                {{--value--}}
-                {{--</span>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--<!--end::Widget 14-->--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--<!--end:: Widgets/New Users-->--}}
-                {{--</div>--}}
             </div>
             <!--End::Info Portlet-->
 
@@ -3797,7 +3780,6 @@
                             <!--end::Widget 14-->
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="row">
@@ -3816,7 +3798,7 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3830,7 +3812,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3844,7 +3826,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3858,7 +3840,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3872,7 +3854,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3886,7 +3868,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3900,7 +3882,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3914,7 +3896,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3928,7 +3910,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3942,7 +3924,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3956,7 +3938,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3970,7 +3952,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3984,7 +3966,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -3998,7 +3980,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4012,7 +3994,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4026,7 +4008,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4040,7 +4022,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4054,7 +4036,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4068,7 +4050,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4106,7 +4088,7 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4122,7 +4104,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4138,7 +4120,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4154,7 +4136,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4170,7 +4152,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -4184,7 +4166,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
