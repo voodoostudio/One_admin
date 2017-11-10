@@ -3174,22 +3174,26 @@
 
         $('input.announce_type').click(function() {
             var type = $(this).attr('value');
+
             var availability = $('input[name="availability"]'),
                 availab_from = $('input[name="availab_from"]'),
                 availab_until = $('input[name="availab_until"]');
 
-            var forType = $('body').find($('.for-type'));
+//            var forType = $('body').find($('.for-type'));
 
-            $.each(forType, function () {
-                $(this).removeAttr('disabled');
-//                $(this).parent().parent().removeClass('disabled_element'); // todo дописать
-            });
+//            $.each(forType, function () {
+//                $(this).removeAttr('disabled');
+////                $(this).parent().parent().removeClass('disabled_element'); // todo дописать
+//            });
 
             if(parseInt(type) === 1) {
-                availability.attr('disabled', true);
-            } else {
+                availability.removeAttr('disabled');
                 availab_from.attr('disabled', true);
                 availab_until.attr('disabled', true);
+            } else {
+                availability.attr('disabled', true);
+                availab_from.removeAttr('disabled');
+                availab_until.removeAttr('disabled');
             }
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -3212,7 +3216,6 @@
                 if(parseInt(catId) === 1 || parseInt(catId) === 4 || parseInt(catId) === 7) {
                     console.log('success CAtegorie');
                     if(parseInt(ann_type) === 1) {
-                        console.log('success Announce');
                         $('input[name="rental_security"]').attr('disabled', true);
                         $('input[name="rental_security"]').parent().parent().addClass('disabled_element');
                     }
@@ -3220,16 +3223,31 @@
             });
 
 
+
         });
 
+//        var from = $('input[name="availab_from"]'),
+//            until = $('input[name="availab_until"]');
 
+        function Trigger(val) {
 
+            var availability = $('input[name="availability"]'),
+                availab_from = $('input[name="availab_from"]'),
+                availab_until = $('input[name="availab_until"]');
 
+            if(parseInt(val) === 1) {
+                availability.removeAttr('disabled');
+                availab_from.attr('disabled', true);
+                availab_until.attr('disabled', true);
+            } else {
+                availability.attr('disabled', true);
+                availab_from.removeAttr('disabled');
+                availab_until.removeAttr('disabled');
+            }
+        }
 
-
-
-
-
+        var typeAnnounce = $('.announce_type:checked').attr('value');
+        Trigger(typeAnnounce);
 
     </script>
 
