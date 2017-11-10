@@ -608,7 +608,7 @@
                                                 </div>
                                                 <div class="col-lg-2 margin_bottom_10">
                                                     <label>CP</label>
-                                                    <input type="number" class="form-control m-input" placeholder="CP" value="@if(isset($dataTypeContent->po_box)){{ $dataTypeContent->po_box }}@endif" name="po_box">
+                                                    <input type="number" min="0" class="form-control m-input" placeholder="CP" value="@if(isset($dataTypeContent->po_box)){{ $dataTypeContent->po_box }}@endif" name="po_box">
                                                 </div>
                                                 <div class="col-lg-2 margin_bottom_10">
                                                     <label>NPA</label>
@@ -629,11 +629,11 @@
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label>Longitude</label>
-                                                    <input disabled="disabled" type="number" id="longitude" class="form-control m-input" placeholder="Longitude" name="longitude">
+                                                    <input disabled="disabled" type="number" min="0" id="longitude" class="form-control m-input" placeholder="Longitude" name="longitude">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label>Latitude</label>
-                                                    <input disabled="disabled" type="number" id="latitude" class="form-control m-input" placeholder="Longitude" name="latitude">
+                                                    <input disabled="disabled" type="number" min="0" id="latitude" class="form-control m-input" placeholder="Longitude" name="latitude">
                                                 </div>
                                                 <div class="col-lg-3 margin_bottom_10">
                                                     <label>Localisation</label>
@@ -702,7 +702,7 @@
                                                     <div class="form-group">
                                                         <label>Prix</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->price)){{ $dataTypeContent->price }}@endif" name="price">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->price)){{ $dataTypeContent->price }}@endif" name="price">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -711,7 +711,7 @@
                                                     <div class="form-group">
                                                         <label>Prix au m<sup>2</sup></label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->price_m2)){{ $dataTypeContent->price_m2 }}@endif" name="price_m2">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->price_m2)){{ $dataTypeContent->price_m2 }}@endif" name="price_m2">
                                                             <span class="input-group-addon">EUR/m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -720,7 +720,7 @@
                                                     <div class="form-group">
                                                         <label>Rendement brut</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->gross_yield)){{ $dataTypeContent->gross_yield }}@endif" name="gross_yield">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->gross_yield)){{ $dataTypeContent->gross_yield }}@endif" name="gross_yield">
                                                             <span class="input-group-addon">%</span>
                                                         </div>
                                                     </div>
@@ -729,7 +729,7 @@
                                                     <div class="form-group">
                                                         <label>Rendement net</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->net_return)){{ $dataTypeContent->net_return }}@endif" name="net_return">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->net_return)){{ $dataTypeContent->net_return }}@endif" name="net_return">
                                                             <span class="input-group-addon">%</span>
                                                         </div>
                                                     </div>
@@ -740,7 +740,7 @@
                                                     <div class="form-group">
                                                         <label>Montant négociable <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation du prix de vente possible honoraires inclus - ou - simulation du prix de location honoraires exclus" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->negotiable_amount)){{ $dataTypeContent->negotiable_amount }}@endif" name="negotiable_amount">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->negotiable_amount)){{ $dataTypeContent->negotiable_amount }}@endif" name="negotiable_amount">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -749,7 +749,7 @@
                                                     <div class="form-group">
                                                         <label>Montant estimé <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="A titre indicatif le prix estimé pour vos avis de valeur" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->estimate_price)){{ $dataTypeContent->estimate_price }}@endif" name="estimate_price">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->estimate_price)){{ $dataTypeContent->estimate_price }}@endif" name="estimate_price">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -758,7 +758,7 @@
                                                     <div class="form-group">
                                                         <label>Montant propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_amount)){{ $dataTypeContent->owner_amount }}@endif" name="owner_amount">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_amount)){{ $dataTypeContent->owner_amount }}@endif" name="owner_amount">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -767,7 +767,7 @@
                                                     <div class="form-group">
                                                         <label>Honoraire client <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du client acheteur. Dans le cadre d'une location : constitution du dossier, visite et rédaction du contrat" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->client_fees)){{ $dataTypeContent->client_fees }}@endif" name="client_fees">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->client_fees)){{ $dataTypeContent->client_fees }}@endif" name="client_fees">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -776,7 +776,7 @@
                                                     <div class="form-group">
                                                         <label>Honoraire propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_fees)){{ $dataTypeContent->owner_fees }}@endif" name="owner_fees">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_fees)){{ $dataTypeContent->owner_fees }}@endif" name="owner_fees">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -785,7 +785,7 @@
                                                     <div class="form-group">
                                                         <label>Droits d’enregistrement <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation des frais de notaire et des droits de mutation" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->recording_rights)){{ $dataTypeContent->recording_rights }}@endif" name="recording_rights">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->recording_rights)){{ $dataTypeContent->recording_rights }}@endif" name="recording_rights">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -796,7 +796,7 @@
                                                     <div class="form-group">
                                                         <label>Charges de chauffage</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->heating_loads)){{ $dataTypeContent->heating_loads }}@endif" name="heating_loads">
+                                                            <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->heating_loads)){{ $dataTypeContent->heating_loads }}@endif" name="heating_loads">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -805,7 +805,7 @@
                                                     <div class="form-group">
                                                         <label>Charges PPE</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->ppe_charges)){{ $dataTypeContent->ppe_charges }}@endif" name="ppe_charges">
+                                                            <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->ppe_charges)){{ $dataTypeContent->ppe_charges }}@endif" name="ppe_charges">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -814,7 +814,7 @@
                                                     <div class="form-group">
                                                         <label>Charges de copropriété</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->condominium_fees)){{ $dataTypeContent->condominium_fees }}@endif" name="condominium_fees">
+                                                            <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->condominium_fees)){{ $dataTypeContent->condominium_fees }}@endif" name="condominium_fees">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -823,7 +823,7 @@
                                                     <div class="form-group">
                                                         <label>Charges annuelles</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->annual_charges)){{ $dataTypeContent->annual_charges }}@endif" name="annual_charges">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->annual_charges)){{ $dataTypeContent->annual_charges }}@endif" name="annual_charges">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -832,7 +832,7 @@
                                                     <div class="form-group">
                                                         <label>Taxe d'habitation</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->taxes_1)){{ $dataTypeContent->taxes_1 }}@endif" name="taxes_1">
+                                                            <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->taxes_1)){{ $dataTypeContent->taxes_1 }}@endif" name="taxes_1">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -841,7 +841,7 @@
                                                     <div class="form-group">
                                                         <label>Taxe foncière</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->property_tax)){{ $dataTypeContent->property_tax }}@endif" name="property_tax">
+                                                            <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->property_tax)){{ $dataTypeContent->property_tax }}@endif" name="property_tax">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -850,7 +850,7 @@
                                                     <div class="form-group">
                                                         <label>Caution locative</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->rental_security)){{ $dataTypeContent->rental_security }}@endif" name="rental_security">
+                                                            <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->rental_security)){{ $dataTypeContent->rental_security }}@endif" name="rental_security">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -859,7 +859,7 @@
                                                     <div class="form-group">
                                                         <label>Fonds de rénovation</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->renovation_fund)){{ $dataTypeContent->renovation_fund }}@endif" name="renovation_fund">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->renovation_fund)){{ $dataTypeContent->renovation_fund }}@endif" name="renovation_fund">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -868,7 +868,7 @@
                                                     <div class="form-group">
                                                         <label>Revenus</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->earnings)){{ $dataTypeContent->earnings }}@endif" name="earnings">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->earnings)){{ $dataTypeContent->earnings }}@endif" name="earnings">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -877,7 +877,7 @@
                                                     <div class="form-group">
                                                         <label>Impôts</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->taxes)){{ $dataTypeContent->taxes }}@endif" name="taxes">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->taxes)){{ $dataTypeContent->taxes }}@endif" name="taxes">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -886,7 +886,7 @@
                                                     <div class="form-group">
                                                         <label>Fonds de commerce</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->commercial_property)){{ $dataTypeContent->commercial_property }}@endif" name="commercial_property">
+                                                            <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->commercial_property)){{ $dataTypeContent->commercial_property }}@endif" name="commercial_property">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -940,7 +940,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de pièces</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_pieces)){{ $dataTypeContent->number_pieces }}@endif" name="number_pieces">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_pieces)){{ $dataTypeContent->number_pieces }}@endif" name="number_pieces">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -948,7 +948,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de chambres</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_rooms)){{ $dataTypeContent->number_rooms }}@endif" name="number_rooms">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_rooms)){{ $dataTypeContent->number_rooms }}@endif" name="number_rooms">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -956,7 +956,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de salles de douche</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_shower_rooms)){{ $dataTypeContent->number_shower_rooms }}@endif" name="number_shower_rooms">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_shower_rooms)){{ $dataTypeContent->number_shower_rooms }}@endif" name="number_shower_rooms">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -964,7 +964,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de WC</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_toilets)){{ $dataTypeContent->number_toilets }}@endif" name="number_toilets">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_toilets)){{ $dataTypeContent->number_toilets }}@endif" name="number_toilets">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -972,7 +972,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de salles d'eau</label>
                                                         <div class="input-group">
-                                                            <input type="number" disabled class="form-control m-input elem-categories" placeholder="Nb douche + Nb de WC" value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
+                                                            <input type="number" min="0" disabled class="form-control m-input elem-categories" placeholder="Nb douche + Nb de WC" value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -980,7 +980,7 @@
                                                     <div class="form-group">
                                                         <label>Niveaux</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..."  value="@if(isset($dataTypeContent->levels)){{ $dataTypeContent->levels }}@endif" name="levels">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..."  value="@if(isset($dataTypeContent->levels)){{ $dataTypeContent->levels }}@endif" name="levels">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -988,7 +988,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de terasses</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_terraces)){{ $dataTypeContent->number_terraces }}@endif" name="number_terraces">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_terraces)){{ $dataTypeContent->number_terraces }}@endif" name="number_terraces">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -996,7 +996,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de balcons</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_balconies)){{ $dataTypeContent->number_balconies }}@endif" name="number_balconies">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_balconies)){{ $dataTypeContent->number_balconies }}@endif" name="number_balconies">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1014,7 +1014,7 @@
                                                     <div class="form-group">
                                                         <label>Nb d'étage du bâtiment</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_floors_building)){{ $dataTypeContent->number_floors_building }}@endif" name="number_floors_building">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_floors_building)){{ $dataTypeContent->number_floors_building }}@endif" name="number_floors_building">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1077,12 +1077,10 @@
                                                     <div class="form-group">
                                                         <label>Surface rez-de-chaussée inférieur</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->lower_ground_floor)){{ $dataTypeContent->lower_ground_floor }}@endif" name="lower_ground_floor">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->lower_ground_floor)){{ $dataTypeContent->lower_ground_floor }}@endif" name="lower_ground_floor">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->lower_ground_floor_child)){{ $dataTypeContent->lower_ground_floor_child }}@endif" name="lower_ground_floor_child"/>
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->lower_ground_floor_child)){{ $dataTypeContent->lower_ground_floor_child }}@endif" name="lower_ground_floor_child"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1090,12 +1088,10 @@
                                                     <div class="form-group">
                                                         <label>Surface des combles</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->attic_space)){{ $dataTypeContent->attic_space }}@endif" name="attic_space">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->attic_space)){{ $dataTypeContent->attic_space }}@endif" name="attic_space">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="attic_space_child"/>
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="attic_space_child"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1103,12 +1099,10 @@
                                                     <div class="form-group">
                                                         <label>Surface du balcon</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_balcony)){{ $dataTypeContent->surface_balcony }}@endif" name="surface_balcony">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_balcony)){{ $dataTypeContent->surface_balcony }}@endif" name="surface_balcony">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_balcony_child)){{ $dataTypeContent->surface_balcony_child }}@endif" name="surface_balcony_child" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_balcony_child)){{ $dataTypeContent->surface_balcony_child }}@endif" name="surface_balcony_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1116,12 +1110,10 @@
                                                     <div class="form-group">
                                                         <label>Surface du sous-sol</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->basement_area)){{ $dataTypeContent->basement_area }}@endif" name="basement_area">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->basement_area)){{ $dataTypeContent->basement_area }}@endif" name="basement_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->basement_area_child)){{ $dataTypeContent->basement_area_child }}@endif" name="basement_area_child" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->basement_area_child)){{ $dataTypeContent->basement_area_child }}@endif" name="basement_area_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1129,12 +1121,10 @@
                                                     <div class="form-group">
                                                         <label>Surface de la cave</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_cellar)){{ $dataTypeContent->surface_cellar }}@endif" name="surface_cellar">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_cellar)){{ $dataTypeContent->surface_cellar }}@endif" name="surface_cellar">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_cellar_child)){{ $dataTypeContent->surface_cellar_child }}@endif" name="surface_cellar_child" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_cellar_child)){{ $dataTypeContent->surface_cellar_child }}@endif" name="surface_cellar_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1142,12 +1132,10 @@
                                                     <div class="form-group">
                                                         <label>Surface de la terrasse solarium</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surf_area_terr_solar)){{ $dataTypeContent->surf_area_terr_solar }}@endif" name="surf_area_terr_solar">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surf_area_terr_solar)){{ $dataTypeContent->surf_area_terr_solar }}@endif" name="surf_area_terr_solar">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surf_area_terr_solar_child)){{ $dataTypeContent->surf_area_terr_solar_child }}@endif" name="surf_area_terr_solar_child" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surf_area_terr_solar_child)){{ $dataTypeContent->surf_area_terr_solar_child }}@endif" name="surf_area_terr_solar_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1155,12 +1143,10 @@
                                                     <div class="form-group">
                                                         <label>Surface de l'abri de la toiture</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->roof_cover_area)){{ $dataTypeContent->roof_cover_area }}@endif" name="roof_cover_area">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->roof_cover_area)){{ $dataTypeContent->roof_cover_area }}@endif" name="roof_cover_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1168,12 +1154,10 @@
                                                     <div class="form-group">
                                                         <label>Surface de la véranda</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->area_veranda)){{ $dataTypeContent->area_veranda }}@endif" name="area_veranda">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->area_veranda)){{ $dataTypeContent->area_veranda }}@endif" name="area_veranda">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" value="@if(isset($dataTypeContent->area_veranda_child)){{ $dataTypeContent->area_veranda_child }}@endif" name="area_veranda_child" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" value="@if(isset($dataTypeContent->area_veranda_child)){{ $dataTypeContent->area_veranda_child }}@endif" name="area_veranda_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1181,12 +1165,10 @@
                                                     <div class="form-group">
                                                         <label>Surface de la cour anglaise</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_eng_court)){{ $dataTypeContent->surface_eng_court }}@endif" name="surface_eng_court">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_eng_court)){{ $dataTypeContent->surface_eng_court }}@endif" name="surface_eng_court">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_eng_court_child)){{ $dataTypeContent->surface_eng_court_child }}@endif" name="surface_eng_court_child" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_eng_court_child)){{ $dataTypeContent->surface_eng_court_child }}@endif" name="surface_eng_court_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1194,7 +1176,7 @@
                                                     <div class="form-group">
                                                         <label>Surface pondérée</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" disabled="disabled" placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" disabled="disabled" placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1205,7 +1187,7 @@
                                                     <div class="form-group">
                                                         <label>Surface PPE</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->ppe_area)){{ $dataTypeContent->ppe_area }}@endif" name="ppe_area">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->ppe_area)){{ $dataTypeContent->ppe_area }}@endif" name="ppe_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1214,7 +1196,7 @@
                                                     <div class="form-group">
                                                         <label>Surface utille</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->useful_surface)){{ $dataTypeContent->useful_surface }}@endif" name="useful_surface">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->useful_surface)){{ $dataTypeContent->useful_surface }}@endif" name="useful_surface">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1223,7 +1205,7 @@
                                                     <div class="form-group">
                                                         <label>Surface du garage</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->garage_area)){{ $dataTypeContent->garage_area }}@endif" name="garage_area">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->garage_area)){{ $dataTypeContent->garage_area }}@endif" name="garage_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1232,7 +1214,7 @@
                                                     <div class="form-group">
                                                         <label>Surface de l'emprise</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->row_area)){{ $dataTypeContent->row_area }}@endif" name="row_area">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->row_area)){{ $dataTypeContent->row_area }}@endif" name="row_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1241,7 +1223,7 @@
                                                     <div class="form-group">
                                                         <label>Volume</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->volume)){{ $dataTypeContent->volume }}@endif" name="volume">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->volume)){{ $dataTypeContent->volume }}@endif" name="volume">
                                                             <span class="input-group-addon">m<sup>3</sup></span>
                                                         </div>
                                                     </div>
@@ -1250,7 +1232,7 @@
                                                     <div class="form-group">
                                                         <label>Hauteur des plafonds</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categorieselem-categories" placeholder="..." value="@if(isset($dataTypeContent->ceiling_height)){{ $dataTypeContent->ceiling_height }}@endif" name="ceiling_height">
+                                                            <input type="number" min="0" class="form-control m-input elem-categorieselem-categories" placeholder="..." value="@if(isset($dataTypeContent->ceiling_height)){{ $dataTypeContent->ceiling_height }}@endif" name="ceiling_height">
                                                             <span class="input-group-addon">m</span>
                                                         </div>
                                                     </div>
@@ -1261,17 +1243,13 @@
                                                     <div class="form-group">
                                                         <label>Terrain</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="Longeur" value="@if(isset($dataTypeContent->ground_length)){{ $dataTypeContent->ground_length }}@endif" name="ground_length" />
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="Longeur" value="@if(isset($dataTypeContent->ground_length)){{ $dataTypeContent->ground_length }}@endif" name="ground_length" />
                                                             <span class="input-group-addon">m</span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-close"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control elem-categories" placeholder="Largeur" value="@if(isset($dataTypeContent->ground_width)){{ $dataTypeContent->ground_width }}@endif" name="ground_width" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
+                                                            <input type="number" min="0" class="form-control elem-categories" placeholder="Largeur" value="@if(isset($dataTypeContent->ground_width)){{ $dataTypeContent->ground_width }}@endif" name="ground_width" />
                                                             <span class="input-group-addon">m</span>
-                                                            <span class="input-group-addon custom_additional_addon">
-                                                        <i class="la la-pause" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);transform: rotate(90deg);"></i>
-                                                    </span>
-                                                            <input type="number" class="form-control" placeholder="Total" disabled="disabled" value="@if(isset($dataTypeContent->surface_ground)){{ $dataTypeContent->surface_ground }}@endif" name="surface_ground" />
+                                                            <span class="input-group-addon custom_additional_addon"><i class="la la-pause" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);transform: rotate(90deg);"></i></span>
+                                                            <input type="number" min="0" class="form-control" placeholder="Total" disabled="disabled" value="@if(isset($dataTypeContent->surface_ground)){{ $dataTypeContent->surface_ground }}@endif" name="surface_ground" />
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1328,7 +1306,7 @@
                                                     <div class="form-group">
                                                         <label>Box/garage int.</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_interior_garage)){{ $dataTypeContent->box_interior_garage }}@endif" name="box_interior_garage">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_interior_garage)){{ $dataTypeContent->box_interior_garage }}@endif" name="box_interior_garage">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1336,7 +1314,7 @@
                                                     <div class="form-group">
                                                         <label>Box/garage double int.</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_gar_inter_doub)){{ $dataTypeContent->box_gar_inter_doub }}@endif" name="box_gar_inter_doub">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_gar_inter_doub)){{ $dataTypeContent->box_gar_inter_doub }}@endif" name="box_gar_inter_doub">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1344,7 +1322,7 @@
                                                     <div class="form-group">
                                                         <label>Box/garage ext.</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->outdoor_garage)){{ $dataTypeContent->outdoor_garage }}@endif" name="outdoor_garage">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->outdoor_garage)){{ $dataTypeContent->outdoor_garage }}@endif" name="outdoor_garage">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1352,7 +1330,7 @@
                                                     <div class="form-group">
                                                         <label>Box/garage double ext.</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_garage_outside_double)){{ $dataTypeContent->box_garage_outside_double }}@endif" name="box_garage_outside_double">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_garage_outside_double)){{ $dataTypeContent->box_garage_outside_double }}@endif" name="box_garage_outside_double">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1360,7 +1338,7 @@
                                                     <div class="form-group">
                                                         <label>Place de parc ext. couverte</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->covered_outdoor_parking_space)){{ $dataTypeContent->covered_outdoor_parking_space }}@endif" name="covered_outdoor_parking_space">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->covered_outdoor_parking_space)){{ $dataTypeContent->covered_outdoor_parking_space }}@endif" name="covered_outdoor_parking_space">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1368,7 +1346,7 @@
                                                     <div class="form-group">
                                                         <label>Place de parc ext. non-couverte</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->outside_parking_space_uncovered)){{ $dataTypeContent->outside_parking_space_uncovered }}@endif" name="outside_parking_space_uncovered">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->outside_parking_space_uncovered)){{ $dataTypeContent->outside_parking_space_uncovered }}@endif" name="outside_parking_space_uncovered">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1376,7 +1354,7 @@
                                                     <div class="form-group">
                                                         <label>Nombre de places de parc</label>
                                                         <div class="input-group">
-                                                            <input type="number" disabled="disabled" class="form-control m-input elem-categories" placeholder="sum of all" value="@if(isset($dataTypeContent->number_parking_spaces)){{ $dataTypeContent->number_parking_spaces }}@endif" name="number_parking_spaces">
+                                                            <input type="number" min="0" disabled="disabled" class="form-control m-input elem-categories" placeholder="sum of all" value="@if(isset($dataTypeContent->number_parking_spaces)){{ $dataTypeContent->number_parking_spaces }}@endif" name="number_parking_spaces">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1386,7 +1364,7 @@
                                                     <div class="form-group">
                                                         <label>Hangar à bateau</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->boat_shed)){{ $dataTypeContent->boat_shed }}@endif" name="boat_shed">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->boat_shed)){{ $dataTypeContent->boat_shed }}@endif" name="boat_shed">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1394,7 +1372,7 @@
                                                     <div class="form-group">
                                                         <label>Place d'amarrage</label>
                                                         <div class="input-group">
-                                                            <input type="number" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->mooring)){{ $dataTypeContent->mooring }}@endif" name="mooring">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->mooring)){{ $dataTypeContent->mooring }}@endif" name="mooring">
                                                         </div>
                                                     </div>
                                                 </div>
