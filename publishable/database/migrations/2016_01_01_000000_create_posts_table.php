@@ -298,8 +298,8 @@ class CreatePostsTable extends Migration
             $table->integer('type_construction')->nullable();
             $table->integer('state_front')->nullable();
             $table->integer('external_state')->nullable();
-            $table->text('year_construction');
-            $table->text('year_renovation');
+            $table->text('year_construction')->nullable();
+            $table->text('year_renovation')->nullable();
 //            // Exposition
             $table->integer('nord')->nullable();
             $table->integer('south')->nullable();

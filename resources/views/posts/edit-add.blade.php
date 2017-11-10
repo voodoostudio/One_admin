@@ -3188,12 +3188,22 @@
 
             if(parseInt(type) === 1) {
                 availability.removeAttr('disabled');
+                availability.parent().parent().removeClass('disabled_element');
+
                 availab_from.attr('disabled', true);
+                availab_from.parent().parent().addClass('disabled_element');
+
                 availab_until.attr('disabled', true);
+                availab_until.parent().parent().addClass('disabled_element');
             } else {
                 availability.attr('disabled', true);
+                availability.parent().parent().addClass('disabled_element');
+
                 availab_from.removeAttr('disabled');
+                availab_from.parent().parent().removeClass('disabled_element');
+
                 availab_until.removeAttr('disabled');
+                availab_until.parent().parent().removeClass('disabled_element');
             }
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -3237,17 +3247,35 @@
 
             if(parseInt(val) === 1) {
                 availability.removeAttr('disabled');
+                availability.parent().parent().removeClass('disabled_element');
+
                 availab_from.attr('disabled', true);
+                availab_from.parent().parent().addClass('disabled_element');
+
                 availab_until.attr('disabled', true);
+                availab_until.parent().parent().addClass('disabled_element');
             } else {
                 availability.attr('disabled', true);
+                availability.parent().parent().addClass('disabled_element');
+
                 availab_from.removeAttr('disabled');
+                availab_from.parent().parent().removeClass('disabled_element');
+
                 availab_until.removeAttr('disabled');
+                availab_until.parent().parent().removeClass('disabled_element');
             }
         }
 
         var typeAnnounce = $('.announce_type:checked').attr('value');
         Trigger(typeAnnounce);
+
+
+
+
+
+
+
+
 
     </script>
 
