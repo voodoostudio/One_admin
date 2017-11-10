@@ -2686,7 +2686,7 @@
                                                     <div class="form-group">
                                                         <label>Année de construction</label>
                                                         <div class="input-group date years_only">
-                                                            <input type="text" class="form-control m-input elem-categories" readonly="" placeholder="Sélectionner la date" name="year_construction">
+                                                            <input type="text" class="form-control m-input elem-categories" readonly="" placeholder="{{ ($dataTypeContent->year_renovation) ? $dataTypeContent->year_construction : 'Sélectionner la date' }}" name="year_construction">
                                                             <span class="input-group-addon">
                                                         <i class="la la-calendar-check-o"></i>
                                                     </span>
@@ -2698,7 +2698,7 @@
                                                     <div class="form-group">
                                                         <label>Année de rénovation</label>
                                                         <div class="input-group date years_only">
-                                                            <input type="text" class="form-control m-input elem-categories" readonly="" placeholder="Sélectionner la date" name="year_renovation">
+                                                            <input type="text" class="form-control m-input elem-categories" readonly="" placeholder="{{ ($dataTypeContent->year_renovation) ? $dataTypeContent->year_renovation : 'Sélectionner la date' }}" name="year_renovation">
                                                             <span class="input-group-addon">
                                                         <i class="la la-calendar-check-o"></i>
                                                     </span>
@@ -3231,13 +3231,7 @@
                     }
                 }
             });
-
-
-
         });
-
-//        var from = $('input[name="availab_from"]'),
-//            until = $('input[name="availab_until"]');
 
         function Trigger(val) {
 
@@ -3269,14 +3263,23 @@
         var typeAnnounce = $('.announce_type:checked').attr('value');
         Trigger(typeAnnounce);
 
-
-
-
-
-
-
-
-
+        // if fields not filled
+        $('button[type="submit"]').click(function() {
+            var titleFR = $('input[name="title_fr"]').val(),
+                titleEN = $('input[name="title_en"]').val(),
+                titleES = $('input[name="title_es"]').val();
+            if(titleFR === '') {
+                $('a[href="#redaction_tab"]').trigger('click');
+                $('a[href="#fr_redaction"]').trigger('click');
+                console.log('hello');
+            }else if(titleEN === '') {
+                $('a[href="#redaction_tab"]').trigger('click');
+                $('a[href="#en_redaction"]').trigger('click');
+            } else if(titleES === '') {
+                $('a[href="#redaction_tab"]').trigger('click');
+                $('a[href="#es_redaction"]').trigger('click');
+            }
+        });
     </script>
 
     <script>
