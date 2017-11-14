@@ -345,10 +345,10 @@
                                                             @if($category->parent_id == null)
                                                                 <li class="nav-item m-tabs__item">
                                                                     <a class="nav-link m-tabs__link {{ ($category->id == 1) ? 'active' : '' }}" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_{{ $category->id }}" role="tab" aria-expanded="false">{{ $category->name }}</a>
-                                                                    <input name="category_id"  type="hidden">
                                                                 </li>
                                                             @endif
                                                         @endforeach
+                                                            <input name="category_id" type="text">
                                                     </ul>
 
                                                     <div class="tab-content">
@@ -3154,7 +3154,6 @@
             $.each(categories, function () {
                 var category = this;
 
-
                 if (category.id === parseInt(category_id)) {
                     for (var i = 0; i < category.fields.length; i++) {
                         $.each(fields, function () {
@@ -3224,7 +3223,7 @@
                 $('input[name="rental_security"]').parent().parent().removeClass('disabled_element');
 
                 if(parseInt(catId) === 1 || parseInt(catId) === 4 || parseInt(catId) === 7) {
-                    console.log('success CAtegorie');
+//                    console.log('success CAtegorie');
                     if(parseInt(ann_type) === 1) {
                         $('input[name="rental_security"]').attr('disabled', true);
                         $('input[name="rental_security"]').parent().parent().addClass('disabled_element');
@@ -3271,7 +3270,6 @@
             if(titleFR === '') {
                 $('a[href="#redaction_tab"]').trigger('click');
                 $('a[href="#fr_redaction"]').trigger('click');
-                console.log('hello');
             }else if(titleEN === '') {
                 $('a[href="#redaction_tab"]').trigger('click');
                 $('a[href="#en_redaction"]').trigger('click');
@@ -3280,6 +3278,13 @@
                 $('a[href="#es_redaction"]').trigger('click');
             }
         });
+
+        // add category id in input for back-end
+        $('a[cat_id]').on('click', function() {
+            var category = $(this).attr('cat_id');
+            $('#categories_ul input[name="category_id"]').attr('value',category);
+        });
+
     </script>
 
     <script>
