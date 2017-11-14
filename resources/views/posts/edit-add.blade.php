@@ -348,9 +348,8 @@
                                                                 </li>
                                                             @endif
                                                         @endforeach
-                                                            <input name="category_id" type="text">
+                                                            <input name="category_id" type="hidden">
                                                     </ul>
-
                                                     <div class="tab-content">
                                                         @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                             @if($category->parent_id == null)
