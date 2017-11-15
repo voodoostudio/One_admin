@@ -1578,6 +1578,22 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($postDataType, 'publicate');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'checkbox',
+                'display_name' => 'publicate',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 83,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($postDataType, 'type_land');
         if (!$dataRow->exists) {
             $dataRow->fill([

@@ -350,6 +350,7 @@
                                                         @endforeach
                                                             <input name="category_id" type="hidden">
                                                     </ul>
+
                                                     <div class="tab-content">
                                                         @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                             @if($category->parent_id == null)
@@ -876,7 +877,7 @@
                                                     <div class="form-group">
                                                         <label>Impôts</label>
                                                         <div class="input-group">
-                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->taxes)){{ $dataTypeContent->taxes }}@endif" name="taxes">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->taxes)){{ $dataTypeContent->taxes }}@endif" name="taxes">
                                                             <span class="input-group-addon">EUR</span>
                                                         </div>
                                                     </div>
@@ -971,7 +972,7 @@
                                                     <div class="form-group">
                                                         <label>Nb de salles d'eau</label>
                                                         <div class="input-group">
-                                                            <input type="number" min="0" disabled class="form-control m-input elem-categories" placeholder="Nb douche + Nb de WC" value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
+                                                            <input type="number" min="0" readonly class="form-control m-input elem-categories" placeholder="Nb douche + Nb de WC" value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1142,7 +1143,7 @@
                                                     <div class="form-group">
                                                         <label>Surface de l'abri de la toiture</label>
                                                         <div class="input-group">
-                                                            <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->roof_cover_area)){{ $dataTypeContent->roof_cover_area }}@endif" name="roof_cover_area">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->roof_cover_area)){{ $dataTypeContent->roof_cover_area }}@endif" name="roof_cover_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
                                                             <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
@@ -1175,7 +1176,7 @@
                                                     <div class="form-group">
                                                         <label>Surface pondérée</label>
                                                         <div class="input-group">
-                                                            <input type="number" min="0" class="form-control m-input elem-categories" disabled="disabled" placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" readonly placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1231,7 +1232,7 @@
                                                     <div class="form-group">
                                                         <label>Hauteur des plafonds</label>
                                                         <div class="input-group">
-                                                            <input type="number" min="0" class="form-control m-input elem-categorieselem-categories" placeholder="..." value="@if(isset($dataTypeContent->ceiling_height)){{ $dataTypeContent->ceiling_height }}@endif" name="ceiling_height">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->ceiling_height)){{ $dataTypeContent->ceiling_height }}@endif" name="ceiling_height">
                                                             <span class="input-group-addon">m</span>
                                                         </div>
                                                     </div>
@@ -1267,12 +1268,12 @@
                                                     <div class="form-group">
                                                         <label class="">Viabilisé</label>
                                                         <div class="">
-                                                    <span class="m-switch m-switch--icon">
-                                                        <label>
-                                                            <input type="checkbox" class="elem-categories" checked="checked" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced){{ 'checked="checked"' }}@endif name="serviced">
-                                                            <span></span>
-                                                        </label>
-                                                    </span>
+                                                            <span class="m-switch m-switch--icon">
+                                                                <label>
+                                                                    <input type="checkbox" class="elem-categories" checked="checked" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced){{ 'checked="checked"' }}@endif name="serviced">
+                                                                    <span></span>
+                                                                </label>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1714,7 +1715,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->titlfitted_wardrobese) && $dataTypeContent->fitted_wardrobes){{ 'checked="checked"' }}@endif name="fitted_wardrobes">Armoires encastrées
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->fitted_wardrobese) && $dataTypeContent->fitted_wardrobes){{ 'checked="checked"' }}@endif name="fitted_wardrobes">Armoires encastrées
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2362,7 +2363,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" @if(isset($dataTypeContent->magnetic_card) && $dataTypeContent->magnetic_card){{ 'checked="checked"' }}@endif name="magnetic_card">Carte magnétique
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->magnetic_card) && $dataTypeContent->magnetic_card){{ 'checked="checked"' }}@endif name="magnetic_card">Carte magnétique
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -2685,12 +2686,11 @@
                                                     <div class="form-group">
                                                         <label>Année de construction</label>
                                                         <div class="input-group date years_only">
-                                                            <input type="text" class="form-control m-input elem-categories" readonly="" placeholder="{{ ($dataTypeContent->year_renovation) ? $dataTypeContent->year_construction : 'Sélectionner la date' }}" name="year_construction">
+                                                            <input type="text" class="form-control m-input elem-categories" readonly="" placeholder="{{ ($dataTypeContent->year_construction) ? $dataTypeContent->year_construction : 'Sélectionner la date' }}" name="year_construction">
                                                             <span class="input-group-addon">
-                                                        <i class="la la-calendar-check-o"></i>
-                                                    </span>
+                                                                <i class="la la-calendar-check-o"></i>
+                                                            </span>
                                                         </div>
-                                                        {{--<input type="date" name="year_construction">--}}
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3">
@@ -3129,12 +3129,12 @@
 
         var categories = [
             { id: 1, name: 'Maison', fields: [4,7,14,15,35,38,101,120,121,126,129,159,160,161,162,163,196] },
-            { id: 2, name: 'Appartement', fields: [4,7,15,35,101,120,126,129,155,195] },
+            { id: 2, name: 'Appartement', fields: [4,7,15,35,101,120,121,126,129,155,195] },
             { id: 3, name: 'Terrain constructible', fields: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199] },
             { id: 4, name: 'Terrain non-constructible', fields: [1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199] },
-            { id: 5, name: 'Surface commerciale', fields: [4,15,116,35,102,106,195,197] },
+            { id: 5, name: 'Surface commerciale', fields: [4,15,16,116,35,102,106,195,197] },
             { id: 6, name: 'Immeuble', fields: [4,6,8,9,10,11,12,13,16,17,18,22,23,24,25,26,27,28,29,35,46,87,89,96,98,99,102,106,115,118,119,121,124,125,127,128,132,134,135,136,138,197] },
-            { id: 7, name: 'Stationnement', fields: [1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203] },
+            { id: 7, name: 'Stationnement', fields: [1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203] },
             { id: 8, name: 'Autre', fields: [4,20,21,35,102,197] }
         ];
 
@@ -3142,7 +3142,6 @@
 
             // Находим все поля относязиеся к категориям
             var elems = $('body').find($('.elem-categories'));
-
             // Очищаем их
             $.each(elems, function () {
                 $(this).removeAttr('disabled');
@@ -3284,6 +3283,7 @@
             $('#categories_ul input[name="category_id"]').attr('value',category);
         });
 
+        $('a[cat_id="1"]').trigger('click');
     </script>
 
     <script>
