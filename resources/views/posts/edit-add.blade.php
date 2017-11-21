@@ -171,7 +171,7 @@
                 @endif
                 {{ csrf_field() }}
 
-                    <input type="hidden" lol="{{ $dataTypeContent->id }}">
+                <p style="display: none;" data="{{ $dataTypeContent->id }}"></p> <!-- p for trigger event on categories tab, on edit object page -->
 
                 <div class="main_tabs_container">
                     <ul class="nav nav-tabs  m-tabs-line m-tabs-line--primary" id="main_tabs_nav" role="tablist">
@@ -3289,10 +3289,14 @@
 //        $('a[cat_id="1"]').trigger('click');
 
         // trigger to category tab for edit object page
-        var input = $('input[lol]').attr('lol'); // to find out what page
-        if(input != ''){ // if not create page
+        var p = $('p[data]').attr('data'); // to find out what page
+        console.log();
+        if(p != ''){ // if not create page
             var categoryId = $('a.active[cat_id]').attr('cat_id');
             $('a[cat_id="'+categoryId+'"]').trigger('click');
+            alert('edit');
+        } else {
+            alert('create');
         }
 
     </script>
