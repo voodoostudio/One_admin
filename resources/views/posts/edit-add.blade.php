@@ -171,6 +171,8 @@
                 @endif
                 {{ csrf_field() }}
 
+                    <input type="hidden" lol="{{ $dataTypeContent->id }}">
+
                 <div class="main_tabs_container">
                     <ul class="nav nav-tabs  m-tabs-line m-tabs-line--primary" id="main_tabs_nav" role="tablist">
                         <li class="nav-item m-tabs__item">
@@ -2835,7 +2837,7 @@
                             <div class="pure_switch">
                                 <span class="m-switch m-switch--outline m-switch--brand">
                                     <label>
-                                        <input type="checkbox" name="publicate">
+                                        <input type="checkbox" {{ ($dataTypeContent->publicate == 1) ? 'checked' : '' }} name="publicate">
                                         <span></span>
                                     </label>
                                 </span>
@@ -3285,6 +3287,14 @@
         });
 
 //        $('a[cat_id="1"]').trigger('click');
+
+        // trigger to category tab for edit object page
+        var input = $('input[lol]').attr('lol'); // to find out what page
+        if(input != ''){ // if not create page
+            var categoryId = $('a.active[cat_id]').attr('cat_id');
+            $('a[cat_id="'+categoryId+'"]').trigger('click');
+        }
+
     </script>
 
     <script>
