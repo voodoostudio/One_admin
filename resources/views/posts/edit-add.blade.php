@@ -3290,7 +3290,6 @@
 
         // trigger to category tab for edit object page
         var p = $('p[data]').attr('data'); // to find out what page
-        console.log();
         if(p != ''){ // if not create page
             var categoryId = $('a.active[cat_id]').attr('cat_id');
             $('a[cat_id="'+categoryId+'"]').trigger('click');

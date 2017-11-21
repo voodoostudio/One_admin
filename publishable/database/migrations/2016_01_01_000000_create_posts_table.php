@@ -17,7 +17,6 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('author_id');
             $table->boolean('publicate')->default(0);
-//            $table->string('slug')->unique();
             $table->string('title_en');
             $table->string('title_es');
             $table->string('title_fr');
@@ -47,14 +46,9 @@ class CreatePostsTable extends Migration
             $table->string('broker_notes',255)->nullable();
             $table->string('important_notes',255)->nullable();
             $table->string('owner_notes',255)->nullable();
-//            $table->text('body')->nullable();
-//            $table->string('seo_title')->nullable();
             $table->text('excerpt');
             $table->text('meta_description');
             $table->text('meta_keywords');
-//            $table->enum('status', ['PUBLISHED', 'DRAFT', 'PENDING'])->default('DRAFT');
-//            $table->boolean('featured')->default(1);
-
             // Address
             $table->string('address',255)->nullable();
             $table->string('street',255)->nullable();
@@ -66,8 +60,7 @@ class CreatePostsTable extends Migration
             $table->string('location',255)->nullable();
             $table->integer('longitude')->nullable();
             $table->integer('latitude')->nullable();
-//
-//            // Prix
+             // Prix
             $table->integer('сurrency')->nullable();
             $table->boolean('show_price')->default(1);
             $table->string('price',25)->nullable();
@@ -93,10 +86,9 @@ class CreatePostsTable extends Migration
             $table->string('commercial_property',25)->nullable();
             $table->string('earnings',25)->nullable();
             $table->string('taxes',25)->nullable();
-//            // Agencement
+            // Agencement
             $table->string('number_rooms',25)->nullable();
             $table->string('number_pieces',25)->nullable();
-////            $table->string('number__bathrooms',25)->nullable();
             $table->string('number_balconies',25)->nullable();
             $table->string('number_shower_rooms',25)->nullable();
             $table->string('number_toilets',25)->nullable();
@@ -135,7 +127,7 @@ class CreatePostsTable extends Migration
             $table->integer('row_area')->nullable();
             $table->integer('garage_area')->nullable();
             $table->integer('weighted_surface')->nullable();
-//            // Stationnement
+            // Stationnement
             $table->integer('box_interior_garage')->nullable();
             $table->integer('box_gar_inter_doub')->nullable();
             $table->integer('outdoor_garage')->nullable();
@@ -145,7 +137,7 @@ class CreatePostsTable extends Migration
             $table->integer('number_parking_spaces')->nullable();
             $table->integer('boat_shed')->nullable();
             $table->integer('mooring')->nullable();
-//            // Cuisine
+            // Cuisine
             $table->integer('type')->nullable();
             $table->boolean('freezer')->default(0);
             $table->boolean('cooker')->default(0);
@@ -161,21 +153,21 @@ class CreatePostsTable extends Migration
             $table->boolean('fridge')->default(0);
             $table->boolean('cuisine_tumble_drier')->default(0);
             $table->boolean('coffee_maker')->default(0);
-//            // Chauffage
+            // Chauffage
             $table->integer('format')->nullable();
             $table->integer('chauffage_energy')->nullable();
             $table->integer('type_heating')->nullable();
             $table->integer('type_radiator')->nullable();
-//            // Eau chaude
+              // Eau chaude
             $table->integer('distribution')->nullable();
             $table->integer('eau_chaude_energy')->nullable();
-//            // Eau usées
+            // Eau usées
             $table->integer('usees_distribution')->nullable();
-//            // Divers
+            // Divers
             $table->integer('divers_format')->nullable();
             $table->integer('sonority')->nullable();
             $table->integer('style')->nullable();
-//            // Commodités
+            // Commodités
             $table->boolean('shelter')->default(0);
             $table->boolean('access_disabled')->default(0);
             $table->boolean('water_softener')->default(0);
@@ -247,7 +239,7 @@ class CreatePostsTable extends Migration
             $table->boolean('hair_dryer')->default(0);
             $table->boolean('satellite_tv')->default(0);
             $table->boolean('phone')->default(0);
-//            // Equipement extérieur
+            // Equipement extérieur
             $table->boolean('car_shelter')->default(0);
             $table->boolean('spray')->default(0);
             $table->boolean('barbecue')->default(0);
@@ -256,13 +248,13 @@ class CreatePostsTable extends Migration
             $table->boolean('heliport')->default(0);
             $table->boolean('well')->default(0);
             $table->boolean('source')->default(0);
-//            // Immeuble
+            // Immeuble
             $table->boolean('collective_lift')->default(0);
             $table->boolean('communal_laundry_room')->default(0);
             $table->boolean('network_cabling')->default(0);
             $table->boolean('collective_optical_fiber')->default(0);
             $table->boolean('parable')->default(0);
-//            // Sécurité
+            // Sécurité
             $table->boolean('alarm')->default(0);
             $table->boolean('magnetic_card')->default(0);
             $table->boolean('fenced')->default(0);
@@ -274,7 +266,7 @@ class CreatePostsTable extends Migration
             $table->boolean('electric_gate')->default(0);
             $table->boolean('reinforced_door')->default(0);
             $table->boolean('videophone')->default(0);
-//            // Vue
+            // Vue
             $table->boolean('clear')->default(0);
             $table->boolean('impregnable')->default(0);
             $table->boolean('panoramic')->default(0);
@@ -294,21 +286,19 @@ class CreatePostsTable extends Migration
             $table->boolean('on_mountains')->default(0);
             $table->boolean('on_ski_slopes')->default(0);
             $table->boolean('vis_a_vis')->default(0);
-//            // Etat
+            // Etat
             $table->integer('interior_condition')->nullable();
             $table->integer('type_construction')->nullable();
             $table->integer('state_front')->nullable();
             $table->integer('external_state')->nullable();
             $table->text('year_construction')->nullable();
             $table->text('year_renovation')->nullable();
-//            // Exposition
+            // Exposition
             $table->integer('nord')->nullable();
             $table->integer('south')->nullable();
             $table->integer('est')->nullable();
             $table->integer('west')->nullable();
             $table->timestamps();
-
-            //$table->foreign('author_id')->references('id')->on('users');
         });
     }
 
