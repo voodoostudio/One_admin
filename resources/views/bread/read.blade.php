@@ -1,5 +1,7 @@
 @extends('voyager::master_metronic')
 
+{{--{{ dd($dataTypeContent->toArray()) }}--}}
+
 @section('css')
     <link href="{{ asset('assets/plugins/css/slick.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/css/slick-theme.css') }}" rel="stylesheet" type="text/css" />

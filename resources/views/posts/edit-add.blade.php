@@ -342,9 +342,10 @@
                                                 <div class="col-12">
                                                     <ul id="categories_ul" class="nav nav-tabs  m-tabs-line" role="tablist">
                                                         @foreach(TCG\Voyager\Models\Category::all() as $category)
+                                                            {{--{{ dump($category->id) }}--}}
                                                             @if($category->parent_id == null)
                                                                 <li class="nav-item m-tabs__item">
-                                                                    <a class="nav-link m-tabs__link {{ ($category->id == 1) ? 'active' : '' }}" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_{{ $category->id }}" role="tab" aria-expanded="false">{{ $category->name }}</a>
+                                                                    <a class="nav-link m-tabs__link @if(isset($dataTypeContent->id)){{ ($dataTypeContent->category_id == $category->id) ? 'active' : '' }} @else {{ ($category->id == 1) ? 'active' : '' }} @endif" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_{{ $category->id }}" role="tab" aria-expanded="false">{{ $category->name }}</a>
                                                                 </li>
                                                             @endif
                                                         @endforeach
@@ -354,7 +355,7 @@
                                                     <div class="tab-content">
                                                         @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                             @if($category->parent_id == null)
-                                                                <div class="tab-pane {{ ($category->id == 1) ? 'active' : '' }}"  id="category_{{ $category->id }}" role="tabpanel" aria-expanded="{{ ($category->id == 1) ? 'true' : 'false' }}">
+                                                                <div class="tab-pane @if(isset($dataTypeContent->id)){{ ($dataTypeContent->category_id == $category->id) ? 'active' : '' }} @else {{ ($category->id == 1) ? 'active' : '' }} @endif"  id="category_{{ $category->id }}" role="tabpanel" aria-expanded="{{ ($category->id == 1) ? 'true' : 'false' }}">
                                                                     <div class="form-group">
                                                                         <div class="m-radio-inline sub_cat">
                                                                             @foreach(TCG\Voyager\Models\Category::where('parent_id', $category->id)->get() as $sub_category)
@@ -2890,11 +2891,11 @@
     <script>
         $('#main_tabs_nav a[data-toggle="tab"]').on('click', function(e) {
             e.preventDefault();
-            var this_tab_id = $(this).attr('href').replace('#','');
-            $(this).closest('.nav').find('.nav-item a.nav-link.active').removeClass('active');
-            $(this).addClass('active');
-            $(this).closest('.main_tabs_container').find('.tab-content#main_tabs > .tab-pane.active').removeClass('active');
-            $('.tab-content .tab-pane#' + this_tab_id).addClass('active');
+//            var this_tab_id = $(this).attr('href').replace('#','');
+//            $(this).closest('.nav').find('.nav-item a.nav-link.active').removeClass('active');
+//            $(this).addClass('active');
+//            $(this).closest('.main_tabs_container').find('.tab-content#main_tabs > .tab-pane.active').removeClass('active');
+//            $('.tab-content .tab-pane#' + this_tab_id).addClass('active');
         });
 
         $(".years_only").datepicker( {
@@ -3283,7 +3284,7 @@
             $('#categories_ul input[name="category_id"]').attr('value',category);
         });
 
-        $('a[cat_id="1"]').trigger('click');
+//        $('a[cat_id="1"]').trigger('click');
     </script>
 
     <script>
