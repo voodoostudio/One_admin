@@ -2891,11 +2891,11 @@
     <script>
         $('#main_tabs_nav a[data-toggle="tab"]').on('click', function(e) {
             e.preventDefault();
-//            var this_tab_id = $(this).attr('href').replace('#','');
-//            $(this).closest('.nav').find('.nav-item a.nav-link.active').removeClass('active');
-//            $(this).addClass('active');
-//            $(this).closest('.main_tabs_container').find('.tab-content#main_tabs > .tab-pane.active').removeClass('active');
-//            $('.tab-content .tab-pane#' + this_tab_id).addClass('active');
+            var this_tab_id = $(this).attr('href').replace('#','');
+            $(this).closest('.nav').find('.nav-item a.nav-link.active').removeClass('active');
+            $(this).addClass('active');
+            $(this).closest('.main_tabs_container').find('.tab-content#main_tabs > .tab-pane.active').removeClass('active');
+            $('.tab-content .tab-pane#' + this_tab_id).addClass('active');
         });
 
         $(".years_only").datepicker( {
