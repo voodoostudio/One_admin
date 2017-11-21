@@ -342,7 +342,6 @@
                                                 <div class="col-12">
                                                     <ul id="categories_ul" class="nav nav-tabs  m-tabs-line" role="tablist">
                                                         @foreach(TCG\Voyager\Models\Category::all() as $category)
-                                                            {{--{{ dump($category->id) }}--}}
                                                             @if($category->parent_id == null)
                                                                 <li class="nav-item m-tabs__item">
                                                                     <a class="nav-link m-tabs__link @if(isset($dataTypeContent->id)){{ ($dataTypeContent->category_id == $category->id) ? 'active' : '' }} @else {{ ($category->id == 1) ? 'active' : '' }} @endif" cat_id="{{ $category->id }}" data-toggle="tab" href="#category_{{ $category->id }}" role="tab" aria-expanded="false">{{ $category->name }}</a>
@@ -528,29 +527,25 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Note sur la transaction</label>
-                                                        {{--<input type="text" class="form-control m-input" placeholder="Note sur la transaction" value="@if(isset($dataTypeContent->note_transaction)){{ $dataTypeContent->note_transaction }}@endif" name="note_transaction">--}}
-                                                        <textarea name="note_transaction" class="form-control m-input" placeholder="Note sur la transaction" rows="8"></textarea>
+                                                        <textarea name="note_transaction" class="form-control m-input" placeholder="Note sur la transaction" rows="8" maxlength="255">{{ ($dataTypeContent->note_transaction) ? $dataTypeContent->note_transaction : '' }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Note courtier</label>
-                                                        {{--<input type="text" class="form-control m-input" placeholder="Note courtier" value="@if(isset($dataTypeContent->broker_notes)){{ $dataTypeContent->broker_notes }}@endif" name="broker_notes">--}}
-                                                        <textarea name="broker_notes" class="form-control m-input" placeholder="Note courtier" rows="8"></textarea>
+                                                        <textarea name="broker_notes" class="form-control m-input" placeholder="Note courtier" rows="8" maxlength="255">{{ ($dataTypeContent->broker_notes) ? $dataTypeContent->broker_notes : '' }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Remarques importantes</label>
-                                                        {{--<input type="text" class="form-control m-input" placeholder="Remarques importantes" value="@if(isset($dataTypeContent->important_notes)){{ $dataTypeContent->important_notes }}@endif" name="important_notes">--}}
-                                                        <textarea name="important_notes" class="form-control m-input" placeholder="Remarques importantes" rows="8"></textarea>
+                                                        <textarea name="important_notes" class="form-control m-input" placeholder="Remarques importantes" rows="8" maxlength="255">{{ ($dataTypeContent->important_notes) ? $dataTypeContent->important_notes : '' }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Notes pour le propriétaire</label>
-                                                        {{--<input type="text" class="form-control m-input" placeholder="Notes pour le propriétaire" value="@if(isset($dataTypeContent->owner_notes)){{ $dataTypeContent->owner_notes }}@endif" name="owner_notes">--}}
-                                                        <textarea name="owner_notes" class="form-control m-input" placeholder="Notes pour le propriétaire" rows="8"></textarea>
+                                                        <textarea name="owner_notes" class="form-control m-input" placeholder="Notes pour le propriétaire" rows="8" maxlength="255">{{ ($dataTypeContent->owner_notes) ? $dataTypeContent->owner_notes : '' }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1271,7 +1266,12 @@
                                                         <div class="">
                                                             <span class="m-switch m-switch--icon">
                                                                 <label>
-                                                                    <input type="checkbox" class="elem-categories" checked="checked" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced){{ 'checked="checked"' }}@endif name="serviced">
+                                                                    {{--@if(isset($dataTypeContent->id))--}}
+                                                                        {{--<input value="{{ $dataTypeContent->exclusiveness }}" type="checkbox" {{ ($dataTypeContent->exclusiveness == 1) ? 'checked' : '' }} name="exclusiveness">--}}
+                                                                    {{--@else--}}
+                                                                        {{--<input value="1" checked type="checkbox" name="exclusiveness">--}}
+                                                                    {{--@endif--}}
+                                                                    <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced == 1){{ 'checked="checked"' }}@endif name="serviced">
                                                                     <span></span>
                                                                 </label>
                                                             </span>
@@ -1716,7 +1716,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label class="m-checkbox">
-                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->fitted_wardrobese) && $dataTypeContent->fitted_wardrobes){{ 'checked="checked"' }}@endif name="fitted_wardrobes">Armoires encastrées
+                                                            <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->fitted_wardrobes) && $dataTypeContent->fitted_wardrobes){{ 'checked="checked"' }}@endif name="fitted_wardrobes">Armoires encastrées
                                                             <span></span>
                                                         </label>
                                                     </div>
