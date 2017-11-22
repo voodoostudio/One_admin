@@ -251,7 +251,9 @@
                                         </div>
                                         <div class="m-widget19__info">
                                             <span class="m-widget19__username">
-                                                Anna Krox <!-- todo -->
+                                                @foreach(TCG\Voyager\Models\User::all() as $user)
+                                                    {{ ($dataTypeContent->author_id == $user->role_id) ? $user->name : ''  }}
+                                                @endforeach
                                             </span>
                                             <br>
                                             <span class="m-widget19__time">
@@ -348,7 +350,7 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Sous-catégorie <!-- todo -->
+                                                    Sous-catégorie
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
@@ -382,11 +384,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Courtier <!-- todo -->
+                                                    Courtier
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    Value
+                                                    @foreach(TCG\Voyager\Models\User::all() as $user)
+                                                        {{ ($dataTypeContent->author_id == $user->role_id) ? $user->name : ''  }}
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -473,7 +477,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6" style="display: {{ ($dataTypeContent->ann_type == 0) ? 'none' : '' }}">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -488,7 +492,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6" style="display: {{ ($dataTypeContent->ann_type == 1) ? 'none' : '' }}">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -503,7 +507,7 @@
                                         </div>
                                         <!--end::Widget 14 Item-->
                                     </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6"  style="display: {{ ($dataTypeContent->ann_type == 1) ? 'none' : '' }}">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
@@ -735,9 +739,10 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    @foreach(TCG\Voyager\Models\Country::all() as $country)
-                                                        @if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ $country->value }}@endif
-                                                    @endforeach
+                                                    {{ $dataTypeContent->country }}
+                                                    {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
+                                                        {{--@if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ $country->value }}@endif--}}
+                                                    {{--@endforeach--}}
                                                 </span>
                                             </div>
                                         </div>
@@ -752,6 +757,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
+                                                    {{--{{ $dataTypeContent->location }}--}}
                                                     @foreach(TCG\Voyager\Models\Location::all() as $location)
                                                         @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ $location->value }}@endif
                                                     @endforeach
@@ -863,11 +869,13 @@
                                         <div class="m-widget4__item">
                                             <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
-                                                    Devise <!-- todo -->
+                                                    Devise
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->сurrency }}
+                                                    @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                        {{ ($dataTypeContent->сurrency == $сurrency->reference) ? $сurrency->value : '' }}
+                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
@@ -2083,7 +2091,7 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->hotplates }}
+                                                    {{ ($dataTypeContent->hotplates == 0) ? 'no' : 'yes' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -4416,7 +4424,84 @@
             { id: 125, field: $('span[name="swedish_stove"]') },
             { id: 126, field: $('span[name="loading_dock"]') },
             { id: 127, field: $('span[name="connection_chimney"]') },
-        ]
+            { id: 128, field: $('span[name="connection_swedish_stove"]') },
+            { id: 129, field: $('span[name="reception"]') },
+            { id: 130, field: $('span[name="metallic_curtain"]') },
+            { id: 131, field: $('span[name="armed_with_fire_tap"]') },
+            { id: 132, field: $('span[name="do_it_yourself_room"]') },
+            { id: 133, field: $('span[name="theater"]') },
+            { id: 134, field: $('span[name="game_room"]') },
+            { id: 135, field: $('span[name="fitness_room"]') },
+            { id: 136, field: $('span[name="conference_room"]') },
+            { id: 137, field: $('span[name="satellite"]') },
+            { id: 138, field: $('span[name="sauna"]') },
+            { id: 139, field: $('span[name="subsoil"]') },
+            { id: 140, field: $('span[name="blinds"]') },
+            { id: 141, field: $('span[name="electric_blinds"]') },
+            { id: 142, field: $('span[name="thermostat_connected"]') },
+            { id: 143, field: $('span[name="triple_glazing"]') },
+            { id: 144, field: $('span[name="veranda"]') },
+            { id: 145, field: $('span[name="crawlspace"]') },
+            { id: 146, field: $('span[name="electric_shutters"]') },
+            { id: 147, field: $('span[name="tumble_drier"]') },
+            { id: 148, field: $('span[name="hair_dryer"]') },
+            { id: 149, field: $('span[name="satellite_tv"]') },
+            { id: 150, field: $('span[name="phone"]') },
+            { id: 151, field: $('span[name="car_shelter"]') },
+            { id: 152, field: $('span[name="spray"]') },
+            { id: 153, field: $('span[name="barbecue"]') },
+            { id: 154, field: $('span[name="exterior_lighting"]') },
+            { id: 155, field: $('input[name="drilling"]') },
+            { id: 156, field: $('span[name="heliport"]') },
+            { id: 157, field: $('span[name="well"]') },
+            { id: 158, field: $('span[name="source"]') },
+            { id: 159, field: $('span[name="collective_lift"]') },
+            { id: 160, field: $('span[name="communal_laundry_room"]') },
+            { id: 161, field: $('span[name="network_cabling"]') },
+            { id: 162, field: $('span[name="collective_optical_fiber"]') },
+            { id: 163, field: $('span[name="parable"]') },
+            { id: 164, field: $('span[name="alarm"]') },
+            { id: 165, field: $('span[name="magnetic_card"]') },
+            { id: 166, field: $('span[name="fenced"]') },
+            { id: 167, field: $('span[name="safe"]') },
+            { id: 168, field: $('span[name="digidode"]') },
+            { id: 169, field: $('span[name="guardian"]') },
+            { id: 170, field: $('span[name="caretaker"]') },
+            { id: 171, field: $('span[name="intercom"]') },
+            { id: 172, field: $('span[name="electric_gate"]') },
+            { id: 173, field: $('span[name="reinforced_door"]') },
+            { id: 174, field: $('span[name="videophone"]') },
+            { id: 175, field: $('span[name="clear"]') },
+            { id: 176, field: $('span[name="impregnable"]') },
+            { id: 177, field: $('span[name="panoramic"]') },
+            { id: 178, field: $('span[name="courtyard"]') },
+            { id: 179, field: $('span[name="on_countryside"]') },
+            { id: 180, field: $('span[name="on_forest"]') },
+            { id: 181, field: $('span[name="on_sea"]') },
+            { id: 182, field: $('span[name="on_pool"]') },
+            { id: 183, field: $('span[name="on_river"]') },
+            { id: 184, field: $('span[name="on_street"]') },
+            { id: 185, field: $('span[name="on_city"]') },
+            { id: 186, field: $('span[name="on_garden"]') },
+            { id: 187, field: $('span[name="on_lake"]') },
+            { id: 188, field: $('span[name="on_park"]') },
+            { id: 189, field: $('span[name="on_haven"]') },
+            { id: 190, field: $('span[name="on_hills"]') },
+            { id: 191, field: $('span[name="on_mountains"]') },
+            { id: 192, field: $('span[name="on_ski_slopes"]') },
+            { id: 193, field: $('span[name="vis_a_vis"]') },
+            { id: 194, field: $('span[name="interior_condition"]') },
+            { id: 195, field: $('span[name="type_construction"]') },
+            { id: 196, field: $('span[name="state_front"]') },
+            { id: 197, field: $('span[name="external_state"]') },
+            { id: 198, field: $('span[name="year_construction"]') },
+            { id: 199, field: $('span[name="year_renovation"]') },
+            { id: 200, field: $('span[name="nord"]') },
+            { id: 201, field: $('span[name="south"]') },
+            { id: 202, field: $('span[name="est"]') },
+            { id: 203, field: $('span[name="west"]') }
+        ];
+
         var categories = [
             { id: 1, name: 'Maison', fields: [4,7,14,15,35,38,101,120,121,126,129,159,160,161,162,163,196] },
             { id: 2, name: 'Appartement', fields: [4,7,15,35,101,120,121,126,129,155,195] },

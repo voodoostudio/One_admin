@@ -618,7 +618,7 @@
                                                 </div>
                                                 <div class="col-lg-3 margin_bottom_10">
                                                     <label>Pays</label>
-                                                    <input type="text" id="country" readonly="readonly" class="form-control m-input" placeholder="Pays" value="@if(isset($dataTypeContent->country)){{ $dataTypeContent->country }}@endif" name="town">
+                                                    <input type="text" id="country" readonly="readonly" class="form-control m-input" placeholder="Pays" value="@if(isset($dataTypeContent->country)){{ $dataTypeContent->country }}@endif" name="country">
                                                     {{--<select class="form-control m-select2 custom_select2" name="country" data-placeholder="Select a Country">--}}
                                                     {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
                                                     {{--<option value="{{ $country->reference }}" @if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ 'selected="selected"' }}@endif>{{ $country->value }}</option>--}}
