@@ -1002,7 +1002,7 @@
                                                     <div class="form-group">
                                                         <label>Etage du bien</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="floor_property" data-placeholder="Select Floor">
-                                                            @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)
+                                                            @foreach(TCG\Voyager\Models\Floor::orderBy('value','ASC')->get() as $floor_property)
                                                                 <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
                                                             @endforeach
                                                         </select>
@@ -1020,7 +1020,7 @@
                                                     <div class="form-group">
                                                         <label>Style</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="style" data-placeholder="Select Type">
-                                                            @foreach(TCG\Voyager\Models\Style::all() as $style)
+                                                            @foreach(TCG\Voyager\Models\Style::orderBy('value','ASC')->get() as $style)
                                                                 <option value="{{ $style->reference }}" @if(isset($dataTypeContent->style) && $dataTypeContent->style == $style->reference){{ 'selected="selected"' }}@endif>{{ $style->value }}</option>
                                                             @endforeach
                                                         </select>
@@ -1040,7 +1040,7 @@
                                                     <div class="form-group">
                                                         <label>Sonorité</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="sonority" data-placeholder="Select Type">
-                                                            @foreach(TCG\Voyager\Models\Sonority::all() as $sonority)
+                                                            @foreach(TCG\Voyager\Models\Sonority::orderBy('value','ASC')->get() as $sonority)
                                                                 <option value="{{ $sonority->reference }}" @if(isset($dataTypeContent->sonority) && $dataTypeContent->sonority == $sonority->reference){{ 'selected="selected"' }}@endif>{{ $sonority->value }}</option>
                                                             @endforeach
                                                         </select>
@@ -2649,7 +2649,7 @@
                                                     <div class="form-group">
                                                         <label>Etat intérieur</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="interior_condition" data-placeholder="Select Type">
-                                                            @foreach(TCG\Voyager\Models\State::all() as $state_front)
+                                                            @foreach(TCG\Voyager\Models\State::orderBy('value', 'ASC')->get() as $state_front)
                                                                 <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                             @endforeach
                                                         </select>
@@ -2659,7 +2659,7 @@
                                                     <div class="form-group">
                                                         <label>Etat extérieur</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="external_state" data-placeholder="Select Type">
-                                                            @foreach(TCG\Voyager\Models\State::all() as $state_front)
+                                                            @foreach(TCG\Voyager\Models\State::orderBy('value', 'ASC')->get() as $state_front)
                                                                 <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                             @endforeach
                                                         </select>
@@ -2669,7 +2669,7 @@
                                                     <div class="form-group">
                                                         <label>Etat de la façade</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="state_front" data-placeholder="Select Type">
-                                                            @foreach(TCG\Voyager\Models\State::all() as $state_front)
+                                                            @foreach(TCG\Voyager\Models\State::orderBy('value', 'ASC')->get() as $state_front)
                                                                 <option value="{{ $state_front->reference }}" @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ 'selected="selected"' }}@endif>{{ $state_front->value }}</option>
                                                             @endforeach
                                                         </select>
@@ -2679,7 +2679,7 @@
                                                     <div class="form-group">
                                                         <label>Type de construction</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="type_construction" data-placeholder="Select Type">
-                                                            @foreach(TCG\Voyager\Models\Construction::all() as $type_construction)
+                                                            @foreach(TCG\Voyager\Models\Construction::orderBy('value', 'ASC')->get() as $type_construction)
                                                                 <option value="{{ $type_construction->reference }}" @if(isset($dataTypeContent->type_construction) && $dataTypeContent->type_construction == $type_construction->reference){{ 'selected="selected"' }}@endif>{{ $type_construction->value }}</option>
                                                             @endforeach
                                                         </select>

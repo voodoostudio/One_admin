@@ -464,48 +464,61 @@
 
                         <?php } elseif($dataType->display_name_plural == 'Posts') { ?>
 
-                        field: "id",
-                        title: "#",
-                        width: 20,
+                        field: "reference",
+                        title: "Référence",
                         sortable: false,
-                        selector: false,
-                        textAlign: 'center'
-
-                    }, {
-                        field: "title_fr",
-                        title: "Title",
-                        width: 120
+                        selector: false
 
                     }, {
                         field: "image",
-                        title: "Image",
+                        title: "First Image",
                         width: 100,
                         template: function (row) {
                             return '<img style = "max-width: 100px;" src = "../storage/' + row.image + '"/>';
                         }
 
                     }, {
-                        field: "created_at",
-                        title: "Create date"
+                        field: "ann_type",
+                        title: "Type of announce"
+                    }, {
+                        field: "category_id",
+                        title: "Category"
+                    }, {
+                        field: "title_fr",
+                        title: "Title"
 
                     }, {
-                        field: "Email",
-                        title: "Email",
-                        width: 300,
-                        template: function (row) {
-                            return '<form action="{{ URL::to('/admin/confirm-email') }}" id="property_send" method="POST">{{ csrf_field() }}' +
-                                '<div style="float:left;">' +
-                                '<input type="email" name="email" class="form-control m-input" placeholder="email" />' +
-                                '<div class="message_status"></div>' +
-                                '<input type="hidden" name="property_id" value="' + row.id + '" />' +
-                                '</div>' +
-                                '<div style="float:left; padding-left: 5px;">' +
-                                '<button type="submit" class="btn">Send</button>' +
-                                '</div>' +
-                                '</form>';
-                        }
+                        field: "zip_code",
+                        title: "ZIP code"
 
                     }, {
+                        field: "town",
+                        title: "City"
+
+                    },  {
+                        field: "price",
+                        title: "Price"
+
+                    },
+                        {{--{--}}
+                        {{--field: "Email",--}}
+                        {{--title: "Email",--}}
+                        {{--width: 300,--}}
+                        {{--template: function (row) {--}}
+                            {{--return '<form action="{{ URL::to('/admin/confirm-email') }}" id="property_send" method="POST">{{ csrf_field() }}' +--}}
+                                {{--'<div style="float:left;">' +--}}
+                                {{--'<input type="email" name="email" class="form-control m-input" placeholder="email" />' +--}}
+                                {{--'<div class="message_status"></div>' +--}}
+                                {{--'<input type="hidden" name="property_id" value="' + row.id + '" />' +--}}
+                                {{--'</div>' +--}}
+                                {{--'<div style="float:left; padding-left: 5px;">' +--}}
+                                {{--'<button type="submit" class="btn">Send</button>' +--}}
+                                {{--'</div>' +--}}
+                                {{--'</form>';--}}
+                        {{--}--}}
+
+                    {{--}, --}}
+                        {
                         field: "Actions",
                         width: 110,
                         title: "Actions",
