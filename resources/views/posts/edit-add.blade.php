@@ -1074,7 +1074,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface rez-de-chaussée inférieur</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->lower_ground_floor)){{ $dataTypeContent->lower_ground_floor }}@endif" name="lower_ground_floor">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1085,7 +1085,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface des combles</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->attic_space)){{ $dataTypeContent->attic_space }}@endif" name="attic_space">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1096,7 +1096,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface du balcon</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_balcony)){{ $dataTypeContent->surface_balcony }}@endif" name="surface_balcony">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1107,7 +1107,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface du sous-sol</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->basement_area)){{ $dataTypeContent->basement_area }}@endif" name="basement_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1118,7 +1118,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface de la cave</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_cellar)){{ $dataTypeContent->surface_cellar }}@endif" name="surface_cellar">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1129,7 +1129,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface de la terrasse solarium</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surf_area_terr_solar)){{ $dataTypeContent->surf_area_terr_solar }}@endif" name="surf_area_terr_solar">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1140,7 +1140,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface de l'abri de la toiture</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->roof_cover_area)){{ $dataTypeContent->roof_cover_area }}@endif" name="roof_cover_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1151,7 +1151,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface de la véranda</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->area_veranda)){{ $dataTypeContent->area_veranda }}@endif" name="area_veranda">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1162,7 +1162,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface de la cour anglaise</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_eng_court)){{ $dataTypeContent->surface_eng_court }}@endif" name="surface_eng_court">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
@@ -1173,7 +1173,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Surface pondérée</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summ">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" readonly placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
@@ -1586,7 +1586,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Type de radiateur</label>
-                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="type_radiator" data-placeholder="Select Type">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="type_radiator" data-placeholder="Select Type" disabled="disabled">
                                                             @foreach(TCG\Voyager\Models\Radiator::all() as $type_radiator)
                                                                 <option value="{{ $type_radiator->reference }}" @if(isset($dataTypeContent->type_radiator) && $dataTypeContent->type_radiator == $type_radiator->reference){{ 'selected="selected"' }}@endif>{{ $type_radiator->value }}</option>
                                                             @endforeach
@@ -2931,6 +2931,17 @@
             console.log(currency)
             $('#price_tab .input-group-addon .currency').html(currency);
         }
+
+        $('#heating_tab select[name="type_heating"]').on('select2:select', function (e) {
+            var heating_type = e.params.data.text;
+            if(heating_type == "Radiateur") {
+                $('#heating_tab select[name="type_radiator"]').attr('disabled', false);
+            } else {
+                $('#heating_tab select[name="type_radiator"]').select2({minimumResultsForSearch: Infinity}).val("1").trigger("change");
+                $('#heating_tab select[name="type_radiator"]').attr('disabled', true);
+            }
+        });
+
         $('#price_tab select').on('select2:select', function (e) {
             var currency = e.params.data.text;
             if(currency != "CHF") {
@@ -2945,6 +2956,22 @@
                 $('.rent').attr('disabled', true);
             }
         });
+
+        /* Summ of surfaces */
+        $("#surface_tab .input-group.summand input").on("change paste keyup", function() {
+            summSurfaceValues()
+        });
+        function summSurfaceValues() {
+            var surface_input = $("#surface_tab .input-group.summand input:not(.custom_input_for_coefficient)")
+            var surface_summ_input = $("#surface_tab .input-group.summ input");
+            var summ = 0;
+            jQuery.each( surface_input, function( i, val ) {
+                if($(this).val()) {
+                    summ += parseInt($(this).val())
+                }
+            });
+            surface_summ_input.attr('placeholder', summ);
+        }
 
         $(function() {
             $('.bar_rating').barrating({
