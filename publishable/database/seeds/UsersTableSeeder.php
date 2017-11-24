@@ -14,14 +14,24 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         if (User::count() == 0) {
-            $role = Role::where('name', 'admin')->firstOrFail();
+            $god_role = Role::where('name', 'god')->firstOrFail();
 
             User::create([
-                'name'           => 'Admin',
-                'email'          => 'admin@admin.com',
+                'name'           => 'God',
+                'email'          => 'god@god.com',
                 'password'       => bcrypt('password'),
                 'remember_token' => str_random(60),
-                'role_id'        => $role->id,
+                'role_id'        => $god_role->id,
+            ]);
+
+            $super_admin_role = Role::where('name', 'super_admin')->firstOrFail();
+
+            User::create([
+                'name'           => 'Super Admin',
+                'email'          => 'sadmin@admin.com',
+                'password'       => bcrypt('superadmin'),
+                'remember_token' => str_random(60),
+                'role_id'        => $super_admin_role->id,
             ]);
         }
     }
