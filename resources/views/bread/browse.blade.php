@@ -314,17 +314,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 order-1 order-xl-2 m--align-right">
-                                <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
-                                    <span>
-                                        <i class="la la-cart-plus"></i>
+                            @if(Auth::user()->role_id != 5)
+                                <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                                    <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
                                         <span>
-                                            {{ __('voyager.generic.add_new') }}
+                                            <i class="la la-cart-plus"></i>
+                                            <span>
+                                                {{ __('voyager.generic.add_new') }}
+                                            </span>
                                         </span>
-                                    </span>
-                                </a>
-                                <div class="m-separator m-separator--dashed d-xl-none"></div>
-                            </div>
+                                    </a>
+                                    <div class="m-separator m-separator--dashed d-xl-none"></div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <!--end: Search Form -->
@@ -502,7 +504,7 @@
                         field: "price",
                         title: "Price"
 
-                    },
+                        <?php if(Auth::user()->role_id != 5) { ?>},
                             {{--{--}}
                             {{--field: "Email",--}}
                             {{--title: "Email",--}}
@@ -521,6 +523,7 @@
                             {{--}--}}
 
                             {{--}, --}}
+
                         {
                             field: "Actions",
                             width: 110,
@@ -546,7 +549,7 @@
                                     </div>\
                                 </div>\
                             ';
-                            },
+                            }, <?php } ?>
 
                             <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
 
