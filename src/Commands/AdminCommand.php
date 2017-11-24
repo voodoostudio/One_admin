@@ -88,12 +88,12 @@ class AdminCommand extends Command
     protected function getAdministratorRole()
     {
         $role = Voyager::model('Role')->firstOrNew([
-            'name' => 'admin',
+            'name' => 'god',
         ]);
 
         if (!$role->exists) {
             $role->fill([
-                'display_name' => 'Administrator',
+                'display_name' => 'God',
             ])->save();
         }
 
