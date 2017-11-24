@@ -379,7 +379,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Référence</label>
-                                                        <input type="text" class="form-control m-input" placeholder="Référence" value="@if(isset($dataTypeContent->reference)){{ $dataTypeContent->reference }}@endif" name="reference">
+                                                        <input type="number" class="form-control m-input" readonly placeholder="Référence" value="@if(isset($dataTypeContent->reference)){{ $dataTypeContent->reference }}@endif" name="reference">
                                                         <span class="m-form__help">Please enter Référence</span>
                                                     </div>
                                                 </div>
