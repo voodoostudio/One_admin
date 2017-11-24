@@ -305,7 +305,8 @@
                                                 </span>
                                                 <br>
                                                 <span class="m-widget4__sub">
-                                                    {{ $dataTypeContent->reference }}
+                                                    {{--{{ $dataTypeContent->reference }}--}}
+                                                    {{ $dataTypeContent->id }}
                                                 </span>
                                             </div>
                                         </div>
@@ -741,7 +742,7 @@
                                                 <span class="m-widget4__sub">
                                                     {{ $dataTypeContent->country }}
                                                     {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
-                                                        {{--@if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ $country->value }}@endif--}}
+                                                    {{--@if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ $country->value }}@endif--}}
                                                     {{--@endforeach--}}
                                                 </span>
                                             </div>
@@ -4291,7 +4292,7 @@
         });
 
         /*
-        ** Hide Elements
+         ** Hide Elements
          */
         var category = $('span[cat_id]').attr('cat_id');
         console.log(category);

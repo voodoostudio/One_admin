@@ -350,7 +350,7 @@
                                                                 </li>
                                                             @endif
                                                         @endforeach
-                                                            <input name="category_id" type="hidden">
+                                                        <input name="category_id" type="hidden">
                                                     </ul>
 
                                                     <div class="tab-content">
@@ -379,7 +379,10 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Référence</label>
-                                                        <input type="number" class="form-control m-input" readonly placeholder="Référence" value="@if(isset($dataTypeContent->reference)){{ $dataTypeContent->reference }}@endif" name="reference">
+                                                        {{--<input type="number" class="form-control m-input" readonly placeholder="Référence" value="@if(isset($dataTypeContent->reference)){{ $dataTypeContent->reference }}@endif" name="reference">--}}
+                                                        @if(isset($dataTypeContent->id))
+                                                            <p>{{ $dataTypeContent->id }}</p>
+                                                        @endif
                                                         <span class="m-form__help">Please enter Référence</span>
                                                     </div>
                                                 </div>
@@ -1269,9 +1272,9 @@
                                                             <span class="m-switch m-switch--icon">
                                                                 <label>
                                                                     {{--@if(isset($dataTypeContent->id))--}}
-                                                                        {{--<input value="{{ $dataTypeContent->exclusiveness }}" type="checkbox" {{ ($dataTypeContent->exclusiveness == 1) ? 'checked' : '' }} name="exclusiveness">--}}
+                                                                    {{--<input value="{{ $dataTypeContent->exclusiveness }}" type="checkbox" {{ ($dataTypeContent->exclusiveness == 1) ? 'checked' : '' }} name="exclusiveness">--}}
                                                                     {{--@else--}}
-                                                                        {{--<input value="1" checked type="checkbox" name="exclusiveness">--}}
+                                                                    {{--<input value="1" checked type="checkbox" name="exclusiveness">--}}
                                                                     {{--@endif--}}
                                                                     <input type="checkbox" class="elem-categories" @if(isset($dataTypeContent->serviced) && $dataTypeContent->serviced == 1){{ 'checked="checked"' }}@endif name="serviced">
                                                                     <span></span>
