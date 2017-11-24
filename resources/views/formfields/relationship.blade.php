@@ -1,5 +1,6 @@
+{{--{{ dd($options) }}--}}
 @if(isset($options->model) && isset($options->type))
-	
+
 	@if(class_exists($options->model))
 
 		@php $relationshipField = @$options->column @endphp
@@ -8,8 +9,9 @@
 
 			@if(isset($view) && ($view == 'browse' || $view == 'read'))
 
-				@php 
+				@php
 					$relationshipData = (isset($data)) ? $data : $dataTypeContent;
+                    dump($dataTypeContent);
 					$model = app($options->model);
             		$query = $model::find($relationshipData->{$options->column});
             	@endphp
@@ -21,28 +23,50 @@
 				@endif
 
 			@else
-			
+
 				<select class="form-control select2" name="{{ $relationshipField }}">
-					@php 
+					@php
 						$model = app($options->model);
 	            		$query = $model::all();
+                        $role_id = Auth::user()->role_id;
 	            	@endphp
-					@foreach($query as $relationshipData)
-						<option value="{{ $relationshipData->{$options->key} }}" @if($dataTypeContent->{$relationshipField} == $relationshipData->{$options->key}){{ 'selected="selected"' }}@endif>{{ $relationshipData->{$options->label} }}</option>
-					@endforeach
+                    @if($role_id == 1)
+                        @foreach($query as $relationshipData)
+                            <option value="{{ $relationshipData->{$options->key} }}" @if($dataTypeContent->{$relationshipField} == $relationshipData->{$options->key}){{ 'selected="selected"' }}@endif>{{ $relationshipData->{$options->label} }}</option>
+                        @endforeach
+                    @else
+                        @php
+                            switch ($role_id) {
+                                case 2:
+                                    $name_role = DB::table('roles')->whereNotIn('id', ['1'])->pluck('display_name', 'id')->toArray();
+                                    break;
+                                case 3:
+                                    $name_role = DB::table('roles')->whereNotIn('id', ['1,2'])->pluck('display_name', 'id')->toArray();
+                                    break;
+                                case 4:
+                                    $name_role = DB::table('roles')->whereNotIn('id', ['1,2,3'])->pluck('display_name', 'id')->toArray();
+                                    break;
+                                case 5:
+                                    $name_role = DB::table('roles')->whereNotIn('id', ['1,2,3,4,5'])->pluck('display_name', 'id')->toArray();
+                                    break;
+                            }
+                        @endphp
+                        @foreach ($name_role as $key => $item)
+                            <option value="{{ $key }}" {{($dataTypeContent->{$relationshipField} == $key) ? 'selected' :  ''}}>{{ $item }}</option>
+                        @endforeach
+                    @endif
 				</select>
-
 			@endif
-		
+
 		@elseif($options->type == 'hasOne')
 
-			@php 
+			@php
 
 				$relationshipData = (isset($data)) ? $data : $dataTypeContent;
-			
+
 				$model = app($options->model);
         		$query = $model::where($options->column, '=', $relationshipData->id)->first();
-			
+
 			@endphp
 
 			@if(isset($query))
@@ -63,8 +87,8 @@
 
 	            @if($view == 'browse')
 	            	@php
-	            		$string_values = implode(", ", $selected_values); 
-	            		if(strlen($string_values) > 25){ $string_values = substr($string_values, 0, 25) . '...'; } 
+	            		$string_values = implode(", ", $selected_values);
+	            		if(strlen($string_values) > 25){ $string_values = substr($string_values, 0, 25) . '...'; }
 	            	@endphp
 	            	@if(empty($selected_values))
 		            	<p>No results</p>
@@ -96,7 +120,7 @@
 							<li>{{ $query_res->{$options->label} }}</li>
 						@endforeach
 					</ul>
-					
+
 				@else
 					<p>No results</p>
 				@endif
@@ -114,8 +138,8 @@
 
 	            @if($view == 'browse')
 	            	@php
-	            		$string_values = implode(", ", $selected_values); 
-	            		if(strlen($string_values) > 25){ $string_values = substr($string_values, 0, 25) . '...'; } 
+	            		$string_values = implode(", ", $selected_values);
+	            		if(strlen($string_values) > 25){ $string_values = substr($string_values, 0, 25) . '...'; }
 	            	@endphp
 	            	@if(empty($selected_values))
 		            	<p>No results</p>
@@ -137,8 +161,8 @@
 			@else
 
 				<select class="form-control select2" name="{{ $relationshipField }}[]" multiple>
-					
-			            @php 
+
+			            @php
 			            	$selected_values = isset($dataTypeContent) ? $dataTypeContent->belongsToMany($options->model)->pluck($options->key)->all() : array();
 			                $relationshipOptions = app($options->model)->all();
 			            @endphp
