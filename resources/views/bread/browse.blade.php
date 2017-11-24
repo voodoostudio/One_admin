@@ -8,10 +8,14 @@
     foreach ($dataTypeContent as $data) {
         if($dataType->display_name_plural == 'Posts') {
             $arrayJsonData[] = [
-                'id' => $data->id,
-                'title_fr' => $data->title_fr,
-                'image' => json_decode($data->image)[0],
-                'created_at' => $data->created_at->format('d F Y')
+                'id'            => $data->id,
+                'image'         => json_decode($data->image)[0],
+                'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
+                'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
+                'title_fr'      => $data->title_fr,
+                'zip_code'      => $data->zip_code,
+                'town'          => $data->town,
+                'price'         => $data->price
             ];
         } else {
             foreach ($dataType->browseRows as $row) {
@@ -20,7 +24,6 @@
             $arrayJsonData[] = $data;
         }
     }
-
 
     //    foreach($arrayJsonData as $key => $item) {
     //        foreach(json_decode($item->image_multiple) as $image) {
@@ -464,7 +467,7 @@
 
                         <?php } elseif($dataType->display_name_plural == 'Posts') { ?>
 
-                        field: "reference",
+                        field: "id",
                         title: "Référence",
                         sortable: false,
                         selector: false
@@ -500,34 +503,34 @@
                         title: "Price"
 
                     },
-                        {{--{--}}
-                        {{--field: "Email",--}}
-                        {{--title: "Email",--}}
-                        {{--width: 300,--}}
-                        {{--template: function (row) {--}}
+                            {{--{--}}
+                            {{--field: "Email",--}}
+                            {{--title: "Email",--}}
+                            {{--width: 300,--}}
+                            {{--template: function (row) {--}}
                             {{--return '<form action="{{ URL::to('/admin/confirm-email') }}" id="property_send" method="POST">{{ csrf_field() }}' +--}}
-                                {{--'<div style="float:left;">' +--}}
-                                {{--'<input type="email" name="email" class="form-control m-input" placeholder="email" />' +--}}
-                                {{--'<div class="message_status"></div>' +--}}
-                                {{--'<input type="hidden" name="property_id" value="' + row.id + '" />' +--}}
-                                {{--'</div>' +--}}
-                                {{--'<div style="float:left; padding-left: 5px;">' +--}}
-                                {{--'<button type="submit" class="btn">Send</button>' +--}}
-                                {{--'</div>' +--}}
-                                {{--'</form>';--}}
-                        {{--}--}}
+                            {{--'<div style="float:left;">' +--}}
+                            {{--'<input type="email" name="email" class="form-control m-input" placeholder="email" />' +--}}
+                            {{--'<div class="message_status"></div>' +--}}
+                            {{--'<input type="hidden" name="property_id" value="' + row.id + '" />' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div style="float:left; padding-left: 5px;">' +--}}
+                            {{--'<button type="submit" class="btn">Send</button>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</form>';--}}
+                            {{--}--}}
 
-                    {{--}, --}}
+                            {{--}, --}}
                         {
-                        field: "Actions",
-                        width: 110,
-                        title: "Actions",
-                        sortable: false,
-                        overflow: 'visible',
-                        template: function (row) {
-                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
-                            console.log(row.id);
-                            return '\
+                            field: "Actions",
+                            width: 110,
+                            title: "Actions",
+                            sortable: false,
+                            overflow: 'visible',
+                            template: function (row) {
+                                var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                                console.log(row.id);
+                                return '\
                                 <div class="dropdown ' + dropup + '">\
                                     <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
                                         <i class="la la-ellipsis-h"></i>\
@@ -543,43 +546,43 @@
                                     </div>\
                                 </div>\
                             ';
-                        },
+                            },
 
-                        <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
+                            <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
 
-                        field: "id",
-                        title: "#",
-                        width: 50,
-                        sortable: false,
-                        selector: false,
-                        textAlign: 'center'
+                            field: "id",
+                            title: "#",
+                            width: 50,
+                            sortable: false,
+                            selector: false,
+                            textAlign: 'center'
 
-                    }, {
-                        field: "name",
-                        title: "Name"
+                        }, {
+                            field: "name",
+                            title: "Name"
 
-                    }, {
-                        field: "parent_id",
-                        title: "Parent"
+                        }, {
+                            field: "parent_id",
+                            title: "Parent"
 
-                    }, {
-                        field: "slug",
-                        title: "Slug"
+                        }, {
+                            field: "slug",
+                            title: "Slug"
 
-                    }, {
-                        field: "created_at",
-                        title: "Create date"
+                        }, {
+                            field: "created_at",
+                            title: "Create date"
 
-                    }, {
-                        field: "Actions",
-                        width: 110,
-                        title: "Actions",
-                        sortable: false,
-                        overflow: 'visible',
-                        template: function (row) {
-                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
-                            console.log(row.id);
-                            return '\
+                        }, {
+                            field: "Actions",
+                            width: 110,
+                            title: "Actions",
+                            sortable: false,
+                            overflow: 'visible',
+                            template: function (row) {
+                                var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                                console.log(row.id);
+                                return '\
                                 <div class="dropdown ' + dropup + '">\
                                     <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
                                         <i class="la la-ellipsis-h"></i>\
@@ -595,48 +598,48 @@
                                     </div>\
                                 </div>\
                             ';
-                        },
+                            },
 
-                        <?php } elseif($dataType->display_name_plural == 'Users') { ?>
+                            <?php } elseif($dataType->display_name_plural == 'Users') { ?>
 
-                        field: "id",
-                        title: "#",
-                        width: 50,
-                        sortable: false,
-                        selector: false,
-                        textAlign: 'center'
+                            field: "id",
+                            title: "#",
+                            width: 50,
+                            sortable: false,
+                            selector: false,
+                            textAlign: 'center'
 
-                    }, {
-                        field: "name",
-                        title: "Name",
-                        width: 150
+                        }, {
+                            field: "name",
+                            title: "Name",
+                            width: 150
 
-                    }, {
-                        field: "email",
-                        title: "Email",
-                        width: 200
+                        }, {
+                            field: "email",
+                            title: "Email",
+                            width: 200
 
-                    }, {
-                        field: "avatar",
-                        title: "Avatar",
-                        template: function (row) {
-                            return '<img style = "max-width: 100px;" src = "../storage/' + row.avatar + '"/>';
-                        }
+                        }, {
+                            field: "avatar",
+                            title: "Avatar",
+                            template: function (row) {
+                                return '<img style = "max-width: 100px;" src = "../storage/' + row.avatar + '"/>';
+                            }
 
-                    }, {
-                        field: "created_at",
-                        title: "Create date"
+                        }, {
+                            field: "created_at",
+                            title: "Create date"
 
-                    }, {
-                        field: "Actions",
-                        width: 110,
-                        title: "Actions",
-                        sortable: false,
-                        overflow: 'visible',
-                        template: function (row) {
-                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
-                            console.log(row.id);
-                            return '\
+                        }, {
+                            field: "Actions",
+                            width: 110,
+                            title: "Actions",
+                            sortable: false,
+                            overflow: 'visible',
+                            template: function (row) {
+                                var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                                console.log(row.id);
+                                return '\
                                 <div class="dropdown ' + dropup + '">\
                                     <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
                                         <i class="la la-ellipsis-h"></i>\
@@ -652,41 +655,41 @@
                                     </div>\
                                 </div>\
                             ';
-                        },
+                            },
 
-                        <?php } elseif($dataType->display_name_plural == 'Roles') { ?>
+                            <?php } elseif($dataType->display_name_plural == 'Roles') { ?>
 
-                        field: "id",
-                        title: "#",
-                        width: 50,
-                        sortable: false,
-                        selector: false,
-                        textAlign: 'center'
+                            field: "id",
+                            title: "#",
+                            width: 50,
+                            sortable: false,
+                            selector: false,
+                            textAlign: 'center'
 
-                    }, {
-                        field: "name",
-                        title: "Name",
-                        width: 150
+                        }, {
+                            field: "name",
+                            title: "Name",
+                            width: 150
 
-                    }, {
-                        field: "display_name",
-                        title: "Display name",
-                        width: 200
+                        }, {
+                            field: "display_name",
+                            title: "Display name",
+                            width: 200
 
-                    }, {
-                        field: "created_at",
-                        title: "Create date"
+                        }, {
+                            field: "created_at",
+                            title: "Create date"
 
-                    }, {
-                        field: "Actions",
-                        width: 110,
-                        title: "Actions",
-                        sortable: false,
-                        overflow: 'visible',
-                        template: function (row) {
-                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
-                            console.log(row.id);
-                            return '\
+                        }, {
+                            field: "Actions",
+                            width: 110,
+                            title: "Actions",
+                            sortable: false,
+                            overflow: 'visible',
+                            template: function (row) {
+                                var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                                console.log(row.id);
+                                return '\
                                 <div class="dropdown ' + dropup + '">\
                                     <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
                                         <i class="la la-ellipsis-h"></i>\
@@ -702,10 +705,10 @@
                                     </div>\
                                 </div>\
                             ';
-                        }
-                        <?php } ?>
+                            }
+                            <?php } ?>
 
-                    }]
+                        }]
                 });
 
                 var query = datatable.getDataSourceQuery();
