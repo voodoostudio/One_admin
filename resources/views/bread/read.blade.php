@@ -2,6 +2,13 @@
 
 {{--{{ dd($dataTypeContent->toArray()) }}--}}
 
+@foreach(TCG\Voyager\Models\User::all() as $user)
+    {{--{{ dd(TCG\Voyager\Models\User::all()->toArray()) }}--}}
+    {{--<img class="m-widget19__img" src="../../storage/{{ ($dataTypeContent->author_id == Auth::user()->role_id) ? $user->avatar : '' }}" alt="">--}}
+    {{--{{ dd($user->toArray()) }}--}}
+
+@endforeach
+
 @section('css')
     <link href="{{ asset('assets/plugins/css/slick.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/css/slick-theme.css') }}" rel="stylesheet" type="text/css" />
@@ -247,7 +254,9 @@
                                 <div class="m-widget19__content">
                                     <div class="m-widget19__header">
                                         <div class="m-widget19__user-img">
-                                            <img class="m-widget19__img" src="/assets/metronic_5/theme/dist/html/default/assets/app/media/img//users/user1.jpg" alt="">
+                                            @foreach(TCG\Voyager\Models\User::all() as $user)
+                                                <img class="m-widget19__img" src="../../storage/{{ ($dataTypeContent->author_id == $user->id) ? $user->avatar : '' }}" alt="">
+                                            @endforeach
                                         </div>
                                         <div class="m-widget19__info">
                                             <span class="m-widget19__username">
@@ -4524,6 +4533,7 @@
                     for (var i = 0; i < category.fields.length; i++) {
                         $.each(fields, function () {
                             if (this.id === category.fields[i]) {
+                                this.field.parent().parent().addClass('not_specified');
                                 this.field.parent().parent().parent().css('display','none');
                             }
                         })

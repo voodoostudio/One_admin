@@ -165,7 +165,7 @@
         <div class="m-content">
 
             <!--begin::Form-->
-            <form class="form-edit-add m-form m-form--group-seperator-dashed" role="form" action="@if(isset($dataTypeContent->id)){{ route('voyager.posts.update', $dataTypeContent->id) }}@else{{ route('voyager.posts.store') }}@endif" method="POST" enctype="multipart/form-data">
+            <form id="edit_create_form" class="form-edit-add m-form m-form--group-seperator-dashed" role="form" action="@if(isset($dataTypeContent->id)){{ route('voyager.posts.update', $dataTypeContent->id) }}@else{{ route('voyager.posts.store') }}@endif" method="POST" enctype="multipart/form-data">
                 @if(isset($dataTypeContent->id))
                     {{ method_field("PUT") }}
                 @endif
@@ -270,19 +270,19 @@
                                                 <div class="tab-content">
                                                     <div class="tab-pane active" id="fr_redaction" role="tabpanel" aria-expanded="true">
                                                         <div class="row">
-                                                            <div class="col-12 margin_bottom_10 lang-fr">
-                                                                <label>Titre de l'annonce FR</label>
-                                                                <input type="text" value="{{ $dataTypeContent->title_fr }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_fr" required="required">
+                                                            <div class="col-12 margin_bottom_10 lang-fr form-group">
+                                                                <label class="form-control-label" for="titleFr">Titre de l'annonce FR</label>
+                                                                <input id="titleFr" type="text" value="{{ $dataTypeContent->title_fr }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_fr" required="required">
                                                             </div>
                                                             <div class="col-12 margin_bottom_10 lang-fr">
-                                                                <label>Description de l'annonce FR</label>
-                                                                <textarea class="form-control m-input" name="desc_add_fr" rows="8">@if(isset($dataTypeContent->desc_add_fr)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
+                                                                <label for="desc-fr">Description de l'annonce FR</label>
+                                                                <textarea id="desc-fr" class="form-control m-input" name="desc_add_fr" rows="8">@if(isset($dataTypeContent->desc_add_fr)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="tab-pane" id="en_redaction" role="tabpanel" aria-expanded="false">
                                                         <div class="row">
-                                                            <div class="col-12 margin_bottom_10 lang-en">
+                                                            <div class="col-12 margin_bottom_10 lang-en form-group">
                                                                 <label>Titre de l'annonce EN</label>
                                                                 <input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_en" required="required">
                                                             </div>
@@ -294,7 +294,7 @@
                                                     </div>
                                                     <div class="tab-pane" id="es_redaction" role="tabpanel" aria-expanded="false">
                                                         <div class="row">
-                                                            <div class="col-12 margin_bottom_10 lang-es">
+                                                            <div class="col-12 margin_bottom_10 lang-es form-group">
                                                                 <label>Titre de l'annonce ES</label>
                                                                 <input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_es" required="required">
                                                             </div>
@@ -1005,8 +1005,8 @@
                                                     <div class="form-group">
                                                         <label>Etage du bien</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="floor_property" data-placeholder="Select Floor">
-                                                        @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)    <!-- todo  orderBy('value','ASC')->get() as $floor_property)  if need return -->
-                                                            <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
+                                                            @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)    <!-- todo  orderBy('value','ASC')->get() as $floor_property)  if need return -->
+                                                                <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -3322,7 +3322,7 @@
         var typeAnnounce = $('.announce_type:checked').attr('value');
         Trigger(typeAnnounce);
 
-        // if fields not filled
+        // if fields of titles not filled
         $('button[type="submit"]').click(function() {
             var titleFR = $('input[name="title_fr"]').val(),
                 titleEN = $('input[name="title_en"]').val(),
@@ -3352,6 +3352,40 @@
             var categoryId = $('a.active[cat_id]').attr('cat_id');
             $('a[cat_id="'+categoryId+'"]').trigger('click');
         }
+    </script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery("#edit_create_form").validate({
+                rules: {
+                    title_fr: {
+                        required: true,
+                        /*minlength: 2*/
+                    },
+                    title_en: {
+                        required: true,
+                        /*minlength: 2*/
+                    },
+                    title_es: {
+                        required: true,
+                        /*minlength: 2*/
+                    }
+                },
+                /*messages: {
+                    title_fr: {
+                        minlength: "Danger! Input 2 more symbols"
+                    },
+                    title_en: {
+                        minlength: "Danger! Input 2 more symbols"
+                    },
+                    title_es: {
+                        minlength: "Danger! Input 2 more symbols"
+                    }
+                },*/
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
+        });
     </script>
 
     <script>
