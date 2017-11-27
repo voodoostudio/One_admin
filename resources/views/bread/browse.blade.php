@@ -3,34 +3,46 @@
 @section('page_title', __('voyager.generic.viewing').' '.$dataType->display_name_plural)
 
 @section('content')
-    <?php
-    $arrayJsonData = [];
-    foreach ($dataTypeContent as $data) {
-        if($dataType->display_name_plural == 'Posts') {
-            $arrayJsonData[] = [
-                'id'            => $data->id,
-                'image'         => json_decode($data->image)[0],
-                'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
-                'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
-                'title_fr'      => $data->title_fr,
-                'zip_code'      => $data->zip_code,
-                'town'          => $data->town,
-                'price'         => $data->price
-            ];
-        } else {
-            foreach ($dataType->browseRows as $row) {
-                $data[$row->display_name] = $data->{$row->field};
+    @php
+        $arrayJsonData = [];
+        if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
+            foreach ($dataTypeContent as $data) {
+                if($dataType->display_name_plural == 'Posts') {
+                    $arrayJsonData[] = [
+                        'id'            => $data->id,
+                        'image'         => json_decode($data->image)[0],
+                        'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
+                        'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
+                        'title_fr'      => $data->title_fr,
+                        'zip_code'      => $data->zip_code,
+                        'town'          => $data->town,
+                        'price'         => $data->price
+                    ];
+                } else {
+                    foreach ($dataType->browseRows as $row) {
+                        $data[$row->display_name] = $data->{$row->field};
+                    }
+                    $arrayJsonData[] = $data;
+                }
             }
-            $arrayJsonData[] = $data;
+        } else {
+            foreach (Illuminate\Support\Facades\DB::table('posts')->where('vip_users', Illuminate\Support\Facades\Auth::user()->id)->get() as $data) {
+                if($dataType->display_name_plural == 'Posts') {
+                    $arrayJsonData[] = [
+                        'id'            => $data->id,
+                        'image'         => json_decode($data->image)[0],
+                        'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
+                        'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
+                        'title_fr'      => $data->title_fr,
+                        'zip_code'      => $data->zip_code,
+                        'town'          => $data->town,
+                        'price'         => $data->price
+                    ];
+                }
+            }
         }
-    }
 
-    //    foreach($arrayJsonData as $key => $item) {
-    //        foreach(json_decode($item->image_multiple) as $image) {
-    //            dump($key);
-    //        }
-    //    }
-    ?>
+    @endphp
 
     <div class="m-grid__item m-grid__item--fluid m-wrapper">
         <!-- BEGIN: Subheader -->
@@ -250,58 +262,58 @@
                         <div class="row align-items-center">
                             <div class="col-xl-8 order-2 order-xl-1">
                                 <div class="form-group m-form__group row align-items-center">
-                                    {{--<div class="col-md-4">--}}
-                                        {{--<div class="m-form__group m-form__group--inline">--}}
-                                            {{--<div class="m-form__label">--}}
-                                                {{--<label>--}}
-                                                    {{--Status:--}}
-                                                {{--</label>--}}
-                                            {{--</div>--}}
-                                            {{--<div class="m-form__control">--}}
-                                                {{--<select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_status">--}}
-                                                    {{--<option value="">--}}
-                                                        {{--All--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="1">--}}
-                                                        {{--Pending--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="2">--}}
-                                                        {{--Delivered--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="3">--}}
-                                                        {{--Canceled--}}
-                                                    {{--</option>--}}
-                                                {{--</select>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="d-md-none m--margin-bottom-10"></div>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-4">--}}
-                                        {{--<div class="m-form__group m-form__group--inline">--}}
-                                            {{--<div class="m-form__label">--}}
-                                                {{--<label class="m-label m-label--single">--}}
-                                                    {{--Type:--}}
-                                                {{--</label>--}}
-                                            {{--</div>--}}
-                                            {{--<div class="m-form__control">--}}
-                                                {{--<select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_type">--}}
-                                                    {{--<option value="">--}}
-                                                        {{--All--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="1">--}}
-                                                        {{--Online--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="2">--}}
-                                                        {{--Retail--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="3">--}}
-                                                        {{--Direct--}}
-                                                    {{--</option>--}}
-                                                {{--</select>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="d-md-none m--margin-bottom-10"></div>--}}
-                                    {{--</div>--}}
+                                    <div class="col-md-4">
+                                        <div class="m-form__group m-form__group--inline">
+                                            <div class="m-form__label">
+                                                <label>
+                                                    Status:
+                                                </label>
+                                            </div>
+                                            <div class="m-form__control">
+                                                <select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_status">
+                                                    <option value="">
+                                                        All
+                                                    </option>
+                                                    <option value="1">
+                                                        Pending
+                                                    </option>
+                                                    <option value="2">
+                                                        Delivered
+                                                    </option>
+                                                    <option value="3">
+                                                        Canceled
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-none m--margin-bottom-10"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="m-form__group m-form__group--inline">
+                                            <div class="m-form__label">
+                                                <label class="m-label m-label--single">
+                                                    Type:
+                                                </label>
+                                            </div>
+                                            <div class="m-form__control">
+                                                <select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_type">
+                                                    <option value="">
+                                                        All
+                                                    </option>
+                                                    <option value="1">
+                                                        Online
+                                                    </option>
+                                                    <option value="2">
+                                                        Retail
+                                                    </option>
+                                                    <option value="3">
+                                                        Direct
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-none m--margin-bottom-10"></div>
+                                    </div>
                                     <div class="col-md-4">
                                         <div class="m-input-icon m-input-icon--left">
                                             <input type="text" class="form-control m-input m-input--solid" placeholder="Search..." id="m_form_search">
@@ -314,20 +326,17 @@
                                     </div>
                                 </div>
                             </div>
-                            @if(Auth::user()->role_id != 5)
-                                <div class="col-xl-4 order-1 order-xl-2 m--align-right">
-                                    <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                            <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                                <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                                    <span>
+                                        <i class="la la-cart-plus"></i>
                                         <span>
-                                            <i class="la la-cart-plus"></i>
-                                            <span>
-{{--                                                {{ __('voyager.generic.add_new') }}--}}
-                                                Nouveau
-                                            </span>
+                                            {{ __('voyager.generic.add_new') }}
                                         </span>
-                                    </a>
-                                    <div class="m-separator m-separator--dashed d-xl-none"></div>
-                                </div>
-                            @endif
+                                    </span>
+                                </a>
+                                <div class="m-separator m-separator--dashed d-xl-none"></div>
+                            </div>
                         </div>
                     </div>
                     <!--end: Search Form -->
@@ -471,13 +480,13 @@
                         <?php } elseif($dataType->display_name_plural == 'Posts') { ?>
 
                         field: "id",
-                        title: "Réf.",
+                        title: "Référence",
                         sortable: false,
                         selector: false
 
                     }, {
                         field: "image",
-                        title: "",
+                        title: "First Image",
                         width: 100,
                         template: function (row) {
                             return '<img style = "max-width: 100px;" src = "../storage/' + row.image + '"/>';
@@ -485,27 +494,27 @@
 
                     }, {
                         field: "ann_type",
-                        title: "Type"
+                        title: "Type of announce"
                     }, {
                         field: "category_id",
-                        title: "Catégorie"
+                        title: "Category"
                     }, {
                         field: "title_fr",
-                        title: "Titre"
+                        title: "Title"
 
                     }, {
                         field: "zip_code",
-                        title: "Code postal"
+                        title: "ZIP code"
 
                     }, {
                         field: "town",
-                        title: "Ville"
+                        title: "City"
 
                     },  {
                         field: "price",
-                        title: "Prix"
+                        title: "Price"
 
-                        <?php if(Auth::user()->role_id != 5) { ?>},
+                    },
                             {{--{--}}
                             {{--field: "Email",--}}
                             {{--title: "Email",--}}
@@ -524,7 +533,6 @@
                             {{--}--}}
 
                             {{--}, --}}
-
                         {
                             field: "Actions",
                             width: 110,
@@ -540,17 +548,17 @@
                                         <i class="la la-ellipsis-h"></i>\
                                     </a>\
                                     <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>{{ __('voyager.generic.view') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
                                         <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                             {{ method_field("DELETE") }}\
                                             {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
+                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>{{ __('voyager.generic.delete') }}</button>\
                                         </form>\
                                     </div>\
                                 </div>\
                             ';
-                            }, <?php } ?>
+                            },
 
                             <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
 

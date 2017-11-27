@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('author_id');
+            $table->string('vip_users',255)->nullable();
             $table->boolean('publicate')->default(0);
             $table->string('title_en');
             $table->string('title_es');
@@ -60,7 +61,7 @@ class CreatePostsTable extends Migration
             $table->string('location',255)->nullable();
             $table->integer('longitude')->nullable();
             $table->integer('latitude')->nullable();
-             // Prix
+            // Prix
             $table->integer('сurrency')->nullable();
             $table->boolean('show_price')->default(1);
             $table->string('price',25)->nullable();
@@ -158,7 +159,7 @@ class CreatePostsTable extends Migration
             $table->integer('chauffage_energy')->nullable();
             $table->integer('type_heating')->nullable();
             $table->integer('type_radiator')->nullable();
-              // Eau chaude
+            // Eau chaude
             $table->integer('distribution')->nullable();
             $table->integer('eau_chaude_energy')->nullable();
             // Eau usées

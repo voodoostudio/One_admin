@@ -48,6 +48,12 @@ class Post extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
+
+    public function vip_users()
+    {
+        return $this->hasOne(Voyager::modelClass('IndividualView'), 'id', 'vip_users');
+    }
+
     public function category()
     {
         return $this->hasOne(Voyager::modelClass('Category'), 'id', 'category_id');
