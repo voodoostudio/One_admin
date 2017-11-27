@@ -388,6 +388,27 @@
 
                 var dataJSONArray = JSON.parse('<?= preg_replace('/\\\r\\\n|\\\n|\\\r/', "", json_encode($arrayJsonData, JSON_HEX_APOS , JSON_UNESCAPED_SLASHES)) ?>');
                 var datatable = $('.m_datatable').mDatatable({
+                    //internationalization setup
+                    translate: {
+                        records: {
+                            processing: 'Traitement en cours...',
+                            noRecords: 'Aucune donn&eacute;e disponible dans le tableau'
+                        },
+                        toolbar: {
+                            pagination: {
+                                items: {
+                                    default: {
+                                        first: 'Premier',
+                                        prev: 'Précédent',
+                                        next: 'Suivant',
+                                        last: 'Dernier',
+                                    },
+                                    info: 'Affichage de l\'&eacute;l&eacute;ment ' + '{' + '{' + 'start' + '}' + '} - {' + '{' + 'end' + '}' + '} sur {' + '{' +  'total' + '}' + '} &eacute;l&eacute;ments'
+                                }
+                            }
+                        }
+                    },
+
                     // datasource definition
                     data: {
                         type: 'local',
