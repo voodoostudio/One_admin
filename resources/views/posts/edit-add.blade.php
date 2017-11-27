@@ -1005,8 +1005,8 @@
                                                     <div class="form-group">
                                                         <label>Etage du bien</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="floor_property" data-placeholder="Select Floor">
-                                                            @foreach(TCG\Voyager\Models\Floor::orderBy('value','ASC')->get() as $floor_property)
-                                                                <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
+                                                        @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)    <!-- todo  orderBy('value','ASC')->get() as $floor_property)  if need return -->
+                                                            <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
