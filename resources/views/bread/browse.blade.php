@@ -602,12 +602,12 @@
                                         <i class="la la-ellipsis-h"></i>\
                                     </a>\
                                     <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>{{ __('voyager.generic.view') }}</a>\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
                                         <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                             {{ method_field("DELETE") }}\
                                             {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>{{ __('voyager.generic.delete') }}</button>\
+                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
                                         </form>\
                                     </div>\
                                 </div>\
@@ -625,12 +625,12 @@
 
                         }, {
                             field: "name",
-                            title: "Name",
+                            title: "Nom",
                             width: 150
 
                         }, {
                             field: "email",
-                            title: "Email",
+                            title: "Courriel",
                             width: 200
 
                         }, {
@@ -642,7 +642,7 @@
 
                         }, {
                             field: "created_at",
-                            title: "Create date"
+                            title: "Date de création"
 
                         }, {
                             field: "Actions",
@@ -659,12 +659,12 @@
                                         <i class="la la-ellipsis-h"></i>\
                                     </a>\
                                     <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>{{ __('voyager.generic.view') }}</a>\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>{{ __('voyager.generic.edit') }}</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
+                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
                                         <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                             {{ method_field("DELETE") }}\
                                             {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>{{ __('voyager.generic.delete') }}</button>\
+                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
                                         </form>\
                                     </div>\
                                 </div>\
