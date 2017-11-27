@@ -360,6 +360,7 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
 @stop
 
 @section('javascript')

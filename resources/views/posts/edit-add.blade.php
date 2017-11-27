@@ -1177,7 +1177,7 @@
                                                     <div class="form-group">
                                                         <label>Surface pondérée</label>
                                                         <div class="input-group summ">
-                                                            <input type="number" min="0" class="form-control m-input elem-categories" readonly placeholder="..." value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories" readonly  disabled="disabled" placeholder="Total" value="@if(isset($dataTypeContent->weighted_surface)){{ $dataTypeContent->weighted_surface }}@endif" name="weighted_surface">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -1243,11 +1243,11 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Terrain</label>
-                                                        <div class="input-group">
-                                                            <input type="number" min="0" class="form-control m-input elem-categories" placeholder="Longeur" value="@if(isset($dataTypeContent->ground_length)){{ $dataTypeContent->ground_length }}@endif" name="ground_length" />
+                                                        <div class="input-group multiplication">
+                                                            <input type="number" min="0" class="form-control m-input elem-categories multiplier" placeholder="Longeur" value="@if(isset($dataTypeContent->ground_length)){{ $dataTypeContent->ground_length }}@endif" name="ground_length" />
                                                             <span class="input-group-addon">m</span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" min="0" class="form-control elem-categories" placeholder="Largeur" value="@if(isset($dataTypeContent->ground_width)){{ $dataTypeContent->ground_width }}@endif" name="ground_width" />
+                                                            <input type="number" min="0" class="form-control elem-categories multiplier" placeholder="Largeur" value="@if(isset($dataTypeContent->ground_width)){{ $dataTypeContent->ground_width }}@endif" name="ground_width" />
                                                             <span class="input-group-addon">m</span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-pause" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);transform: rotate(90deg);"></i></span>
                                                             <input type="number" min="0" class="form-control" placeholder="Total" disabled="disabled" value="@if(isset($dataTypeContent->surface_ground)){{ $dataTypeContent->surface_ground }}@endif" name="surface_ground" />
@@ -1311,7 +1311,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Box/garage int.</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_interior_garage)){{ $dataTypeContent->box_interior_garage }}@endif" name="box_interior_garage">
                                                         </div>
                                                     </div>
@@ -1319,7 +1319,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Box/garage double int.</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_gar_inter_doub)){{ $dataTypeContent->box_gar_inter_doub }}@endif" name="box_gar_inter_doub">
                                                         </div>
                                                     </div>
@@ -1327,7 +1327,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Box/garage ext.</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->outdoor_garage)){{ $dataTypeContent->outdoor_garage }}@endif" name="outdoor_garage">
                                                         </div>
                                                     </div>
@@ -1335,7 +1335,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Box/garage double ext.</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->box_garage_outside_double)){{ $dataTypeContent->box_garage_outside_double }}@endif" name="box_garage_outside_double">
                                                         </div>
                                                     </div>
@@ -1343,7 +1343,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Place de parc ext. couverte</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->covered_outdoor_parking_space)){{ $dataTypeContent->covered_outdoor_parking_space }}@endif" name="covered_outdoor_parking_space">
                                                         </div>
                                                     </div>
@@ -1351,7 +1351,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Place de parc ext. non-couverte</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->outside_parking_space_uncovered)){{ $dataTypeContent->outside_parking_space_uncovered }}@endif" name="outside_parking_space_uncovered">
                                                         </div>
                                                     </div>
@@ -1359,8 +1359,8 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Nombre de places de parc</label>
-                                                        <div class="input-group">
-                                                            <input type="number" min="0" disabled="disabled" class="form-control m-input elem-categories" placeholder="sum of all" value="@if(isset($dataTypeContent->number_parking_spaces)){{ $dataTypeContent->number_parking_spaces }}@endif" name="number_parking_spaces">
+                                                        <div class="input-group summ">
+                                                            <input type="number" min="0" disabled="disabled" class="form-control m-input elem-categories" placeholder="Total" value="@if(isset($dataTypeContent->number_parking_spaces)){{ $dataTypeContent->number_parking_spaces }}@endif" name="number_parking_spaces">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2962,18 +2962,38 @@
 
         /* Summ of surfaces */
         $("#surface_tab .input-group.summand input").on("change paste keyup", function() {
-            summSurfaceValues()
+            summInputValues('surface_tab');
         });
-        function summSurfaceValues() {
-            var surface_input = $("#surface_tab .input-group.summand input:not(.custom_input_for_coefficient)")
-            var surface_summ_input = $("#surface_tab .input-group.summ input");
+
+        /* Summ of parking places */
+        $("#parking_tab .input-group.summand input").on("change paste keyup", function() {
+            summInputValues('parking_tab');
+        });
+
+        function summInputValues(tab_id) {
+            var summable_input = $("#"+tab_id+" .input-group.summand input:not(.custom_input_for_coefficient)")
+            var summ_input = $("#"+tab_id+" .input-group.summ input");
             var summ = 0;
-            jQuery.each( surface_input, function( i, val ) {
+            jQuery.each( summable_input, function( i, val ) {
                 if($(this).val()) {
-                    summ += parseInt($(this).val())
+                    summ += parseInt($(this).val());
                 }
             });
-            surface_summ_input.attr('placeholder', summ);
+            summ_input.attr('placeholder', summ);
+        }
+        $("#surface_tab .input-group input[name='ground_width'], #surface_tab .input-group input[name='ground_length']").on("change paste keyup", function() {
+            terrainSurface();
+        });
+        function terrainSurface() {
+            var terrain_width = $("#surface_tab .input-group input[name='ground_width']").val();
+            var terrain_length = $("#surface_tab .input-group input[name='ground_length']").val();
+            var terrain_surface = $("#surface_tab .input-group input[name='surface_ground']");
+            var terrain_surface_val = 'Total';
+
+            if(terrain_width && terrain_length) {
+                terrain_surface_val = parseInt(terrain_width) * parseInt(terrain_length)
+            }
+            terrain_surface.attr('placeholder', terrain_surface_val);
         }
 
         $(function() {
@@ -3293,7 +3313,6 @@
         });
 
         function Trigger(val) {
-
             var availability = $('input[name="availability"]'),
                 availab_from = $('input[name="availab_from"]'),
                 availab_until = $('input[name="availab_until"]');
@@ -3463,29 +3482,18 @@
             initializeAddressMap();
         });
 
+        var map, infoWindow;
         function initializeAddressMap() {
+
             var current_position = {
                 lat: 46.204391,
                 lng: 6.143158
             };
 
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    current_position = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
+            var myLatlng = new google.maps.LatLng(current_position);
 
-                });
-            }
-
-            console.log(current_position);
-
-            myLatlng = new google.maps.LatLng(current_position);
-
-            var mapCanvas = document.getElementById('address_map');
+            map = document.getElementById('address_map');
             var geocoder = new google.maps.Geocoder;
-
             var mapOptions = {
                 zoom: 15,
                 minZoom: 2,
@@ -3505,7 +3513,7 @@
                 },
                 center: myLatlng
             };
-            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var map = new google.maps.Map(map, mapOptions);
             var marker = new google.maps.Marker({
                 map: map,
                 position: myLatlng,
@@ -3513,8 +3521,9 @@
                 //icon: '/images/pin_map_white.svg'
             });
 
-            google.maps.event.addListener(marker, 'dragend', function(e){
+            console.log(current_position);
 
+            google.maps.event.addListener(marker, 'dragend', function(e){
                 myLatlng = marker.getPosition();
                 geocoder.geocode({
                     latLng: marker.getPosition()
@@ -3556,6 +3565,38 @@
                     }
                 });
             });
+
+
+
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+        
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
         }
     </script>
 @stop
