@@ -4441,7 +4441,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($postDataType, 'vip_users');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'select_dropdown',
+                'type'         => 'select_multiple',
                 'display_name' => 'Vip Users',
                 'required'     => 0,
                 'browse'       => 0,

@@ -262,6 +262,9 @@ abstract class Controller extends BaseController
             /********** SELECT MULTIPLE TYPE **********/
             case 'select_multiple':
                 $content = $request->input($row->field);
+                return (!empty($content)) ? implode(",", $content) : '0';
+
+                /*$content = $request->input($row->field);
 
                 if ($content === null) {
                     $content = [];
@@ -289,7 +292,7 @@ abstract class Controller extends BaseController
                     }
                 }
 
-                return $content;
+                return $content;*/
 
             /********** IMAGE TYPE **********/
             case 'image':

@@ -4,6 +4,10 @@
 
 @section('content')
     @php
+        foreach (explode(',', Illuminate\Support\Facades\DB::table('posts')->value('vip_users')) as $users) {
+            $user_id[$users] = $users;
+        }
+
         $arrayJsonData = [];
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
             foreach ($dataTypeContent as $data) {
@@ -26,7 +30,7 @@
                 }
             }
         } else {
-            foreach (Illuminate\Support\Facades\DB::table('posts')->where('vip_users', Illuminate\Support\Facades\Auth::user()->id)->get() as $data) {
+            foreach (Illuminate\Support\Facades\DB::table('posts')->where('vip_users', 'rlike', '(^|,)' . array_search(Illuminate\Support\Facades\Auth::user()->id, $user_id) . '(,|$)')->get() as $data) {
                 if($dataType->display_name_plural == 'Posts') {
                     $arrayJsonData[] = [
                         'id'            => $data->id,

@@ -75,7 +75,7 @@
 
         @endphp
 
-        <li id="{{ mb_strtolower($item->title) }}" class="m-menu__item  m-menu__item--{{ (implode(" ", $listItemClass) == 'active') ? 'active' : 'submenu'  }}" aria-haspopup="true" {{ (implode(" ", $listItemClass) == 'active') ? '' : 'data-menu-submenu-toggle=hover'  }} >
+        <li id="{{ mb_strtolower($item->title) }}" class="m-menu__item  m-menu__item--{{ (implode(" ", $listItemClass) == 'active') ? 'active' : 'submenu'  }}" aria-haspopup="true" {{ (implode(" ", $listItemClass) == 'active') ? '' : 'data-menu-submenu-toggle=hover'  }} {{($item->title == 'Tools' && Auth::user()->role_id != 1) ? 'style=display:none' : ''}} >
             <a {!! $linkAttributes !!} class = "m-menu__link">
                 <i class="m-menu__link-icon {{ $item->icon_class }}"></i>
                 <span class="m-menu__link-text">{{ $item->title }}</span>

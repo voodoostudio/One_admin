@@ -339,12 +339,17 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                @php
+                                                    foreach (explode(',', Illuminate\Support\Facades\DB::table('posts')->value('vip_users')) as $users) {
+                                                        $user_id[$users] = $users;
+                                                    }
+                                                @endphp
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Clients</label>
-                                                        <select class="form-control m-select2 custom_select2" name="vip_users" multiple="multiple" data-placeholder="Sélectionner un client">
+                                                        <select class="form-control m-select2 custom_select2" name="vip_users[]" multiple="multiple" data-placeholder="Sélectionner un client">
                                                             @foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user)
-                                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                                <option {{  (array_search($user->id, $user_id)) ? 'selected' : '' }} value="{{ $user->id }}">{{ $user->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
