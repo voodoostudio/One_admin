@@ -97,7 +97,7 @@
                         </li>
                     </ul>
                 </div>
-                <div style="display: none;">
+                <div>
                     <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
                         <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
                             <i class="la la-plus m--hide"></i>
@@ -966,7 +966,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Nb de salles de douche</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_shower_rooms)){{ $dataTypeContent->number_shower_rooms }}@endif" name="number_shower_rooms">
                                                         </div>
                                                     </div>
@@ -974,7 +974,7 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Nb de WC</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group summand">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->number_toilets)){{ $dataTypeContent->number_toilets }}@endif" name="number_toilets">
                                                         </div>
                                                     </div>
@@ -982,8 +982,8 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Nb de salles d'eau</label>
-                                                        <div class="input-group">
-                                                            <input type="number" min="0" readonly class="form-control m-input elem-categories" placeholder="Nb douche + Nb de WC" value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
+                                                        <div class="input-group summ">
+                                                            <input type="number" min="0" disabled="disabled" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->number__bathrooms)){{ $dataTypeContent->number__bathrooms }}@endif" name="number__bathrooms">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1370,7 +1370,7 @@
                                                     <div class="form-group">
                                                         <label>Nombre de places de parc</label>
                                                         <div class="input-group summ">
-                                                            <input type="number" min="0" disabled="disabled" class="form-control m-input elem-categories" placeholder="Total" value="@if(isset($dataTypeContent->number_parking_spaces)){{ $dataTypeContent->number_parking_spaces }}@endif" name="number_parking_spaces">
+                                                            <input type="number" min="0" disabled="disabled" class="form-control m-input" placeholder="Total" value="@if(isset($dataTypeContent->number_parking_spaces)){{ $dataTypeContent->number_parking_spaces }}@endif" name="number_parking_spaces">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2980,6 +2980,11 @@
             summInputValues('parking_tab');
         });
 
+        /* Summ of bathrooms and WCs */
+        $("#layout_tab .input-group.summand input").on("change paste keyup", function() {
+            summInputValues('layout_tab');
+        });
+
         function summInputValues(tab_id) {
             var summable_input = $("#"+tab_id+" .input-group.summand input:not(.custom_input_for_coefficient)")
             var summ_input = $("#"+tab_id+" .input-group.summ input");
@@ -3383,6 +3388,7 @@
         }
 
         $('#categories_ul .nav-item .nav-link.active').trigger('click');
+
     </script>
     <script>
         jQuery(document).ready(function () {
@@ -3571,6 +3577,7 @@
                                 }
                             }
                         });
+
                     } else {
                         console.log('Cannot determine address at this location.');
                     }
