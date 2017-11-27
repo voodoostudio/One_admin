@@ -4431,26 +4431,10 @@ class DataRowsTableSeeder extends Seeder
                     'options' => [
                         '1' => 1,
                         '0' => 0,
-                    ]
+                        ]
                 ]),
                 'order'        => 257,
 
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($postDataType, 'vip_users');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'select_dropdown',
-                'display_name' => 'Vip Users',
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 252,
             ])->save();
         }
 
