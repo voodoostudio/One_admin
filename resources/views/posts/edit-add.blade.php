@@ -341,8 +341,8 @@
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
-                                                        <label>Vip Users</label>
-                                                        <select class="form-control m-select2 custom_select2" name="vip_users" data-placeholder="Sélectionner un courtier">
+                                                        <label>Clients</label>
+                                                        <select class="form-control m-select2 custom_select2" name="vip_users" multiple="multiple" data-placeholder="Sélectionner un client">
                                                             @foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user)
                                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                             @endforeach
@@ -3569,7 +3569,6 @@
                                 }
                             }
                         });
-
                     } else {
                         console.log('Cannot determine address at this location.');
                     }
