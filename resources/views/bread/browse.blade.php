@@ -154,14 +154,14 @@
         </div>
         <!-- END: Subheader -->
         <div class="m-content">
-            <div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">
-                <div class="m-alert__icon">
-                    <i class="flaticon-exclamation m--font-brand"></i>
-                </div>
-                <div class="m-alert__text">
-                    Here you can see list of all objects in your current admin page. Click "Add New" to add new object.
-                </div>
-            </div>
+            {{--<div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">--}}
+                {{--<div class="m-alert__icon">--}}
+                    {{--<i class="flaticon-exclamation m--font-brand"></i>--}}
+                {{--</div>--}}
+                {{--<div class="m-alert__text">--}}
+                    {{--Here you can see list of all objects in your current admin page. Click "Add New" to add new object.--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="m-portlet m-portlet--mobile">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
