@@ -3381,6 +3381,8 @@
             var categoryId = $('a.active[cat_id]').attr('cat_id');
             $('a[cat_id="'+categoryId+'"]').trigger('click');
         }
+
+        $('#categories_ul .nav-item .nav-link.active').trigger('click');
     </script>
     <script>
         jQuery(document).ready(function () {
