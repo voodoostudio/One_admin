@@ -333,7 +333,7 @@
                                                     <div class="form-group">
                                                         <label>Courtier</label>
                                                         <select class="form-control m-select2 custom_select2" name="broker" data-placeholder="Sélectionner un courtier">
-                                                            @foreach(TCG\Voyager\Models\User::all() as $user)
+                                                            @foreach(TCG\Voyager\Models\User::where('role_id','<>','5')->get(['id','role_id','name']) as $user)
                                                                 <option value="{{ $user->id }}">{{  $user->name }}</option>
                                                             @endforeach
                                                         </select>

@@ -77,10 +77,10 @@
                                         @endif
                                     @endforeach
 
-                                @elseif(property_exists($rowDetails, 'options'))
-                                    @foreach($dataTypeContent->{$row->field} as $item)
-                                        {{ $rowDetails->options->{$item} . (!$loop->last ? ', ' : '') }}
-                                    @endforeach
+                                {{--@elseif(property_exists($rowDetails, 'options'))--}}
+                                    {{--@foreach($dataTypeContent->{$row->field} as $item)--}}
+                                        {{--{{ $rowDetails->options->{$item} . (!$loop->last ? ', ' : '') }}--}}
+                                    {{--@endforeach--}}
                                 @endif
                             @elseif($row->type == 'date')
                                 {{ $rowDetails && property_exists($rowDetails, 'format') ? \Carbon\Carbon::parse($dataTypeContent->{$row->field})->formatLocalized($rowDetails->format) : $dataTypeContent->{$row->field} }}
@@ -303,21 +303,21 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-xl-12">
-                                        <!--begin::Widget 14 Item-->
-                                        <div class="m-widget4__item">
-                                            <div class="m-widget4__info">
-                                                <span class="m-widget4__title">
-                                                    Référence
-                                                </span>
-                                                <span class="m-widget4__sub">
-                                                    {{--{{ $dataTypeContent->reference }}--}}
-                                                    {{ $dataTypeContent->id }}
-                                                </span>
+                                    @if($dataTypeContent->id != null)
+                                        <div class="col-sm-12 col-md-6 col-xl-12">
+                                            <div class="m-widget4__item">
+                                                <div class="m-widget4__info">
+                                                    <span class="m-widget4__title">
+                                                        Référence
+                                                    </span>
+                                                    <span class="m-widget4__sub">
+                                                        {{--{{ $dataTypeContent->reference }}--}}
+                                                        {{ $dataTypeContent->id }}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!--end::Widget 14 Item-->
-                                    </div>
+                                    @endif
                                     <div class="col-sm-12 col-md-6 col-xl-12">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -1080,7 +1080,7 @@
                                                     Procédure en cours auprès de la copro.
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->procedure_in_progress == 0) ? 'no' : 'yes' }}  <!-- todo maybe checked -->
+                                                    {{ ($dataTypeContent->procedure_in_progress == 0) ? '&#10006;' : '	&#10004;' }}  <!-- todo maybe checked -->
                                                         {{--<input type="checkbox" value="{{ ($dataTypeContent->procedure_in_progress != 0) ? '' : 'on' }}">--}}
                                                 </span>
                                             </div>
@@ -1531,7 +1531,7 @@
                                                     Viabilisé
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->serviced == 0) ? 'no' : 'yes' }} <!-- todo mayby checked -->
+                                                    {{ ($dataTypeContent->serviced == 0) ? '&#10006;' : '&#10004;' }} <!-- todo mayby checked -->
                                                 </span>
                                             </div>
                                         </div>
@@ -1871,7 +1871,7 @@
                                                     Congélateur
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->freezer == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->freezer == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1885,7 +1885,7 @@
                                                     Cusinière
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->cooker == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->cooker == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1899,7 +1899,7 @@
                                                     Four
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->oven == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->oven == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1913,7 +1913,7 @@
                                                     Four à micro-ondes
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->microwave_oven == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->microwave_oven == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1927,7 +1927,7 @@
                                                     Hotte aspirante
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->extractor_hood == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->extractor_hood == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1941,7 +1941,7 @@
                                                     Lave-linge
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->washmachine == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->washmachine == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1955,7 +1955,7 @@
                                                     Lave-vaiselle
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->dishwasher == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->dishwasher == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1969,7 +1969,7 @@
                                                     Plaques à gaz
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->plates == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->plates == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1983,7 +1983,7 @@
                                                     Plaques à induction
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->induction_plates == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->induction_plates == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -1997,7 +1997,7 @@
                                                     Plaques électriques
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->hotplates == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->hotplates == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2011,7 +2011,7 @@
                                                     Plaques vitrocéram
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->ceramic_plates == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->ceramic_plates == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2025,7 +2025,7 @@
                                                     Réfrigérateur
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->fridge == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->fridge == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2039,7 +2039,7 @@
                                                     Sèche-linge
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->cuisine_tumble_drier == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->cuisine_tumble_drier == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2053,7 +2053,7 @@
                                                     Cafetière
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->coffee_maker == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->coffee_maker == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2243,7 +2243,7 @@
                                                 </span>
                                                 <span class="m-widget4__sub">
                                                     @foreach(TCG\Voyager\Models\WasteDistribution::all() as $usees_distribution)
-                                                        @if(isset($dataTypeContent->usees_distribution) && $dataTypeContent->usees_distribution == $usees_distribution->reference){{ $usees_distribution->value }}@endif
+                                                        @if($dataTypeContent->usees_distribution == $usees_distribution->reference){{ $usees_distribution->value }}@endif
                                                     @endforeach
                                                 </span>
                                             </div>
@@ -2355,7 +2355,7 @@
                                                     Abri
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->shelter == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->shelter == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2368,7 +2368,7 @@
                                                     Accès pour handicapé
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->access_disabled == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->access_disabled == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2381,7 +2381,7 @@
                                                     Adoucisseur d'eau
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->water_softener == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->water_softener == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2394,7 +2394,7 @@
                                                     Air conditionné
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->air_conditioning == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->air_conditioning == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2407,7 +2407,7 @@
                                                     Animaux bienvenus
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->pets_welcome == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->pets_welcome == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2420,7 +2420,7 @@
                                                     Armoires encastrées
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->fitted_wardrobes == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->fitted_wardrobes == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2433,7 +2433,7 @@
                                                     Ascenseur privé
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->private_lift == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->private_lift == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2446,7 +2446,7 @@
                                                     Aspiration centralisée
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->central_aspiration == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->central_aspiration == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2459,7 +2459,7 @@
                                                     Atelier
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->workshop == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->workshop == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2472,7 +2472,7 @@
                                                     Baie de brassage
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->patch_panel == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->patch_panel == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2485,7 +2485,7 @@
                                                     Baies vitrées
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->windows == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->windows == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2498,7 +2498,7 @@
                                                     Baignoire
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->bath == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->bath == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2511,7 +2511,7 @@
                                                     Baignoire balnéo
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->balneo_bath == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->balneo_bath == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2524,7 +2524,7 @@
                                                     Buanderie privée
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->private_laundry_room == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->private_laundry_room == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2537,7 +2537,7 @@
                                                     Cafétéria
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->cafeteria == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->cafeteria == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2550,7 +2550,7 @@
                                                     Carnotzet
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->carnotzet == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->carnotzet == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2563,7 +2563,7 @@
                                                     Cave
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->cave == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->cave == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2576,7 +2576,7 @@
                                                     Cave à vin
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->wine_cellar == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->wine_cellar == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2589,7 +2589,7 @@
                                                     Cellier
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->cellar == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->cellar == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2602,7 +2602,7 @@
                                                     Cheminée
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->fireplace == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->fireplace == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2615,7 +2615,7 @@
                                                     Climatisation
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->air_conditioner == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->air_conditioner == 0) ? '&#10006;' :'&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2628,7 +2628,7 @@
                                                     Cloisons amovibles
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->removable_partitions == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->removable_partitions == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2641,7 +2641,7 @@
                                                     Dépendance
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->addiction == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->addiction == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2654,7 +2654,7 @@
                                                     Domotique
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->automation == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->automation == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2667,7 +2667,7 @@
                                                     Double vitrage
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->double_glazing == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->double_glazing == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2680,7 +2680,7 @@
                                                     Douche
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->shower == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->shower == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2693,7 +2693,7 @@
                                                     Dressing
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->dressing == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->dressing == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2706,7 +2706,7 @@
                                                     Extincteur automatique à eau
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->automatic_fire_extinguisher == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->automatic_fire_extinguisher == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2719,7 +2719,7 @@
                                                     Faux plafond
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->false_ceiling == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->false_ceiling == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2732,7 +2732,7 @@
                                                     Fibre optique
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->optical_fiber == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->optical_fiber == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2745,7 +2745,7 @@
                                                     Grenier
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->attic == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->attic == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2758,7 +2758,7 @@
                                                     Groupe électrogène
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->generator == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->generator == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2771,7 +2771,7 @@
                                                     Hammam
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->hammam == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->hammam == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2784,7 +2784,7 @@
                                                     Internet Haut Débit
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->high_internet == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->high_internet == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2797,7 +2797,7 @@
                                                     Jacuzzi
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->jacuzzi == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->jacuzzi == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2810,7 +2810,7 @@
                                                     Jardin d'hiver
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->winter_garden == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->winter_garden == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2823,7 +2823,7 @@
                                                     Local à ski
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->ski_locker == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->ski_locker == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2836,7 +2836,7 @@
                                                     Local à velo
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->bicycle_storage == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->bicycle_storage == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2849,7 +2849,7 @@
                                                     Loggia
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->loggia == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->loggia == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2862,7 +2862,7 @@
                                                     Monstiquaire
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->net == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->net == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2875,7 +2875,7 @@
                                                     Monte-charge
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->hoist == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->hoist == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2888,7 +2888,7 @@
                                                     Open-space
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->open_plan == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->open_plan == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2901,7 +2901,7 @@
                                                     Piscine extérieure
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->outdoor_pool == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->outdoor_pool == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2914,7 +2914,7 @@
                                                     Piscine intérieure
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->indoor_pool == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->indoor_pool == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2927,7 +2927,7 @@
                                                     Poêle en céramique
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->ceramic_stove == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->ceramic_stove == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2940,7 +2940,7 @@
                                                     Poêle suédois
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->swedish_stove == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->swedish_stove == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2953,7 +2953,7 @@
                                                     Quai de déchargement
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->loading_dock == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->loading_dock == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2966,7 +2966,7 @@
                                                     Raccordement pour cheminée
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->connection_chimney == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->connection_chimney == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2979,7 +2979,7 @@
                                                     Raccordement pour poêle suédois
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->connection_swedish_stove == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->connection_swedish_stove == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -2992,7 +2992,7 @@
                                                     Réception
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->reception == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->reception == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3005,7 +3005,7 @@
                                                     Rideau métallique
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->metallic_curtain == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->metallic_curtain == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3018,7 +3018,7 @@
                                                     Robinet d'incendie armé
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->armed_with_fire_tap == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->armed_with_fire_tap == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3031,7 +3031,7 @@
                                                     Salle de bricolage
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->do_it_yourself_room == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->do_it_yourself_room == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3044,7 +3044,7 @@
                                                     Salle de cinéma
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->theater == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->theater == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3057,7 +3057,7 @@
                                                     Salle de jeux
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->game_room == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->game_room == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3070,7 +3070,7 @@
                                                     Salle fitness
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->fitness_room == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->fitness_room == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3083,7 +3083,7 @@
                                                     Salle de conférence
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->conference_room == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->conference_room == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3096,7 +3096,7 @@
                                                     Satellite
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->satellite == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->satellite == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3109,7 +3109,7 @@
                                                     Sauna
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->sauna == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->sauna == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3122,7 +3122,7 @@
                                                     Sous-sol
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->subsoil == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->subsoil == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3135,7 +3135,7 @@
                                                     Stores
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->blinds == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->blinds == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3148,7 +3148,7 @@
                                                     Stores électriques
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->electric_blinds == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->electric_blinds == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3161,7 +3161,7 @@
                                                     Thermostat connecté
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->thermostat_connected == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->thermostat_connected == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3174,7 +3174,7 @@
                                                     Triple vitrage
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->triple_glazing == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->triple_glazing == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3187,7 +3187,7 @@
                                                     Véranda
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->veranda == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->veranda == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3200,7 +3200,7 @@
                                                     Vide sanitaire
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->crawlspace == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->crawlspace == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3213,7 +3213,7 @@
                                                     Volets roulants électriques
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->electric_shutters == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->electric_shutters == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3226,7 +3226,7 @@
                                                     Sèche-linge
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->tumble_drier == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->tumble_drier == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3239,7 +3239,7 @@
                                                     Sèche-cheveux
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->hair_dryer == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->hair_dryer == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3252,7 +3252,7 @@
                                                     TV Satellite
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->satellite_tv == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->satellite_tv == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3265,7 +3265,7 @@
                                                     Téléphone
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->phone == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->phone == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3278,7 +3278,7 @@
                                                     Abri de voiture
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->car_shelter == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->car_shelter == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3291,7 +3291,7 @@
                                                     Arrosage
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->spray == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->spray == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3304,7 +3304,7 @@
                                                     Barbecue
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->barbecue == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->barbecue == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3317,7 +3317,7 @@
                                                     Eclairage extérieur
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->exterior_lighting == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->exterior_lighting == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3330,7 +3330,7 @@
                                                     Forage
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->drilling == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->drilling == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3343,7 +3343,7 @@
                                                     Héliport
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->heliport == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->heliport == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3356,7 +3356,7 @@
                                                     Puits
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->well == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->well == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3369,7 +3369,7 @@
                                                     Source
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->source == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->source == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3382,7 +3382,7 @@
                                                     Ascenseur collectif
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->collective_lift == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->collective_lift == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3395,7 +3395,7 @@
                                                     Buanderie collective
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->communal_laundry_room == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->communal_laundry_room == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3408,7 +3408,7 @@
                                                     Câblage réseau
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->network_cabling == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->network_cabling == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3421,7 +3421,7 @@
                                                     Fibre optique collective
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->collective_optical_fiber == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->collective_optical_fiber == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3434,7 +3434,7 @@
                                                     Parabole
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->parable == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->parable == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3447,7 +3447,7 @@
                                                     Alamre
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->alarm == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->alarm == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3460,7 +3460,7 @@
                                                     Carte magnétique
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->magnetic_card == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->magnetic_card == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3473,7 +3473,7 @@
                                                     Clôturé
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->fenced == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->fenced == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3486,7 +3486,7 @@
                                                     Coffre-fort
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->safe == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->safe == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3499,7 +3499,7 @@
                                                     DigiCode
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->digidode == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->digidode == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3512,7 +3512,7 @@
                                                     Gardien
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->guardian == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->guardian == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3525,7 +3525,7 @@
                                                     Gardien d'immeuble
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->caretaker == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->caretaker == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3538,7 +3538,7 @@
                                                     Interphone
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->intercom == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->intercom == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3551,7 +3551,7 @@
                                                     Portail électrique
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->electric_gate == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->electric_gate == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3564,7 +3564,7 @@
                                                     Porte blindée
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->reinforced_door == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->reinforced_door == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3577,7 +3577,7 @@
                                                     Vidéophone
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->videophone == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->videophone == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3613,7 +3613,7 @@
                                                     Dégagée
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->clear == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->clear == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3626,7 +3626,7 @@
                                                     Imprenable
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->impregnable == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->impregnable == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3639,7 +3639,7 @@
                                                     Panoramique
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->panoramic == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->panoramic == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3652,7 +3652,7 @@
                                                     Sur cour
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->courtyard == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->courtyard == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3665,7 +3665,7 @@
                                                     Sur la campagne
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_countryside == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_countryside == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3678,7 +3678,7 @@
                                                     Sur la forêt
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_forest == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_forest == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3691,7 +3691,7 @@
                                                     Sur la mer
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_sea == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_sea == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3704,7 +3704,7 @@
                                                     Sur la piscine
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_pool == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_pool == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3717,7 +3717,7 @@
                                                     Sur la rivière
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_river == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_river == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3730,7 +3730,7 @@
                                                     Sur la rue
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_street == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_street == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3743,7 +3743,7 @@
                                                     Sur la ville
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_city == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_city == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3756,7 +3756,7 @@
                                                     Sur le jardin
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_garden == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_garden == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3769,7 +3769,7 @@
                                                     Sur le lac
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_lake == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_lake == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3782,7 +3782,7 @@
                                                     Sur le parc
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_park == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_park == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3795,7 +3795,7 @@
                                                     Sur le port
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_haven == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_haven == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3808,7 +3808,7 @@
                                                     Sur les collines
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_hills == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_hills == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3821,7 +3821,7 @@
                                                     Sur les montagnes
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_mountains == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_mountains == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3834,7 +3834,7 @@
                                                     Sur les piste de ski
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->on_ski_slopes == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->on_ski_slopes == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3847,7 +3847,7 @@
                                                     Vis-à-vis
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->vis_a_vis == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->vis_a_vis == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -3876,6 +3876,7 @@
                             <!--begin::Widget 14-->
                             <div class="m-widget4">
                                 <div class="row">
+                                    @if($dataTypeContent->state_front != null)
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -3891,6 +3892,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
                                         <div class="m-widget4__item">
@@ -3930,7 +3932,7 @@
                                                 </span>
                                                 <span class="m-widget4__sub">
                                                     @foreach(TCG\Voyager\Models\State::all() as $state_front)
-                                                        @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ $state_front->value }}@endif
+                                                        @if($dataTypeContent->external_state == $state_front->reference){{ $state_front->value }}@endif
                                                     @endforeach
                                                 </span>
                                             </div>
@@ -3990,7 +3992,7 @@
                                                     Nord
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->nord == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->nord == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -4003,7 +4005,7 @@
                                                     Sud
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->south == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->south == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -4016,7 +4018,7 @@
                                                     Est
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->est == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->est == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -4029,7 +4031,7 @@
                                                     Ouest
                                                 </span>
                                                 <span class="m-widget4__sub">
-                                                    {{ ($dataTypeContent->west == 0) ? 'no' : 'yes' }}
+                                                    {{ ($dataTypeContent->west == 0) ? '&#10006;' : '&#10004;' }}
                                                 </span>
                                             </div>
                                         </div>
@@ -4141,7 +4143,7 @@
             { id: 74, field: $('span[name="type_radiator"]') },
             { id: 75, field: $('span[name="distribution"]') },
             { id: 76, field: $('span[name="eau_chaude_energy"]') },
-            { id: 77, field: $('span[name="usees_distribution"]') },
+            { id: 77, field: $('select[name="usees_distribution"]') },
             { id: 78, field: $('span[name="divers_format"]') },
             { id: 79, field: $('span[name="sonority"]') },
             { id: 80, field: $('span[name="style"]') },
