@@ -117,12 +117,15 @@
                                 <input id="civil_status" type="text" placeholder="Birth date" name="birth_date">
                             </div>
                             <div>
-                                <label for="place_birth">Enter you place birth</label>
-                                <input id="place_birth" type="text" placeholder="Place birth" name="place_birth">
+                                <label for="birthplace">Enter you place birth</label>
+                                <input id="birthplace" type="text" placeholder="Place birth" name="birthplace">
                             </div>
                             <div>
                                 <label for="nationality">Enter nationality</label>
-                                <input id="nationality" type="text" placeholder="Nationality" name="nationality">
+                                <select id="nationality" name="nationality">
+                                    <option value="1">ru</option>
+                                    <option value="2">en</option>
+                                </select>
                             </div>
                             <div>
                                 <label for="profession">Enter profession</label>
@@ -180,10 +183,11 @@
                                 <label for="preferred_means_contact">Preferred means of contact</label>
                                 <select name="preferred_means_contact" id="preferred_means_contact">
                                     <option value="1">Email</option>
-                                    <option value="1">Phone</option>
-                                    <option value="1">Mademoiselle</option>
+                                    <option value="2">Phone</option>
+                                    <option value="3">Mademoiselle</option>
                                 </select>
                             </div>
+
                             <div>
                                 <label for="role_id">ROLE ID</label>
                                 <select name="role_id" id="role_id">
@@ -195,7 +199,134 @@
                                 </select>
                             </div>
 
-                            <input type="file" name="" multiple="multiple">
+                            {{--<input type="file" name="" multiple="multiple">--}}
+
+                            <hr>
+                            <hr>
+                            <!-- Epoux/Epouse -->
+
+                            {{--<input type="file" name="" multiple="multiple">--}}
+
+                            <div>
+                                <label for="civility_coup">Civilité</label>
+                                <select name="civility_coup" id="civility_coup">
+                                    <option value="1">madame</option>
+                                    <option value="2">mis</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="lng_corres_coup">Langue de correspondance</label>
+                                <select name="lng_corres_coup" id="lng_corres_coup">
+                                    <option value="1">Ru</option>
+                                    <option value="2">En</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="first_name_coup">Prénom</label>
+                                <input id="first_name_coup" type="text" placeholder="first name" name="first_name_coup">
+                            </div>
+
+                            <div>
+                                <label for="middle_name_coup">Second prénom</label>
+                                <input id="middle_name_coup" type="text" placeholder="second name" name="middle_name_coup">
+                            </div>
+
+                            <div>
+                                <label for="last_name_coup">Nom de famille</label>
+                                <input id="last_name_coup" type="text" placeholder="last name" name="last_name_coup">
+                            </div>
+
+                            <div>
+                                <label for="civil_status_coup">Etat civil</label>
+                                <select name="civil_status_coup" id="civil_status_coup">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="birth_date_coup">Date de naissance</label>
+                                <input id="birth_date_coup" type="text" placeholder="birth date" name="birth_date_coup">
+                            </div>
+
+                            <div>
+                                <label for="birthplace_coup">Lieu de naissance</label>
+                                <input id="birthplace_coup" type="text" placeholder="birthplace_coup" name="birthplace_coup">
+                            </div>
+
+                            <div>
+                                <label for="nationality_coup">Nationalité</label>
+                                <select name="nationality_coup" id="nationality_coup">
+                                    <option value="1">ru</option>
+                                    <option value="2">en</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="profession_coup">Profession</label>
+                                <input id="profession_coup" type="text" placeholder="profession" name="profession_coup">
+                            </div>
+
+                            <div>
+                                <label for="service_coup">Service</label>
+                                <input id="service_coup" type="text" placeholder="profession" name="service_coup">
+                            </div>
+
+                            <div>
+                                <label for="business_coup">Entreprise</label>
+                                <input id="business_coup" type="text" placeholder="business" name="business_coup">
+                            </div>
+
+                            <div>
+                                <label for="website_coup">Site Internet</label>
+                                <input id="website_coup" type="text" placeholder="website" name="website_coup">
+                            </div>
+
+                            <div>
+                                <label for="email_type_coup">Courriel</label>
+                                <select name="email_type_coup" id="email_type_coup">
+                                    <option value="1">work</option>
+                                    <option value="2">home</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="email_coup">Courriel</label>
+                                <input id="email_coup" type="text" placeholder="email" name="email_coup">
+                            </div>
+
+                            <div>
+                                <label for="phone_type_coup">Téléphone</label>
+                                <select name="phone_type_coup" id="phone_type_coup">
+                                    <option value="1">work</option>
+                                    <option value="2">home</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="country_code_coup">Téléphone (+) "country code"</label>
+                                <select name="country_code_coup" id="country_code_coup">
+                                    <option value="1">work</option>
+                                    <option value="2">home</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="phone_coup">Téléphone</label>
+                                <input id="phone_coup" type="text" placeholder="phone" name="phone_coup">
+                            </div>
+
+                            <div>
+                                <label for="preferred_means_contact_coup">Preferred means of contact</label>
+                                <select name="preferred_means_contact_coup" id="preferred_means_contact_coup">
+                                    <option value="1">Email</option>
+                                    <option value="2">Phone</option>
+                                    <option value="3">Mademoiselle</option>
+                                </select>
+                            </div>
+
 
                         </div><!-- panel-body -->
 
