@@ -199,13 +199,141 @@
                                 </select>
                             </div>
 
-                            {{--<input type="file" name="" multiple="multiple">--}}
+                            {{--<input type="file" name="" multiple="multiple"> todo photos --}}
 
                             <hr>
+                            <h4>Husband/Wife</h4>
                             <hr>
                             <!-- Epoux/Epouse -->
 
-                            {{--<input type="file" name="" multiple="multiple">--}}
+                            {{--<input type="file" name="" multiple="multiple"> todo photos --}}
+
+                            <div>
+                                <label for="civility_child">Civilité</label>
+                                <select name="civility_child" id="civility_child">
+                                    <option value="1">madame</option>
+                                    <option value="2">mis</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="lng_corres_child">Langue de correspondance</label>
+                                <select name="lng_corres_child" id="lng_corres_child">
+                                    <option value="1">Ru</option>
+                                    <option value="2">En</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="first_name_child">Prénom</label>
+                                <input id="first_name_child" type="text" placeholder="first name" name="first_name_child">
+                            </div>
+
+                            <div>
+                                <label for="middle_name_child">Second prénom</label>
+                                <input id="middle_name_child" type="text" placeholder="second name" name="middle_name_child">
+                            </div>
+
+                            <div>
+                                <label for="last_name_child">Nom de famille</label>
+                                <input id="last_name_child" type="text" placeholder="last name" name="last_name_child">
+                            </div>
+
+                            <div>
+                                <label for="civil_status_child">Etat civil</label>
+                                <select name="civil_status_child" id="civil_status_child">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="birth_date_child">Date de naissance</label>
+                                <input id="birth_date_child" type="text" placeholder="birth date" name="birth_date_child">
+                            </div>
+
+                            <div>
+                                <label for="birthplace_child">Lieu de naissance</label>
+                                <input id="birthplace_child" type="text" placeholder="birthplace_coup" name="birthplace_child">
+                            </div>
+
+                            <div>
+                                <label for="nationality_child">Nationalité</label>
+                                <select name="nationality_child" id="nationality_child">
+                                    <option value="1">ru</option>
+                                    <option value="2">en</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="profession_child">Profession</label>
+                                <input id="profession_child" type="text" placeholder="profession" name="profession_child">
+                            </div>
+
+                            <div>
+                                <label for="service_child">Service</label>
+                                <input id="service_child" type="text" placeholder="profession" name="service_child">
+                            </div>
+
+                            <div>
+                                <label for="business_child">Entreprise</label>
+                                <input id="business_child" type="text" placeholder="business" name="business_child">
+                            </div>
+
+                            <div>
+                                <label for="website_child">Site Internet</label>
+                                <input id="website_child" type="text" placeholder="website" name="website_child">
+                            </div>
+
+                            <div>
+                                <label for="email_type_child">Courriel</label>
+                                <select name="email_type_child" id="email_type_child">
+                                    <option value="1">work</option>
+                                    <option value="2">home</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="email_child">Courriel</label>
+                                <input id="email_child" type="text" placeholder="email" name="email_child">
+                            </div>
+
+                            <div>
+                                <label for="phone_type_child">Téléphone</label>
+                                <select name="phone_type_child" id="phone_type_child">
+                                    <option value="1">work</option>
+                                    <option value="2">home</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="country_code_child">Téléphone (+) "country code"</label>
+                                <select name="country_code_child" id="country_code_child">
+                                    <option value="1">work</option>
+                                    <option value="2">home</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="phone_child">Téléphone</label>
+                                <input id="phone_child" type="text" placeholder="phone" name="phone_child">
+                            </div>
+
+                            <div>
+                                <label for="preferred_means_contact_child">Preferred means of contact</label>
+                                <select name="preferred_means_contact_child" id="preferred_means_contact_child">
+                                    <option value="1">Email</option>
+                                    <option value="2">Phone</option>
+                                    <option value="3">Mademoiselle</option>
+                                </select>
+                            </div>
+
+                            <!-- Children -->
+
+                            <hr>
+                            <h4>Children</h4>
+                            <hr>
+                            {{--<input type="file" name="" multiple="multiple"> todo photos --}}
 
                             <div>
                                 <label for="civility_coup">Civilité</label>
@@ -326,7 +454,6 @@
                                     <option value="3">Mademoiselle</option>
                                 </select>
                             </div>
-
 
                         </div><!-- panel-body -->
 

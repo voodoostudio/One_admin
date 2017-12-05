@@ -33,8 +33,8 @@ class AddVoyagerUserFields extends Migration
             $table->integer('phone')->nullable();
             $table->integer('preferred_means_contact')->nullable();
 
-            /*-- Epoux/Epouse --*/
-            $table->string('photo_of_coup')->nullable();
+            /*-- Husband/Wife--*/
+            $table->string('photo_coup')->nullable();
             $table->integer('civility_coup')->nullable();
             $table->integer('lng_corres_coup')->nullable();
             $table->string('first_name_coup',30)->default();
@@ -54,6 +54,28 @@ class AddVoyagerUserFields extends Migration
             $table->string('country_code_coup',10)->default();
             $table->integer('phone_coup')->nullable();
             $table->integer('preferred_means_contact_coup')->nullable();
+
+            /*-- Children --*/
+            $table->string('photo_child')->nullable();
+            $table->integer('civility_child')->nullable();
+            $table->integer('lng_corres_child')->nullable();
+            $table->string('first_name_child',30)->default();
+            $table->string('middle_name_child',30)->default();
+            $table->string('last_name_child',30)->default();
+            $table->integer('civil_status_child')->nullable();
+            $table->string('birth_date_child',20)->default();
+            $table->string('birthplace_child',40)->default();
+            $table->integer('nationality_child')->nullable();
+            $table->string('profession_child',50)->default();
+            $table->string('service_child')->default();
+            $table->string('business_child')->default();
+            $table->string('website_child')->default();
+            $table->integer('email_type_child')->nullable();
+            $table->string('email_child')->default();
+            $table->integer('phone_type_child')->nullable();
+            $table->string('country_code_child',10)->default();
+            $table->integer('phone_child')->nullable();
+            $table->integer('preferred_means_contact_child')->nullable();
 
 
         });
