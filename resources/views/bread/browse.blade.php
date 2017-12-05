@@ -12,8 +12,10 @@
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
             foreach ($dataTypeContent as $data) {
                 if($dataType->display_name_plural == 'Posts') {
+                    $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
                     $arrayJsonData[] = [
                         'id'            => $data->id,
+                        'reference'     => $reference,
                         'image'         => json_decode($data->image)[0],
                         'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
                         'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
@@ -32,8 +34,10 @@
         } else {
             foreach (Illuminate\Support\Facades\DB::table('posts')->where('vip_users', 'rlike', '(^|,)' . array_search(Illuminate\Support\Facades\Auth::user()->id, $user_id) . '(,|$)')->get() as $data) {
                 if($dataType->display_name_plural == 'Posts') {
+                    $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
                     $arrayJsonData[] = [
                         'id'            => $data->id,
+                        'reference'     => $reference,
                         'image'         => json_decode($data->image)[0],
                         'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
                         'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
@@ -160,19 +164,19 @@
         <!-- END: Subheader -->
         <div class="m-content">
             {{--<div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">--}}
-                {{--<div class="m-alert__icon">--}}
-                    {{--<i class="flaticon-exclamation m--font-brand"></i>--}}
-                {{--</div>--}}
-                {{--<div class="m-alert__text">--}}
-                    {{--Here you can see list of all objects in your current admin page. Click "Add New" to add new object.--}}
-                {{--</div>--}}
+            {{--<div class="m-alert__icon">--}}
+            {{--<i class="flaticon-exclamation m--font-brand"></i>--}}
+            {{--</div>--}}
+            {{--<div class="m-alert__text">--}}
+            {{--Here you can see list of all objects in your current admin page. Click "Add New" to add new object.--}}
+            {{--</div>--}}
             {{--</div>--}}
             <div class="m-portlet m-portlet--mobile">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <h3 class="m-portlet__head-text">
-{{--                                {{ $dataType->display_name_plural }}--}}
+                                {{--                                {{ $dataType->display_name_plural }}--}}
                                 {{ $dataType->display_name_singular }}
                                 {{--<small>--}}
                                 {{--initialized from javascript array--}}
@@ -267,56 +271,56 @@
                             <div class="col-xl-8 order-2 order-xl-1">
                                 <div class="form-group m-form__group row align-items-center">
                                     {{--<div class="col-md-4">--}}
-                                        {{--<div class="m-form__group m-form__group--inline">--}}
-                                            {{--<div class="m-form__label">--}}
-                                                {{--<label>--}}
-                                                    {{--Status:--}}
-                                                {{--</label>--}}
-                                            {{--</div>--}}
-                                            {{--<div class="m-form__control">--}}
-                                                {{--<select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_status">--}}
-                                                    {{--<option value="">--}}
-                                                        {{--All--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="1">--}}
-                                                        {{--Pending--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="2">--}}
-                                                        {{--Delivered--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="3">--}}
-                                                        {{--Canceled--}}
-                                                    {{--</option>--}}
-                                                {{--</select>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="d-md-none m--margin-bottom-10"></div>--}}
+                                    {{--<div class="m-form__group m-form__group--inline">--}}
+                                    {{--<div class="m-form__label">--}}
+                                    {{--<label>--}}
+                                    {{--Status:--}}
+                                    {{--</label>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="m-form__control">--}}
+                                    {{--<select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_status">--}}
+                                    {{--<option value="">--}}
+                                    {{--All--}}
+                                    {{--</option>--}}
+                                    {{--<option value="1">--}}
+                                    {{--Pending--}}
+                                    {{--</option>--}}
+                                    {{--<option value="2">--}}
+                                    {{--Delivered--}}
+                                    {{--</option>--}}
+                                    {{--<option value="3">--}}
+                                    {{--Canceled--}}
+                                    {{--</option>--}}
+                                    {{--</select>--}}
+                                    {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="d-md-none m--margin-bottom-10"></div>--}}
                                     {{--</div>--}}
                                     {{--<div class="col-md-4">--}}
-                                        {{--<div class="m-form__group m-form__group--inline">--}}
-                                            {{--<div class="m-form__label">--}}
-                                                {{--<label class="m-label m-label--single">--}}
-                                                    {{--Type:--}}
-                                                {{--</label>--}}
-                                            {{--</div>--}}
-                                            {{--<div class="m-form__control">--}}
-                                                {{--<select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_type">--}}
-                                                    {{--<option value="">--}}
-                                                        {{--All--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="1">--}}
-                                                        {{--Online--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="2">--}}
-                                                        {{--Retail--}}
-                                                    {{--</option>--}}
-                                                    {{--<option value="3">--}}
-                                                        {{--Direct--}}
-                                                    {{--</option>--}}
-                                                {{--</select>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="d-md-none m--margin-bottom-10"></div>--}}
+                                    {{--<div class="m-form__group m-form__group--inline">--}}
+                                    {{--<div class="m-form__label">--}}
+                                    {{--<label class="m-label m-label--single">--}}
+                                    {{--Type:--}}
+                                    {{--</label>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="m-form__control">--}}
+                                    {{--<select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_type">--}}
+                                    {{--<option value="">--}}
+                                    {{--All--}}
+                                    {{--</option>--}}
+                                    {{--<option value="1">--}}
+                                    {{--Online--}}
+                                    {{--</option>--}}
+                                    {{--<option value="2">--}}
+                                    {{--Retail--}}
+                                    {{--</option>--}}
+                                    {{--<option value="3">--}}
+                                    {{--Direct--}}
+                                    {{--</option>--}}
+                                    {{--</select>--}}
+                                    {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="d-md-none m--margin-bottom-10"></div>--}}
                                     {{--</div>--}}
                                     <div class="col-md-4">
                                         <div class="m-input-icon m-input-icon--left">
@@ -507,7 +511,7 @@
 
                         <?php } elseif($dataType->display_name_plural == 'Posts') { ?>
 
-                        field: "id",
+                        field: "reference",
                         title: "Réf.",
                         sortable: false,
                         selector: false
@@ -591,7 +595,7 @@
 
                             <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
 
-                            field: "id",
+                        field: "id",
                             title: "#",
                             width: 50,
                             sortable: false,

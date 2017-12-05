@@ -396,8 +396,7 @@
                                                         <label>Référence</label>
                                                         {{--<input type="number" class="form-control m-input" readonly placeholder="Référence" value="@if(isset($dataTypeContent->reference)){{ $dataTypeContent->reference }}@endif" name="reference">--}}
                                                         @if(isset($dataTypeContent->id))
-                                                            <p>{{ $dataTypeContent->id }}</p>
-                                                        @endif
+                                                            <p>{{  'HIS-' . str_pad($dataTypeContent->id , 4, '0', STR_PAD_LEFT) }}</p>                                                        @endif
                                                         <span class="m-form__help">Please enter Référence</span>
                                                     </div>
                                                 </div>
@@ -1020,8 +1019,8 @@
                                                     <div class="form-group">
                                                         <label>Etage du bien</label>
                                                         <select class="form-control m-select2 custom_select2 elem-categories" name="floor_property" data-placeholder="Select Floor">
-                                                            @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)    <!-- todo  orderBy('value','ASC')->get() as $floor_property)  if need return -->
-                                                                <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
+                                                        @foreach(TCG\Voyager\Models\Floor::all() as $floor_property)    <!-- todo  orderBy('value','ASC')->get() as $floor_property)  if need return -->
+                                                            <option value="{{ $floor_property->reference }}" @if(isset($dataTypeContent->floor_property) && $dataTypeContent->floor_property == $floor_property->reference){{ 'selected="selected"' }}@endif>{{ $floor_property->value }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -3413,16 +3412,16 @@
                     }
                 },
                 /*messages: {
-                    title_fr: {
-                        minlength: "Danger! Input 2 more symbols"
-                    },
-                    title_en: {
-                        minlength: "Danger! Input 2 more symbols"
-                    },
-                    title_es: {
-                        minlength: "Danger! Input 2 more symbols"
-                    }
-                },*/
+                 title_fr: {
+                 minlength: "Danger! Input 2 more symbols"
+                 },
+                 title_en: {
+                 minlength: "Danger! Input 2 more symbols"
+                 },
+                 title_es: {
+                 minlength: "Danger! Input 2 more symbols"
+                 }
+                 },*/
                 submitHandler: function (form) {
                     form.submit();
                 }

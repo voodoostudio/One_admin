@@ -77,9 +77,9 @@
                                         @endif
                                     @endforeach
 
-                                {{--@elseif(property_exists($rowDetails, 'options'))--}}
+                                    {{--@elseif(property_exists($rowDetails, 'options'))--}}
                                     {{--@foreach($dataTypeContent->{$row->field} as $item)--}}
-                                        {{--{{ $rowDetails->options->{$item} . (!$loop->last ? ', ' : '') }}--}}
+                                    {{--{{ $rowDetails->options->{$item} . (!$loop->last ? ', ' : '') }}--}}
                                     {{--@endforeach--}}
                                 @endif
                             @elseif($row->type == 'date')
@@ -312,7 +312,7 @@
                                                     </span>
                                                     <span class="m-widget4__sub">
                                                         {{--{{ $dataTypeContent->reference }}--}}
-                                                        {{ $dataTypeContent->id }}
+                                                        {{  'HIS-' . str_pad($dataTypeContent->id , 4, '0', STR_PAD_LEFT) }}
                                                     </span>
                                                 </div>
                                             </div>
@@ -476,20 +476,20 @@
                                     </div>
 
                                     @if($dataTypeContent->ann_type != 0)
-                                    <div class="col-sm-12 col-md-6 col-xl-12">
-                                        <!--begin::Widget 14 Item-->
-                                        <div class="m-widget4__item">
-                                            <div class="m-widget4__info">
+                                        <div class="col-sm-12 col-md-6 col-xl-12">
+                                            <!--begin::Widget 14 Item-->
+                                            <div class="m-widget4__item">
+                                                <div class="m-widget4__info">
                                                 <span class="m-widget4__title">
                                                     Disponibilité
                                                 </span>
-                                                <span class="m-widget4__sub">
+                                                    <span class="m-widget4__sub">
                                                     {{ $dataTypeContent->availability }}
                                                 </span>
+                                                </div>
                                             </div>
+                                            <!--end::Widget 14 Item-->
                                         </div>
-                                        <!--end::Widget 14 Item-->
-                                    </div>
                                     @endif
                                     <div class="col-sm-12 col-md-6 col-xl-12" style="display: {{ ($dataTypeContent->ann_type == 1) ? 'none' : '' }}">
                                         <!--begin::Widget 14 Item-->
@@ -3877,21 +3877,21 @@
                             <div class="m-widget4">
                                 <div class="row">
                                     @if($dataTypeContent->state_front != null)
-                                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
-                                        <!--begin::Widget 14 Item-->
-                                        <div class="m-widget4__item">
-                                            <div class="m-widget4__info">
+                                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                                            <!--begin::Widget 14 Item-->
+                                            <div class="m-widget4__item">
+                                                <div class="m-widget4__info">
                                                 <span class="m-widget4__title" name="interior_condition">
                                                     Etat intérieur
                                                 </span>
-                                                <span class="m-widget4__sub">
+                                                    <span class="m-widget4__sub">
                                                     @foreach(TCG\Voyager\Models\State::all() as $state_front)
-                                                        @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ $state_front->value }}@endif
-                                                    @endforeach
+                                                            @if(isset($dataTypeContent->state_front) && $dataTypeContent->state_front == $state_front->reference){{ $state_front->value }}@endif
+                                                        @endforeach
                                                 </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endif
                                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
                                         <!--begin::Widget 14 Item-->
