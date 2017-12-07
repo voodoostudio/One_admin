@@ -77,6 +77,22 @@
                                 {{--@endif--}}
                             {{--@endforeach--}}
                             <div>
+                                <label for="select_civil">Select</label>
+                                <select name="civility" id="select_civil">
+                                    @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                        <option value="{{ $civility->reference }}">{{ $civility->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div>
+                                <label for="lng_corres">Select language</label>
+                                <select name="lng_corres" id="lng_corres">
+                                    @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                        <option value="{{ $user_lng->reference }}">{{ $user_lng->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div>
                                 <label for="name">Enter you first name</label>
                                 <input id="name" type="text" name="name" placeholder="First Name">
                             </div>
@@ -85,31 +101,15 @@
                                 <input id="name" type="text" name="middle_name" placeholder="Middle Name">
                             </div>
                             <div>
-                                <label for="name">Enter you middle name</label>
+                                <label for="name">Enter you last name</label>
                                 <input id="name" type="text" name="last_name" placeholder="Last Name">
-                            </div>
-                            <div>
-                                <label for="select_civil">Select</label>
-                                <select name="civility" id="select_civil">
-                                    <option value="1">Monsieur</option>
-                                    <option value="2">Madame</option>
-                                    <option value="3">Mademoiselle</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="lng_corres">Select language</label>
-                                <select name="lng_corres" id="lng_corres">
-                                    <option value="1">Monsieur</option>
-                                    <option value="1">Madame</option>
-                                    <option value="1">Mademoiselle</option>
-                                </select>
                             </div>
                             <div>
                                 <label for="civil_status">Select civil status</label>
                                 <select name="civil_status" id="civil_status">
-                                    <option value="1">Monsieur</option>
-                                    <option value="1">Madame</option>
-                                    <option value="1">Mademoiselle</option>
+                                    @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                        <option value="{{ $civil_stat->reference }}">{{ $civil_stat->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div>
@@ -123,8 +123,9 @@
                             <div>
                                 <label for="nationality">Enter nationality</label>
                                 <select id="nationality" name="nationality">
-                                    <option value="1">ru</option>
-                                    <option value="2">en</option>
+                                    @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                        <option value="{{ $nationality->reference }}">{{ $nationality->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div>
@@ -146,26 +147,22 @@
                             <div>
                                 <label for="email_type">Select email type</label>
                                 <select name="email_type" id="email_type">
-                                    <option value="1">Home</option>
-                                    <option value="1">Work</option>
-                                    <option value="1">Mademoiselle</option>
+                                    @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                        <option value="{{ $email_type->reference }}">{{ $email_type->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div>
                                 <label for="phone_type">Select phone type</label>
                                 <select name="phone_type" id="phone_type">
-                                    <option value="1">Home</option>
-                                    <option value="1">Work</option>
-                                    <option value="1">Mademoiselle</option>
+                                    @foreach(TCG\Voyager\Models\Phone::all() as $phone)
+                                        <option value="{{ $phone->reference }}">{{ $phone->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div>
                                 <label for="country_code">Select country code</label>
-                                <select name="country_code" id="country_code">
-                                    <option value="1">+373</option>
-                                    <option value="1">+7</option>
-                                    <option value="1">Mademoiselle</option>
-                                </select>
+                                <input id="country_code" type="text" placeholder="Website" name="country_code">
                             </div>
                             <div>
                                 <label for="website">Enter phone</label>
@@ -182,9 +179,9 @@
                             <div>
                                 <label for="preferred_means_contact">Preferred means of contact</label>
                                 <select name="preferred_means_contact" id="preferred_means_contact">
-                                    <option value="1">Email</option>
-                                    <option value="2">Phone</option>
-                                    <option value="3">Mademoiselle</option>
+                                    @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                        <option value="{{ $contact->reference }}">{{ $contact->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -209,145 +206,20 @@
                             {{--<input type="file" name="" multiple="multiple"> todo photos --}}
 
                             <div>
-                                <label for="civility_child">Civilité</label>
-                                <select name="civility_child" id="civility_child">
-                                    <option value="1">madame</option>
-                                    <option value="2">mis</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="lng_corres_child">Langue de correspondance</label>
-                                <select name="lng_corres_child" id="lng_corres_child">
-                                    <option value="1">Ru</option>
-                                    <option value="2">En</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="first_name_child">Prénom</label>
-                                <input id="first_name_child" type="text" placeholder="first name" name="first_name_child">
-                            </div>
-
-                            <div>
-                                <label for="middle_name_child">Second prénom</label>
-                                <input id="middle_name_child" type="text" placeholder="second name" name="middle_name_child">
-                            </div>
-
-                            <div>
-                                <label for="last_name_child">Nom de famille</label>
-                                <input id="last_name_child" type="text" placeholder="last name" name="last_name_child">
-                            </div>
-
-                            <div>
-                                <label for="civil_status_child">Etat civil</label>
-                                <select name="civil_status_child" id="civil_status_child">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="birth_date_child">Date de naissance</label>
-                                <input id="birth_date_child" type="text" placeholder="birth date" name="birth_date_child">
-                            </div>
-
-                            <div>
-                                <label for="birthplace_child">Lieu de naissance</label>
-                                <input id="birthplace_child" type="text" placeholder="birthplace_coup" name="birthplace_child">
-                            </div>
-
-                            <div>
-                                <label for="nationality_child">Nationalité</label>
-                                <select name="nationality_child" id="nationality_child">
-                                    <option value="1">ru</option>
-                                    <option value="2">en</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="profession_child">Profession</label>
-                                <input id="profession_child" type="text" placeholder="profession" name="profession_child">
-                            </div>
-
-                            <div>
-                                <label for="service_child">Service</label>
-                                <input id="service_child" type="text" placeholder="profession" name="service_child">
-                            </div>
-
-                            <div>
-                                <label for="business_child">Entreprise</label>
-                                <input id="business_child" type="text" placeholder="business" name="business_child">
-                            </div>
-
-                            <div>
-                                <label for="website_child">Site Internet</label>
-                                <input id="website_child" type="text" placeholder="website" name="website_child">
-                            </div>
-
-                            <div>
-                                <label for="email_type_child">Courriel</label>
-                                <select name="email_type_child" id="email_type_child">
-                                    <option value="1">work</option>
-                                    <option value="2">home</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="email_child">Courriel</label>
-                                <input id="email_child" type="text" placeholder="email" name="email_child">
-                            </div>
-
-                            <div>
-                                <label for="phone_type_child">Téléphone</label>
-                                <select name="phone_type_child" id="phone_type_child">
-                                    <option value="1">work</option>
-                                    <option value="2">home</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="country_code_child">Téléphone (+) "country code"</label>
-                                <select name="country_code_child" id="country_code_child">
-                                    <option value="1">work</option>
-                                    <option value="2">home</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="phone_child">Téléphone</label>
-                                <input id="phone_child" type="text" placeholder="phone" name="phone_child">
-                            </div>
-
-                            <div>
-                                <label for="preferred_means_contact_child">Preferred means of contact</label>
-                                <select name="preferred_means_contact_child" id="preferred_means_contact_child">
-                                    <option value="1">Email</option>
-                                    <option value="2">Phone</option>
-                                    <option value="3">Mademoiselle</option>
-                                </select>
-                            </div>
-
-                            <!-- Children -->
-
-                            <hr>
-                            <h4>Children</h4>
-                            <hr>
-                            {{--<input type="file" name="" multiple="multiple"> todo photos --}}
-
-                            <div>
                                 <label for="civility_coup">Civilité</label>
                                 <select name="civility_coup" id="civility_coup">
-                                    <option value="1">madame</option>
-                                    <option value="2">mis</option>
+                                    @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                        <option value="{{ $civility->reference }}">{{ $civility->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <div>
                                 <label for="lng_corres_coup">Langue de correspondance</label>
                                 <select name="lng_corres_coup" id="lng_corres_coup">
-                                    <option value="1">Ru</option>
-                                    <option value="2">En</option>
+                                    @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                        <option value="{{ $user_lng->reference }}">{{ $user_lng->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -369,8 +241,9 @@
                             <div>
                                 <label for="civil_status_coup">Etat civil</label>
                                 <select name="civil_status_coup" id="civil_status_coup">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
+                                    @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                        <option value="{{ $civil_stat->reference }}">{{ $civil_stat->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -387,8 +260,9 @@
                             <div>
                                 <label for="nationality_coup">Nationalité</label>
                                 <select name="nationality_coup" id="nationality_coup">
-                                    <option value="1">ru</option>
-                                    <option value="2">en</option>
+                                    @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                        <option value="{{ $nationality->reference }}">{{ $nationality->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -415,8 +289,9 @@
                             <div>
                                 <label for="email_type_coup">Courriel</label>
                                 <select name="email_type_coup" id="email_type_coup">
-                                    <option value="1">work</option>
-                                    <option value="2">home</option>
+                                    @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                        <option value="{{ $email_type->reference }}">{{ $email_type->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -428,8 +303,9 @@
                             <div>
                                 <label for="phone_type_coup">Téléphone</label>
                                 <select name="phone_type_coup" id="phone_type_coup">
-                                    <option value="1">work</option>
-                                    <option value="2">home</option>
+                                    @foreach(TCG\Voyager\Models\Phone::all() as $phone)
+                                        <option value="{{ $phone->reference }}">{{ $phone->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -449,9 +325,142 @@
                             <div>
                                 <label for="preferred_means_contact_coup">Preferred means of contact</label>
                                 <select name="preferred_means_contact_coup" id="preferred_means_contact_coup">
-                                    <option value="1">Email</option>
-                                    <option value="2">Phone</option>
-                                    <option value="3">Mademoiselle</option>
+                                    @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                        <option value="{{ $contact->reference }}">{{ $contact->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <!-- Children -->
+
+                            <hr>
+                            <h4>Children</h4>
+                            <hr>
+                            {{--<input type="file" name="" multiple="multiple"> todo photos --}}
+
+                            <div>
+                                <label for="civility_child">Civilité</label>
+                                <select name="civility_child" id="civility_child">
+                                    @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                        <option value="{{ $civility->reference }}">{{ $civility->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="lng_corres_child">Langue de correspondance</label>
+                                <select name="lng_corres_child" id="lng_corres_child">
+                                    @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                        <option value="{{ $user_lng->reference }}">{{ $user_lng->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="first_name_child">Prénom</label>
+                                <input id="first_name_child" type="text" placeholder="first name" name="first_name_child">
+                            </div>
+
+                            <div>
+                                <label for="middle_name_child">Second prénom</label>
+                                <input id="middle_name_child" type="text" placeholder="second name" name="middle_name_child">
+                            </div>
+
+                            <div>
+                                <label for="last_name_child">Nom de famille</label>
+                                <input id="last_name_child" type="text" placeholder="last name" name="last_name_child">
+                            </div>
+
+                            <div>
+                                <label for="civil_status_child">Etat civil</label>
+                                <select name="civil_status_child" id="civil_status_child">
+                                    @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                        <option value="{{ $civil_stat->reference }}">{{ $civil_stat->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="birth_date_child">Date de naissance</label>
+                                <input id="birth_date_child" type="text" placeholder="birth date" name="birth_date_child">
+                            </div>
+
+                            <div>
+                                <label for="birthplace_child">Lieu de naissance</label>
+                                <input id="birthplace_child" type="text" placeholder="birthplace_coup" name="birthplace_child">
+                            </div>
+
+                            <div>
+                                <label for="nationality_child">Nationalité</label>
+                                <select name="nationality_child" id="nationality_child">
+                                    @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                        <option value="{{ $nationality->reference }}">{{ $nationality->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="profession_child">Profession</label>
+                                <input id="profession_child" type="text" placeholder="profession" name="profession_child">
+                            </div>
+
+                            <div>
+                                <label for="service_child">Service</label>
+                                <input id="service_child" type="text" placeholder="profession" name="service_child">
+                            </div>
+
+                            <div>
+                                <label for="business_child">Entreprise</label>
+                                <input id="business_child" type="text" placeholder="business" name="business_child">
+                            </div>
+
+                            <div>
+                                <label for="website_child">Site Internet</label>
+                                <input id="website_child" type="text" placeholder="website" name="website_child">
+                            </div>
+
+                            <div>
+                                <label for="email_type_child">Courriel</label>
+                                <select name="email_type_child" id="email_type_child">
+                                    @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                        <option value="{{ $email_type->reference }}">{{ $email_type->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="email_child">Courriel</label>
+                                <input id="email_child" type="text" placeholder="email" name="email_child">
+                            </div>
+
+                            <div>
+                                <label for="phone_type_child">Téléphone</label>
+                                <select name="phone_type_child" id="phone_type_child">
+                                    @foreach(TCG\Voyager\Models\Phone::all() as $phone)
+                                        <option value="{{ $phone->reference }}">{{ $phone->value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="country_code_child">Téléphone (+) "country code"</label>
+                                <select name="country_code_child" id="country_code_child">
+                                    <option value="1">work</option>
+                                    <option value="2">home</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="phone_child">Téléphone</label>
+                                <input id="phone_child" type="text" placeholder="phone" name="phone_child">
+                            </div>
+
+                            <div>
+                                <label for="preferred_means_contact_child">Preferred means of contact</label>
+                                <select name="preferred_means_contact_child" id="preferred_means_contact_child">
+                                    @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                        <option value="{{ $contact->reference }}">{{ $contact->value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
