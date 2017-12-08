@@ -3025,10 +3025,8 @@
             var checkboxes =  $("#save_checklist .pure_switch input[type='checkbox']");
             var checked =  $("#save_checklist .pure_switch input[type='checkbox']:checked");
             if ($(checkboxes).length == $(checked).length) {
-                console.log('All checked');
                 $("#save_checklist button[type='submit']").prop('disabled', false)
             } else {
-                console.log('Not all checked');
                 $("#save_checklist button[type='submit']").prop('disabled', true)
             }
         }
