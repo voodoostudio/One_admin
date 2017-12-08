@@ -188,11 +188,9 @@
                             <div>
                                 <label for="role_id">ROLE ID</label>
                                 <select name="role_id" id="role_id">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">3</option>
-                                    <option value="5">3</option>
+                                    @foreach(TCG\Voyager\Models\Role::all() as $role)
+                                        <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
