@@ -2878,11 +2878,82 @@
                             </div>
                         </div>
                         <div class="col-lg-6 m--align-right">
-                            <button type="submit" value="submit" class="btn btn-primary btn-lg">Enregistrer</button>
+                            <button type="button" data-toggle="modal" data-target="#save_checklist" class="btn btn-primary btn-lg">Enregistrer</button>
                         </div>
                     </div>
                 </div>
                 <!-- End Actions block -->
+
+                    <!--begin::Modal-->
+                    <div class="modal fade" id="save_checklist" tabindex="-1" role="dialog" aria-labelledby="save_checklist" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                        Check all checkboxes in order to save this object
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">
+                                        &times;
+                                    </span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="pure_switch">
+                                            <span class="m-switch m-switch--outline m-switch--brand">
+                                                <label>
+                                                    <input type="checkbox" name="save_check1">
+                                                    <span></span>
+                                                </label>
+                                            </span>
+                                                <label class="pure_switch_label">Lorem ipsum dolor sit amet</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="pure_switch">
+                                            <span class="m-switch m-switch--outline m-switch--brand">
+                                                <label>
+                                                    <input type="checkbox" name="save_check1">
+                                                    <span></span>
+                                                </label>
+                                            </span>
+                                                <label class="pure_switch_label">Lorem ipsum dolor sit amet</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="pure_switch">
+                                            <span class="m-switch m-switch--outline m-switch--brand">
+                                                <label>
+                                                    <input type="checkbox" name="save_check1">
+                                                    <span></span>
+                                                </label>
+                                            </span>
+                                                <label class="pure_switch_label">Lorem ipsum dolor sit amet</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="pure_switch">
+                                            <span class="m-switch m-switch--outline m-switch--brand">
+                                                <label>
+                                                    <input type="checkbox" name="save_check1">
+                                                    <span></span>
+                                                </label>
+                                            </span>
+                                                <label class="pure_switch_label">Lorem ipsum dolor sit amet</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" value="submit" class="btn btn-primary" disabled="disabled">Enregistrer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Modal-->
 
             </form>
             <!-- End Form -->
@@ -2943,6 +3014,24 @@
             format: "yyyy-mm-dd" // Notice the Extra space at the beginning
         });
 
+        $('#save_checklist').on('show.bs.modal', function () {
+            checkChecklict();
+        });
+
+        $("#save_checklist .pure_switch input[type='checkbox']").change(function(){
+            checkChecklict();
+        });
+        function checkChecklict() {
+            var checkboxes =  $("#save_checklist .pure_switch input[type='checkbox']");
+            var checked =  $("#save_checklist .pure_switch input[type='checkbox']:checked");
+            if ($(checkboxes).length == $(checked).length) {
+                console.log('All checked');
+                $("#save_checklist button[type='submit']").prop('disabled', false)
+            } else {
+                console.log('Not all checked');
+                $("#save_checklist button[type='submit']").prop('disabled', true)
+            }
+        }
 
         function setSelectedCurrency(currency) {
             console.log(currency)
