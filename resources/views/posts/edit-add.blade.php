@@ -1095,7 +1095,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->lower_ground_floor)){{ $dataTypeContent->lower_ground_floor }}@endif" name="lower_ground_floor">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->lower_ground_floor_child)){{ $dataTypeContent->lower_ground_floor_child }}@endif" name="lower_ground_floor_child"/>
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->lower_ground_floor_child)){{ $dataTypeContent->lower_ground_floor_child }}@endif" name="lower_ground_floor_child"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1106,7 +1106,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->attic_space)){{ $dataTypeContent->attic_space }}@endif" name="attic_space">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="attic_space_child"/>
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->attic_space_child)){{ $dataTypeContent->attic_space_child }}@endif" name="attic_space_child"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1117,7 +1117,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_balcony)){{ $dataTypeContent->surface_balcony }}@endif" name="surface_balcony">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_balcony_child)){{ $dataTypeContent->surface_balcony_child }}@endif" name="surface_balcony_child" />
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_balcony_child)){{ $dataTypeContent->surface_balcony_child }}@endif" name="surface_balcony_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1128,7 +1128,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->basement_area)){{ $dataTypeContent->basement_area }}@endif" name="basement_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->basement_area_child)){{ $dataTypeContent->basement_area_child }}@endif" name="basement_area_child" />
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->basement_area_child)){{ $dataTypeContent->basement_area_child }}@endif" name="basement_area_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1139,7 +1139,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_cellar)){{ $dataTypeContent->surface_cellar }}@endif" name="surface_cellar">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_cellar_child)){{ $dataTypeContent->surface_cellar_child }}@endif" name="surface_cellar_child" />
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_cellar_child)){{ $dataTypeContent->surface_cellar_child }}@endif" name="surface_cellar_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1150,7 +1150,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surf_area_terr_solar)){{ $dataTypeContent->surf_area_terr_solar }}@endif" name="surf_area_terr_solar">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surf_area_terr_solar_child)){{ $dataTypeContent->surf_area_terr_solar_child }}@endif" name="surf_area_terr_solar_child" />
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surf_area_terr_solar_child)){{ $dataTypeContent->surf_area_terr_solar_child }}@endif" name="surf_area_terr_solar_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1161,7 +1161,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->roof_cover_area)){{ $dataTypeContent->roof_cover_area }}@endif" name="roof_cover_area">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->roof_cover_area_child)){{ $dataTypeContent->roof_cover_area_child }}@endif" name="roof_cover_area_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1172,7 +1172,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->area_veranda)){{ $dataTypeContent->area_veranda }}@endif" name="area_veranda">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" value="@if(isset($dataTypeContent->area_veranda_child)){{ $dataTypeContent->area_veranda_child }}@endif" name="area_veranda_child" />
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" value="@if(isset($dataTypeContent->area_veranda_child)){{ $dataTypeContent->area_veranda_child }}@endif" name="area_veranda_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1183,7 +1183,7 @@
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->surface_eng_court)){{ $dataTypeContent->surface_eng_court }}@endif" name="surface_eng_court">
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-close"></i></span>
-                                                            <input type="number" step="any" min="0" max="2" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_eng_court_child)){{ $dataTypeContent->surface_eng_court_child }}@endif" name="surface_eng_court_child" />
+                                                            <input type="number" step="any" min="0" class="form-control custom_input_for_coefficient elem-categories" placeholder="" value="@if(isset($dataTypeContent->surface_eng_court_child)){{ $dataTypeContent->surface_eng_court_child }}@endif" name="surface_eng_court_child" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2990,14 +2990,31 @@
         });
 
         function summInputValues(tab_id) {
-            var summable_input = $("#"+tab_id+" .input-group.summand input:not(.custom_input_for_coefficient)")
+            var summable_input_group = $("#"+tab_id+" .input-group.summand")
             var summ_input = $("#"+tab_id+" .input-group.summ input");
             var summ = 0;
-            jQuery.each( summable_input, function( i, val ) {
-                if($(this).val()) {
-                    summ += parseInt($(this).val());
-                }
-            });
+
+            if(tab_id === 'surface_tab') {
+                jQuery.each( summable_input_group, function( i, val ) {
+                    var summable_input_val = $(this).find('input:not(.custom_input_for_coefficient)').val();
+                    var summable_input_coef_val = $(this).find('input.custom_input_for_coefficient').val();
+                    console.log(summable_input_val*summable_input_coef_val);
+                    if(summable_input_val) {
+                        if(summable_input_coef_val) {
+                            summ += parseInt(summable_input_val * summable_input_coef_val);
+                        }else {
+                            summ += parseInt(summable_input_val);
+                        }
+                    }
+                });
+            } else {
+                jQuery.each( summable_input_group, function( i, val ) {
+                    var summable_input_val = $(this).find('input:not(.custom_input_for_coefficient)').val();
+                    if(summable_input_val) {
+                        summ += parseInt(summable_input_val);
+                    }
+                });
+            }
             summ_input.attr('placeholder', summ);
         }
         $("#surface_tab .input-group input[name='ground_width'], #surface_tab .input-group input[name='ground_length']").on("change paste keyup", function() {
