@@ -2908,7 +2908,7 @@
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Lorem ipsum dolor sit amet</label>
+                                                <label class="pure_switch_label"> Título de propiedad del transmitente.</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
@@ -2919,7 +2919,7 @@
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Lorem ipsum dolor sit amet</label>
+                                                <label class="pure_switch_label">Último recibo anual IBI.</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
@@ -2930,7 +2930,7 @@
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Lorem ipsum dolor sit amet</label>
+                                                <label class="pure_switch_label">Nota simple del Registro de la Propiedad.</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
@@ -2941,7 +2941,40 @@
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Lorem ipsum dolor sit amet</label>
+                                                <label class="pure_switch_label">Contratos de alquiler en vigor.</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="pure_switch">
+                                            <span class="m-switch m-switch--outline m-switch--brand">
+                                                <label>
+                                                    <input type="checkbox" name="save_check1">
+                                                    <span></span>
+                                                </label>
+                                            </span>
+                                                <label class="pure_switch_label">Últimos recibos de servicios al corriente de pago: agua, luz, gas, etc.</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="pure_switch">
+                                            <span class="m-switch m-switch--outline m-switch--brand">
+                                                <label>
+                                                    <input type="checkbox" name="save_check1">
+                                                    <span></span>
+                                                </label>
+                                            </span>
+                                                <label class="pure_switch_label">ITE, Inspección Técnica de Edificios.</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="pure_switch">
+                                            <span class="m-switch m-switch--outline m-switch--brand">
+                                                <label>
+                                                    <input type="checkbox" name="save_check1">
+                                                    <span></span>
+                                                </label>
+                                            </span>
+                                                <label class="pure_switch_label">Planos catastrales.</label>
                                             </div>
                                         </div>
                                     </div>
