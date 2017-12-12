@@ -28,6 +28,9 @@ Route::group(['as' => 'voyager.'], function () {
     /* ajax (get subcategories in create object page)  */
     Route::post('get-categories/{id}', ['uses' =>  $namespacePrefix.'VoyagerAdminController@getSubCategories', 'as' => 'get-categories/{id}']);
 
+    /* ajax (get users on object)  */
+    Route::post('add-vip-users', ['uses' =>  $namespacePrefix.'VoyagerController@individualProperty', 'as' => 'add-vip-users']);
+
     Route::group(['middleware' => 'admin.user'], function () use ($namespacePrefix) {
         event('voyager.admin.routing', app('router'));
 

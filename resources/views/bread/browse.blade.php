@@ -4,10 +4,6 @@
 
 @section('content')
     @php
-        foreach (explode(',', Illuminate\Support\Facades\DB::table('posts')->value('vip_users')) as $users) {
-            $user_id[$users] = $users;
-        }
-
         $arrayJsonData = [];
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
             foreach ($dataTypeContent as $data) {
@@ -22,7 +18,8 @@
                         'title_fr'      => $data->title_fr,
                         'zip_code'      => $data->zip_code,
                         'town'          => $data->town,
-                        'price'         => $data->price
+                        'price'         => $data->price,
+                        'vip_users'     => $data->vip_users
                     ];
                 } else {
                     foreach ($dataType->browseRows as $row) {
@@ -546,7 +543,7 @@
                         field: "price",
                         title: "Prix"
 
-                        <?php if(Auth::user()->role_id != 5) { ?>},
+                        <?php if(Auth::user()->role_id != 5) { ?>
                             {{--{--}}
                             {{--field: "Email",--}}
                             {{--title: "Email",--}}
@@ -565,33 +562,58 @@
                             {{--}--}}
 
                             {{--}, --}}
+                    },  {
+                        field: "Users",
+                        title: "Users",
+                        width: 300,
+                        template: function (row) {
+                            var arr = (row.vip_users).split(',');
+                            return '<form action="{{ URL::to('/admin/add-vip-users') }}" id="vip_users_add_' + row.id + '" method="POST">{{ csrf_field() }}' +
+                                        '<div style="float:left;">' +
+                                        '<select class="form-control" name="vip_users[]" multiple="multiple" data-placeholder="Sélectionner un client">' +
+                                            <?php
+                                                foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user) {
+                                            ?>
+                                                    '<option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }}</option>' +
+                                            <?php
+                                                }
+                                            ?>
+                                        '</select>' +
+                                        '<div class="message_status_' + row.id + '"></div>' +
+                                            '<input type="hidden" name="property_id" value="' + row.id + '" />' +
+                                        '</div>' +
+                                        '<div style="float:left; padding-left: 5px;">' +
+                                            '<button type="submit" id="submit_vip" class="btn">Send</button>' +
+                                        '</div>' +
+                                    '</form>';
+                        }
 
-                        {
-                            field: "Actions",
-                            width: 110,
-                            title: "Actions",
-                            sortable: false,
-                            overflow: 'visible',
-                            template: function (row) {
-                                var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                    },  {
+                        field: "Actions",
+                        width: 110,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
 //                                console.log(row.id);
-                                return '\
-                                <div class="dropdown ' + dropup + '">\
-                                    <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
-                                        <i class="la la-ellipsis-h"></i>\
-                                    </a>\
-                                    <div class="dropdown-menu dropdown-menu-right">\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
-                                        <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
-                                        <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
-                                            {{ method_field("DELETE") }}\
-                                            {{ csrf_field() }}\
-                                            <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
-                                        </form>\
-                                    </div>\
+                            return '\
+                            <div class="dropdown ' + dropup + '">\
+                                <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
+                                    <i class="la la-ellipsis-h"></i>\
+                                </a>\
+                                <div class="dropdown-menu dropdown-menu-right">\
+                                    <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
+                                    <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
+                                    <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                        {{ method_field("DELETE") }}\
+                                        {{ csrf_field() }}\
+                                        <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
+                                    </form>\
                                 </div>\
-                            ';
-                            }, <?php } ?>
+                            </div>\
+                        ';
+                        },  <?php } ?>
 
                             <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
 
@@ -795,6 +817,29 @@
 
     <script>
         jQuery(document).ready(function () {
+            @foreach ($arrayJsonData as $data)
+                jQuery("#vip_users_add_" + '{{ $data['id'] }}').validate({
+                submitHandler: function (form) {
+                    $.ajax({
+                        type: form.method,
+                        url: form.action,
+                        data: $(form).serialize(),
+                        cache: false
+                    }).done(function (data) {
+                        $('.message_status_' + {{ $data['id'] }} + '').append('<small style="color:limegreen">Users successfully add</small>');
+                        setTimeout(function(){
+                            $('.message_status_'+ {{ $data['id'] }} +'').fadeOut('500');
+                        }, 1500);
+                    })
+                }
+            });
+
+            @endforeach
+        });
+    </script>
+
+    {{--<script>
+        jQuery(document).ready(function () {
             jQuery("#property_send").validate({
                 rules: {
                     email: {
@@ -823,5 +868,5 @@
                 }
             })
         })
-    </script>
+    </script>--}}
 @stop

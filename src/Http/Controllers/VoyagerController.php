@@ -72,4 +72,10 @@ class VoyagerController extends Controller
     {
         return Voyager::view('voyager::profile');
     }
+
+    public function individualProperty(Request $request) {
+        $property_id = $request->property_id;
+        $vip_users = (!empty($request->vip_users)) ? implode(",", $request->vip_users ) : '0';
+        Post::where('id', $property_id)->update(['vip_users' => $vip_users]);
+    }
 }

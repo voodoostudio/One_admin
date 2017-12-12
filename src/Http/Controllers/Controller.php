@@ -56,19 +56,26 @@ abstract class Controller extends BaseController
             /*
              * merge ex_images and upload images
              */
-            if ($row->type == 'multiple_images' && !is_null($content)) {
+            /*if ($row->type == 'multiple_images' && !is_null($content)) {
                 if (isset($data->{$row->field})) {
                     $ex_files = json_decode($data->{$row->field}, true);
                     if (!is_null($ex_files)) {
                         $content = json_encode(array_merge($ex_files, json_decode($content)));
                     }
                 }
-            }
+            }*/
 
             if (is_null($content)) {
                 // If the multiple_images upload is null and it has a current image keep the current image
                 if ($row->type == 'multiple_images' && is_null($request->input($row->field)) && isset($data->{$row->field})) {
                     $content = $data->{$row->field};
+                } elseif ($row->type == 'multiple_images' && !is_null($content)) {
+                    if (isset($data->{$row->field})) {
+                        $ex_files = json_decode($data->{$row->field}, true);
+                        if (!is_null($ex_files)) {
+                            $content = json_encode(array_merge($ex_files, json_decode($content)));
+                        }
+                    }
                 }
 
                 // If the image upload is null and it has a current image keep the current image
