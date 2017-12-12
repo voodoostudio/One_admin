@@ -28,6 +28,9 @@ Route::group(['as' => 'voyager.'], function () {
     /* ajax (get subcategories in create object page)  */
     Route::post('get-categories/{id}', ['uses' =>  $namespacePrefix.'VoyagerAdminController@getSubCategories', 'as' => 'get-categories/{id}']);
 
+    /* Get Clients page */
+    Route::get('clients', ['uses' =>  $namespacePrefix.'VoyagerClientsController@index', 'as' => 'clients']);
+
     /* ajax (get users on object)  */
     Route::post('add-vip-users', ['uses' =>  $namespacePrefix.'VoyagerController@individualProperty', 'as' => 'add-vip-users']);
 

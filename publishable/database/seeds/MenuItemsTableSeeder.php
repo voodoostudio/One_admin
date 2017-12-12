@@ -116,6 +116,22 @@ class MenuItemsTableSeeder extends Seeder
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id'    => $menu->id,
+                'title'      => 'Clients',
+                'url'        => '',
+                'route'      => 'voyager.clients.index',
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => 'flaticon-users',
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 7,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id'    => $menu->id,
                 'title'      => 'Roles',
                 'url'        => '',
                 'route'      => 'voyager.roles.index',
