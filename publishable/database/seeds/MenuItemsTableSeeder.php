@@ -118,7 +118,7 @@ class MenuItemsTableSeeder extends Seeder
                 'menu_id'    => $menu->id,
                 'title'      => 'Clients',
                 'url'        => '',
-                'route'      => 'voyager.clients.index',
+                'route'      => 'voyager.clients',
             ]);
             if (!$menuItem->exists) {
                 $menuItem->fill([
