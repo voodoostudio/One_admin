@@ -173,8 +173,13 @@
                                 <input id="email" type="text" placeholder="Email" name="email">
                             </div>
                             <div>
-                                <label for="password">Enter password</label>
-                                <input id="password" type="password" placeholder="Password" name="password">
+                                @if(isset($dataTypeContent->id))
+                                    <label for="password">Change password</label>
+                                    <input id="password" type="password" placeholder="Change password" name="password">
+                                @else
+                                    <label for="password">Enter password</label>
+                                    <input id="password" type="password" placeholder="Enter password" name="password">
+                                @endif
                             </div>
                             <div>
                                 <label for="preferred_means_contact">Preferred means of contact</label>

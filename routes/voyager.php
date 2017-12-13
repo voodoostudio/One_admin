@@ -30,6 +30,8 @@ Route::group(['as' => 'voyager.'], function () {
 
     /* Get Clients page */
     Route::get('clients', ['uses' =>  $namespacePrefix.'VoyagerClientsController@index', 'as' => 'clients']);
+    Route::get('clients/create', ['uses' =>  $namespacePrefix.'VoyagerClientsController@clientView', 'as' => 'clients/create']);
+    Route::post('clients/create', ['uses' =>  $namespacePrefix.'VoyagerClientsController@clientCreate', 'as' => 'clients/create']);
 
     /* ajax (get users on object)  */
     Route::post('add-vip-users', ['uses' =>  $namespacePrefix.'VoyagerController@individualProperty', 'as' => 'add-vip-users']);

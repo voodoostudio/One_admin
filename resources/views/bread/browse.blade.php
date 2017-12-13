@@ -4,6 +4,11 @@
 
 @section('content')
     @php
+        foreach (explode(',', Illuminate\Support\Facades\DB::table('posts')->value('vip_users')) as $users) {
+            $user_id[$users] = $users;
+        }
+    @endphp
+    @php
         $arrayJsonData = [];
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
             foreach ($dataTypeContent as $data) {
