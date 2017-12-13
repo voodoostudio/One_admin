@@ -15,7 +15,12 @@ class VoyagerClientsController extends Controller
 
     public function index ()
     {
-        return view('voyager::clients.clients');
+        return view('voyager::clients.clients-view');
+    }
+
+    public function clientCreate ()
+    {
+        return view('voyager::clients.edit-add');
     }
 
 }
