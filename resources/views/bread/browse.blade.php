@@ -487,7 +487,7 @@
 
                     }, {
                         field: "Actions",
-                        width: 110,
+                        width: 80,
                         title: "Actions",
                         sortable: false,
                         overflow: 'visible',
@@ -515,6 +515,7 @@
 
                         field: "reference",
                         title: "Réf.",
+                        width: 70,
                         sortable: false,
                         selector: false
 
@@ -523,7 +524,9 @@
                         title: "",
                         width: 100,
                         template: function (row) {
-                            return '<img style = "max-width: 100px;" src = "../storage/' + row.image + '"/>';
+                            return  '<a href="{{ Request::url() }}/' + row.id + '">' +
+                                '<img style = "max-width: 100px;" src = "../storage/' + row.image + '"/>' +
+                                '</a>';
                         }
 
                     }, {
@@ -534,11 +537,15 @@
                         title: "Catégorie"
                     }, {
                         field: "title_fr",
-                        title: "Titre"
+                        title: "Titre",
+                        template: function (row) {
+                            return '<a href="{{ Request::url() }}/' + row.id + '"">' + row.title_fr + '</a>'
+                        }
 
                     }, {
                         field: "zip_code",
-                        title: "Code postal"
+                        title: "Code postal",
+                        width: 90
 
                     }, {
                         field: "town",
@@ -546,56 +553,58 @@
 
                     },  {
                         field: "price",
-                        title: "Prix"
+                        title: "Prix",
+                        width: 90,
 
                         <?php if(Auth::user()->role_id != 5) { ?>
-                            {{--{--}}
-                            {{--field: "Email",--}}
-                            {{--title: "Email",--}}
-                            {{--width: 300,--}}
-                            {{--template: function (row) {--}}
-                            {{--return '<form action="{{ URL::to('/admin/confirm-email') }}" id="property_send" method="POST">{{ csrf_field() }}' +--}}
-                            {{--'<div style="float:left;">' +--}}
-                            {{--'<input type="email" name="email" class="form-control m-input" placeholder="email" />' +--}}
-                            {{--'<div class="message_status"></div>' +--}}
-                            {{--'<input type="hidden" name="property_id" value="' + row.id + '" />' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div style="float:left; padding-left: 5px;">' +--}}
-                            {{--'<button type="submit" class="btn">Send</button>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</form>';--}}
-                            {{--}--}}
+                        {{--{--}}
+                        {{--field: "Email",--}}
+                        {{--title: "Email",--}}
+                        {{--width: 300,--}}
+                        {{--template: function (row) {--}}
+                        {{--return '<form action="{{ URL::to('/admin/confirm-email') }}" id="property_send" method="POST">{{ csrf_field() }}' +--}}
+                        {{--'<div style="float:left;">' +--}}
+                        {{--'<input type="email" name="email" class="form-control m-input" placeholder="email" />' +--}}
+                        {{--'<div class="message_status"></div>' +--}}
+                        {{--'<input type="hidden" name="property_id" value="' + row.id + '" />' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div style="float:left; padding-left: 5px;">' +--}}
+                        {{--'<button type="submit" class="btn">Send</button>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</form>';--}}
+                        {{--}--}}
 
-                            {{--}, --}}
+                        {{--}, --}}
                     },  {
                         field: "Users",
                         title: "Users",
-                        width: 300,
+                        width: 200,
                         template: function (row) {
                             var arr = (row.vip_users).split(',');
                             return '<form action="{{ URL::to('/admin/add-vip-users') }}" id="vip_users_add_' + row.id + '" method="POST">{{ csrf_field() }}' +
-                                        '<div style="float:left;">' +
-                                        '<select class="form-control" name="vip_users[]" multiple="multiple" data-placeholder="Sélectionner un client">' +
-                                            <?php
-                                                foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user) {
-                                            ?>
-                                                    '<option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }}</option>' +
-                                            <?php
-                                                }
-                                            ?>
-                                        '</select>' +
-                                        '<div class="message_status_' + row.id + '"></div>' +
-                                            '<input type="hidden" name="property_id" value="' + row.id + '" />' +
-                                        '</div>' +
-                                        '<div style="float:left; padding-left: 5px;">' +
-                                            '<button type="submit" id="submit_vip" class="btn">Send</button>' +
-                                        '</div>' +
-                                    '</form>';
+                                '<div class="form-group">' +
+                                '<select class="form-control m-select2 custom_select2" name="vip_users[]" multiple="multiple" data-placeholder="Sélectionner un client">' +
+                                <?php
+                                    foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user) {
+                                    ?>
+                                    '<option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }}</option>' +
+                                <?php
+                                    }
+                                    ?>
+                                    '</select>' +
+                                '<div class="message_status_' + row.id + '"></div>' +
+                                '<input type="hidden" name="property_id" value="' + row.id + '" />' +
+                                '</div>' +
+                                '<div class="m--align-right">' +
+                                '<button type="submit" id="submit_vip" class="btn">Envoyer</button>' +
+                                '</div>' +
+                                '</form>';
+
                         }
 
                     },  {
                         field: "Actions",
-                        width: 110,
+                        width: 60,
                         title: "Actions",
                         sortable: false,
                         overflow: 'visible',
@@ -610,51 +619,68 @@
                                 <div class="dropdown-menu dropdown-menu-right">\
                                     <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
                                     <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
-                                    <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
-                                        {{ method_field("DELETE") }}\
-                                        {{ csrf_field() }}\
-                                        <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
-                                    </form>\
+                                    <button class="dropdown-item" data-toggle="modal" data-target="#m_modal_5"><i class="la la-times-circle"></i>Effacer</button>\
                                 </div>\
-                            </div>\
-                        ';
+                                <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                <div class="modal-dialog modal-sm" role="document">\
+                                    <div class="modal-content">\
+                                        <div class="modal-header">\
+                                            <h5 class="modal-title" id="exampleModalLabel">Remove object</h5>\
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                                <span aria-hidden="true">×</span>\
+                                            </button>\
+                                        </div>\
+                                        <div class="modal-body">\
+                                            <p>Are you sure you want to delete this object?</p>\
+                                        </div>\
+                                        <div class="modal-footer">\
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                                            <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                                {{ method_field("DELETE") }}\
+                                                {{ csrf_field() }}\
+                                                <button type="submit" class="btn btn-primary">Effacer</button>\
+                                            </form>\
+                                        </div>\
+                                    </div>\
+                                </div>\
+                            ';
                         },  <?php } ?>
 
                             <?php } elseif($dataType->display_name_plural == 'Categories') { ?>
 
                         field: "id",
-                            title: "#",
-                            width: 50,
-                            sortable: false,
-                            selector: false,
-                            textAlign: 'center'
+                        title: "#",
+                        width: 50,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
 
-                        }, {
-                            field: "name",
-                            title: "Name"
+                    }, {
+                        field: "name",
+                        title: "Name"
 
-                        }, {
-                            field: "parent_id",
-                            title: "Parent"
+                    }, {
+                        field: "parent_id",
+                        title: "Parent"
 
-                        }, {
-                            field: "slug",
-                            title: "Slug"
+                    }, {
+                        field: "slug",
+                        title: "Slug"
 
-                        }, {
-                            field: "created_at",
-                            title: "Create date"
+                    }, {
+                        field: "created_at",
+                        title: "Create date"
 
-                        }, {
-                            field: "Actions",
-                            width: 110,
-                            title: "Actions",
-                            sortable: false,
-                            overflow: 'visible',
-                            template: function (row) {
-                                var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                    }, {
+                        field: "Actions",
+                        width: 80,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
 //                                console.log(row.id);
-                                return '\
+                            return '\
                                 <div class="dropdown ' + dropup + '">\
                                     <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
                                         <i class="la la-ellipsis-h"></i>\
@@ -670,50 +696,50 @@
                                     </div>\
                                 </div>\
                             ';
-                            },
+                        },
 
-                            <?php } elseif($dataType->display_name_plural == 'Users') { ?>
+                        <?php } elseif($dataType->display_name_plural == 'Users') { ?>
 
-                            field: "id",
-                            title: "#",
-                            width: 50,
-                            sortable: false,
-                            selector: false,
-                            textAlign: 'center'
+                        field: "id",
+                        title: "#",
+                        width: 50,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
 
-                        }, {
-                            field: "name",
-                            title: "Nom",
-                            width: 150
+                    }, {
+                        field: "name",
+                        title: "Nom",
+                        width: 150
 
-                        }, {
-                            field: "email",
-                            title: "Courriel",
-                            width: 200
+                    }, {
+                        field: "email",
+                        title: "Courriel",
+                        width: 200
 
-                        }, {
-                            field: "avatar",
-                            title: "Avatar",
-                            template: function (row) {
-                                return '<img style = "max-width: 100px;" src = "../storage/' + row.avatar + '"/>';
-                            }
+                    }, {
+                        field: "avatar",
+                        title: "Avatar",
+                        template: function (row) {
+                            return '<img style = "max-width: 100px;" src = "../storage/' + row.avatar + '"/>';
+                        }
 
-                        }, {
-                            field: "created_at",
-                            title: "Date de création"
+                    }, {
+                        field: "created_at",
+                        title: "Date de création"
 
-                        }, {
-                            field: "Actions",
-                            width: 110,
-                            title: "Actions",
-                            sortable: false,
-                            overflow: 'visible',
-                            template: function (row) {
-                                var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                    }, {
+                        field: "Actions",
+                        width: 80,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
 //                                console.log(row.id);
-                                var currentUSer = Number('{{ Auth::user()->role_id }}');
-                                if (currentUSer <= row.id) {
-                                    return '\
+                            var currentUSer = Number('{{ Auth::user()->role_id }}');
+                            if (currentUSer <= row.id) {
+                                return '\
                                     <div class="dropdown ' + dropup + '">\
                                         <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
                                             <i class="la la-ellipsis-h"></i>\
@@ -729,42 +755,42 @@
                                         </div>\
                                     </div>\
                                     ';
-                                }
-                            },
+                            }
+                        },
 
-                            <?php } elseif($dataType->display_name_plural == 'Roles') { ?>
+                        <?php } elseif($dataType->display_name_plural == 'Roles') { ?>
 
-                            field: "id",
-                            title: "#",
-                            width: 50,
-                            sortable: false,
-                            selector: false,
-                            textAlign: 'center'
+                        field: "id",
+                        title: "#",
+                        width: 50,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
 
-                        }, {
-                            field: "name",
-                            title: "Name",
-                            width: 150
+                    }, {
+                        field: "name",
+                        title: "Name",
+                        width: 150
 
-                        }, {
-                            field: "display_name",
-                            title: "Display name",
-                            width: 200
+                    }, {
+                        field: "display_name",
+                        title: "Display name",
+                        width: 200
 
-                        }, {
-                            field: "created_at",
-                            title: "Create date"
+                    }, {
+                        field: "created_at",
+                        title: "Create date"
 
-                        }, {
-                            field: "Actions",
-                            width: 110,
-                            title: "Actions",
-                            sortable: false,
-                            overflow: 'visible',
-                            template: function (row) {
-                                var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                    }, {
+                        field: "Actions",
+                        width: 80,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
 //                                console.log(row.id);
-                                return '\
+                            return '\
                                 <div class="dropdown ' + dropup + '">\
                                     <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
                                         <i class="la la-ellipsis-h"></i>\
@@ -780,10 +806,10 @@
                                     </div>\
                                 </div>\
                             ';
-                            }
-                            <?php } ?>
+                        }
+                        <?php } ?>
 
-                        }]
+                    }]
                 });
 
                 var query = datatable.getDataSourceQuery();
@@ -802,6 +828,8 @@
 
                 $('#m_form_status, #m_form_type').selectpicker();
 
+                $('select.custom_select2').select2();
+
             };
 
             return {
@@ -812,6 +840,8 @@
                 }
             };
         }();
+
+
 
         jQuery(document).ready(function () {
             DatatableDataLocalDemo.init();
