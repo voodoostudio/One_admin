@@ -18,7 +18,7 @@ class VoyagerClientsController extends Controller
 
     public function clientView ()
     {
-        return view('voyager::clients.edit-add');
+        return view('voyager::clients.add');
     }
 
     public function clientCreate(Request $request) {

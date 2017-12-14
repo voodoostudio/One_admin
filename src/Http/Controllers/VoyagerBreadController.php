@@ -118,7 +118,7 @@ class VoyagerBreadController extends Controller
     public function show(Request $request, $id)
     {
         $slug = $this->getSlug($request);
-
+//        dd($slug);
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
         $relationships = $this->getRelationships($dataType);
@@ -146,6 +146,8 @@ class VoyagerBreadController extends Controller
 
         if (view()->exists("voyager::$slug.read")) {
             $view = "voyager::$slug.read";
+        } elseif(view()->exists("voyager::clients.client_profile")) {
+            $view = "voyager::clients.client_profile";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -193,6 +195,8 @@ class VoyagerBreadController extends Controller
 
         if (view()->exists("voyager::$slug.edit-add")) {
             $view = "voyager::$slug.edit-add";
+        }elseif(view()->exists("voyager::profile")) {
+            $view = "voyager::clients.edit_profile";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
