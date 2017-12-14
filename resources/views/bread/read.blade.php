@@ -388,7 +388,7 @@
                         $.each(fields, function () {
                             if (this.id === category.fields[i]) {
                                 this.field.parent().parent().addClass('not_specified');
-                                this.field.parent().parent().parent().css('display','none');
+//                                this.field.parent().parent().parent().css('display','none');
                             }
                         })
                     }

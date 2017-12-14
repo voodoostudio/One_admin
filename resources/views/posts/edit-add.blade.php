@@ -1264,7 +1264,7 @@
                                                             <input type="number" min="0" class="form-control elem-categories multiplier" placeholder="Largeur" value="@if(isset($dataTypeContent->ground_width)){{ $dataTypeContent->ground_width }}@endif" name="ground_width" />
                                                             <span class="input-group-addon">m</span>
                                                             <span class="input-group-addon custom_additional_addon"><i class="la la-pause" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);transform: rotate(90deg);"></i></span>
-                                                            <input type="number" min="0" class="form-control" placeholder="Total" disabled="disabled" value="@if(isset($dataTypeContent->surface_ground)){{ $dataTypeContent->surface_ground }}@endif" name="surface_ground" />
+                                                            <input type="number" min="0" class="form-control" placeholder="{{ ($dataTypeContent->ground_length && $dataTypeContent->ground_width) ? $dataTypeContent->ground_length*$dataTypeContent->ground_width : 'Total' }}" disabled="disabled" value="@if(isset($dataTypeContent->surface_ground)){{ $dataTypeContent->surface_ground }}@endif" name="surface_ground" />
                                                             <span class="input-group-addon">m<sup>2</sup></span>
                                                         </div>
                                                     </div>
@@ -2884,109 +2884,109 @@
                 </div>
                 <!-- End Actions block -->
 
-                    <!--begin::Modal-->
-                    <div class="modal fade" id="save_checklist" tabindex="-1" role="dialog" aria-labelledby="save_checklist" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">
-                                        Check all checkboxes in order to save this object
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <!--begin::Modal-->
+                <div class="modal fade" id="save_checklist" tabindex="-1" role="dialog" aria-labelledby="save_checklist" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">
+                                    Check all checkboxes in order to save this object
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">
                                         &times;
                                     </span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="pure_switch">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="pure_switch">
                                             <span class="m-switch m-switch--outline m-switch--brand">
                                                 <label>
                                                     <input type="checkbox" name="save_check1">
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label"> Título de propiedad del transmitente.</label>
-                                            </div>
+                                            <label class="pure_switch_label"> Título de propiedad del transmitente.</label>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="pure_switch">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="pure_switch">
                                             <span class="m-switch m-switch--outline m-switch--brand">
                                                 <label>
                                                     <input type="checkbox" name="save_check1">
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Último recibo anual IBI.</label>
-                                            </div>
+                                            <label class="pure_switch_label">Último recibo anual IBI.</label>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="pure_switch">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="pure_switch">
                                             <span class="m-switch m-switch--outline m-switch--brand">
                                                 <label>
                                                     <input type="checkbox" name="save_check1">
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Nota simple del Registro de la Propiedad.</label>
-                                            </div>
+                                            <label class="pure_switch_label">Nota simple del Registro de la Propiedad.</label>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="pure_switch">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="pure_switch">
                                             <span class="m-switch m-switch--outline m-switch--brand">
                                                 <label>
                                                     <input type="checkbox" name="save_check1">
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Contratos de alquiler en vigor.</label>
-                                            </div>
+                                            <label class="pure_switch_label">Contratos de alquiler en vigor.</label>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="pure_switch">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="pure_switch">
                                             <span class="m-switch m-switch--outline m-switch--brand">
                                                 <label>
                                                     <input type="checkbox" name="save_check1">
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Últimos recibos de servicios al corriente de pago: agua, luz, gas, etc.</label>
-                                            </div>
+                                            <label class="pure_switch_label">Últimos recibos de servicios al corriente de pago: agua, luz, gas, etc.</label>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="pure_switch">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="pure_switch">
                                             <span class="m-switch m-switch--outline m-switch--brand">
                                                 <label>
                                                     <input type="checkbox" name="save_check1">
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">ITE, Inspección Técnica de Edificios.</label>
-                                            </div>
+                                            <label class="pure_switch_label">ITE, Inspección Técnica de Edificios.</label>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="pure_switch">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="pure_switch">
                                             <span class="m-switch m-switch--outline m-switch--brand">
                                                 <label>
                                                     <input type="checkbox" name="save_check1">
                                                     <span></span>
                                                 </label>
                                             </span>
-                                                <label class="pure_switch_label">Planos catastrales.</label>
-                                            </div>
+                                            <label class="pure_switch_label">Planos catastrales.</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" value="submit" class="btn btn-primary" disabled="disabled">Enregistrer</button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" value="submit" class="btn btn-primary" disabled="disabled">Enregistrer</button>
                             </div>
                         </div>
                     </div>
-                    <!--end::Modal-->
+                </div>
+                <!--end::Modal-->
 
             </form>
             <!-- End Form -->
