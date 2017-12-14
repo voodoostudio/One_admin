@@ -142,19 +142,19 @@
                                     <div class="form-group m-form__group row">
                                         <div class="col-lg-3 margin_bottom_10">
                                             <label>Name</label>
-                                            <input type="text" id="" class="form-control m-input" placeholder="Name" value="" name="">
+                                            <input type="text" id="" class="form-control m-input" placeholder="Name" value="" name="name">
                                         </div>
                                         <div class="col-lg-3 margin_bottom_10">
                                             <label>Second Name</label>
-                                            <input type="text" id="" class="form-control m-input" placeholder="Second Name" value="" name="">
+                                            <input type="text" id="" class="form-control m-input" placeholder="Second Name" value="" name="last_name">
                                         </div>
                                         <div class="col-lg-3 margin_bottom_10">
-                                            <label>Email</label>
-                                            <input type="text" id="" class="form-control m-input" placeholder="Email" value="" name="">
+                                            <label>Langue de correspondance</label>
+                                            <input type="text" id="" class="form-control m-input" placeholder="Email" value="" name="lng_corres">
                                         </div>
                                         <div class="col-lg-3 margin_bottom_10">
                                             <label>Password</label>
-                                            <input type="text" id="" class="form-control m-input" placeholder="Password" value="" name="">
+                                            <input type="text" id="" class="form-control m-input" placeholder="Password" value="" name="email">
                                         </div>
                                     </div>
                                 </div>

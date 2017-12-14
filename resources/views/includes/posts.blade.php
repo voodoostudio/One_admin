@@ -10,23 +10,89 @@
                         <i class="m-nav__link-icon la la-home"></i>
                     </a>
                 </li>
-                <li class="m-nav__separator">-</li>
+                <li class="m-nav__separator">
+                    -
+                </li>
                 <li class="m-nav__item">
                     <a href="" class="m-nav__link">
-                        <span class="m-nav__link-text">
-                            Objects
-                        </span>
+                                <span class="m-nav__link-text">
+                                    Objects
+                                </span>
                     </a>
                 </li>
-                <li class="m-nav__separator">-</li>
+                <li class="m-nav__separator">
+                    -
+                </li>
                 <li class="m-nav__item">
                     <a href="" class="m-nav__link">
-                        <span class="m-nav__link-text">
-                            Object ID
-                        </span>
+                                <span class="m-nav__link-text">
+                                    Object ID
+                                </span>
                     </a>
                 </li>
             </ul>
+        </div>
+        <div>
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                    <i class="la la-plus m--hide"></i>
+                    <i class="la la-ellipsis-h"></i>
+                </a>
+                <div class="m-dropdown__wrapper">
+                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                    <div class="m-dropdown__inner">
+                        <div class="m-dropdown__body">
+                            <div class="m-dropdown__content">
+                                <ul class="m-nav">
+                                    <li class="m-nav__section m-nav__section--first m--hide">
+                                                <span class="m-nav__section-text">
+                                                    Quick Actions
+                                                </span>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                            <span class="m-nav__link-text">
+                                                        Activity
+                                                    </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                            <span class="m-nav__link-text">
+																	Messages
+																</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                            <span class="m-nav__link-text">
+																	FAQ
+																</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                            <span class="m-nav__link-text">
+																	Support
+																</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                    <li class="m-nav__item">
+                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                            Submit
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -55,7 +121,9 @@
                             <div class="m-widget19__header">
                                 <div class="m-widget19__user-img">
                                     @foreach(TCG\Voyager\Models\User::all() as $user)
-                                        <img class="m-widget19__img" src="../../storage/{{ ($dataTypeContent->author_id == $user->id) ? $user->avatar : '' }}" alt="User avatar">
+                                        @if($dataTypeContent->author_id == $user->id)
+                                            <img class="m-widget19__img" src="../../storage/{{ $user->avatar }}" alt="">
+                                        @endif
                                     @endforeach
                                 </div>
                                 <div class="m-widget19__info">
@@ -64,6 +132,10 @@
                                             {{ ($dataTypeContent->author_id == $user->role_id) ? $user->name : ''  }}
                                         @endforeach
                                     </span>
+                                    <br>
+                                    <span class="m-widget19__time">
+                                        Admin, who posted this object
+                                    </span>
                                 </div>
                                 <div class="m-widget19__stats object_price">
                                     <span class="m-widget19__number m--font-brand">
@@ -71,6 +143,7 @@
                                             {{ ($dataTypeContent->price != null) ? $dataTypeContent->price : 'None' }}
                                         @endif
                                     </span>
+                                    <span class="m-widget19__comment">Price comments</span>
                                 </div>
                             </div>
                             <div class="m-widget19__body">
@@ -102,13 +175,13 @@
                                 <div class="col-sm-12 col-md-6 col-xl-12">
                                     <div class="m-widget4__item">
                                         <div class="m-widget4__info">
-                                            <span class="m-widget4__title">
-                                                Référence
-                                            </span>
+                                                <span class="m-widget4__title">
+                                                    Référence
+                                                </span>
                                             <span class="m-widget4__sub">
-                                                {{--{{ $dataTypeContent->reference }}--}}
+                                                    {{--{{ $dataTypeContent->reference }}--}}
                                                 {{  'HIS-' . str_pad($dataTypeContent->id , 4, '0', STR_PAD_LEFT) }}
-                                            </span>
+                                                </span>
                                         </div>
                                     </div>
                                 </div>
@@ -117,12 +190,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Exclusivité
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Exclusivité
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ ($dataTypeContent->exclusiveness == 0) ? 'None' : 'Yes' }}
-                                        </span>
+                                                {{ ($dataTypeContent->exclusiveness == 0) ? 'None' : 'Yes' }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -131,16 +204,16 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Catégorie
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Catégorie
+                                            </span>
                                         <span cat_id="{{ $dataTypeContent->category_id }}" class="m-widget4__sub">
-                                            @foreach(TCG\Voyager\Models\Category::all() as $category)
+                                                @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                 @if($category->parent_id == null)
                                                     @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ $category->name }}@endif
                                                 @endif
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -149,16 +222,16 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Sous-catégorie
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Sous-catégorie
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            @foreach(TCG\Voyager\Models\Category::all() as $category)
+                                                @foreach(TCG\Voyager\Models\Category::all() as $category)
                                                 @if($category->parent_id != null)
                                                     @if(isset($dataTypeContent->sub_category) && $dataTypeContent->sub_category == $category->id){{ $category->name }}@endif
                                                 @endif
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -167,12 +240,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Notation
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Notation
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->notation }}
-                                        </span>
+                                                {{ $dataTypeContent->notation }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -181,14 +254,14 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Courtier
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Courtier
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            @foreach(TCG\Voyager\Models\User::all() as $user)
+                                                @foreach(TCG\Voyager\Models\User::all() as $user)
                                                 {{ ($dataTypeContent->author_id == $user->role_id) ? $user->name : ''  }}
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -213,14 +286,14 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Mandat
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Mandat
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            @foreach(TCG\Voyager\Models\Mandate::all() as $mandate)
+                                                @foreach(TCG\Voyager\Models\Mandate::all() as $mandate)
                                                 @if(isset($dataTypeContent->mandate_id) && $dataTypeContent->mandate_id == $mandate->reference){{ $mandate->value }}@endif
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -229,14 +302,14 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Origine <!-- todo -->
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Origine <!-- todo -->
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            @foreach(TCG\Voyager\Models\Origin::all() as $origin)
+                                                @foreach(TCG\Voyager\Models\Origin::all() as $origin)
                                                 @if(isset($dataTypeContent->origin_id) && $dataTypeContent->origin_id == $origin->reference){{ $origin->value }}@endif
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -245,12 +318,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Début du mandat
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Début du mandat
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->mandate_start }}
-                                        </span>
+                                                {{ $dataTypeContent->mandate_start }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -259,12 +332,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Fin du mandat
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Fin du mandat
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->term_end }}
-                                        </span>
+                                                {{ $dataTypeContent->term_end }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -300,32 +373,16 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            @if($dataTypeContent->ann_type != 1)
-                                <div class="col-sm-12 col-md-6 col-xl-12">
-                                    <!--begin::Widget 14 Item-->
-                                    <div class="m-widget4__item">
-                                        <div class="m-widget4__info">
+                            <div class="col-sm-12 col-md-6 col-xl-12"  style="display: {{ ($dataTypeContent->ann_type == 1) ? 'none' : '' }}">
+                                <!--begin::Widget 14 Item-->
+                                <div class="m-widget4__item">
+                                    <div class="m-widget4__info">
                                             <span class="m-widget4__title">
                                                 Disponibilité jusqu'au
                                             </span>
-                                            <span class="m-widget4__sub">
+                                        <span class="m-widget4__sub">
                                                 {{ $dataTypeContent->availab_until }}
                                             </span>
-                                        </div>
-                                    </div>
-                                    <!--end::Widget 14 Item-->
-                                </div>
-                            @endif
-                            <div class="col-sm-12 col-md-6 col-xl-12">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Promotion
-                                        </span>
-                                        <span class="m-widget4__sub">
-                                            {{ ($dataTypeContent->promotion == 0) ? 'Non' : 'Oui' }}
-                                        </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -334,12 +391,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Transaction directe
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Promotion
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ ($dataTypeContent->direct_transaction == 0) ? 'Non' : 'Oui' }}
-                                        </span>
+                                                {{ ($dataTypeContent->promotion == 0) ? 'Non' : 'Oui' }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -348,12 +405,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Note sur la transaction
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Transaction directe
+                                            </span>
                                         <span class="m-widget4__sub">
-                                             {{ $dataTypeContent->note_transaction }}
-                                        </span>
+                                                {{ ($dataTypeContent->direct_transaction == 0) ? 'Non' : 'Oui' }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -362,12 +419,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Note courtier
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Note sur la transaction
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->broker_notes }}
-                                        </span>
+                                                 {{ $dataTypeContent->note_transaction }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -376,12 +433,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Remarques importantes
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Note courtier
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->important_notes }}
-                                        </span>
+                                                {{ $dataTypeContent->broker_notes }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -390,12 +447,26 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Notes pour le propriétaire
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Remarques importantes
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->owner_notes }}
-                                        </span>
+                                                {{ $dataTypeContent->important_notes }}
+                                            </span>
+                                    </div>
+                                </div>
+                                <!--end::Widget 14 Item-->
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-xl-12">
+                                <!--begin::Widget 14 Item-->
+                                <div class="m-widget4__item">
+                                    <div class="m-widget4__info">
+                                            <span class="m-widget4__title">
+                                                Notes pour le propriétaire
+                                            </span>
+                                        <span class="m-widget4__sub">
+                                                {{ $dataTypeContent->owner_notes }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -412,7 +483,7 @@
 
     <!--Begin::Info Portlet-->
     <div class="row">
-        <div class="col-xl-8">
+        <div class="col-xl-6">
             <!--begin:: Widgets/New Users-->
             <div class="m-portlet m-portlet--full-height">
                 <div class="m-portlet__head">
@@ -428,21 +499,21 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Adresse
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Adresse
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->address }}
-                                        </span>
+                                                {{ $dataTypeContent->address }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -456,7 +527,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -470,7 +541,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -484,7 +555,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -498,7 +569,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -512,36 +583,36 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Pays
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Pays
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->country }}
+                                                {{ $dataTypeContent->country }}
                                             {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
                                             {{--@if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ $country->value }}@endif--}}
                                             {{--@endforeach--}}
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Localisation <!-- todo -->
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Localisation <!-- todo -->
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{--{{ $dataTypeContent->location }}--}}
+                                                {{--{{ $dataTypeContent->location }}--}}
                                             @foreach(TCG\Voyager\Models\Location::all() as $location)
                                                 @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ $location->value }}@endif
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -553,7 +624,7 @@
             </div>
             <!--end:: Widgets/New Users-->
         </div>
-        <div class="col-xl-4">
+        <div class="col-xl-6">
             <!--begin:: Widgets/New Users-->
             <div class="m-portlet m-portlet--full-height">
                 <div class="m-portlet__head">
@@ -569,46 +640,46 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-12">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Langue de l'annonce
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Langue de l'annonce
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            @foreach(TCG\Voyager\Models\Languages::all() as $lng_of_add)
+                                                @foreach(TCG\Voyager\Models\Languages::all() as $lng_of_add)
                                                 @if(isset($dataTypeContent->lng_of_add) && $dataTypeContent->lng_of_add == $lng_of_add->reference){{ $lng_of_add->value }}@endif
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-12">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Titre de l'annonce
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Titre de l'annonce
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            Value
-                                        </span>
+                                                Value
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-12">
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Description de l'annonce
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Description de l'annonce
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            Value
-                                        </span>
+                                                Value
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -623,7 +694,7 @@
     </div>
     <!--End::Info Portlet-->
 
-    <!--Begin::Info Portlet-->
+        <!--Begin::Info Portlet-->
     <div class="row">
         <div class="col-xl-12">
             <!--begin:: Widgets/New Users-->
@@ -645,14 +716,14 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Devise
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Devise
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
                                                 {{ ($dataTypeContent->сurrency == $сurrency->reference) ? $сurrency->value : '' }}
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -661,12 +732,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Prix
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Prix
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->price }}
-                                        </span>
+                                                {{ $dataTypeContent->price }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -675,12 +746,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Prix au m2
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Prix au m2
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->price_m2 }}
-                                        </span>
+                                                {{ $dataTypeContent->price_m2 }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -689,12 +760,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Rendement brut
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Rendement brut
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->gross_yield }}
-                                        </span>
+                                                {{ $dataTypeContent->gross_yield }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -703,12 +774,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Rendement net
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Rendement net
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->net_return }}
-                                        </span>
+                                                {{ $dataTypeContent->net_return }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -717,12 +788,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Montant propriétaire
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Montant propriétaire
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->owner_amount }}
-                                        </span>
+                                                {{ $dataTypeContent->owner_amount }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -731,12 +802,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Honoraire client
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Honoraire client
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->client_fees }}
-                                        </span>
+                                                {{ $dataTypeContent->client_fees }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -745,12 +816,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Honoraire propriétaire
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Honoraire propriétaire
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->owner_fees }}
-                                        </span>
+                                                {{ $dataTypeContent->owner_fees }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -759,12 +830,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Montant négociable
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Montant négociable
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->negotiable_amount }}
-                                        </span>
+                                                {{ $dataTypeContent->negotiable_amount }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -773,12 +844,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Montant estimé
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Montant estimé
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->estimate_price }}
-                                        </span>
+                                                {{ $dataTypeContent->estimate_price }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -787,12 +858,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Droits d'enregistremenet
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Droits d'enregistremenet
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->recording_rights }}
-                                        </span>
+                                                {{ $dataTypeContent->recording_rights }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -801,14 +872,14 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Régime
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Régime
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            @foreach(TCG\Voyager\Models\Regime::all() as $regime)
+                                                @foreach(TCG\Voyager\Models\Regime::all() as $regime)
                                                 @if(isset($dataTypeContent->regime) && $dataTypeContent->regime == $regime->reference){{ $regime->value }}@endif
                                             @endforeach
-                                        </span>
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -817,12 +888,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title" name="heating_loads">
-                                            Charges de chauffage
-                                        </span>
+                                            <span class="m-widget4__title" name="heating_loads">
+                                                Charges de chauffage
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->heating_loads }}
-                                        </span>
+                                                {{ $dataTypeContent->heating_loads }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -831,12 +902,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title" name="ppe_charges">
-                                            Charges PPE
-                                        </span>
+                                            <span class="m-widget4__title" name="ppe_charges">
+                                                Charges PPE
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->ppe_charges }}
-                                        </span>
+                                                {{ $dataTypeContent->ppe_charges }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -845,12 +916,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title" name="condominium_fees">
-                                            Charges de copropriété
-                                        </span>
+                                            <span class="m-widget4__title" name="condominium_fees">
+                                                Charges de copropriété
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->condominium_fees }}
-                                        </span>
+                                                {{ $dataTypeContent->condominium_fees }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -859,12 +930,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title" name="property_tax">
-                                            Taxe foncière
-                                        </span>
+                                            <span class="m-widget4__title" name="property_tax">
+                                                Taxe foncière
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->property_tax }}
-                                        </span>
+                                                {{ $dataTypeContent->property_tax }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -873,13 +944,13 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Procédure en cours auprès de la copro.
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Procédure en cours auprès de la copro.
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ ($dataTypeContent->procedure_in_progress == 0) ? '&#10006;' : '	&#10004;' }}
-                                            {{--<input type="checkbox" value="{{ ($dataTypeContent->procedure_in_progress != 0) ? '' : 'on' }}">--}}
-                                        </span>
+                                                {{ ($dataTypeContent->procedure_in_progress == 0) ? '&#10006;' : '	&#10004;' }}
+                                                    {{--<input type="checkbox" value="{{ ($dataTypeContent->procedure_in_progress != 0) ? '' : 'on' }}">--}}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -888,12 +959,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Fonds de rénovation
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Fonds de rénovation
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->renovation_fund }}
-                                        </span>
+                                                {{ $dataTypeContent->renovation_fund }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -902,12 +973,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Charges annuelles
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Charges annuelles
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->annual_charges }}
-                                        </span>
+                                                {{ $dataTypeContent->annual_charges }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -916,12 +987,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title" name="taxes_1">
-                                            Taxe d'habitation
-                                        </span>
+                                            <span class="m-widget4__title" name="taxes_1">
+                                                Taxe d'habitation
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->taxes_1 }}
-                                        </span>
+                                                {{ $dataTypeContent->taxes_1 }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -930,12 +1001,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title" name="rental_security">
-                                            Caution locative
-                                        </span>
+                                            <span class="m-widget4__title" name="rental_security">
+                                                Caution locative
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->rental_security }}
-                                        </span>
+                                                {{ $dataTypeContent->rental_security }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -944,12 +1015,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title" name="commercial_property">
-                                            Fonds de commerce
-                                        </span>
+                                            <span class="m-widget4__title" name="commercial_property">
+                                                Fonds de commerce
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->commercial_property }}
-                                        </span>
+                                                {{ $dataTypeContent->commercial_property }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -958,12 +1029,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Revenus
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Revenus
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->earnings }}
-                                        </span>
+                                                {{ $dataTypeContent->earnings }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -972,12 +1043,12 @@
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Impôts
-                                        </span>
+                                            <span class="m-widget4__title">
+                                                Impôts
+                                            </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->taxes }}
-                                        </span>
+                                                {{ $dataTypeContent->taxes }}
+                                            </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -992,7 +1063,7 @@
     </div>
     <!--End::Info Portlet-->
 
-    <!--Begin::Info Portlet-->
+        <!--Begin::Info Portlet-->
     <div class="row">
         <div class="col-xl-12">
             <!--begin:: Widgets/New Users-->
@@ -3839,4 +3910,4 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
