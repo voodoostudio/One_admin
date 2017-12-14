@@ -11,8 +11,8 @@
     @php
         $arrayJsonData = [];
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
-            foreach ($dataTypeContent as $data) {
-                if($dataType->display_name_plural == 'Posts') {
+            if($dataType->display_name_plural == 'Posts') {
+                foreach ($dataTypeContent as $data) {
                     $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
                     $arrayJsonData[] = [
                         'id'            => $data->id,
@@ -26,7 +26,13 @@
                         'price'         => $data->price,
                         'vip_users'     => $data->vip_users
                     ];
-                } else {
+                }
+            } elseif($dataType->display_name_plural == 'Clients') {
+                foreach ($dataTypeContent->where('role_id', 5) as $data) {
+                    $arrayJsonData[] = $data;
+                }
+            } else {
+                foreach ($dataTypeContent as $data) {
                     foreach ($dataType->browseRows as $row) {
                         $data[$row->display_name] = $data->{$row->field};
                     }
@@ -755,6 +761,66 @@
                                         </div>\
                                     </div>\
                                     ';
+                            }
+                        },
+
+                        <?php } elseif($dataType->display_name_plural == 'Clients') { ?>
+
+                        field: "id",
+                        title: "#",
+                        width: 50,
+                        sortable: false,
+                        selector: false,
+                        textAlign: 'center'
+
+                    }, {
+                        field: "name",
+                        title: "Nom",
+                        width: 150
+
+                    }, {
+                        field: "email",
+                        title: "Courriel",
+                        width: 200
+
+                    }, {
+                        field: "avatar",
+                        title: "Avatar",
+                        template: function (row) {
+                            return '<img style = "max-width: 100px;" src = "../storage/' + row.avatar + '"/>';
+                        }
+
+                    }, {
+                        field: "created_at",
+                        title: "Date de création"
+
+                    }, {
+                        field: "Actions",
+                        width: 110,
+                        title: "Actions",
+                        sortable: false,
+                        overflow: 'visible',
+                        template: function (row) {
+                            var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+                            //                                console.log(row.id);
+                            var currentUSer = Number('{{ Auth::user()->role_id }}');
+                            if (currentUSer <= row.id) {
+                                return '\
+                                        <div class="dropdown ' + dropup + '">\
+                                            <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
+                                                <i class="la la-ellipsis-h"></i>\
+                                            </a>\
+                                            <div class="dropdown-menu dropdown-menu-right">\
+                                                <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
+                                                <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
+                                                <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                                    {{ method_field("DELETE") }}\
+                                                    {{ csrf_field() }}\
+                                                    <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
+                                                </form>\
+                                            </div>\
+                                        </div>\
+                                        ';
                             }
                         },
 

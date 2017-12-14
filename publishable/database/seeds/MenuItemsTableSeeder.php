@@ -118,7 +118,7 @@ class MenuItemsTableSeeder extends Seeder
                 'menu_id'    => $menu->id,
                 'title'      => 'Clients',
                 'url'        => '',
-                'route'      => 'voyager.clients',
+                'route'      => 'voyager.clients.index',
             ]);
             if (!$menuItem->exists) {
                 $menuItem->fill([
@@ -142,7 +142,7 @@ class MenuItemsTableSeeder extends Seeder
                     'icon_class' => 'flaticon-warning-2',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 7,
+                    'order'      => 8,
                 ])->save();
             }
 
@@ -157,7 +157,7 @@ class MenuItemsTableSeeder extends Seeder
                     'icon_class' => 'flaticon-cogwheel-1',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 9,
+                    'order'      => 10,
                 ])->save();
             }
 
@@ -173,7 +173,7 @@ class MenuItemsTableSeeder extends Seeder
                     'icon_class' => 'voyager-list',
                     'color'      => null,
                     'parent_id'  => $toolsMenuItem->id,
-                    'order'      => 10,
+                    'order'      => 11,
                 ])->save();
             }
 
@@ -189,7 +189,7 @@ class MenuItemsTableSeeder extends Seeder
                     'icon_class' => 'voyager-data',
                     'color'      => null,
                     'parent_id'  => $toolsMenuItem->id,
-                    'order'      => 11,
+                    'order'      => 12,
                 ])->save();
             }
 
@@ -204,7 +204,7 @@ class MenuItemsTableSeeder extends Seeder
                     'icon_class' => 'voyager-compass',
                     'color'      => null,
                     'parent_id'  => $toolsMenuItem->id,
-                    'order'      => 12,
+                    'order'      => 13,
                 ])->save();
             }
 
@@ -219,7 +219,7 @@ class MenuItemsTableSeeder extends Seeder
                     'icon_class' => 'voyager-hook',
                     'color'      => null,
                     'parent_id'  => $toolsMenuItem->id,
-                    'order'      => 13,
+                    'order'      => 14,
                 ])->save();
             }
 
@@ -235,7 +235,7 @@ class MenuItemsTableSeeder extends Seeder
                     'icon_class' => 'flaticon-cogwheel',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 14,
+                    'order'      => 15,
                 ])->save();
             }
         }
