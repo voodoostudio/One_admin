@@ -57,7 +57,9 @@
                             <div class="m-widget19__header">
                                 <div class="m-widget19__user-img">
                                     @foreach(TCG\Voyager\Models\User::all() as $user)
-                                        <img class="m-widget19__img" src="../../storage/{{ ($dataTypeContent->author_id == $user->id) ? $user->avatar : '' }}" alt="User avatar">
+                                        @if($dataTypeContent->author_id == $user->id)
+                                            <img class="m-widget19__img" src="../../storage/{{ $user->avatar }}" alt="User avatar">
+                                        @endif
                                     @endforeach
                                 </div>
                                 <div class="m-widget19__info">
