@@ -341,7 +341,7 @@
                             @endif
                             <!-- CSRF TOKEN -->
                                 {{ csrf_field() }}
-
+                                <input type="hidden" name="type_clients" value="Clients">
                                 <div class="tab-pane active" id="m_user_profile_tab_1">
                                     <div class="m-portlet__body">
                                         <div class="form-group m-form__group m--margin-top-10 m--hide">

@@ -225,7 +225,7 @@ class VoyagerBreadController extends Controller
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
 
             return redirect()
-                ->route("voyager.{$dataType->slug}.index")
+                ->route(($request->type_clients == 'Clients') ? "voyager.clients.index" : "voyager.{$dataType->slug}.index")
                 ->with([
                     'message'    => __('voyager.generic.successfully_updated')." {$dataType->display_name_singular}",
                     'alert-type' => 'success',
