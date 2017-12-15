@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use TCG\Voyager\Models\Clients;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 class VoyagerClientsController extends Controller
 {
@@ -31,9 +32,10 @@ class VoyagerClientsController extends Controller
         $role = 5;
         $password = uniqid(rand(),true);
         $b_pass = bcrypt($password);
-        $url = $_SERVER['REQUEST_URI'] . 'admin/login?email=' . $request->email . '&password=' . $password . '';
+        $url = URL::to('/') . '/admin/login?email=' . $request->email . '&password=' . $password . '';
         $data = [
             'name'      => $request->name,
+            'last_name' => $request->last_name,
             'email'     => $request->email,
             'url'       => $url,
             'password'  => $password,
@@ -60,22 +62,14 @@ class VoyagerClientsController extends Controller
                 $message->to($data['email']);
             });
 
-
-//            if (Mail::failures()) {
-//                return $error;
-//            } else {
-//                return $success;
-//            }
-
-
-
+            /* if (Mail::failures()) {
+                return $error;
+            } else {
+                return $success;
+            }*/
 
             // redirect
-            return $url;
-
+            return back();
         }
     }
-
-
-
 }
