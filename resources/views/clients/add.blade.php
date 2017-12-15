@@ -149,8 +149,12 @@
                                             <input type="text" id="" class="form-control m-input" placeholder="Second Name" value="" name="last_name">
                                         </div>
                                         <div class="col-lg-3 margin_bottom_10">
-                                            <label>Langue de correspondance</label>
-                                            <input type="text" id="" class="form-control m-input" placeholder="Email" value="" name="lng_corres">
+                                            <label for="lng_corres">Langue de correspondance</label>
+                                            <select name="lng_corres" id="lng_corres">
+                                                @foreach(TCG\Voyager\Models\UserLanguage::all() as $lng)
+                                                    <option value="{{ $lng->reference }}">{{ $lng->value }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="col-lg-3 margin_bottom_10">
                                             <label>Password</label>
