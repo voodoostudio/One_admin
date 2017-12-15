@@ -384,7 +384,7 @@
                                                     Enter you first name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="name" placeholder="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
+                                                    <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -392,7 +392,7 @@
                                                     Enter you middle name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="middle_name" placeholder="{{ ($dataTypeContent->middle_name) ? $dataTypeContent->middle_name : '' }}">
+                                                    <input class="form-control m-input" id="middle_name" type="text" name="middle_name" placeholder="Middle name" value="{{ ($dataTypeContent->middle_name) ? $dataTypeContent->middle_name : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -400,7 +400,7 @@
                                                     Enter you last name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="last_name" placeholder="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
+                                                    <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -416,11 +416,11 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
+                                                <label for="birth_date" class="col-2 col-form-label">
                                                     Enter you birth date
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="civil_status" type="text" placeholder="Birth date" name="birth_date" value="{{ ($dataTypeContent->birth_date) ? $dataTypeContent->birth_date : '' }}">
+                                                    <input class="form-control m-input" id="birth_date" type="text" placeholder="Birth date" name="birth_date" value="{{ ($dataTypeContent->birth_date) ? $dataTypeContent->birth_date : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -458,7 +458,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter business</label>
+                                                <label for="business" class="col-2 col-form-label">Enter business</label>
                                                 <div class="col-7">
                                                     <input class="form-control m-input" id="business" type="text" placeholder="Business" name="business" value="{{ ($dataTypeContent->business) ? $dataTypeContent->business : '' }}">
                                                 </div>
@@ -490,9 +490,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select country code</label>
+                                                <label for="example-text-input" class="col-2 col-form-label">Enter country code</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="country_code" type="text" placeholder="Website" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
+                                                    <input class="form-control m-input" id="country_code" type="text" placeholder="Country code" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -533,9 +533,10 @@
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">ROLE ID</label>
                                                 <div class="col-7">
+                                                    {{--{{ dd(TCG\Voyager\Models\Role::all()->toArray()) }}--}}
                                                     <select name="role_id" id="role_id">
                                                         @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                            <option value="{{ $role->id }}" @if(isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->reference){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>
+                                                            <option value="{{ $role->id }}" @if(isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->id){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -561,7 +562,7 @@
                                                     Civilité
                                                 </label>
                                                 <div class="col-7">
-                                                    <select name="civility_coup" id="select_civil">
+                                                    <select name="civility_coup" id="civility_coup">
                                                         @foreach(TCG\Voyager\Models\Civility::all() as $civility)
                                                             <option value="{{ $civility->reference }}" @if(isset($dataTypeContent->civility_coup) && $dataTypeContent->civility_coup == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
                                                         @endforeach
@@ -571,7 +572,7 @@
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Select language</label>
                                                 <div class="col-7">
-                                                    <select name="lng_corres_coup" id="lng_corres">
+                                                    <select name="lng_corres_coup" id="lng_corres_coup">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres_coup) && $dataTypeContent->lng_corres_coup == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
                                                         @endforeach
@@ -583,7 +584,7 @@
                                                     Enter you first name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="first_name_coup" placeholder="First Name" value="{{ ($dataTypeContent->first_name_coup) ? $dataTypeContent->first_name_coup : '' }}">
+                                                    <input class="form-control m-input" id="first_name_coup" type="text" name="first_name_coup" placeholder="First Name" value="{{ ($dataTypeContent->first_name_coup) ? $dataTypeContent->first_name_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -591,7 +592,7 @@
                                                     Enter you middle name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="middle_name_coup" placeholder="Middle Name" value="{{ ($dataTypeContent->middle_name_coup) ? $dataTypeContent->middle_name_coup : '' }}">
+                                                    <input class="form-control m-input" id="middle_name_coup" type="text" name="middle_name_coup" placeholder="Middle Name" value="{{ ($dataTypeContent->middle_name_coup) ? $dataTypeContent->middle_name_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -599,7 +600,7 @@
                                                     Enter you last name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="last_name_coup" placeholder="Last Name" value="{{ ($dataTypeContent->last_name_coup) ? $dataTypeContent->last_name_coup : '' }}">
+                                                    <input class="form-control m-input" id="last_name_coup" type="text" name="last_name_coup" placeholder="Last Name" value="{{ ($dataTypeContent->last_name_coup) ? $dataTypeContent->last_name_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -607,7 +608,8 @@
                                                     Select civil status
                                                 </label>
                                                 <div class="col-7">
-                                                    <select name="civil_status_coup" id="civil_status">
+                                                    <select name="civil_status_coup" id="civil_status_coup">
+                                                        {{--{{ dd(TCG\Voyager\Models\CivilStatus::all()->toArray()) }}--}}
                                                         @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
                                                             <option value="{{ $civil_stat->reference }}" @if(isset($dataTypeContent->civil_status_coup) && $dataTypeContent->civil_status_coup == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
                                                         @endforeach
@@ -615,19 +617,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
+                                                <label for="birth_date_coup" class="col-2 col-form-label">
                                                     Enter you birth date
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="civil_status" type="text" placeholder="Birth date" name="birth_date_coup" value="{{ ($dataTypeContent->birth_date_coup) ? $dataTypeContent->birth_date_coup : '' }}">
+                                                    <input class="form-control m-input" id="birth_date_coup" type="text" placeholder="Birth date" name="birth_date_coup" value="{{ ($dataTypeContent->birth_date_coup) ? $dataTypeContent->birth_date_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
+                                                <label for="birthplace_coup" class="col-2 col-form-label">
                                                     Enter you place birth
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="birthplace" type="text" placeholder="Place birth" name="birthplace_coup" value="{{ ($dataTypeContent->birthplace_coup) ? $dataTypeContent->birthplace_coup : '' }}">
+                                                    <input class="form-control m-input" id="birthplace_coup" type="text" placeholder="Place birth" name="birthplace_coup" value="{{ ($dataTypeContent->birthplace_coup) ? $dataTypeContent->birthplace_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -635,7 +637,7 @@
                                                     Enter nationality
                                                 </label>
                                                 <div class="col-7">
-                                                    <select id="nationality" name="nationality_coup">
+                                                    <select id="nationality_coup" name="nationality_coup">
                                                         @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
                                                             <option value="{{ $nationality->reference }}" @if(isset($dataTypeContent->nationality) && $dataTypeContent->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
                                                         @endforeach
@@ -647,31 +649,31 @@
                                                     Enter profession
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="profession" type="text" placeholder="Profession" name="profession_coup" value="{{ ($dataTypeContent->profession_coup) ? $dataTypeContent->profession_coup : '' }}">
+                                                    <input class="form-control m-input" id="profession_coup" type="text" placeholder="Profession" name="profession_coup" value="{{ ($dataTypeContent->profession_coup) ? $dataTypeContent->profession_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Enter service</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="service" type="text" placeholder="Service" name="service_coup" value="{{ ($dataTypeContent->service_coup) ? $dataTypeContent->service_coup : '' }}">
+                                                    <input class="form-control m-input" id="service_coup" type="text" placeholder="Service" name="service_coup" value="{{ ($dataTypeContent->service_coup) ? $dataTypeContent->service_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter business</label>
+                                                <label for="example-text-input" class="col-2 col-form-label">Enter Business</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="business" type="text" placeholder="Business" name="business_coup" value="{{ ($dataTypeContent->business_coup) ? $dataTypeContent->business_coup : '' }}">
+                                                    <input class="form-control m-input" id="business_coup" type="text" placeholder="Business" name="business_coup" value="{{ ($dataTypeContent->business_coup) ? $dataTypeContent->business_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Enter website</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="website" type="text" placeholder="Website" name="website_coup" value="{{ ($dataTypeContent->website_coup) ? $dataTypeContent->website_coup : '' }}">
+                                                    <input class="form-control m-input" id="website_coup" type="text" placeholder="Website" name="website_coup" value="{{ ($dataTypeContent->website_coup) ? $dataTypeContent->website_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Select email type</label>
                                                 <div class="col-7">
-                                                    <select name="email_type_coup" id="email_type">
+                                                    <select name="email_type_coup" id="email_type_coup">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
                                                             <option value="{{ $email_type->reference }}" @if(isset($dataTypeContent->email_type_coup) && $dataTypeContent->email_type_coup == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
                                                         @endforeach
@@ -681,7 +683,7 @@
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Select phone type</label>
                                                 <div class="col-7">
-                                                    <select name="phone_type_coup" id="phone_type">
+                                                    <select name="phone_type_coup" id="phone_type_coup">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
                                                             <option value="{{ $phone->reference }}" @if(isset($dataTypeContent->phone_type_coup) && $dataTypeContent->phone_type_coup == $phone->reference){{ 'selected="selected"' }} @endif>{{ $phone->value }}</option>
                                                         @endforeach
@@ -689,27 +691,27 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select country code</label>
+                                                <label for="country_code_coup" class="col-2 col-form-label">Enter country code</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="country_code" type="text" placeholder="Website" name="country_code_coup" value="{{ ($dataTypeContent->country_code_coup) ? $dataTypeContent->country_code_coup : '' }}">
+                                                    <input class="form-control m-input" id="country_code_coup" type="text" placeholder="Country code" name="country_code_coup" value="{{ ($dataTypeContent->country_code_coup) ? $dataTypeContent->country_code_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Enter phone</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone_coup" value="{{ ($dataTypeContent->phone_coup) ? $dataTypeContent->phone_coup : '' }}">
+                                                    <input class="form-control m-input" id="phone_coup" type="text" placeholder="Phone" name="phone_coup" value="{{ ($dataTypeContent->phone_coup) ? $dataTypeContent->phone_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter email</label>
+                                                <label for="email_coup" class="col-2 col-form-label">Enter email</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email_coup" value="{{ ($dataTypeContent->email_coup) ? $dataTypeContent->email_coup : '' }}">
+                                                    <input class="form-control m-input" id="email_coup" type="text" placeholder="Email" name="email_coup" value="{{ ($dataTypeContent->email_coup) ? $dataTypeContent->email_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Preferred means of contact</label>
                                                 <div class="col-7">
-                                                    <select name="preferred_means_contact_coup" id="preferred_means_contact">
+                                                    <select name="preferred_means_contact_coup" id="preferred_means_contact_coup">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
                                                             <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact_coup) && $dataTypeContent->preferred_means_contact_coup == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
                                                         @endforeach
@@ -737,7 +739,7 @@
                                                     Civilité
                                                 </label>
                                                 <div class="col-7">
-                                                    <select name="civility_child" id="select_civil">
+                                                    <select name="civility_child" id="civility_child">
                                                         @foreach(TCG\Voyager\Models\Civility::all() as $civility)
                                                             <option value="{{ $civility->reference }}" @if(isset($dataTypeContent->civility_child) && $dataTypeContent->civility_child == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
                                                         @endforeach
@@ -747,7 +749,7 @@
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Select language</label>
                                                 <div class="col-7">
-                                                    <select name="lng_corres_child" id="lng_corres">
+                                                    <select name="lng_corres_child" id="lng_corres_child">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres_child) && $dataTypeContent->lng_corres_child == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
                                                         @endforeach
@@ -759,7 +761,7 @@
                                                     Enter you first name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="first_name_child" placeholder="First Name" value="{{ ($dataTypeContent->first_name_child) ? $dataTypeContent->first_name_child : '' }}">
+                                                    <input class="form-control m-input" id="first_name_child" type="text" name="first_name_child" placeholder="First Name" value="{{ ($dataTypeContent->first_name_child) ? $dataTypeContent->first_name_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -767,7 +769,7 @@
                                                     Enter you middle name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="middle_name_child" placeholder="Middle Name" value="{{ ($dataTypeContent->middle_name_child) ? $dataTypeContent->middle_name_child : '' }}">
+                                                    <input class="form-control m-input" id="middle_name_child" type="text" name="middle_name_child" placeholder="Middle Name" value="{{ ($dataTypeContent->middle_name_child) ? $dataTypeContent->middle_name_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -775,7 +777,7 @@
                                                     Enter you last name
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="name" type="text" name="last_name_child" placeholder="Last Name" value="{{ ($dataTypeContent->last_name_child) ? $dataTypeContent->last_name_child : '' }}">
+                                                    <input class="form-control m-input" id="last_name_child" type="text" name="last_name_child" placeholder="Last Name" value="{{ ($dataTypeContent->last_name_child) ? $dataTypeContent->last_name_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -783,7 +785,7 @@
                                                     Select civil status
                                                 </label>
                                                 <div class="col-7">
-                                                    <select name="civil_status_child" id="civil_status">
+                                                    <select name="civil_status_child" id="civil_status_child">
                                                         @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
                                                             <option value="{{ $civil_stat->reference }}" @if(isset($dataTypeContent->civil_status_child) && $dataTypeContent->civil_status_child == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
                                                         @endforeach
@@ -791,19 +793,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
+                                                <label for="birth_date_child" class="col-2 col-form-label">
                                                     Enter you birth date
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="civil_status" type="text" placeholder="Birth date" name="birth_date_child" value="{{ ($dataTypeContent->birth_date_child) ? $dataTypeContent->birth_date_child : '' }}">
+                                                    <input class="form-control m-input" id="birth_date_child" type="text" placeholder="Birth date" name="birth_date_child" value="{{ ($dataTypeContent->birth_date_child) ? $dataTypeContent->birth_date_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
+                                                <label for=birthplace_child" class="col-2 col-form-label">
                                                     Enter you place birth
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="birthplace" type="text" placeholder="Place birth" name="birthplace_child" value="{{ ($dataTypeContent->birthplace_child) ? $dataTypeContent->birthplace_child : '' }}">
+                                                    <input class="form-control m-input" id="birthplace_child" type="text" placeholder="Place birth" name="birthplace_child" value="{{ ($dataTypeContent->birthplace_child) ? $dataTypeContent->birthplace_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -811,7 +813,7 @@
                                                     Enter nationality
                                                 </label>
                                                 <div class="col-7">
-                                                    <select id="nationality" name="nationality_child">
+                                                    <select id="nationality_child" name="nationality_child">
                                                         @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
                                                             <option value="{{ $nationality->reference }}" @if(isset($dataTypeContent->nationality) && $dataTypeContent->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
                                                         @endforeach
@@ -823,31 +825,31 @@
                                                     Enter profession
                                                 </label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="profession" type="text" placeholder="Profession" name="profession_child" value="{{ ($dataTypeContent->profession_child) ? $dataTypeContent->profession_child : '' }}">
+                                                    <input class="form-control m-input" id="profession_child" type="text" placeholder="Profession" name="profession_child" value="{{ ($dataTypeContent->profession_child) ? $dataTypeContent->profession_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Enter service</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="service" type="text" placeholder="Service" name="service_child" value="{{ ($dataTypeContent->service_child) ? $dataTypeContent->service_child : '' }}">
+                                                    <input class="form-control m-input" id="service_child" type="text" placeholder="Service" name="service_child" value="{{ ($dataTypeContent->service_child) ? $dataTypeContent->service_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Enter business</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="business" type="text" placeholder="Business" name="business_child" value="{{ ($dataTypeContent->business_child) ? $dataTypeContent->business_child : '' }}">
+                                                    <input class="form-control m-input" id="example-text-input" type="text" placeholder="Business" name="business_child" value="{{ ($dataTypeContent->business_child) ? $dataTypeContent->business_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Enter website</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="website" type="text" placeholder="Website" name="website_child" value="{{ ($dataTypeContent->website_child) ? $dataTypeContent->website_child : '' }}">
+                                                    <input class="form-control m-input" id="website_child" type="text" placeholder="Website" name="website_child" value="{{ ($dataTypeContent->website_child) ? $dataTypeContent->website_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Select email type</label>
                                                 <div class="col-7">
-                                                    <select name="email_type_child" id="email_type">
+                                                    <select name="email_type_child" id="email_type_child">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
                                                             <option value="{{ $email_type->reference }}" @if(isset($dataTypeContent->email_type_child) && $dataTypeContent->email_type_child == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
                                                         @endforeach
@@ -857,7 +859,7 @@
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Select phone type</label>
                                                 <div class="col-7">
-                                                    <select name="phone_type_child" id="phone_type">
+                                                    <select name="phone_type_child" id="phone_type_child">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
                                                             <option value="{{ $phone->reference }}" @if(isset($dataTypeContent->phone_type_child) && $dataTypeContent->phone_type_child == $phone->reference){{ 'selected="selected"' }} @endif>{{ $phone->value }}</option>
                                                         @endforeach
@@ -865,27 +867,27 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select country code</label>
+                                                <label for="country_code_child" class="col-2 col-form-label">Select country code</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="country_code" type="text" placeholder="Website" name="country_code_child" value="{{ ($dataTypeContent->country_code_child) ? $dataTypeContent->country_code_child : '' }}">
+                                                    <input class="form-control m-input" id="country_code_child" type="text" placeholder="Website" name="country_code_child" value="{{ ($dataTypeContent->country_code_child) ? $dataTypeContent->country_code_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Enter phone</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
+                                                    <input class="form-control m-input" id="phone_child" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Enter email</label>
                                                 <div class="col-7">
-                                                    <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email_child" value="{{ ($dataTypeContent->email_child) ? $dataTypeContent->email_child : '' }}">
+                                                    <input class="form-control m-input" id="email_child" type="text" placeholder="Email" name="email_child" value="{{ ($dataTypeContent->email_child) ? $dataTypeContent->email_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <label for="example-text-input" class="col-2 col-form-label">Preferred means of contact</label>
                                                 <div class="col-7">
-                                                    <select name="preferred_means_contact_child" id="preferred_means_contact">
+                                                    <select name="preferred_means_contact_child" id="preferred_means_contact_child">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
                                                             <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact_child) && $dataTypeContent->preferred_means_contact_child == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
                                                         @endforeach

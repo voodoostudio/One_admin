@@ -195,8 +195,8 @@ class VoyagerBreadController extends Controller
 
         if (view()->exists("voyager::$slug.edit-add")) {
             $view = "voyager::$slug.edit-add";
-        }elseif(view()->exists("voyager::profile")) {
-            $view = "voyager::clients.edit_profile";
+        }elseif($slug === 'users' || $slug === 'clients') {
+            $view = "voyager::clients.edit-add";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -274,6 +274,8 @@ class VoyagerBreadController extends Controller
 
         if (view()->exists("voyager::$slug.edit-add")) {
             $view = "voyager::$slug.edit-add";
+        }elseif($slug === 'users' || $slug === 'clients') {
+            $view = "voyager::clients.edit-add";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
