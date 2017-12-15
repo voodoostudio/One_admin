@@ -27,7 +27,7 @@ class PermissionRoleTableSeeder extends Seeder
 
         $role_super_admin = Role::where('name', 'super_admin')->firstOrFail();
 
-        $super_admin_permissions = Permission::whereIn('id',[1,3,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34])->get();
+        $super_admin_permissions = Permission::whereIn('id',[1,21,22,23,24,25,26,27,28,29,30])->get();
 
         $role_super_admin->permissions()->sync(
             $super_admin_permissions->pluck('id')->all()
@@ -37,7 +37,7 @@ class PermissionRoleTableSeeder extends Seeder
 
         $role_admin = Role::where('name', 'admin')->firstOrFail();
 
-        $admin_permissions = Permission::whereIn('id',[1,3,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34])->get();
+        $admin_permissions = Permission::whereIn('id',[1,21,22,23,24,25,26,27,28,29,30])->get();
 
         $role_admin->permissions()->sync(
             $admin_permissions->pluck('id')->all()
@@ -47,7 +47,7 @@ class PermissionRoleTableSeeder extends Seeder
 
         $role_moderator = Role::where('name', 'moderator')->firstOrFail();
 
-        $moderator_permissions = Permission::whereIn('id',[1,3,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34])->get();
+        $moderator_permissions = Permission::whereIn('id',[1,21,22,23,24,25,26,27,28,29,30])->get();
 
         $role_moderator->permissions()->sync(
             $moderator_permissions->pluck('id')->all()
@@ -57,7 +57,7 @@ class PermissionRoleTableSeeder extends Seeder
 
         $role_user = Role::where('name', 'user')->firstOrFail();
 
-        $user_permissions = Permission::whereIn('id',[1,25,26])->get();
+        $user_permissions = Permission::whereIn('id',[1,26,27])->get();
 
         $role_user->permissions()->sync(
             $user_permissions->pluck('id')->all()

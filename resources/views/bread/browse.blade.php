@@ -7,8 +7,7 @@
         foreach (explode(',', Illuminate\Support\Facades\DB::table('posts')->value('vip_users')) as $users) {
             $user_id[$users] = $users;
         }
-    @endphp
-    @php
+
         $arrayJsonData = [];
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
             if($dataType->display_name_plural == 'Posts') {
@@ -28,7 +27,11 @@
                     ];
                 }
             } elseif($dataType->display_name_plural == 'Clients') {
-                foreach ($dataTypeContent->where('role_id', 5) as $data) {
+                foreach ($dataTypeContent->where('role_id', '=', 5) as $data) {
+                    $arrayJsonData[] = $data;
+                }
+            } elseif($dataType->display_name_plural == 'Users') {
+                foreach ($dataTypeContent->where('role_id', '!=', 5) as $data) {
                     $arrayJsonData[] = $data;
                 }
             } else {
@@ -929,8 +932,8 @@
                     }).done(function (data) {
                         $('.message_status_' + {{ $data['id'] }} + '').append('<small style="color:limegreen">Users successfully add</small>');
                         setTimeout(function(){
-                            $('.message_status_'+ {{ $data['id'] }} +'').fadeOut('500');
-                        }, 1500);
+                            $('.message_status_'+ {{ $data['id'] }} +'').html('');
+                        }, 500);
                     })
                 }
             });
