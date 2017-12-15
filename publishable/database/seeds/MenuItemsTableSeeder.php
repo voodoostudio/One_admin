@@ -123,7 +123,7 @@ class MenuItemsTableSeeder extends Seeder
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'flaticon-users',
+                    'icon_class' => 'flaticon-user',
                     'color'      => null,
                     'parent_id'  => null,
                     'order'      => 7,
