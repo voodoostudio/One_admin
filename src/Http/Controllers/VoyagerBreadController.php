@@ -146,7 +146,7 @@ class VoyagerBreadController extends Controller
 
         if (view()->exists("voyager::$slug.read")) {
             $view = "voyager::$slug.read";
-        } elseif(view()->exists("voyager::clients.client_profile")) {
+        } elseif($slug === 'users') {
             $view = "voyager::clients.client_profile";
         }
 
