@@ -44,6 +44,8 @@
                                     @foreach(json_decode($dataTypeContent->image) as $image)
                                         <div><img src="{{ URL::to('storage') }}/{{ $image }}" alt=""></div>
                                     @endforeach
+                                @else
+                                    <div><img src="/img/admin/no_image.png" alt="Default image"></div>
                                 @endif
                             </div>
                             <h3 class="m-widget19__title m--font-light">
