@@ -3,7 +3,7 @@
 {{--{{ dd($dataTypeContent->toArray()) }}--}}
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ voyager_asset('css/ga-embed.css') }}">
+    {{--<link rel="stylesheet" type="text/css" href="{{ voyager_asset('css/ga-embed.css') }}">--}}
     <style>
         .user-email {
             font-size: .85rem;
@@ -22,68 +22,6 @@
                         <h3 class="m-subheader__title ">
                             My Profile 1
                         </h3>
-                    </div>
-                    <div>
-                        <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
-                            <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                                <i class="la la-plus m--hide"></i>
-                                <i class="la la-ellipsis-h"></i>
-                            </a>
-                            <div class="m-dropdown__wrapper">
-                                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                <div class="m-dropdown__inner">
-                                    <div class="m-dropdown__body">
-                                        <div class="m-dropdown__content">
-                                            <ul class="m-nav">
-                                                <li class="m-nav__section m-nav__section--first m--hide">
-                                                    <span class="m-nav__section-text">
-                                                        Quick Actions
-                                                    </span>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-share"></i>
-                                                        <span class="m-nav__link-text">
-                                                            Activity
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                        <span class="m-nav__link-text">
-                                                            Messages
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-info"></i>
-                                                        <span class="m-nav__link-text">
-                                                            FAQ
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                        <span class="m-nav__link-text">
-                                                            Support
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__separator m-nav__separator--fit"></li>
-                                                <li class="m-nav__item">
-                                                    <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                        Submit
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -114,7 +52,7 @@
                                             Section
                                         </span>
                                     </li>
-                                    <li class="m-nav__item">
+                                    <li class="m-nav__item" style="display: none">
                                         <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-profile-1"></i>
                                             <span class="m-nav__link-title">
@@ -135,11 +73,11 @@
                                         <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-share"></i>
                                             <span class="m-nav__link-text">
-                                                Activity
+                                                Properties
                                             </span>
                                         </a>
                                     </li>
-                                    <li class="m-nav__item">
+                                    <li class="m-nav__item" style="display: none">
                                         <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-chat-1"></i>
                                             <span class="m-nav__link-text">
@@ -147,85 +85,8 @@
                                             </span>
                                         </a>
                                     </li>
-                                    <li class="m-nav__item">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-graphic-2"></i>
-                                            <span class="m-nav__link-text">
-                                                Sales
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-time-3"></i>
-                                            <span class="m-nav__link-text">
-                                                Events
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                            <span class="m-nav__link-text">
-                                                            Support
-                                                        </span>
-                                        </a>
-                                    </li>
                                 </ul>
                                 <div class="m-portlet__body-separator"></div>
-                                <div class="m-widget1 m-widget1--paddingless">
-                                    <div class="m-widget1__item">
-                                        <div class="row m-row--no-padding align-items-center">
-                                            <div class="col">
-                                                <h3 class="m-widget1__title">
-                                                    Member Profit
-                                                </h3>
-                                                <span class="m-widget1__desc">
-                                                                Awerage Weekly Profit
-                                                            </span>
-                                            </div>
-                                            <div class="col m--align-right">
-                                                            <span class="m-widget1__number m--font-brand">
-                                                                +$17,800
-                                                            </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="m-widget1__item">
-                                        <div class="row m-row--no-padding align-items-center">
-                                            <div class="col">
-                                                <h3 class="m-widget1__title">
-                                                    Orders
-                                                </h3>
-                                                <span class="m-widget1__desc">
-                                                                Weekly Customer Orders
-                                                            </span>
-                                            </div>
-                                            <div class="col m--align-right">
-                                                            <span class="m-widget1__number m--font-danger">
-                                                                +1,800
-                                                            </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="m-widget1__item">
-                                        <div class="row m-row--no-padding align-items-center">
-                                            <div class="col">
-                                                <h3 class="m-widget1__title">
-                                                    Issue Reports
-                                                </h3>
-                                                <span class="m-widget1__desc">
-                                                                System bugs and issues
-                                                            </span>
-                                            </div>
-                                            <div class="col m--align-right">
-                                                            <span class="m-widget1__number m--font-success">
-                                                                -27,49%
-                                                            </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -235,295 +96,154 @@
                                 <div class="m-portlet__head-tools">
                                     <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
                                         <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab">
+                                            <a class="nav-link m-tabs__link active" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
                                                 Update Profile
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_2" role="tab">
-                                                Messages
-                                            </a>
-                                        </li>
-                                        <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3" role="tab">
+                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_settings" role="tab">
                                                 Settings
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="m-portlet__head-tools">
-                                    <ul class="m-portlet__nav">
-                                        <li class="m-portlet__nav-item">
-                                            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
-                                                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                                                    <i class="la la-plus"></i>
-                                                </a>
-                                                <div class="m-dropdown__wrapper">
-                                                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                                    <div class="m-dropdown__inner">
-                                                        <div class="m-dropdown__body">
-                                                            <div class="m-dropdown__content">
-                                                                <ul class="m-nav">
-                                                                    <li class="m-nav__section m-nav__section--first">
-                                                                                    <span class="m-nav__section-text">
-                                                                                        Quick Actions
-                                                                                    </span>
-                                                                    </li>
-                                                                    <li class="m-nav__item">
-                                                                        <a href="" class="m-nav__link">
-                                                                            <i class="m-nav__link-icon flaticon-share"></i>
-                                                                            <span class="m-nav__link-text">
-                                                                                            Create Post
-                                                                                        </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="m-nav__item">
-                                                                        <a href="" class="m-nav__link">
-                                                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                                            <span class="m-nav__link-text">
-                                                                                            Send Messages
-                                                                                        </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="m-nav__item">
-                                                                        <a href="" class="m-nav__link">
-                                                                            <i class="m-nav__link-icon flaticon-multimedia-2"></i>
-                                                                            <span class="m-nav__link-text">
-                                                                                            Upload File
-                                                                                        </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="m-nav__section">
-                                                                                    <span class="m-nav__section-text">
-                                                                                        Useful Links
-                                                                                    </span>
-                                                                    </li>
-                                                                    <li class="m-nav__item">
-                                                                        <a href="" class="m-nav__link">
-                                                                            <i class="m-nav__link-icon flaticon-info"></i>
-                                                                            <span class="m-nav__link-text">
-                                                                                            FAQ
-                                                                                        </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="m-nav__item">
-                                                                        <a href="" class="m-nav__link">
-                                                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                                            <span class="m-nav__link-text">
-                                                                                            Support
-                                                                                        </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
-                                                                    <li class="m-nav__item m--hide">
-                                                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                                            Submit
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
-                            <div class="tab-content">
-                                <form
-                                        class="m-form m-form--fit m-form--label-align-right form-edit-add"
-                                        action="{{ route('voyager.users.update', $dataTypeContent->id) }}"
-                                        method="POST" enctype="multipart/form-data">
-                                    <!-- PUT Method if we are editing -->
-                                @if(isset($dataTypeContent->id))
-                                    {{ method_field("PUT") }}
-                                @endif
-                                <!-- CSRF TOKEN -->
-                                    {{ csrf_field() }}
+                            <form class="m-form m-form--fit m-form--label-align-right form-edit-add m-form--group-seperator-dashed"
+                                  action="{{ route('voyager.users.update', $dataTypeContent->id) }}"
+                                  method="POST" enctype="multipart/form-data">
+                                <!-- PUT Method if we are editing -->
+                            @if(isset($dataTypeContent->id))
+                                {{ method_field("PUT") }}
+                            @endif
+                            <!-- CSRF TOKEN -->
+                                {{ csrf_field() }}
+                                <div class="tab-content">
                                     <input type="hidden" name="type_clients" value="Clients">
-                                    <div class="tab-pane active" id="m_user_profile_tab_1">
+                                    <div class="tab-pane active" id="profile_info" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
-                                            <div class="form-group m-form__group m--margin-top-10 m--hide">
-                                                <div class="alert m-alert m-alert--default" role="alert">
-                                                    The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
-                                                </div>
-                                            </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-10 ml-auto">
                                                     <h3 class="m-form__section">
-                                                        1. Personal Details
+                                                        Client
                                                     </h3>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Civilité
-                                                </label>
-                                                <div class="col-7">
-                                                    <select name="civility" id="select_civil">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label>Civilité</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="select_civil" name="civility" data-placeholder="Civilité">
                                                         @foreach(TCG\Voyager\Models\Civility::all() as $civility)
                                                             <option value="{{ $civility->reference }}" @if(isset($dataTypeContent->civility) && $dataTypeContent->civility == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select language</label>
-                                                <div class="col-7">
-                                                    <select name="lng_corres" id="lng_corres">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Select language</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres) && $dataTypeContent->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you first name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">First name</label>
                                                     <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you middle name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Middle name</label>
                                                     <input class="form-control m-input" id="middle_name" type="text" name="middle_name" placeholder="Middle name" value="{{ ($dataTypeContent->middle_name) ? $dataTypeContent->middle_name : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you last name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Select civil status
-                                                </label>
-                                                <div class="col-7">
-                                                    <select name="civil_status" id="civil_status">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Civil status</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status" id="civil_status" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
                                                             <option value="{{ $civil_stat->reference }}" @if(isset($dataTypeContent->civil_status) && $dataTypeContent->civil_status == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="birth_date" class="col-2 col-form-label">
-                                                    Enter you birth date
-                                                </label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="birth_date" type="text" placeholder="Birth date" name="birth_date" value="{{ ($dataTypeContent->birth_date) ? $dataTypeContent->birth_date : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you place birth
-                                                </label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" type="text" placeholder="Place birth" name="birthplace" value="{{ ($dataTypeContent->birthplace) ? $dataTypeContent->birthplace : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter nationality
-                                                </label>
-                                                <div class="col-7">
-                                                    <select id="nationality" name="nationality">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Nationality</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="nationality" name="nationality" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
                                                             <option value="{{ $nationality->reference }}" @if(isset($dataTypeContent->nationality) && $dataTypeContent->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Birth date</label>
+                                                        <div class='input-group date' id='m_datepicker_4'>
+                                                            <input class="form-control m-input date-type" readonly id="birth_date" type="text" placeholder="Birth date" name="birth_date" value="{{ ($dataTypeContent->birth_date) ? $dataTypeContent->birth_date : '' }}">
+                                                            {{--<input type='text' class="form-control m-input date-type rent for-type" value="" readonly  placeholder="Sélectionner la date" name="birth_date"/>--}}
+                                                            <span class="input-group-addon">
+                                                                <i class="la la-calendar-check-o"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Birth place</label>
+                                                    <input class="form-control m-input" type="text" placeholder="Birth place" name="birthplace" value="{{ ($dataTypeContent->birthplace) ? $dataTypeContent->birthplace : '' }}">
+                                                </div>
                                             </div>
+
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter profession
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Profession</label>
                                                     <input class="form-control m-input" id="profession" type="text" placeholder="Profession" name="profession" value="{{ ($dataTypeContent->profession) ? $dataTypeContent->profession : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter service</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Service</label>
                                                     <input class="form-control m-input" id="service" type="text" placeholder="Service" name="service" value="{{ ($dataTypeContent->service) ? $dataTypeContent->service : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="business" class="col-2 col-form-label">Enter business</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Business</label>
                                                     <input class="form-control m-input" id="business" type="text" placeholder="Business" name="business" value="{{ ($dataTypeContent->business) ? $dataTypeContent->business : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter website</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Website</label>
                                                     <input class="form-control m-input" id="website" type="text" placeholder="Website" name="website" value="{{ ($dataTypeContent->website) ? $dataTypeContent->website : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select email type</label>
-                                                <div class="col-7">
-                                                    <select name="email_type" id="email_type">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Email type</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Email type">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
                                                             <option value="{{ $email_type->reference }}" @if(isset($dataTypeContent->email_type) && $dataTypeContent->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select phone type</label>
-                                                <div class="col-7">
-                                                    <select name="phone_type" id="phone_type">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Email</label>
+                                                    <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}">
+                                                </div>
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Phone type</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type" id="phone_type" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
                                                             <option value="{{ $phone->reference }}">{{ $phone->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter country code</label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="country_code" type="text" placeholder="Country code" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter phone</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone" value="{{ ($dataTypeContent->phone) ? $dataTypeContent->phone : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter email</label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Country code</label>
+                                                    <input class="form-control m-input" id="country_code" type="text" placeholder="Country code" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                @if(isset($dataTypeContent->id))
-                                                    <label for="example-text-input" class="col-2 col-form-label">Change password</label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
-                                                    </div>
-                                                @else
-                                                    <label for="example-text-input" class="col-2 col-form-label">Enter password</label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Enter password" name="password">
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Preferred means of contact</label>
-                                                <div class="col-7">
-                                                    <select name="preferred_means_contact" id="preferred_means_contact">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Preferred means of contact</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact" id="preferred_means_contact" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
                                                             <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact) && $dataTypeContent->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
                                                         @endforeach
@@ -531,10 +251,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">ROLE ID</label>
-                                                <div class="col-7">
-                                                    {{--{{ dd(TCG\Voyager\Models\Role::all()->toArray()) }}--}}
-                                                    <select name="role_id" id="role_id">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Role</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="role_id" id="role_id" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Role::all() as $role)
                                                             <option value="{{ $role->id }}" @if(isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->id){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>
                                                         @endforeach
@@ -542,8 +261,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane active" id="m_user_profile_tab_2">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group m--margin-top-10 m--hide">
                                                 <div class="alert m-alert m-alert--default" role="alert">
@@ -719,8 +436,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane active" id="m_user_profile_tab_3">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group m--margin-top-10 m--hide">
                                                 <div class="alert m-alert m-alert--default" role="alert">
@@ -895,25 +610,43 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="m-portlet__foot m-portlet__foot--fit">
-                                            <div class="m-form__actions">
-                                                <div class="row">
-                                                    <div class="col-2"></div>
+                                    </div>
+                                    <div class="tab-pane" id="profile_settings" role="tabpanel">
+                                        <div class="m-portlet__body">
+                                            <div class="form-group m-form__group row">
+                                                @if(isset($dataTypeContent->id))
+                                                    <label for="example-text-input" class="col-2 col-form-label">Change password</label>
                                                     <div class="col-7">
-                                                        <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
-                                                            Save changes
-                                                        </button>
-                                                        &nbsp;&nbsp;
-                                                        <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
-                                                            Cancel
-                                                        </button>
+                                                        <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
                                                     </div>
-                                                </div>
+                                                @else
+                                                    <label for="example-text-input" class="col-2 col-form-label">Enter password</label>
+                                                    <div class="col-7">
+                                                        <input class="form-control m-input" id="password" type="password" placeholder="Enter password" name="password">
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+
+                                <div class="m-portlet__foot m-portlet__foot--fit">
+                                    <div class="m-form__actions">
+                                        <div class="row">
+                                            <div class="col-2"></div>
+                                            <div class="col-7">
+                                                <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                                                    Save changes
+                                                </button>
+                                                &nbsp;&nbsp;
+                                                <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
