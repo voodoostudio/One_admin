@@ -61,9 +61,7 @@
                                                         My Profile
                                                     </span>
                                                     <span class="m-nav__link-badge">
-                                                        <span class="m-badge m-badge--success">
-                                                            2
-                                                        </span>
+                                                        <span class="m-badge m-badge--success">2</span>
                                                     </span>
                                                 </span>
                                             </span>
@@ -71,7 +69,7 @@
                                     </li>
                                     <li class="m-nav__item">
                                         <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                            <i class="m-nav__link-icon flaticon-signs-1"></i>
                                             <span class="m-nav__link-text">
                                                 Properties
                                             </span>
@@ -111,7 +109,7 @@
                             </div>
                             <form class="m-form m-form--fit m-form--label-align-right form-edit-add m-form--group-seperator-dashed"
                                   action="{{ route('voyager.users.update', $dataTypeContent->id) }}"
-                                  method="POST" enctype="multipart/form-data">
+                                  method="POST" enctype="multipart/form-data" id="profile_edit_form">
                                 <!-- PUT Method if we are editing -->
                             @if(isset($dataTypeContent->id))
                                 {{ method_field("PUT") }}
@@ -123,10 +121,8 @@
                                     <div class="tab-pane active" id="profile_info" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
-                                                <div class="col-10 ml-auto">
-                                                    <h3 class="m-form__section">
-                                                        Client
-                                                    </h3>
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Client</h3>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -262,173 +258,125 @@
                                             </div>
                                         </div>
                                         <div class="m-portlet__body">
-                                            <div class="form-group m-form__group m--margin-top-10 m--hide">
-                                                <div class="alert m-alert m-alert--default" role="alert">
-                                                    The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Spouse</h3>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-10 ml-auto">
-                                                    <h3 class="m-form__section">
-                                                        2. Personal Details
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Civilité
-                                                </label>
-                                                <div class="col-7">
-                                                    <select name="civility_coup" id="civility_coup">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label>Civilité</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="civility_coup" id="civility_coup" data-placeholder="Civilité">
                                                         @foreach(TCG\Voyager\Models\Civility::all() as $civility)
                                                             <option value="{{ $civility->reference }}" @if(isset($dataTypeContent->civility_coup) && $dataTypeContent->civility_coup == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select language</label>
-                                                <div class="col-7">
-                                                    <select name="lng_corres_coup" id="lng_corres_coup">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Select language</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres_coup" id="lng_corres_coup"  data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres_coup) && $dataTypeContent->lng_corres_coup == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you first name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">First name</label>
                                                     <input class="form-control m-input" id="first_name_coup" type="text" name="first_name_coup" placeholder="First Name" value="{{ ($dataTypeContent->first_name_coup) ? $dataTypeContent->first_name_coup : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you middle name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Middle name</label>
                                                     <input class="form-control m-input" id="middle_name_coup" type="text" name="middle_name_coup" placeholder="Middle Name" value="{{ ($dataTypeContent->middle_name_coup) ? $dataTypeContent->middle_name_coup : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you last name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name_coup" type="text" name="last_name_coup" placeholder="Last Name" value="{{ ($dataTypeContent->last_name_coup) ? $dataTypeContent->last_name_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Select civil status
-                                                </label>
-                                                <div class="col-7">
-                                                    <select name="civil_status_coup" id="civil_status_coup">
-                                                        {{--{{ dd(TCG\Voyager\Models\CivilStatus::all()->toArray()) }}--}}
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Civil status</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status_coup" id="civil_status_coup" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
                                                             <option value="{{ $civil_stat->reference }}" @if(isset($dataTypeContent->civil_status_coup) && $dataTypeContent->civil_status_coup == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="birth_date_coup" class="col-2 col-form-label">
-                                                    Enter you birth date
-                                                </label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="birth_date_coup" type="text" placeholder="Birth date" name="birth_date_coup" value="{{ ($dataTypeContent->birth_date_coup) ? $dataTypeContent->birth_date_coup : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="birthplace_coup" class="col-2 col-form-label">
-                                                    Enter you place birth
-                                                </label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="birthplace_coup" type="text" placeholder="Place birth" name="birthplace_coup" value="{{ ($dataTypeContent->birthplace_coup) ? $dataTypeContent->birthplace_coup : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter nationality
-                                                </label>
-                                                <div class="col-7">
-                                                    <select id="nationality_coup" name="nationality_coup">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Nationality</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="nationality_coup" name="nationality_coup" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
                                                             <option value="{{ $nationality->reference }}" @if(isset($dataTypeContent->nationality) && $dataTypeContent->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Birth date</label>
+                                                        <div class='input-group date' id='m_datepicker_4'>
+                                                            <input class="form-control m-input date-type" readonly id="birth_date_coup" type="text" placeholder="Birth date" name="birth_date_coup" value="{{ ($dataTypeContent->birth_date_coup) ? $dataTypeContent->birth_date_coup : '' }}">
+                                                            <span class="input-group-addon">
+                                                                <i class="la la-calendar-check-o"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Birth place</label>
+                                                    <input class="form-control m-input" id="birthplace_coup" type="text" placeholder="Place birth" name="birthplace_coup" value="{{ ($dataTypeContent->birthplace_coup) ? $dataTypeContent->birthplace_coup : '' }}">
+                                                </div>
                                             </div>
+
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter profession
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Profession</label>
                                                     <input class="form-control m-input" id="profession_coup" type="text" placeholder="Profession" name="profession_coup" value="{{ ($dataTypeContent->profession_coup) ? $dataTypeContent->profession_coup : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter service</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Service</label>
                                                     <input class="form-control m-input" id="service_coup" type="text" placeholder="Service" name="service_coup" value="{{ ($dataTypeContent->service_coup) ? $dataTypeContent->service_coup : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter Business</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Business</label>
                                                     <input class="form-control m-input" id="business_coup" type="text" placeholder="Business" name="business_coup" value="{{ ($dataTypeContent->business_coup) ? $dataTypeContent->business_coup : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter website</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Website</label>
                                                     <input class="form-control m-input" id="website_coup" type="text" placeholder="Website" name="website_coup" value="{{ ($dataTypeContent->website_coup) ? $dataTypeContent->website_coup : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select email type</label>
-                                                <div class="col-7">
-                                                    <select name="email_type_coup" id="email_type_coup">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Email type</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="email_type_coup" id="email_type_coup" data-placeholder="Email type">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
                                                             <option value="{{ $email_type->reference }}" @if(isset($dataTypeContent->email_type_coup) && $dataTypeContent->email_type_coup == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select phone type</label>
-                                                <div class="col-7">
-                                                    <select name="phone_type_coup" id="phone_type_coup">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Email</label>
+                                                    <input class="form-control m-input" id="email_coup" type="text" placeholder="Email" name="email_coup" value="{{ ($dataTypeContent->email_coup) ? $dataTypeContent->email_coup : '' }}">
+                                                </div>
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Phone type</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type_coup" id="phone_type_coup" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
                                                             <option value="{{ $phone->reference }}" @if(isset($dataTypeContent->phone_type_coup) && $dataTypeContent->phone_type_coup == $phone->reference){{ 'selected="selected"' }} @endif>{{ $phone->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="country_code_coup" class="col-2 col-form-label">Enter country code</label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="country_code_coup" type="text" placeholder="Country code" name="country_code_coup" value="{{ ($dataTypeContent->country_code_coup) ? $dataTypeContent->country_code_coup : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter phone</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone_coup" type="text" placeholder="Phone" name="phone_coup" value="{{ ($dataTypeContent->phone_coup) ? $dataTypeContent->phone_coup : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="email_coup" class="col-2 col-form-label">Enter email</label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="email_coup" type="text" placeholder="Email" name="email_coup" value="{{ ($dataTypeContent->email_coup) ? $dataTypeContent->email_coup : '' }}">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Country code</label>
+                                                    <input class="form-control m-input" id="country_code_coup" type="text" placeholder="Country code" name="country_code_coup" value="{{ ($dataTypeContent->country_code_coup) ? $dataTypeContent->country_code_coup : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Preferred means of contact</label>
-                                                <div class="col-7">
-                                                    <select name="preferred_means_contact_coup" id="preferred_means_contact_coup">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Preferred means of contact</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_coup" id="preferred_means_contact_coup" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
                                                             <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact_coup) && $dataTypeContent->preferred_means_contact_coup == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
                                                         @endforeach
@@ -437,172 +385,125 @@
                                             </div>
                                         </div>
                                         <div class="m-portlet__body">
-                                            <div class="form-group m-form__group m--margin-top-10 m--hide">
-                                                <div class="alert m-alert m-alert--default" role="alert">
-                                                    The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Children</h3>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-10 ml-auto">
-                                                    <h3 class="m-form__section">
-                                                        3. Personal Details
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Civilité
-                                                </label>
-                                                <div class="col-7">
-                                                    <select name="civility_child" id="civility_child">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label>Civilité</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="civility_child" id="civility_child" data-placeholder="Civilité">
                                                         @foreach(TCG\Voyager\Models\Civility::all() as $civility)
                                                             <option value="{{ $civility->reference }}" @if(isset($dataTypeContent->civility_child) && $dataTypeContent->civility_child == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select language</label>
-                                                <div class="col-7">
-                                                    <select name="lng_corres_child" id="lng_corres_child">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Select language</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres_child" id="lng_corres_child" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres_child) && $dataTypeContent->lng_corres_child == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you first name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">First name</label>
                                                     <input class="form-control m-input" id="first_name_child" type="text" name="first_name_child" placeholder="First Name" value="{{ ($dataTypeContent->first_name_child) ? $dataTypeContent->first_name_child : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you middle name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Middle name</label>
                                                     <input class="form-control m-input" id="middle_name_child" type="text" name="middle_name_child" placeholder="Middle Name" value="{{ ($dataTypeContent->middle_name_child) ? $dataTypeContent->middle_name_child : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter you last name
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name_child" type="text" name="last_name_child" placeholder="Last Name" value="{{ ($dataTypeContent->last_name_child) ? $dataTypeContent->last_name_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Select civil status
-                                                </label>
-                                                <div class="col-7">
-                                                    <select name="civil_status_child" id="civil_status_child">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Civil status</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status_child" id="civil_status_child" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
                                                             <option value="{{ $civil_stat->reference }}" @if(isset($dataTypeContent->civil_status_child) && $dataTypeContent->civil_status_child == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="birth_date_child" class="col-2 col-form-label">
-                                                    Enter you birth date
-                                                </label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="birth_date_child" type="text" placeholder="Birth date" name="birth_date_child" value="{{ ($dataTypeContent->birth_date_child) ? $dataTypeContent->birth_date_child : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for=birthplace_child" class="col-2 col-form-label">
-                                                    Enter you place birth
-                                                </label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="birthplace_child" type="text" placeholder="Place birth" name="birthplace_child" value="{{ ($dataTypeContent->birthplace_child) ? $dataTypeContent->birthplace_child : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter nationality
-                                                </label>
-                                                <div class="col-7">
-                                                    <select id="nationality_child" name="nationality_child">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Nationality</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="nationality_child" name="nationality_child" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
                                                             <option value="{{ $nationality->reference }}" @if(isset($dataTypeContent->nationality) && $dataTypeContent->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Birth date</label>
+                                                        <div class='input-group date' id='m_datepicker_4'>
+                                                            <input class="form-control m-input date-type" readonly id="birth_date_child" type="text" placeholder="Birth date" name="birth_date_child" value="{{ ($dataTypeContent->birth_date_child) ? $dataTypeContent->birth_date_child : '' }}">
+                                                            <span class="input-group-addon">
+                                                                <i class="la la-calendar-check-o"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Birth place</label>
+                                                    <input class="form-control m-input" id="birthplace_child" type="text" placeholder="Place birth" name="birthplace_child" value="{{ ($dataTypeContent->birthplace_child) ? $dataTypeContent->birthplace_child : '' }}">
+                                                </div>
                                             </div>
+
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">
-                                                    Enter profession
-                                                </label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Profession</label>
                                                     <input class="form-control m-input" id="profession_child" type="text" placeholder="Profession" name="profession_child" value="{{ ($dataTypeContent->profession_child) ? $dataTypeContent->profession_child : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter service</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Service</label>
                                                     <input class="form-control m-input" id="service_child" type="text" placeholder="Service" name="service_child" value="{{ ($dataTypeContent->service_child) ? $dataTypeContent->service_child : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter business</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Business</label>
                                                     <input class="form-control m-input" id="example-text-input" type="text" placeholder="Business" name="business_child" value="{{ ($dataTypeContent->business_child) ? $dataTypeContent->business_child : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter website</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-6 margin_bottom_10">
+                                                    <label class="">Website</label>
                                                     <input class="form-control m-input" id="website_child" type="text" placeholder="Website" name="website_child" value="{{ ($dataTypeContent->website_child) ? $dataTypeContent->website_child : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select email type</label>
-                                                <div class="col-7">
-                                                    <select name="email_type_child" id="email_type_child">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Email type</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="email_type_child" id="email_type_child" data-placeholder="Email type">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
                                                             <option value="{{ $email_type->reference }}" @if(isset($dataTypeContent->email_type_child) && $dataTypeContent->email_type_child == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Select phone type</label>
-                                                <div class="col-7">
-                                                    <select name="phone_type_child" id="phone_type_child">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Email</label>
+                                                    <input class="form-control m-input" id="email_child" type="text" placeholder="Email" name="email_child" value="{{ ($dataTypeContent->email_child) ? $dataTypeContent->email_child : '' }}">
+                                                </div>
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Phone type</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type_child" id="phone_type_child" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
                                                             <option value="{{ $phone->reference }}" @if(isset($dataTypeContent->phone_type_child) && $dataTypeContent->phone_type_child == $phone->reference){{ 'selected="selected"' }} @endif>{{ $phone->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="country_code_child" class="col-2 col-form-label">Select country code</label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="country_code_child" type="text" placeholder="Website" name="country_code_child" value="{{ ($dataTypeContent->country_code_child) ? $dataTypeContent->country_code_child : '' }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter phone</label>
-                                                <div class="col-7">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone_child" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Enter email</label>
-                                                <div class="col-7">
-                                                    <input class="form-control m-input" id="email_child" type="text" placeholder="Email" name="email_child" value="{{ ($dataTypeContent->email_child) ? $dataTypeContent->email_child : '' }}">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Country code</label>
+                                                    <input class="form-control m-input" id="country_code_child" type="text" placeholder="Website" name="country_code_child" value="{{ ($dataTypeContent->country_code_child) ? $dataTypeContent->country_code_child : '' }}">
                                                 </div>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">Preferred means of contact</label>
-                                                <div class="col-7">
-                                                    <select name="preferred_means_contact_child" id="preferred_means_contact_child">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Preferred means of contact</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_child" id="preferred_means_contact_child" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
                                                             <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact_child) && $dataTypeContent->preferred_means_contact_child == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
                                                         @endforeach
@@ -610,18 +511,23 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     <div class="tab-pane" id="profile_settings" role="tabpanel">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset($dataTypeContent->id))
-                                                    <label for="example-text-input" class="col-2 col-form-label">Change password</label>
-                                                    <div class="col-7">
+                                                    <div class="col-lg-6 margin_bottom_10">
+                                                        <label class="">New password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
                                                     </div>
+                                                    <div class="col-lg-6 margin_bottom_10">
+                                                        <label class="">Confirm password</label>
+                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password">
+                                                    </div>
                                                 @else
-                                                    <label for="example-text-input" class="col-2 col-form-label">Enter password</label>
-                                                    <div class="col-7">
+                                                    <div class="col-lg-6 margin_bottom_10">
+                                                        <label class="">Enter password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Enter password" name="password">
                                                     </div>
                                                 @endif
@@ -629,7 +535,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="m-portlet__foot m-portlet__foot--fit">
                                     <div class="m-form__actions">
                                         <div class="row">
@@ -754,4 +659,54 @@
             </div>
         </div>
     @endif
+@stop
+
+@section('javascript')
+    <script>
+        jQuery.validator.addMethod( 'passwordMatch', function(value, element) {
+
+            // The two password inputs
+            var password = $("#password").val();
+            var confirmPassword = $("#password_confirm").val();
+
+            // Check for equality with the password inputs
+            if (password != confirmPassword ) {
+                return false;
+            } else {
+                return true;
+            }
+
+        }, "Your Passwords Must Match");
+
+        // ==========================================================================
+        // Registration Form : jquery validation
+
+        $('#profile_edit_form').validate({
+            // rules
+            rules: {
+                register_password: {
+                    required: true,
+                    minlength: 3
+                },
+                register_pass_confirm: {
+                    required: true,
+                    minlength: 3,
+                    passwordMatch: true // set this on the field you're trying to match
+                }
+            },
+
+            // messages
+            messages: {
+                register_password: {
+                    required: "What is your password?",
+                    minlength: "Your password must contain more than 3 characters"
+                },
+                register_pass_confirm: {
+                    required: "You must confirm your password",
+                    minlength: "Your password must contain more than 3 characters",
+                    passwordMatch: "Your Passwords Must Match" // custom message for mismatched passwords
+                }
+            }
+        });//end validate
+    </script>
 @stop
