@@ -189,7 +189,6 @@
                                                     <input class="form-control m-input" type="text" placeholder="Birth place" name="birthplace" value="{{ ($dataTypeContent->birthplace) ? $dataTypeContent->birthplace : '' }}">
                                                 </div>
                                             </div>
-
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-6 margin_bottom_10">
                                                     <label class="">Profession</label>
@@ -222,6 +221,14 @@
                                                     <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}">
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Preferred means of contact</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact" id="preferred_means_contact" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact) && $dataTypeContent->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Phone type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type" id="phone_type" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
@@ -230,28 +237,84 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <label class="">Phone number</label>
-                                                    <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone" value="{{ ($dataTypeContent->phone) ? $dataTypeContent->phone : '' }}">
-                                                </div>
-                                                <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Country code</label>
                                                     <input class="form-control m-input" id="country_code" type="text" placeholder="Country code" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <label class="">Preferred means of contact</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact" id="preferred_means_contact" data-placeholder="Phone type">
-                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
-                                                            <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact) && $dataTypeContent->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <label class="">Phone number</label>
+                                                    <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone" value="{{ ($dataTypeContent->phone) ? $dataTypeContent->phone : '' }}">
                                                 </div>
                                             </div>
+
+                                            {{--address block--}}
                                             <div class="form-group m-form__group row">
+                                                <div class="col-lg-10 margin_bottom_10">
+                                                    <label>Adresse nom</label>
+                                                    <div class="m-input-icon m-input-icon--right">
+                                                        <input type="text" class="form-control m-input" name="address_name" placeholder="Entrer votre adresse nom"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 margin_bottom_10">
+                                                    <button type="button" class="btn btn-accent" style="margin-top: 28px; width: 100%;">Add new</button>
+                                                </div>
+                                                <div class="col-lg-8 margin_bottom_10">
+                                                    <label>Adresse</label>
+                                                    <div class="m-input-icon m-input-icon--right">
+                                                        {{--<input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">--}}
+                                                        <input type="text" id="autocomplete" class="form-control m-input" name="address" placeholder="Entrer votre adresse" onFocus="geolocate()" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif"></input>
+                                                        <span class="m-input-icon__icon m-input-icon__icon--right">
+                                                            <span>
+                                                                <i class="la la-map-marker"></i>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <label class="">Role</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="role_id" id="role_id" data-placeholder="Phone type">
-                                                        @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                            <option value="{{ $role->id }}" @if(isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->id){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>
+                                                    <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                </div>
+
+                                                <div class="col-lg-3 margin_bottom_10">
+                                                    <label>Rue</label>
+                                                    <input type="text" id="route" readonly="readonly" class="form-control m-input" placeholder="Rue" value="@if(isset($dataTypeContent->street)){{ $dataTypeContent->street }}@endif" name="street">
+                                                </div>
+                                                <div class="col-lg-2 margin_bottom_10">
+                                                    <label>N°</label>
+                                                    <input type="text" id="street_number" readonly="readonly" class="form-control m-input" placeholder="N°" value="@if(isset($dataTypeContent->number)){{ $dataTypeContent->number }}@endif" name="number">
+                                                </div>
+                                                <div class="col-lg-2 margin_bottom_10">
+                                                    <label>CP</label>
+                                                    <input type="number" min="0" class="form-control m-input" placeholder="CP" value="@if(isset($dataTypeContent->po_box)){{ $dataTypeContent->po_box }}@endif" name="po_box">
+                                                </div>
+                                                <div class="col-lg-2 margin_bottom_10">
+                                                    <label>NPA</label>
+                                                    <input type="text" id="postal_code" readonly="readonly" class="form-control m-input" placeholder="NPA" value="@if(isset($dataTypeContent->zip_code)){{ $dataTypeContent->zip_code }}@endif" name="zip_code">
+                                                </div>
+                                                <div class="col-lg-3 margin_bottom_10">
+                                                    <label>Ville</label>
+                                                    <input type="text" id="locality" readonly="readonly" class="form-control m-input" placeholder="Ville" value="@if(isset($dataTypeContent->town)){{ $dataTypeContent->town }}@endif" name="town">
+                                                </div>
+                                                <div class="col-lg-3 margin_bottom_10">
+                                                    <label>Pays</label>
+                                                    <input type="text" id="country" readonly="readonly" class="form-control m-input" placeholder="Pays" value="@if(isset($dataTypeContent->country)){{ $dataTypeContent->country }}@endif" name="country">
+                                                    {{--<select class="form-control m-select2 custom_select2" name="country" data-placeholder="Select a Country">--}}
+                                                    {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
+                                                    {{--<option value="{{ $country->reference }}" @if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ 'selected="selected"' }}@endif>{{ $country->value }}</option>--}}
+                                                    {{--@endforeach--}}
+                                                    {{--</select>--}}
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label>Longitude</label>
+                                                    <input disabled="disabled" type="number" min="0" id="longitude" class="form-control m-input" placeholder="Longitude" name="longitude">
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label>Latitude</label>
+                                                    <input disabled="disabled" type="number" min="0" id="latitude" class="form-control m-input" placeholder="Longitude" name="latitude">
+                                                </div>
+                                                <div class="col-lg-3 margin_bottom_10">
+                                                    <label>Localisation</label>
+                                                    <select class="form-control m-select2 custom_select2" name="location" data-placeholder="Select Location">
+                                                        @foreach(TCG\Voyager\Models\Location::all() as $location)
+                                                            <option value="{{ $location->reference }}" @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -326,7 +389,6 @@
                                                     <input class="form-control m-input" id="birthplace_coup" type="text" placeholder="Place birth" name="birthplace_coup" value="{{ ($dataTypeContent->birthplace_coup) ? $dataTypeContent->birthplace_coup : '' }}">
                                                 </div>
                                             </div>
-
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-6 margin_bottom_10">
                                                     <label class="">Profession</label>
@@ -359,6 +421,14 @@
                                                     <input class="form-control m-input" id="email_coup" type="text" placeholder="Email" name="email_coup" value="{{ ($dataTypeContent->email_coup) ? $dataTypeContent->email_coup : '' }}">
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Preferred means of contact</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_coup" id="preferred_means_contact_coup" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact_coup) && $dataTypeContent->preferred_means_contact_coup == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Phone type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type_coup" id="phone_type_coup" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
@@ -367,20 +437,12 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <label class="">Phone number</label>
-                                                    <input class="form-control m-input" id="phone_coup" type="text" placeholder="Phone" name="phone_coup" value="{{ ($dataTypeContent->phone_coup) ? $dataTypeContent->phone_coup : '' }}">
-                                                </div>
-                                                <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Country code</label>
                                                     <input class="form-control m-input" id="country_code_coup" type="text" placeholder="Country code" name="country_code_coup" value="{{ ($dataTypeContent->country_code_coup) ? $dataTypeContent->country_code_coup : '' }}">
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <label class="">Preferred means of contact</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_coup" id="preferred_means_contact_coup" data-placeholder="Phone type">
-                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
-                                                            <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact_coup) && $dataTypeContent->preferred_means_contact_coup == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <label class="">Phone number</label>
+                                                    <input class="form-control m-input" id="phone_coup" type="text" placeholder="Phone" name="phone_coup" value="{{ ($dataTypeContent->phone_coup) ? $dataTypeContent->phone_coup : '' }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -453,7 +515,6 @@
                                                     <input class="form-control m-input" id="birthplace_child" type="text" placeholder="Place birth" name="birthplace_child" value="{{ ($dataTypeContent->birthplace_child) ? $dataTypeContent->birthplace_child : '' }}">
                                                 </div>
                                             </div>
-
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-6 margin_bottom_10">
                                                     <label class="">Profession</label>
@@ -486,6 +547,14 @@
                                                     <input class="form-control m-input" id="email_child" type="text" placeholder="Email" name="email_child" value="{{ ($dataTypeContent->email_child) ? $dataTypeContent->email_child : '' }}">
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Preferred means of contact</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_child" id="preferred_means_contact_child" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact_child) && $dataTypeContent->preferred_means_contact_child == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Phone type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type_child" id="phone_type_child" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
@@ -494,24 +563,15 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <label class="">Phone number</label>
-                                                    <input class="form-control m-input" id="phone_child" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
-                                                </div>
-                                                <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Country code</label>
                                                     <input class="form-control m-input" id="country_code_child" type="text" placeholder="Website" name="country_code_child" value="{{ ($dataTypeContent->country_code_child) ? $dataTypeContent->country_code_child : '' }}">
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <label class="">Preferred means of contact</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_child" id="preferred_means_contact_child" data-placeholder="Phone type">
-                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
-                                                            <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact_child) && $dataTypeContent->preferred_means_contact_child == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <label class="">Phone number</label>
+                                                    <input class="form-control m-input" id="phone_child" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="tab-pane" id="profile_settings" role="tabpanel">
                                         <div class="m-portlet__body">
@@ -538,14 +598,13 @@
                                 <div class="m-portlet__foot m-portlet__foot--fit">
                                     <div class="m-form__actions">
                                         <div class="row">
-                                            <div class="col-2"></div>
-                                            <div class="col-7">
-                                                <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
-                                                    Save changes
+                                            <div class="col-12 m--align-right">
+                                                <button type="reset" class="btn btn-danger m-btn m-btn--air m-btn--custom">
+                                                    Cancel
                                                 </button>
                                                 &nbsp;&nbsp;
-                                                <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
-                                                    Cancel
+                                                <button type="submit" class="btn btn-success m-btn m-btn--air m-btn--custom">
+                                                    Save changes
                                                 </button>
                                             </div>
                                         </div>
@@ -557,6 +616,30 @@
                 </div>
             </div>
         </div>
+        <!--begin::Modal-->
+        <div class="modal fade" id="address_map_modal" tabindex="-1" role="dialog" aria-labelledby="addressMapModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addressMapModal">Positionner votre adresse</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="map_block">
+                            <div id="address_map" style="height: 500px; width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Sauver et fermer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end::Modal-->
     @else
         <div class="m-grid__item m-grid__item--fluid m-wrapper" style="">
             <!-- BEGIN: Subheader -->
@@ -662,6 +745,9 @@
 @stop
 
 @section('javascript')
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZhPguGsxnAK4WdGML3Qew_KMleHvRdzw&libraries=places&callback=initAutocomplete"async defer></script>
+    <!--end::Google Maps -->
     <script>
         jQuery.validator.addMethod( 'passwordMatch', function(value, element) {
 
@@ -708,5 +794,198 @@
                 }
             }
         });//end validate
+    </script>
+
+    <script>
+        // This example displays an address form, using the autocomplete feature
+        // of the Google Places API to help users fill in the information.
+
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        var placeSearch, autocomplete;
+        var componentForm = {
+            street_number: 'short_name',
+            route: 'long_name',
+            locality: 'long_name',
+//            administrative_area_level_1: 'short_name',
+            country: 'long_name',
+            postal_code: 'short_name'
+        };
+
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                {types: ['geocode']});
+
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    var val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+                }
+            }
+
+            $('#latitude').val('');
+            $('#longitude').val('');
+        }
+
+        // Bias the autocomplete object to the user's geographical location,
+        // as supplied by the browser's 'navigator.geolocation' object.
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+
+        $('#address_map_modal').on('shown.bs.modal', function (e) {
+            initializeAddressMap();
+        });
+
+        var map, infoWindow;
+        function initializeAddressMap() {
+
+            var current_position = {
+                lat: 46.204391,
+                lng: 6.143158
+            };
+
+            var myLatlng = new google.maps.LatLng(current_position);
+
+            map = document.getElementById('address_map');
+            var geocoder = new google.maps.Geocoder;
+            var mapOptions = {
+                zoom: 15,
+                minZoom: 2,
+                maxZoom: 20,
+                scrollwheel: false,
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    position: google.maps.ControlPosition.TOP_RIGHT
+                },
+                streetViewControl: true,
+                streetViewControlOptions: {
+                    position: google.maps.ControlPosition.RIGHT_TOP
+                },
+                zoomControl: true,
+                zoomControlOptions: {
+                    position: google.maps.ControlPosition.RIGHT_TOP
+                },
+                center: myLatlng
+            };
+            var map = new google.maps.Map(map, mapOptions);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: myLatlng,
+                draggable: true
+                //icon: '/images/pin_map_white.svg'
+            });
+
+            console.log(current_position);
+
+            google.maps.event.addListener(marker, 'dragend', function(e){
+                myLatlng = marker.getPosition();
+                geocoder.geocode({
+                    latLng: marker.getPosition()
+                }, function(responses) {
+                    if (responses && responses.length > 0) {
+
+                        $('#latitude').val(e.latLng.lat());
+                        $('#longitude').val(e.latLng.lng());
+                        $('#autocomplete').val(responses[0].formatted_address);
+
+                        $('#street_number').val('');
+                        $('#route').val('');
+                        $('#locality').val('');
+                        $('#country').val('');
+                        $('#postal_code').val('');
+
+                        responses[0].address_components.forEach(function(a) {
+                            if (a.long_name !== undefined && a.long_name.length > 0) {
+                                if (a.types[0] == 'street_number') {
+                                    $('#street_number').val(a.long_name);
+                                }
+                                if (a.types[0] == 'route' || a.types[0] == 'street_address') {
+                                    $('#route').val(a.long_name);
+                                }
+                                if (a.types[0] == 'locality') {
+                                    $('#locality').val(a.long_name);
+                                }
+                                if (a.types[0] == 'country') {
+                                    $('#country').val(a.long_name);
+                                }
+                                if (a.types[0] == 'postal_code') {
+                                    $('#postal_code').val(a.long_name);
+                                }
+                            }
+                        });
+
+                    } else {
+                        console.log('Cannot determine address at this location.');
+                    }
+                });
+            });
+
+
+
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
     </script>
 @stop
