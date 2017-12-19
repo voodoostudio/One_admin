@@ -156,6 +156,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Photo</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="avatar" type="file" accept="image/*" id="avatar" class="input_file">
+                                                            <label for="avatar">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
                                                 <div class="col-lg-6 margin_bottom_10">
                                                     <label class="">Civil status</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status" id="civil_status" data-placeholder="Select language">
@@ -247,78 +260,83 @@
                                             </div>
 
                                             {{--address block--}}
-                                            <div class="form-group m-form__group row">
-                                                <div class="col-lg-10 margin_bottom_10">
-                                                    <label>Adresse nom</label>
-                                                    <div class="m-input-icon m-input-icon--right">
-                                                        <input type="text" class="form-control m-input" name="address_name" placeholder="Entrer votre adresse nom"></input>
+                                            <div id="address_container">
+                                                <div class="form-group m-form__group row" id="address_form_1">
+                                                    <div class="col-lg-12 margin_bottom_10">
+                                                        <label>Adresse nom</label>
+                                                        <div class="m-input-icon m-input-icon--right">
+                                                            <input type="text" class="form-control m-input" name="address_name" placeholder="Entrer votre adresse nom"></input>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-2 margin_bottom_10">
-                                                    <button type="button" class="btn btn-accent" style="margin-top: 28px; width: 100%;">Add new</button>
-                                                </div>
-                                                <div class="col-lg-8 margin_bottom_10">
-                                                    <label>Adresse</label>
-                                                    <div class="m-input-icon m-input-icon--right">
-                                                        {{--<input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">--}}
-                                                        <input type="text" id="autocomplete" class="form-control m-input" name="address" placeholder="Entrer votre adresse" onFocus="geolocate()" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif"></input>
-                                                        <span class="m-input-icon__icon m-input-icon__icon--right">
+                                                    <div class="col-lg-8 margin_bottom_10">
+                                                        <label>Adresse</label>
+                                                        <div class="m-input-icon m-input-icon--right">
+                                                            {{--<input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">--}}
+                                                            <input type="text" id="autocomplete_1" class="form-control m-input autocomplete_input" name="address" placeholder="Entrer votre adresse" onFocus="geolocate()" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif"></input>
+                                                            <span class="m-input-icon__icon m-input-icon__icon--right">
                                                             <span>
                                                                 <i class="la la-map-marker"></i>
                                                             </span>
                                                         </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 margin_bottom_10">
+                                                        <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                    </div>
+
+                                                    <div class="col-lg-3 margin_bottom_10">
+                                                        <label>Rue</label>
+                                                        <input type="text" id="route_1" readonly="readonly" class="form-control m-input" placeholder="Rue" value="@if(isset($dataTypeContent->street)){{ $dataTypeContent->street }}@endif" name="street">
+                                                    </div>
+                                                    <div class="col-lg-2 margin_bottom_10">
+                                                        <label>N°</label>
+                                                        <input type="text" id="street_number_1" readonly="readonly" class="form-control m-input" placeholder="N°" value="@if(isset($dataTypeContent->number)){{ $dataTypeContent->number }}@endif" name="number">
+                                                    </div>
+                                                    <div class="col-lg-2 margin_bottom_10">
+                                                        <label>CP</label>
+                                                        <input type="number" min="0" class="form-control m-input" placeholder="CP" value="@if(isset($dataTypeContent->po_box)){{ $dataTypeContent->po_box }}@endif" name="po_box">
+                                                    </div>
+                                                    <div class="col-lg-2 margin_bottom_10">
+                                                        <label>NPA</label>
+                                                        <input type="text" id="postal_code_1" readonly="readonly" class="form-control m-input" placeholder="NPA" value="@if(isset($dataTypeContent->zip_code)){{ $dataTypeContent->zip_code }}@endif" name="zip_code">
+                                                    </div>
+                                                    <div class="col-lg-3 margin_bottom_10">
+                                                        <label>Ville</label>
+                                                        <input type="text" id="locality_1" readonly="readonly" class="form-control m-input" placeholder="Ville" value="@if(isset($dataTypeContent->town)){{ $dataTypeContent->town }}@endif" name="town">
+                                                    </div>
+                                                    <div class="col-lg-3 margin_bottom_10">
+                                                        <label>Pays</label>
+                                                        <input type="text" id="country_1" readonly="readonly" class="form-control m-input" placeholder="Pays" value="@if(isset($dataTypeContent->country)){{ $dataTypeContent->country }}@endif" name="country">
+                                                        {{--<select class="form-control m-select2 custom_select2" name="country" data-placeholder="Select a Country">--}}
+                                                        {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
+                                                        {{--<option value="{{ $country->reference }}" @if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ 'selected="selected"' }}@endif>{{ $country->value }}</option>--}}
+                                                        {{--@endforeach--}}
+                                                        {{--</select>--}}
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <label>Longitude</label>
+                                                        <input disabled="disabled" type="number" min="0" id="longitude_1" class="form-control m-input" placeholder="Longitude" name="longitude">
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <label>Latitude</label>
+                                                        <input disabled="disabled" type="number" min="0" id="latitude_1" class="form-control m-input" placeholder="Longitude" name="latitude">
+                                                    </div>
+                                                    <div class="col-lg-3 margin_bottom_10">
+                                                        <label>Localisation</label>
+                                                        <select class="form-control m-select2 custom_select2" name="location" data-placeholder="Select Location">
+                                                            @foreach(TCG\Voyager\Models\Location::all() as $location)
+                                                                <option value="{{ $location->reference }}" @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
-                                                    <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
-                                                </div>
-
+                                            </div>
+                                            <div class="form-group m-form__group row">
                                                 <div class="col-lg-3 margin_bottom_10">
-                                                    <label>Rue</label>
-                                                    <input type="text" id="route" readonly="readonly" class="form-control m-input" placeholder="Rue" value="@if(isset($dataTypeContent->street)){{ $dataTypeContent->street }}@endif" name="street">
-                                                </div>
-                                                <div class="col-lg-2 margin_bottom_10">
-                                                    <label>N°</label>
-                                                    <input type="text" id="street_number" readonly="readonly" class="form-control m-input" placeholder="N°" value="@if(isset($dataTypeContent->number)){{ $dataTypeContent->number }}@endif" name="number">
-                                                </div>
-                                                <div class="col-lg-2 margin_bottom_10">
-                                                    <label>CP</label>
-                                                    <input type="number" min="0" class="form-control m-input" placeholder="CP" value="@if(isset($dataTypeContent->po_box)){{ $dataTypeContent->po_box }}@endif" name="po_box">
-                                                </div>
-                                                <div class="col-lg-2 margin_bottom_10">
-                                                    <label>NPA</label>
-                                                    <input type="text" id="postal_code" readonly="readonly" class="form-control m-input" placeholder="NPA" value="@if(isset($dataTypeContent->zip_code)){{ $dataTypeContent->zip_code }}@endif" name="zip_code">
-                                                </div>
-                                                <div class="col-lg-3 margin_bottom_10">
-                                                    <label>Ville</label>
-                                                    <input type="text" id="locality" readonly="readonly" class="form-control m-input" placeholder="Ville" value="@if(isset($dataTypeContent->town)){{ $dataTypeContent->town }}@endif" name="town">
-                                                </div>
-                                                <div class="col-lg-3 margin_bottom_10">
-                                                    <label>Pays</label>
-                                                    <input type="text" id="country" readonly="readonly" class="form-control m-input" placeholder="Pays" value="@if(isset($dataTypeContent->country)){{ $dataTypeContent->country }}@endif" name="country">
-                                                    {{--<select class="form-control m-select2 custom_select2" name="country" data-placeholder="Select a Country">--}}
-                                                    {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
-                                                    {{--<option value="{{ $country->reference }}" @if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ 'selected="selected"' }}@endif>{{ $country->value }}</option>--}}
-                                                    {{--@endforeach--}}
-                                                    {{--</select>--}}
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <label>Longitude</label>
-                                                    <input disabled="disabled" type="number" min="0" id="longitude" class="form-control m-input" placeholder="Longitude" name="longitude">
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <label>Latitude</label>
-                                                    <input disabled="disabled" type="number" min="0" id="latitude" class="form-control m-input" placeholder="Longitude" name="latitude">
-                                                </div>
-                                                <div class="col-lg-3 margin_bottom_10">
-                                                    <label>Localisation</label>
-                                                    <select class="form-control m-select2 custom_select2" name="location" data-placeholder="Select Location">
-                                                        @foreach(TCG\Voyager\Models\Location::all() as $location)
-                                                            <option value="{{ $location->reference }}" @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <button id="add_new_address" type="button" class="btn btn-accent" style="width: 100%;">Add new address</button>
                                                 </div>
                                             </div>
+
                                         </div>
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
@@ -354,6 +372,19 @@
                                                 <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name_coup" type="text" name="last_name_coup" placeholder="Last Name" value="{{ ($dataTypeContent->last_name_coup) ? $dataTypeContent->last_name_coup : '' }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Photo</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="photo_coup" type="file" accept="image/*" id="photo_coup" class="input_file">
+                                                            <label for="photo_coup">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -480,6 +511,19 @@
                                                 <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name_child" type="text" name="last_name_child" placeholder="Last Name" value="{{ ($dataTypeContent->last_name_child) ? $dataTypeContent->last_name_child : '' }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Photo</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="photo_child" type="file" accept="image/*" id="photo_child" class="input_file">
+                                                            <label for="photo_child">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -748,6 +792,102 @@
     <!-- Google Maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZhPguGsxnAK4WdGML3Qew_KMleHvRdzw&libraries=places&callback=initAutocomplete"async defer></script>
     <!--end::Google Maps -->
+
+    <script>
+        var i = 1;
+        $('#add_new_address').click(function(){
+            i++;
+            $('#address_container').append(`
+                    <div class="form-group m-form__group row" id="address_form_${i}">
+                        <div class="col-lg-10 margin_bottom_10">
+                            <label>Adresse nom</label>
+                            <div class="m-input-icon m-input-icon--right">
+                                <input type="text" class="form-control m-input" name="address_name" placeholder="Entrer votre adresse nom"></input>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 margin_bottom_10">
+                            <button id="${i}" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                        </div>
+                        <div class="col-lg-8 margin_bottom_10">
+                            <label>Adresse</label>
+                            <div class="m-input-icon m-input-icon--right">
+                                <input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address" placeholder="Entrer votre adresse" onFocus="geolocate()" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif"></input>
+                                <span class="m-input-icon__icon m-input-icon__icon--right">
+                                    <span>
+                                    <i class="la la-map-marker"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 margin_bottom_10">
+                            <button type="button" id="open_map_btn_${i}" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                        </div>
+                        <div class="col-lg-3 margin_bottom_10">
+                            <label>Rue</label>
+                            <input type="text" id="route_${i}" readonly="readonly" class="form-control m-input" placeholder="Rue" value="@if(isset($dataTypeContent->street)){{ $dataTypeContent->street }}@endif" name="street">
+                        </div>
+                        <div class="col-lg-2 margin_bottom_10">
+                            <label>N°</label>
+                            <input type="text" id="street_number_${i}" readonly="readonly" class="form-control m-input" placeholder="N°" value="@if(isset($dataTypeContent->number)){{ $dataTypeContent->number }}@endif" name="number">
+                        </div>
+                        <div class="col-lg-2 margin_bottom_10">
+                            <label>CP</label>
+                            <input type="number" min="0" class="form-control m-input" placeholder="CP" value="@if(isset($dataTypeContent->po_box)){{ $dataTypeContent->po_box }}@endif" name="po_box">
+                        </div>
+                        <div class="col-lg-2 margin_bottom_10">
+                            <label>NPA</label>
+                            <input type="text" id="postal_code_${i}" readonly="readonly" class="form-control m-input" placeholder="NPA" value="@if(isset($dataTypeContent->zip_code)){{ $dataTypeContent->zip_code }}@endif" name="zip_code">
+                        </div>
+                        <div class="col-lg-3 margin_bottom_10">
+                            <label>Ville</label>
+                            <input type="text" id="locality_${i}" readonly="readonly" class="form-control m-input" placeholder="Ville" value="@if(isset($dataTypeContent->town)){{ $dataTypeContent->town }}@endif" name="town">
+                        </div>
+                        <div class="col-lg-3 margin_bottom_10">
+                            <label>Pays</label>
+                            <input type="text" id="country_${i}" readonly="readonly" class="form-control m-input" placeholder="Pays" value="@if(isset($dataTypeContent->country)){{ $dataTypeContent->country }}@endif" name="country">
+                        </div>
+                        <div class="col-lg-3">
+                            <label>Longitude</label>
+                            <input disabled="disabled" type="number" min="0" id="longitude_${i}" class="form-control m-input" placeholder="Longitude" name="longitude">
+                        </div>
+                        <div class="col-lg-3">
+                            <label>Latitude</label>
+                            <input disabled="disabled" type="number" min="0" id="latitude_${i}" class="form-control m-input" placeholder="Longitude" name="latitude">
+                        </div>
+                        <div class="col-lg-3 margin_bottom_10">
+                            <label>Localisation</label>
+                            <select class="form-control m-select2 custom_select2" name="location" data-placeholder="Select Location">
+                                @foreach(TCG\Voyager\Models\Location::all() as $location)
+                <option value="{{ $location->reference }}" @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
+                                @endforeach
+                </select>
+            </div>
+        </div>`
+            );
+            $("#address_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_address_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#address_' + button_id).remove();
+        });
+
+
+
+        $('.add_new_address').on('click', function () {
+//           console.log('test');
+            var this_form_group = $(this).closest('.form-group');
+//           console.log(this_form_group.html());
+
+            var new_form_group = document.createElement('div');
+            console.log(new_form_group.classList);
+            new_form_group.classList.add('form-group');
+            new_form_group.classList.add('m-form__group');
+            new_form_group.classList.add('row');
+            new_form_group.innerHTML = this_form_group.html();
+            new_form_group.
+            $('.address_container').append(new_form_group);
+        });
+    </script>
     <script>
         jQuery.validator.addMethod( 'passwordMatch', function(value, element) {
 
@@ -813,6 +953,9 @@
             country: 'long_name',
             postal_code: 'short_name'
         };
+
+        var address_block_id = $('#address_container input.autocomplete_input').attr('id')
+        console.log(address_block_id);
 
         function initAutocomplete() {
             // Create the autocomplete object, restricting the search to geographical

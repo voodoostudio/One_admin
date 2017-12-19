@@ -2878,7 +2878,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 m--align-right">
-                            <button type="button" data-toggle="modal" data-target="#save_checklist" class="btn btn-primary btn-lg">Enregistrer</button>
+                            <button type="button" data-toggle="modal" data-target="#save_checklist" class="btn btn-success btn-lg m-btn m-btn--air m-btn--custom">Enregistrer</button>
                         </div>
                     </div>
                 </div>
