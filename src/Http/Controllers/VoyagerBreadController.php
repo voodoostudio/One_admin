@@ -146,8 +146,10 @@ class VoyagerBreadController extends Controller
 
         if (view()->exists("voyager::$slug.read")) {
             $view = "voyager::$slug.read";
-        } elseif($slug === 'clients' || $slug === 'users') {
+        } elseif($slug === 'clients') {
             $view = "voyager::clients.client_profile";
+        } elseif($slug === 'users') {
+            $view = "voyager::users.user_profile";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -198,7 +200,7 @@ class VoyagerBreadController extends Controller
         }elseif($slug === 'clients') {
             $view = "voyager::clients.edit-add";
         } elseif($slug === 'users') {
-            $view = 'voyager::bread.edit-add';
+            $view = 'voyager::users.edit-add';
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -236,6 +238,13 @@ class VoyagerBreadController extends Controller
             } elseif($request->type_profile == "Profile") {
                 return back();
             } elseif($request->type_users == "Users") {
+                return redirect()
+                    ->route("voyager.{$dataType->slug}.index")
+                    ->with([
+                        'message' => _('voyager.generic.successfully_updated') . " {$dataType->display_name_singular}",
+                        'alert-type' => 'success',
+                    ]);
+            } else {
                 return redirect()
                     ->route("voyager.{$dataType->slug}.index")
                     ->with([
@@ -287,8 +296,10 @@ class VoyagerBreadController extends Controller
 
         if (view()->exists("voyager::$slug.edit-add")) {
             $view = "voyager::$slug.edit-add";
-        }elseif($slug === 'users' || $slug === 'clients') {
+        }elseif($slug === 'clients') {
             $view = "voyager::clients.edit-add";
+        } elseif($slug === 'users') {
+            $view = 'voyager::users.edit-add';
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
