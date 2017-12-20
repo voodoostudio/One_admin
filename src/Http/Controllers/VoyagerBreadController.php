@@ -195,8 +195,10 @@ class VoyagerBreadController extends Controller
 
         if (view()->exists("voyager::$slug.edit-add")) {
             $view = "voyager::$slug.edit-add";
-        }elseif($slug === 'users' || $slug === 'clients') {
+        }elseif($slug === 'clients') {
             $view = "voyager::clients.edit-add";
+        } elseif($slug === 'users') {
+            $view = 'voyager::bread.edit-add';
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -224,12 +226,23 @@ class VoyagerBreadController extends Controller
         if (!$request->ajax()) {
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
 
-            return redirect()
-                ->route(($request->type_clients == 'Clients') ? "voyager.clients.index" : "voyager.{$dataType->slug}.index")
-                ->with([
-                    'message'    => __('voyager.generic.successfully_updated')." {$dataType->display_name_singular}",
-                    'alert-type' => 'success',
-                ]);
+            if($request->type_clients == 'Clients') {
+                return redirect()
+                    ->route("voyager.clients.index")
+                    ->with([
+                        'message' => _('voyager.generic.successfully_updated') . " {$dataType->display_name_singular}",
+                        'alert-type' => 'success',
+                    ]);
+            } elseif($request->type_profile == "Profile") {
+                return back();
+            } elseif($request->type_users == "Users") {
+                return redirect()
+                    ->route("voyager.{$dataType->slug}.index")
+                    ->with([
+                        'message' => _('voyager.generic.successfully_updated') . " {$dataType->display_name_singular}",
+                        'alert-type' => 'success',
+                    ]);
+            }
         }
     }
 
@@ -256,8 +269,8 @@ class VoyagerBreadController extends Controller
         $this->authorize('add', app($dataType->model_name));
 
         $dataTypeContent = (strlen($dataType->model_name) != 0)
-                            ? new $dataType->model_name()
-                            : false;
+            ? new $dataType->model_name()
+            : false;
 
         foreach ($dataType->addRows as $key => $row) {
             $details = json_decode($row->details);
@@ -304,9 +317,9 @@ class VoyagerBreadController extends Controller
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
                 ->with([
-                        'message'    => __('voyager.generic.successfully_added_new')." {$dataType->display_name_singular}",
-                        'alert-type' => 'success',
-                    ]);
+                    'message'    => __('voyager.generic.successfully_added_new')." {$dataType->display_name_singular}",
+                    'alert-type' => 'success',
+                ]);
         }
     }
 
@@ -360,7 +373,7 @@ class VoyagerBreadController extends Controller
         return redirect()->route("voyager.{$dataType->slug}.index")->with($data);
     }
 
-    /**
+    /*
      * Remove translations, images and files related to a BREAD item.
      *
      * @param \Illuminate\Database\Eloquent\Model $dataType
@@ -386,7 +399,7 @@ class VoyagerBreadController extends Controller
         }
     }
 
-    /**
+    /*
      * Delete all images related to a BREAD item.
      *
      * @param \Illuminate\Database\Eloquent\Model $data

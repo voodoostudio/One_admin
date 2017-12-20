@@ -116,6 +116,7 @@
                             @endif
                             <!-- CSRF TOKEN -->
                                 {{ csrf_field() }}
+                                <input type="hidden" name="role_id" value="5">
                                 <div class="tab-content">
                                     <input type="hidden" name="type_clients" value="Clients">
                                     <div class="tab-pane active" id="profile_info" role="tabpanel" aria-expanded="true">
