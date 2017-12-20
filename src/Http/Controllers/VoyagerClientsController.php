@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use TCG\Voyager\Models\Clients;
+use TCG\Voyager\Models\Post;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Symfony\Component\HttpFoundation\StreamedResponse;
