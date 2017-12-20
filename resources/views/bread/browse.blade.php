@@ -548,7 +548,53 @@
                         field: "title_fr",
                         title: "Titre",
                         template: function (row) {
-                            return '<a href="{{ Request::url() }}/' + row.id + '"">' + row.title_fr + '</a>'
+                            <?php if(Auth::user()->role_id != 5) { ?>
+                                return '<a href="{{ Request::url() }}/' + row.id + '"">' + row.title_fr + '</a>'
+                            <?php } else { ?>
+                                return '\
+                                    <a href="" data-toggle="modal" data-target="#view_post_confirmation">' + row.title_fr + '</a>\
+                                    <div class="modal fade" id="view_post_confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                        <div class="modal-dialog modal-lg" role="document">\
+                                            <div class="modal-content">\
+                                                <div class="modal-header">\
+                                                    <h5 class="modal-title" id="exampleModalLabel">View the object</h5>\
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                                    <span aria-hidden="true">×</span>\
+                                                    </button>\
+                                                </div>\
+                                                <div class="modal-body">\
+                                                    <div class="row">\
+                                                        <div class="col-lg-12">\
+                                                            <p>Le produit qui vous est proposé à travers cette application par House Invest Spain, est soumis à la présente clause de confidentialité.<br><br>\
+                                                                Les projets immobiliers, financiers ou entrepreneuriaux que nous présentons à notre aimable clientèle sont, ou peuvent être, à caractère exclusif et leur contenu est strictement confidentiel.<br><br>\
+                                                                Ils ne peuvent et ne doivent à aucun moment, être retransmis par le destinataire à des tiers, personnes physiques ou morales sans l’accord écrit de notre société.<br><br>\
+                                                                House Invest Spain détient directement les mandats de vente desdits projets, ainsi que tous les droits pour leur commercialisation.<br><br>\
+                                                                En accédant à l’information qu’il reçoit à travers la présente application, le destinataire accepte de considérer l’information comme confidentielle et à ne pas en divulguer son contenu.<br><br>\
+                                                                Toute information communiquée par notre société demeurera la propriété de House Invest Spain et ne pourra, à aucun moment, être utilisée dans le but de lui porter préjudice.<br><br>\
+                                                                Sur demande de House Invest Spain, le bénéficiaire de l’information acceptera de transmettre une attestation de destruction de celle-ci.<br><br>\
+                                                                Pour tous les litiges qui pourraient survenir quant à l’interprétation ou à l’exécution de la présente clause de confidentialité et quel que soit le domicile actuel et futur des parties, celles-ci acceptent, en accédant à la présente information, tant pour elles que pour leurs ayants droits, la compétence exclusive des Tribunaux du Canton de Genève, sans préjudice d’un éventuel recours au Tribunal Fédéral.</p>\
+                                                        </div>\
+                                                        <div class="col-lg-12">\
+                                                            <div class="pure_switch">\
+                                                                <span class="m-switch m-switch--outline m-switch--brand">\
+                                                                    <label>\
+                                                                        <input type="checkbox" name="save_check1" onchange="checkViewPostCheckbox();">\
+                                                                        <span></span>\
+                                                                    </label>\
+                                                                </span>\
+                                                                <label class="pure_switch_label">Lu et approuvé</label>\
+                                                            </div>\
+                                                        </div>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="modal-footer">\
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                                                    <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
+                                                </div>\
+                                            </div>\
+                                        </div>\
+                                    </div>'
+                            <?php }?>
                         }
 
                     }, {
@@ -631,27 +677,29 @@
                                     <button class="dropdown-item" data-toggle="modal" data-target="#m_modal_5"><i class="la la-times-circle"></i>Effacer</button>\
                                 </div>\
                                 <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
-                                <div class="modal-dialog modal-sm" role="document">\
-                                    <div class="modal-content">\
-                                        <div class="modal-header">\
-                                            <h5 class="modal-title" id="exampleModalLabel">Remove object</h5>\
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
-                                                <span aria-hidden="true">×</span>\
-                                            </button>\
-                                        </div>\
-                                        <div class="modal-body">\
-                                            <p>Are you sure you want to delete this object?</p>\
-                                        </div>\
-                                        <div class="modal-footer">\
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
-                                            <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
-                                                {{ method_field("DELETE") }}\
-                                                {{ csrf_field() }}\
-                                                <button type="submit" class="btn btn-primary">Effacer</button>\
-                                            </form>\
+                                    <div class="modal-dialog modal-sm" role="document">\
+                                        <div class="modal-content">\
+                                            <div class="modal-header">\
+                                                <h5 class="modal-title" id="exampleModalLabel">Remove object</h5>\
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                                    <span aria-hidden="true">×</span>\
+                                                </button>\
+                                            </div>\
+                                            <div class="modal-body">\
+                                                <p>Are you sure you want to delete this object?</p>\
+                                            </div>\
+                                            <div class="modal-footer">\
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                                                <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                                    {{ method_field("DELETE") }}\
+                                                    {{ csrf_field() }}\
+                                                    <button type="submit" class="btn btn-primary">Effacer</button>\
+                                                </form>\
+                                            </div>\
                                         </div>\
                                     </div>\
                                 </div>\
+                            </div>\
                             ';
                         },  <?php } ?>
 
@@ -911,7 +959,6 @@
         }();
 
 
-
         jQuery(document).ready(function () {
             DatatableDataLocalDemo.init();
         });
@@ -942,6 +989,18 @@
         });
     </script>
 
+    <script>
+        function checkViewPostCheckbox() {
+            console.log('test');
+            var checkbox =  $("#view_post_confirmation .pure_switch input[type='checkbox']");
+            var checked =  $("#view_post_confirmation .pure_switch input[type='checkbox']:checked");
+            if ($(checkbox).length == $(checked).length) {
+                $("#view_post_confirmation .modal-footer a.btn").removeClass('disabled');
+            } else {
+                $("#view_post_confirmation .modal-footer a.btn").addClass('disabled');
+            }
+        }
+    </script>
     {{--<script>
         jQuery(document).ready(function () {
             jQuery("#property_send").validate({
