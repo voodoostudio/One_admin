@@ -36,11 +36,11 @@ class CreatePostsTable extends Migration
             $table->integer('status_id')->nullable();
             $table->integer('mandate_id')->nullable();
             $table->integer('origin_id')->nullable();
-            $table->date('mandate_start')->nullable();
-            $table->date('term_end')->nullable();
-            $table->date('availability')->nullable();
-            $table->date('availab_from')->nullable();
-            $table->date('availab_until')->nullable();
+            $table->string('mandate_start', 50)->nullable();
+            $table->string('term_end', 50)->nullable();
+            $table->string('availability', 50)->nullable();
+            $table->string('availab_from', 50)->nullable();
+            $table->string('availab_until', 50)->nullable();
             $table->boolean('promotion')->default(0);
             $table->boolean('direct_transaction')->default(0);
             $table->string('note_transaction',255)->nullable();
