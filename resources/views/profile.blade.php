@@ -17,7 +17,7 @@
                 <div class="d-flex align-items-center">
                     <div class="mr-auto">
                         <h3 class="m-subheader__title ">
-                            My Profile 1
+                            My Profile
                         </h3>
                     </div>
                 </div>
@@ -318,7 +318,7 @@
                             <div class="m-portlet__body">
                                 <div class="m-card-profile">
                                     <div class="m-card-profile__title m--hide">
-                                        Your Profile
+                                        My Profile
                                     </div>
                                     <div class="m-card-profile__pic">
                                         <div class="m-card-profile__pic-wrapper">
