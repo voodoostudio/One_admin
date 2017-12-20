@@ -434,7 +434,7 @@
                                                     <div class="form-group">
                                                         <label>Début du mandat</label>
                                                         <div class='input-group date'>
-                                                            <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->mandate_start)){{ $dataTypeContent->mandate_start }}@endif" readonly  placeholder="Sélectionner la date" name="mandate_start"/>
+                                                            <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->mandate_start)){{ date("d.m.Y", strtotime($dataTypeContent->mandate_start)) }}@endif" readonly  placeholder="Sélectionner la date" name="mandate_start"/>
                                                             <span class="input-group-addon">
                                                         <i class="la la-calendar-check-o"></i>
                                                     </span>
@@ -445,7 +445,7 @@
                                                     <div class="form-group">
                                                         <label>Fin du mandat</label>
                                                         <div class='input-group date'>
-                                                            <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->term_end)){{ $dataTypeContent->term_end }}@endif" readonly  placeholder="Sélectionner la date" name="term_end"/>
+                                                            <input type='text' class="form-control m-input date-type" value="@if(isset($dataTypeContent->term_end)){{ date("d.m.Y", strtotime($dataTypeContent->term_end)) }}@endif" readonly  placeholder="Sélectionner la date" name="term_end"/>
                                                             <span class="input-group-addon"><i class="la la-calendar-check-o"></i></span>
                                                         </div>
                                                     </div>
@@ -454,7 +454,7 @@
                                                     <div class="form-group">
                                                         <label>Disponibilité</label>
                                                         <div class='input-group date' id='m_datepicker_4'>
-                                                            <input type='text' class="form-control m-input date-type rent for-type" value="@if(isset($dataTypeContent->availability)){{ $dataTypeContent->availability }}@endif" readonly  placeholder="Sélectionner la date" name="availability"/>
+                                                            <input type='text' class="form-control m-input date-type rent for-type" value="@if(isset($dataTypeContent->availability)){{ date("d.m.Y", strtotime($dataTypeContent->availability)) }}@endif" readonly  placeholder="Sélectionner la date" name="availability"/>
                                                             <span class="input-group-addon">
                                                         <i class="la la-calendar-check-o"></i>
                                                     </span>
@@ -465,11 +465,11 @@
                                                     <div class="form-group">
                                                         <label>Disponibilité à partir du / jusqu'au</label>
                                                         <div class="input-daterange input-group" id="m_datepicker_5">
-                                                            <input type="text" class="form-control m-input date-type for-type" name="availab_from" value="@if(isset($dataTypeContent->availab_from)){{ $dataTypeContent->availab_from }}@endif" />
+                                                            <input type="text" class="form-control m-input date-type for-type" name="availab_from" value="@if(isset($dataTypeContent->availab_from)){{ date("d.m.Y", strtotime($dataTypeContent->availab_from)) }}@endif" />
                                                             <span class="input-group-addon">
                                                         <i class="la la-ellipsis-h"></i>
                                                     </span>
-                                                            <input type="text" class="form-control date-type for-type" name="availab_until" value="@if(isset($dataTypeContent->availab_until)){{ $dataTypeContent->availab_until }}@endif" />
+                                                            <input type="text" class="form-control date-type for-type" name="availab_until" value="@if(isset($dataTypeContent->availab_until)){{ date("d.m.Y", strtotime($dataTypeContent->availab_until)) }}@endif" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3041,10 +3041,6 @@
             format: "yyyy", // Notice the Extra space at the beginning
             viewMode: "yyyy",
             minViewMode: "years"
-        });
-
-        $('.date-type').datepicker( {
-            format: "yyyy-mm-dd" // Notice the Extra space at the beginning
         });
 
         $('#save_checklist').on('show.bs.modal', function () {

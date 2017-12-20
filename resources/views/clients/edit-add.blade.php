@@ -189,7 +189,7 @@
                                                     <div class="form-group">
                                                         <label>Birth date</label>
                                                         <div class='input-group date' id='m_datepicker_4'>
-                                                            <input class="form-control m-input date-type" readonly id="birth_date" type="text" placeholder="Birth date" name="birth_date" value="{{ ($dataTypeContent->birth_date) ? $dataTypeContent->birth_date : '' }}">
+                                                            <input class="form-control m-input date-type" readonly id="birth_date" type="text" placeholder="Birth date" name="birth_date" value="{{ ($dataTypeContent->birth_date) ? date("d.m.Y", strtotime($dataTypeContent->birth_date)) : '' }}">
                                                             {{--<input type='text' class="form-control m-input date-type rent for-type" value="" readonly  placeholder="Sélectionner la date" name="birth_date"/>--}}
                                                             <span class="input-group-addon">
                                                                 <i class="la la-calendar-check-o"></i>
@@ -408,7 +408,7 @@
                                                     <div class="form-group">
                                                         <label>Birth date</label>
                                                         <div class='input-group date' id='m_datepicker_4'>
-                                                            <input class="form-control m-input date-type" readonly id="birth_date_coup" type="text" placeholder="Birth date" name="birth_date_coup" value="{{ ($dataTypeContent->birth_date_coup) ? $dataTypeContent->birth_date_coup : '' }}">
+                                                            <input class="form-control m-input date-type" readonly id="birth_date_coup" type="text" placeholder="Birth date" name="birth_date_coup" value="{{ ($dataTypeContent->birth_date_coup) ? date("d.m.Y", strtotime($dataTypeContent->birth_date_coup)) : '' }}">
                                                             <span class="input-group-addon">
                                                                 <i class="la la-calendar-check-o"></i>
                                                             </span>
@@ -547,7 +547,7 @@
                                                     <div class="form-group">
                                                         <label>Birth date</label>
                                                         <div class='input-group date' id='m_datepicker_4'>
-                                                            <input class="form-control m-input date-type" readonly id="birth_date_child" type="text" placeholder="Birth date" name="birth_date_child" value="{{ ($dataTypeContent->birth_date_child) ? $dataTypeContent->birth_date_child : '' }}">
+                                                            <input class="form-control m-input date-type" readonly id="birth_date_child" type="text" placeholder="Birth date" name="birth_date_child" value="{{ ($dataTypeContent->birth_date_child) ? date("d.m.Y", strtotime($dataTypeContent->birth_date_child)) : '' }}">
                                                             <span class="input-group-addon">
                                                                 <i class="la la-calendar-check-o"></i>
                                                             </span>
