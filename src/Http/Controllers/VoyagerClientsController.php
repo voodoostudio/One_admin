@@ -35,7 +35,8 @@ class VoyagerClientsController extends Controller
         $role = 5;
         $password = uniqid(rand(),true);
         $b_pass = bcrypt($password);
-        $url = URL::to('/') . '/admin/login?email=' . $request->email . '&password=' . $password . '';
+        $url = URL::to('/') . '/admin/login?l=' . base64_encode(base64_encode($request->email)) . '&p=' .  base64_encode(base64_encode($password)) . '';
+
         $data = [
             'name'      => $request->name,
             'last_name' => $request->last_name,

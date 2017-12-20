@@ -50,11 +50,12 @@
 
                             <form class="m-login__form m-form" action="{{ route('voyager.login') }}" method="POST">
                                 {{ csrf_field() }}
+
                                 <div class="form-group m-form__group">
-                                    <input class="form-control m-input" type="text" placeholder="{{ __('voyager.generic.email') }}" name="email" id="email" autocomplete="off" value="{{ (!empty($_GET["email"])) ? $_GET['email'] : old('email') }}" required>
+                                    <input class="form-control m-input" type="text" placeholder="{{ __('voyager.generic.email') }}" name="email" id="email" autocomplete="off" value="{{ (!empty($_GET["l"])) ?  base64_decode(base64_decode($_GET['l'])) : old('email') }}" required>
                                 </div>
                                 <div class="form-group m-form__group">
-                                    <input class="form-control m-input m-login__form-input--last" type="password" placeholder="{{ __('voyager.generic.password') }}" name="password" value="{{ (!empty($_GET["password"])) ? $_GET['password'] : '' }}" required>
+                                    <input class="form-control m-input m-login__form-input--last" type="password" placeholder="{{ __('voyager.generic.password') }}" name="password" value="{{ (!empty($_GET["p"])) ? base64_decode(base64_decode($_GET['p'])) : '' }}" required>
                                 </div>
 
                                 <div class="row m-login__form-sub">
