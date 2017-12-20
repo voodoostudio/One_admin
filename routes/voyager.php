@@ -32,6 +32,7 @@ Route::group(['as' => 'voyager.'], function () {
     Route::get('clients', ['uses' =>  $namespacePrefix.'VoyagerClientsController@index', 'as' => 'clients']);
     Route::get('clients/create', ['uses' =>  $namespacePrefix.'VoyagerClientsController@clientView', 'as' => 'clients/create']);
     Route::post('clients/create', ['uses' =>  $namespacePrefix.'VoyagerClientsController@clientCreate', 'as' => 'clients/create']);
+    Route::get('clients/update/{id}', ['uses' =>  $namespacePrefix.'VoyagerClientsController@clientUpdate', 'as' => 'clients/update/{id}']);
     Route::get('clients/edit', ['uses' =>  $namespacePrefix.'VoyagerClientsController@editProfileClient', 'as' => 'clients/edit']);
     Route::get('clients/show', ['uses' =>  $namespacePrefix.'VoyagerClientsController@showProfileClient', 'as' => 'clients/show']);
 

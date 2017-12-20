@@ -10,6 +10,7 @@ use TCG\Voyager\Models\Clients;
 use TCG\Voyager\Models\Post;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class VoyagerClientsController extends Controller
@@ -64,15 +65,37 @@ class VoyagerClientsController extends Controller
                 $message->to($data['email']);
             });
 
-            /* if (Mail::failures()) {
-                return $error;
-            } else {
-                return $success;
-            }*/
-
             // redirect
             return back();
         }
+    }
+
+    public function clientUpdate(Request $request)
+    {
+//        Clients::where('id', $request->id)
+//            ->update([
+//                'civility' => Input::get('civility'),
+//                'lng_corres' => Input::get('lng_corres'),
+//                'name' => Input::get('name'),
+//                'middle_name' => Input::get('middle_name'),
+//                'last_name' => Input::get('last_name'),
+//                'civil_status' => Input::get('civil_status'),
+//                'nationality' => Input::get('nationality'),
+//                'birth_date' => Input::get('birth_date'),
+//                'birthplace' => Input::get('birthplace'),
+//                'profession' => Input::get('profession'),
+//                'service' => Input::get('service'),
+//                'business' => Input::get('business'),
+//                'website' => Input::get('website'),
+//                'email_type' => Input::get('email_type'),
+//                'email' => Input::get('email'),
+//                'phone_type' => Input::get('phone_type'),
+//                'phone' => Input::get('phone'),
+//                'country_code' => Input::get('country_code'),
+//                'preferred_means_contact' => Input::get('preferred_means_contact'),
+//                'password' => bcrypt(Input::get('password')),
+//            ]);
+        return $request->id;
     }
 
     public function editProfileClient(Request $request)
