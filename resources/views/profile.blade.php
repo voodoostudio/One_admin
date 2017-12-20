@@ -356,13 +356,10 @@
                             <form class="m-form m-form--fit m-form--label-align-right form-edit-add m-form--group-seperator-dashed"
                                   action="{{ route('voyager.users.update', Auth::user()->id) }}"
                                   method="POST" enctype="multipart/form-data" id="profile_edit_form">
-                                <!-- PUT Method if we are editing -->
-                            @if(isset(Auth::user()->id))
-                                {{ method_field("PUT") }}
-                            @endif
-                            <!-- CSRF TOKEN -->
-                                {{ csrf_field() }}
 
+                                <!-- CSRF TOKEN -->
+                                {{ csrf_field() }}
+                                <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                                 <div class="tab-content">
                                     <input type="hidden" name="type_users" value="Users">
                                     <div class="tab-pane active" id="profile_info" role="tabpanel" aria-expanded="true">
