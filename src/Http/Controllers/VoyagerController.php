@@ -14,7 +14,11 @@ class VoyagerController extends Controller
 {
     public function index()
     {
-        return Voyager::view('voyager::index');
+        if(Auth::user()->role_id == 5) {
+            return redirect('admin/posts');
+        } else {
+            return Voyager::view('voyager::index');
+        }
     }
 
     public function logout()
