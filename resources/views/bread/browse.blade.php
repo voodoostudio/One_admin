@@ -28,11 +28,23 @@
                 }
             } elseif($dataType->display_name_plural == 'Clients') {
                 foreach ($dataTypeContent->where('role_id', '=', 5) as $data) {
-                    $arrayJsonData[] = $data;
+                    $arrayJsonData[] = [
+                        'id'            => $data->id,
+                        'name'          => $data->name,
+                        'email'         => $data->email,
+                        'avatar'        => $data->avatar,
+                        'created_at'    => $data->created_at->format('d.m.Y, h:m:s'),
+                    ];
                 }
             } elseif($dataType->display_name_plural == 'Users') {
                 foreach ($dataTypeContent->where('role_id', '!=', 5) as $data) {
-                    $arrayJsonData[] = $data;
+                    $arrayJsonData[] = [
+                        'id'            => $data->id,
+                        'name'          => $data->name,
+                        'email'         => $data->email,
+                        'avatar'        => $data->avatar,
+                        'created_at'    => $data->created_at->format('d.m.Y, h:m:s'),
+                    ];
                 }
             } else {
                 foreach ($dataTypeContent as $data) {
