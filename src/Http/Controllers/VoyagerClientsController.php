@@ -74,6 +74,28 @@ class VoyagerClientsController extends Controller
     public function clientUpdate(Request $request)
     {
         $clients = new Clients;
+        $newContent = [];
+        $number = count(Input::get('address_name'));
+        if($number > 0) {
+            for($i = 0; $i < $number; $i++) {
+                if(trim(Input::get('address_name')[$i] != '')) {
+                    $newContent[$i] = [
+                        'address_name' => Input::get('address_name')[$i],
+                        'address' => Input::get('address')[$i],
+                        'street' => Input::get('street')[$i],
+                        'number' => Input::get('number')[$i],
+                        'po_box' => Input::get('po_box')[$i],
+                        'zip_code' => Input::get('zip_code')[$i],
+                        'town' => Input::get('town')[$i],
+                        'country' => Input::get('country')[$i],
+                        'longitude' => Input::get('longitude')[$i],
+                        'latitude' => Input::get('latitude')[$i],
+                        'location' => Input::get('location')[$i],
+                    ];
+                }
+            }
+        }
+
         $clients->where('id', $request->id)
             ->update([
                 'civility' => Input::get('civility'),
@@ -96,7 +118,9 @@ class VoyagerClientsController extends Controller
                 'country_code' => Input::get('country_code'),
                 'preferred_means_contact' => Input::get('preferred_means_contact'),
                 'password' => bcrypt(Input::get('password')),
+                'address' => json_encode($newContent),
             ]);
+
         return back();
     }
 

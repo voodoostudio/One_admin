@@ -252,6 +252,86 @@
                                                     </select>
                                                 </div>
                                             </div>
+
+                                            {{--address block--}}
+                                            <div id="address_container">
+                                                @foreach (json_decode(Auth::user()->address) as $key => $address)
+                                                    <div class="form-group m-form__group row" id="address_form_{{ $key }}">
+                                                        <div class="col-lg-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
+                                                            <label>Adresse nom</label>
+                                                            <div class="m-input-icon m-input-icon--right">
+                                                                <input type="text" class="form-control m-input" name="address_name[]" value="{{ (isset($address->address_name)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse nom">
+                                                            </div>
+                                                        </div>
+                                                        @if($key != 0)
+                                                            <div class="col-lg-2 margin_bottom_10">
+                                                                <button id="{{ $key }}" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                            </div>
+                                                        @endif
+                                                        <div class="col-lg-8 margin_bottom_10">
+                                                            <label>Adresse</label>
+                                                            <div class="m-input-icon m-input-icon--right">
+                                                                <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                <span class="m-input-icon__icon m-input-icon__icon--right">
+                                                                <span>
+                                                                    <i class="la la-map-marker"></i>
+                                                                </span>
+                                                            </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 margin_bottom_10">
+                                                            <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                        </div>
+
+                                                        <div class="col-lg-3 margin_bottom_10">
+                                                            <label>Rue</label>
+                                                            <input type="text" id="route_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Rue" value="{{ (isset($address->street)) ? $address->street : '' }}" name="street[]">
+                                                        </div>
+                                                        <div class="col-lg-2 margin_bottom_10">
+                                                            <label>N°</label>
+                                                            <input type="text" id="street_number_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="N°" value="{{ (isset($address->number)) ? $address->number : '' }}" name="number[]">
+                                                        </div>
+                                                        <div class="col-lg-2 margin_bottom_10">
+                                                            <label>CP</label>
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="CP" value="{{ (isset($address->po_box)) ? $address->po_box : '' }}" name="po_box[]">
+                                                        </div>
+                                                        <div class="col-lg-2 margin_bottom_10">
+                                                            <label>NPA</label>
+                                                            <input type="text" id="postal_code_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="NPA" value="{{ (isset($address->zip_code)) ? $address->zip_code : '' }}" name="zip_code[]">
+                                                        </div>
+                                                        <div class="col-lg-3 margin_bottom_10">
+                                                            <label>Ville</label>
+                                                            <input type="text" id="locality_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Ville" value="{{ (isset($address->town)) ? $address->town : '' }}" name="town[]">
+                                                        </div>
+                                                        <div class="col-lg-3 margin_bottom_10">
+                                                            <label>Pays</label>
+                                                            <input type="text" id="country_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Pays" value="{{ (isset($address->country)) ? $address->country : '' }}" name="country[]">
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label>Longitude</label>
+                                                            <input disabled="disabled" type="number" min="0" id="longitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->longitude)) ? $address->longitude : '' }}" name="longitude[]">
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label>Latitude</label>
+                                                            <input disabled="disabled" type="number" min="0" id="latitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->latitude)) ? $address->latitude : '' }}" name="latitude[]">
+                                                        </div>
+                                                        <div class="col-lg-3 margin_bottom_10">
+                                                            <label>Localisation</label>
+                                                            <select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">
+                                                                @foreach(TCG\Voyager\Models\Location::all() as $location)
+                                                                    <option value="{{ $location->reference }}" @if(isset($address->location) && $address->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-lg-3 margin_bottom_10">
+                                                    <button id="add_new_address" type="button" class="btn btn-accent" style="width: 100%;">Add new address</button>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="profile_settings" role="tabpanel">
@@ -460,4 +540,100 @@
             </div>
         </div>
     @endif
+@stop
+
+@section('javascript')
+    <script>
+        var i = 1;
+        $('#add_new_address').click(function(){
+            i++;
+            $('#address_container').append(
+                '<div class="form-group m-form__group row" id="address_form_' + i  + '">' +
+                    '<div class="col-lg-10 margin_bottom_10">' +
+                        '<label>Adresse nom</label>' +
+                        '<div class="m-input-icon m-input-icon--right">' +
+                            '<input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="col-lg-2 margin_bottom_10">' +
+                        '<button id="' + i  + '" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                    '</div>' +
+                    '<div class="col-lg-8 margin_bottom_10">' +
+                        '<label>Adresse</label>' +
+                        '<div class="m-input-icon m-input-icon--right">' +
+                            '<input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
+                            '<span class="m-input-icon__icon m-input-icon__icon--right">' +
+                                '<span>' +
+                                    '<i class="la la-map-marker"></i>' +
+                                '</span>' +
+                            '</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="col-lg-4 margin_bottom_10">' +
+                        '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
+                    '</div>' +
+                    '<div class="col-lg-3 margin_bottom_10">' +
+                        '<label>Rue</label>' +
+                        '<input type="text" id="route_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Rue" name="street[]">' +
+                    '</div>' +
+                    '<div class="col-lg-2 margin_bottom_10">' +
+                        '<label>N°</label>' +
+                        '<input type="text" id="street_number_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">' +
+                    '</div>' +
+                    '<div class="col-lg-2 margin_bottom_10">' +
+                        '<label>CP</label>' +
+                        '<input type="number" min="0" class="form-control m-input" placeholder="CP" name="po_box[]">' +
+                    '</div>' +
+                    '<div class="col-lg-2 margin_bottom_10">' +
+                        '<label>NPA</label>' +
+                        '<input type="text" id="postal_code_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="NPA" name="zip_code[]">' +
+                    '</div>' +
+                    '<div class="col-lg-3 margin_bottom_10">' +
+                        '<label>Ville</label>' +
+                        '<input type="text" id="locality_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Ville" name="town[]">' +
+                    '</div>' +
+                    '<div class="col-lg-3 margin_bottom_10">' +
+                        '<label>Pays</label>' +
+                        '<input type="text" id="country_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Pays" name="country[]">' +
+                    '</div>' +
+                    '<div class="col-lg-3">' +
+                        '<label>Longitude</label>' +
+                        '<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +
+                    '</div>' +
+                    '<div class="col-lg-3">' +
+                        '<label>Latitude</label>' +
+                        '<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +
+                    '</div>' +
+                    '<div class="col-lg-3 margin_bottom_10">' +
+                        '<label>Localisation</label>' +
+                        '<select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">' +
+                            @foreach(TCG\Voyager\Models\Location::all() as $location)
+                                '<option value="{{ $location->reference }}">{{ $location->value }}</option>' +
+                            @endforeach
+                        '</select>' +
+                    '</div>' +
+                '</div>'
+            );
+            $("#address_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_address_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#address_form_' + button_id).remove();
+        });
+
+        $('.add_new_address').on('click', function () {
+//           console.log('test');
+            var this_form_group = $(this).closest('.form-group');
+//           console.log(this_form_group.html());
+
+            var new_form_group = document.createElement('div');
+            console.log(new_form_group.classList);
+            new_form_group.classList.add('form-group');
+            new_form_group.classList.add('m-form__group');
+            new_form_group.classList.add('row');
+            new_form_group.innerHTML = this_form_group.html();
+            new_form_group.
+            $('.address_container').append(new_form_group);
+        });
+    </script>
 @stop
