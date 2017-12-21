@@ -257,7 +257,7 @@
             <div class="m-content">
 
                 <!--begin::Form-->
-                <form id="edit_create_clients" action="{{ route('voyager.'.$dataType->slug.'.store') }}" class="form-edit-add m-form m-form--group-seperator-dashed" role="form" action="" method="POST"> {{-- todo action --}}
+                <form id="edit_create_clients" action="{{ route('voyager.'.$dataType->slug.'.store') }}" class="form-edit-add m-form m-form--group-seperator-dashed" role="form" enctype="multipart/form-data" method="POST"> {{-- todo action --}}
                     {{ csrf_field() }}
                     <input type="hidden" name="type_users" value="Users">
                     <div class="tab-pane" id="address_tab" role="tabpanel">
