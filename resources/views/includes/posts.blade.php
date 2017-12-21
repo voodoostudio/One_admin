@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="m-widget19__body">
-                                {{ $dataTypeContent->desc_add_fr }}
+                                <p>{!! str_replace("\n", '</p><p>', $dataTypeContent->desc_add_fr) !!}</p>
                             </div>
                         </div>
                     </div>
@@ -348,62 +348,64 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Note sur la transaction
-                                        </span>
-                                        <span class="m-widget4__sub">
-                                             {{ $dataTypeContent->note_transaction }}
-                                        </span>
+                            @if(Auth::user()->role_id != 5)
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <!--begin::Widget 14 Item-->
+                                    <div class="m-widget4__item">
+                                        <div class="m-widget4__info">
+                                            <span class="m-widget4__title">
+                                                Note sur la transaction
+                                            </span>
+                                            <span class="m-widget4__sub">
+                                                 {{ $dataTypeContent->note_transaction }}
+                                            </span>
+                                        </div>
                                     </div>
+                                    <!--end::Widget 14 Item-->
                                 </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Note courtier
-                                        </span>
-                                        <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->broker_notes }}
-                                        </span>
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <!--begin::Widget 14 Item-->
+                                    <div class="m-widget4__item">
+                                        <div class="m-widget4__info">
+                                            <span class="m-widget4__title">
+                                                Note courtier
+                                            </span>
+                                            <span class="m-widget4__sub">
+                                                {{ $dataTypeContent->broker_notes }}
+                                            </span>
+                                        </div>
                                     </div>
+                                    <!--end::Widget 14 Item-->
                                 </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Remarques importantes
-                                        </span>
-                                        <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->important_notes }}
-                                        </span>
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <!--begin::Widget 14 Item-->
+                                    <div class="m-widget4__item">
+                                        <div class="m-widget4__info">
+                                            <span class="m-widget4__title">
+                                                Remarques importantes
+                                            </span>
+                                            <span class="m-widget4__sub">
+                                                {{ $dataTypeContent->important_notes }}
+                                            </span>
+                                        </div>
                                     </div>
+                                    <!--end::Widget 14 Item-->
                                 </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Notes pour le propriétaire
-                                        </span>
-                                        <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->owner_notes }}
-                                        </span>
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <!--begin::Widget 14 Item-->
+                                    <div class="m-widget4__item">
+                                        <div class="m-widget4__info">
+                                            <span class="m-widget4__title">
+                                                Notes pour le propriétaire
+                                            </span>
+                                            <span class="m-widget4__sub">
+                                                {{ $dataTypeContent->owner_notes }}
+                                            </span>
+                                        </div>
                                     </div>
+                                    <!--end::Widget 14 Item-->
                                 </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
+                            @endif
                         </div>
                     </div>
                     <!--end::Widget 14-->
