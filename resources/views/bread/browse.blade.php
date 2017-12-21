@@ -401,6 +401,60 @@
 
         var DatatableDataLocalDemo = function () {
             //== Private functions
+            const client_cgu_title_de = `Confidentiality clause`;
+            const client_cgu_title_en = `Confidentiality clause`;
+            const client_cgu_title_es = `Cláusula de confidencialidad`;
+            const client_cgu_title_fr = `Clause de Confidentialité`;
+            const client_cgu_title_it = `Clause de Confidentialité`;
+
+            const client_cgu_check_text_de = `Read and approved`;
+            const client_cgu_check_text_en = `Read and approved`;
+            const client_cgu_check_text_es = `Leído y aprobado`;
+            const client_cgu_check_text_fr = `Lu et approuvé`;
+            const client_cgu_check_text_it = `Lu et approuvé`;
+
+            const client_cgu_de = `The product offered to you through this application by House Invest Spain is subject to this confidentiality clause.  <br><br>
+                                    Real estate, financial or entrepreneurial projects that we present to our customers are, or may be, exclusive and their content is strictly confidential. They can not and must not at any time be retransmitted by the recipient to third parties, natural or legal person without the written consent of our company.  <br><br>
+                                    House Invest Spain holds directly the mandates of sale of these projects, as well as all the rights for their commercialization. <br><br>
+                                    By accessing the information through this application, the recipient agrees to treat the information as confidential and not to disclose its content. <br><br>
+                                    Any information communicated by our company will remain the property of House Invest Spain and can not be used at any time to the detriment of the company. <br><br>
+                                    Upon request of House Invest Spain the beneficiary of the information will agree to transmit a certificate of destruction of it.  <br><br>
+                                    For all disputes that may arise regarding the interpretation or execution of this confidentiality clause and regardless of the current and future domicile of the parties, they agree, by accessing this information, both parties together with beneficiaries, the exclusive jurisdiction of the Courts of the Canton of Geneva, without prejudice to a possible appeal to the Federal Court.`;
+
+            const client_cgu_en = `The product offered to you through this application by House Invest Spain is subject to this confidentiality clause.  <br><br>
+                                    Real estate, financial or entrepreneurial projects that we present to our customers are, or may be, exclusive and their content is strictly confidential. They can not and must not at any time be retransmitted by the recipient to third parties, natural or legal person without the written consent of our company.  <br><br>
+                                    House Invest Spain holds directly the mandates of sale of these projects, as well as all the rights for their commercialization. <br><br>
+                                    By accessing the information through this application, the recipient agrees to treat the information as confidential and not to disclose its content. <br><br>
+                                    Any information communicated by our company will remain the property of House Invest Spain and can not be used at any time to the detriment of the company. <br><br>
+                                    Upon request of House Invest Spain the beneficiary of the information will agree to transmit a certificate of destruction of it.  <br><br>
+                                    For all disputes that may arise regarding the interpretation or execution of this confidentiality clause and regardless of the current and future domicile of the parties, they agree, by accessing this information, both parties together with beneficiaries, the exclusive jurisdiction of the Courts of the Canton of Geneva, without prejudice to a possible appeal to the Federal Court.`;
+
+            const client_cgu_es = `El producto que les propone House Invest Spain con esta aplicación queda sometido a la presente cláusula de confidencialidad.  <br><br>
+                                    Los productos inmobiliarios, financieros o empresariales que ofrecemos a nuestra clientela, tienen un carácter exclusivo. Su contenido es estrictamente confidencial y no pueden ser objeto de transmisión a terceros, ya sean personas físicas o morales, sin el acuerdo escrito de nuestra sociedad.  <br><br>
+                                    House Invest Spain posee directamente los mandatos de venta de tales productos, así como todos los derechos para su comercialización.  <br><br>
+                                    El destinatario considerará como confidencial la información recibida a través de esta aplicación y se compromete a no divulgar su contenido.  <br><br>
+                                    Toda la información comunicada por nuestra sociedad pertenece a House Invest Spain y no podrá ser utilizada en ningún momento con el fin de ocasionarle perjuicio.  <br><br>
+                                    Bajo demanda de House Invest Spain, el beneficiario de la información aceptará transmitir, mediante certificado, la destrucción de la misma.  <br><br>
+                                    Para todo litigio que pudiera producirse en cuanto a la interpretación o a la ejecución de la presente cláusula de confidencialidad, y cualquiera que sea el domicilio actual y futuro de las partes, estas aceptan, accediendo a la presenta información, tanto para ellas como para sus derechohabientes, la competencia exclusiva de los Tribunales del Cantón de Ginebra, sin perjuicio de un eventual recurso al Tribunal Federal.`;
+
+            const client_cgu_fr = `Le produit qui vous est proposé à travers cette application par House Invest Spain, est soumis à la présente clause de confidentialité.<br><br>
+                                    Les projets immobiliers, financiers ou entrepreneuriaux que nous présentons à notre aimable clientèle sont, ou peuvent être, à caractère exclusif et leur contenu est strictement confidentiel.<br><br>
+                                    Ils ne peuvent et ne doivent à aucun moment, être retransmis par le destinataire à des tiers, personnes physiques ou morales sans l’accord écrit de notre société.<br><br>
+                                    House Invest Spain détient directement les mandats de vente desdits projets, ainsi que tous les droits pour leur commercialisation.<br><br>
+                                    En accédant à l’information qu’il reçoit à travers la présente application, le destinataire accepte de considérer l’information comme confidentielle et à ne pas en divulguer son contenu.<br><br>
+                                    Toute information communiquée par notre société demeurera la propriété de House Invest Spain et ne pourra, à aucun moment, être utilisée dans le but de lui porter préjudice.<br><br>
+                                    Sur demande de House Invest Spain, le bénéficiaire de l’information acceptera de transmettre une attestation de destruction de celle-ci.<br><br>
+                                    Pour tous les litiges qui pourraient survenir quant à l’interprétation ou à l’exécution de la présente clause de confidentialité et quel que soit le domicile actuel et futur des parties, celles-ci acceptent, en accédant à la présente information, tant pour elles que pour leurs ayants droits, la compétence exclusive des Tribunaux du Canton de Genève, sans préjudice d’un éventuel recours au Tribunal Fédéral.`;
+
+            const client_cgu_it = `Le produit qui vous est proposé à travers cette application par House Invest Spain, est soumis à la présente clause de confidentialité.<br><br>
+                                    Les projets immobiliers, financiers ou entrepreneuriaux que nous présentons à notre aimable clientèle sont, ou peuvent être, à caractère exclusif et leur contenu est strictement confidentiel.<br><br>
+                                    Ils ne peuvent et ne doivent à aucun moment, être retransmis par le destinataire à des tiers, personnes physiques ou morales sans l’accord écrit de notre société.<br><br>
+                                    House Invest Spain détient directement les mandats de vente desdits projets, ainsi que tous les droits pour leur commercialisation.<br><br>
+                                    En accédant à l’information qu’il reçoit à travers la présente application, le destinataire accepte de considérer l’information comme confidentielle et à ne pas en divulguer son contenu.<br><br>
+                                    Toute information communiquée par notre société demeurera la propriété de House Invest Spain et ne pourra, à aucun moment, être utilisée dans le but de lui porter préjudice.<br><br>
+                                    Sur demande de House Invest Spain, le bénéficiaire de l’information acceptera de transmettre une attestation de destruction de celle-ci.<br><br>
+                                    Pour tous les litiges qui pourraient survenir quant à l’interprétation ou à l’exécution de la présente clause de confidentialité et quel que soit le domicile actuel et futur des parties, celles-ci acceptent, en accédant à la présente information, tant pour elles que pour leurs ayants droits, la compétence exclusive des Tribunaux du Canton de Genève, sans préjudice d’un éventuel recours au Tribunal Fédéral.`;
+
 
             // demo initializer
             var demo = function () {
@@ -533,9 +587,101 @@
                         title: "",
                         width: 100,
                         template: function (row) {
-                            return  '<a href="{{ Request::url() }}/' + row.id + '">' +
-                                '<img style = "max-width: 100px;" src = "../storage/' + row.image + '"/>' +
-                                '</a>';
+                            <?php if(Auth::user()->role_id != 5) { ?>
+                                return  '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 100px;" src = "../storage/' + row.image + '"/></a>';
+                            <?php } else { ?>
+                                return '\
+                                    <a href="" data-toggle="modal" data-target="#view_post_confirmation_img"><img style = "max-width: 100px;" src = "../storage/' + row.image + '"/></a>\
+                                    <div class="modal fade view_post_cgu_confirmation" id="view_post_confirmation_img" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                        <div class="modal-dialog modal-lg" role="document">\
+                                            <div class="modal-content">\
+                                                <div class="modal-header">\
+                                                    <h5 class="modal-title" id="exampleModalLabel">\
+                                                    <?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "' + client_cgu_title_de + '";
+                                            break;
+                                        case 2:
+                                            echo "' + client_cgu_title_en + '";
+                                            break;
+                                        case 3:
+                                            echo "' + client_cgu_title_es + '";
+                                            break;
+                                        case 4:
+                                            echo "' + client_cgu_title_fr + '";
+                                            break;
+                                        case 5:
+                                            echo "' + client_cgu_title_it + '";
+                                            break;
+                                    }?>
+                                    </h5>\
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                    <span aria-hidden="true">×</span>\
+                                    </button>\
+                                </div>\
+                                <div class="modal-body">\
+                                    <div class="row">\
+                                        <div class="col-lg-12">\
+<?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "<p>' + client_cgu_de + '</p>";
+                                            break;
+                                        case 2:
+                                            echo "<p>' + client_cgu_en + '</p>";
+                                            break;
+                                        case 3:
+                                            echo "<p>' + client_cgu_es + '</p>";
+                                            break;
+                                        case 4:
+                                            echo "<p>' + client_cgu_fr + '</p>";
+                                            break;
+                                        case 5:
+                                            echo "<p>' + client_cgu_it + '</p>";
+                                            break;
+                                    }?>
+                                    </div>\
+                                    <div class="col-lg-12">\
+                                        <div class="pure_switch">\
+                                            <span class="m-switch m-switch--outline m-switch--brand">\
+                                                <label>\
+                                                    <input type="checkbox" name="save_check1" onchange="checkViewPostCheckbox();">\
+                                                    <span></span>\
+                                                </label>\
+                                            </span>\
+                                            <label class="pure_switch_label">\
+<?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "' + client_cgu_check_text_de + '";
+                                            break;
+                                        case 2:
+                                            echo "' + client_cgu_check_text_en + '";
+                                            break;
+                                        case 3:
+                                            echo "' + client_cgu_check_text_es + '";
+                                            break;
+                                        case 4:
+                                            echo "' + client_cgu_check_text_fr + '";
+                                            break;
+                                        case 5:
+                                            echo "' + client_cgu_check_text_it + '";
+                                            break;
+                                    }?>
+                                    </label>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="modal-footer">\
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                        <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
+                                                </div>\
+                                            </div>\
+                                        </div>\
+                                    </div>'
+                            <?php }?>
                         }
 
                     }, {
@@ -552,42 +698,54 @@
                                 return '<a href="{{ Request::url() }}/' + row.id + '"">' + row.title_fr + '</a>'
                             <?php } else { ?>
                                 return '\
-                                    <a href="" data-toggle="modal" data-target="#view_post_confirmation">' + row.title_fr + '</a>\
-                                    <div class="modal fade" id="view_post_confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                    <a href="" data-toggle="modal" data-target="#view_post_confirmation_title">' + row.title_fr + '</a>\
+                                    <div class="modal fade view_post_cgu_confirmation" id="view_post_confirmation_title" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
                                         <div class="modal-dialog modal-lg" role="document">\
                                             <div class="modal-content">\
                                                 <div class="modal-header">\
-                                                    <h5 class="modal-title" id="exampleModalLabel">View the object</h5>\
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
-                                                    <span aria-hidden="true">×</span>\
-                                                    </button>\
-                                                </div>\
-                                                <div class="modal-body">\
-                                                    <div class="row">\
-                                                        <div class="col-lg-12">\
-                                                            <?php
+                                                    <h5 class="modal-title" id="exampleModalLabel">\
+                                                    <?php
                                     switch (Auth::user()->lng_corres) {
                                         case 1:
-                                            echo "<p>1</p>";
+                                            echo "' + client_cgu_title_de + '";
                                             break;
                                         case 2:
-                                            echo "<p>2</p>";
+                                            echo "' + client_cgu_title_en + '";
                                             break;
                                         case 3:
-                                            echo "<p>3</p>";
+                                            echo "' + client_cgu_title_es + '";
                                             break;
                                         case 4:
-                                            echo "<p> Le produit qui vous est proposé à travers cette application par House Invest Spain, est soumis à la présente clause de confidentialité.<br><br>\
-                                                                        Les projets immobiliers, financiers ou entrepreneuriaux que nous présentons à notre aimable clientèle sont, ou peuvent être, à caractère exclusif et leur contenu est strictement confidentiel.<br><br>\
-                                                                        Ils ne peuvent et ne doivent à aucun moment, être retransmis par le destinataire à des tiers, personnes physiques ou morales sans l’accord écrit de notre société.<br><br>\
-                                                                        House Invest Spain détient directement les mandats de vente desdits projets, ainsi que tous les droits pour leur commercialisation.<br><br>\
-                                                                        En accédant à l’information qu’il reçoit à travers la présente application, le destinataire accepte de considérer l’information comme confidentielle et à ne pas en divulguer son contenu.<br><br>\
-                                                                        Toute information communiquée par notre société demeurera la propriété de House Invest Spain et ne pourra, à aucun moment, être utilisée dans le but de lui porter préjudice.<br><br>\
-                                                                        Sur demande de House Invest Spain, le bénéficiaire de l’information acceptera de transmettre une attestation de destruction de celle-ci.<br><br>\
-                                                                        Pour tous les litiges qui pourraient survenir quant à l’interprétation ou à l’exécution de la présente clause de confidentialité et quel que soit le domicile actuel et futur des parties, celles-ci acceptent, en accédant à la présente information, tant pour elles que pour leurs ayants droits, la compétence exclusive des Tribunaux du Canton de Genève, sans préjudice d’un éventuel recours au Tribunal Fédéral.</p>";
+                                            echo "' + client_cgu_title_fr + '";
                                             break;
                                         case 5:
-                                            echo "<p>5</p>";
+                                            echo "' + client_cgu_title_it + '";
+                                            break;
+                                    }?>
+                                    </h5>\
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                    <span aria-hidden="true">×</span>\
+                                    </button>\
+                                </div>\
+                                <div class="modal-body">\
+                                    <div class="row">\
+                                        <div class="col-lg-12">\
+<?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "<p>' + client_cgu_de + '</p>";
+                                            break;
+                                        case 2:
+                                            echo "<p>' + client_cgu_en + '</p>";
+                                            break;
+                                        case 3:
+                                            echo "<p>' + client_cgu_es + '</p>";
+                                            break;
+                                        case 4:
+                                            echo "<p>' + client_cgu_fr + '</p>";
+                                            break;
+                                        case 5:
+                                            echo "<p>' + client_cgu_it + '</p>";
                                             break;
                                     }?>
                                     </div>\
@@ -599,14 +757,33 @@
                                                     <span></span>\
                                                 </label>\
                                             </span>\
-                                            <label class="pure_switch_label">Lu et approuvé</label>\
-                                        </div>\
-                                    </div>\
+                                            <label class="pure_switch_label">\
+<?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "' + client_cgu_check_text_de + '";
+                                            break;
+                                        case 2:
+                                            echo "' + client_cgu_check_text_en + '";
+                                            break;
+                                        case 3:
+                                            echo "' + client_cgu_check_text_es + '";
+                                            break;
+                                        case 4:
+                                            echo "' + client_cgu_check_text_fr + '";
+                                            break;
+                                        case 5:
+                                            echo "' + client_cgu_check_text_it + '";
+                                            break;
+                                    }?>
+                                    </label>\
                                 </div>\
                             </div>\
-                            <div class="modal-footer">\
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
-                                <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
+                        </div>\
+                    </div>\
+                    <div class="modal-footer">\
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                        <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
                                                 </div>\
                                             </div>\
                                         </div>\
@@ -696,7 +873,7 @@
                                     <div class="modal-dialog modal-sm" role="document">\
                                         <div class="modal-content">\
                                             <div class="modal-header">\
-                                                <h5 class="modal-title" id="exampleModalLabel">Remove object</h5>\
+                                                <h5 class="modal-title" id="exampleModalLabel">Sélectionner un client</h5>\
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
                                                     <span aria-hidden="true">×</span>\
                                                 </button>\
@@ -706,7 +883,7 @@
                                                     <div class="form-group">\
                                                         <select class="form-control m-select2 custom_select2" name="vip_users[]" multiple="multiple" data-placeholder="Sélectionner un client">\
                                                             <?php foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user) {?>
-                                    <option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }}</option>\
+                                    <option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }} {{ $user->last_name }}</option>\
                                                             <?php }?>
                                     </select>\
                                     <div class="message_status_' + row.id + '"></div>\
@@ -1014,12 +1191,14 @@
     <script>
         function checkViewPostCheckbox() {
             console.log('test');
-            var checkbox =  $("#view_post_confirmation .pure_switch input[type='checkbox']");
-            var checked =  $("#view_post_confirmation .pure_switch input[type='checkbox']:checked");
+            var cgu_modal = $(".view_post_cgu_confirmation.show");
+            console.log(cgu_modal);
+            var checkbox =  cgu_modal.find(".pure_switch input[type='checkbox']");
+            var checked =  cgu_modal.find(".pure_switch input[type='checkbox']:checked");
             if ($(checkbox).length == $(checked).length) {
-                $("#view_post_confirmation .modal-footer a.btn").removeClass('disabled');
+                cgu_modal.find(".modal-footer a.btn").removeClass('disabled');
             } else {
-                $("#view_post_confirmation .modal-footer a.btn").addClass('disabled');
+                cgu_modal.find(".modal-footer a.btn").addClass('disabled');
             }
         }
     </script>
