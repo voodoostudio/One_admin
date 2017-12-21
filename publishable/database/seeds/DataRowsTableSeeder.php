@@ -4431,7 +4431,7 @@ class DataRowsTableSeeder extends Seeder
                     'options' => [
                         '1' => 1,
                         '0' => 0,
-                        ]
+                    ]
                 ]),
                 'order'        => 257,
 
@@ -5709,6 +5709,22 @@ class DataRowsTableSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => '',
                 'order'        => 10,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'address');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_field',
+                'display_name' => 'Address',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 11,
             ])->save();
         }
 
