@@ -1342,13 +1342,15 @@
                             </div>
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
+                                <div class="m-widget4__item {{ ($dataTypeContent->serviced == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
                                         <span class="m-widget4__title" name="serviced">
                                             Viabilisé
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ ($dataTypeContent->serviced == 0) ? '&#10006;' : '&#10004;' }}
+                                            @if($dataTypeContent->serviced != 0)
+                                                <i class="fa fa-check"></i>
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
