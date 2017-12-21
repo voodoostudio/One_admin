@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Intervention\Image\Facades\Image;
+use Intervention\Image\Constraint;
+use Illuminate\Support\Facades\Storage;
 
 class VoyagerClientsController extends Controller
 {
@@ -94,6 +97,35 @@ class VoyagerClientsController extends Controller
                     ];
                 }
             }
+        }
+
+        if($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+
+            $filename = basename($file->getClientOriginalName(), '.'.$file->getClientOriginalExtension());
+            $filename_counter = 1;
+
+            $path = 'users/'.date('FY').'/';
+
+            // Make sure the filename does not exist, if it does make sure to add a number to the end 1, 2, 3, etc...
+            while (Storage::disk(config('voyager.storage.disk'))->exists($path.$filename.'.'.$file->getClientOriginalExtension())) {
+                $filename = basename($file->getClientOriginalName(), '.'.$file->getClientOriginalExtension()).(string) ($filename_counter++);
+            }
+
+            $fullPath = $path.$filename.'.'.$file->getClientOriginalExtension();
+
+            list($width, $height) = getimagesize($fullPath);
+            $ratio = 16 / 9;
+
+            $image = Image::make($file)->fit($width, intval($width / $ratio),
+                function (Constraint $constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->encode($file->getClientOriginalExtension(), 75);
+
+            Storage::disk(config('voyager.storage.disk'))->put($fullPath, (string) $image, 'public');
+
+            $clients->where('id', $request->id)->update(['avatar' => $fullPath]);
         }
 
         $clients->where('id', $request->id)

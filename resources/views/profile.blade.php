@@ -162,6 +162,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <label class="">Photo</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="avatar" type="file" accept="image/*" id="avatar" class="input_file">
+                                                            <label for="avatar">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
                                                 <div class="col-lg-6 margin_bottom_10">
                                                     <label class="">Civil status</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status" id="civil_status" data-placeholder="Select language">
