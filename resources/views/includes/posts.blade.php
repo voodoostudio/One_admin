@@ -103,7 +103,7 @@
                     <div class="m-widget4">
                         <div class="row">
                             @if($dataTypeContent->id != null)
-                                <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                                <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                     <div class="m-widget4__item">
                                         <div class="m-widget4__info">
                                             <span class="m-widget4__title">
@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -131,7 +131,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -149,7 +149,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -167,7 +167,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -181,7 +181,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -197,7 +197,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -213,7 +213,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -229,7 +229,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -245,7 +245,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -259,7 +259,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -275,7 +275,7 @@
                             </div>
 
                             @if($dataTypeContent->ann_type != 0)
-                                <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                                <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                     <!--begin::Widget 14 Item-->
                                     <div class="m-widget4__item">
                                         <div class="m-widget4__info">
@@ -290,7 +290,7 @@
                                     <!--end::Widget 14 Item-->
                                 </div>
                             @endif
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12" style="display: {{ ($dataTypeContent->ann_type == 1) ? 'none' : '' }}">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12" style="display: {{ ($dataTypeContent->ann_type == 1) ? 'none' : '' }}">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -305,7 +305,7 @@
                                 <!--end::Widget 14 Item-->
                             </div>
                             @if($dataTypeContent->ann_type != 1)
-                                <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                                <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                     <!--begin::Widget 14 Item-->
                                     <div class="m-widget4__item">
                                         <div class="m-widget4__info">
@@ -320,7 +320,7 @@
                                     <!--end::Widget 14 Item-->
                                 </div>
                             @endif
-                            <div class="param_container col-sm-12 col-md-6 col-xl-12">
+                            <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -334,7 +334,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-12 col-md-6 col-xl-12">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -348,7 +348,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-12 col-md-6 col-xl-12">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -362,7 +362,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-12 col-md-6 col-xl-12">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -376,7 +376,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-12 col-md-6 col-xl-12">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -390,7 +390,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-12 col-md-6 col-xl-12">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -432,7 +432,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -446,7 +446,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -460,7 +460,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -474,7 +474,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -488,7 +488,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -502,7 +502,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -516,7 +516,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -533,7 +533,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -645,7 +645,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -661,7 +661,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -675,7 +675,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -689,7 +689,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -703,7 +703,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -717,7 +717,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -731,7 +731,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -745,7 +745,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -759,7 +759,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -773,7 +773,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -787,7 +787,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -801,7 +801,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -817,7 +817,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -831,7 +831,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -845,7 +845,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -859,7 +859,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -873,22 +873,38 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
+                                <div class="m-widget4__item {{ ($dataTypeContent->procedure_in_progress == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
                                         <span class="m-widget4__title">
                                             Procédure en cours auprès de la copro.
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ ($dataTypeContent->procedure_in_progress == 0) ? '&#10006;' : '	&#10004;' }}
-                                            {{--<input type="checkbox" value="{{ ($dataTypeContent->procedure_in_progress != 0) ? '' : 'on' }}">--}}
+                                            @if($dataTypeContent->procedure_in_progress != 0)
+                                                <i class="fa fa-check"></i>
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                <!--begin::Widget 14 Item-->
+                                <div class="m-widget4__item {{ ($dataTypeContent->armed_with_fire_tap == 0) ? 'not_specified' : '' }}">
+                                    <div class="m-widget4__info">
+                                            <span class="m-widget4__title" name="armed_with_fire_tap">
+                                                Robinet d'incendie armé
+                                            </span>
+                                        <span class="m-widget4__sub">
+                                            @if($dataTypeContent->armed_with_fire_tap != 0)
+                                                <i class="fa fa-check"></i>
+                                            @endif
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -902,7 +918,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -916,7 +932,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -930,7 +946,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -944,7 +960,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -958,7 +974,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -972,7 +988,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1014,7 +1030,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1028,7 +1044,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1042,7 +1058,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1056,7 +1072,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1070,7 +1086,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1084,7 +1100,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1098,7 +1114,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1112,7 +1128,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1126,7 +1142,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1142,7 +1158,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1184,7 +1200,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1198,7 +1214,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1212,7 +1228,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1226,7 +1242,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1240,7 +1256,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1254,7 +1270,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1268,7 +1284,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1282,7 +1298,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1296,7 +1312,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1310,7 +1326,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1324,7 +1340,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1338,7 +1354,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1354,7 +1370,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1368,7 +1384,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1382,7 +1398,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1396,7 +1412,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1410,7 +1426,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1424,7 +1440,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1438,7 +1454,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1452,7 +1468,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1494,7 +1510,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1508,7 +1524,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1522,7 +1538,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1536,7 +1552,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1550,7 +1566,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1564,7 +1580,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1578,7 +1594,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1592,7 +1608,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1606,7 +1622,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1648,7 +1664,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1664,7 +1680,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->freezer == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1680,7 +1696,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->cooker == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1696,7 +1712,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->oven == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1712,7 +1728,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_lake == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1728,7 +1744,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->extractor_hood == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1744,7 +1760,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->washmachine == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1760,7 +1776,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->dishwasher == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1776,7 +1792,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->plates == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1792,7 +1808,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->induction_plates == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1808,7 +1824,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->hotplates == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1824,7 +1840,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->ceramic_plates == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1840,7 +1856,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->fridge == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1856,7 +1872,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->cuisine_tumble_drier == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1872,7 +1888,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->coffee_maker == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -1916,7 +1932,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1932,7 +1948,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1948,7 +1964,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -1964,7 +1980,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -2003,7 +2019,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -2019,7 +2035,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -2063,18 +2079,18 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
-                                            <span class="m-widget4__title" span="usees_distribution">
-                                                Distribution
-                                            </span>
+                                        <span class="m-widget4__title" span="usees_distribution">
+                                            Distribution
+                                        </span>
                                         <span class="m-widget4__sub">
-                                                @foreach(TCG\Voyager\Models\WasteDistribution::all() as $usees_distribution)
+                                            @foreach(TCG\Voyager\Models\WasteDistribution::all() as $usees_distribution)
                                                 @if($dataTypeContent->usees_distribution == $usees_distribution->reference){{ $usees_distribution->value }}@endif
                                             @endforeach
-                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <!--end::Widget 14 Item-->
@@ -2102,7 +2118,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -2118,7 +2134,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -2134,7 +2150,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-6">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -2176,7 +2192,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->shelter == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2191,37 +2207,37 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->access_disabled == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
-                                            <span class="m-widget4__title" name="access_disabled">
-                                                Accès pour handicapé
-                                            </span>
+                                        <span class="m-widget4__title" name="access_disabled">
+                                            Accès pour handicapé
+                                        </span>
                                         <span class="m-widget4__sub">
                                             @if($dataTypeContent->access_disabled != 0)
                                                 <i class="fa fa-check"></i>
                                             @endif
-                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->water_softener == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
-                                            <span class="m-widget4__title" name="water_softener">
-                                                Adoucisseur d'eau
-                                            </span>
+                                        <span class="m-widget4__title" name="water_softener">
+                                            Adoucisseur d'eau
+                                        </span>
                                         <span class="m-widget4__sub">
                                             @if($dataTypeContent->water_softener != 0)
                                                 <i class="fa fa-check"></i>
                                             @endif
-                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->air_conditioning == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2236,7 +2252,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->pets_welcome == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2251,7 +2267,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->fitted_wardrobes == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2266,7 +2282,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->private_lift == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2281,7 +2297,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->central_aspiration == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2296,7 +2312,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->workshop == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2311,7 +2327,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->patch_panel == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2326,7 +2342,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->windows == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2341,7 +2357,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->bath == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2356,7 +2372,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->balneo_bath == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2371,7 +2387,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->private_laundry_room == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2386,7 +2402,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->cafeteria == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2401,7 +2417,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->carnotzet == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2416,7 +2432,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->cave == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2431,7 +2447,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->wine_cellar == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2446,7 +2462,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->cellar == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2461,7 +2477,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->fireplace == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2476,7 +2492,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->air_conditioner == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2491,7 +2507,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->removable_partitions == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2506,7 +2522,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->addiction == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2521,7 +2537,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->automation == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2536,7 +2552,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->double_glazing == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2551,7 +2567,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->shower == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2566,7 +2582,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->dressing == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2581,7 +2597,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->automatic_fire_extinguisher == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2596,7 +2612,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->false_ceiling == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2611,7 +2627,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->optical_fiber == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2626,7 +2642,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->attic == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2641,7 +2657,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->generator == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2656,7 +2672,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->hammam == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2671,7 +2687,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->high_internet == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2686,7 +2702,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->jacuzzi == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2701,7 +2717,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->winter_garden == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2716,7 +2732,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->ski_locker == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2731,7 +2747,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->bicycle_storage == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2746,7 +2762,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->loggia == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2761,7 +2777,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->net == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2776,7 +2792,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->hoist == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2791,7 +2807,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->open_plan == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2806,7 +2822,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->outdoor_pool == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2821,7 +2837,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->indoor_pool == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2836,7 +2852,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->ceramic_stove == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2851,7 +2867,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->clear == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2866,7 +2882,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_lake == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2881,7 +2897,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->connection_chimney == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2896,7 +2912,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->connection_swedish_stove == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2911,7 +2927,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->reception == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2926,7 +2942,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->metallic_curtain == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2941,7 +2957,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->armed_with_fire_tap == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2956,7 +2972,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->do_it_yourself_room == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2971,7 +2987,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->theater == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -2986,7 +3002,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->game_room == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3001,7 +3017,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->fitness_room == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3016,7 +3032,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->conference_room == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3031,7 +3047,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->satellite == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3046,7 +3062,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->sauna == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3061,7 +3077,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->subsoil == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3076,7 +3092,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->blinds == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3091,7 +3107,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->electric_blinds == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3106,7 +3122,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->thermostat_connected == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3121,7 +3137,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->triple_glazing == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3136,7 +3152,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->veranda == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3151,7 +3167,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->crawlspace == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3166,7 +3182,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->electric_shutters == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3181,7 +3197,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->tumble_drier == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3196,7 +3212,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->hair_dryer == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3211,7 +3227,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->satellite_tv == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3226,7 +3242,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->phone == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3241,7 +3257,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->car_shelter == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3256,7 +3272,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->spray == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3271,7 +3287,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->barbecue == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3286,7 +3302,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->exterior_lighting == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3301,7 +3317,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->drilling == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3316,7 +3332,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->heliport == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3331,7 +3347,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->well == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3346,7 +3362,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->source == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3361,7 +3377,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->collective_lift == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3376,7 +3392,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->communal_laundry_room == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3391,7 +3407,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->network_cabling == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3406,7 +3422,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->collective_optical_fiber == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3421,7 +3437,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->parable == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3436,7 +3452,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->alarm == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3451,7 +3467,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->magnetic_card == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3466,7 +3482,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->fenced == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3481,7 +3497,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->safe == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3496,7 +3512,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->digidode == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3511,7 +3527,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->guardian == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3526,7 +3542,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->caretaker == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3541,7 +3557,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->intercom == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3556,7 +3572,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->electric_gate == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3571,7 +3587,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->reinforced_door == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3586,7 +3602,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->videophone == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3624,7 +3640,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->clear == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3639,7 +3655,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->impregnable == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3654,7 +3670,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->panoramic == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3669,7 +3685,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->courtyard == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3684,7 +3700,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_countryside == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3699,7 +3715,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_forest == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3714,7 +3730,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_sea == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3729,7 +3745,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_pool == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3744,7 +3760,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_river == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3759,7 +3775,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_street == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3774,7 +3790,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_city == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3789,7 +3805,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_garden == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3804,7 +3820,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_lake == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3819,7 +3835,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_park == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3834,7 +3850,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_haven == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3849,7 +3865,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_hills == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3864,7 +3880,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_mountains == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3879,7 +3895,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->on_ski_slopes == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3894,7 +3910,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->vis_a_vis == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -3918,7 +3934,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xl-6">
+        <div class="col-xl-12">
             <div class="m-portlet m-portlet--full-height">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
@@ -3934,7 +3950,7 @@
                     <div class="m-widget4">
                         <div class="row">
                             @if($dataTypeContent->state_front != null)
-                                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                     <!--begin::Widget 14 Item-->
                                     <div class="m-widget4__item">
                                         <div class="m-widget4__info">
@@ -3950,7 +3966,7 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -3965,7 +3981,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -3980,7 +3996,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -3995,7 +4011,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -4008,7 +4024,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-4">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
@@ -4026,7 +4042,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-6">
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
             <div class="m-portlet m-portlet--full-height">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
@@ -4041,7 +4059,7 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->nord == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -4056,7 +4074,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->south == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -4071,7 +4089,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->est == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
@@ -4086,7 +4104,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->west == 0) ? 'not_specified' : '' }}">
                                     <div class="m-widget4__info">
