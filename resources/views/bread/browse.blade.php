@@ -33,7 +33,7 @@
                         'name'          => $data->name,
                         'email'         => $data->email,
                         'avatar'        => $data->avatar,
-                        'created_at'    => $data->created_at->format('d.m.Y, h:m:s'),
+                        'created_at'    => $data->created_at->format('d.m.Y /  h:m'),
                     ];
                 }
             } elseif($dataType->display_name_plural == 'Users') {
@@ -43,7 +43,7 @@
                         'name'          => $data->name,
                         'email'         => $data->email,
                         'avatar'        => $data->avatar,
-                        'created_at'    => $data->created_at->format('d.m.Y, h:m:s'),
+                        'created_at'    => $data->created_at->format('d.m.Y / h:m'),
                     ];
                 }
             } else {
