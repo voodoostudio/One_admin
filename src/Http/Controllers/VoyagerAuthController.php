@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Models\Clients;
 
 class VoyagerAuthController extends Controller
 {
@@ -37,6 +38,9 @@ class VoyagerAuthController extends Controller
 
         if ($this->guard()->attempt($credentials, $request->has('remember'))) {
             $this->sendLoginResponse($request);
+            $clients = new Clients;
+            $query = $clients->where('email', $request->email);
+            $query->update(['counter' => $query->value('counter') + 1]);
             return 200;
         }
 

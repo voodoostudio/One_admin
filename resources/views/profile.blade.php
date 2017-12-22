@@ -99,13 +99,13 @@
                                 <div class="m-portlet__head-tools">
                                     <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
                                         <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link active" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
+                                            <a class="nav-link m-tabs__link {{ (Auth::user()->counter > 1) ? 'active' : '' }}" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
                                                 Update Profile
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_settings" role="tab">
+                                            <a class="nav-link m-tabs__link {{ (Auth::user()->counter == 1) ? 'active' : '' }}" data-toggle="tab" href="#profile_settings" role="tab">
                                                 Settings
                                             </a>
                                         </li>
@@ -124,7 +124,7 @@
                                 <input type="hidden" name="role_id" value="{{ Auth::user()->role_id }}">
                                 <div class="tab-content">
                                     <input type="hidden" name="type_profile" value="Profile">
-                                    <div class="tab-pane active" id="profile_info" role="tabpanel" aria-expanded="true">
+                                    <div class="tab-pane {{ (Auth::user()->counter > 1) ? 'active' : '' }}" id="profile_info" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -347,7 +347,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="profile_settings" role="tabpanel">
+                                    <div class="tab-pane {{ (Auth::user()->counter == 1) ? 'active' : '' }}" id="profile_settings" role="tabpanel">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset(Auth::user()->id))
