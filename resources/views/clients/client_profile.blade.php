@@ -2,20 +2,6 @@
 
 {{--{{ dd($dataTypeContent->toArray()) }}--}}
 
-@php
-
-$address = json_decode($dataTypeContent->address);
-
-foreach ($address[0] as $key => $value) {
-    echo '<br>';
-    echo $key . ' <=KEY VALUE=> ' . $value;
-    echo '<br>';
-}
-
-
-
-@endphp
-
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ voyager_asset('css/ga-embed.css') }}">
     <style>
@@ -500,7 +486,18 @@ foreach ($address[0] as $key => $value) {
                                                 Address
                                             </label>
                                             <div class="col-7">
-                                                {{--{{ dd(json_decode($dataTypeContent->address)) }}--}}
+                                                @foreach(json_decode($dataTypeContent->address) as $key => $value)
+                                                    {{ $value->address_name }}
+                                                    {{ $value->address }}
+                                                    {{ $value->street }}
+                                                    {{ $value->number }}
+                                                    {{ $value->po_box }}
+                                                    {{ $value->zip_code }}
+                                                    {{ $value->town }}
+                                                    {{ $value->country }}
+                                                    {{ $value->location }}
+                                                    {!! '<br>' !!}
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

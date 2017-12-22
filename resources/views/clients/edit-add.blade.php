@@ -453,6 +453,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-6 margin_bottom_10">
@@ -591,6 +594,9 @@
                                                             </label>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="col-lg-4 margin_bottom_10">
+                                                    <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
