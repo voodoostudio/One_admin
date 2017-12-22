@@ -148,7 +148,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">First name</label>
                                                     <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ (Auth::user()->name) ? Auth::user()->name : '' }}">
                                                 </div>
@@ -156,7 +156,7 @@
                                                     <label class="">Middle name</label>
                                                     <input class="form-control m-input" id="middle_name" type="text" name="middle_name" placeholder="Middle name" value="{{ (Auth::user()->middle_name) ? Auth::user()->middle_name : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ (Auth::user()->last_name) ? Auth::user()->last_name : '' }}">
                                                 </div>
@@ -227,7 +227,7 @@
                                                     <input class="form-control m-input" id="website" type="text" placeholder="Website" name="website" value="{{ (Auth::user()->website) ? Auth::user()->website : '' }}">
                                                 </div>
                                             </div>
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Email type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Email type">
@@ -236,7 +236,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Email</label>
                                                     <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ (Auth::user()->email) ? Auth::user()->email : '' }}">
                                                 </div>
@@ -268,28 +268,94 @@
 
                                             {{--address block--}}
                                             <div id="address_container">
-                                                @foreach (json_decode(Auth::user()->address) as $key => $address)
-                                                    <div class="form-group m-form__group row" id="address_form_{{ $key }}">
-                                                        <div class="col-lg-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
-                                                            <label>Adresse nom</label>
-                                                            <div class="m-input-icon m-input-icon--right">
-                                                                <input type="text" class="form-control m-input" name="address_name[]" value="{{ (isset($address->address_name)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse nom">
+                                                @if(!empty(json_decode(Auth::user()->address)))
+                                                    @foreach (json_decode(Auth::user()->address) as $key => $address)
+                                                        <div class="m-form__group row" id="address_form_{{ $key }}">
+                                                            <div class="col-lg-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
+                                                                <label>Adresse nom</label>
+                                                                <div class="m-input-icon m-input-icon--right">
+                                                                    <input type="text" class="form-control m-input" name="address_name[]" value="{{ (isset($address->address_name)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse nom">
+                                                                </div>
+                                                            </div>
+                                                            @if($key != 0)
+                                                                <div class="col-lg-2 margin_bottom_10">
+                                                                    <button id="{{ $key }}" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                </div>
+                                                            @endif
+                                                            <div class="col-lg-8 margin_bottom_10">
+                                                                <label>Adresse</label>
+                                                                <div class="m-input-icon m-input-icon--right">
+                                                                    <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                    <span class="m-input-icon__icon m-input-icon__icon--right">
+                                                                    <span>
+                                                                        <i class="la la-map-marker"></i>
+                                                                    </span>
+                                                                </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 margin_bottom_10">
+                                                                <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                            </div>
+
+                                                            <div class="col-lg-3 margin_bottom_10">
+                                                                <label>Rue</label>
+                                                                <input type="text" id="route_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Rue" value="{{ (isset($address->street)) ? $address->street : '' }}" name="street[]">
+                                                            </div>
+                                                            <div class="col-lg-2 margin_bottom_10">
+                                                                <label>N°</label>
+                                                                <input type="text" id="street_number_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="N°" value="{{ (isset($address->number)) ? $address->number : '' }}" name="number[]">
+                                                            </div>
+                                                            <div class="col-lg-2 margin_bottom_10">
+                                                                <label>CP</label>
+                                                                <input type="number" min="0" class="form-control m-input" placeholder="CP" value="{{ (isset($address->po_box)) ? $address->po_box : '' }}" name="po_box[]">
+                                                            </div>
+                                                            <div class="col-lg-2 margin_bottom_10">
+                                                                <label>NPA</label>
+                                                                <input type="text" id="postal_code_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="NPA" value="{{ (isset($address->zip_code)) ? $address->zip_code : '' }}" name="zip_code[]">
+                                                            </div>
+                                                            <div class="col-lg-3 margin_bottom_10">
+                                                                <label>Ville</label>
+                                                                <input type="text" id="locality_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Ville" value="{{ (isset($address->town)) ? $address->town : '' }}" name="town[]">
+                                                            </div>
+                                                            <div class="col-lg-3 margin_bottom_10">
+                                                                <label>Pays</label>
+                                                                <input type="text" id="country_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Pays" value="{{ (isset($address->country)) ? $address->country : '' }}" name="country[]">
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <label>Longitude</label>
+                                                                <input disabled="disabled" type="number" min="0" id="longitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->longitude)) ? $address->longitude : '' }}" name="longitude[]">
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <label>Latitude</label>
+                                                                <input disabled="disabled" type="number" min="0" id="latitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->latitude)) ? $address->latitude : '' }}" name="latitude[]">
+                                                            </div>
+                                                            <div class="col-lg-3 margin_bottom_10">
+                                                                <label>Localisation</label>
+                                                                <select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">
+                                                                    @foreach(TCG\Voyager\Models\Location::all() as $location)
+                                                                        <option value="{{ $location->reference }}" @if(isset($address->location) && $address->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
+                                                                    @endforeach
+                                                                </select>
                                                             </div>
                                                         </div>
-                                                        @if($key != 0)
-                                                            <div class="col-lg-2 margin_bottom_10">
-                                                                <button id="{{ $key }}" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                    @endforeach
+                                                @else
+                                                    <div class="m-form__group row" id="address_form">
+                                                        <div class="col-lg-12 margin_bottom_10">
+                                                            <label>Adresse nom</label>
+                                                            <div class="m-input-icon m-input-icon--right">
+                                                                <input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">
                                                             </div>
-                                                        @endif
+                                                        </div>
                                                         <div class="col-lg-8 margin_bottom_10">
                                                             <label>Adresse</label>
                                                             <div class="m-input-icon m-input-icon--right">
-                                                                <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                <input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                 <span class="m-input-icon__icon m-input-icon__icon--right">
-                                                                <span>
-                                                                    <i class="la la-map-marker"></i>
+                                                                    <span>
+                                                                        <i class="la la-map-marker"></i>
+                                                                    </span>
                                                                 </span>
-                                                            </span>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 margin_bottom_10">
@@ -298,46 +364,46 @@
 
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Rue</label>
-                                                            <input type="text" id="route_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Rue" value="{{ (isset($address->street)) ? $address->street : '' }}" name="street[]">
+                                                            <input type="text" id="route" readonly="readonly" class="form-control m-input" placeholder="Rue"  name="street[]">
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>N°</label>
-                                                            <input type="text" id="street_number_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="N°" value="{{ (isset($address->number)) ? $address->number : '' }}" name="number[]">
+                                                            <input type="text" id="street_number" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>CP</label>
-                                                            <input type="number" min="0" class="form-control m-input" placeholder="CP" value="{{ (isset($address->po_box)) ? $address->po_box : '' }}" name="po_box[]">
+                                                            <input type="number" min="0" class="form-control m-input" placeholder="CP" name="po_box[]">
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>NPA</label>
-                                                            <input type="text" id="postal_code_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="NPA" value="{{ (isset($address->zip_code)) ? $address->zip_code : '' }}" name="zip_code[]">
+                                                            <input type="text" id="postal_code" readonly="readonly" class="form-control m-input" placeholder="NPA"  name="zip_code[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Ville</label>
-                                                            <input type="text" id="locality_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Ville" value="{{ (isset($address->town)) ? $address->town : '' }}" name="town[]">
+                                                            <input type="text" id="locality" readonly="readonly" class="form-control m-input" placeholder="Ville"  name="town[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Pays</label>
-                                                            <input type="text" id="country_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Pays" value="{{ (isset($address->country)) ? $address->country : '' }}" name="country[]">
+                                                            <input type="text" id="country" readonly="readonly" class="form-control m-input" placeholder="Pays"  name="country[]">
                                                         </div>
                                                         <div class="col-lg-3">
                                                             <label>Longitude</label>
-                                                            <input disabled="disabled" type="number" min="0" id="longitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->longitude)) ? $address->longitude : '' }}" name="longitude[]">
+                                                            <input disabled="disabled" type="number" min="0" id="longitude" class="form-control m-input" placeholder="Longitude" name="longitude[]">
                                                         </div>
                                                         <div class="col-lg-3">
                                                             <label>Latitude</label>
-                                                            <input disabled="disabled" type="number" min="0" id="latitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->latitude)) ? $address->latitude : '' }}" name="latitude[]">
+                                                            <input disabled="disabled" type="number" min="0" id="latitude" class="form-control m-input" placeholder="Longitude" name="latitude[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Localisation</label>
                                                             <select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">
                                                                 @foreach(TCG\Voyager\Models\Location::all() as $location)
-                                                                    <option value="{{ $location->reference }}" @if(isset($address->location) && $address->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
+                                                                    <option value="{{ $location->reference }}">{{ $location->value }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
-                                                @endforeach
+                                                @endif
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-3 margin_bottom_10">
@@ -351,13 +417,13 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset(Auth::user()->id))
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-lg-6 margin_bottom_10">
                                                         <label class="">New password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
                                                     </div>
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-lg-6 margin_bottom_10">
                                                         <label class="">Confirm password</label>
-                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password">
+                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password_confirm">
                                                     </div>
                                                 @else
                                                     <div class="col-lg-6 margin_bottom_10">
@@ -450,10 +516,10 @@
                                   action="{{ route('voyager.users.update', Auth::user()->id) }}"
                                   method="POST" enctype="multipart/form-data" id="profile_edit_form">
 
-                                @if(isset(Auth::user()->id))
-                                    {{ method_field("PUT") }}
-                                @endif
-                                <!-- CSRF TOKEN -->
+                            @if(isset(Auth::user()->id))
+                                {{ method_field("PUT") }}
+                            @endif
+                            <!-- CSRF TOKEN -->
                                 {{ csrf_field() }}
                                 <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                                 <div class="tab-content">
@@ -466,15 +532,15 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">First name</label>
                                                     <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ (Auth::user()->name) ? Auth::user()->name : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ (Auth::user()->last_name) ? Auth::user()->last_name : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Email</label>
                                                     <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ (Auth::user()->email) ? Auth::user()->email : '' }}" aria-invalid="false">
                                                 </div>
@@ -516,13 +582,13 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset(Auth::user()->id))
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-lg-6 margin_bottom_10">
                                                         <label class="">New password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
                                                     </div>
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-lg-6 margin_bottom_10">
                                                         <label class="">Confirm password</label>
-                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password">
+                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password_confirm">
                                                     </div>
                                                 @else
                                                     <div class="col-lg-6 margin_bottom_10">
@@ -565,69 +631,69 @@
             i++;
             $('#address_container').append(
                 '<div class="form-group m-form__group row" id="address_form_' + i  + '">' +
-                    '<div class="col-lg-10 margin_bottom_10">' +
-                        '<label>Adresse nom</label>' +
-                        '<div class="m-input-icon m-input-icon--right">' +
-                            '<input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="col-lg-2 margin_bottom_10">' +
-                        '<button id="' + i  + '" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
-                    '</div>' +
-                    '<div class="col-lg-8 margin_bottom_10">' +
-                        '<label>Adresse</label>' +
-                        '<div class="m-input-icon m-input-icon--right">' +
-                            '<input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
-                            '<span class="m-input-icon__icon m-input-icon__icon--right">' +
-                                '<span>' +
-                                    '<i class="la la-map-marker"></i>' +
-                                '</span>' +
-                            '</span>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="col-lg-4 margin_bottom_10">' +
-                        '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
-                    '</div>' +
-                    '<div class="col-lg-3 margin_bottom_10">' +
-                        '<label>Rue</label>' +
-                        '<input type="text" id="route_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Rue" name="street[]">' +
-                    '</div>' +
-                    '<div class="col-lg-2 margin_bottom_10">' +
-                        '<label>N°</label>' +
-                        '<input type="text" id="street_number_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">' +
-                    '</div>' +
-                    '<div class="col-lg-2 margin_bottom_10">' +
-                        '<label>CP</label>' +
-                        '<input type="number" min="0" class="form-control m-input" placeholder="CP" name="po_box[]">' +
-                    '</div>' +
-                    '<div class="col-lg-2 margin_bottom_10">' +
-                        '<label>NPA</label>' +
-                        '<input type="text" id="postal_code_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="NPA" name="zip_code[]">' +
-                    '</div>' +
-                    '<div class="col-lg-3 margin_bottom_10">' +
-                        '<label>Ville</label>' +
-                        '<input type="text" id="locality_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Ville" name="town[]">' +
-                    '</div>' +
-                    '<div class="col-lg-3 margin_bottom_10">' +
-                        '<label>Pays</label>' +
-                        '<input type="text" id="country_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Pays" name="country[]">' +
-                    '</div>' +
-                    '<div class="col-lg-3">' +
-                        '<label>Longitude</label>' +
-                        '<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +
-                    '</div>' +
-                    '<div class="col-lg-3">' +
-                        '<label>Latitude</label>' +
-                        '<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +
-                    '</div>' +
-                    '<div class="col-lg-3 margin_bottom_10">' +
-                        '<label>Localisation</label>' +
-                        '<select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">' +
-                            @foreach(TCG\Voyager\Models\Location::all() as $location)
-                                '<option value="{{ $location->reference }}">{{ $location->value }}</option>' +
-                            @endforeach
-                        '</select>' +
-                    '</div>' +
+                '<div class="col-lg-10 margin_bottom_10">' +
+                '<label>Adresse nom</label>' +
+                '<div class="m-input-icon m-input-icon--right">' +
+                '<input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-lg-2 margin_bottom_10">' +
+                '<button id="' + i  + '" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '</div>' +
+                '<div class="col-lg-8 margin_bottom_10">' +
+                '<label>Adresse</label>' +
+                '<div class="m-input-icon m-input-icon--right">' +
+                '<input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
+                '<span class="m-input-icon__icon m-input-icon__icon--right">' +
+                '<span>' +
+                '<i class="la la-map-marker"></i>' +
+                '</span>' +
+                '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-lg-4 margin_bottom_10">' +
+                '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
+                '</div>' +
+                '<div class="col-lg-3 margin_bottom_10">' +
+                '<label>Rue</label>' +
+                '<input type="text" id="route_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Rue" name="street[]">' +
+                '</div>' +
+                '<div class="col-lg-2 margin_bottom_10">' +
+                '<label>N°</label>' +
+                '<input type="text" id="street_number_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">' +
+                '</div>' +
+                '<div class="col-lg-2 margin_bottom_10">' +
+                '<label>CP</label>' +
+                '<input type="number" min="0" class="form-control m-input" placeholder="CP" name="po_box[]">' +
+                '</div>' +
+                '<div class="col-lg-2 margin_bottom_10">' +
+                '<label>NPA</label>' +
+                '<input type="text" id="postal_code_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="NPA" name="zip_code[]">' +
+                '</div>' +
+                '<div class="col-lg-3 margin_bottom_10">' +
+                '<label>Ville</label>' +
+                '<input type="text" id="locality_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Ville" name="town[]">' +
+                '</div>' +
+                '<div class="col-lg-3 margin_bottom_10">' +
+                '<label>Pays</label>' +
+                '<input type="text" id="country_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Pays" name="country[]">' +
+                '</div>' +
+                '<div class="col-lg-3">' +
+                '<label>Longitude</label>' +
+                '<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +
+                '</div>' +
+                '<div class="col-lg-3">' +
+                '<label>Latitude</label>' +
+                '<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +
+                '</div>' +
+                '<div class="col-lg-3 margin_bottom_10">' +
+                '<label>Localisation</label>' +
+                '<select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">' +
+                @foreach(TCG\Voyager\Models\Location::all() as $location)
+                    '<option value="{{ $location->reference }}">{{ $location->value }}</option>' +
+                @endforeach
+                    '</select>' +
+                '</div>' +
                 '</div>'
             );
             $("#address_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
@@ -650,6 +716,48 @@
             new_form_group.innerHTML = this_form_group.html();
             new_form_group.
             $('.address_container').append(new_form_group);
+        });
+    </script>
+
+    <script>
+        jQuery.validator.addMethod( 'passwordMatch', function(value, element) {
+
+            var password = $("#password").val();
+            var confirmPassword = $("#password_confirm").val();
+
+            if(password != confirmPassword ) {
+                return false;
+            } else {
+                return true;
+            }
+
+        }, "Your Passwords Must Match");
+
+        jQuery(document).ready(function () {
+            jQuery("#profile_edit_form").validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    last_name: {
+                        required: true
+                    },
+                    email: {
+                        email: true,
+                        required: true
+                    },
+                    password: {
+                        minlength: 3
+                    },
+                    password_confirm: {
+                        minlength: 3,
+                        passwordMatch: true
+                    }
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
         });
     </script>
 @stop

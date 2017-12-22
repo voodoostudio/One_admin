@@ -124,20 +124,20 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">First name</label>
-                                                    <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
+                                                    <input class="form-control m-input"  type="text" name="name" placeholder="First name" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Email</label>
                                                     <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}" aria-invalid="false">
                                                 </div>
                                                 <div class="col-lg-6 margin_bottom_10">
-                                                    <label>Role</label>
+                                                    <label class="" for="role_id">Role</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Civilité">
                                                         @foreach(TCG\Voyager\Models\Role::all() as $role)
                                                             @if($role->id != 5)
@@ -147,7 +147,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-6 margin_bottom_10">
-                                                    <label class="">Select language</label>
+                                                    <label class="" for="lng_corres">Select language</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres) && $dataTypeContent->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
@@ -174,13 +174,13 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset($dataTypeContent->id))
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-lg-6 margin_bottom_10">
                                                         <label class="">New password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
                                                     </div>
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-lg-6 margin_bottom_10">
                                                         <label class="">Confirm password</label>
-                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password">
+                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password_confirm">
                                                     </div>
                                                 @else
                                                     <div class="col-lg-6 margin_bottom_10">
@@ -280,15 +280,15 @@
                                     </div>
                                     <div class="m-portlet__body">
                                         <div class="form-group m-form__group row">
-                                            <div class="col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
                                                 <label>Name</label>
                                                 <input type="text" class="form-control m-input" placeholder="Name" value="" name="name">
                                             </div>
-                                            <div class="col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
                                                 <label>Second Name</label>
                                                 <input type="text" class="form-control m-input" placeholder="Second Name" value="" name="last_name">
                                             </div>
-                                            <div class="col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
                                                 <label>Email</label>
                                                 <input type="text" class="form-control m-input" placeholder="Email" value="" name="email">
                                             </div>
@@ -310,7 +310,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
                                                 <label class="">Password</label>
                                                 <input class="form-control m-input" id="password" type="password" placeholder="Password" name="password">
                                             </div>
@@ -346,14 +346,45 @@
 
 @section('javascript')
     <script>
+        // ==========================================================================
+        // Registration Form : jquery validation
+
+        /*$('#profile_edit_form').validate({
+         // rules
+         rules: {
+         register_password: {
+         required: true,
+         minlength: 3
+         },
+         register_pass_confirm: {
+         required: true,
+         minlength: 3,
+         passwordMatch: true // set this on the field you're trying to match
+         }
+         },
+
+         // messages
+         messages: {
+         register_password: {
+         required: "What is your password?",
+         minlength: "Your password must contain more than 3 characters"
+         },
+         register_pass_confirm: {
+         required: "You must confirm your password",
+         minlength: "Your password must contain more than 3 characters",
+         passwordMatch: "Your Passwords Must Match" // custom message for mismatched passwords
+         }
+         }
+         });*///end validate
+    </script>
+
+    <script>
         jQuery.validator.addMethod( 'passwordMatch', function(value, element) {
 
-            // The two password inputs
             var password = $("#password").val();
             var confirmPassword = $("#password_confirm").val();
 
-            // Check for equality with the password inputs
-            if (password != confirmPassword ) {
+            if(password != confirmPassword ) {
                 return false;
             } else {
                 return true;
@@ -361,35 +392,53 @@
 
         }, "Your Passwords Must Match");
 
-        // ==========================================================================
-        // Registration Form : jquery validation
-
-        $('#profile_edit_form').validate({
-            // rules
-            rules: {
-                register_password: {
-                    required: true,
-                    minlength: 3
+        jQuery(document).ready(function () {
+            jQuery("#profile_edit_form").validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    last_name: {
+                        required: true
+                    },
+                    email: {
+                        email: true,
+                        required: true
+                    },
+                    password: {
+                        minlength: 3
+                    },
+                    password_confirm: {
+                        minlength: 3,
+                        passwordMatch: true
+                    }
                 },
-                register_pass_confirm: {
-                    required: true,
-                    minlength: 3,
-                    passwordMatch: true // set this on the field you're trying to match
+                submitHandler: function (form) {
+                    form.submit();
                 }
-            },
+            });
 
-            // messages
-            messages: {
-                register_password: {
-                    required: "What is your password?",
-                    minlength: "Your password must contain more than 3 characters"
+            jQuery("#edit_create_clients").validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    last_name: {
+                        required: true
+                    },
+                    email: {
+                        email: true,
+                        required: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 3
+                    }
                 },
-                register_pass_confirm: {
-                    required: "You must confirm your password",
-                    minlength: "Your password must contain more than 3 characters",
-                    passwordMatch: "Your Passwords Must Match" // custom message for mismatched passwords
+                submitHandler: function (form) {
+                    form.submit();
                 }
-            }
-        });//end validate
+            });
+        });
     </script>
 @stop

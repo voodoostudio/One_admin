@@ -143,7 +143,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">First name</label>
                                                     <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
                                                 </div>
@@ -151,7 +151,7 @@
                                                     <label class="">Middle name</label>
                                                     <input class="form-control m-input" id="middle_name" type="text" name="middle_name" placeholder="Middle name" value="{{ ($dataTypeContent->middle_name) ? $dataTypeContent->middle_name : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
                                                 </div>
@@ -230,7 +230,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Email</label>
                                                     <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}">
                                                 </div>
@@ -264,7 +264,7 @@
                                             <div id="address_container">
                                                 @if(!empty(json_decode($dataTypeContent->address)))
                                                     @foreach (json_decode($dataTypeContent->address) as $key => $address)
-                                                        <div class="form-group m-form__group row" id="address_form_{{ $key }}">
+                                                        <div class="m-form__group row" id="address_form_{{ $key }}">
                                                             <div class="col-lg-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
                                                                 <label>Adresse nom</label>
                                                                 <div class="m-input-icon m-input-icon--right">
@@ -334,7 +334,7 @@
                                                         </div>
                                                     @endforeach
                                                 @else
-                                                    <div class="form-group m-form__group row" id="address_form">
+                                                    <div class="m-form__group row" id="address_form">
                                                         <div class="col-lg-12 margin_bottom_10">
                                                             <label>Adresse nom</label>
                                                             <div class="m-input-icon m-input-icon--right">
@@ -453,10 +453,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2 margin_bottom_10">
-                                                    <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
-                                                </div>
-
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-6 margin_bottom_10">
@@ -509,7 +505,7 @@
                                                     <input class="form-control m-input" id="website_coup" type="text" placeholder="Website" name="website_coup" value="{{ ($dataTypeContent->website_coup) ? $dataTypeContent->website_coup : '' }}">
                                                 </div>
                                             </div>
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Email type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="email_type_coup" id="email_type_coup" data-placeholder="Email type">
@@ -596,9 +592,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2 margin_bottom_10">
-                                                    <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
-                                                </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-6 margin_bottom_10">
@@ -651,7 +644,7 @@
                                                     <input class="form-control m-input" id="website_child" type="text" placeholder="Website" name="website_child" value="{{ ($dataTypeContent->website_child) ? $dataTypeContent->website_child : '' }}">
                                                 </div>
                                             </div>
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Email type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="email_type_child" id="email_type_child" data-placeholder="Email type">
@@ -824,11 +817,11 @@
                                     </div>
                                     <div class="m-portlet__body">
                                         <div class="form-group m-form__group row">
-                                            <div class="col-lg-3 col-md-6 margin_bottom_10">
+                                            <div class="form-group col-lg-3 col-md-6 margin_bottom_10">
                                                 <label>Name</label>
                                                 <input type="text" id="" class="form-control m-input" placeholder="Name" value="" name="name">
                                             </div>
-                                            <div class="col-lg-3 col-md-6 margin_bottom_10">
+                                            <div class="form-group col-lg-3 col-md-6 margin_bottom_10">
                                                 <label>Second Name</label>
                                                 <input type="text" id="" class="form-control m-input" placeholder="Second Name" value="" name="last_name">
                                             </div>
@@ -840,7 +833,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="col-lg-3 col-md-6 margin_bottom_10">
+                                            <div class="form-group col-lg-3 col-md-6 margin_bottom_10">
                                                 <label>Email</label>
                                                 <input type="text" id="" class="form-control m-input" placeholder="Email" value="" name="email">
                                             </div>
@@ -962,51 +955,43 @@
         });
     </script>
     <script>
-        jQuery.validator.addMethod( 'passwordMatch', function(value, element) {
-
-            // The two password inputs
-            var password = $("#password").val();
-            var confirmPassword = $("#password_confirm").val();
-
-            // Check for equality with the password inputs
-            if (password != confirmPassword ) {
-                return false;
-            } else {
-                return true;
-            }
-
-        }, "Your Passwords Must Match");
-
-        // ==========================================================================
-        // Registration Form : jquery validation
-
-        $('#profile_edit_form').validate({
-            // rules
-            rules: {
-                register_password: {
-                    required: true,
-                    minlength: 3
+        jQuery(document).ready(function () {
+            jQuery("#profile_edit_form").validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    last_name: {
+                        required: true
+                    },
+                    email: {
+                        email: true,
+                        required: true
+                    }
                 },
-                register_pass_confirm: {
-                    required: true,
-                    minlength: 3,
-                    passwordMatch: true // set this on the field you're trying to match
+                submitHandler: function (form) {
+                    form.submit();
                 }
-            },
+            });
 
-            // messages
-            messages: {
-                register_password: {
-                    required: "What is your password?",
-                    minlength: "Your password must contain more than 3 characters"
+            jQuery("#edit_create_clients").validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    last_name: {
+                        required: true
+                    },
+                    email: {
+                        email: true,
+                        required: true
+                    }
                 },
-                register_pass_confirm: {
-                    required: "You must confirm your password",
-                    minlength: "Your password must contain more than 3 characters",
-                    passwordMatch: "Your Passwords Must Match" // custom message for mismatched passwords
+                submitHandler: function (form) {
+                    form.submit();
                 }
-            }
-        });//end validate
+            });
+        });
     </script>
 
     <script>
