@@ -3631,8 +3631,8 @@
         function initializeAddressMap() {
 
             var current_position = {
-                lat: 46.204391,
-                lng: 6.143158
+                lat: 40.416775,
+                lng: -3.703790
             };
 
             var myLatlng = new google.maps.LatLng(current_position);
