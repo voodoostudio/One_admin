@@ -16,7 +16,7 @@
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
                     <h3 class="m-subheader__title ">
-                        Profile
+                        Profile ({{ $dataTypeContent->name }} {{ $dataTypeContent->last_name }})
                     </h3>
                 </div>
             </div>
