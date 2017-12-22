@@ -295,8 +295,8 @@ abstract class Controller extends BaseController
                         }
                         $content = $newContent;
                     }
-                    return json_encode($content);
                 }
+                return json_encode($content);
                 break;
 
             /********** SELECT MULTIPLE TYPE **********/
