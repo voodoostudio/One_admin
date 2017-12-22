@@ -82,9 +82,9 @@ class CreateUsersTable extends Migration
             $table->string('country_code_child',10)->nullable();
             $table->integer('phone_child')->nullable();
             $table->integer('preferred_means_contact_child')->nullable();
-            $table->integer('counter')->default(0);
+            $table->string('counter')->default(0);
             /**/
-
+            $table->string('user_info')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

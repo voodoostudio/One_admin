@@ -5712,6 +5712,22 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($userDataType, 'user_info');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text_area',
+                'display_name' => 'User Information',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 10,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($userDataType, 'address');
         if (!$dataRow->exists) {
             $dataRow->fill([

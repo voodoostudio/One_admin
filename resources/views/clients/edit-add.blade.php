@@ -687,6 +687,12 @@
                                                     <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone_child" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
                                                 </div>
+                                                @if(Auth::user()->role_id != 5)
+                                                    <div class="col-lg-4 margin_bottom_10">
+                                                        <label class="">Informations sur le client</label>
+                                                        <textarea class="form-control m-input" name="user_info" cols="30" rows="7">{{ ($dataTypeContent->user_info) ? $dataTypeContent->user_info : '' }}</textarea>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
