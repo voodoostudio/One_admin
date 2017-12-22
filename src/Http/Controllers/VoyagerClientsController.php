@@ -39,6 +39,7 @@ class VoyagerClientsController extends Controller
         $password = uniqid(rand(),true);
         $b_pass = bcrypt($password);
         $url = URL::to('/') . '/admin/login?l=' . base64_encode(base64_encode($request->email)) . '&p=' .  base64_encode(base64_encode($password)) . '';
+        $address = [];
 
         $data = [
             'name'      => $request->name,
@@ -51,7 +52,7 @@ class VoyagerClientsController extends Controller
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('/admin/clients')
+            return redirect('admin/clients')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
@@ -61,6 +62,7 @@ class VoyagerClientsController extends Controller
             $clients->email             = Input::get('email');
             $clients->password          = $b_pass;
             $clients->role_id           = $role;
+            $clients->address           = json_encode($address);
 
             $clients->save();
 
@@ -70,7 +72,7 @@ class VoyagerClientsController extends Controller
             });
 
             // redirect
-            return back();
+            return redirect('admin/clients');
         }
     }
 
