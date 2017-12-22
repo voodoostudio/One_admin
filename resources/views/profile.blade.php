@@ -450,6 +450,9 @@
                                   action="{{ route('voyager.users.update', Auth::user()->id) }}"
                                   method="POST" enctype="multipart/form-data" id="profile_edit_form">
 
+                                @if(isset(Auth::user()->id))
+                                    {{ method_field("PUT") }}
+                                @endif
                                 <!-- CSRF TOKEN -->
                                 {{ csrf_field() }}
                                 <input type="hidden" name="id" value="{{ Auth::user()->id }}">
