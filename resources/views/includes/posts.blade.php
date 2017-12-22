@@ -73,6 +73,11 @@
                                     <span class="m-widget19__number m--font-brand">
                                         @if($dataTypeContent->show_price != 0)
                                             {{ ($dataTypeContent->price != null) ? $dataTypeContent->price : 'None' }}
+                                            @if(!empty($dataTypeContent->price))
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    {{ ($dataTypeContent->сurrency == $сurrency->reference) ? $сurrency->value : '' }}
+                                                @endforeach
+                                            @endif
                                         @endif
                                     </span>
                                 </div>
