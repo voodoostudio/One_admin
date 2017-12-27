@@ -454,7 +454,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                    @if($dataTypeContent->photo_coup != null)
+                                                        <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                    @else
+                                                        <img style="max-width: 150px !important;" src="/img/admin/default-coup.png" alt="Default coup avatar"/>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -596,7 +600,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                    @if($dataTypeContent->photo_coup != null)
+                                                        <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                    @else
+                                                        <img style="max-width: 150px !important;" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">

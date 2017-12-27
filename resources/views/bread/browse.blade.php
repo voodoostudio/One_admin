@@ -600,7 +600,11 @@
                         width: 100,
                         template: function (row) {
                             <?php if(Auth::user()->role_id != 5) { ?>
-                                return  '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 100px;" src = "../storage/' + row.image + '"/></a>';
+                                if (row.image == null){
+                                    return '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 100px;" src="/img/admin/no_image.png" alt="Default image" /></a>';
+                                } else{
+                                    return '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 100px;" src = "../storage/' + row.image + '"/></a>';
+                                }
                             <?php } else { ?>
                                 return '\
                                     <a href="" data-toggle="modal" data-target="#view_post_confirmation_img"><img style = "max-width: 100px;" src = "../storage/' + row.image + '"/></a>\
