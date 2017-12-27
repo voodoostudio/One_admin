@@ -79,8 +79,11 @@
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
                     <h3 class="m-subheader__title m-subheader__title--separator">
-                        {{--{{ $dataType->display_name_plural }}--}}
-                        {{ $dataType->display_name_singular }}
+                        @if($_SERVER['REQUEST_URI'] == '/admin/posts')
+                            Properties
+                        @else
+                            {{ $dataType->display_name_singular }}
+                        @endif
                     </h3>
                     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                         <li class="m-nav__item m-nav__item--home">
@@ -199,11 +202,11 @@
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <h3 class="m-portlet__head-text">
-                                {{--                                {{ $dataType->display_name_plural }}--}}
-                                {{ $dataType->display_name_singular }}
-                                {{--<small>--}}
-                                {{--initialized from javascript array--}}
-                                {{--</small>--}}
+                                @if($_SERVER['REQUEST_URI'] == '/admin/posts')
+                                    Properties
+                                @else
+                                    {{ $dataType->display_name_singular }}
+                                @endif
                             </h3>
                         </div>
                     </div>
@@ -600,11 +603,7 @@
                         width: 100,
                         template: function (row) {
                             <?php if(Auth::user()->role_id != 5) { ?>
-                                if (row.image == null){
-                                    return '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 100px;" src="/img/admin/no_image.png" alt="Default image" /></a>';
-                                } else{
-                                    return '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 100px;" src = "../storage/' + row.image + '"/></a>';
-                                }
+                                return  '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 100px;" src = "../storage/' + row.image + '"/></a>';
                             <?php } else { ?>
                                 return '\
                                     <a href="" data-toggle="modal" data-target="#view_post_confirmation_img"><img style = "max-width: 100px;" src = "../storage/' + row.image + '"/></a>\
