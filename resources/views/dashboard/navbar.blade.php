@@ -5,7 +5,7 @@
             <div class="m-stack__item m-brand  m-brand--skin-dark" style ="{{ (Auth::user()->role_id != 5) ? '' : 'display:none;' }}">
                 <div class="m-stack m-stack--ver m-stack--general">
                     <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                        <a href="index.html" class="m-brand__logo-wrapper">
+                        <a href="{{ URL::to('/') }}" class="m-brand__logo-wrapper">
                             <p style="width: 200px; text-transform: uppercase; color: #b9b8b8; font-weight: bold; margin: 0; font-size: 17px;">HIS</p>
                             <!--<img alt="" src="assets/demo/default/media/img/logo/logo_default_dark.png"/>-->
                         </a>
