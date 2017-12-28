@@ -455,9 +455,9 @@
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
                                                     @if($dataTypeContent->photo_coup != null)
-                                                        <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                                     @else
-                                                        <img style="max-width: 150px !important;" src="/img/admin/default-coup.png" alt="Default coup avatar"/>
+                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default coup avatar"/>
                                                     @endif
                                                 </div>
                                             </div>
@@ -599,11 +599,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-lg-2 margin_bottom_10">
                                                     @if($dataTypeContent->photo_coup != null)
-                                                        <img style="width: 100%; margin-top: 35px;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                                     @else
-                                                        <img style="width: 100%; margin-top: 35px;" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
                                                     @endif
                                                 </div>
                                             </div>
@@ -696,12 +696,12 @@
                                                     <input class="form-control m-input" id="phone_child" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
                                                 </div>
                                                 @if(Auth::user()->role_id != 5)
+                                            </div>
+                                            <div class="m-form__group row">
+                                                <div class="col-sm-12 margin_bottom_10">
+                                                    <label class="">Informations sur le client</label>
+                                                    <textarea class="form-control m-input" name="user_info" cols="30" rows="7">{{ ($dataTypeContent->user_info) ? $dataTypeContent->user_info : '' }}</textarea>
                                                 </div>
-                                                <div class="m-form__group row">
-                                                    <div class="col-sm-12 margin_bottom_10">
-                                                        <label class="">Informations sur le client</label>
-                                                        <textarea class="form-control m-input" name="user_info" cols="30" rows="7">{{ ($dataTypeContent->user_info) ? $dataTypeContent->user_info : '' }}</textarea>
-                                                    </div>
                                                 @endif
                                             </div>
                                         </div>
@@ -882,6 +882,7 @@
     <!--end::Google Maps -->
 
     <script>
+        showSelectedFileName();
         var i = 1;
         $('#add_new_address').click(function(){
             i++;
@@ -975,6 +976,32 @@
             new_form_group.
             $('.address_container').append(new_form_group);
         });
+
+        function showSelectedFileName() {
+            $( '.input_file' ).each( function()
+            {
+                var $input	 = $( this ),
+                    $label	 = $input.next( 'label' ),
+                    labelVal = $label.html();
+
+                $input.on( 'change', function( e )
+                {
+                    var fileName = '';
+
+                    if( this.files && this.files.length > 1 )
+                        fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                    else if( e.target.value )
+                        fileName = e.target.value.split( '\\' ).pop();
+
+                    if( fileName )
+                        $label.find( 'span' ).html( fileName );
+                    else
+                        $label.html( labelVal );
+                });
+                $input.on( 'focus', function(){ $input.addClass( 'has-focus' ); });
+                $input.on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
+            });
+        }
     </script>
     <script>
         jQuery(document).ready(function () {
