@@ -2816,22 +2816,38 @@
                                             <div class="row">
                                                 <div class="col-lg-12 margin_bottom_10">
                                                     <label>Gallery images dropzone</label>
-                                                    <div class="m-dropzone dropzone m-dropzone--success" id="m-dropzone-three"><!--action="inc/api/dropzone/upload.php" -->
-                                                        <div class="m-dropzone__msg dz-message needsclick">
-                                                            @if(isset($dataTypeContent->image))
-                                                                @foreach(json_decode($dataTypeContent->image) as $image)
-                                                                    <img src="{{ Voyager::image($image) }}" style="max-width:150px;max-height:50px;" />
-                                                                @endforeach
-                                                            @endif
-                                                            <input type="file" name="image[]" multiple="multiple">
-                                                            {{--<h3 class="m-dropzone__msg-title">--}}
-                                                            {{--Drop files here or click to upload.--}}
-                                                            {{--</h3>--}}
-                                                            {{--<span class="m-dropzone__msg-desc">--}}
-                                                            {{--Only image, pdf and psd files are allowed for upload--}}
-                                                            {{--</span>--}}
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="image[]" multiple="multiple" type="file" accept="image/*" id="avatar" class="input_file">
+                                                            <label for="avatar">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                            <div class="thumbnails_container">
+                                                                @if(isset($dataTypeContent->image))
+                                                                    @foreach(json_decode($dataTypeContent->image) as $image)
+                                                                        <img src="{{ Voyager::image($image) }}" style="max-width:150px;max-height:50px;" />
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
+
+                                                    {{--<div class="m-dropzone dropzone m-dropzone--success" id="m-dropzone-three"><!--action="inc/api/dropzone/upload.php" -->--}}
+                                                    {{--<div class="m-dropzone__msg dz-message needsclick">--}}
+                                                    {{--@if(isset($dataTypeContent->image))--}}
+                                                    {{--@foreach(json_decode($dataTypeContent->image) as $image)--}}
+                                                    {{--<img src="{{ Voyager::image($image) }}" style="max-width:150px;max-height:50px;" />--}}
+                                                    {{--@endforeach--}}
+                                                    {{--@endif--}}
+                                                    {{--<input type="file" name="image[]" multiple="multiple">--}}
+                                                    {{--<h3 class="m-dropzone__msg-title">--}}
+                                                    {{--Drop files here or click to upload.--}}
+                                                    {{--</h3>--}}
+                                                    {{--<span class="m-dropzone__msg-desc">--}}
+                                                    {{--Only image, pdf and psd files are allowed for upload--}}
+                                                    {{--</span>--}}
+                                                    {{--</div>--}}
+                                                    {{--</div>--}}
                                                     {{--<div class="panel panel-bordered panel-primary">--}}
                                                     {{--<div class="panel-heading">--}}
                                                     {{--<h3 class="panel-title"><i class="icon wb-image"></i> {{ __('voyager.post.image') }}</h3>--}}
@@ -3085,7 +3101,6 @@
             if($(this).val() === 1) {
                 $('.rent').attr('disabled', true);
             }
-
         });
 
         /* Summ of surfaces */
@@ -3718,8 +3733,6 @@
                     }
                 });
             });
-
-
 
             infoWindow = new google.maps.InfoWindow;
 
