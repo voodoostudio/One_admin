@@ -270,7 +270,7 @@
                                             <div id="address_container">
                                                 @if(!empty(json_decode(Auth::user()->address)))
                                                     @foreach (json_decode(Auth::user()->address) as $key => $address)
-                                                        <div class="m-form__group row" id="address_form_{{ $key }}">
+                                                        <div class="m-form__group row address_form_group" id="address_form_{{ $key }}">
                                                             <div class="col-lg-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
                                                                 <label>Adresse nom</label>
                                                                 <div class="m-input-icon m-input-icon--right">
@@ -294,7 +294,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4 margin_bottom_10">
-                                                                <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                                <button type="button" id="open_map_btn_{{ $key }}" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                             </div>
 
                                                             <div class="col-lg-3 margin_bottom_10">
@@ -340,7 +340,7 @@
                                                         </div>
                                                     @endforeach
                                                 @else
-                                                    <div class="m-form__group row" id="address_form">
+                                                    <div class="m-form__group row address_form_group" id="address_form_1">
                                                         <div class="col-lg-12 margin_bottom_10">
                                                             <label>Adresse nom</label>
                                                             <div class="m-input-icon m-input-icon--right">
@@ -350,7 +350,7 @@
                                                         <div class="col-lg-8 margin_bottom_10">
                                                             <label>Adresse</label>
                                                             <div class="m-input-icon m-input-icon--right">
-                                                                <input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                <input type="text" id="autocomplete_1" class="form-control m-input autocomplete_input" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                 <span class="m-input-icon__icon m-input-icon__icon--right">
                                                                     <span>
                                                                         <i class="la la-map-marker"></i>
@@ -359,16 +359,16 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 margin_bottom_10">
-                                                            <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                            <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                         </div>
 
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Rue</label>
-                                                            <input type="text" id="route" readonly="readonly" class="form-control m-input" placeholder="Rue"  name="street[]">
+                                                            <input type="text" id="route_1" readonly="readonly" class="form-control m-input" placeholder="Rue"  name="street[]">
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>N°</label>
-                                                            <input type="text" id="street_number" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">
+                                                            <input type="text" id="street_number_1" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>CP</label>
@@ -376,23 +376,23 @@
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>NPA</label>
-                                                            <input type="text" id="postal_code" readonly="readonly" class="form-control m-input" placeholder="NPA"  name="zip_code[]">
+                                                            <input type="text" id="postal_code_1" readonly="readonly" class="form-control m-input" placeholder="NPA"  name="zip_code[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Ville</label>
-                                                            <input type="text" id="locality" readonly="readonly" class="form-control m-input" placeholder="Ville"  name="town[]">
+                                                            <input type="text" id="locality_1" readonly="readonly" class="form-control m-input" placeholder="Ville"  name="town[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Pays</label>
-                                                            <input type="text" id="country" readonly="readonly" class="form-control m-input" placeholder="Pays"  name="country[]">
+                                                            <input type="text" id="country_1" readonly="readonly" class="form-control m-input" placeholder="Pays"  name="country[]">
                                                         </div>
                                                         <div class="col-lg-3">
                                                             <label>Longitude</label>
-                                                            <input disabled="disabled" type="number" min="0" id="longitude" class="form-control m-input" placeholder="Longitude" name="longitude[]">
+                                                            <input disabled="disabled" type="number" min="0" id="longitude_1" class="form-control m-input" placeholder="Longitude" name="longitude[]">
                                                         </div>
                                                         <div class="col-lg-3">
                                                             <label>Latitude</label>
-                                                            <input disabled="disabled" type="number" min="0" id="latitude" class="form-control m-input" placeholder="Longitude" name="latitude[]">
+                                                            <input disabled="disabled" type="number" min="0" id="latitude_1" class="form-control m-input" placeholder="Longitude" name="latitude[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Localisation</label>
@@ -622,15 +622,44 @@
             </div>
         </div>
     @endif
+
+    <!--begin::Modal-->
+    <div class="modal fade" id="address_map_modal" tabindex="-1" role="dialog" aria-labelledby="addressMapModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addressMapModal">Positionner votre adresse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="map_block">
+                        <div id="address_map" style="height: 500px; width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Sauver et fermer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Modal-->
 @stop
 
 @section('javascript')
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZhPguGsxnAK4WdGML3Qew_KMleHvRdzw&libraries=places&callback=initAutocomplete"async defer></script>
+    <!--end::Google Maps -->
+
     <script>
         var i = 1;
         $('#add_new_address').click(function(){
             i++;
             $('#address_container').append(
-                '<div class="form-group m-form__group row" id="address_form_' + i  + '">' +
+                '<div class="form-group m-form__group row address_form_group" id="address_form_' + i  + '">' +
                 '<div class="col-lg-10 margin_bottom_10">' +
                 '<label>Adresse nom</label>' +
                 '<div class="m-input-icon m-input-icon--right">' +
@@ -643,7 +672,7 @@
                 '<div class="col-lg-8 margin_bottom_10">' +
                 '<label>Adresse</label>' +
                 '<div class="m-input-icon m-input-icon--right">' +
-                '<input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
+                '<input type="text" id="autocomplete_' + i  + '" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
                 '<span class="m-input-icon__icon m-input-icon__icon--right">' +
                 '<span>' +
                 '<i class="la la-map-marker"></i>' +
@@ -652,7 +681,7 @@
                 '</div>' +
                 '</div>' +
                 '<div class="col-lg-4 margin_bottom_10">' +
-                '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
+                '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
                 '</div>' +
                 '<div class="col-lg-3 margin_bottom_10">' +
                 '<label>Rue</label>' +
@@ -696,17 +725,17 @@
                 '</div>' +
                 '</div>'
             );
+            initAutocomplete();
             $("#address_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_address_btn', function(){
             var button_id = $(this).attr("id");
             $('#address_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         $('.add_new_address').on('click', function () {
-//           console.log('test');
             var this_form_group = $(this).closest('.form-group');
-//           console.log(this_form_group.html());
 
             var new_form_group = document.createElement('div');
             console.log(new_form_group.classList);
@@ -759,5 +788,206 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        // This example displays an address form, using the autocomplete feature
+        // of the Google Places API to help users fill in the information.
+
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        var placeSearch, autocomplete;
+        var componentForm = {
+            street_number: 'short_name',
+            route: 'long_name',
+            locality: 'long_name',
+//            administrative_area_level_1: 'short_name',
+            country: 'long_name',
+            postal_code: 'short_name'
+        };
+
+        var address_block_id = $('#address_container input.autocomplete_input').attr('id');
+
+
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            $('.address_form_group').each(function (index) {
+                index += 1;
+                autocomplete = new google.maps.places.Autocomplete(
+                    /** @type {!HTMLInputElement} */(document.getElementById('autocomplete_'+index)),
+                    {types: ['geocode']});
+
+                // When the user selects an address from the dropdown, populate the address
+                // fields in the form.
+                autocomplete.addListener('place_changed', fillInAddress);
+            });
+        }
+
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    var val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+                }
+            }
+
+            $('#latitude').val('');
+            $('#longitude').val('');
+        }
+
+        // Bias the autocomplete object to the user's geographical location,
+        // as supplied by the browser's 'navigator.geolocation' object.
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+
+        $('#address_map_modal').on('shown.bs.modal', function (e) {
+            initializeAddressMap();
+        });
+
+        var map_btn_id = 1;
+        $(document).on('click', '.open_map_btn', function(){
+            var this_id = $(this).attr('id');
+            map_btn_id = this_id.replace ( /[^\d.]/g, '' );
+        });
+        var map, infoWindow;
+        function initializeAddressMap() {
+
+            var current_position = {
+                lat: 40.416775,
+                lng: -3.703790
+            };
+
+            var myLatlng = new google.maps.LatLng(current_position);
+
+            map = document.getElementById('address_map');
+            var geocoder = new google.maps.Geocoder;
+            var mapOptions = {
+                zoom: 15,
+                minZoom: 2,
+                maxZoom: 20,
+                scrollwheel: false,
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    position: google.maps.ControlPosition.TOP_RIGHT
+                },
+                streetViewControl: true,
+                streetViewControlOptions: {
+                    position: google.maps.ControlPosition.RIGHT_TOP
+                },
+                zoomControl: true,
+                zoomControlOptions: {
+                    position: google.maps.ControlPosition.RIGHT_TOP
+                },
+                center: myLatlng
+            };
+            var map = new google.maps.Map(map, mapOptions);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: myLatlng,
+                draggable: true
+                //icon: '/images/pin_map_white.svg'
+            });
+
+            google.maps.event.addListener(marker, 'dragend', function(e){
+                myLatlng = marker.getPosition();
+                geocoder.geocode({
+                    latLng: marker.getPosition()
+                }, function(responses) {
+                    if (responses && responses.length > 0) {
+
+                        $('#latitude_'+map_btn_id).val(e.latLng.lat());
+                        $('#longitude_'+map_btn_id).val(e.latLng.lng());
+                        $('#autocomplete_'+map_btn_id).val(responses[0].formatted_address);
+
+                        $('#street_number_'+map_btn_id).val('');
+                        $('#route_'+map_btn_id).val('');
+                        $('#locality_'+map_btn_id).val('');
+                        $('#country_'+map_btn_id).val('');
+                        $('#postal_code_'+map_btn_id).val('');
+
+                        responses[0].address_components.forEach(function(a) {
+                            if (a.long_name !== undefined && a.long_name.length > 0) {
+                                if (a.types[0] == 'street_number') {
+                                    $('#street_number_'+map_btn_id).val(a.long_name);
+                                }
+                                if (a.types[0] == 'route' || a.types[0] == 'street_address') {
+                                    $('#route_'+map_btn_id).val(a.long_name);
+                                }
+                                if (a.types[0] == 'locality') {
+                                    $('#locality_'+map_btn_id).val(a.long_name);
+                                    $('.autocomplete_input_'+map_btn_id).val(a.long_name);
+                                }
+                                if (a.types[0] == 'country') {
+                                    $('#country_'+map_btn_id).val(a.long_name);
+                                }
+                                if (a.types[0] == 'postal_code') {
+                                    $('#postal_code_'+map_btn_id).val(a.long_name);
+                                }
+                            }
+                        });
+
+                    } else {
+                        console.log('Cannot determine address at this location.');
+                    }
+                });
+            });
+
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
     </script>
 @stop
