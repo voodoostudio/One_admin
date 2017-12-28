@@ -288,7 +288,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4 margin_bottom_10">
-                                                                <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                                <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                             </div>
 
                                                             <div class="col-lg-3 margin_bottom_10">
@@ -334,7 +334,7 @@
                                                         </div>
                                                     @endforeach
                                                 @else
-                                                    <div class="m-form__group row" id="address_form">
+                                                    <div class="m-form__group row address_form_group" id="address_form_1">
                                                         <div class="col-lg-12 margin_bottom_10">
                                                             <label>Adresse nom</label>
                                                             <div class="m-input-icon m-input-icon--right">
@@ -344,7 +344,7 @@
                                                         <div class="col-lg-8 margin_bottom_10">
                                                             <label>Adresse</label>
                                                             <div class="m-input-icon m-input-icon--right">
-                                                                <input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                <input type="text" id="autocomplete_1" class="form-control m-input autocomplete_input" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                 <span class="m-input-icon__icon m-input-icon__icon--right">
                                                             <span>
                                                                 <i class="la la-map-marker"></i>
@@ -353,16 +353,16 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 margin_bottom_10">
-                                                            <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                            <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                         </div>
 
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Rue</label>
-                                                            <input type="text" id="route" readonly="readonly" class="form-control m-input" placeholder="Rue"  name="street[]">
+                                                            <input type="text" id="route_1" readonly="readonly" class="form-control m-input" placeholder="Rue"  name="street[]">
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>N°</label>
-                                                            <input type="text" id="street_number" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">
+                                                            <input type="text" id="street_number_1" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>CP</label>
@@ -370,23 +370,23 @@
                                                         </div>
                                                         <div class="col-lg-2 margin_bottom_10">
                                                             <label>NPA</label>
-                                                            <input type="text" id="postal_code" readonly="readonly" class="form-control m-input" placeholder="NPA"  name="zip_code[]">
+                                                            <input type="text" id="postal_code_1" readonly="readonly" class="form-control m-input" placeholder="NPA"  name="zip_code[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Ville</label>
-                                                            <input type="text" id="locality" readonly="readonly" class="form-control m-input" placeholder="Ville"  name="town[]">
+                                                            <input type="text" id="locality_1" readonly="readonly" class="form-control m-input" placeholder="Ville"  name="town[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Pays</label>
-                                                            <input type="text" id="country" readonly="readonly" class="form-control m-input" placeholder="Pays"  name="country[]">
+                                                            <input type="text" id="country_1" readonly="readonly" class="form-control m-input" placeholder="Pays"  name="country[]">
                                                         </div>
                                                         <div class="col-lg-3">
                                                             <label>Longitude</label>
-                                                            <input disabled="disabled" type="number" min="0" id="longitude" class="form-control m-input" placeholder="Longitude" name="longitude[]">
+                                                            <input disabled="disabled" type="number" min="0" id="longitude_1" class="form-control m-input" placeholder="Longitude" name="longitude[]">
                                                         </div>
                                                         <div class="col-lg-3">
                                                             <label>Latitude</label>
-                                                            <input disabled="disabled" type="number" min="0" id="latitude" class="form-control m-input" placeholder="Longitude" name="latitude[]">
+                                                            <input disabled="disabled" type="number" min="0" id="latitude_1" class="form-control m-input" placeholder="Longitude" name="latitude[]">
                                                         </div>
                                                         <div class="col-lg-3 margin_bottom_10">
                                                             <label>Localisation</label>
@@ -887,7 +887,7 @@
         $('#add_new_address').click(function(){
             i++;
             $('#address_container').append(
-                '<div class="form-group m-form__group row" id="address_form_' + i  + '">' +
+                '<div class="form-group m-form__group row address_form_group" id="address_form_' + i  + '">' +
                 '<div class="col-lg-10 margin_bottom_10">' +
                 '<label>Adresse nom</label>' +
                 '<div class="m-input-icon m-input-icon--right">' +
@@ -900,7 +900,7 @@
                 '<div class="col-lg-8 margin_bottom_10">' +
                 '<label>Adresse</label>' +
                 '<div class="m-input-icon m-input-icon--right">' +
-                '<input type="text" id="autocomplete" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
+                '<input type="text" id="autocomplete_' + i  + '" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
                 '<span class="m-input-icon__icon m-input-icon__icon--right">' +
                 '<span>' +
                 '<i class="la la-map-marker"></i>' +
@@ -909,7 +909,7 @@
                 '</div>' +
                 '</div>' +
                 '<div class="col-lg-4 margin_bottom_10">' +
-                '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
+                '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
                 '</div>' +
                 '<div class="col-lg-3 margin_bottom_10">' +
                 '<label>Rue</label>' +
@@ -953,20 +953,19 @@
                 '</div>' +
                 '</div>'
             );
+            initAutocomplete();
             $("#address_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_address_btn', function(){
             var button_id = $(this).attr("id");
             $('#address_form_' + button_id).remove();
+            initAutocomplete();
         });
 
 
 
         $('.add_new_address').on('click', function () {
-//           console.log('test');
             var this_form_group = $(this).closest('.form-group');
-//           console.log(this_form_group.html());
-
             var new_form_group = document.createElement('div');
             console.log(new_form_group.classList);
             new_form_group.classList.add('form-group');
@@ -1061,19 +1060,22 @@
             postal_code: 'short_name'
         };
 
-        var address_block_id = $('#address_container input.autocomplete_input').attr('id')
-        console.log(address_block_id);
+        var address_block_id = $('#address_container input.autocomplete_input').attr('id');
+
 
         function initAutocomplete() {
             // Create the autocomplete object, restricting the search to geographical
             // location types.
-            autocomplete = new google.maps.places.Autocomplete(
-                /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-                {types: ['geocode']});
+            $('.address_form_group').each(function (index) {
+                index += 1;
+                autocomplete = new google.maps.places.Autocomplete(
+                    /** @type {!HTMLInputElement} */(document.getElementById('autocomplete_'+index)),
+                    {types: ['geocode']});
 
-            // When the user selects an address from the dropdown, populate the address
-            // fields in the form.
-            autocomplete.addListener('place_changed', fillInAddress);
+                // When the user selects an address from the dropdown, populate the address
+                // fields in the form.
+                autocomplete.addListener('place_changed', fillInAddress);
+            });
         }
 
         function fillInAddress() {
@@ -1121,6 +1123,12 @@
             initializeAddressMap();
         });
 
+        var map_btn_id = 1;
+        $(document).on('click', '.open_map_btn', function(){
+            var this_id = $(this).attr('id');
+            map_btn_id = this_id.replace ( /[^\d.]/g, '' );
+            console.log(map_btn_id);
+        });
         var map, infoWindow;
         function initializeAddressMap() {
 
@@ -1160,8 +1168,6 @@
                 //icon: '/images/pin_map_white.svg'
             });
 
-            console.log(current_position);
-
             google.maps.event.addListener(marker, 'dragend', function(e){
                 myLatlng = marker.getPosition();
                 geocoder.geocode({
@@ -1169,32 +1175,33 @@
                 }, function(responses) {
                     if (responses && responses.length > 0) {
 
-                        $('#latitude').val(e.latLng.lat());
-                        $('#longitude').val(e.latLng.lng());
-                        $('#autocomplete').val(responses[0].formatted_address);
+                        $('#latitude_'+map_btn_id).val(e.latLng.lat());
+                        $('#longitude_'+map_btn_id).val(e.latLng.lng());
+                        $('#autocomplete_'+map_btn_id).val(responses[0].formatted_address);
 
-                        $('#street_number').val('');
-                        $('#route').val('');
-                        $('#locality').val('');
-                        $('#country').val('');
-                        $('#postal_code').val('');
+                        $('#street_number_'+map_btn_id).val('');
+                        $('#route_'+map_btn_id).val('');
+                        $('#locality_'+map_btn_id).val('');
+                        $('#country_'+map_btn_id).val('');
+                        $('#postal_code_'+map_btn_id).val('');
 
                         responses[0].address_components.forEach(function(a) {
                             if (a.long_name !== undefined && a.long_name.length > 0) {
                                 if (a.types[0] == 'street_number') {
-                                    $('#street_number').val(a.long_name);
+                                    $('#street_number_'+map_btn_id).val(a.long_name);
                                 }
                                 if (a.types[0] == 'route' || a.types[0] == 'street_address') {
-                                    $('#route').val(a.long_name);
+                                    $('#route_'+map_btn_id).val(a.long_name);
                                 }
                                 if (a.types[0] == 'locality') {
-                                    $('#locality').val(a.long_name);
+                                    $('#locality_'+map_btn_id).val(a.long_name);
+                                    $('.autocomplete_input_'+map_btn_id).val(a.long_name);
                                 }
                                 if (a.types[0] == 'country') {
-                                    $('#country').val(a.long_name);
+                                    $('#country_'+map_btn_id).val(a.long_name);
                                 }
                                 if (a.types[0] == 'postal_code') {
-                                    $('#postal_code').val(a.long_name);
+                                    $('#postal_code_'+map_btn_id).val(a.long_name);
                                 }
                             }
                         });
@@ -1204,8 +1211,6 @@
                     }
                 });
             });
-
-
 
             infoWindow = new google.maps.InfoWindow;
 
