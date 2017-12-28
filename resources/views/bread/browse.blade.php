@@ -78,84 +78,17 @@
         <div class="m-subheader ">
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
-                    <h3 class="m-subheader__title m-subheader__title--separator">
-                        {{ $dataType->display_name_singular }}
-                    </h3>
-                </div>
-                <div style="display: none">
-                    <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
-                        <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                            <i class="la la-plus m--hide"></i>
-                            <i class="la la-ellipsis-h"></i>
-                        </a>
-                        <div class="m-dropdown__wrapper">
-                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                            <div class="m-dropdown__inner">
-                                <div class="m-dropdown__body">
-                                    <div class="m-dropdown__content">
-                                        <ul class="m-nav">
-                                            <li class="m-nav__section m-nav__section--first m--hide">
-                                                <span class="m-nav__section-text">
-                                                    Quick Actions
-                                                </span>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-share"></i>
-                                                    <span class="m-nav__link-text">
-                                                        Activity
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                    <span class="m-nav__link-text">
-                                                        Messages
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-info"></i>
-                                                    <span class="m-nav__link-text">
-                                                        FAQ
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                    <span class="m-nav__link-text">
-                                                        Support
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__separator m-nav__separator--fit"></li>
-                                            <li class="m-nav__item">
-                                                <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                    Submit
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @if(Auth::user()->role_id == 5)
+                        <h3 class="m-subheader__title">
+                            Bonjour {{ Auth::user()->name }} {{ Auth::user()->last_name }}
+                        </h3>
+                        <p>Voici les objets que nous avons sélectionnés pour vous.</p>
+                    @endif
                 </div>
             </div>
         </div>
         <!-- END: Subheader -->
         <div class="m-content">
-            {{--<div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">--}}
-            {{--<div class="m-alert__icon">--}}
-            {{--<i class="flaticon-exclamation m--font-brand"></i>--}}
-            {{--</div>--}}
-            {{--<div class="m-alert__text">--}}
-            {{--Here you can see list of all objects in your current admin page. Click "Add New" to add new object.--}}
-            {{--</div>--}}
-            {{--</div>--}}
             <div class="m-portlet m-portlet--mobile">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
@@ -165,85 +98,6 @@
                             </h3>
                         </div>
                     </div>
-                    <div class="m-portlet__head-tools" style="display: none;">
-                        <ul class="m-portlet__nav">
-                            <li class="m-portlet__nav-item">
-                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
-                                    <a href="#" class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
-                                        <i class="la la-plus m--hide"></i>
-                                        <i class="la la-ellipsis-h m--font-brand"></i>
-                                    </a>
-                                    <div class="m-dropdown__wrapper">
-                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                        <div class="m-dropdown__inner">
-                                            <div class="m-dropdown__body">
-                                                <div class="m-dropdown__content">
-                                                    <ul class="m-nav">
-                                                        <li class="m-nav__section m-nav__section--first">
-                                                            <span class="m-nav__section-text">
-                                                                Quick Actions
-                                                            </span>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-share"></i>
-                                                                <span class="m-nav__link-text">
-                                                                    Create Post
-                                                                </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                                <span class="m-nav__link-text">
-                                                                    Send Messages
-                                                                </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-multimedia-2"></i>
-                                                                <span class="m-nav__link-text">
-                                                                    Upload File
-                                                                </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__section">
-                                                            <span class="m-nav__section-text">
-                                                                Useful Links
-                                                            </span>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-info"></i>
-                                                                <span class="m-nav__link-text">
-                                                                    FAQ
-                                                                </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                                <span class="m-nav__link-text">
-                                                                    Support
-                                                                </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
-                                                        <li class="m-nav__item m--hide">
-                                                            <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                                Submit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
                 <div class="m-portlet__body">
                     <!--begin: Search Form -->
@@ -251,58 +105,6 @@
                         <div class="row align-items-center">
                             <div class="col-xl-8 order-2 order-xl-1">
                                 <div class="form-group m-form__group row align-items-center">
-                                    {{--<div class="col-md-4">--}}
-                                    {{--<div class="m-form__group m-form__group--inline">--}}
-                                    {{--<div class="m-form__label">--}}
-                                    {{--<label>--}}
-                                    {{--Status:--}}
-                                    {{--</label>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="m-form__control">--}}
-                                    {{--<select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_status">--}}
-                                    {{--<option value="">--}}
-                                    {{--All--}}
-                                    {{--</option>--}}
-                                    {{--<option value="1">--}}
-                                    {{--Pending--}}
-                                    {{--</option>--}}
-                                    {{--<option value="2">--}}
-                                    {{--Delivered--}}
-                                    {{--</option>--}}
-                                    {{--<option value="3">--}}
-                                    {{--Canceled--}}
-                                    {{--</option>--}}
-                                    {{--</select>--}}
-                                    {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="d-md-none m--margin-bottom-10"></div>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-4">--}}
-                                    {{--<div class="m-form__group m-form__group--inline">--}}
-                                    {{--<div class="m-form__label">--}}
-                                    {{--<label class="m-label m-label--single">--}}
-                                    {{--Type:--}}
-                                    {{--</label>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="m-form__control">--}}
-                                    {{--<select class="form-control m-bootstrap-select m-bootstrap-select--solid" id="m_form_type">--}}
-                                    {{--<option value="">--}}
-                                    {{--All--}}
-                                    {{--</option>--}}
-                                    {{--<option value="1">--}}
-                                    {{--Online--}}
-                                    {{--</option>--}}
-                                    {{--<option value="2">--}}
-                                    {{--Retail--}}
-                                    {{--</option>--}}
-                                    {{--<option value="3">--}}
-                                    {{--Direct--}}
-                                    {{--</option>--}}
-                                    {{--</select>--}}
-                                    {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="d-md-none m--margin-bottom-10"></div>--}}
-                                    {{--</div>--}}
                                     <div class="col-md-4">
                                         <div class="m-input-icon m-input-icon--left">
                                             <input type="text" class="form-control m-input m-input--solid" placeholder="Search..." id="m_form_search">
@@ -568,85 +370,85 @@
                                                 <div class="modal-header">\
                                                     <h5 class="modal-title" id="exampleModalLabel">\
                                                         <?php
-                                                        switch (Auth::user()->lng_corres) {
-                                                            case 1:
-                                                                echo "' + client_cgu_title_de + '";
-                                                                break;
-                                                            case 2:
-                                                                echo "' + client_cgu_title_en + '";
-                                                                break;
-                                                            case 3:
-                                                                echo "' + client_cgu_title_es + '";
-                                                                break;
-                                                            case 4:
-                                                                echo "' + client_cgu_title_fr + '";
-                                                                break;
-                                                            case 5:
-                                                                echo "' + client_cgu_title_it + '";
-                                                                break;
-                                                        }?>
-                                                    </h5>\
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
-                                                        <span aria-hidden="true">×</span>\
-                                                    </button>\
-                                                </div>\
-                                                <div class="modal-body">\
-                                                    <div class="row">\
-                                                        <div class="col-lg-12">\
-                                                            <?php
-                                                                switch (Auth::user()->lng_corres) {
-                                                                    case 1:
-                                                                        echo "<p>' + client_cgu_de + '</p>";
-                                                                        break;
-                                                                    case 2:
-                                                                        echo "<p>' + client_cgu_en + '</p>";
-                                                                        break;
-                                                                    case 3:
-                                                                        echo "<p>' + client_cgu_es + '</p>";
-                                                                        break;
-                                                                    case 4:
-                                                                        echo "<p>' + client_cgu_fr + '</p>";
-                                                                        break;
-                                                                    case 5:
-                                                                        echo "<p>' + client_cgu_it + '</p>";
-                                                                        break;
-                                                                }?>
-                                                        </div>\
-                                                        <div class="col-lg-12">\
-                                                            <div class="pure_switch">\
-                                                                <span class="m-switch m-switch--outline m-switch--brand">\
-                                                                    <label>\
-                                                                        <input type="checkbox" name="save_check1" onchange="checkViewPostCheckbox();">\
-                                                                        <span></span>\
-                                                                    </label>\
-                                                                </span>\
-                                                                <label class="pure_switch_label">\
-                                                                <?php
-                                                                    switch (Auth::user()->lng_corres) {
-                                                                        case 1:
-                                                                            echo "' + client_cgu_check_text_de + '";
-                                                                            break;
-                                                                        case 2:
-                                                                            echo "' + client_cgu_check_text_en + '";
-                                                                            break;
-                                                                        case 3:
-                                                                            echo "' + client_cgu_check_text_es + '";
-                                                                            break;
-                                                                        case 4:
-                                                                            echo "' + client_cgu_check_text_fr + '";
-                                                                            break;
-                                                                        case 5:
-                                                                            echo "' + client_cgu_check_text_it + '";
-                                                                            break;
-                                                                    }?>
-                                                                </label>\
-                                                            </div>\
-                                                        </div>\
-                                                    </div>\
-                                                </div>\
-                                                <div class="modal-footer">\
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
-                                                    <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "' + client_cgu_title_de + '";
+                                            break;
+                                        case 2:
+                                            echo "' + client_cgu_title_en + '";
+                                            break;
+                                        case 3:
+                                            echo "' + client_cgu_title_es + '";
+                                            break;
+                                        case 4:
+                                            echo "' + client_cgu_title_fr + '";
+                                            break;
+                                        case 5:
+                                            echo "' + client_cgu_title_it + '";
+                                            break;
+                                    }?>
+                                    </h5>\
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                        <span aria-hidden="true">×</span>\
+                                    </button>\
+                                </div>\
+                                <div class="modal-body">\
+                                    <div class="row">\
+                                        <div class="col-lg-12">\
+<?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "<p>' + client_cgu_de + '</p>";
+                                            break;
+                                        case 2:
+                                            echo "<p>' + client_cgu_en + '</p>";
+                                            break;
+                                        case 3:
+                                            echo "<p>' + client_cgu_es + '</p>";
+                                            break;
+                                        case 4:
+                                            echo "<p>' + client_cgu_fr + '</p>";
+                                            break;
+                                        case 5:
+                                            echo "<p>' + client_cgu_it + '</p>";
+                                            break;
+                                    }?>
+                                    </div>\
+                                    <div class="col-lg-12">\
+                                        <div class="pure_switch">\
+                                            <span class="m-switch m-switch--outline m-switch--brand">\
+                                                <label>\
+                                                    <input type="checkbox" name="save_check1" onchange="checkViewPostCheckbox();">\
+                                                    <span></span>\
+                                                </label>\
+                                            </span>\
+                                            <label class="pure_switch_label">\
+<?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "' + client_cgu_check_text_de + '";
+                                            break;
+                                        case 2:
+                                            echo "' + client_cgu_check_text_en + '";
+                                            break;
+                                        case 3:
+                                            echo "' + client_cgu_check_text_es + '";
+                                            break;
+                                        case 4:
+                                            echo "' + client_cgu_check_text_fr + '";
+                                            break;
+                                        case 5:
+                                            echo "' + client_cgu_check_text_it + '";
+                                            break;
+                                    }?>
+                                    </label>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="modal-footer">\
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                        <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
                                                 </div>\
                                             </div>\
                                         </div>\
@@ -675,85 +477,85 @@
                                                 <div class="modal-header">\
                                                     <h5 class="modal-title" id="exampleModalLabel">\
                                                         <?php
-                                                        switch (Auth::user()->lng_corres) {
-                                                            case 1:
-                                                                echo "' + client_cgu_title_de + '";
-                                                                break;
-                                                            case 2:
-                                                                echo "' + client_cgu_title_en + '";
-                                                                break;
-                                                            case 3:
-                                                                echo "' + client_cgu_title_es + '";
-                                                                break;
-                                                            case 4:
-                                                                echo "' + client_cgu_title_fr + '";
-                                                                break;
-                                                            case 5:
-                                                                echo "' + client_cgu_title_it + '";
-                                                                break;
-                                                        }?>
-                                                    </h5>\
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
-                                                        <span aria-hidden="true">×</span>\
-                                                    </button>\
-                                                </div>\
-                                                <div class="modal-body">\
-                                                    <div class="row">\
-                                                        <div class="col-lg-12">\
-                                                            <?php
-                                                                switch (Auth::user()->lng_corres) {
-                                                                    case 1:
-                                                                        echo "<p>' + client_cgu_de + '</p>";
-                                                                        break;
-                                                                    case 2:
-                                                                        echo "<p>' + client_cgu_en + '</p>";
-                                                                        break;
-                                                                    case 3:
-                                                                        echo "<p>' + client_cgu_es + '</p>";
-                                                                        break;
-                                                                    case 4:
-                                                                        echo "<p>' + client_cgu_fr + '</p>";
-                                                                        break;
-                                                                    case 5:
-                                                                        echo "<p>' + client_cgu_it + '</p>";
-                                                                        break;
-                                                                }?>
-                                                        </div>\
-                                                        <div class="col-lg-12">\
-                                                            <div class="pure_switch">\
-                                                                <span class="m-switch m-switch--outline m-switch--brand">\
-                                                                    <label>\
-                                                                        <input type="checkbox" name="save_check1" onchange="checkViewPostCheckbox();">\
-                                                                        <span></span>\
-                                                                    </label>\
-                                                                </span>\
-                                                                <label class="pure_switch_label">\
-                                                                    <?php
-                                                                    switch (Auth::user()->lng_corres) {
-                                                                        case 1:
-                                                                            echo "' + client_cgu_check_text_de + '";
-                                                                            break;
-                                                                        case 2:
-                                                                            echo "' + client_cgu_check_text_en + '";
-                                                                            break;
-                                                                        case 3:
-                                                                            echo "' + client_cgu_check_text_es + '";
-                                                                            break;
-                                                                        case 4:
-                                                                            echo "' + client_cgu_check_text_fr + '";
-                                                                            break;
-                                                                        case 5:
-                                                                            echo "' + client_cgu_check_text_it + '";
-                                                                            break;
-                                                                    }?>
-                                                                </label>\
-                                                            </div>\
-                                                        </div>\
-                                                    </div>\
-                                                </div>\
-                                                <div class="modal-footer">\
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
-                                                    <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "' + client_cgu_title_de + '";
+                                            break;
+                                        case 2:
+                                            echo "' + client_cgu_title_en + '";
+                                            break;
+                                        case 3:
+                                            echo "' + client_cgu_title_es + '";
+                                            break;
+                                        case 4:
+                                            echo "' + client_cgu_title_fr + '";
+                                            break;
+                                        case 5:
+                                            echo "' + client_cgu_title_it + '";
+                                            break;
+                                    }?>
+                                    </h5>\
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                        <span aria-hidden="true">×</span>\
+                                    </button>\
+                                </div>\
+                                <div class="modal-body">\
+                                    <div class="row">\
+                                        <div class="col-lg-12">\
+<?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "<p>' + client_cgu_de + '</p>";
+                                            break;
+                                        case 2:
+                                            echo "<p>' + client_cgu_en + '</p>";
+                                            break;
+                                        case 3:
+                                            echo "<p>' + client_cgu_es + '</p>";
+                                            break;
+                                        case 4:
+                                            echo "<p>' + client_cgu_fr + '</p>";
+                                            break;
+                                        case 5:
+                                            echo "<p>' + client_cgu_it + '</p>";
+                                            break;
+                                    }?>
+                                    </div>\
+                                    <div class="col-lg-12">\
+                                        <div class="pure_switch">\
+                                            <span class="m-switch m-switch--outline m-switch--brand">\
+                                                <label>\
+                                                    <input type="checkbox" name="save_check1" onchange="checkViewPostCheckbox();">\
+                                                    <span></span>\
+                                                </label>\
+                                            </span>\
+                                            <label class="pure_switch_label">\
+<?php
+                                    switch (Auth::user()->lng_corres) {
+                                        case 1:
+                                            echo "' + client_cgu_check_text_de + '";
+                                            break;
+                                        case 2:
+                                            echo "' + client_cgu_check_text_en + '";
+                                            break;
+                                        case 3:
+                                            echo "' + client_cgu_check_text_es + '";
+                                            break;
+                                        case 4:
+                                            echo "' + client_cgu_check_text_fr + '";
+                                            break;
+                                        case 5:
+                                            echo "' + client_cgu_check_text_it + '";
+                                            break;
+                                    }?>
+                                    </label>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="modal-footer">\
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                        <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
                                                 </div>\
                                             </div>\
                                         </div>\
@@ -853,10 +655,10 @@
                                                     <div class="form-group">\
                                                         <select class="form-control m-select2 custom_select2" name="vip_users[]" multiple="multiple" data-placeholder="Sélectionner un client">\
                                                             <?php foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user) {?>
-                                                                <option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }} {{ $user->last_name }}</option>\
+                                    <option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }} {{ $user->last_name }}</option>\
                                                             <?php }?>
-                                                        </select>\
-                                                        <div class="message_status_' + row.id + '"></div>\
+                                    </select>\
+                                    <div class="message_status_' + row.id + '"></div>\
                                                         <input type="hidden" name="property_id" value="' + row.id + '" />\
                                                     </div>\
                                                 </div>\
