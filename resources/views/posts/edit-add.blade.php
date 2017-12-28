@@ -2817,7 +2817,9 @@
                                                     <div class="m-dropzone dropzone m-dropzone--success" id="m-dropzone-three"><!--action="inc/api/dropzone/upload.php" -->
                                                         <div class="m-dropzone__msg dz-message needsclick">
                                                             @if(isset($dataTypeContent->image))
-                                                                <img src="{{ filter_var($dataTypeContent->image, FILTER_VALIDATE_URL) ? Voyager::image($dataTypeContent->image) : $dataTypeContent->image }}" style="width:100%" />
+                                                                @foreach(json_decode($dataTypeContent->image) as $image)
+                                                                    <img src="{{ Voyager::image($image) }}" style="max-width:150px;max-height:50px;" />
+                                                                @endforeach
                                                             @endif
                                                             <input type="file" name="image[]" multiple="multiple">
                                                             {{--<h3 class="m-dropzone__msg-title">--}}
