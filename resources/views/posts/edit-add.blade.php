@@ -381,15 +381,17 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-3">
-                                                    <div class="form-group">
-                                                        <label>Référence</label>
-                                                        {{--<input type="number" class="form-control m-input" readonly placeholder="Référence" value="@if(isset($dataTypeContent->reference)){{ $dataTypeContent->reference }}@endif" name="reference">--}}
-                                                        @if(isset($dataTypeContent->id))
-                                                            <p>{{  'HIS-' . str_pad($dataTypeContent->id , 4, '0', STR_PAD_LEFT) }}</p>                                                        @endif
-                                                        <span class="m-form__help">Please enter Référence</span>
+                                                @if($dataTypeContent->id != null)
+                                                    <div class="col-lg-3">
+                                                        <div class="form-group">
+                                                            <label>Référence</label>
+                                                            {{--<input type="number" class="form-control m-input" readonly placeholder="Référence" value="@if(isset($dataTypeContent->reference)){{ $dataTypeContent->reference }}@endif" name="reference">--}}
+                                                            @if(isset($dataTypeContent->id))
+                                                                <p>{{  'HIS-' . str_pad($dataTypeContent->id , 4, '0', STR_PAD_LEFT) }}</p>                                                        @endif
+                                                            <span class="m-form__help">Please enter Référence</span>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                @endif
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Statut</label>
@@ -455,11 +457,11 @@
                                                     <div class="form-group">
                                                         <label>Disponibilité à partir du / jusqu'au</label>
                                                         <div class="input-daterange input-group" id="m_datepicker_5">
-                                                            <input type="text" class="form-control m-input date-type for-type" name="availab_from" value="@if(isset($dataTypeContent->availab_from)){{ date("d.m.Y", strtotime($dataTypeContent->availab_from)) }}@endif" />
+                                                            <input type="text" class="form-control m-input date-type locat for-type" name="availab_from" value="@if(isset($dataTypeContent->availab_from)){{ date("d.m.Y", strtotime($dataTypeContent->availab_from)) }}@endif" />
                                                             <span class="input-group-addon">
                                                         <i class="la la-ellipsis-h"></i>
                                                     </span>
-                                                            <input type="text" class="form-control date-type for-type" name="availab_until" value="@if(isset($dataTypeContent->availab_until)){{ date("d.m.Y", strtotime($dataTypeContent->availab_until)) }}@endif" />
+                                                            <input type="text" class="form-control date-type locat for-type" name="availab_until" value="@if(isset($dataTypeContent->availab_until)){{ date("d.m.Y", strtotime($dataTypeContent->availab_until)) }}@endif" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3077,9 +3079,13 @@
 
         /* action for change announce type */
         $('input[name="ann_type"]').on("change", function(){
+            $('.rent').val('');
+            $('.locat').val('');
+
             if($(this).val() === 1) {
                 $('.rent').attr('disabled', true);
             }
+
         });
 
         /* Summ of surfaces */
