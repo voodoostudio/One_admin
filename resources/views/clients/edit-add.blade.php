@@ -696,7 +696,9 @@
                                                     <input class="form-control m-input" id="phone_child" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
                                                 </div>
                                                 @if(Auth::user()->role_id != 5)
-                                                    <div class="col-lg-4 margin_bottom_10">
+                                                </div>
+                                                <div class="m-form__group row">
+                                                    <div class="col-sm-12 margin_bottom_10">
                                                         <label class="">Informations sur le client</label>
                                                         <textarea class="form-control m-input" name="user_info" cols="30" rows="7">{{ ($dataTypeContent->user_info) ? $dataTypeContent->user_info : '' }}</textarea>
                                                     </div>
@@ -1096,8 +1098,8 @@
         function initializeAddressMap() {
 
             var current_position = {
-                lat: 46.204391,
-                lng: 6.143158
+                lat: 40.416775,
+                lng: -3.703790
             };
 
             var myLatlng = new google.maps.LatLng(current_position);
