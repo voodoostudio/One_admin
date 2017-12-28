@@ -16,7 +16,7 @@
                     $arrayJsonData[] = [
                         'id'            => $data->id,
                         'reference'     => $reference,
-                        'image'         => json_decode($data->image)[0],
+                        'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'no_image.png',
                         'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
                         'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
                         'title_fr'      => $data->title_fr,
@@ -61,7 +61,7 @@
                     $arrayJsonData[] = [
                         'id'            => $data->id,
                         'reference'     => $reference,
-                        'image'         => json_decode($data->image)[0],
+                        'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'no_image.png',
                         'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
                         'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
                         'title_fr'      => $data->title_fr,
