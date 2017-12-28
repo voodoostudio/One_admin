@@ -601,9 +601,9 @@
                                                 </div>
                                                 <div class="col-lg-4 margin_bottom_10">
                                                     @if($dataTypeContent->photo_coup != null)
-                                                        <img style="max-width: 150px !important;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                        <img style="width: 100%; margin-top: 35px;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                                     @else
-                                                        <img style="max-width: 150px !important;" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                        <img style="width: 100%; margin-top: 35px;" src="/img/admin/default-coup.png" alt="Default child avatar"/>
                                                     @endif
                                                 </div>
                                             </div>
