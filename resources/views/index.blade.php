@@ -10,68 +10,6 @@
                         Dashboard
                     </h3>
                 </div>
-                <div>
-                    <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
-                        <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                            <i class="la la-plus m--hide"></i>
-                            <i class="la la-ellipsis-h"></i>
-                        </a>
-                        <div class="m-dropdown__wrapper">
-                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                            <div class="m-dropdown__inner">
-                                <div class="m-dropdown__body">
-                                    <div class="m-dropdown__content">
-                                        <ul class="m-nav">
-                                            <li class="m-nav__section m-nav__section--first m--hide">
-                                                <span class="m-nav__section-text">
-                                                    Quick Actions
-                                                </span>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-share"></i>
-                                                    <span class="m-nav__link-text">
-                                                        Activity
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                    <span class="m-nav__link-text">
-																	Messages
-																</span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-info"></i>
-                                                    <span class="m-nav__link-text">
-																	FAQ
-																</span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                    <span class="m-nav__link-text">
-																	Support
-																</span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__separator m-nav__separator--fit"></li>
-                                            <li class="m-nav__item">
-                                                <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                    Submit
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- END: Subheader -->
@@ -430,7 +368,7 @@
                         clearTimeout(timeout);
                         timeout = setTimeout(function () {
                             element.className =
-                                    element.className.replace(/ is-(increasing|decreasing)/g, '');
+                                element.className.replace(/ is-(increasing|decreasing)/g, '');
                         }, 3000);
                     });
                 });
@@ -443,7 +381,7 @@
                 var viewSelector = new gapi.analytics.ext.ViewSelector2({
                     container: 'view-selector-container'
                 })
-                        .execute();
+                    .execute();
 
 
                 /**
@@ -490,9 +428,9 @@
                         'dimensions': 'ga:date,ga:nthDay',
                         'metrics': 'ga:users',
                         'start-date': moment(now).subtract(1, 'day').day(0).subtract(1, 'week')
-                                .format('YYYY-MM-DD'),
+                            .format('YYYY-MM-DD'),
                         'end-date': moment(now).subtract(1, 'day').day(6).subtract(1, 'week')
-                                .format('YYYY-MM-DD')
+                            .format('YYYY-MM-DD')
                     });
 
                     Promise.all([thisWeek, lastWeek]).then(function (results) {
@@ -562,9 +500,9 @@
                         'dimensions': 'ga:month,ga:nthMonth',
                         'metrics': 'ga:users',
                         'start-date': moment(now).subtract(1, 'year').date(1).month(0)
-                                .format('YYYY-MM-DD'),
+                            .format('YYYY-MM-DD'),
                         'end-date': moment(now).date(1).month(0).subtract(1, 'day')
-                                .format('YYYY-MM-DD')
+                            .format('YYYY-MM-DD')
                     });
 
                     Promise.all([thisYear, lastYear]).then(function (results) {
@@ -605,9 +543,9 @@
                         new Chart(makeCanvas('chart-2-container')).Bar(data);
                         generateLegend('legend-2-container', data.datasets);
                     })
-                            .catch(function (err) {
-                                console.error(err.stack);
-                            });
+                        .catch(function (err) {
+                            console.error(err.stack);
+                        });
                 }
 
 
@@ -624,18 +562,18 @@
                         'sort': '-ga:pageviews',
                         'max-results': 5
                     })
-                            .then(function (response) {
+                        .then(function (response) {
 
-                                var data = [];
-                                var colors = ['#4D5360', '#949FB1', '#D4CCC5', '#E2EAE9', '#F7464A'];
+                            var data = [];
+                            var colors = ['#4D5360', '#949FB1', '#D4CCC5', '#E2EAE9', '#F7464A'];
 
-                                response.rows.forEach(function (row, i) {
-                                    data.push({value: +row[1], color: colors[i], label: row[0]});
-                                });
-
-                                new Chart(makeCanvas('chart-3-container')).Doughnut(data);
-                                generateLegend('legend-3-container', data);
+                            response.rows.forEach(function (row, i) {
+                                data.push({value: +row[1], color: colors[i], label: row[0]});
                             });
+
+                            new Chart(makeCanvas('chart-3-container')).Doughnut(data);
+                            generateLegend('legend-3-container', data);
+                        });
                 }
 
 
@@ -652,22 +590,22 @@
                         'sort': '-ga:sessions',
                         'max-results': 5
                     })
-                            .then(function (response) {
+                        .then(function (response) {
 
-                                var data = [];
-                                var colors = ['#4D5360', '#949FB1', '#D4CCC5', '#E2EAE9', '#F7464A'];
+                            var data = [];
+                            var colors = ['#4D5360', '#949FB1', '#D4CCC5', '#E2EAE9', '#F7464A'];
 
-                                response.rows.forEach(function (row, i) {
-                                    data.push({
-                                        label: row[0],
-                                        value: +row[1],
-                                        color: colors[i]
-                                    });
+                            response.rows.forEach(function (row, i) {
+                                data.push({
+                                    label: row[0],
+                                    value: +row[1],
+                                    color: colors[i]
                                 });
-
-                                new Chart(makeCanvas('chart-4-container')).Doughnut(data);
-                                generateLegend('legend-4-container', data);
                             });
+
+                            new Chart(makeCanvas('chart-4-container')).Doughnut(data);
+                            generateLegend('legend-4-container', data);
+                        });
                 }
 
 
@@ -683,10 +621,10 @@
                         data.once('success', function (response) {
                             resolve(response);
                         })
-                                .once('error', function (response) {
-                                    reject(response);
-                                })
-                                .execute();
+                            .once('error', function (response) {
+                                reject(response);
+                            })
+                            .execute();
                     });
                 }
 
