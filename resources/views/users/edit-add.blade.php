@@ -1,5 +1,7 @@
 @extends('voyager::master_metronic')
 
+{{--{{ dd(TCG\Voyager\Models\Role::all()[1]->toArray()) }}--}}
+
 @section('css')
     <style>
         .user-email {
@@ -303,11 +305,19 @@
                                             <div class="col-lg-4 col-md-6 margin_bottom_10">
                                                 <label for="lng_corres">Role</label>
                                                 <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Select Floor">
-                                                    @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                        @if($role->id != 5)
-                                                            <option value="{{ $role->id }}">{{ $role->display_name }}</option>
-                                                        @endif
-                                                    @endforeach
+                                                    @if(Auth::user()->role_id != 1)
+                                                        @foreach(TCG\Voyager\Models\Role::all() as $role)
+                                                            @if($role->id != 5 && $role->id != 1)
+                                                                <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    @else
+                                                        @foreach(TCG\Voyager\Models\Role::all() as $role)
+                                                            @if($role->id != 5)
+                                                                <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
