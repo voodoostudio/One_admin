@@ -54,9 +54,9 @@ class TranslationsTableSeeder extends Seeder
         //
         $_fld = 'display_name_singular';
         $_tpl = ['data_types', $_fld];
-        $dtp = DataType::where($_fld, 'Post')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Properties')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Post');
+            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Properties');
         }
         $dtp = DataType::where($_fld, 'Page')->firstOrFail();
         if ($dtp->exists) {
@@ -83,9 +83,9 @@ class TranslationsTableSeeder extends Seeder
         //
         $_fld = 'display_name_plural';
         $_tpl = ['data_types', $_fld];
-        $dtp = DataType::where($_fld, 'Posts')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Properties')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Posts');
+            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Properties');
         }
         $dtp = DataType::where($_fld, 'Pages')->firstOrFail();
         if ($dtp->exists) {
@@ -133,7 +133,7 @@ class TranslationsTableSeeder extends Seeder
 
             $_arr = $this->arr(['pages', 'body'], $page->id);
             $this->trans('pt', $_arr, '<p>Olá Mundo. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>'
-                                        ."\r\n".'<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>');
+                ."\r\n".'<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>');
         }
     }
 
@@ -155,7 +155,7 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Media');
         }
 
-        $_item = $this->findMenuItem('Posts');
+        $_item = $this->findMenuItem('Properties');
         if ($_item->exists) {
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Publicações');
         }

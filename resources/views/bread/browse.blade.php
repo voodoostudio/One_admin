@@ -10,7 +10,7 @@
 
         $arrayJsonData = [];
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
-            if($dataType->display_name_plural == 'Posts') {
+            if($dataType->display_name_plural == 'Properties') {
                 foreach ($dataTypeContent as $data) {
                     $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
                     $arrayJsonData[] = [
@@ -56,7 +56,7 @@
             }
         } else {
             foreach (Illuminate\Support\Facades\DB::table('posts')->where('vip_users', 'rlike', '(^|,)' . array_search(Illuminate\Support\Facades\Auth::user()->id, $user_id) . '(,|$)')->get() as $data) {
-                if($dataType->display_name_plural == 'Posts') {
+                if($dataType->display_name_plural == 'Properties') {
                     $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
                     $arrayJsonData[] = [
                         'id'            => $data->id,
@@ -79,11 +79,7 @@
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
                     <h3 class="m-subheader__title m-subheader__title--separator">
-                        @if($_SERVER['REQUEST_URI'] == '/admin/posts')
-                            Properties
-                        @else
-                            {{ $dataType->display_name_singular }}
-                        @endif
+                        {{ $dataType->display_name_singular }}
                     </h3>
                     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                         <li class="m-nav__item m-nav__item--home">
@@ -202,11 +198,7 @@
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <h3 class="m-portlet__head-text">
-                                @if($_SERVER['REQUEST_URI'] == '/admin/posts')
-                                    Properties
-                                @else
-                                    {{ $dataType->display_name_singular }}
-                                @endif
+                                {{ $dataType->display_name_singular }}
                             </h3>
                         </div>
                     </div>
@@ -589,7 +581,7 @@
                             ';
                         },
 
-                        <?php } elseif($dataType->display_name_plural == 'Posts') { ?>
+                        <?php } elseif($dataType->display_name_plural == 'Properties') { ?>
 
                         field: "reference",
                         title: "Réf.",

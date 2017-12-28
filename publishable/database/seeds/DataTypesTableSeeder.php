@@ -14,8 +14,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'posts',
-                'display_name_singular' => 'Post',
-                'display_name_plural'   => 'Posts',
+                'display_name_singular' => 'Properties',
+                'display_name_plural'   => 'Properties',
                 'icon'                  => 'voyager-news',
                 'model_name'            => 'TCG\\Voyager\\Models\\Post',
                 'policy_name'           => 'TCG\\Voyager\\Policies\\PostPolicy',
