@@ -438,19 +438,55 @@
                                 <div class="m-portlet__foot m-portlet__foot--fit">
                                     <div class="m-form__actions">
                                         <div class="row">
-                                            <div class="col-2"></div>
-                                            <div class="col-7">
-                                                <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
-                                                    Save changes
+                                            <div class="col-12 m--align-right">
+                                                <button type="reset" class="btn btn-danger m-btn m-btn--air m-btn--custom">
+                                                    Cancel
                                                 </button>
                                                 &nbsp;&nbsp;
-                                                <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
-                                                    Cancel
+                                                <button type="button" class="btn btn-success m-btn m-btn--air m-btn--custom" data-toggle="modal" data-target="#client_profile_save_modal">
+                                                    Save changes
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!--begin::Modal save profile-->
+                                <div class="modal fade" id="client_profile_save_modal" tabindex="-1" role="dialog" aria-labelledby="save_checklist" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">
+                                                    Check all checkboxes in order to save this object
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">
+                                                        &times;
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="pure_switch">
+                                                            <span class="m-switch m-switch--outline m-switch--brand">
+                                                                <label>
+                                                                    <input type="checkbox" name="save_check1">
+                                                                    <span></span>
+                                                                </label>
+                                                            </span>
+                                                            <label class="pure_switch_label"> Vous certifiez que les informations que vous avez insérés sont parfaitement authentiques.</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" value="submit" class="btn btn-primary" disabled="disabled">Enregistrer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
                             </form>
                         </div>
                     </div>
@@ -623,7 +659,7 @@
         </div>
     @endif
 
-    <!--begin::Modal-->
+    <!--begin::Modal address map-->
     <div class="modal fade" id="address_map_modal" tabindex="-1" role="dialog" aria-labelledby="addressMapModal" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -746,6 +782,20 @@
             new_form_group.
             $('.address_container').append(new_form_group);
         });
+
+
+        $("#client_profile_save_modal .pure_switch input[type='checkbox']").change(function(){
+            checkChecklict();
+        });
+        function checkChecklict() {
+            var checkboxes =  $("#client_profile_save_modal .pure_switch input[type='checkbox']");
+            var checked =  $("#client_profile_save_modal .pure_switch input[type='checkbox']:checked");
+            if ($(checkboxes).length == $(checked).length) {
+                $("#client_profile_save_modal button[type='submit']").prop('disabled', false)
+            } else {
+                $("#client_profile_save_modal button[type='submit']").prop('disabled', true)
+            }
+        }
     </script>
 
     <script>
