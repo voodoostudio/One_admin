@@ -582,13 +582,18 @@
                                                 </div>
                                                 <div class="col-lg-6 margin_bottom_10">
                                                     <label>Role</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Civilité">
-                                                        @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                            @if($role->id != 5)
-                                                                <option value="{{ $role->id }}" @if(isset(Auth::user()->role_id) && Auth::user()->role_id == $role->id){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>
-                                                            @endif
-                                                        @endforeach
-                                                    </select>
+                                                    @foreach(TCG\Voyager\Models\Role::all() as $role)
+                                                        @if($role->id == Auth::user()->id)
+                                                            <input class="form-control m-input" type="text" readonly value="{{ $role->display_name }}">
+                                                        @endif
+                                                    @endforeach
+                                                    {{--<select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Civilité">--}}
+                                                        {{--@foreach(TCG\Voyager\Models\Role::all() as $role)--}}
+                                                            {{--@if($role->id != 5 && $role->id > Auth::user()->id)--}}
+                                                                {{--<option value="{{ $role->id }}" @if(isset(Auth::user()->role_id) && Auth::user()->role_id == $role->id){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>--}}
+                                                            {{--@endif--}}
+                                                        {{--@endforeach--}}
+                                                    {{--</select>--}}
                                                 </div>
                                                 <div class="col-lg-6 margin_bottom_10">
                                                     <label class="">Select language</label>

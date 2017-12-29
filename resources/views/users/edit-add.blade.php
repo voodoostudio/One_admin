@@ -1,7 +1,7 @@
 @extends('voyager::master_metronic')
 
 {{--{{ dd(TCG\Voyager\Models\Role::all()[1]->toArray()) }}--}}
-
+{{--{{ dd($dataTypeContent->toArray()) }}--}}
 @section('css')
     <style>
         .user-email {
@@ -142,8 +142,8 @@
                                                     <label class="" for="role_id">Role</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Civilité">
                                                         @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                            @if($role->id != 5)
-                                                                <option value="{{ $role->id }}" @if(isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->id){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>
+                                                            @if($role->id >= Auth::user()->id)
+                                                                <option value="{{ $role->id }}">{{ $role->display_name }}</option>
                                                             @endif
                                                         @endforeach
                                                     </select>
@@ -305,19 +305,26 @@
                                             <div class="col-lg-4 col-md-6 margin_bottom_10">
                                                 <label for="lng_corres">Role</label>
                                                 <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Select Floor">
-                                                    @if(Auth::user()->role_id != 1)
-                                                        @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                            @if($role->id != 5 && $role->id != 1)
-                                                                <option value="{{ $role->id }}">{{ $role->display_name }}</option>
-                                                            @endif
-                                                        @endforeach
-                                                    @else
-                                                        @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                            @if($role->id != 5)
-                                                                <option value="{{ $role->id }}">{{ $role->display_name }}</option>
-                                                            @endif
-                                                        @endforeach
-                                                    @endif
+                                                    {{--@if(Auth::user()->role_id != 1)--}}
+                                                        {{--@foreach(TCG\Voyager\Models\Role::all() as $role)--}}
+                                                            {{--@if($role->id != 5 && $role->id != 1)--}}
+                                                                {{--<option value="{{ $role->id }}">{{ $role->display_name }}</option>--}}
+                                                            {{--@endif--}}
+                                                        {{--@endforeach--}}
+                                                    {{--@else--}}
+                                                        {{--@foreach(TCG\Voyager\Models\Role::all() as $role)--}}
+                                                            {{--@if($role->id != 5)--}}
+                                                                {{--<option value="{{ $role->id }}">{{ $role->display_name }}</option>--}}
+                                                            {{--@endif--}}
+                                                        {{--@endforeach--}}
+                                                    {{--@endif--}}
+
+                                                    @foreach(TCG\Voyager\Models\Role::all() as $role)
+                                                        @if($role->id >= Auth::user()->id)
+                                                            <option value="{{ $role->id }}" {{ ($dataTypeContent->role_id == $role->id) ? 'selected="selected"' : '' }}>{{ $role->display_name }}</option>
+                                                        @endif
+                                                    @endforeach
+
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
