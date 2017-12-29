@@ -221,7 +221,7 @@
                                                     <input class="form-control m-input" id="website" type="text" placeholder="Website" name="website" value="{{ ($dataTypeContent->website) ? $dataTypeContent->website : '' }}">
                                                 </div>
                                             </div>
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-lg-4 margin_bottom_10">
                                                     <label class="">Email type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Email type">
@@ -254,7 +254,7 @@
                                                     <label class="">Country code</label>
                                                     <input class="form-control m-input" id="country_code" type="text" placeholder="Country code" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone" value="{{ ($dataTypeContent->phone) ? $dataTypeContent->phone : '' }}">
                                                 </div>
@@ -521,7 +521,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Email</label>
                                                     <input class="form-control m-input" id="email_coup" type="text" placeholder="Email" name="email_coup" value="{{ ($dataTypeContent->email_coup) ? $dataTypeContent->email_coup : '' }}">
                                                 </div>
@@ -545,7 +545,7 @@
                                                     <label class="">Country code</label>
                                                     <input class="form-control m-input" id="country_code_coup" type="text" placeholder="Country code" name="country_code_coup" value="{{ ($dataTypeContent->country_code_coup) ? $dataTypeContent->country_code_coup : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone_coup" type="text" placeholder="Phone" name="phone_coup" value="{{ ($dataTypeContent->phone_coup) ? $dataTypeContent->phone_coup : '' }}">
                                                 </div>
@@ -667,7 +667,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Email</label>
                                                     <input class="form-control m-input" id="email_child" type="text" placeholder="Email" name="email_child" value="{{ ($dataTypeContent->email_child) ? $dataTypeContent->email_child : '' }}">
                                                 </div>
@@ -691,7 +691,7 @@
                                                     <label class="">Country code</label>
                                                     <input class="form-control m-input" id="country_code_child" type="text" placeholder="Website" name="country_code_child" value="{{ ($dataTypeContent->country_code_child) ? $dataTypeContent->country_code_child : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4 margin_bottom_10">
                                                     <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone_child" type="text" placeholder="Phone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
                                                 </div>
@@ -1015,6 +1015,21 @@
                     email: {
                         email: true,
                         required: true
+                    },
+                    phone: {
+                        number: true
+                    },
+                    email_coup: {
+                        email: true
+                    },
+                    phone_coup: {
+                        number: true
+                    },
+                    email_child: {
+                        email: true
+                    },
+                    phone_child: {
+                        number: true
                     }
                 },
                 submitHandler: function (form) {
