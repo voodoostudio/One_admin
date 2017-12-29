@@ -36,7 +36,9 @@
                                 </div>
                                 <div class="m-card-profile__pic">
                                     <div class="m-card-profile__pic-wrapper">
-                                        <img src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                        <img id="client_img" src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                        <img id="spouse_img" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->first_name_coup }} avatar"/>
+                                        <img id="child_img" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->first_name_child }} avatar"/>
                                     </div>
                                 </div>
                                 <div class="m-card-profile__details">
@@ -66,18 +68,18 @@
                             <div class="m-portlet__head-tools">
                                 <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
                                     <li class="nav-item m-tabs__item">
-                                        <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab">
+                                        <a id="client_tab" class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab">
                                             <i class="flaticon-share m--hide"></i>
                                             Client
                                         </a>
                                     </li>
                                     <li class="nav-item m-tabs__item">
-                                        <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_2" role="tab">
+                                        <a id="spose_tab" class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_2" role="tab">
                                             Spouse
                                         </a>
                                     </li>
                                     <li class="nav-item m-tabs__item">
-                                        <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3" role="tab">
+                                        <a id="child_tab" class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3" role="tab">
                                             Children
                                         </a>
                                     </li>
@@ -654,4 +656,28 @@
             </div>
         </div>
     </div>
+@stop
+
+@section('javascript')
+    <script>
+
+        $('#client_tab').click(function () {
+            $('#client_img').css('display','block');
+            $('#spouse_img').css('display','none');
+            $('#child_img').css('display','none');
+        });
+
+        $('#spose_tab').click(function () {
+            $('#client_img').css('display','none');
+            $('#spouse_img').css('display','block');
+            $('#child_img').css('display','none');
+        });
+
+        $('#child_tab').click(function () {
+            $('#client_img').css('display','none');
+            $('#spouse_img').css('display','none');
+            $('#child_img').css('display','block');
+        });
+
+    </script>
 @stop
