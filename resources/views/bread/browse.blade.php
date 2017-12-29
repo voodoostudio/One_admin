@@ -37,7 +37,7 @@
                     ];
                 }
             } elseif($dataType->display_name_plural == 'Users') {
-                foreach ($dataTypeContent->where('role_id', '!=', 5) as $data) {
+                foreach ($dataTypeContent->where('role_id', '!=', 5)->where('role_id', '>=', Auth::user()->role_id) as $data) {
                     $arrayJsonData[] = [
                         'id'            => $data->id,
                         'name'          => $data->name,
