@@ -37,13 +37,19 @@
                                 <div class="m-card-profile__pic">
                                     <div class="m-card-profile__pic-wrapper">
                                         <img id="client_img" src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
-                                        <img id="spouse_img" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->first_name_coup }} avatar"/>
-                                        <img id="child_img" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->first_name_child }} avatar"/>
+                                        <img id="spouse_img" style="display: none;" src="{{ ($dataTypeContent->photo_coup) ? Voyager::image( $dataTypeContent->photo_coup ) : '/img/admin/default-coup.png' }}" alt="{{ $dataTypeContent->first_name_coup }} avatar"/>
+                                        <img id="child_img" style="display: none;" src="{{ ($dataTypeContent->photo_child) ? Voyager::image( $dataTypeContent->photo_child ) : '/img/admin/default-coup.png' }}" alt="{{ $dataTypeContent->first_name_child }} avatar"/>
                                     </div>
                                 </div>
                                 <div class="m-card-profile__details">
-                                    <span class="m-card-profile__name">{{ $dataTypeContent->name }}</span>
-                                    <a href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email }}</a>
+                                    <span id="client_name" class="m-card-profile__name">{{ $dataTypeContent->name }}</span>
+                                    <a id="client_email" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email }}</a>
+
+                                    <span id="spouse_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_coup }}</span>
+                                    <a id="spouse_email" href="" style="display: none;" class="m-card-profile__email m-link">{{ $dataTypeContent->email_coup }}</a>
+
+                                    <span id="child_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_child }}</span>
+                                    <a id="child_email" href="" style="display: none;" class="m-card-profile__email m-link">{{ $dataTypeContent->email_child }}</a>
                                     {{--<p>{{ Auth::user()->bio }}</p>--}}
                                 </div>
                             </div>
@@ -662,21 +668,48 @@
     <script>
 
         $('#client_tab').click(function () {
+            /* photos */
             $('#client_img').css('display','block');
             $('#spouse_img').css('display','none');
             $('#child_img').css('display','none');
+
+            /* data */
+             $('#client_name').css('display','block');
+             $('#client_email').css('display','block');
+             $('#spouse_name').css('display','none');
+             $('#spouse_email').css('display','none');
+             $('#child_name').css('display','none');
+             $('#child_email').css('display','none');
         });
 
         $('#spose_tab').click(function () {
+            /* photos */
             $('#client_img').css('display','none');
             $('#spouse_img').css('display','block');
             $('#child_img').css('display','none');
+
+            /* data */
+            $('#client_name').css('display','none');
+            $('#client_email').css('display','none');
+            $('#spouse_name').css('display','block');
+            $('#spouse_email').css('display','block');
+            $('#child_name').css('display','none');
+            $('#child_email').css('display','none');
         });
 
         $('#child_tab').click(function () {
+            /* photos */
             $('#client_img').css('display','none');
             $('#spouse_img').css('display','none');
             $('#child_img').css('display','block');
+
+            /* data */
+            $('#client_name').css('display','none');
+            $('#client_email').css('display','none');
+            $('#spouse_name').css('display','none');
+            $('#spouse_email').css('display','none');
+            $('#child_name').css('display','block');
+            $('#child_email').css('display','block');
         });
 
     </script>
