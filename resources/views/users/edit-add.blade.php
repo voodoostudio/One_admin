@@ -142,7 +142,7 @@
                                                     <label class="" for="role_id">Role</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Civilité">
                                                         @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                            @if($role->id >= Auth::user()->id)
+                                                            @if($role->id >= Auth::user()->id && $role->id != 5)
                                                                 <option value="{{ $role->id }}">{{ $role->display_name }}</option>
                                                             @endif
                                                         @endforeach

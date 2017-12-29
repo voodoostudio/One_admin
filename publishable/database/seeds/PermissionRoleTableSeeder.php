@@ -55,7 +55,7 @@ class PermissionRoleTableSeeder extends Seeder
 
         /*-- USER  --*/
 
-        $role_user = Role::where('name', 'user')->firstOrFail();
+        $role_user = Role::where('name', 'client')->firstOrFail();
 
         $user_permissions = Permission::whereIn('id',[1,26,27])->get();
 
