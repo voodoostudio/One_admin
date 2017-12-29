@@ -68,7 +68,7 @@
                                         </a>
                                     </li>
                                     <li class="m-nav__item">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
+                                        <a href="{{ URL::to('admin/posts') }}" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-signs-1"></i>
                                             <span class="m-nav__link-text">
                                                 Properties
