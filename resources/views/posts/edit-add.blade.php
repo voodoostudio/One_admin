@@ -170,7 +170,7 @@
                     {{ method_field("PUT") }}
                 @endif
                 {{ csrf_field() }}
-
+                <input type="hidden" name="vip_users[]" value="{{(isset($dataTypeContent->id)) ? $dataTypeContent->vip_users : 0 }}">
                 <p style="display: none;" data="{{ $dataTypeContent->id }}"></p> <!-- p for trigger event on categories tab, on edit object page -->
 
                 <div class="main_tabs_container">

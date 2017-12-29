@@ -16,13 +16,13 @@
                     $arrayJsonData[] = [
                         'id'            => $data->id,
                         'reference'     => $reference,
-                        'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'no_image.png',
+                        'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'posts/no_image.png',
                         'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
                         'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
                         'title_fr'      => $data->title_fr,
                         'zip_code'      => $data->zip_code,
                         'town'          => $data->town,
-                        'price'         => $data->price,
+                        'price'         => ($data->show_price == 1) ? $data->price . ' ' . Illuminate\Support\Facades\DB::table('admin_currency')->where('reference', '=', $data->сurrency)->value('value') : '',
                         'vip_users'     => $data->vip_users
                     ];
                 }
@@ -61,13 +61,13 @@
                     $arrayJsonData[] = [
                         'id'            => $data->id,
                         'reference'     => $reference,
-                        'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'no_image.png',
+                        'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'posts/no_image.png',
                         'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
                         'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
                         'title_fr'      => $data->title_fr,
                         'zip_code'      => $data->zip_code,
                         'town'          => $data->town,
-                        'price'         => $data->price
+                        'price'         => ($data->show_price == 1) ? $data->price . ' ' . Illuminate\Support\Facades\DB::table('admin_currency')->where('reference', '=', $data->сurrency)->value('value') : '',
                     ];
                 }
             }
