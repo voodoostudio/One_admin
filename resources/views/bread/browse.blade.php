@@ -809,7 +809,7 @@
                         field: "avatar",
                         title: "Avatar",
                         template: function (row) {
-                            return '<img style = "max-width: 100px;" src = "../storage/' + row.avatar + '"/>';
+                            return '<img style = "max-width: 70px;" src = "../storage/' + row.avatar + '"/>';
                         }
 
                     }, {

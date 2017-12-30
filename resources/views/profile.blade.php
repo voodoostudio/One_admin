@@ -44,48 +44,12 @@
                                 </div>
                                 <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
                                     <li class="m-nav__separator m-nav__separator--fit"></li>
-                                    <li class="m-nav__section m--hide">
-                                            <span class="m-nav__section-text">
-                                                Section
-                                            </span>
-                                    </li>
-                                    <li class="m-nav__item" style="display: none">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-profile-1"></i>
-                                            <span class="m-nav__link-title">
-                                                    <span class="m-nav__link-wrap">
-                                                        <span class="m-nav__link-text">
-                                                            My Profile
-                                                        </span>
-                                                        <span class="m-nav__link-badge">
-                                                            <span class="m-badge m-badge--success">2</span>
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="{{ URL::to('/') }}" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-share"></i>
-                                            <span class="m-nav__link-text">
-                                                    Home
-                                                </span>
-                                        </a>
-                                    </li>
                                     <li class="m-nav__item">
                                         <a href="{{ URL::to('admin/posts') }}" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-signs-1"></i>
                                             <span class="m-nav__link-text">
-                                                    Properties
-                                                </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item" style="display: none">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                            <span class="m-nav__link-text">
-                                                    Messages
-                                                </span>
+                                                Properties
+                                            </span>
                                         </a>
                                     </li>
                                 </ul>
@@ -132,7 +96,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label>Civilité</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" id="select_civil" name="civility" data-placeholder="Civilité">
                                                         @foreach(TCG\Voyager\Models\Civility::all() as $civility)
@@ -140,7 +104,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Select language</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
@@ -148,21 +112,21 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-md-4 margin_bottom_10">
                                                     <label class="">First name</label>
                                                     <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ (Auth::user()->name) ? Auth::user()->name : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Middle name</label>
                                                     <input class="form-control m-input" id="middle_name" type="text" name="middle_name" placeholder="Middle name" value="{{ (Auth::user()->middle_name) ? Auth::user()->middle_name : '' }}">
                                                 </div>
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-md-4 margin_bottom_10">
                                                     <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ (Auth::user()->last_name) ? Auth::user()->last_name : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Photo</label>
                                                     <div class="img_upload_container">
                                                         <div class="img_upload">
@@ -175,7 +139,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Civil status</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status" id="civil_status" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
@@ -183,7 +147,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Nationality</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" id="nationality" name="nationality" data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
@@ -191,44 +155,44 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-6">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Birth date</label>
                                                         <div class='input-group date' id='m_datepicker_4'>
                                                             <input class="form-control m-input date-type" readonly id="birth_date" type="text" placeholder="Birth date" name="birth_date" value="{{ (Auth::user()->birth_date) ? Auth::user()->birth_date : '' }}">
                                                             {{--<input type='text' class="form-control m-input date-type rent for-type" value="" readonly  placeholder="Sélectionner la date" name="birth_date"/>--}}
                                                             <span class="input-group-addon">
-                                                                        <i class="la la-calendar-check-o"></i>
-                                                                    </span>
+                                                                <i class="la la-calendar-check-o"></i>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Birth place</label>
                                                     <input class="form-control m-input" type="text" placeholder="Birth place" name="birthplace" value="{{ (Auth::user()->birthplace) ? Auth::user()->birthplace : '' }}">
                                                 </div>
                                             </div>
 
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Profession</label>
                                                     <input class="form-control m-input" id="profession" type="text" placeholder="Profession" name="profession" value="{{ (Auth::user()->profession) ? Auth::user()->profession : '' }}">
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Service</label>
                                                     <input class="form-control m-input" id="service" type="text" placeholder="Service" name="service" value="{{ (Auth::user()->service) ? Auth::user()->service : '' }}">
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Business</label>
                                                     <input class="form-control m-input" id="business" type="text" placeholder="Business" name="business" value="{{ (Auth::user()->business) ? Auth::user()->business : '' }}">
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Website</label>
                                                     <input class="form-control m-input" id="website" type="text" placeholder="Website" name="website" value="{{ (Auth::user()->website) ? Auth::user()->website : '' }}">
                                                 </div>
                                             </div>
                                             <div class="m-form__group row">
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Email type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Email type">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
@@ -236,11 +200,11 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-md-4 margin_bottom_10">
                                                     <label class="">Email</label>
                                                     <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ (Auth::user()->email) ? Auth::user()->email : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Phone type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type" id="phone_type" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
@@ -248,15 +212,15 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone" value="{{ (Auth::user()->phone) ? Auth::user()->phone : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Country code</label>
                                                     <input class="form-control m-input" id="country_code" type="text" placeholder="Country code" name="country_code" value="{{ (Auth::user()->country_code) ? Auth::user()->country_code : '' }}">
                                                 </div>
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Preferred means of contact</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact" id="preferred_means_contact" data-placeholder="Phone type">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
@@ -271,18 +235,18 @@
                                                 @if(!empty(json_decode(Auth::user()->address)))
                                                     @foreach (json_decode(Auth::user()->address) as $key => $address)
                                                         <div class="m-form__group row address_form_group" id="address_form_{{ $key }}">
-                                                            <div class="col-lg-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
+                                                            <div class="col-md-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
                                                                 <label>Adresse nom</label>
                                                                 <div class="m-input-icon m-input-icon--right">
                                                                     <input type="text" class="form-control m-input" name="address_name[]" value="{{ (isset($address->address_name)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse nom">
                                                                 </div>
                                                             </div>
                                                             @if($key != 0)
-                                                                <div class="col-lg-2 margin_bottom_10">
-                                                                    <button id="{{ $key }}" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                <div class="col-md-2 margin_bottom_10">
+                                                                    <button id="{{ $key }}" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 24px; width: 100%;">Effacer</button>
                                                                 </div>
                                                             @endif
-                                                            <div class="col-lg-8 margin_bottom_10">
+                                                            <div class="col-md-8 margin_bottom_10">
                                                                 <label>Adresse</label>
                                                                 <div class="m-input-icon m-input-icon--right">
                                                                     <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
@@ -293,43 +257,43 @@
                                                                 </span>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-4 margin_bottom_10">
+                                                            <div class="col-md-4 margin_bottom_10">
                                                                 <button type="button" id="open_map_btn_{{ $key }}" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                             </div>
 
-                                                            <div class="col-lg-3 margin_bottom_10">
+                                                            <div class="col-md-3 margin_bottom_10">
                                                                 <label>Rue</label>
                                                                 <input type="text" id="route_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Rue" value="{{ (isset($address->street)) ? $address->street : '' }}" name="street[]">
                                                             </div>
-                                                            <div class="col-lg-2 margin_bottom_10">
+                                                            <div class="col-md-2 margin_bottom_10">
                                                                 <label>N°</label>
                                                                 <input type="text" id="street_number_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="N°" value="{{ (isset($address->number)) ? $address->number : '' }}" name="number[]">
                                                             </div>
-                                                            <div class="col-lg-2 margin_bottom_10">
+                                                            <div class="col-md-2 margin_bottom_10">
                                                                 <label>CP</label>
                                                                 <input type="number" min="0" class="form-control m-input" placeholder="CP" value="{{ (isset($address->po_box)) ? $address->po_box : '' }}" name="po_box[]">
                                                             </div>
-                                                            <div class="col-lg-2 margin_bottom_10">
+                                                            <div class="col-md-2 margin_bottom_10">
                                                                 <label>NPA</label>
                                                                 <input type="text" id="postal_code_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="NPA" value="{{ (isset($address->zip_code)) ? $address->zip_code : '' }}" name="zip_code[]">
                                                             </div>
-                                                            <div class="col-lg-3 margin_bottom_10">
+                                                            <div class="col-md-3 margin_bottom_10">
                                                                 <label>Ville</label>
                                                                 <input type="text" id="locality_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Ville" value="{{ (isset($address->town)) ? $address->town : '' }}" name="town[]">
                                                             </div>
-                                                            <div class="col-lg-3 margin_bottom_10">
+                                                            <div class="col-md-3 margin_bottom_10">
                                                                 <label>Pays</label>
                                                                 <input type="text" id="country_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Pays" value="{{ (isset($address->country)) ? $address->country : '' }}" name="country[]">
                                                             </div>
-                                                            <div class="col-lg-3">
+                                                            <div class="col-md-3">
                                                                 <label>Longitude</label>
                                                                 <input disabled="disabled" type="number" min="0" id="longitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->longitude)) ? $address->longitude : '' }}" name="longitude[]">
                                                             </div>
-                                                            <div class="col-lg-3">
+                                                            <div class="col-md-3">
                                                                 <label>Latitude</label>
                                                                 <input disabled="disabled" type="number" min="0" id="latitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->latitude)) ? $address->latitude : '' }}" name="latitude[]">
                                                             </div>
-                                                            <div class="col-lg-3 margin_bottom_10">
+                                                            <div class="col-md-3 margin_bottom_10">
                                                                 <label>Localisation</label>
                                                                 <select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">
                                                                     @foreach(TCG\Voyager\Models\Location::all() as $location)
@@ -341,13 +305,13 @@
                                                     @endforeach
                                                 @else
                                                     <div class="m-form__group row address_form_group" id="address_form_1">
-                                                        <div class="col-lg-12 margin_bottom_10">
+                                                        <div class="col-md-12 margin_bottom_10">
                                                             <label>Adresse nom</label>
                                                             <div class="m-input-icon m-input-icon--right">
                                                                 <input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-8 margin_bottom_10">
+                                                        <div class="col-md-8 margin_bottom_10">
                                                             <label>Adresse</label>
                                                             <div class="m-input-icon m-input-icon--right">
                                                                 <input type="text" id="autocomplete_1" class="form-control m-input autocomplete_input" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
@@ -358,43 +322,43 @@
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-4 margin_bottom_10">
-                                                            <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                        <div class="col-md-4 margin_bottom_10">
+                                                            <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>
                                                         </div>
 
-                                                        <div class="col-lg-3 margin_bottom_10">
+                                                        <div class="col-md-3 margin_bottom_10">
                                                             <label>Rue</label>
                                                             <input type="text" id="route_1" readonly="readonly" class="form-control m-input" placeholder="Rue"  name="street[]">
                                                         </div>
-                                                        <div class="col-lg-2 margin_bottom_10">
+                                                        <div class="col-md-2 margin_bottom_10">
                                                             <label>N°</label>
                                                             <input type="text" id="street_number_1" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">
                                                         </div>
-                                                        <div class="col-lg-2 margin_bottom_10">
+                                                        <div class="col-md-2 margin_bottom_10">
                                                             <label>CP</label>
                                                             <input type="number" min="0" class="form-control m-input" placeholder="CP" name="po_box[]">
                                                         </div>
-                                                        <div class="col-lg-2 margin_bottom_10">
+                                                        <div class="col-md-2 margin_bottom_10">
                                                             <label>NPA</label>
                                                             <input type="text" id="postal_code_1" readonly="readonly" class="form-control m-input" placeholder="NPA"  name="zip_code[]">
                                                         </div>
-                                                        <div class="col-lg-3 margin_bottom_10">
+                                                        <div class="col-md-3 margin_bottom_10">
                                                             <label>Ville</label>
                                                             <input type="text" id="locality_1" readonly="readonly" class="form-control m-input" placeholder="Ville"  name="town[]">
                                                         </div>
-                                                        <div class="col-lg-3 margin_bottom_10">
+                                                        <div class="col-md-3 margin_bottom_10">
                                                             <label>Pays</label>
                                                             <input type="text" id="country_1" readonly="readonly" class="form-control m-input" placeholder="Pays"  name="country[]">
                                                         </div>
-                                                        <div class="col-lg-3">
+                                                        <div class="col-md-3">
                                                             <label>Longitude</label>
                                                             <input disabled="disabled" type="number" min="0" id="longitude_1" class="form-control m-input" placeholder="Longitude" name="longitude[]">
                                                         </div>
-                                                        <div class="col-lg-3">
+                                                        <div class="col-md-3">
                                                             <label>Latitude</label>
                                                             <input disabled="disabled" type="number" min="0" id="latitude_1" class="form-control m-input" placeholder="Longitude" name="latitude[]">
                                                         </div>
-                                                        <div class="col-lg-3 margin_bottom_10">
+                                                        <div class="col-md-3 margin_bottom_10">
                                                             <label>Localisation</label>
                                                             <select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">
                                                                 @foreach(TCG\Voyager\Models\Location::all() as $location)
@@ -406,7 +370,7 @@
                                                 @endif
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-3 margin_bottom_10">
+                                                <div class="col-md-3 margin_bottom_10">
                                                     <button id="add_new_address" type="button" class="btn btn-accent" style="width: 100%;">Add new address</button>
                                                 </div>
                                             </div>
@@ -417,16 +381,16 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset(Auth::user()->id))
-                                                    <div class="form-group col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-md-6 margin_bottom_10">
                                                         <label class="">New password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
                                                     </div>
-                                                    <div class="form-group col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-md-6 margin_bottom_10">
                                                         <label class="">Confirm password</label>
                                                         <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password_confirm">
                                                     </div>
                                                 @else
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="col-md-6 margin_bottom_10">
                                                         <label class="">Enter password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Enter password" name="password">
                                                     </div>
@@ -466,7 +430,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col-lg-12">
+                                                    <div class="col-md-12">
                                                         <div class="pure_switch">
                                                             <span class="m-switch m-switch--outline m-switch--brand">
                                                                 <label>
@@ -568,19 +532,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-md-4 margin_bottom_10">
                                                     <label class="">First name</label>
                                                     <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ (Auth::user()->name) ? Auth::user()->name : '' }}">
                                                 </div>
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-md-4 margin_bottom_10">
                                                     <label class="">Last name</label>
                                                     <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ (Auth::user()->last_name) ? Auth::user()->last_name : '' }}">
                                                 </div>
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-md-4 margin_bottom_10">
                                                     <label class="">Email</label>
                                                     <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ (Auth::user()->email) ? Auth::user()->email : '' }}" aria-invalid="false">
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label>Role</label>
                                                     @foreach(TCG\Voyager\Models\Role::all() as $role)
                                                         @if($role->id == Auth::user()->id)
@@ -588,14 +552,14 @@
                                                         @endif
                                                     @endforeach
                                                     {{--<select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Civilité">--}}
-                                                        {{--@foreach(TCG\Voyager\Models\Role::all() as $role)--}}
-                                                            {{--@if($role->id != 5 && $role->id > Auth::user()->id)--}}
-                                                                {{--<option value="{{ $role->id }}" @if(isset(Auth::user()->role_id) && Auth::user()->role_id == $role->id){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>--}}
-                                                            {{--@endif--}}
-                                                        {{--@endforeach--}}
+                                                    {{--@foreach(TCG\Voyager\Models\Role::all() as $role)--}}
+                                                    {{--@if($role->id != 5 && $role->id > Auth::user()->id)--}}
+                                                    {{--<option value="{{ $role->id }}" @if(isset(Auth::user()->role_id) && Auth::user()->role_id == $role->id){{ 'selected="selected"' }} @endif>{{ $role->display_name }}</option>--}}
+                                                    {{--@endif--}}
+                                                    {{--@endforeach--}}
                                                     {{--</select>--}}
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Select language</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
@@ -605,7 +569,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Photo</label>
                                                     <div class="img_upload_container">
                                                         <div class="img_upload">
@@ -623,16 +587,16 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset(Auth::user()->id))
-                                                    <div class="form-group col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-md-6 margin_bottom_10">
                                                         <label class="">New password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
                                                     </div>
-                                                    <div class="form-group col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-md-6 margin_bottom_10">
                                                         <label class="">Confirm password</label>
                                                         <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password_confirm">
                                                     </div>
                                                 @else
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="col-md-6 margin_bottom_10">
                                                         <label class="">Enter password</label>
                                                         <input class="form-control m-input" id="password" type="password" placeholder="Enter password" name="password">
                                                     </div>
@@ -666,7 +630,7 @@
 
     <!--begin::Modal address map-->
     <div class="modal fade" id="address_map_modal" tabindex="-1" role="dialog" aria-labelledby="addressMapModal" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addressMapModal">Positionner votre adresse</h5>
@@ -701,16 +665,16 @@
             i++;
             $('#address_container').append(
                 '<div class="form-group m-form__group row address_form_group" id="address_form_' + i  + '">' +
-                '<div class="col-lg-10 margin_bottom_10">' +
+                '<div class="col-md-10 margin_bottom_10">' +
                 '<label>Adresse nom</label>' +
                 '<div class="m-input-icon m-input-icon--right">' +
                 '<input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">' +
                 '</div>' +
                 '</div>' +
-                '<div class="col-lg-2 margin_bottom_10">' +
-                '<button id="' + i  + '" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '<div class="col-md-2 margin_bottom_10">' +
+                '<button id="' + i  + '" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 24px; width: 100%;">Effacer</button>' +
                 '</div>' +
-                '<div class="col-lg-8 margin_bottom_10">' +
+                '<div class="col-md-8 margin_bottom_10">' +
                 '<label>Adresse</label>' +
                 '<div class="m-input-icon m-input-icon--right">' +
                 '<input type="text" id="autocomplete_' + i  + '" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
@@ -721,42 +685,42 @@
                 '</span>' +
                 '</div>' +
                 '</div>' +
-                '<div class="col-lg-4 margin_bottom_10">' +
-                '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
+                '<div class="col-md-4 margin_bottom_10">' +
+                '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>' +
                 '</div>' +
-                '<div class="col-lg-3 margin_bottom_10">' +
+                '<div class="col-md-3 margin_bottom_10">' +
                 '<label>Rue</label>' +
                 '<input type="text" id="route_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Rue" name="street[]">' +
                 '</div>' +
-                '<div class="col-lg-2 margin_bottom_10">' +
+                '<div class="col-md-2 margin_bottom_10">' +
                 '<label>N°</label>' +
                 '<input type="text" id="street_number_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">' +
                 '</div>' +
-                '<div class="col-lg-2 margin_bottom_10">' +
+                '<div class="col-md-2 margin_bottom_10">' +
                 '<label>CP</label>' +
                 '<input type="number" min="0" class="form-control m-input" placeholder="CP" name="po_box[]">' +
                 '</div>' +
-                '<div class="col-lg-2 margin_bottom_10">' +
+                '<div class="col-md-2 margin_bottom_10">' +
                 '<label>NPA</label>' +
                 '<input type="text" id="postal_code_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="NPA" name="zip_code[]">' +
                 '</div>' +
-                '<div class="col-lg-3 margin_bottom_10">' +
+                '<div class="col-md-3 margin_bottom_10">' +
                 '<label>Ville</label>' +
                 '<input type="text" id="locality_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Ville" name="town[]">' +
                 '</div>' +
-                '<div class="col-lg-3 margin_bottom_10">' +
+                '<div class="col-md-3 margin_bottom_10">' +
                 '<label>Pays</label>' +
                 '<input type="text" id="country_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Pays" name="country[]">' +
                 '</div>' +
-                '<div class="col-lg-3">' +
+                '<div class="col-md-3">' +
                 '<label>Longitude</label>' +
                 '<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +
                 '</div>' +
-                '<div class="col-lg-3">' +
+                '<div class="col-md-3">' +
                 '<label>Latitude</label>' +
                 '<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +
                 '</div>' +
-                '<div class="col-lg-3 margin_bottom_10">' +
+                '<div class="col-md-3 margin_bottom_10">' +
                 '<label>Localisation</label>' +
                 '<select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">' +
                 @foreach(TCG\Voyager\Models\Location::all() as $location)
