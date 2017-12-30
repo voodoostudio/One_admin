@@ -249,7 +249,7 @@
                                                             <div class="col-md-8 margin_bottom_10">
                                                                 <label>Adresse</label>
                                                                 <div class="m-input-icon m-input-icon--right">
-                                                                    <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                    <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                     <span class="m-input-icon__icon m-input-icon__icon--right">
                                                                     <span>
                                                                         <i class="la la-map-marker"></i>

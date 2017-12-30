@@ -236,8 +236,8 @@
                                             <div id="address_container">
                                                 @if(!empty(json_decode($dataTypeContent->address)))
                                                     @foreach (json_decode($dataTypeContent->address) as $key => $address)
-                                                        <div class="m-form__group row" id="address_form_{{ $key }}">
-                                                            <div class="col-md-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
+                                                        <div class="m-form__group row address_form_group" id="address_form_{{ $key }}">
+                                                            <div class="col-lg-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
                                                                 <label>Adresse nom</label>
                                                                 <div class="m-input-icon m-input-icon--right">
                                                                     <input type="text" class="form-control m-input" name="address_name[]" value="{{ (isset($address->address_name)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse nom">
@@ -251,7 +251,7 @@
                                                             <div class="col-lg-8 margin_bottom_10">
                                                                 <label>Adresse</label>
                                                                 <div class="m-input-icon m-input-icon--right">
-                                                                    <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                    <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                     <span class="m-input-icon__icon m-input-icon__icon--right">
                                                                     <span>
                                                                         <i class="la la-map-marker"></i>
