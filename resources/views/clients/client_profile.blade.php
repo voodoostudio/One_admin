@@ -53,17 +53,6 @@
                                     {{--<p>{{ Auth::user()->bio }}</p>--}}
                                 </div>
                             </div>
-                            <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
-                                <li class="m-nav__separator m-nav__separator--fit"></li>
-                                <li class="m-nav__item">
-                                    <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                        <i class="m-nav__link-icon flaticon-share"></i>
-                                        <span class="m-nav__link-text">
-                                            Shared properties
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
                             <div class="m-portlet__body-separator"></div>
                         </div>
                     </div>
