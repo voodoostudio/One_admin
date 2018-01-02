@@ -15,7 +15,7 @@
         <!-- END: Subheader -->
         <div class="m-content">
             <!--begin:: Widgets/Stats-->
-            <div class="m-portlet">
+            <div class="m-portlet" style="display: none">
                 <div class="m-portlet__body  m-portlet__body--no-padding">
                     <div class="row m-row--no-padding m-row--col-separator-xl">
                         <div class="col-md-12 col-xl-4">
@@ -117,15 +117,15 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Member Profit
+                                                Superadmins amount
                                             </h3>
                                             <span class="m-widget1__desc">
-                                                Awerage Weekly Profit
+                                                Lorem ipsum dolor
                                             </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-brand">
-                                                +$17,800
+                                                {{ $count = Voyager::model('User')->count() }}
                                             </span>
                                         </div>
                                     </div>
@@ -134,32 +134,15 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Orders
+                                                Admins amount
                                             </h3>
                                             <span class="m-widget1__desc">
-                                                Weekly Customer Orders
+                                                Lorem ipsum dolor
                                             </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-danger">
-                                                +1,800
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="m-widget1__item">
-                                    <div class="row m-row--no-padding align-items-center">
-                                        <div class="col">
-                                            <h3 class="m-widget1__title">
-                                                Issue Reports
-                                            </h3>
-                                            <span class="m-widget1__desc">
-                                                System bugs and issues
-                                            </span>
-                                        </div>
-                                        <div class="col m--align-right">
-                                            <span class="m-widget1__number m--font-success">
-                                                -27,49%
+                                                {{ $count = Voyager::model('Page')->count() }}
                                             </span>
                                         </div>
                                     </div>
@@ -174,15 +157,15 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                IPO Margin
+                                                Moderators amount
                                             </h3>
                                             <span class="m-widget1__desc">
-                                                Awerage IPO Margin
+                                                Lorem ipsum
                                             </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-accent">
-                                                +24%
+                                                {{ $count = Voyager::model('User')->count() }}
                                             </span>
                                         </div>
                                     </div>
@@ -191,32 +174,15 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Payments
+                                                Clients amount
                                             </h3>
                                             <span class="m-widget1__desc">
-                                                Yearly Expenses
+                                                Lorem ipsum
                                             </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-info">
-                                                +$560,800
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="m-widget1__item">
-                                    <div class="row m-row--no-padding align-items-center">
-                                        <div class="col">
-                                            <h3 class="m-widget1__title">
-                                                Logistics
-                                            </h3>
-                                            <span class="m-widget1__desc">
-                                                Overall Regional Logistics
-                                            </span>
-                                        </div>
-                                        <div class="col m--align-right">
-                                            <span class="m-widget1__number m--font-warning">
-                                                -10%
+                                                {{ $count = Voyager::model('User')->count() }}
                                             </span>
                                         </div>
                                     </div>
@@ -231,49 +197,15 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Orders
+                                                Objects amount
                                             </h3>
                                             <span class="m-widget1__desc">
-                                                Awerage Weekly Orders
+                                                Lorem ipsum
                                             </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-success">
-                                                +15%
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="m-widget1__item">
-                                    <div class="row m-row--no-padding align-items-center">
-                                        <div class="col">
-                                            <h3 class="m-widget1__title">
-                                                Transactions
-                                            </h3>
-                                            <span class="m-widget1__desc">
-                                                Daily Transaction Increase
-                                            </span>
-                                        </div>
-                                        <div class="col m--align-right">
-                                            <span class="m-widget1__number m--font-danger">
-                                                +80%
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="m-widget1__item">
-                                    <div class="row m-row--no-padding align-items-center">
-                                        <div class="col">
-                                            <h3 class="m-widget1__title">
-                                                Revenue
-                                            </h3>
-                                            <span class="m-widget1__desc">
-                                                Overall Revenue Increase
-                                            </span>
-                                        </div>
-                                        <div class="col m--align-right">
-                                            <span class="m-widget1__number m--font-primary">
-                                                +60%
+                                                {{ $count = Voyager::model('Post')->count() }}
                                             </span>
                                         </div>
                                     </div>
