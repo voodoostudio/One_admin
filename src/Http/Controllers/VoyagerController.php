@@ -9,6 +9,8 @@ use Intervention\Image\Constraint;
 use Intervention\Image\Facades\Image;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Post;
+use Illuminate\Support\Facades\Mail;
+use TCG\Voyager\Models\User;
 
 class VoyagerController extends Controller
 {
@@ -83,6 +85,25 @@ class VoyagerController extends Controller
     public function individualProperty(Request $request) {
         $property_id = $request->property_id;
         $vip_users = (!empty($request->vip_users)) ? implode(",", $request->vip_users ) : '0';
+        $clients_emails = User::whereIn('id', array($vip_users))->value('email');
+
+        $data = [
+            'text'      => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, 
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+            'email'     => $clients_emails
+        ];
+
         Post::where('id', $property_id)->update(['vip_users' => $vip_users]);
+
+        if(!empty($clients_emails)) {
+            Mail::send('voyager::emails.notification', $data, function ($message) use ($data) {
+                $message->from(env('CONTACT_EMAIL'), 'HIS');
+                $message->to($data['email']);
+            });
+        }
     }
 }
