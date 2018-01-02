@@ -272,11 +272,15 @@
                                                         <div class="row">
                                                             <div class="col-12 margin_bottom_10 lang-fr form-group">
                                                                 <label class="form-control-label" for="titleFr">Titre de l'annonce FR</label>
-                                                                <input id="titleFr" type="text" value="{{ $dataTypeContent->title_fr }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_fr" required="required">
+                                                                <div class='input-group'>
+                                                                    <input id="titleFr" type="text" value="{{ $dataTypeContent->title_fr }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_fr" required="required">
+                                                                </div>
                                                             </div>
                                                             <div class="col-12 margin_bottom_10 lang-fr">
                                                                 <label for="desc-fr">Description de l'annonce FR</label>
-                                                                <textarea id="desc-fr" class="form-control m-input" name="desc_add_fr" rows="8">@if(isset($dataTypeContent->desc_add_fr)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
+                                                                <div class='input-group'>
+                                                                    <textarea id="desc-fr" class="form-control m-input" name="desc_add_fr" rows="8">@if(isset($dataTypeContent->desc_add_fr)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -284,11 +288,15 @@
                                                         <div class="row">
                                                             <div class="col-12 margin_bottom_10 lang-en form-group">
                                                                 <label>Titre de l'annonce EN</label>
-                                                                <input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_en" required="required">
+                                                                <div class='input-group'>
+                                                                    <input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_en" required="required">
+                                                                </div>
                                                             </div>
                                                             <div class="col-12 margin_bottom_10 lang-en">
                                                                 <label>Description de l'annonce EN</label>
-                                                                <textarea class="form-control m-input" name="desc_add_en" rows="8">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>
+                                                                <div class='input-group'>
+                                                                    <textarea class="form-control m-input" name="desc_add_en" rows="8">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -296,11 +304,15 @@
                                                         <div class="row">
                                                             <div class="col-12 margin_bottom_10 lang-es form-group">
                                                                 <label>Titre de l'annonce ES</label>
-                                                                <input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_es" required="required">
+                                                                <div class='input-group'>
+                                                                    <input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_es" required="required">
+                                                                </div>
                                                             </div>
                                                             <div class="col-12 margin_bottom_10 lang-es">
                                                                 <label>Description de l'annonce ES</label>
-                                                                <textarea class="form-control m-input" name="desc_add_es" rows="8">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
+                                                                <div class='input-group'>
+                                                                    <textarea class="form-control m-input" name="desc_add_es" rows="8">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -588,7 +600,7 @@
                                         </div>
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-9">
+                                                <div class="col-lg-8">
                                                     <label>Adresse</label>
                                                     <div class="m-input-icon m-input-icon--right">
                                                         {{--<input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">--}}
@@ -600,8 +612,8 @@
                                                 </span>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3">
-                                                    <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                <div class="col-lg-4">
+                                                    <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>
                                                 </div>
                                             </div>
                                             <div class="m-form__group row">
@@ -3053,6 +3065,21 @@
             minViewMode: "years"
         });
 
+        //        $('#save_checklist button[type="submit"]').on('click', function () {
+        //            if($(".has-danger").length === 0 ) {
+        //
+        //                console.log('is error 1');
+        ////                console.log($(this));
+        //                $(".has-danger:first").html()
+        //            }
+        //            if ($(".has-danger")[0]){
+        //                // Do something if class exists
+        //                console.log('is error 2');
+        //            } else {
+        //                // Do something if class does not exist
+        //            }
+        //        });
+
         $('#save_checklist').on('show.bs.modal', function () {
             checkChecklict();
         });
@@ -3512,7 +3539,6 @@
                 titleEN = $('input[name="title_en"]').val(),
                 titleES = $('input[name="title_es"]').val(),
                 prixInputs = $('.form-group input[type="text"]').closest('#price_tab');
-            console.log(prixInputs);
 
             if(titleFR === '') {
                 $('a[href="#redaction_tab"]').trigger('click');
@@ -3523,6 +3549,14 @@
             } else if(titleES === '') {
                 $('a[href="#redaction_tab"]').trigger('click');
                 $('a[href="#es_redaction"]').trigger('click');
+            } else {
+                setTimeout(function(){
+                    if($(document).find(".has-danger").length !== 0 ) {
+                        var first_error_block_container_id = $(".has-danger:first").closest('.tab-pane').attr('id');
+                        console.log(first_error_block_container_id);
+                        $('#main_tabs_nav .nav-link[href="#'+first_error_block_container_id+'"]').trigger('click');
+                    }
+                }, 1000);
             }
         });
 

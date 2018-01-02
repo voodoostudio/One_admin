@@ -2212,6 +2212,11 @@
                     <!--begin::Widget 14-->
                     <div class="m-widget4">
                         <div class="row">
+                            <div class="col-sm-12">
+                                <label class="form-group_subtitle">Equipement intérieur</label>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->shelter == 0) ? 'not_specified' : '' }}">
@@ -3277,6 +3282,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label class="form-group_subtitle">Equipement extérieur</label>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->car_shelter == 0) ? 'not_specified' : '' }}">
@@ -3397,6 +3409,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label class="form-group_subtitle">Immeuble</label>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->collective_lift == 0) ? 'not_specified' : '' }}">
@@ -3472,6 +3491,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label class="form-group_subtitle">Sécurité</label>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item {{ ($dataTypeContent->alarm == 0) ? 'not_specified' : '' }}">
