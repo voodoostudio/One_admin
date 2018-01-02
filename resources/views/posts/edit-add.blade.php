@@ -1273,7 +1273,7 @@
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <div class="">
-                                                        <label class="form-group">Viabilisé</label>
+                                                        <label>Viabilisé</label>
                                                         <div class="">
                                                             <span class="m-switch m-switch--icon">
                                                                 <label>

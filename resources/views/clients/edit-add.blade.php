@@ -251,7 +251,7 @@
                                                             <div class="col-lg-8 margin_bottom_10">
                                                                 <label>Adresse</label>
                                                                 <div class="m-input-icon m-input-icon--right">
-                                                                    <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input" name="address[]" value="{{ (isset($address->address)) ? $address->address : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                    <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input switchable_form_item" name="address[]" value="{{ (isset($address->address)) ? $address->address : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                     <span class="m-input-icon__icon m-input-icon__icon--right">
                                                                     <span>
                                                                         <i class="la la-map-marker"></i>
@@ -260,32 +260,32 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-4 margin_bottom_10">
-                                                                <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                                <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>
                                                             </div>
 
                                                             <div class="col-sm-12 col-md-3 margin_bottom_10">
                                                                 <label>Rue</label>
-                                                                <input type="text" id="route_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Rue" value="{{ (isset($address->street)) ? $address->street : '' }}" name="street[]">
+                                                                <input type="text" id="route_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Rue" value="{{ (isset($address->street)) ? $address->street : '' }}" name="street[]">
                                                             </div>
                                                             <div class="col-sm-12 col-md-2 margin_bottom_10">
                                                                 <label>N°</label>
-                                                                <input type="text" id="street_number_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="N°" value="{{ (isset($address->number)) ? $address->number : '' }}" name="number[]">
+                                                                <input type="text" id="street_number_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="N°" value="{{ (isset($address->number)) ? $address->number : '' }}" name="number[]">
                                                             </div>
                                                             <div class="col-sm-12 col-md-2 margin_bottom_10">
                                                                 <label>CP</label>
-                                                                <input type="number" min="0" class="form-control m-input" placeholder="CP" value="{{ (isset($address->po_box)) ? $address->po_box : '' }}" name="po_box[]">
+                                                                <input type="number" min="0" class="form-control m-input switchable_form_item" placeholder="CP" value="{{ (isset($address->po_box)) ? $address->po_box : '' }}" name="po_box[]">
                                                             </div>
                                                             <div class="col-sm-12 col-md-2 margin_bottom_10">
                                                                 <label>NPA</label>
-                                                                <input type="text" id="postal_code_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="NPA" value="{{ (isset($address->zip_code)) ? $address->zip_code : '' }}" name="zip_code[]">
+                                                                <input type="text" id="postal_code_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="NPA" value="{{ (isset($address->zip_code)) ? $address->zip_code : '' }}" name="zip_code[]">
                                                             </div>
                                                             <div class="col-sm-12 col-md-3 margin_bottom_10">
                                                                 <label>Ville</label>
-                                                                <input type="text" id="locality_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Ville" value="{{ (isset($address->town)) ? $address->town : '' }}" name="town[]">
+                                                                <input type="text" id="locality_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Ville" value="{{ (isset($address->town)) ? $address->town : '' }}" name="town[]">
                                                             </div>
                                                             <div class="col-sm-12 col-md-3 margin_bottom_10">
                                                                 <label>Pays</label>
-                                                                <input type="text" id="country_{{ $key }}" readonly="readonly" class="form-control m-input" placeholder="Pays" value="{{ (isset($address->country)) ? $address->country : '' }}" name="country[]">
+                                                                <input type="text" id="country_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Pays" value="{{ (isset($address->country)) ? $address->country : '' }}" name="country[]">
                                                             </div>
                                                             <div class="col-sm-12 col-md-3">
                                                                 <label>Longitude</label>
@@ -297,7 +297,7 @@
                                                             </div>
                                                             <div class="col-sm-12 col-md-3 margin_bottom_10">
                                                                 <label>Localisation</label>
-                                                                <select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">
+                                                                <select class="form-control m-select2 custom_select2 switchable_form_item" name="location[]" data-placeholder="Select Location">
                                                                     @foreach(TCG\Voyager\Models\Location::all() as $location)
                                                                         <option value="{{ $location->reference }}" @if(isset($address->location) && $address->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
                                                                     @endforeach
@@ -316,7 +316,7 @@
                                                         <div class="col-sm-12 col-md-8 margin_bottom_10">
                                                             <label>Adresse</label>
                                                             <div class="m-input-icon m-input-icon--right">
-                                                                <input type="text" id="autocomplete_1" class="form-control m-input autocomplete_input" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
+                                                                <input type="text" id="autocomplete_1" disabled="disabled" class="form-control m-input autocomplete_input switchable_form_item" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                 <span class="m-input-icon__icon m-input-icon__icon--right">
                                                             <span>
                                                                 <i class="la la-map-marker"></i>
@@ -325,32 +325,32 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-4 margin_bottom_10">
-                                                            <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                            <button type="button" id="open_map_btn_1" disabled="disabled" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                         </div>
 
                                                         <div class="col-sm-12 col-md-3 margin_bottom_10">
                                                             <label>Rue</label>
-                                                            <input type="text" id="route_1" readonly="readonly" class="form-control m-input" placeholder="Rue"  name="street[]">
+                                                            <input type="text" id="route_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue"  name="street[]">
                                                         </div>
                                                         <div class="col-sm-12 col-md-2 margin_bottom_10">
                                                             <label>N°</label>
-                                                            <input type="text" id="street_number_1" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">
+                                                            <input type="text" id="street_number_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">
                                                         </div>
                                                         <div class="col-sm-12 col-md-2 margin_bottom_10">
                                                             <label>CP</label>
-                                                            <input type="number" min="0" class="form-control m-input" placeholder="CP" name="po_box[]">
+                                                            <input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">
                                                         </div>
                                                         <div class="col-sm-12 col-md-2 margin_bottom_10">
                                                             <label>NPA</label>
-                                                            <input type="text" id="postal_code_1" readonly="readonly" class="form-control m-input" placeholder="NPA"  name="zip_code[]">
+                                                            <input type="text" id="postal_code_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA"  name="zip_code[]">
                                                         </div>
                                                         <div class="col-sm-12 col-md-3 margin_bottom_10">
                                                             <label>Ville</label>
-                                                            <input type="text" id="locality_1" readonly="readonly" class="form-control m-input" placeholder="Ville"  name="town[]">
+                                                            <input type="text" id="locality_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville"  name="town[]">
                                                         </div>
                                                         <div class="col-sm-12 col-md-3 margin_bottom_10">
                                                             <label>Pays</label>
-                                                            <input type="text" id="country_1" readonly="readonly" class="form-control m-input" placeholder="Pays"  name="country[]">
+                                                            <input type="text" id="country_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays"  name="country[]">
                                                         </div>
                                                         <div class="col-sm-12 col-md-3">
                                                             <label>Longitude</label>
@@ -362,7 +362,7 @@
                                                         </div>
                                                         <div class="col-sm-12 col-md-3 margin_bottom_10">
                                                             <label>Localisation</label>
-                                                            <select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">
+                                                            <select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">
                                                                 @foreach(TCG\Voyager\Models\Location::all() as $location)
                                                                     <option value="{{ $location->reference }}">{{ $location->value }}</option>
                                                                 @endforeach
@@ -872,7 +872,7 @@
                 '<div class="col-lg-8 margin_bottom_10">' +
                 '<label>Adresse</label>' +
                 '<div class="m-input-icon m-input-icon--right">' +
-                '<input type="text" id="autocomplete_' + i  + '" class="form-control m-input autocomplete_input" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
+                '<input type="text" id="autocomplete_' + i  + '" disabled="disabled" class="form-control m-input autocomplete_input switchable_form_item" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
                 '<span class="m-input-icon__icon m-input-icon__icon--right">' +
                 '<span>' +
                 '<i class="la la-map-marker"></i>' +
@@ -881,31 +881,31 @@
                 '</div>' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-4 margin_bottom_10">' +
-                '<button type="button" id="open_map_btn_' + i  + '" class="btn btn-secondary open_map_btn" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>' +
+                '<button type="button" id="open_map_btn_' + i  + '" disabled="disabled" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-3 margin_bottom_10">' +
                 '<label>Rue</label>' +
-                '<input type="text" id="route_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Rue" name="street[]">' +
+                '<input type="text" id="route_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue" name="street[]">' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-2 margin_bottom_10">' +
                 '<label>N°</label>' +
-                '<input type="text" id="street_number_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="N°" name="number[]">' +
+                '<input type="text" id="street_number_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-2 margin_bottom_10">' +
                 '<label>CP</label>' +
-                '<input type="number" min="0" class="form-control m-input" placeholder="CP" name="po_box[]">' +
+                '<input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-2 margin_bottom_10">' +
                 '<label>NPA</label>' +
-                '<input type="text" id="postal_code_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="NPA" name="zip_code[]">' +
+                '<input type="text" id="postal_code_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA" name="zip_code[]">' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-3 margin_bottom_10">' +
                 '<label>Ville</label>' +
-                '<input type="text" id="locality_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Ville" name="town[]">' +
+                '<input type="text" id="locality_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville" name="town[]">' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-3 margin_bottom_10">' +
                 '<label>Pays</label>' +
-                '<input type="text" id="country_' + i  + '" readonly="readonly" class="form-control m-input" placeholder="Pays" name="country[]">' +
+                '<input type="text" id="country_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays" name="country[]">' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-3">' +
                 '<label>Longitude</label>' +
@@ -917,7 +917,7 @@
                 '</div>' +
                 '<div class="col-sm-12 col-md-3 margin_bottom_10">' +
                 '<label>Localisation</label>' +
-                '<select class="form-control m-select2 custom_select2" name="location[]" data-placeholder="Select Location">' +
+                '<select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">' +
                 @foreach(TCG\Voyager\Models\Location::all() as $location)
                     '<option value="{{ $location->reference }}">{{ $location->value }}</option>' +
                 @endforeach
@@ -973,6 +973,15 @@
                 $input.on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
             });
         }
+
+        $(document).on("change paste keyup", "#address_container input[name='address_name[]']", function() {
+            var this_container = $(this).closest('.address_form_group');
+            if( !$(this).val() ) {
+                this_container.find('.switchable_form_item').attr( "disabled", "disabled" );
+            } else {
+                this_container.find('.switchable_form_item').attr( "disabled", false );
+            }
+        });
     </script>
     <script>
         jQuery(document).ready(function () {
