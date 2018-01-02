@@ -201,49 +201,47 @@
             const client_cgu_check_text_fr = `Lu et approuvé`;
             const client_cgu_check_text_it = `Lu et approuvé`;
 
-            const client_cgu_de = `The product offered to you through this application by House Invest Spain is subject to this confidentiality clause.  <br><br>
-                                    Real estate, financial or entrepreneurial projects that we present to our customers are, or may be, exclusive and their content is strictly confidential. They can not and must not at any time be retransmitted by the recipient to third parties, natural or legal person without the written consent of our company.  <br><br>
-                                    House Invest Spain holds directly the mandates of sale of these projects, as well as all the rights for their commercialization. <br><br>
-                                    By accessing the information through this application, the recipient agrees to treat the information as confidential and not to disclose its content. <br><br>
-                                    Any information communicated by our company will remain the property of House Invest Spain and can not be used at any time to the detriment of the company. <br><br>
-                                    Upon request of House Invest Spain the beneficiary of the information will agree to transmit a certificate of destruction of it.  <br><br>
+            const client_cgu_de = `The product offered to you through this application by House Invest Spain is subject to this confidentiality clause. <br /><br />
+                                    Real estate, financial or entrepreneurial projects that we present to our customers are, or may be, exclusive and their content is strictly confidential. They can not and must not at any time be retransmitted by the recipient to third parties, natural or legal person without the written consent of our company.
+                                    House Invest Spain holds directly the mandates of sale of these projects, as well as all the rights for their commercialization.<br /><br />
+                                    By accessing the information through this application, the recipient agrees to treat the information as confidential and not to disclose its content.<br /><br />
+                                    Any information communicated by our company will remain the property of House Invest Spain and can not be used at any time to the detriment of the company.<br /><br />
+                                    Upon request of House Invest Spain the beneficiary of the information will agree to transmit a certificate of destruction of it.<br /><br />
                                     For all disputes that may arise regarding the interpretation or execution of this confidentiality clause and regardless of the current and future domicile of the parties, they agree, by accessing this information, both parties together with beneficiaries, the exclusive jurisdiction of the Courts of the Canton of Geneva, without prejudice to a possible appeal to the Federal Court.`;
 
-            const client_cgu_en = `The product offered to you through this application by House Invest Spain is subject to this confidentiality clause.  <br><br>
-                                    Real estate, financial or entrepreneurial projects that we present to our customers are, or may be, exclusive and their content is strictly confidential. They can not and must not at any time be retransmitted by the recipient to third parties, natural or legal person without the written consent of our company.  <br><br>
-                                    House Invest Spain holds directly the mandates of sale of these projects, as well as all the rights for their commercialization. <br><br>
-                                    By accessing the information through this application, the recipient agrees to treat the information as confidential and not to disclose its content. <br><br>
-                                    Any information communicated by our company will remain the property of House Invest Spain and can not be used at any time to the detriment of the company. <br><br>
-                                    Upon request of House Invest Spain the beneficiary of the information will agree to transmit a certificate of destruction of it.  <br><br>
+            const client_cgu_en = `The product offered to you through this application by House Invest Spain is subject to this confidentiality clause.<br /><br />
+                                    Real estate, financial or entrepreneurial projects that we present to our customers are, or may be, exclusive and their content is strictly confidential.  They can not and must not at any time be retransmitted by the recipient to third parties, natural or legal person without the written consent of our company.<br /><br />
+                                    House Invest Spain holds directly the mandates of sale of these projects, as well as all the rights for their commercialization.<br /><br />
+                                    By accessing the information through this application, the recipient agrees to treat the information as confidential and not to disclose its content.<br /><br />
+                                    Any information communicated by our company will remain the property of House Invest Spain and can not be used at any time to the detriment of the company.<br /><br />
+                                    Upon request of House Invest Spain the beneficiary of the information will agree to transmit a certificate of destruction of it.<br /><br />
                                     For all disputes that may arise regarding the interpretation or execution of this confidentiality clause and regardless of the current and future domicile of the parties, they agree, by accessing this information, both parties together with beneficiaries, the exclusive jurisdiction of the Courts of the Canton of Geneva, without prejudice to a possible appeal to the Federal Court.`;
 
-            const client_cgu_es = `El producto que les propone House Invest Spain con esta aplicación queda sometido a la presente cláusula de confidencialidad.  <br><br>
-                                    Los productos inmobiliarios, financieros o empresariales que ofrecemos a nuestra clientela, tienen un carácter exclusivo. Su contenido es estrictamente confidencial y no pueden ser objeto de transmisión a terceros, ya sean personas físicas o morales, sin el acuerdo escrito de nuestra sociedad.  <br><br>
-                                    House Invest Spain posee directamente los mandatos de venta de tales productos, así como todos los derechos para su comercialización.  <br><br>
-                                    El destinatario considerará como confidencial la información recibida a través de esta aplicación y se compromete a no divulgar su contenido.  <br><br>
-                                    Toda la información comunicada por nuestra sociedad pertenece a House Invest Spain y no podrá ser utilizada en ningún momento con el fin de ocasionarle perjuicio.  <br><br>
-                                    Bajo demanda de House Invest Spain, el beneficiario de la información aceptará transmitir, mediante certificado, la destrucción de la misma.  <br><br>
+            const client_cgu_es = `El producto que les propone House Invest Spain con esta aplicación queda sometido a la presente cláusula de confidencialidad.<br /><br />
+                                    Los productos inmobiliarios, financieros o empresariales que ofrecemos a nuestra clientela, tienen un carácter exclusivo. Su contenido es estrictamente confidencial y no pueden ser objeto de transmisión a terceros, ya sean personas físicas o morales, sin el acuerdo escrito de nuestra sociedad. <br /><br />
+                                    House Invest Spain posee directamente los mandatos de venta de tales productos, así como todos los derechos para su comercialización.  <br /><br />
+                                    El destinatario considerará como confidencial la información recibida a través de esta aplicación y se compromete a no divulgar su contenido.<br /><br />
+                                    Toda la información comunicada por nuestra sociedad pertenece a House Invest Spain y no podrá ser utilizada en ningún momento con el fin de ocasionarle perjuicio.<br /><br />
+                                    Bajo demanda de House Invest Spain, el beneficiario de la información aceptará transmitir, mediante certificado, la destrucción de la misma. <br /><br />
                                     Para todo litigio que pudiera producirse en cuanto a la interpretación o a la ejecución de la presente cláusula de confidencialidad, y cualquiera que sea el domicilio actual y futuro de las partes, estas aceptan, accediendo a la presenta información, tanto para ellas como para sus derechohabientes, la competencia exclusiva de los Tribunales del Cantón de Ginebra, sin perjuicio de un eventual recurso al Tribunal Federal.`;
 
-            const client_cgu_fr = `Le produit qui vous est proposé à travers cette application par House Invest Spain, est soumis à la présente clause de confidentialité.<br><br>
-                                    Les projets immobiliers, financiers ou entrepreneuriaux que nous présentons à notre aimable clientèle sont, ou peuvent être, à caractère exclusif et leur contenu est strictement confidentiel.<br><br>
-                                    Ils ne peuvent et ne doivent à aucun moment, être retransmis par le destinataire à des tiers, personnes physiques ou morales sans l’accord écrit de notre société.<br><br>
-                                    House Invest Spain détient directement les mandats de vente desdits projets, ainsi que tous les droits pour leur commercialisation.<br><br>
-                                    En accédant à l’information qu’il reçoit à travers la présente application, le destinataire accepte de considérer l’information comme confidentielle et à ne pas en divulguer son contenu.<br><br>
-                                    Toute information communiquée par notre société demeurera la propriété de House Invest Spain et ne pourra, à aucun moment, être utilisée dans le but de lui porter préjudice.<br><br>
-                                    Sur demande de House Invest Spain, le bénéficiaire de l’information acceptera de transmettre une attestation de destruction de celle-ci.<br><br>
+            const client_cgu_fr = `Le produit qui vous est proposé à travers cette application par House Invest Spain, est soumis à la présente clause de confidentialité.<br /><br />
+                                    Les projets immobiliers, financiers ou entrepreneuriaux que nous présentons à notre aimable clientèle sont, ou peuvent être, à caractère exclusif et leur contenu est strictement confidentiel.<br /><br />
+                                    Ils ne peuvent et ne doivent à aucun moment, être retransmis par le destinataire à des tiers, personnes physiques ou morales sans l’accord écrit de notre société.<br /><br />
+                                    House Invest Spain détient directement les mandats de vente desdits projets, ainsi que tous les droits pour leur commercialisation.<br /><br />
+                                    En accédant à l’information qu’il reçoit à travers la présente application, le destinataire accepte de considérer l’information comme confidentielle et à ne pas en divulguer son contenu.<br /><br />
+                                    Toute information communiquée par notre société demeurera la propriété de House Invest Spain et ne pourra, à aucun moment, être utilisée dans le but de lui porter préjudice.<br /><br />
+                                    Sur demande de House Invest Spain, le bénéficiaire de l’information acceptera de transmettre une attestation de destruction de celle-ci.<br /><br />
                                     Pour tous les litiges qui pourraient survenir quant à l’interprétation ou à l’exécution de la présente clause de confidentialité et quel que soit le domicile actuel et futur des parties, celles-ci acceptent, en accédant à la présente information, tant pour elles que pour leurs ayants droits, la compétence exclusive des Tribunaux du Canton de Genève, sans préjudice d’un éventuel recours au Tribunal Fédéral.`;
 
-            const client_cgu_it = `Le produit qui vous est proposé à travers cette application par House Invest Spain, est soumis à la présente clause de confidentialité.<br><br>
-                                    Les projets immobiliers, financiers ou entrepreneuriaux que nous présentons à notre aimable clientèle sont, ou peuvent être, à caractère exclusif et leur contenu est strictement confidentiel.<br><br>
-                                    Ils ne peuvent et ne doivent à aucun moment, être retransmis par le destinataire à des tiers, personnes physiques ou morales sans l’accord écrit de notre société.<br><br>
-                                    House Invest Spain détient directement les mandats de vente desdits projets, ainsi que tous les droits pour leur commercialisation.<br><br>
-                                    En accédant à l’information qu’il reçoit à travers la présente application, le destinataire accepte de considérer l’information comme confidentielle et à ne pas en divulguer son contenu.<br><br>
-                                    Toute information communiquée par notre société demeurera la propriété de House Invest Spain et ne pourra, à aucun moment, être utilisée dans le but de lui porter préjudice.<br><br>
-                                    Sur demande de House Invest Spain, le bénéficiaire de l’information acceptera de transmettre une attestation de destruction de celle-ci.<br><br>
+            const client_cgu_it = `Le produit qui vous est proposé à travers cette application par House Invest Spain, est soumis à la présente clause de confidentialité.<br /><br />
+                                    Les projets immobiliers, financiers ou entrepreneuriaux que nous présentons à notre aimable clientèle sont, ou peuvent être, à caractère exclusif et leur contenu est strictement confidentiel.<br /><br />
+                                    Ils ne peuvent et ne doivent à aucun moment, être retransmis par le destinataire à des tiers, personnes physiques ou morales sans l’accord écrit de notre société.<br /><br />
+                                    House Invest Spain détient directement les mandats de vente desdits projets, ainsi que tous les droits pour leur commercialisation.<br /><br />
+                                    En accédant à l’information qu’il reçoit à travers la présente application, le destinataire accepte de considérer l’information comme confidentielle et à ne pas en divulguer son contenu.<br /><br />
+                                    Toute information communiquée par notre société demeurera la propriété de House Invest Spain et ne pourra, à aucun moment, être utilisée dans le but de lui porter préjudice.<br /><br />
+                                    Sur demande de House Invest Spain, le bénéficiaire de l’information acceptera de transmettre une attestation de destruction de celle-ci.<br /><br />
                                     Pour tous les litiges qui pourraient survenir quant à l’interprétation ou à l’exécution de la présente clause de confidentialité et quel que soit le domicile actuel et futur des parties, celles-ci acceptent, en accédant à la présente information, tant pour elles que pour leurs ayants droits, la compétence exclusive des Tribunaux du Canton de Genève, sans préjudice d’un éventuel recours au Tribunal Fédéral.`;
-
-
             // demo initializer
             var demo = function () {
 
