@@ -265,7 +265,7 @@
                                                     <label class="profile_data_label">
                                                         Address
                                                     </label>
-                                                    <div class="profile_data_value">
+                                                    <div class="profile_data_value" style="width: 100%">
                                                         @foreach(json_decode($dataTypeContent->address) as $key => $value)
                                                             <p class="address_name">{{ $value->address_name }}</p>
                                                             {{ $value->address }}
