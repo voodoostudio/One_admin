@@ -24,7 +24,7 @@
         <!-- END: Subheader -->
         <div class="m-content">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-xl-3">
                     <div class="m-portlet m-portlet--full-height ">
                         <div class="m-portlet__body">
                             <div class="m-card-profile">
@@ -45,8 +45,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <div class="m-portlet m-portlet--full-height m-portlet--tabs ">
+                <div class="col-xl-9">
+                    <div class="m-portlet m-portlet--full-height m-portlet--tabs profile_data_container">
                         <div class="m-portlet__head">
                             <div class="m-portlet__head-tools">
                                 <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
@@ -68,42 +68,64 @@
                                             <h3>User</h3>
                                         </div>
                                     </div>
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-2 col-form-label">Name</label>
-                                        <div class="col-7">
-                                            <span>{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}</span>
+                                    <div class="m-form__group row">
+                                        <div class="col-md-6">
+                                            <div class="profile_data_block">
+                                                <label class="profile_data_label">
+                                                    Name
+                                                </label>
+                                                <div class="profile_data_value">
+                                                    <span>{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="profile_data_block">
+                                                <label class="profile_data_label">
+                                                    Surname
+                                                </label>
+                                                <div class="profile_data_value">
+                                                    <span>{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-2 col-form-label">Surname</label>
-                                        <div class="col-7">
-                                            <span>{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}</span>
+                                    <div class="m-form__group row">
+                                        <div class="col-md-6">
+                                            <div class="profile_data_block">
+                                                <label class="profile_data_label">
+                                                    Courriel
+                                                </label>
+                                                <div class="profile_data_value">
+                                                    <span>{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="profile_data_block">
+                                                <label class="profile_data_label">
+                                                    Language
+                                                </label>
+                                                <div class="profile_data_value">
+                                                    @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_language)
+                                                        <span> {{ (isset($dataTypeContent->lng_corres) && $dataTypeContent->lng_corres == $user_language->reference) ? $user_language->value : ''  }}</span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-2 col-form-label">Email</label>
-                                        <div class="col-7">
-                                            <span>{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-2 col-form-label">Language</label>
-                                        <div class="col-7">
-                                            <span>
-                                                @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_language)
-                                                    <span> {{ (isset($dataTypeContent->lng_corres) && $dataTypeContent->lng_corres == $user_language->reference) ? $user_language->value : ''  }}</span>
-                                                @endforeach
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-2 col-form-label">Role</label>
-                                        <div class="col-7">
-                                            <span>
-                                                @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                    <span> {{ (isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->id) ? $role->display_name : ''  }}</span>
-                                                @endforeach
-                                            </span>
+                                    <div class="m-form__group row">
+                                        <div class="col-md-6">
+                                            <div class="profile_data_block">
+                                                <label class="profile_data_label">
+                                                    Role
+                                                </label>
+                                                <div class="profile_data_value">
+                                                    @foreach(TCG\Voyager\Models\Role::all() as $role)
+                                                        <span> {{ (isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->id) ? $role->display_name : ''  }}</span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
