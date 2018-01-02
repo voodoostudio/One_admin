@@ -267,7 +267,7 @@
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(json_decode($dataTypeContent->address) as $key => $value)
-                                                            {{ $value->address_name }}
+                                                            <p class="address_name">{{ $value->address_name }}</p>
                                                             {{ $value->address }}
                                                             {{ $value->street }}
                                                             {{ $value->number }}
