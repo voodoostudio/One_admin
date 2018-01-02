@@ -269,13 +269,13 @@
                                                         @foreach(json_decode($dataTypeContent->address) as $key => $value)
                                                             <p class="address_name">{{ $value->address_name }}</p>
                                                             {{ $value->address }}
-                                                            {{ $value->street }}
-                                                            {{ $value->number }}
-                                                            {{ $value->po_box }}
-                                                            {{ $value->zip_code }}
-                                                            {{ $value->town }}
-                                                            {{ $value->country }}
-                                                            {{ $value->location }}
+                                                            {{--{{ $value->street }}--}}
+                                                            {{--{{ $value->number }}--}}
+                                                            {{--{{ $value->po_box }}--}}
+                                                            {{--{{ $value->zip_code }}--}}
+                                                            {{--{{ $value->town }}--}}
+                                                            {{--{{ $value->country }}--}}
+                                                            {{--{{ $value->location }}--}}
                                                             {!! '<br>' !!}
                                                         @endforeach
                                                     </div>
