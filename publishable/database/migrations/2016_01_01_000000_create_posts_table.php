@@ -18,9 +18,9 @@ class CreatePostsTable extends Migration
             $table->integer('author_id');
             $table->string('vip_users', 255)->nullable();
             $table->boolean('publicate')->default(0);
-            $table->string('title_en');
-            $table->string('title_es');
-            $table->string('title_fr');
+            $table->string('title_en')->nullable();
+            $table->string('title_es')->nullable();
+            $table->string('title_fr')->nullable();
             $table->text('desc_add_en')->nullable();
             $table->text('desc_add_es')->nullable();
             $table->text('desc_add_fr')->nullable();
