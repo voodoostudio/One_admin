@@ -71,11 +71,11 @@
                                                 Update Profile
                                             </a>
                                         </li>
-                                        <li class="nav-item m-tabs__item">
+                                       {{-- <li class="nav-item m-tabs__item">
                                             <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_settings" role="tab">
                                                 Settings
                                             </a>
-                                        </li>
+                                        </li>--}}
                                     </ul>
                                 </div>
                             </div>
@@ -678,7 +678,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="profile_settings" role="tabpanel">
+                                    {{--<div class="tab-pane" id="profile_settings" role="tabpanel">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset($dataTypeContent->id))
@@ -698,7 +698,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                                 <div class="m-portlet__foot m-portlet__foot--fit">
                                     <div class="m-form__actions">
@@ -1010,6 +1010,9 @@
             });
 
             jQuery("#edit_create_clients").validate({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 rules: {
                     name: {
                         required: true
@@ -1019,7 +1022,15 @@
                     },
                     email: {
                         email: true,
-                        required: true
+                        required: true,
+                        remote: {
+                            url: "{{ URL::to('admin/clients/check-email') }}"
+                        }
+                    }
+                },
+                messages: {
+                    email: {
+                        remote: "Email already in use!"
                     }
                 },
                 submitHandler: function (form) {

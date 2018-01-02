@@ -201,4 +201,14 @@ class VoyagerClientsController extends Controller
             return redirect('/');
         }
     }
+
+    public function checkEmail()
+    {
+        $client_email = Clients::where('email', '=', Input::get('email'))->first();
+        if ($client_email === null) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
+    }
 }
