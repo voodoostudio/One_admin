@@ -48,7 +48,7 @@
                                 <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
                                     <li class="m-nav__separator m-nav__separator--fit"></li>
                                     <li class="m-nav__item">
-                                        <a href="{{ URL::to('admin/posts') }}" class="m-nav__link">
+                                        <a href="{{ URL::to('admin/posts') }}?client_id={{$dataTypeContent->id}}" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-signs-1"></i>
                                             <span class="m-nav__link-text">
                                                 Properties

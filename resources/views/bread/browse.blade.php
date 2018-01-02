@@ -12,19 +12,35 @@
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
             if($dataType->display_name_plural == 'Properties') {
                 foreach ($dataTypeContent as $data) {
-                    $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
-                    $arrayJsonData[] = [
-                        'id'            => $data->id,
-                        'reference'     => $reference,
-                        'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'posts/no_image.png',
-                        'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
-                        'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
-                        'title_fr'      => $data->title_fr,
-                        'zip_code'      => $data->zip_code,
-                        'town'          => $data->town,
-                        'price'         => ($data->show_price == 1) ? $data->price . ' ' . Illuminate\Support\Facades\DB::table('admin_currency')->where('reference', '=', $data->сurrency)->value('value') : '',
-                        'vip_users'     => $data->vip_users
-                    ];
+                    if(!empty($_GET['client_id']) && (in_array($_GET['client_id'], explode(',', $data->vip_users)))) {
+                        $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
+                        $arrayJsonData[] = [
+                            'id'            => $data->id,
+                            'reference'     => $reference,
+                            'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'posts/no_image.png',
+                            'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
+                            'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
+                            'title_fr'      => $data->title_fr,
+                            'zip_code'      => $data->zip_code,
+                            'town'          => $data->town,
+                            'price'         => ($data->show_price == 1) ? $data->price . ' ' . Illuminate\Support\Facades\DB::table('admin_currency')->where('reference', '=', $data->сurrency)->value('value') : '',
+                            'vip_users'     => $data->vip_users
+                        ];
+                    } elseif(empty($_GET['client_id'])) {
+                        $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
+                        $arrayJsonData[] = [
+                            'id'            => $data->id,
+                            'reference'     => $reference,
+                            'image'         => (!empty(json_decode($data->image)[0])) ? json_decode($data->image)[0] : 'posts/no_image.png',
+                            'ann_type'      => ($data->ann_type == 0) ? 'Location' : 'Vente',
+                            'category_id'   => Illuminate\Support\Facades\DB::table('categories')->where('id', '=', $data->category_id)->value('name'),
+                            'title_fr'      => $data->title_fr,
+                            'zip_code'      => $data->zip_code,
+                            'town'          => $data->town,
+                            'price'         => ($data->show_price == 1) ? $data->price . ' ' . Illuminate\Support\Facades\DB::table('admin_currency')->where('reference', '=', $data->сurrency)->value('value') : '',
+                            'vip_users'     => $data->vip_users
+                        ];
+                    }
                 }
             } elseif($dataType->display_name_plural == 'Clients') {
                 foreach ($dataTypeContent->where('role_id', '=', 5) as $data) {
@@ -615,7 +631,7 @@
                                 <div class="dropdown-menu dropdown-menu-right">\
                                     <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
                                     <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_clients_modal"><i class="la la-edit"></i>Add clients</a>\
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_clients_modal_' + row.id + '"><i class="la la-edit"></i>Add clients</a>\
                                     <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal"><i class="la la-times-circle"></i>Effacer</button>\
                                 </div>\
                                 <div class="modal fade" id="remove_confirm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
@@ -641,7 +657,7 @@
                                         </div>\
                                     </div>\
                                 </div>\
-                                <div class="modal fade" id="add_clients_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                <div class="modal fade" id="add_clients_modal_' + row.id + '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
                                     <div class="modal-dialog modal-sm" role="document">\
                                         <div class="modal-content">\
                                             <div class="modal-header">\
@@ -655,10 +671,10 @@
                                                     <div class="form-group">\
                                                         <select class="form-control m-select2 custom_select2" name="vip_users[]" multiple="multiple" data-placeholder="Sélectionner un client">\
                                                             <?php foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user) {?>
-                                    <option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }} {{ $user->last_name }}</option>\
+                                                                <option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }} {{ $user->last_name }}</option>\
                                                             <?php }?>
-                                    </select>\
-                                    <div class="message_status_' + row.id + '"></div>\
+                                                        </select>\
+                                                    <div class="message_status_' + row.id + '"></div>\
                                                         <input type="hidden" name="property_id" value="' + row.id + '" />\
                                                     </div>\
                                                 </div>\
