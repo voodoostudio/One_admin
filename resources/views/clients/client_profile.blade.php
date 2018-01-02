@@ -27,7 +27,7 @@
         <!-- END: Subheader -->
         <div class="m-content">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-xl-3">
                     <div class="m-portlet m-portlet--full-height ">
                         <div class="m-portlet__body">
                             <div class="m-card-profile">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9">
+                <div class="col-xl-9">
                     <div class="m-portlet m-portlet--full-height m-portlet--tabs profile_data_container">
                         <div class="m-portlet__head">
                             <div class="m-portlet__head-tools">
