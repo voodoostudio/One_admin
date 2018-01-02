@@ -588,7 +588,7 @@
                                         </div>
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-9">
+                                                <div class="col-lg-8">
                                                     <label>Adresse</label>
                                                     <div class="m-input-icon m-input-icon--right">
                                                         {{--<input type="text" id="pac-input" class="form-control m-input" placeholder="Entrer votre adresse" value="@if(isset($dataTypeContent->address)){{ $dataTypeContent->address }}@endif" name="address">--}}
@@ -600,8 +600,8 @@
                                                 </span>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3">
-                                                    <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                <div class="col-lg-4">
+                                                    <button type="button" id="open_map_btn" class="btn btn-secondary" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>
                                                 </div>
                                             </div>
                                             <div class="m-form__group row">

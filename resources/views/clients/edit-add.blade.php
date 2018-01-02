@@ -66,9 +66,21 @@
                                 <div class="m-portlet__head-tools">
                                     <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
                                         <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link active" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
+                                            <a class="nav-link m-tabs__link active" data-toggle="tab" href="#profile_info_client" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Update Profile
+                                                {{ $dataTypeContent->name }}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item m-tabs__item">
+                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_spouse" role="tab"  aria-expanded="true">
+                                                <i class="flaticon-share m--hide"></i>
+                                                Spouse
+                                            </a>
+                                        </li>
+                                        <li class="nav-item m-tabs__item">
+                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child" role="tab"  aria-expanded="true">
+                                                <i class="flaticon-share m--hide"></i>
+                                                Child
                                             </a>
                                         </li>
                                         {{-- <li class="nav-item m-tabs__item">
@@ -91,7 +103,7 @@
                                 <input type="hidden" name="role_id" value="5">
                                 <div class="tab-content">
                                     <input type="hidden" name="type_clients" value="Clients">
-                                    <div class="tab-pane active" id="profile_info" role="tabpanel" aria-expanded="true">
+                                    <div class="tab-pane active" id="profile_info_client" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -215,7 +227,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="m-form__group row">
+                                            <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 col-md-4">
                                                     <label class="">Email type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Email type">
@@ -436,6 +448,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile_info_spouse" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -565,7 +579,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="m-form__group row">
+                                            <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 col-md-4 ">
                                                     <label class="">Email type</label>
                                                     <div class="input-group">
@@ -616,6 +630,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile_info_child" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -745,7 +761,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="m-form__group row">
+                                            <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 col-md-4 ">
                                                     <label class="">Email type</label>
                                                     <div class="input-group">
@@ -796,7 +812,7 @@
                                                 </div>
                                                 @if(Auth::user()->role_id != 5)
                                             </div>
-                                            <div class="m-form__group row">
+                                            <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 ">
                                                     <label class="">Informations sur le client</label>
                                                     <div class="input-group">
