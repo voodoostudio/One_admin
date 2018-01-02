@@ -125,7 +125,7 @@
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-brand">
-                                                {{ $count = Voyager::model('User')->count() }}
+                                                {{ $count = Voyager::model('User')->where('role_id', 2)->count() }}
                                             </span>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-danger">
-                                                {{ $count = Voyager::model('Page')->count() }}
+                                                {{ $count = Voyager::model('User')->where('role_id', 3)->count() }}
                                             </span>
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-accent">
-                                                {{ $count = Voyager::model('User')->count() }}
+                                                {{ $count = Voyager::model('User')->where('role_id', 4)->count() }}
                                             </span>
                                         </div>
                                     </div>
@@ -182,7 +182,7 @@
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-info">
-                                                {{ $count = Voyager::model('User')->count() }}
+                                                {{ $count = Voyager::model('User')->where('role_id', 5)->count() }}
                                             </span>
                                         </div>
                                     </div>
