@@ -48,7 +48,7 @@
                     $arrayJsonData[] = [
                         'id'            => $data->id,
                         'number'        => $counter++,
-                        'name'          => $data->name,
+                        'name'          => $data->name . ' ' . $data->last_name,
                         'email'         => $data->email,
                         'avatar'        => $data->avatar,
                         'created_at'    => $data->created_at->format('d.m.Y /  H:m'),
@@ -59,7 +59,7 @@
                     $arrayJsonData[] = [
                         'id'            => $data->id,
                         'number'        => $counter++,
-                        'name'          => $data->name,
+                        'name'          => $data->name . ' ' . $data->last_name,
                         'email'         => $data->email,
                         'avatar'        => $data->avatar,
                         'created_at'    => $data->created_at->format('d.m.Y / H:m'),
