@@ -36,11 +36,6 @@ class CreateAdminUserLanguagesTable extends Migration
                     'locale'    => 'fr_FR',
                     'value'     => 'Français',
                 ],
-                [
-                    'reference' => 4,
-                    'locale'    => 'fr_FR',
-                    'value'     => 'Italien',
-                ],
             ]
         );
 
