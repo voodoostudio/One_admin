@@ -419,13 +419,9 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">
-                                                    Check all checkboxes in order to save this object
-                                                </h5>
+                                                <h5 class="modal-title"></h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">
-                                                        &times;
-                                                    </span>
+                                                    <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
@@ -438,13 +434,13 @@
                                                                     <span></span>
                                                                 </label>
                                                             </span>
-                                                            <label class="pure_switch_label"> Vous certifiez que les informations que vous avez insérés sont parfaitement authentiques.</label>
+                                                            <label class="pure_switch_label"> Vous certifiez que les informations que vous avez insérés sont conformes à la réalité.</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                                 <button type="submit" value="submit" class="btn btn-primary" disabled="disabled">Enregistrer</button>
                                             </div>
                                         </div>
