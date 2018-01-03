@@ -3065,21 +3065,6 @@
             minViewMode: "years"
         });
 
-        //        $('#save_checklist button[type="submit"]').on('click', function () {
-        //            if($(".has-danger").length === 0 ) {
-        //
-        //                console.log('is error 1');
-        ////                console.log($(this));
-        //                $(".has-danger:first").html()
-        //            }
-        //            if ($(".has-danger")[0]){
-        //                // Do something if class exists
-        //                console.log('is error 2');
-        //            } else {
-        //                // Do something if class does not exist
-        //            }
-        //        });
-
         $('#save_checklist').on('show.bs.modal', function () {
             checkChecklict();
         });

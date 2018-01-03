@@ -278,7 +278,7 @@
                                                         <div class="m-form__group row address_form_group" id="address_form_{{ $key }}">
                                                             <div class="col-lg-{{ ($key != 0) ? '10' : '12' }} ">
                                                                 <label>Adresse nom</label>
-                                                                <div class="m-input-icon m-input-icon--right">
+                                                                <div class="input-group">
                                                                     <input type="text" class="form-control m-input" name="address_name[]" value="{{ (isset($address->address_name)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse nom">
                                                                 </div>
                                                             </div>
@@ -289,7 +289,7 @@
                                                             @endif
                                                             <div class="col-lg-8 ">
                                                                 <label>Adresse</label>
-                                                                <div class="m-input-icon m-input-icon--right">
+                                                                <div class="m-input-icon m-input-icon--right input-group">
                                                                     <input type="text" id="autocomplete_{{ $key }}" class="form-control m-input autocomplete_input switchable_form_item" name="address[]" value="{{ (isset($address->address)) ? $address->address : '' }}" placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                     <span class="m-input-icon__icon m-input-icon__icon--right">
                                                                     <span>
@@ -362,13 +362,13 @@
                                                     <div class="m-form__group row address_form_group" id="address_form_1">
                                                         <div class="col-lg-12 ">
                                                             <label>Adresse nom</label>
-                                                            <div class="m-input-icon m-input-icon--right">
+                                                            <div class="input-group">
                                                                 <input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-8 ">
                                                             <label>Adresse</label>
-                                                            <div class="m-input-icon m-input-icon--right">
+                                                            <div class="m-input-icon m-input-icon--right input-group">
                                                                 <input type="text" id="autocomplete_1" disabled="disabled" class="form-control m-input autocomplete_input switchable_form_item" name="address[]"  placeholder="Entrer votre adresse" onFocus="geolocate()">
                                                                 <span class="m-input-icon__icon m-input-icon__icon--right">
                                                             <span>
@@ -1015,16 +1015,16 @@
                 '<div class="form-group m-form__group row address_form_group" id="address_form_' + i  + '">' +
                 '<div class="col-md-10 ">' +
                 '<label>Adresse nom</label>' +
-                '<div class="m-input-icon m-input-icon--right">' +
+                '<div class="input-group">' +
                 '<input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">' +
                 '</div>' +
                 '</div>' +
                 '<div class="col-sm-12 col-md-2 ">' +
-                '<button id="' + i  + '" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 24px; width: 100%;">Effacer</button>' +
+                '<button id="' + i  + '" type="button" class="btn btn-danger remove_address_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
                 '</div>' +
                 '<div class="col-lg-8 ">' +
                 '<label>Adresse</label>' +
-                '<div class="m-input-icon m-input-icon--right">' +
+                '<div class="m-input-icon m-input-icon--right input-group">' +
                 '<input type="text" id="autocomplete_' + i  + '" disabled="disabled" class="form-control m-input autocomplete_input switchable_form_item" name="address[]" placeholder="Entrer votre adresse" onFocus="geolocate()">' +
                 '<span class="m-input-icon__icon m-input-icon__icon--right">' +
                 '<span>' +
