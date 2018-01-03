@@ -679,22 +679,22 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            @if($dataTypeContent->show_price != 0)
-                                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                    <!--begin::Widget 14 Item-->
-                                    <div class="m-widget4__item">
-                                        <div class="m-widget4__info">
-                                            <span class="m-widget4__title">
-                                                Prix
-                                            </span>
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                <!--begin::Widget 14 Item-->
+                                <div class="m-widget4__item">
+                                    <div class="m-widget4__info">
+                                        <span class="m-widget4__title">
+                                            Prix
+                                        </span>
+                                        @if($dataTypeContent->show_price != 0)
                                             <span class="m-widget4__sub">
                                                 {{ $dataTypeContent->price }}
                                             </span>
-                                        </div>
+                                        @endif
                                     </div>
-                                    <!--end::Widget 14 Item-->
                                 </div>
-                            @endif
+                                <!--end::Widget 14 Item-->
+                            </div>
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
