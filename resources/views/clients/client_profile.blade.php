@@ -222,6 +222,16 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
+                                                        Courriel
+                                                    </label>
+                                                    <div class="profile_data_value">
+                                                        {{ $dataTypeContent->email }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="profile_data_block">
+                                                    <label class="profile_data_label">
                                                         Type de téléphone
                                                     </label>
                                                     <div class="profile_data_value">
@@ -425,6 +435,16 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
+                                                        Courriel
+                                                    </label>
+                                                    <div class="profile_data_value">
+                                                        {{ $dataTypeContent->email_coup }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="profile_data_block">
+                                                    <label class="profile_data_label">
                                                         Type de téléphone
                                                     </label>
                                                     <div class="profile_data_value">
@@ -599,6 +619,16 @@
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
                                                             <span>{{ ($dataTypeContent->email_type_child === $email_type->reference) ? $email_type->value : '' }}</span>
                                                         @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="profile_data_block">
+                                                    <label class="profile_data_label">
+                                                        Courriel
+                                                    </label>
+                                                    <div class="profile_data_value">
+                                                        {{ $dataTypeContent->email_child }}
                                                     </div>
                                                 </div>
                                             </div>
