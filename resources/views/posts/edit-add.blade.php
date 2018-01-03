@@ -3475,17 +3475,26 @@
     </script>
     <script>
         jQuery(document).ready(function () {
+
+            jQuery.validator.addMethod("noSpace", function(value, element) {
+                return $.trim(value) != "";
+            }, "No space please and don't leave it empty");
+
+
             jQuery("#edit_create_form").validate({
                 rules: {
                     title_fr: {
                         required: true,
+                        noSpace: true
                         /*minlength: 2*/
                     },
                     title_en: {
                         required: true,
+                        noSpace: true
                         /*minlength: 2*/
                     },
                     title_es: {
+                        noSpace: true,
                         required: true,
                         /*minlength: 2*/
                     }

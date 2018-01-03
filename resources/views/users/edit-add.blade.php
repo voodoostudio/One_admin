@@ -364,10 +364,16 @@
         }, "Your Passwords Must Match");
 
         jQuery(document).ready(function () {
+
+            jQuery.validator.addMethod("noSpace", function(value, element) {
+                return $.trim(value) != "";
+            }, "No space please and don't leave it empty");
+
             jQuery("#profile_edit_form").validate({
                 rules: {
                     name: {
-                        required: true
+                        required: true,
+                        noSpace: true
                     },
                     last_name: {
                         required: true
@@ -392,7 +398,8 @@
             jQuery("#edit_create_clients").validate({
                 rules: {
                     name: {
-                        required: true
+                        required: true,
+                        noSpace: true
                     },
                     last_name: {
                         required: true
