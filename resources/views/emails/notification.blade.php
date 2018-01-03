@@ -91,6 +91,9 @@
         .container .content {
             background: white;
             padding: 30px 35px; }
+        .container .content h4 {
+            color: black;
+            font-weight: 500}
         .container .content.footer {
             background: none; }
         .container .content.footer p {
