@@ -82,9 +82,8 @@
             width: 100% !important;
             border-collapse: collapse; }
         .container .masthead {
-            padding: 80px 0;
-            background: #fff200;
-            color: white; }
+            padding: 30px 0;
+            background: white; }
         .container .masthead h1 {
             margin: 0 auto !important;
             max-width: 90%;
@@ -92,6 +91,11 @@
         .container .content {
             background: white;
             padding: 30px 35px; }
+        .container .content h1 {
+            color: black }
+        .container .content h4 {
+            color: black;
+            font-weight: 500}
         .container .content.footer {
             background: none; }
         .container .content.footer p {
@@ -111,39 +115,46 @@
 <table class="body-wrap">
     <tr>
         <td class="container">
+            <!-- Message start -->
+            <table>
+                <tr>
+                    <td class="content footer" align="center">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="container">
 
             <!-- Message start -->
             <table>
                 <tr>
-                    <td align="center" class="masthead">
-
-                        <h1>Invitation to HouseInvestSpain</h1>
-
+                    <td align="center"  class="masthead">
+                        <img width="150" src="{{ asset('assets/house_invest_spain/img/his_logo.png') }}" alt="logo">
                     </td>
                 </tr>
                 <tr>
                     <td class="content">
+                        <h4>Bonjour {{ $name }} {{ $last_name }},</h4>
 
-                        <h2>Hi {{ $name }} {{ $last_name }},</h2>
-
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <p>House Invest Spain vous invite à utiliser sa plateforme de biens immobilier.<br>
+                            Cliquez sur le bouton ci-dessous pour vous rendre dans votre espace personnel, les identifiants sont spécifiés dans ce courriel juste en-dessous du bouton de connexion.<br>
+                            Nous vous invitons dès maintenant à changer votre mot de passe dans votre espace personnel.</p>
                         <table>
                             <tr>
                                 <td align="center">
                                     <p>
-                                        <a href="{{ $url }}" class="button">Go to the site</a>
+                                        <a href="{{ $url }}" class="button">Connexion</a>
                                     </p>
                                 </td>
                             </tr>
                         </table>
-
-                        <p> Your login: {{ $email }}</p>
-                        <p> Your temp password: {{ $password }}</p>
-
+                        <p> Votre identifiant : {{ $email }}</p>
+                        <p> Votre mot de passe temporaire : {{ $password }}</p>
                     </td>
                 </tr>
             </table>
-
         </td>
     </tr>
     <tr>
@@ -152,12 +163,10 @@
             <table>
                 <tr>
                     <td class="content footer" align="center">
-                        <p>Sent by <a href="#">House Invest Spain</a>, 1234 House Invest Spain, 99999</p>
-                        <p><a href="mailto:">his@his.com</a></p>
+                        <p>Ce courriel à été envoyé par House Invest Spain</p>
                     </td>
                 </tr>
             </table>
-
         </td>
     </tr>
 </table>

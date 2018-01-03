@@ -82,9 +82,8 @@
             width: 100% !important;
             border-collapse: collapse; }
         .container .masthead {
-            padding: 80px 0;
-            background: #fff200;
-            color: white; }
+            padding: 30px 0;
+            background: white; }
         .container .masthead h1 {
             margin: 0 auto !important;
             max-width: 90%;
@@ -111,17 +110,30 @@
 <table class="body-wrap">
     <tr>
         <td class="container">
+            <!-- Message start -->
+            <table>
+                <tr>
+                    <td class="content footer" align="center">
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="container">
 
             <!-- Message start -->
             <table>
                 <tr>
-                    <td align="center" class="masthead">
-                        <h1>Notification (ADD OBJECT)</h1>
+                    <td align="center"  class="masthead">
+                        <img width="150" src="{{ asset('assets/house_invest_spain/img/his_logo.png') }}" alt="logo">
                     </td>
                 </tr>
                 <tr>
                     <td class="content">
-                        <p>{{ $text }}</p>
+                        {{--                        <h4>Bonjour {{ $name }} {{ $last_name }},</h4>--}}
+                        <p>House Invest Spain a publié un nouveau bien immobilier dans votre espace personnel. Nous vous invitons à le découvrir dès maintenant en cliquant sur le bouton ci-dessous.</p>
                     </td>
                 </tr>
             </table>
@@ -134,8 +146,7 @@
             <table>
                 <tr>
                     <td class="content footer" align="center">
-                        <p>Sent by <a href="#">House Invest Spain</a>, 1234 House Invest Spain, 99999</p>
-                        <p><a href="mailto:">his@his.com</a></p>
+                        <p>Ce courriel à été envoyé par House Invest Spain</p>
                     </td>
                 </tr>
             </table>
