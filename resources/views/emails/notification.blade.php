@@ -132,7 +132,7 @@
                 </tr>
                 <tr>
                     <td class="content">
-                        {{--                        <h4>Bonjour {{ $name }} {{ $last_name }},</h4>--}}
+                        <h4>Bonjour {{ $name }} {{ $last_name }},</h4>
                         <p>House Invest Spain a publié un nouveau bien immobilier dans votre espace personnel. Nous vous invitons à le découvrir dès maintenant en cliquant sur le bouton ci-dessous.</p>
                     </td>
                 </tr>
