@@ -87,39 +87,49 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4">
                                                     <label class="">Nom</label>
-                                                    <input class="form-control m-input"  type="text" name="name" placeholder="Nom" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input"  type="text" name="name" placeholder="Nom" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
+                                                    </div>
                                                 </div>
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4">
                                                     <label class="">Prenom</label>
-                                                    <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Prenom" value="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Prenom" value="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
+                                                    </div>
                                                 </div>
-                                                <div class="form-group col-lg-4 margin_bottom_10">
+                                                <div class="form-group col-lg-4">
                                                     <label class="">Courriel</label>
-                                                    <input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}" aria-invalid="false">
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}" aria-invalid="false">
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-lg-6">
                                                     <label class="" for="role_id">Rôle</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Rôle">
-                                                        @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                            @if($role->id >= Auth::user()->id && $role->id != 5)
-                                                                <option value="{{ $role->id }}" {{ (isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->id) ? 'selected="selected"' : ''}} >{{ $role->display_name }}</option>
-                                                            @endif
-                                                        @endforeach
-                                                    </select>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Rôle">
+                                                            @foreach(TCG\Voyager\Models\Role::all() as $role)
+                                                                @if($role->id >= Auth::user()->id && $role->id != 5)
+                                                                    <option value="{{ $role->id }}" {{ (isset($dataTypeContent->role_id) && $dataTypeContent->role_id == $role->id) ? 'selected="selected"' : ''}} >{{ $role->display_name }}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-6 margin_bottom_10">
+                                                <div class="col-lg-6">
                                                     <label class="" for="lng_corres">Sélectionner la langue</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
-                                                        @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
-                                                            <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres) && $dataTypeContent->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
+                                                            @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                                                <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres) && $dataTypeContent->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-4 margin_bottom_10">
+                                                <div class="col-lg-4">
                                                     <label class="">Image</label>
                                                     <div class="img_upload_container">
                                                         <div class="img_upload">
@@ -137,18 +147,24 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 @if(isset($dataTypeContent->id))
-                                                    <div class="form-group col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-lg-6">
                                                         <label class="">Nouveau mot de passe</label>
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Changer le mot de passe" name="password">
+                                                        <div class="input-group">
+                                                            <input class="form-control m-input" id="password" type="password" placeholder="Changer le mot de passe" name="password">
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group col-lg-6 margin_bottom_10">
+                                                    <div class="form-group col-lg-6">
                                                         <label class="">Confirmer le mot de passe</label>
-                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirmer le mot de passe" name="password_confirm">
+                                                        <div class="input-group">
+                                                            <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirmer le mot de passe" name="password_confirm">
+                                                        </div>
                                                     </div>
                                                 @else
-                                                    <div class="col-lg-6 margin_bottom_10">
+                                                    <div class="col-lg-6">
                                                         <label class="">Entrer le mot de passe</label>
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Entrer le mot de passe" name="password">
+                                                        <div class="input-group">
+                                                            <input class="form-control m-input" id="password" type="password" placeholder="Entrer le mot de passe" name="password">
+                                                        </div>
                                                     </div>
                                                 @endif
                                             </div>
