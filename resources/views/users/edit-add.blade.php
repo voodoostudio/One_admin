@@ -44,45 +44,6 @@
                                         <a href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email }}</a>
                                     </div>
                                 </div>
-                                {{--<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
-                                    <li class="m-nav__separator m-nav__separator--fit"></li>
-                                    <li class="m-nav__section m--hide">
-                                        <span class="m-nav__section-text">
-                                            Section
-                                        </span>
-                                    </li>
-                                    <li class="m-nav__item" style="display: none">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-profile-1"></i>
-                                            <span class="m-nav__link-title">
-                                                <span class="m-nav__link-wrap">
-                                                    <span class="m-nav__link-text">
-                                                        My Profile
-                                                    </span>
-                                                    <span class="m-nav__link-badge">
-                                                        <span class="m-badge m-badge--success">2</span>
-                                                    </span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-signs-1"></i>
-                                            <span class="m-nav__link-text">
-                                                Properties
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item" style="display: none">
-                                        <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                            <span class="m-nav__link-text">
-                                                Messages
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>--}}
                                 <div class="m-portlet__body-separator"></div>
                             </div>
                         </div>
@@ -282,58 +243,55 @@
                                     </div>
                                     <div class="m-portlet__body">
                                         <div class="form-group m-form__group row">
-                                            <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="col-lg-4 col-md-6">
                                                 <label>Name</label>
-                                                <input type="text" class="form-control m-input" placeholder="Name" value="" name="name">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control m-input" placeholder="Name" value="" name="name">
+                                                </div>
                                             </div>
-                                            <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="col-lg-4 col-md-6">
                                                 <label>Second Name</label>
-                                                <input type="text" class="form-control m-input" placeholder="Second Name" value="" name="last_name">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control m-input" placeholder="Second Name" value="" name="last_name">
+                                                </div>
                                             </div>
-                                            <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="col-lg-4 col-md-6">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control m-input" placeholder="Email" value="" name="email">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control m-input" placeholder="Email" value="" name="email">
+                                                </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="col-lg-4 col-md-6">
                                                 <label for="lng_corres">Select language</label>
-                                                <select class="form-control m-select2 custom_select2 elem-categories" id="lng_corres" name="lng_corres" data-placeholder="Select Floor">
-                                                    @foreach(TCG\Voyager\Models\UserLanguage::all() as $lng)
-                                                        <option value="{{ $lng->reference }}">{{ $lng->value }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <div class="input-group">
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="lng_corres" name="lng_corres" data-placeholder="Select Floor">
+                                                        @foreach(TCG\Voyager\Models\UserLanguage::all() as $lng)
+                                                            <option value="{{ $lng->reference }}">{{ $lng->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="col-lg-4 col-md-6">
                                                 <label for="lng_corres">Role</label>
-                                                <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Select Floor">
-                                                    {{--@if(Auth::user()->role_id != 1)--}}
-                                                        {{--@foreach(TCG\Voyager\Models\Role::all() as $role)--}}
-                                                            {{--@if($role->id != 5 && $role->id != 1)--}}
-                                                                {{--<option value="{{ $role->id }}">{{ $role->display_name }}</option>--}}
-                                                            {{--@endif--}}
-                                                        {{--@endforeach--}}
-                                                    {{--@else--}}
-                                                        {{--@foreach(TCG\Voyager\Models\Role::all() as $role)--}}
-                                                            {{--@if($role->id != 5)--}}
-                                                                {{--<option value="{{ $role->id }}">{{ $role->display_name }}</option>--}}
-                                                            {{--@endif--}}
-                                                        {{--@endforeach--}}
-                                                    {{--@endif--}}
-
-                                                    @foreach(TCG\Voyager\Models\Role::all() as $role)
-                                                        @if($role->id >= Auth::user()->id)
-                                                            <option value="{{ $role->id }}" {{ ($dataTypeContent->role_id == $role->id) ? 'selected="selected"' : '' }}>{{ $role->display_name }}</option>
-                                                        @endif
-                                                    @endforeach
-
-                                                </select>
+                                                <div class="input-group">
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Select Floor">
+                                                        @foreach(TCG\Voyager\Models\Role::all() as $role)
+                                                            @if($role->id >= Auth::user()->id)
+                                                                <option value="{{ $role->id }}" {{ ($dataTypeContent->role_id == $role->id) ? 'selected="selected"' : '' }}>{{ $role->display_name }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-lg-4 col-md-6 margin_bottom_10">
+                                            <div class="col-lg-4 col-md-6">
                                                 <label class="">Password</label>
-                                                <input class="form-control m-input" id="password" type="password" placeholder="Password" name="password">
+                                                <div class="input-group">
+                                                    <input class="form-control m-input" id="password" type="password" placeholder="Password" name="password">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row">
-                                            <div class="col-lg-4 margin_bottom_10">
+                                            <div class="col-lg-4">
                                                 <label class="">Photo</label>
                                                 <div class="img_upload_container">
                                                     <div class="img_upload">
@@ -389,36 +347,6 @@
                 $input.on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
             });
         }
-        // ==========================================================================
-        // Registration Form : jquery validation
-
-        /*$('#profile_edit_form').validate({
-         // rules
-         rules: {
-         register_password: {
-         required: true,
-         minlength: 3
-         },
-         register_pass_confirm: {
-         required: true,
-         minlength: 3,
-         passwordMatch: true // set this on the field you're trying to match
-         }
-         },
-
-         // messages
-         messages: {
-         register_password: {
-         required: "What is your password?",
-         minlength: "Your password must contain more than 3 characters"
-         },
-         register_pass_confirm: {
-         required: "You must confirm your password",
-         minlength: "Your password must contain more than 3 characters",
-         passwordMatch: "Your Passwords Must Match" // custom message for mismatched passwords
-         }
-         }
-         });*///end validate
     </script>
 
     <script>

@@ -3112,7 +3112,7 @@
             }
         });
 
-        $('#price_tab select').on('select2:select', function (e) {
+        $('#price_tab select[name="сurrency"]').on('select2:select', function (e) {
             var currency = e.params.data.text;
             if(currency != "CHF") {
                 currency = currency.split(' ')[0];
