@@ -16,7 +16,7 @@
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
                     <h3 class="m-subheader__title ">
-                        Profile ({{ $dataTypeContent->name }} {{ $dataTypeContent->last_name }})
+                        Profil ({{ $dataTypeContent->name }} {{ $dataTypeContent->last_name }})
                     </h3>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                         <div class="m-portlet__body">
                             <div class="m-card-profile">
                                 <div class="m-card-profile__title m--hide">
-                                    Your Profile
+                                    Votre Profil
                                 </div>
                                 <div class="m-card-profile__pic">
                                     <div class="m-card-profile__pic-wrapper">
@@ -53,7 +53,7 @@
                                     <li class="nav-item m-tabs__item">
                                         <a class="nav-link m-tabs__link active" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
                                             <i class="flaticon-share m--hide"></i>
-                                            Profile
+                                            Profil
                                         </a>
                                     </li>
                                 </ul>
@@ -65,14 +65,14 @@
                                 <div class="m-portlet__body">
                                     <div class="form-group m-form__group row">
                                         <div class="col-12 ml-auto">
-                                            <h3>User</h3>
+                                            <h3>Utilisateur</h3>
                                         </div>
                                     </div>
                                     <div class="m-form__group row">
                                         <div class="col-md-6">
                                             <div class="profile_data_block">
                                                 <label class="profile_data_label">
-                                                    Name
+                                                    Nom
                                                 </label>
                                                 <div class="profile_data_value">
                                                     <span>{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}</span>
@@ -82,7 +82,7 @@
                                         <div class="col-md-6">
                                             <div class="profile_data_block">
                                                 <label class="profile_data_label">
-                                                    Surname
+                                                    Prenom
                                                 </label>
                                                 <div class="profile_data_value">
                                                     <span>{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}</span>
@@ -104,7 +104,7 @@
                                         <div class="col-md-6">
                                             <div class="profile_data_block">
                                                 <label class="profile_data_label">
-                                                    Language
+                                                    Langue
                                                 </label>
                                                 <div class="profile_data_value">
                                                     @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_language)
@@ -118,7 +118,7 @@
                                         <div class="col-md-6">
                                             <div class="profile_data_block">
                                                 <label class="profile_data_label">
-                                                    Role
+                                                    Rôle
                                                 </label>
                                                 <div class="profile_data_value">
                                                     @foreach(TCG\Voyager\Models\Role::all() as $role)
