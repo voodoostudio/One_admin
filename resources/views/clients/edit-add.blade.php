@@ -455,6 +455,15 @@
                                                     <button id="add_new_address" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle adresse </button>
                                                 </div>
                                             </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 ">
+                                                    <label class="">Informations sur le client</label>
+                                                    <div class="input-group">
+                                                        <textarea class="form-control m-input" name="user_info" cols="30" rows="7">{{ ($dataTypeContent->user_info) ? $dataTypeContent->user_info : '' }}</textarea>
+                                                    </div>
+                                                </div>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="profile_info_spouse" role="tabpanel" aria-expanded="true">
@@ -820,15 +829,6 @@
                                                 </div>
                                                 @if(Auth::user()->role_id != 5)
                                             </div>
-                                            <div class="form-group m-form__group row">
-                                                <div class="col-sm-12 ">
-                                                    <label class="">Informations sur le client</label>
-                                                    <div class="input-group">
-                                                        <textarea class="form-control m-input" name="user_info" cols="30" rows="7">{{ ($dataTypeContent->user_info) ? $dataTypeContent->user_info : '' }}</textarea>
-                                                    </div>
-                                                </div>
-                                                @endif
-                                            </div>
                                         </div>
                                     </div>
                                     {{--<div class="tab-pane" id="profile_settings" role="tabpanel">
@@ -860,10 +860,10 @@
                                                 {{--<button type="reset" class="btn btn-danger m-btn m-btn--air m-btn--custom">--}}
                                                 {{--Cancel--}}
                                                 {{--</button>--}}
-                                                <a class="btn btn-danger m-btn m-btn--air m-btn--custom" href="{{ URL::to('admin/clients') }}">Cancel</a>
+                                                <a class="btn btn-danger m-btn m-btn--air m-btn--custom" href="{{ URL::to('admin/clients') }}">Annuler</a>
                                                 &nbsp;&nbsp;
                                                 <button type="submit" class="btn btn-success m-btn m-btn--air m-btn--custom">
-                                                    Save changes
+                                                    Sauver les modifications
                                                 </button>
                                             </div>
                                         </div>

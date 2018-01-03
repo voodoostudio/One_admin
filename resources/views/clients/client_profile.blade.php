@@ -67,12 +67,12 @@
                                     </li>
                                     <li class="nav-item m-tabs__item">
                                         <a id="spose_tab" class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_2" role="tab">
-                                            Spouse
+                                            Epoux/Epouse
                                         </a>
                                     </li>
                                     <li class="nav-item m-tabs__item">
                                         <a id="child_tab" class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3" role="tab">
-                                            Children
+                                            Enfant(s)
                                         </a>
                                     </li>
                                 </ul>
@@ -210,7 +210,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Courriel
+                                                        Type de courriel
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
@@ -222,7 +222,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Téléphone type
+                                                        Type de téléphone
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
@@ -289,7 +289,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Full Name
+                                                        Nom
                                                     </label>
                                                     <div class="profile_data_value">
                                                         <span>{{ $dataTypeContent->first_name_coup . " " . $dataTypeContent->middle_name_coup . " " . $dataTypeContent->last_name_coup  }}</span>
@@ -413,7 +413,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Courriel
+                                                        Type de courriel
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
@@ -425,7 +425,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Téléphone type
+                                                        Type de téléphone
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
@@ -469,7 +469,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Full Name
+                                                        Nom
                                                     </label>
                                                     <div class="profile_data_value">
                                                         <span>{{ $dataTypeContent->first_name_child . " " . $dataTypeContent->middle_name_child . " " . $dataTypeContent->last_name_coup  }}</span>
@@ -593,7 +593,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Courriel
+                                                        Type de courriel
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
@@ -605,7 +605,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Téléphone type
+                                                        Type de téléphone
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
