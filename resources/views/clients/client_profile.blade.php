@@ -16,7 +16,7 @@
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
                     <h3 class="m-subheader__title ">
-                        Profile ({{ $dataTypeContent->name }} {{ $dataTypeContent->last_name }})
+                        Profil ({{ $dataTypeContent->name }} {{ $dataTypeContent->last_name }})
                     </h3>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                         <div class="m-portlet__body">
                             <div class="m-card-profile">
                                 <div class="m-card-profile__title m--hide">
-                                    Your Profile
+                                    Votre Profil
                                 </div>
                                 <div class="m-card-profile__pic">
                                     <div class="m-card-profile__pic-wrapper">
@@ -86,7 +86,7 @@
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
-                                                        Full Name
+                                                        Nom
                                                     </label>
                                                     <div class="profile_data_value">
                                                         <span>{{ $dataTypeContent->name . " " . $dataTypeContent->middle_name . " " . $dataTypeContent->last_name  }}</span>
@@ -660,12 +660,12 @@
             $('#child_img').css('display','none');
 
             /* data */
-             $('#client_name').css('display','block');
-             $('#client_email').css('display','block');
-             $('#spouse_name').css('display','none');
-             $('#spouse_email').css('display','none');
-             $('#child_name').css('display','none');
-             $('#child_email').css('display','none');
+            $('#client_name').css('display','block');
+            $('#client_email').css('display','block');
+            $('#spouse_name').css('display','none');
+            $('#spouse_email').css('display','none');
+            $('#child_name').css('display','none');
+            $('#child_email').css('display','none');
         });
 
         $('#spose_tab').click(function () {
