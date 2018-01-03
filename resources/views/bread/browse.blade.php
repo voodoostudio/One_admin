@@ -693,8 +693,6 @@
                         field: "id",
                         title: "#",
                         width: 50,
-                        sortable: false,
-                        selector: false,
                         textAlign: 'center'
 
                     }, {
@@ -745,14 +743,15 @@
                         field: "number",
                         title: "#",
                         width: 50,
-                        sortable: false,
-                        selector: false,
                         textAlign: 'center'
 
                     }, {
                         field: "name",
                         title: "Nom",
-                        width: 150
+                        width: 150,
+                        template: function (row) {
+                            return ''+row.name+'';
+                        }
 
                     }, {
                         field: "email",
@@ -763,7 +762,7 @@
                         field: "avatar",
                         title: "Avatar",
                         template: function (row) {
-                            return '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 100px;" src = "../storage/' + row.avatar + '"/></a>';
+                            return '<a href="{{ Request::url() }}/' + row.id + '"><img style = "max-width: 70px;" src = "../storage/' + row.avatar + '"/></a>';
                         }
 
                     }, {
@@ -805,8 +804,6 @@
                         field: "number",
                         title: "#",
                         width: 50,
-                        sortable: false,
-                        selector: false,
                         textAlign: 'center'
 
                     }, {
@@ -865,8 +862,6 @@
                         field: "id",
                         title: "#",
                         width: 50,
-                        sortable: false,
-                        selector: false,
                         textAlign: 'center'
 
                     }, {
