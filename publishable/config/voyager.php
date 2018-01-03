@@ -153,11 +153,11 @@ return [
                 'route'         => 'voyager.profile',
                 'icon_class'    => 'flaticon-profile',
             ],
-            'Home' => [
+           /* 'Home' => [
                 'route'         => '/',
                 'icon_class'    => 'flaticon-share',
                 'target_blank'  => true,
-            ],
+            ],*/
             'Logout' => [
                 'route'      => 'voyager.logout',
             ],
