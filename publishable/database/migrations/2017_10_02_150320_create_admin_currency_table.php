@@ -24,22 +24,22 @@ class CreateAdminCurrencyTable extends Migration
                 [
                     'reference' => '1',
                     'locale'    => 'fr_FR',
-                    'value'     => 'CHF',
+                    'value'     => '€ (Euro)',
                 ],
                 [
                     'reference' => '2',
                     'locale'    => 'fr_FR',
-                    'value'     => '$ (Dollar)',
+                    'value'     => 'CHF',
                 ],
                 [
                     'reference' => '3',
                     'locale'    => 'fr_FR',
-                    'value'     => '£ (Pound)',
+                    'value'     => '$ (Dollar)',
                 ],
                 [
                     'reference' => '4',
                     'locale'    => 'fr_FR',
-                    'value'     => '€ (Euro)',
+                    'value'     => '£ (Pound)',
                 ],
             ]
         );

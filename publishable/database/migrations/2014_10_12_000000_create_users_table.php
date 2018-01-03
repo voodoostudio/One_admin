@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
             $table->integer('email_type')->nullable();
             $table->integer('phone_type')->nullable();
             $table->string('country_code',10)->nullable();
-            $table->integer('phone')->nullable();
+            $table->string('phone', 50)->nullable();
             $table->integer('preferred_means_contact')->nullable();
 
             /*-- Husband/Wife--*/
@@ -58,7 +58,7 @@ class CreateUsersTable extends Migration
             $table->string('email_coup')->nullable();
             $table->integer('phone_type_coup')->nullable();
             $table->string('country_code_coup',10)->nullable();
-            $table->integer('phone_coup')->nullable();
+            $table->string('phone_coup', 50)->nullable();
             $table->integer('preferred_means_contact_coup')->nullable();
 
             /*-- Children --*/
@@ -80,7 +80,7 @@ class CreateUsersTable extends Migration
             $table->string('email_child')->nullable();
             $table->integer('phone_type_child')->nullable();
             $table->string('country_code_child',10)->nullable();
-            $table->integer('phone_child')->nullable();
+            $table->string('phone_child', 50)->nullable();
             $table->integer('preferred_means_contact_child')->nullable();
             $table->string('counter')->default(0);
             /**/

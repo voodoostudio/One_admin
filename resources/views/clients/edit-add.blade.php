@@ -227,7 +227,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-4">
                                                     <label class="">Email type</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Email type">
@@ -264,7 +264,7 @@
                                                         <input class="form-control m-input" id="country_code" type="text" placeholder="Country code" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
+                                                <div class="form-group col-sm-12 col-md-4">
                                                     <label class="">Phone number</label>
                                                     <div class="input-group">
                                                         <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone" value="{{ ($dataTypeContent->phone) ? $dataTypeContent->phone : '' }}">
@@ -579,7 +579,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-4 ">
                                                     <label class="">Email type</label>
                                                     <div class="input-group">
@@ -761,7 +761,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-4 ">
                                                     <label class="">Email type</label>
                                                     <div class="input-group">
@@ -1169,19 +1169,22 @@
                         required: true
                     },
                     phone: {
-                        number: true
+                        number: true,
+                        maxlength: 15
                     },
                     email_coup: {
                         email: true
                     },
                     phone_coup: {
-                        number: true
+                        number: true,
+                        maxlength: 15
                     },
                     email_child: {
                         email: true
                     },
                     phone_child: {
-                        number: true
+                        number: true,
+                        maxlength: 15
                     }
                 },
                 submitHandler: function (form) {

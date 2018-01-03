@@ -212,7 +212,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-md-4 margin_bottom_10">
+                                                <div class="form-group col-md-4 margin_bottom_10">
                                                     <label class="">Phone number</label>
                                                     <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone" value="{{ (Auth::user()->phone) ? Auth::user()->phone : '' }}">
                                                 </div>
@@ -793,6 +793,10 @@
                     email: {
                         email: true,
                         required: true
+                    },
+                    phone: {
+                        number: true,
+                        maxlength: 15
                     },
                     password: {
                         minlength: 3
