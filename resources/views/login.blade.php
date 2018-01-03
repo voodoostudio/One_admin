@@ -66,11 +66,11 @@
                                             <span></span>
                                         </label>
                                     </div>
-                                    <div class="col m--align-right">
-                                        <a href="javascript:;" id="m_login_forget_password" class="m-link">
-                                            Forget Password ?
-                                        </a>
-                                    </div>
+                                    {{--<div class="col m--align-right">--}}
+                                        {{--<a href="javascript:;" id="m_login_forget_password" class="m-link">--}}
+                                            {{--Forget Password ?--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
                                 </div>
                                 <div class="m-login__form-action">
                                     <button type="submit" id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air signin">
@@ -125,29 +125,29 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="m-login__forget-password">
-                            <div class="m-login__head">
-                                <h3 class="m-login__title">
-                                    Forgotten Password ?
-                                </h3>
-                                <div class="m-login__desc">
-                                    Enter your email to reset your password:
-                                </div>
-                            </div>
-                            <form class="m-login__form m-form" action="">
-                                <div class="form-group m-form__group">
-                                    <input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
-                                </div>
-                                <div class="m-login__form-action">
-                                    <button id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-                                        Request
-                                    </button>
-                                    <button id="m_login_forget_password_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                        {{--<div class="m-login__forget-password">--}}
+                            {{--<div class="m-login__head">--}}
+                                {{--<h3 class="m-login__title">--}}
+                                    {{--Forgotten Password ?--}}
+                                {{--</h3>--}}
+                                {{--<div class="m-login__desc">--}}
+                                    {{--Enter your email to reset your password:--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<form class="m-login__form m-form" action="">--}}
+                                {{--<div class="form-group m-form__group">--}}
+                                    {{--<input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">--}}
+                                {{--</div>--}}
+                                {{--<div class="m-login__form-action">--}}
+                                    {{--<button id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">--}}
+                                        {{--Request--}}
+                                    {{--</button>--}}
+                                    {{--<button id="m_login_forget_password_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">--}}
+                                        {{--Cancel--}}
+                                    {{--</button>--}}
+                                {{--</div>--}}
+                            {{--</form>--}}
+                        {{--</div>--}}
                     </div>
                 </div>
                 <div class="m-stack__item m-stack__item--center">

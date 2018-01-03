@@ -159,9 +159,10 @@
                                     <div class="m-form__actions">
                                         <div class="row">
                                             <div class="col-12 m--align-right">
-                                                <button type="reset" class="btn btn-danger m-btn m-btn--air m-btn--custom">
-                                                    Cancel
-                                                </button>
+                                                {{--<button type="reset" class="btn btn-danger m-btn m-btn--air m-btn--custom">--}}
+                                                    {{--Cancel--}}
+                                                {{--</button>--}}
+                                                <a class="btn btn-danger m-btn m-btn--air m-btn--custom" href="{{ URL::to('admin/users') }}">Cancel</a>
                                                 &nbsp;&nbsp;
                                                 <button type="submit" class="btn btn-success m-btn m-btn--air m-btn--custom">
                                                     Save changes
