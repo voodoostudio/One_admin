@@ -9,6 +9,7 @@
         }
 
         $arrayJsonData = [];
+        $counter = 1;
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
             if($dataType->display_name_plural == 'Properties') {
                 foreach ($dataTypeContent as $data) {
@@ -46,6 +47,7 @@
                 foreach ($dataTypeContent->where('role_id', '=', 5) as $data) {
                     $arrayJsonData[] = [
                         'id'            => $data->id,
+                        'number'        => $counter++,
                         'name'          => $data->name,
                         'email'         => $data->email,
                         'avatar'        => $data->avatar,
@@ -56,6 +58,7 @@
                 foreach ($dataTypeContent->where('role_id', '!=', 5)->where('role_id', '>=', Auth::user()->role_id) as $data) {
                     $arrayJsonData[] = [
                         'id'            => $data->id,
+                        'number'        => $counter++,
                         'name'          => $data->name,
                         'email'         => $data->email,
                         'avatar'        => $data->avatar,
@@ -739,7 +742,7 @@
 
                         <?php } elseif($dataType->display_name_plural == 'Users') { ?>
 
-                        field: "id",
+                        field: "number",
                         title: "#",
                         width: 50,
                         sortable: false,
@@ -799,7 +802,7 @@
 
                         <?php } elseif($dataType->display_name_plural == 'Clients') { ?>
 
-                        field: "id",
+                        field: "number",
                         title: "#",
                         width: 50,
                         sortable: false,

@@ -242,20 +242,20 @@
                                         </div>
                                     </div>
                                     <div class="m-portlet__body">
-                                        <div class="form-group m-form__group row">
-                                            <div class="col-lg-4 col-md-6">
+                                        <div class="m-form__group row">
+                                            <div class="form-group col-lg-4 col-md-6">
                                                 <label>Name</label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control m-input" placeholder="Name" value="" name="name">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-6">
+                                            <div class="form-group col-lg-4 col-md-6">
                                                 <label>Second Name</label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control m-input" placeholder="Second Name" value="" name="last_name">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-6">
+                                            <div class="form-group col-lg-4 col-md-6">
                                                 <label>Email</label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control m-input" placeholder="Email" value="" name="email">
@@ -283,7 +283,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-6">
+                                            <div class="form-group col-lg-4 col-md-6">
                                                 <label class="">Password</label>
                                                 <div class="input-group">
                                                     <input class="form-control m-input" id="password" type="password" placeholder="Password" name="password">
