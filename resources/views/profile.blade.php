@@ -187,13 +187,13 @@
                                                     <input class="form-control m-input" id="business" type="text" placeholder="Entreprise" name="business" value="{{ (Auth::user()->business) ? Auth::user()->business : '' }}">
                                                 </div>
                                                 <div class="col-md-6 margin_bottom_10">
-                                                    <label class="">Website</label>
-                                                    <input class="form-control m-input" id="website" type="text" placeholder="Website" name="website" value="{{ (Auth::user()->website) ? Auth::user()->website : '' }}">
+                                                    <label class="">Site Internet</label>
+                                                    <input class="form-control m-input" id="website" type="text" placeholder="Site Internet" name="website" value="{{ (Auth::user()->website) ? Auth::user()->website : '' }}">
                                                 </div>
                                             </div>
                                             <div class="m-form__group row">
                                                 <div class="col-md-4 margin_bottom_10">
-                                                    <label class="">Email type</label>
+                                                    <label class="">Type de Courriel</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Email type">
                                                         @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
                                                             <option value="{{ $email_type->reference }}" @if(isset(Auth::user()->email_type) && Auth::user()->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
@@ -201,28 +201,28 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4 margin_bottom_10">
-                                                    <label class="">Email</label>
-                                                    <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ (Auth::user()->email) ? Auth::user()->email : '' }}">
+                                                    <label class="">Courriel</label>
+                                                    <input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="{{ (Auth::user()->email) ? Auth::user()->email : '' }}">
                                                 </div>
                                                 <div class="col-md-4 margin_bottom_10">
-                                                    <label class="">Phone type</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type" id="phone_type" data-placeholder="Phone type">
+                                                    <label class="">Type de téléphone</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type" id="phone_type" data-placeholder="Type de téléphone">
                                                         @foreach(TCG\Voyager\Models\Phone::all() as $phone)
                                                             <option value="{{ $phone->reference }}">{{ $phone->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4 margin_bottom_10">
-                                                    <label class="">Phone number</label>
-                                                    <input class="form-control m-input" id="phone" type="text" placeholder="Phone" name="phone" value="{{ (Auth::user()->phone) ? Auth::user()->phone : '' }}">
+                                                    <label class="">Téléphone</label>
+                                                    <input class="form-control m-input" id="phone" type="text" placeholder="Téléphone" name="phone" value="{{ (Auth::user()->phone) ? Auth::user()->phone : '' }}">
                                                 </div>
                                                 <div class="col-md-4 margin_bottom_10">
                                                     <label class="">Country code</label>
                                                     <input class="form-control m-input" id="country_code" type="text" placeholder="Country code" name="country_code" value="{{ (Auth::user()->country_code) ? Auth::user()->country_code : '' }}">
                                                 </div>
                                                 <div class="col-md-4 margin_bottom_10">
-                                                    <label class="">Preferred means of contact</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact" id="preferred_means_contact" data-placeholder="Phone type">
+                                                    <label class="">Moyen de contact préféré</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact" id="preferred_means_contact" data-placeholder="Moyen de contact préféré">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
                                                             <option value="{{ $contact->reference }}" @if(isset(Auth::user()->preferred_means_contact) && Auth::user()->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
                                                         @endforeach
@@ -236,9 +236,9 @@
                                                     @foreach (json_decode(Auth::user()->address) as $key => $address)
                                                         <div class="m-form__group row address_form_group" id="address_form_{{ $key }}">
                                                             <div class="col-md-{{ ($key != 0) ? '10' : '12' }} margin_bottom_10">
-                                                                <label>Adresse nom</label>
+                                                                <label>Nom de l’adresse</label>
                                                                 <div class="m-input-icon m-input-icon--right">
-                                                                    <input type="text" class="form-control m-input" name="address_name[]" value="{{ (isset($address->address_name)) ? $address->address_name : '' }}" placeholder="Entrer votre adresse nom">
+                                                                    <input type="text" class="form-control m-input" name="address_name[]" value="{{ (isset($address->address_name)) ? $address->address_name : '' }}" placeholder="Entrer votre Nom de l’adresse">
                                                                 </div>
                                                             </div>
                                                             @if($key != 0)
@@ -306,9 +306,9 @@
                                                 @else
                                                     <div class="m-form__group row address_form_group" id="address_form_1">
                                                         <div class="col-md-12 margin_bottom_10">
-                                                            <label>Adresse nom</label>
+                                                            <label>Nom de l’adresse</label>
                                                             <div class="m-input-icon m-input-icon--right">
-                                                                <input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">
+                                                                <input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre Nom de l’adresse">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-8 margin_bottom_10">
@@ -370,8 +370,8 @@
                                                 @endif
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-md-3 margin_bottom_10">
-                                                    <button id="add_new_address" type="button" class="btn btn-accent" style="width: 100%;">Add new address</button>
+                                                <div class="col-md-4 margin_bottom_10">
+                                                    <button id="add_new_address" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle adresse</button>
                                                 </div>
                                             </div>
 
@@ -382,17 +382,17 @@
                                             <div class="form-group m-form__group row">
                                                 @if(isset(Auth::user()->id))
                                                     <div class="form-group col-md-6 margin_bottom_10">
-                                                        <label class="">New password</label>
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
+                                                        <label class="">Nouveau mot de passe</label>
+                                                        <input class="form-control m-input" id="password" type="password" placeholder="Changer le mot de passe" name="password">
                                                     </div>
                                                     <div class="form-group col-md-6 margin_bottom_10">
-                                                        <label class="">Confirm password</label>
-                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password_confirm">
+                                                        <label class="">Confirmer le mot de passe</label>
+                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirmer le mot de passe" name="password_confirm">
                                                     </div>
                                                 @else
                                                     <div class="col-md-6 margin_bottom_10">
-                                                        <label class="">Enter password</label>
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Enter password" name="password">
+                                                        <label class="">Entrer le mot de passe</label>
+                                                        <input class="form-control m-input" id="password" type="password" placeholder="Entrer le mot de passe" name="password">
                                                     </div>
                                                 @endif
                                             </div>
@@ -404,11 +404,11 @@
                                         <div class="row">
                                             <div class="col-12 m--align-right">
                                                 <button type="reset" class="btn btn-danger m-btn m-btn--air m-btn--custom">
-                                                    Cancel
+                                                    Annuler
                                                 </button>
                                                 &nbsp;&nbsp;
                                                 <button type="button" class="btn btn-success m-btn m-btn--air m-btn--custom" data-toggle="modal" data-target="#client_profile_save_modal">
-                                                    Save changes
+                                                    Sauver les modifications
                                                 </button>
                                             </div>
                                         </div>
@@ -473,7 +473,7 @@
                             <div class="m-portlet__body">
                                 <div class="m-card-profile">
                                     <div class="m-card-profile__title m--hide">
-                                        My Profile
+                                        Mon profil
                                     </div>
                                     <div class="m-card-profile__pic">
                                         <div class="m-card-profile__pic-wrapper">
@@ -497,12 +497,12 @@
                                         <li class="nav-item m-tabs__item">
                                             <a class="nav-link m-tabs__link active" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Update Profile
+                                                Mettre à jour le profil
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
                                             <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_settings" role="tab">
-                                                Settings
+                                                Paramètres
                                             </a>
                                         </li>
                                     </ul>
@@ -524,7 +524,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>User</h3>
+                                                    <h3>Utilisateur</h3>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -566,7 +566,7 @@
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-md-4 margin_bottom_10">
-                                                    <label class="">Photo</label>
+                                                    <label class="">Image</label>
                                                     <div class="img_upload_container">
                                                         <div class="img_upload">
                                                             <input name="avatar" type="file" accept="image/*" id="avatar" class="input_file">
@@ -584,17 +584,17 @@
                                             <div class="form-group m-form__group row">
                                                 @if(isset(Auth::user()->id))
                                                     <div class="form-group col-md-6 margin_bottom_10">
-                                                        <label class="">New password</label>
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
+                                                        <label class="">Nouveau mot de passe</label>
+                                                        <input class="form-control m-input" id="password" type="password" placeholder="Changer le mot de passe" name="password">
                                                     </div>
                                                     <div class="form-group col-md-6 margin_bottom_10">
-                                                        <label class="">Confirm password</label>
-                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password_confirm">
+                                                        <label class="">Confirmer le mot de passe</label>
+                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirmer le mot de passe" name="password_confirm">
                                                     </div>
                                                 @else
                                                     <div class="col-md-6 margin_bottom_10">
-                                                        <label class="">Enter password</label>
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Enter password" name="password">
+                                                        <label class="">Entrer le mot de passe</label>
+                                                        <input class="form-control m-input" id="password" type="password" placeholder="Entrer le mot de passe" name="password">
                                                     </div>
                                                 @endif
                                             </div>
@@ -606,11 +606,11 @@
                                         <div class="row">
                                             <div class="col-12 m--align-right">
                                                 <button type="reset" class="btn btn-danger m-btn m-btn--air m-btn--custom">
-                                                    Cancel
+                                                    Annuler
                                                 </button>
                                                 &nbsp;&nbsp;
                                                 <button type="submit" class="btn btn-success m-btn m-btn--air m-btn--custom">
-                                                    Save changes
+                                                    Sauver les modifications
                                                 </button>
                                             </div>
                                         </div>
@@ -662,9 +662,9 @@
             $('#address_container').append(
                 '<div class="form-group m-form__group row address_form_group" id="address_form_' + i  + '">' +
                 '<div class="col-md-10 margin_bottom_10">' +
-                '<label>Adresse nom</label>' +
+                '<label>Nom de l’adresse</label>' +
                 '<div class="m-input-icon m-input-icon--right">' +
-                '<input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre adresse nom">' +
+                '<input type="text" class="form-control m-input" name="address_name[]" placeholder="Entrer votre Nom de l’adresse">' +
                 '</div>' +
                 '</div>' +
                 '<div class="col-md-2 margin_bottom_10">' +
