@@ -19,7 +19,7 @@
                 <div class="d-flex align-items-center">
                     <div class="mr-auto">
                         <h3 class="m-subheader__title ">
-                            Edit profile <b>({{ (isset($dataTypeContent->name)) ? $dataTypeContent->name : '' }} {{ (isset($dataTypeContent->last_name)) ? $dataTypeContent->last_name : '' }})</b>
+                            Editer le profil <b>({{ (isset($dataTypeContent->name)) ? $dataTypeContent->name : '' }} {{ (isset($dataTypeContent->last_name)) ? $dataTypeContent->last_name : '' }})</b>
                         </h3>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                             <div class="m-portlet__body">
                                 <div class="m-card-profile">
                                     <div class="m-card-profile__title m--hide">
-                                        Your Profile
+                                        Votre profil
                                     </div>
                                     <div class="m-card-profile__pic">
                                         <div class="m-card-profile__pic-wrapper">
@@ -56,12 +56,12 @@
                                         <li class="nav-item m-tabs__item">
                                             <a class="nav-link m-tabs__link active" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Update Profile
+                                                Mettre à jour le profil
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
                                             <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_settings" role="tab">
-                                                Settings
+                                                Paramètres
                                             </a>
                                         </li>
                                     </ul>
@@ -88,19 +88,19 @@
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="form-group col-lg-4 margin_bottom_10">
-                                                    <label class="">First name</label>
-                                                    <input class="form-control m-input"  type="text" name="name" placeholder="First name" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
+                                                    <label class="">Nom</label>
+                                                    <input class="form-control m-input"  type="text" name="name" placeholder="Nom" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
                                                 </div>
                                                 <div class="form-group col-lg-4 margin_bottom_10">
-                                                    <label class="">Last name</label>
-                                                    <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
+                                                    <label class="">Prenom</label>
+                                                    <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Prenom" value="{{ ($dataTypeContent->last_name) ? $dataTypeContent->last_name : '' }}">
                                                 </div>
                                                 <div class="form-group col-lg-4 margin_bottom_10">
-                                                    <label class="">Email</label>
-                                                    <input class="form-control m-input" id="email" type="text" placeholder="Email" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}" aria-invalid="false">
+                                                    <label class="">Courriel</label>
+                                                    <input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}" aria-invalid="false">
                                                 </div>
                                                 <div class="col-lg-6 margin_bottom_10">
-                                                    <label class="" for="role_id">Role</label>
+                                                    <label class="" for="role_id">Rôle</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Rôle">
                                                         @foreach(TCG\Voyager\Models\Role::all() as $role)
                                                             @if($role->id >= Auth::user()->id && $role->id != 5)
@@ -110,7 +110,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-6 margin_bottom_10">
-                                                    <label class="" for="lng_corres">Select language</label>
+                                                    <label class="" for="lng_corres">Sélectionner la langue</label>
                                                     <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset($dataTypeContent->lng_corres) && $dataTypeContent->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
@@ -120,7 +120,7 @@
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-4 margin_bottom_10">
-                                                    <label class="">Photo</label>
+                                                    <label class="">Image</label>
                                                     <div class="img_upload_container">
                                                         <div class="img_upload">
                                                             <input name="avatar" type="file" accept="image/*" id="avatar" class="input_file">
@@ -138,17 +138,17 @@
                                             <div class="form-group m-form__group row">
                                                 @if(isset($dataTypeContent->id))
                                                     <div class="form-group col-lg-6 margin_bottom_10">
-                                                        <label class="">New password</label>
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Change password" name="password">
+                                                        <label class="">Nouveau mot de passe</label>
+                                                        <input class="form-control m-input" id="password" type="password" placeholder="Changer le mot de passe" name="password">
                                                     </div>
                                                     <div class="form-group col-lg-6 margin_bottom_10">
-                                                        <label class="">Confirm password</label>
-                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirm password" name="password_confirm">
+                                                        <label class="">Confirmer le mot de passe</label>
+                                                        <input class="form-control m-input" id="password_confirm" type="password" placeholder="Confirmer le mot de passe" name="password_confirm">
                                                     </div>
                                                 @else
                                                     <div class="col-lg-6 margin_bottom_10">
-                                                        <label class="">Enter password</label>
-                                                        <input class="form-control m-input" id="password" type="password" placeholder="Enter password" name="password">
+                                                        <label class="">Entrer le mot de passe</label>
+                                                        <input class="form-control m-input" id="password" type="password" placeholder="Entrer le mot de passe" name="password">
                                                     </div>
                                                 @endif
                                             </div>
@@ -160,12 +160,12 @@
                                         <div class="row">
                                             <div class="col-12 m--align-right">
                                                 {{--<button type="reset" class="btn btn-danger m-btn m-btn--air m-btn--custom">--}}
-                                                    {{--Cancel--}}
+                                                {{--Cancel--}}
                                                 {{--</button>--}}
-                                                <a class="btn btn-danger m-btn m-btn--air m-btn--custom" href="{{ URL::to('admin/users') }}">Cancel</a>
+                                                <a class="btn btn-danger m-btn m-btn--air m-btn--custom" href="{{ URL::to('admin/users') }}">Annuler</a>
                                                 &nbsp;&nbsp;
                                                 <button type="submit" class="btn btn-success m-btn m-btn--air m-btn--custom">
-                                                    Save changes
+                                                    Sauver les modifications
                                                 </button>
                                             </div>
                                         </div>
@@ -179,43 +179,6 @@
         </div>
     @else
         <div class="m-grid__item m-grid__item--fluid m-wrapper" style="">
-            <!-- BEGIN: Subheader -->
-            <div class="m-subheader ">
-                <div class="d-flex align-items-center">
-                    <div class="mr-auto">
-                        <h3 class="m-subheader__title m-subheader__title--separator">
-                            Add User
-                        </h3>
-                        <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                            <li class="m-nav__item m-nav__item--home">
-                                <a href="#" class="m-nav__link m-nav__link--icon">
-                                    <i class="m-nav__link-icon la la-home"></i>
-                                </a>
-                            </li>
-                            <li class="m-nav__separator">
-                                -
-                            </li>
-                            <li class="m-nav__item">
-                                <a href="" class="m-nav__link">
-                                <span class="m-nav__link-text">
-                                    Users
-                                </span>
-                                </a>
-                            </li>
-                            <li class="m-nav__separator">
-                                -
-                            </li>
-                            <li class="m-nav__item">
-                                <a href="" class="m-nav__link">
-                                <span class="m-nav__link-text">
-                                    Create user
-                                </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
             <!-- END: Subheader -->
             <div class="m-content">
@@ -237,7 +200,7 @@
                                                 <i class="la la-gear"></i>
                                             </span>
                                                 <h3 class="m-portlet__head-text">
-                                                    Create User
+                                                    Créerun utilisateur
                                                 </h3>
                                             </div>
                                         </div>
@@ -245,25 +208,25 @@
                                     <div class="m-portlet__body">
                                         <div class="m-form__group row">
                                             <div class="form-group col-lg-4 col-md-6">
-                                                <label>Name</label>
+                                                <label>Nom</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control m-input" placeholder="Name" value="" name="name">
+                                                    <input type="text" class="form-control m-input" placeholder="Nom" value="" name="name">
                                                 </div>
                                             </div>
                                             <div class="form-group col-lg-4 col-md-6">
-                                                <label>Second Name</label>
+                                                <label>Prenom</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control m-input" placeholder="Second Name" value="" name="last_name">
+                                                    <input type="text" class="form-control m-input" placeholder="Prenom" value="" name="last_name">
                                                 </div>
                                             </div>
                                             <div class="form-group col-lg-4 col-md-6">
-                                                <label>Email</label>
+                                                <label>Courriel</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control m-input" placeholder="Email" value="" name="email">
+                                                    <input type="text" class="form-control m-input" placeholder="Courriel" value="" name="email">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6">
-                                                <label for="lng_corres">Select language</label>
+                                                <label for="lng_corres">Sélectionner la langue</label>
                                                 <div class="input-group">
                                                     <select class="form-control m-select2 custom_select2 elem-categories" id="lng_corres" name="lng_corres" data-placeholder="Select Floor">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $lng)
@@ -273,7 +236,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6">
-                                                <label for="lng_corres">Role</label>
+                                                <label for="lng_corres">Rôle</label>
                                                 <div class="input-group">
                                                     <select class="form-control m-select2 custom_select2 elem-categories" id="role_id" name="role_id" data-placeholder="Select Floor">
                                                         @foreach(TCG\Voyager\Models\Role::all() as $role)
@@ -285,7 +248,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-lg-4 col-md-6">
-                                                <label class="">Password</label>
+                                                <label class="">Mot de passe</label>
                                                 <div class="input-group">
                                                     <input class="form-control m-input" id="password" type="password" placeholder="Password" name="password">
                                                 </div>
@@ -293,7 +256,7 @@
                                         </div>
                                         <div class="form-group m-form__group row">
                                             <div class="col-lg-4">
-                                                <label class="">Photo</label>
+                                                <label class="">Image</label>
                                                 <div class="img_upload_container">
                                                     <div class="img_upload">
                                                         <input name="avatar" type="file" accept="image/*" id="avatar" class="input_file">
