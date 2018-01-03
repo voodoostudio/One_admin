@@ -299,7 +299,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-4 ">
-                                                                <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 24px; width: 100%;">Placer l’adresse sur la carte</button>
+                                                                <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                             </div>
 
                                                             <div class="col-sm-12 col-md-3 ">
