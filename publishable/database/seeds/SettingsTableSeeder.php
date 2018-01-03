@@ -86,7 +86,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Admin Description',
-                'value'        => 'Welcome to Voyager. The Missing Admin for Laravel',
+                'value'        => 'Welcome to HouseInvestSpain',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
