@@ -30,7 +30,7 @@
                             <div class="m-portlet__body">
                                 <div class="m-card-profile">
                                     <div class="m-card-profile__title m--hide">
-                                        Your Profile
+                                        Votre Profil
                                     </div>
                                     <div class="m-card-profile__pic">
                                         <div class="m-card-profile__pic-wrapper">
@@ -48,7 +48,7 @@
                                         <a href="{{ URL::to('admin/posts') }}" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-signs-1"></i>
                                             <span class="m-nav__link-text">
-                                                Properties
+                                                Propriétés
                                             </span>
                                         </a>
                                     </li>
@@ -65,12 +65,12 @@
                                         <li class="nav-item m-tabs__item">
                                             <a class="nav-link m-tabs__link {{ (Auth::user()->counter > 1) ? 'active' : '' }}" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Update Profile
+                                                Mettre à jour le profil
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
                                             <a class="nav-link m-tabs__link {{ (Auth::user()->counter == 1) ? 'active' : '' }}" data-toggle="tab" href="#profile_settings" role="tab">
-                                                Settings
+                                                Paramètres
                                             </a>
                                         </li>
                                     </ul>
@@ -105,29 +105,29 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6 margin_bottom_10">
-                                                    <label class="">Select language</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
+                                                    <label class="">Sélectionner la langue</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Sélectionner la langue">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset(Auth::user()->lng_corres) && Auth::user()->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4 margin_bottom_10">
-                                                    <label class="">First name</label>
-                                                    <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ (Auth::user()->name) ? Auth::user()->name : '' }}">
+                                                    <label class="">Nom</label>
+                                                    <input class="form-control m-input" id="name" type="text" name="name" placeholder="Nom" value="{{ (Auth::user()->name) ? Auth::user()->name : '' }}">
                                                 </div>
                                                 <div class="col-md-4 margin_bottom_10">
-                                                    <label class="">Middle name</label>
-                                                    <input class="form-control m-input" id="middle_name" type="text" name="middle_name" placeholder="Middle name" value="{{ (Auth::user()->middle_name) ? Auth::user()->middle_name : '' }}">
+                                                    <label class="">Deuxième prénom</label>
+                                                    <input class="form-control m-input" id="middle_name" type="text" name="middle_name" placeholder="Deuxième prénom" value="{{ (Auth::user()->middle_name) ? Auth::user()->middle_name : '' }}">
                                                 </div>
                                                 <div class="form-group col-md-4 margin_bottom_10">
-                                                    <label class="">Last name</label>
-                                                    <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ (Auth::user()->last_name) ? Auth::user()->last_name : '' }}">
+                                                    <label class="">Prenom</label>
+                                                    <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Prenom" value="{{ (Auth::user()->last_name) ? Auth::user()->last_name : '' }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-md-4 margin_bottom_10">
-                                                    <label class="">Photo</label>
+                                                    <label class="">Image</label>
                                                     <div class="img_upload_container">
                                                         <div class="img_upload">
                                                             <input name="avatar" type="file" accept="image/*" id="avatar" class="input_file">
@@ -140,16 +140,16 @@
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-md-6 margin_bottom_10">
-                                                    <label class="">Civil status</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status" id="civil_status" data-placeholder="Select language">
+                                                    <label class="">Etat civil</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status" id="civil_status" data-placeholder="Etat civil">
                                                         @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
                                                             <option value="{{ $civil_stat->reference }}" @if(isset(Auth::user()->civil_status) && Auth::user()->civil_status == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6 margin_bottom_10">
-                                                    <label class="">Nationality</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="nationality" name="nationality" data-placeholder="Select language">
+                                                    <label class="">Nationalité</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" id="nationality" name="nationality" data-placeholder="Nationalité">
                                                         @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
                                                             <option value="{{ $nationality->reference }}" @if(isset(Auth::user()->nationality) && Auth::user()->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
                                                         @endforeach
@@ -157,9 +157,9 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Birth date</label>
+                                                        <label>Date de naissance</label>
                                                         <div class='input-group date' id='m_datepicker_4'>
-                                                            <input class="form-control m-input date-type" readonly id="birth_date" type="text" placeholder="Birth date" name="birth_date" value="{{ (Auth::user()->birth_date) ? Auth::user()->birth_date : '' }}">
+                                                            <input class="form-control m-input date-type" readonly id="birth_date" type="text" placeholder="Date de naissance" name="birth_date" value="{{ (Auth::user()->birth_date) ? Auth::user()->birth_date : '' }}">
                                                             {{--<input type='text' class="form-control m-input date-type rent for-type" value="" readonly  placeholder="Sélectionner la date" name="birth_date"/>--}}
                                                             <span class="input-group-addon">
                                                                 <i class="la la-calendar-check-o"></i>
@@ -168,8 +168,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 margin_bottom_10">
-                                                    <label class="">Birth place</label>
-                                                    <input class="form-control m-input" type="text" placeholder="Birth place" name="birthplace" value="{{ (Auth::user()->birthplace) ? Auth::user()->birthplace : '' }}">
+                                                    <label class="">Lieu de naissance</label>
+                                                    <input class="form-control m-input" type="text" placeholder="Lieu de naissance" name="birthplace" value="{{ (Auth::user()->birthplace) ? Auth::user()->birthplace : '' }}">
                                                 </div>
                                             </div>
 
@@ -183,8 +183,8 @@
                                                     <input class="form-control m-input" id="service" type="text" placeholder="Service" name="service" value="{{ (Auth::user()->service) ? Auth::user()->service : '' }}">
                                                 </div>
                                                 <div class="col-md-6 margin_bottom_10">
-                                                    <label class="">Business</label>
-                                                    <input class="form-control m-input" id="business" type="text" placeholder="Business" name="business" value="{{ (Auth::user()->business) ? Auth::user()->business : '' }}">
+                                                    <label class="">Entreprise</label>
+                                                    <input class="form-control m-input" id="business" type="text" placeholder="Entreprise" name="business" value="{{ (Auth::user()->business) ? Auth::user()->business : '' }}">
                                                 </div>
                                                 <div class="col-md-6 margin_bottom_10">
                                                     <label class="">Website</label>
@@ -529,12 +529,12 @@
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="form-group col-md-4 margin_bottom_10">
-                                                    <label class="">First name</label>
-                                                    <input class="form-control m-input" id="name" type="text" name="name" placeholder="First name" value="{{ (Auth::user()->name) ? Auth::user()->name : '' }}">
+                                                    <label class="">Nom</label>
+                                                    <input class="form-control m-input" id="name" type="text" name="name" placeholder="Nom" value="{{ (Auth::user()->name) ? Auth::user()->name : '' }}">
                                                 </div>
                                                 <div class="form-group col-md-4 margin_bottom_10">
-                                                    <label class="">Last name</label>
-                                                    <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Last name" value="{{ (Auth::user()->last_name) ? Auth::user()->last_name : '' }}">
+                                                    <label class="">Prenom</label>
+                                                    <input class="form-control m-input" id="last_name" type="text" name="last_name" placeholder="Prenom" value="{{ (Auth::user()->last_name) ? Auth::user()->last_name : '' }}">
                                                 </div>
                                                 <div class="form-group col-md-4 margin_bottom_10">
                                                     <label class="">Email</label>
@@ -556,8 +556,8 @@
                                                     {{--</select>--}}
                                                 </div>
                                                 <div class="col-md-6 margin_bottom_10">
-                                                    <label class="">Select language</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Select language">
+                                                    <label class="">Sélectionner la langue</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres" id="lng_corres"  data-placeholder="Sélectionner la langue">
                                                         @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
                                                             <option value="{{ $user_lng->reference }}" @if(isset(Auth::user()->lng_corres) && Auth::user()->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
                                                         @endforeach

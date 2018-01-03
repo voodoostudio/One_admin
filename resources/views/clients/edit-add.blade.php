@@ -455,15 +455,16 @@
                                                     <button id="add_new_address" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle adresse </button>
                                                 </div>
                                             </div>
-                                            <div class="form-group m-form__group row">
-                                                <div class="col-sm-12 ">
-                                                    <label class="">Informations sur le client</label>
-                                                    <div class="input-group">
-                                                        <textarea class="form-control m-input" name="user_info" cols="30" rows="7">{{ ($dataTypeContent->user_info) ? $dataTypeContent->user_info : '' }}</textarea>
+                                            @if(Auth::user()->role_id != 5)
+                                                <div class="form-group m-form__group row">
+                                                    <div class="col-sm-12 ">
+                                                        <label class="">Informations sur le client</label>
+                                                        <div class="input-group">
+                                                            <textarea class="form-control m-input" name="user_info" cols="30" rows="7">{{ ($dataTypeContent->user_info) ? $dataTypeContent->user_info : '' }}</textarea>
+                                                        </div>
                                                     </div>
+                                                    @endif
                                                 </div>
-                                                @endif
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="profile_info_spouse" role="tabpanel" aria-expanded="true">
@@ -827,7 +828,6 @@
                                                         <input class="form-control m-input" id="phone_child" type="text" placeholder="Téléphone" name="phone_child" value="{{ ($dataTypeContent->phone_child) ? $dataTypeContent->phone_child : '' }}">
                                                     </div>
                                                 </div>
-                                                @if(Auth::user()->role_id != 5)
                                             </div>
                                         </div>
                                     </div>
