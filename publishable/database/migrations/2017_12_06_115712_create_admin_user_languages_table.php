@@ -24,25 +24,20 @@ class CreateAdminUserLanguagesTable extends Migration
                 [
                     'reference' => 1,
                     'locale'    => 'fr_FR',
-                    'value'     => 'Allemand',
+                    'value'     => 'Anglais',
                 ],
                 [
                     'reference' => 2,
                     'locale'    => 'fr_FR',
-                    'value'     => 'Anglais',
+                    'value'     => 'Espagnol',
                 ],
                 [
                     'reference' => 3,
                     'locale'    => 'fr_FR',
-                    'value'     => 'Espagnol',
-                ],
-                [
-                    'reference' => 4,
-                    'locale'    => 'fr_FR',
                     'value'     => 'Français',
                 ],
                 [
-                    'reference' => 5,
+                    'reference' => 4,
                     'locale'    => 'fr_FR',
                     'value'     => 'Italien',
                 ],
