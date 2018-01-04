@@ -5731,7 +5731,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($userDataType, 'address');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'multiple_field',
+                'type'         => 'multiple_address',
                 'display_name' => 'Address',
                 'required'     => 0,
                 'browse'       => 1,
@@ -5741,6 +5741,102 @@ class DataRowsTableSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => '',
                 'order'        => 11,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'client_emails');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_client_emails',
+                'display_name' => 'Client emails',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 12,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'coup_emails');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_coup_emails',
+                'display_name' => 'Coup emails',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 13,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'children_emails');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_children_emails',
+                'display_name' => 'Children emails',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 14,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'client_phones');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_client_phones',
+                'display_name' => 'Client phones',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 15,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'coup_phones');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_coup_phones',
+                'display_name' => 'Coup phones',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 16,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'children_phones');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_children_phones',
+                'display_name' => 'Children phones',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 17,
             ])->save();
         }
 
