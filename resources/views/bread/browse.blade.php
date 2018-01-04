@@ -615,6 +615,7 @@
                         field: "Actions",
                         width: 60,
                         title: "Actions",
+                        sortable: false,
                         overflow: 'visible',
                         template: function (row) {
                             var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
