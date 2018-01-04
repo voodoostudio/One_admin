@@ -235,47 +235,71 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="m-form__group row">
-                                                <div class="col-sm-12 col-md-4">
-                                                    <label class="">Type de courriel</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Type de courriel">
-                                                        @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
-                                                            <option value="{{ $email_type->reference }}" @if(isset($dataTypeContent->email_type) && $dataTypeContent->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-12 col-md-4">
-                                                    <label class="">Courriel</label>
-                                                    <div class="input-group">
-                                                        <input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}">
+                                            <div class="email_container">
+                                                <div class="m-form__group row">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <label class="">Type de courriel</label>
+                                                                <select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Type de courriel">
+                                                                    @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                        <option value="{{ $email_type->reference }}" @if(isset($dataTypeContent->email_type) && $dataTypeContent->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <label class="">Courriel</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
-                                                    <label class="">Moyen de contact préféré</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact" id="preferred_means_contact" data-placeholder="Phone type">
-                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
-                                                            <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact) && $dataTypeContent->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-12 col-md-4 ">
-                                                    <label class="">Type de téléphone</label>
-                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type" id="phone_type" data-placeholder="Phone type">
-                                                        @foreach(TCG\Voyager\Models\Phone::all() as $phone)
-                                                            <option value="{{ $phone->reference }}">{{ $phone->value }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-12 col-md-4 ">
-                                                    <label class="">Indicatif</label>
-                                                    <div class="input-group">
-                                                        <input class="form-control m-input" id="country_code" type="text" placeholder="Indicatif" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12 col-md-4">
+                                                            <button id="add_new_email" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle courriele </button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-sm-12 col-md-4">
-                                                    <label class="">Téléphone</label>
-                                                    <div class="input-group">
-                                                        <input class="form-control m-input" id="phone" type="text" placeholder="Téléphone" name="phone" value="{{ ($dataTypeContent->phone) ? $dataTypeContent->phone : '' }}">
+                                            </div>
+                                            <div class="phone_container">
+                                                <div class="m-form__group row client">
+                                                    <div class="col-sm-12 col-md-4 ">
+                                                        <label class="">Type de téléphone</label>
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type" id="phone_type" data-placeholder="Phone type">
+                                                            @foreach(TCG\Voyager\Models\Phone::all() as $phone)
+                                                                <option value="{{ $phone->reference }}">{{ $phone->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-4 ">
+                                                        <label class="">Indicatif</label>
+                                                        <div class="input-group">
+                                                            <input class="form-control m-input" id="country_code" type="text" placeholder="Indicatif" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 col-md-4">
+                                                        <label class="">Téléphone</label>
+                                                        <div class="input-group">
+                                                            <input class="form-control m-input" id="phone" type="text" placeholder="Téléphone" name="phone" value="{{ ($dataTypeContent->phone) ? $dataTypeContent->phone : '' }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <button id="add_new_phone" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle téléphone </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-4 ">
+                                                        <label class="">Moyen de contact préféré</label>
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact" id="preferred_means_contact" data-placeholder="Phone type">
+                                                            @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                                <option value="{{ $contact->reference }}" @if(isset($dataTypeContent->preferred_means_contact) && $dataTypeContent->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1074,6 +1098,41 @@
         $(document).on('click', '.remove_address_btn', function(){
             var button_id = $(this).attr("id");
             $('#address_form_' + button_id).remove();
+            initAutocomplete();
+        });
+
+        var n = 1;
+        $('#add_new_email').click(function(){
+            n++;
+            $('.email_container .m-form__group').append(
+                '<div class="col-sm-12" id="email_form_' + n + '">'+
+                '<div class="row">'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Type de courriel</label>'+
+                '<select class="form-control m-select2 custom_select2 elem-categories" name="email_type" id="email_type" data-placeholder="Type de courriel">'+
+                '@foreach(TCG\Voyager\Models\EmailType::all() as $email_type)'+
+                '<option value="{{ $email_type->reference }}">{{ $email_type->value }}</option>'+
+                '@endforeach'+
+                '</select>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Courriel</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-4">' +
+                '<button id="' + n  + '" type="button" class="btn btn-danger remove_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '</div>' +
+                '</div>'+
+                '</div>'
+            );
+            initAutocomplete();
+            $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_email_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#email_form_' + button_id).remove();
             initAutocomplete();
         });
 
