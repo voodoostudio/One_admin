@@ -48,7 +48,7 @@
                                         <a href="{{ URL::to('admin/posts') }}" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-signs-1"></i>
                                             <span class="m-nav__link-text">
-                                                Propriétés
+                                                Biens immobilier
                                             </span>
                                         </a>
                                     </li>

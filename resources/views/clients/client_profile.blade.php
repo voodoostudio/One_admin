@@ -39,13 +39,13 @@
                                     </div>
                                 </div>
                                 <div class="m-card-profile__details">
-                                    <span id="client_name" class="m-card-profile__name">{{ $dataTypeContent->name }}</span>
+                                    <span id="client_name" class="m-card-profile__name">{{ $dataTypeContent->name . " " . $dataTypeContent->middle_name . " " . $dataTypeContent->last_name  }}</span>
                                     <a id="client_email" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email }}</a>
 
-                                    <span id="spouse_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_coup }}</span>
+                                    <span id="spouse_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_coup . " " . $dataTypeContent->middle_name_coup . " " . $dataTypeContent->last_name_coup  }}</span>
                                     <a id="spouse_email" href="" style="display: none;" class="m-card-profile__email m-link">{{ $dataTypeContent->email_coup }}</a>
 
-                                    <span id="child_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_child }}</span>
+                                    <span id="child_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_child . " " . $dataTypeContent->middle_name_child . " " . $dataTypeContent->last_name_child }}</span>
                                     <a id="child_email" href="" style="display: none;" class="m-card-profile__email m-link">{{ $dataTypeContent->email_child }}</a>
                                     {{--<p>{{ Auth::user()->bio }}</p>--}}
                                 </div>
@@ -117,6 +117,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -129,8 +131,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
+                                            <div class="col-md-6">
+                                                <div class="profile_data_block">
+                                                    <label class="profile_data_label">
+                                                        Nationalité
+                                                    </label>
+                                                    <div class="profile_data_value">
+                                                        @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                            <span>{{ ($dataTypeContent->nationality === $nationality->reference) ? $nationality->value : '' }}</span>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -151,18 +163,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        Nationalité
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
-                                                            <span>{{ ($dataTypeContent->nationality === $nationality->reference) ? $nationality->value : '' }}</span>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -173,8 +175,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -195,8 +195,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -207,6 +205,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -251,8 +251,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -330,6 +328,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -342,8 +342,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
+                                            <div class="col-md-6">
+                                                <div class="profile_data_block">
+                                                    <label class="profile_data_label">
+                                                        Nationalité
+                                                    </label>
+                                                    <div class="profile_data_value">
+                                                        @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                            <span>{{ ($dataTypeContent->nationality_coup === $nationality->reference) ? $nationality->value : '' }}</span>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -364,18 +374,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        Nationalité
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
-                                                            <span>{{ ($dataTypeContent->nationality_coup === $nationality->reference) ? $nationality->value : '' }}</span>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -386,8 +386,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -408,8 +406,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -420,6 +416,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -464,8 +462,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -520,6 +516,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -532,8 +530,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
+                                            <div class="col-md-6">
+                                                <div class="profile_data_block">
+                                                    <label class="profile_data_label">
+                                                        Nationalité
+                                                    </label>
+                                                    <div class="profile_data_value">
+                                                        @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                            <span>{{ ($dataTypeContent->nationality_child === $nationality->reference) ? $nationality->value : '' }}</span>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -554,18 +562,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        Nationalité
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
-                                                            <span>{{ ($dataTypeContent->nationality_child === $nationality->reference) ? $nationality->value : '' }}</span>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -576,8 +574,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -598,8 +594,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -610,6 +604,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
@@ -654,8 +650,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group m-form__group row">
                                             <div class="col-md-6">
                                                 <div class="profile_data_block">
                                                     <label class="profile_data_label">
