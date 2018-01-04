@@ -149,7 +149,7 @@ return [
     'dashboard' => [
         // Add custom list items to navbar's dropdown
         'navbar_items' => [
-            'My profile' => [
+            'Mon profil' => [
                 'route'         => 'voyager.profile',
                 'icon_class'    => 'flaticon-profile',
             ],
@@ -158,7 +158,7 @@ return [
                 'icon_class'    => 'flaticon-share',
                 'target_blank'  => true,
             ],*/
-            'Logout' => [
+            'Déconnexion' => [
                 'route'      => 'voyager.logout',
             ],
         ],

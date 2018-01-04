@@ -59,7 +59,7 @@
                                                 </div>
                                                 <div class="m-card-user__details">
                                                     <span class="m-card-user__name m--font-weight-500">
-                                                        {{ Auth::user()->name }}
+                                                        {{ Auth::user()->name }} {{ Auth::user()->last_name }}
                                                     </span>
                                                     <a href="" class="m-card-user__email m--font-weight-300 m-link">
                                                         {{ Auth::user()->email }}
