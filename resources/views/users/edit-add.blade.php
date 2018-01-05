@@ -216,7 +216,7 @@
                                                 <i class="la la-gear"></i>
                                             </span>
                                                 <h3 class="m-portlet__head-text">
-                                                    Créerun utilisateur
+                                                    Créer un utilisateur
                                                 </h3>
                                             </div>
                                         </div>
