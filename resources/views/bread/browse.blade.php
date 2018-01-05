@@ -482,10 +482,10 @@
                         title: "Titre",
                         template: function (row) {
                             <?php if(Auth::user()->role_id != 5) { ?>
-                                return '<a href="{{ Request::url() }}/' + row.id + '"">' + row.title_fr.substr( 0, 10 ) +'…' + '</a>'
+                                return '<a href="{{ Request::url() }}/' + row.id + '"">' + row.title_fr.substr( 0, 20 ) +'…' + '</a>'
                             <?php } else { ?>
                                 return '\
-                                    <a href="" data-toggle="modal" data-target="#view_post_confirmation_title">' + row.title_fr.substr( 0, 10 ) +'…' + '</a>\
+                                    <a href="" data-toggle="modal" data-target="#view_post_confirmation_title">' + row.title_fr.substr( 0, 20 ) +'…' + '</a>\
                                     <div class="modal fade view_post_cgu_confirmation" id="view_post_confirmation_title" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
                                         <div class="modal-dialog modal-lg" role="document">\
                                             <div class="modal-content">\
