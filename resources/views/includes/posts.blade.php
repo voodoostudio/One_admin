@@ -464,110 +464,110 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                            <span class="m-widget4__title">
-                                                Rue
-                                            </span>
-                                        <span class="m-widget4__sub">
-                                                {{ $dataTypeContent->street }}
-                                            </span>
-                                    </div>
-                                </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                            <span class="m-widget4__title">
-                                                N°
-                                            </span>
-                                        <span class="m-widget4__sub">
-                                                {{ $dataTypeContent->number }}
-                                            </span>
-                                    </div>
-                                </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                            <span class="m-widget4__title">
-                                                Case postale
-                                            </span>
-                                        <span class="m-widget4__sub">
-                                                {{ $dataTypeContent->po_box }}
-                                            </span>
-                                    </div>
-                                </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                            <span class="m-widget4__title">
-                                                Code postale
-                                            </span>
-                                        <span class="m-widget4__sub">
-                                                {{ $dataTypeContent->zip_code }}
-                                            </span>
-                                    </div>
-                                </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                            <span class="m-widget4__title">
-                                                Ville
-                                            </span>
-                                        <span class="m-widget4__sub">
-                                                {{ $dataTypeContent->town }}
-                                            </span>
-                                    </div>
-                                </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Pays
-                                        </span>
-                                        <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->country }}
-                                            {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
-                                            {{--@if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ $country->value }}@endif--}}
-                                            {{--@endforeach--}}
-                                        </span>
-                                    </div>
-                                </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item">
-                                    <div class="m-widget4__info">
-                                        <span class="m-widget4__title">
-                                            Localisation <!-- todo -->
-                                        </span>
-                                        <span class="m-widget4__sub">
-                                            {{--{{ $dataTypeContent->location }}--}}
-                                            @foreach(TCG\Voyager\Models\Location::all() as $location)
-                                                @if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ $location->value }}@endif
-                                            @endforeach
-                                        </span>
-                                    </div>
-                                </div>
-                                <!--end::Widget 14 Item-->
-                            </div>
+                            {{--<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">--}}
+                            {{--<!--begin::Widget 14 Item-->--}}
+                            {{--<div class="m-widget4__item">--}}
+                            {{--<div class="m-widget4__info">--}}
+                            {{--<span class="m-widget4__title">--}}
+                            {{--Rue--}}
+                            {{--</span>--}}
+                            {{--<span class="m-widget4__sub">--}}
+                            {{--{{ $dataTypeContent->street }}--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!--end::Widget 14 Item-->--}}
+                            {{--</div>--}}
+                            {{--<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">--}}
+                            {{--<!--begin::Widget 14 Item-->--}}
+                            {{--<div class="m-widget4__item">--}}
+                            {{--<div class="m-widget4__info">--}}
+                            {{--<span class="m-widget4__title">--}}
+                            {{--N°--}}
+                            {{--</span>--}}
+                            {{--<span class="m-widget4__sub">--}}
+                            {{--{{ $dataTypeContent->number }}--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!--end::Widget 14 Item-->--}}
+                            {{--</div>--}}
+                            {{--<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">--}}
+                            {{--<!--begin::Widget 14 Item-->--}}
+                            {{--<div class="m-widget4__item">--}}
+                            {{--<div class="m-widget4__info">--}}
+                            {{--<span class="m-widget4__title">--}}
+                            {{--Case postale--}}
+                            {{--</span>--}}
+                            {{--<span class="m-widget4__sub">--}}
+                            {{--{{ $dataTypeContent->po_box }}--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!--end::Widget 14 Item-->--}}
+                            {{--</div>--}}
+                            {{--<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">--}}
+                            {{--<!--begin::Widget 14 Item-->--}}
+                            {{--<div class="m-widget4__item">--}}
+                            {{--<div class="m-widget4__info">--}}
+                            {{--<span class="m-widget4__title">--}}
+                            {{--Code postale--}}
+                            {{--</span>--}}
+                            {{--<span class="m-widget4__sub">--}}
+                            {{--{{ $dataTypeContent->zip_code }}--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!--end::Widget 14 Item-->--}}
+                            {{--</div>--}}
+                            {{--<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">--}}
+                            {{--<!--begin::Widget 14 Item-->--}}
+                            {{--<div class="m-widget4__item">--}}
+                            {{--<div class="m-widget4__info">--}}
+                            {{--<span class="m-widget4__title">--}}
+                            {{--Ville--}}
+                            {{--</span>--}}
+                            {{--<span class="m-widget4__sub">--}}
+                            {{--{{ $dataTypeContent->town }}--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!--end::Widget 14 Item-->--}}
+                            {{--</div>--}}
+                            {{--<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">--}}
+                            {{--<!--begin::Widget 14 Item-->--}}
+                            {{--<div class="m-widget4__item">--}}
+                            {{--<div class="m-widget4__info">--}}
+                            {{--<span class="m-widget4__title">--}}
+                            {{--Pays--}}
+                            {{--</span>--}}
+                            {{--<span class="m-widget4__sub">--}}
+                            {{--{{ $dataTypeContent->country }}--}}
+                            {{--@foreach(TCG\Voyager\Models\Country::all() as $country)--}}
+                            {{--@if(isset($dataTypeContent->country) && $dataTypeContent->country == $country->reference){{ $country->value }}@endif--}}
+                            {{--@endforeach--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!--end::Widget 14 Item-->--}}
+                            {{--</div>--}}
+                            {{--<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">--}}
+                            {{--<!--begin::Widget 14 Item-->--}}
+                            {{--<div class="m-widget4__item">--}}
+                            {{--<div class="m-widget4__info">--}}
+                            {{--<span class="m-widget4__title">--}}
+                            {{--Localisation <!-- todo -->--}}
+                            {{--</span>--}}
+                            {{--<span class="m-widget4__sub">--}}
+                            {{--{{ $dataTypeContent->location }}--}}
+                            {{--@foreach(TCG\Voyager\Models\Location::all() as $location)--}}
+                            {{--@if(isset($dataTypeContent->location) && $dataTypeContent->location == $location->reference){{ $location->value }}@endif--}}
+                            {{--@endforeach--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!--end::Widget 14 Item-->--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                     <!--end::Widget 14-->
@@ -911,21 +911,6 @@
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <!--begin::Widget 14 Item-->
-                                <div class="m-widget4__item {{ ($dataTypeContent->armed_with_fire_tap == 0) ? 'not_specified' : '' }}">
-                                    <div class="m-widget4__info">
-                                            <span class="m-widget4__title" name="armed_with_fire_tap">
-                                                Robinet d'incendie armé
-                                            </span>
-                                        <span class="m-widget4__sub">
-                                            @if($dataTypeContent->armed_with_fire_tap != 0)
-                                                <i class="fa fa-check"></i>
-                                            @endif
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
                                     <div class="m-widget4__info">
                                         <span class="m-widget4__title">
@@ -1228,7 +1213,7 @@
                                             Surface de la cave
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->surface_cellar }}
+                                            {{ $dataTypeContent->surface_cellar }} {!! ($dataTypeContent->surface_cellar) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1242,7 +1227,7 @@
                                             Hauteur des plafonds
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->ceiling_height }}
+                                            {{ $dataTypeContent->ceiling_height }} {!! ($dataTypeContent->ceiling_height) ? 'm' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1256,7 +1241,7 @@
                                             Surface de l'abri de la toiture
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->roof_cover_area }}
+                                            {{ $dataTypeContent->roof_cover_area }} {!! ($dataTypeContent->roof_cover_area) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1270,7 +1255,7 @@
                                             Surface de la terrasse / solarium
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->surf_area_terr_solar }}
+                                            {{ $dataTypeContent->surf_area_terr_solar }} {!! ($dataTypeContent->surf_area_terr_solar) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1284,7 +1269,7 @@
                                             Surface de la véranda
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->area_veranda }}
+                                            {{ $dataTypeContent->area_veranda }} {!! ($dataTypeContent->area_veranda) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1298,7 +1283,7 @@
                                             Surface des combles
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->attic_space }}
+                                            {{ $dataTypeContent->attic_space }} {!! ($dataTypeContent->attic_space) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1312,7 +1297,7 @@
                                             Surface du balcon
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->surface_balcony }}
+                                            {{ $dataTypeContent->surface_balcony }} {!! ($dataTypeContent->surface_balcony) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1326,7 +1311,7 @@
                                             Surface du sous-sol
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->basement_area }}
+                                            {{ $dataTypeContent->basement_area }} {!! ($dataTypeContent->basement_area) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1340,7 +1325,7 @@
                                             Surface du terrain
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->surface_ground }}
+                                            {{ $dataTypeContent->surface_ground }} {!! ($dataTypeContent->surface_ground) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1354,7 +1339,7 @@
                                             Terrain
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->ground_length * $dataTypeContent->ground_width }}
+                                            {{ $dataTypeContent->ground_length * $dataTypeContent->ground_width }} {!! ($dataTypeContent->ground_length)&&($dataTypeContent->ground_width) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1400,7 +1385,7 @@
                                             Surface utille
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->useful_surface }}
+                                            {{ $dataTypeContent->useful_surface }} {!! ($dataTypeContent->useful_surface) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1414,7 +1399,7 @@
                                             Surface PPE
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->ppe_area }}
+                                            {{ $dataTypeContent->ppe_area }} {!! ($dataTypeContent->ppe_area) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1428,7 +1413,7 @@
                                             Volume
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->volume }}
+                                            {{ $dataTypeContent->volume }} {!! ($dataTypeContent->volume) ? 'm<sup>3</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1442,7 +1427,7 @@
                                             Surface de la cour anglaise
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->surface_eng_court }}
+                                            {{ $dataTypeContent->surface_eng_court }} {!! ($dataTypeContent->surface_eng_court) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1456,7 +1441,7 @@
                                             Surface rez-de-chaussée inférieur
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->lower_ground_floor }}
+                                            {{ $dataTypeContent->lower_ground_floor }} {!! ($dataTypeContent->lower_ground_floor) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1470,7 +1455,7 @@
                                             Surface de l'emprise
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->row_area }}
+                                            {{ $dataTypeContent->row_area }} {!! ($dataTypeContent->row_area) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1484,7 +1469,7 @@
                                             Surface du garage
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->garage_area }}
+                                            {{ $dataTypeContent->garage_area }} {!! ($dataTypeContent->garage_area) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
@@ -1498,7 +1483,7 @@
                                             Surface pondérée
                                         </span>
                                         <span class="m-widget4__sub">
-                                            {{ $dataTypeContent->weighted_surface }}
+                                            {{ $dataTypeContent->weighted_surface }} {!! ($dataTypeContent->weighted_surface) ? 'm<sup>2</sup>' : ''  !!}
                                         </span>
                                     </div>
                                 </div>
