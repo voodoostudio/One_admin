@@ -263,7 +263,7 @@
                                                         {{----}}
                                                     {{--</div>--}}
                                                 {{--</div>--}}
-                                            <input type="hidden" name="broker" value="{{ Auth::user()->name }} {{ Auth::user()->last_name }}">
+                                            {{--<input type="hidden" name="broker" value="{{ Auth::user()->id }}">--}}
                                                 @php
                                                     foreach (explode(',', Illuminate\Support\Facades\DB::table('posts')->value('vip_users')) as $users) {
                                                         $user_id[$users] = $users;

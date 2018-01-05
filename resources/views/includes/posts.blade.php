@@ -207,7 +207,7 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             @foreach(TCG\Voyager\Models\User::all() as $user)
-                                                {{ ($dataTypeContent->author_id == $user->role_id) ? $user->name : ''  }}
+                                                {{ ($dataTypeContent->author_id == $user->id) ? $user->name : ''  }}
                                             @endforeach
                                         </span>
                                     </div>
