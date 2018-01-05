@@ -1,3 +1,4 @@
+{{--{{ dd($dataTypeContent->toArray()) }}--}}
 <div class="m-subheader ">
     <div class="d-flex align-items-center">
         <div class="mr-auto">
@@ -689,6 +690,9 @@
                                         @if($dataTypeContent->show_price != 0)
                                             <span class="m-widget4__sub">
                                                 {{ $dataTypeContent->price }}
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
                                             </span>
                                         @endif
                                     </div>
@@ -704,6 +708,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->price_m2 }}
+                                            @if($dataTypeContent->price_m2 != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -718,6 +727,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->gross_yield }}
+                                            @if($dataTypeContent->gross_yield != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -732,6 +746,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->net_return }}
+                                            @if($dataTypeContent->net_return != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -746,6 +765,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->owner_amount }}
+                                            @if($dataTypeContent->owner_amount != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -760,6 +784,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->client_fees }}
+                                            @if($dataTypeContent->client_fees != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -774,6 +803,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->owner_fees }}
+                                            @if($dataTypeContent->owner_fees != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -788,6 +822,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->negotiable_amount }}
+                                            @if($dataTypeContent->negotiable_amount != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -802,6 +841,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->estimate_price }}
+                                            @if($dataTypeContent->estimate_price != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -816,6 +860,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->recording_rights }}
+                                            @if($dataTypeContent->recording_rights != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -846,6 +895,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->heating_loads }}
+                                            @if($dataTypeContent->heating_loads != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -860,6 +914,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->ppe_charges }}
+                                            @if($dataTypeContent->ppe_charges != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -874,6 +933,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->condominium_fees }}
+                                            @if($dataTypeContent->condominium_fees != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -888,6 +952,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->property_tax }}
+                                            @if($dataTypeContent->property_tax != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -918,6 +987,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->renovation_fund }}
+                                            @if($dataTypeContent->renovation_fund != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -932,6 +1006,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->annual_charges }}
+                                            @if($dataTypeContent->annual_charges != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -946,6 +1025,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->taxes_1 }}
+                                            @if($dataTypeContent->taxes_1 != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -960,6 +1044,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->rental_security }}
+                                            @if($dataTypeContent->rental_security != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -974,6 +1063,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->commercial_property }}
+                                            @if($dataTypeContent->commercial_property != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -988,6 +1082,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->earnings }}
+                                            @if($dataTypeContent->earnings != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -1002,6 +1101,11 @@
                                         </span>
                                         <span class="m-widget4__sub">
                                             {{ $dataTypeContent->taxes }}
+                                            @if($dataTypeContent->taxes != 0)
+                                                @foreach(TCG\Voyager\Models\Currency::all() as $сurrency)
+                                                    @if(isset($dataTypeContent->сurrency) && $dataTypeContent->сurrency == $сurrency->reference){{ $сurrency->value }}@endif
+                                                @endforeach
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
