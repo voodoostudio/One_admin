@@ -36,9 +36,17 @@
                                     </div>
                                     <div class="m-card-profile__pic">
                                         <div class="m-card-profile__pic-wrapper">
-                                            <img id="client_photo" style="display: block;" src="{{ Voyager::image( Auth::user()->avatar ) }}" alt="{{ Auth::user()->name }}"/>
-                                            <img id="coup_photo" style="display: none;" src="{{ Voyager::image( Auth::user()->photo_coup ) }}" alt="{{ Auth::user()->name }}"/>
-                                            <img id="child_photo" style="display: none;" src="{{ Voyager::image( Auth::user()->photo_child ) }}" alt="{{ Auth::user()->name }}"/>
+                                            <img id="client_photo" style="display: block;" src="{{ Voyager::image( Auth::user()->avatar ) }}" alt="{{ Auth::user()->name }} avatar"/>
+                                            @if(Auth::user()->photo_coup != null)
+                                                <img id="coup_photo" style="display: none;" src="{{ Voyager::image( Auth::user()->photo_coup ) }}" alt="{{ Auth::user()->first_name_coup }} avatar"/>
+                                            @else
+                                                <img id="coup_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                            @endif
+                                            @if(Auth::user()->photo_child != null)
+                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( Auth::user()->photo_child ) }}" alt="{{ Auth::user()->first_name_child }} avatar"/>
+                                            @else
+                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="m-card-profile__details">
