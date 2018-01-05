@@ -299,21 +299,20 @@ abstract class Controller extends BaseController
                 return json_encode($content);
                 break;
 
-            /********** MULTIPLE EMAILS **********/
+            /********* MULTIPLE EMAILS *********/
             case 'multiple_client_emails':
                 $content = $request->input($row->field);
                 if ($content === null) {
                     $content = [];
                 } else {
                     $client_emails = [];
-                    $client_number_email = count(Input::get('client_emails'));
+                    $client_number_email = count(Input::get('client_email_type'));
                     if($client_number_email > 0) {
                         for($i = 0; $i < $client_number_email; $i++) {
-                            if(trim(Input::get('client_emails')[$i] != '')) {
+                            if(trim(Input::get('client_email_type')[$i] != '')) {
                                 $client_emails[$i] = [
                                     'email_type' => Input::get('client_email_type')[$i],
                                     'email' => Input::get('client_emails')[$i],
-                                    'preferred_means_contact' => Input::get('client_preferred_means_contact')[$i],
                                 ];
                             }
                         }
@@ -328,16 +327,14 @@ abstract class Controller extends BaseController
                 if ($content === null) {
                     $content = [];
                 } else {
-
                     $coup_emails = [];
-                    $coup_number_email = count(Input::get('coup_emails'));
+                    $coup_number_email = count(Input::get('coup_email_type'));
                     if ($coup_number_email > 0) {
                         for ($i = 0; $i < $coup_number_email; $i++) {
                             if (trim(Input::get('coup_emails')[$i] != '')) {
                                 $coup_emails[$i] = [
                                     'email_type' => Input::get('coup_email_type')[$i],
                                     'email' => Input::get('coup_emails')[$i],
-                                    'preferred_means_contact' => Input::get('coup_preferred_means_contact')[$i],
                                 ];
                             }
                         }
@@ -353,14 +350,13 @@ abstract class Controller extends BaseController
                     $content = [];
                 } else {
                     $children_emails = [];
-                    $children_number_email = count(Input::get('children_emails'));
+                    $children_number_email = count(Input::get('children_email_type'));
                     if ($children_number_email > 0) {
                         for ($i = 0; $i < $children_number_email; $i++) {
                             if (trim(Input::get('children_emails')[$i] != '')) {
                                 $children_emails[$i] = [
                                     'email_type' => Input::get('children_email_type')[$i],
                                     'email' => Input::get('children_emails')[$i],
-                                    'preferred_means_contact' => Input::get('children_preferred_means_contact')[$i],
                                 ];
                             }
                         }
@@ -370,17 +366,17 @@ abstract class Controller extends BaseController
                 return json_encode($content);
                 break;
 
-            /********** MULTIPLE PHONES **********/
+            /********* MULTIPLE PHONES *********/
             case 'multiple_client_phones':
                 $content = $request->input($row->field);
                 if ($content === null) {
                     $content = [];
                 } else {
                     $client_phones = [];
-                    $client_number_phone = count(Input::get('client_phones'));
+                    $client_number_phone = count(Input::get('client_phone_type'));
                     if($client_number_phone > 0) {
                         for($i = 0; $i < $client_number_phone; $i++) {
-                            if(trim(Input::get('client_phones')[$i] != '')) {
+                            if(trim(Input::get('client_phone_type')[$i] != '')) {
                                 $client_phones[$i] = [
                                     'phone_type' => Input::get('client_phone_type')[$i],
                                     'country_code' => Input::get('client_country_code')[$i],
@@ -400,10 +396,10 @@ abstract class Controller extends BaseController
                     $content = [];
                 } else {
                     $coup_phones = [];
-                    $coup_number_phone = count(Input::get('coup_phones'));
+                    $coup_number_phone = count(Input::get('coup_phone_type'));
                     if($coup_number_phone > 0) {
                         for($i = 0; $i < $coup_number_phone; $i++) {
-                            if(trim(Input::get('coup_phones')[$i] != '')) {
+                            if(trim(Input::get('coup_phone_type')[$i] != '')) {
                                 $coup_phones[$i] = [
                                     'phone_type' => Input::get('coup_phone_type')[$i],
                                     'country_code' => Input::get('coup_country_code')[$i],
@@ -423,10 +419,10 @@ abstract class Controller extends BaseController
                     $content = [];
                 } else {
                     $children_phones = [];
-                    $children_number_phone = count(Input::get('children_phones'));
+                    $children_number_phone = count(Input::get('children_phone_type'));
                     if($children_number_phone > 0) {
                         for($i = 0; $i < $children_number_phone; $i++) {
-                            if(trim(Input::get('children_phones')[$i] != '')) {
+                            if(trim(Input::get('children_phone_type')[$i] != '')) {
                                 $children_phones[$i] = [
                                     'phone_type' => Input::get('children_phone_type')[$i],
                                     'country_code' => Input::get('children_country_code')[$i],
