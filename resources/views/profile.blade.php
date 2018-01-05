@@ -17,7 +17,7 @@
                 <div class="d-flex align-items-center">
                     <div class="mr-auto">
                         <h3 class="m-subheader__title ">
-                            My Profile
+                            Mon Profil
                         </h3>
                     </div>
                 </div>
@@ -66,6 +66,16 @@
                                             <a class="nav-link m-tabs__link {{ (Auth::user()->counter > 1) ? 'active' : '' }}" data-toggle="tab" href="#profile_info" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
                                                 Mettre à jour le profil
+                                            </a>
+                                        </li>
+                                        <li class="nav-item m-tabs__item">
+                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_spouse" role="tab">
+                                                Epoux/Epouse
+                                            </a>
+                                        </li>
+                                        <li class="nav-item m-tabs__item">
+                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child" role="tab">
+                                                Enfant(s)
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
@@ -396,6 +406,14 @@
                                                     </div>
                                                 @endif
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile_info_spouse" role="tabpanel" aria-expanded="true">
+                                        <div class="m-portlet__body">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile_info_child" role="tabpanel" aria-expanded="true">
+                                        <div class="m-portlet__body">
                                         </div>
                                     </div>
                                 </div>
