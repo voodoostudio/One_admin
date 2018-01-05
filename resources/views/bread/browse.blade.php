@@ -11,7 +11,7 @@
         $arrayJsonData = [];
         $counter = 1;
         if(Illuminate\Support\Facades\Auth::user()->role_id != 5) {
-            if($dataType->display_name_plural == 'Properties') {
+            if($dataType->display_name_plural == 'Biens immobiliers') {
                 foreach ($dataTypeContent as $data) {
                     if(!empty($_GET['client_id']) && (in_array($_GET['client_id'], explode(',', $data->vip_users)))) {
                         $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
@@ -54,7 +54,7 @@
                         'created_at'    => $data->created_at->format('d.m.Y /  H:m'),
                     ];
                 }
-            } elseif($dataType->display_name_plural == 'Users') {
+            } elseif($dataType->display_name_plural == 'Utilisateurs') {
                 foreach ($dataTypeContent->where('role_id', '!=', 5)->where('role_id', '>=', Auth::user()->role_id) as $data) {
                     $arrayJsonData[] = [
                         'id'            => $data->id,
@@ -75,7 +75,7 @@
             }
         } else {
             foreach (Illuminate\Support\Facades\DB::table('posts')->where('vip_users', 'rlike', '(^|,)' . array_search(Illuminate\Support\Facades\Auth::user()->id, $user_id) . '(,|$)')->get() as $data) {
-                if($dataType->display_name_plural == 'Properties') {
+                if($dataType->display_name_plural == 'Biens immobiliers') {
                     $reference =  'HIS-' . str_pad($data->id, 4, '0', STR_PAD_LEFT);
                     $arrayJsonData[] = [
                         'id'            => $data->id,
@@ -113,7 +113,7 @@
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <h3 class="m-portlet__head-text">
-                                {{ $dataType->display_name_singular }}
+                                {{ $dataType->display_name_plural }}
                             </h3>
                         </div>
                     </div>
@@ -363,7 +363,7 @@
                             ';
                         },
 
-                        <?php } elseif($dataType->display_name_plural == 'Properties') { ?>
+                        <?php } elseif($dataType->display_name_plural == 'Biens immobiliers') { ?>
 
                         field: "reference",
                         title: "Réf.",
@@ -739,7 +739,7 @@
                             ';
                         },
 
-                        <?php } elseif($dataType->display_name_plural == 'Users') { ?>
+                        <?php } elseif($dataType->display_name_plural == 'Utilisateurs') { ?>
 
                         field: "number",
                         title: "#",

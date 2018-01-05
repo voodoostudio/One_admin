@@ -54,15 +54,15 @@ class TranslationsTableSeeder extends Seeder
         //
         $_fld = 'display_name_singular';
         $_tpl = ['data_types', $_fld];
-        $dtp = DataType::where($_fld, 'Properties')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Bien immobilier')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Properties');
+            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Bien immobilier');
         }
         $dtp = DataType::where($_fld, 'Page')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Página');
         }
-        $dtp = DataType::where($_fld, 'User')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Utilisateur')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Utilizador');
         }
@@ -74,7 +74,7 @@ class TranslationsTableSeeder extends Seeder
         if ($dtp->exists) {
             $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Menu');
         }
-        $dtp = DataType::where($_fld, 'Role')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Rôle')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Função');
         }
@@ -83,17 +83,17 @@ class TranslationsTableSeeder extends Seeder
         //
         $_fld = 'display_name_plural';
         $_tpl = ['data_types', $_fld];
-        $dtp = DataType::where($_fld, 'Properties')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Biens immobiliers')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Properties');
+            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Biens immobiliers');
         }
         $dtp = DataType::where($_fld, 'Pages')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Páginas');
         }
-        $dtp = DataType::where($_fld, 'Users')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Utilisateurs')->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Utilizadores');
+            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Utilisateurs');
         }
         $dtp = DataType::where($_fld, 'Categories')->firstOrFail();
         if ($dtp->exists) {
@@ -103,7 +103,7 @@ class TranslationsTableSeeder extends Seeder
         if ($dtp->exists) {
             $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Menus');
         }
-        $dtp = DataType::where($_fld, 'Roles')->firstOrFail();
+        $dtp = DataType::where($_fld, 'Rôles')->firstOrFail();
         if ($dtp->exists) {
             $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Funções');
         }
@@ -155,12 +155,12 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Media');
         }
 
-        $_item = $this->findMenuItem('Properties');
+        $_item = $this->findMenuItem('Biens immobiliers');
         if ($_item->exists) {
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Publicações');
         }
 
-        $_item = $this->findMenuItem('Users');
+        $_item = $this->findMenuItem('Utilisateurs');
         if ($_item->exists) {
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Utilizadores');
         }
@@ -175,7 +175,7 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Páginas');
         }
 
-        $_item = $this->findMenuItem('Roles');
+        $_item = $this->findMenuItem('Rôles');
         if ($_item->exists) {
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Funções');
         }

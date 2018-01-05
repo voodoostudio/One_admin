@@ -14,8 +14,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'posts',
-                'display_name_singular' => 'Properties',
-                'display_name_plural'   => 'Properties',
+                'display_name_singular' => 'Bien immobilier',
+                'display_name_plural'   => 'Biens immobiliers',
                 'icon'                  => 'voyager-news',
                 'model_name'            => 'TCG\\Voyager\\Models\\Post',
                 'policy_name'           => 'TCG\\Voyager\\Policies\\PostPolicy',
@@ -43,8 +43,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'users',
-                'display_name_singular' => 'User',
-                'display_name_plural'   => 'Users',
+                'display_name_singular' => 'Utilisateur',
+                'display_name_plural'   => 'Utilisateurs',
                 'icon'                  => 'voyager-person',
                 'model_name'            => 'TCG\\Voyager\\Models\\User',
                 'policy_name'           => 'TCG\\Voyager\\Policies\\UserPolicy',
@@ -101,8 +101,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'roles',
-                'display_name_singular' => 'Role',
-                'display_name_plural'   => 'Roles',
+                'display_name_singular' => 'Rôle',
+                'display_name_plural'   => 'Rôles',
                 'icon'                  => 'voyager-lock',
                 'model_name'            => 'TCG\\Voyager\\Models\\Role',
                 'controller'            => '',
