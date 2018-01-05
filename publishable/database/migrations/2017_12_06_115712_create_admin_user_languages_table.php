@@ -21,7 +21,7 @@ class CreateAdminUserLanguagesTable extends Migration
 
         DB::table('admin_user_languages')->insert(
             [
-                [
+                /*[
                     'reference' => 1,
                     'locale'    => 'fr_FR',
                     'value'     => 'Anglais',
@@ -30,9 +30,9 @@ class CreateAdminUserLanguagesTable extends Migration
                     'reference' => 2,
                     'locale'    => 'fr_FR',
                     'value'     => 'Espagnol',
-                ],
+                ],*/
                 [
-                    'reference' => 3,
+                    'reference' => 1,
                     'locale'    => 'fr_FR',
                     'value'     => 'Français',
                 ],

@@ -117,11 +117,8 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Superadmins amount
+                                                Comptes superadmin
                                             </h3>
-                                            <span class="m-widget1__desc">
-                                                Lorem ipsum dolor
-                                            </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-brand">
@@ -134,11 +131,8 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Admins amount
+                                                Comptes admin
                                             </h3>
-                                            <span class="m-widget1__desc">
-                                                Lorem ipsum dolor
-                                            </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-danger">
@@ -157,11 +151,8 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Moderators amount
+                                                Comptes modérateurs
                                             </h3>
-                                            <span class="m-widget1__desc">
-                                                Lorem ipsum
-                                            </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-accent">
@@ -174,11 +165,8 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Clients amount
+                                                Comptes clients
                                             </h3>
-                                            <span class="m-widget1__desc">
-                                                Lorem ipsum
-                                            </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-info">
@@ -197,11 +185,8 @@
                                     <div class="row m-row--no-padding align-items-center">
                                         <div class="col">
                                             <h3 class="m-widget1__title">
-                                                Objects amount
+                                                Objets immobiliers
                                             </h3>
-                                            <span class="m-widget1__desc">
-                                                Lorem ipsum
-                                            </span>
                                         </div>
                                         <div class="col m--align-right">
                                             <span class="m-widget1__number m--font-success">

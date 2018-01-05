@@ -251,17 +251,19 @@
                                             </div>
                                         </div>
                                         <div class="m-portlet__body">
-                                            <div class="form-group m-form__group row">
-                                                <div class="col-lg-3">
-                                                    <div class="form-group">
-                                                        <label>Courtier</label>
-                                                        <select class="form-control m-select2 custom_select2" name="broker" data-placeholder="Sélectionner un courtier">
-                                                            @foreach(TCG\Voyager\Models\User::where('role_id','<>','5')->get(['id','role_id','name']) as $user)
-                                                                <option value="{{ $user->id }}">{{  $user->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                            <div class="row">
+                                                {{--<div class="col-lg-3">--}}
+                                                    {{--<div class="form-group">--}}
+                                                        {{--<label>Courtier</label>--}}
+                                                        {{--<select class="form-control m-select2 custom_select2" name="broker" data-placeholder="Sélectionner un courtier">--}}
+                                                            {{--@foreach(TCG\Voyager\Models\User::where('role_id','<>','5')->get(['id','role_id','name']) as $user)--}}
+                                                                {{--<option value="{{ $user->id }}">{{  $user->name }}</option>--}}
+                                                            {{--@endforeach--}}
+                                                        {{--</select>--}}
+                                                        {{----}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                            <input type="hidden" name="broker" value="{{ Auth::user()->name }} {{ Auth::user()->last_name }}">
                                                 @php
                                                     foreach (explode(',', Illuminate\Support\Facades\DB::table('posts')->value('vip_users')) as $users) {
                                                         $user_id[$users] = $users;
@@ -2738,12 +2740,12 @@
                                         <div class="m-portlet__body">
                                             <div class="row">
                                                 <div class="col-lg-12 margin_bottom_10">
-                                                    <label>Gallery images dropzone</label>
+                                                    {{--<label>Gallery images dropzone</label>--}}
                                                     <div class="img_upload_container">
                                                         <div class="img_upload">
                                                             <input name="image[]" multiple="multiple" type="file" accept="image/*" id="avatar" class="input_file">
                                                             <label for="avatar">
-                                                                <span>Choisissez une image d'en-tête</span>
+                                                                <span>Choisissez des images</span>
                                                             </label>
                                                             <div class="thumbnails_container">
                                                                 @if(isset($dataTypeContent->image))
@@ -2799,7 +2801,7 @@
                 <!-- Actions block -->
                 <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" style="display: none;">
                             <div class="pure_switch">
                                 <span class="m-switch m-switch--outline m-switch--brand">
                                     <label>
@@ -2810,7 +2812,7 @@
                                 <label class="pure_switch_label">Publier</label>
                             </div>
                         </div>
-                        <div class="col-lg-6 m--align-right">
+                        <div class="col-lg-12 m--align-right">
                             <button type="button" data-toggle="modal" data-target="#save_checklist" class="btn btn-success btn-lg m-btn m-btn--air m-btn--custom">Enregistrer</button>
                         </div>
                     </div>

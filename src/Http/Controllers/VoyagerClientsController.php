@@ -67,8 +67,8 @@ class VoyagerClientsController extends Controller
             $clients->save();
 
             Mail::send('voyager::emails.invite_client', $data, function ($message) use ($data) {
-                $message->from(env('CONTACT_EMAIL'), 'HIS');
-                $message->to($data['email']);
+                $message->from(env('CONTACT_EMAIL'), 'House Invest Spain');
+                $message->to($data['email'])->subject('House Invest Spain vous invite à utiliser sa plateforme de biens immobilier.');
             });
 
             // redirect

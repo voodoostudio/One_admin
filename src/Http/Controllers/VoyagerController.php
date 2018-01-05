@@ -107,8 +107,8 @@ class VoyagerController extends Controller
                         ];
 
                         Mail::send('voyager::emails.notification', $data, function ($message) use ($data) {
-                            $message->from(env('CONTACT_EMAIL'), 'HIS');
-                            $message->to($data['email']);
+                            $message->from(env('CONTACT_EMAIL'), 'House Invest Spain');
+                            $message->to($data['email'])->subject('Un nouveau bien immobilier vous attend dans votre espace personnel.');
                         });
 
                         Post::where('id', $property_id)->update(['vip_users' => $vip_users]);
