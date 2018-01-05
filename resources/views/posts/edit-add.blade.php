@@ -67,7 +67,7 @@
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
                     <h3 class="m-subheader__title m-subheader__title--separator">
-                        Add/Edit new object
+                        Ajouter/Editer un nouvel objet
                     </h3>
                 </div>
             </div>
