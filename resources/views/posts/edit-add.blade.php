@@ -144,19 +144,19 @@
                                                     <h3 class="m-portlet__head-text">Rédaction</h3>
                                                 </div>
                                             </div>
-                                            <div class="m-portlet__head-tools">
-                                                <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--right m-tabs-line-danger">
-                                                    <li class="nav-item m-tabs__item">
-                                                        <a class="nav-link m-tabs__link active" data-toggle="tab" href="#fr_redaction" role="tab" aria-expanded="false">Français</a>
-                                                    </li>
-                                                    <li class="nav-item m-tabs__item">
-                                                        <a class="nav-link m-tabs__link" data-toggle="tab" href="#en_redaction" role="tab" aria-expanded="true">Anglais</a>
-                                                    </li>
-                                                    <li class="nav-item m-tabs__item">
-                                                        <a class="nav-link m-tabs__link" data-toggle="tab" href="#es_redaction" role="tab" aria-expanded="true">Espagnol</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            {{--<div class="m-portlet__head-tools">--}}
+                                                {{--<ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--right m-tabs-line-danger">--}}
+                                                    {{--<li class="nav-item m-tabs__item">--}}
+                                                        {{--<a class="nav-link m-tabs__link active" data-toggle="tab" href="#fr_redaction" role="tab" aria-expanded="false">Français</a>--}}
+                                                    {{--</li>--}}
+                                                    {{--<li class="nav-item m-tabs__item">--}}
+                                                        {{--<a class="nav-link m-tabs__link" data-toggle="tab" href="#en_redaction" role="tab" aria-expanded="true">Anglais</a>--}}
+                                                    {{--</li>--}}
+                                                    {{--<li class="nav-item m-tabs__item">--}}
+                                                        {{--<a class="nav-link m-tabs__link" data-toggle="tab" href="#es_redaction" role="tab" aria-expanded="true">Espagnol</a>--}}
+                                                    {{--</li>--}}
+                                                {{--</ul>--}}
+                                            {{--</div>--}}
                                         </div>
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group">
@@ -195,38 +195,38 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tab-pane" id="en_redaction" role="tabpanel" aria-expanded="false">
-                                                        <div class="row">
-                                                            <div class="col-12 margin_bottom_10 lang-en form-group">
-                                                                <label>Titre de l'annonce EN</label>
-                                                                <div class='input-group'>
-                                                                    <input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_en" required="required">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 margin_bottom_10 lang-en">
-                                                                <label>Description de l'annonce EN</label>
-                                                                <div class='input-group'>
-                                                                    <textarea class="form-control m-input" name="desc_add_en" rows="8">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tab-pane" id="es_redaction" role="tabpanel" aria-expanded="false">
-                                                        <div class="row">
-                                                            <div class="col-12 margin_bottom_10 lang-es form-group">
-                                                                <label>Titre de l'annonce ES</label>
-                                                                <div class='input-group'>
-                                                                    <input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_es" required="required">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 margin_bottom_10 lang-es">
-                                                                <label>Description de l'annonce ES</label>
-                                                                <div class='input-group'>
-                                                                    <textarea class="form-control m-input" name="desc_add_es" rows="8">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    {{--<div class="tab-pane" id="en_redaction" role="tabpanel" aria-expanded="false">--}}
+                                                        {{--<div class="row">--}}
+                                                            {{--<div class="col-12 margin_bottom_10 lang-en form-group">--}}
+                                                                {{--<label>Titre de l'annonce EN</label>--}}
+                                                                {{--<div class='input-group'>--}}
+                                                                    {{--<input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_en" required="required">--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-12 margin_bottom_10 lang-en">--}}
+                                                                {{--<label>Description de l'annonce EN</label>--}}
+                                                                {{--<div class='input-group'>--}}
+                                                                    {{--<textarea class="form-control m-input" name="desc_add_en" rows="8">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="tab-pane" id="es_redaction" role="tabpanel" aria-expanded="false">--}}
+                                                        {{--<div class="row">--}}
+                                                            {{--<div class="col-12 margin_bottom_10 lang-es form-group">--}}
+                                                                {{--<label>Titre de l'annonce ES</label>--}}
+                                                                {{--<div class='input-group'>--}}
+                                                                    {{--<input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_es" required="required">--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-12 margin_bottom_10 lang-es">--}}
+                                                                {{--<label>Description de l'annonce ES</label>--}}
+                                                                {{--<div class='input-group'>--}}
+                                                                    {{--<textarea class="form-control m-input" name="desc_add_es" rows="8">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -3488,16 +3488,16 @@
                         noSpace: true
                         /*minlength: 2*/
                     },
-                    title_en: {
+                    /*title_en: {
                         required: true,
                         noSpace: true
-                        /*minlength: 2*/
+                        /!*minlength: 2*!/
                     },
                     title_es: {
                         noSpace: true,
                         required: true,
-                        /*minlength: 2*/
-                    }
+                        /!*minlength: 2*!/
+                    }*/
                 },
                 /*messages: {
                  title_fr: {

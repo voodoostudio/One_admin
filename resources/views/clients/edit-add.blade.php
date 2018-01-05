@@ -901,7 +901,7 @@
                                                     <div class="input-group">
                                                         <select class="form-control m-select2 custom_select2 elem-categories" id="nationality_child" name="nationality_child" data-placeholder="Nationalité">
                                                             @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
-                                                                <option value="{{ $nationality->reference }}" @if(isset($dataTypeContent->nationality) && $dataTypeContent->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
+                                                                <option value="{{ $nationality->reference }}" @if(isset($dataTypeContent->nationality_child) && $dataTypeContent->nationality_child == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
