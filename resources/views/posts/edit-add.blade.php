@@ -182,13 +182,13 @@
                                                     <div class="tab-pane active" id="fr_redaction" role="tabpanel" aria-expanded="true">
                                                         <div class="row">
                                                             <div class="col-12 margin_bottom_10 lang-fr form-group">
-                                                                <label class="form-control-label" for="titleFr">Titre de l'annonce FR</label>
+                                                                <label class="form-control-label" for="titleFr">Titre de l'annonce</label>
                                                                 <div class='input-group'>
                                                                     <input id="titleFr" type="text" value="{{ $dataTypeContent->title_fr }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_fr" required="required">
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 margin_bottom_10 lang-fr">
-                                                                <label for="desc-fr">Description de l'annonce FR</label>
+                                                                <label for="desc-fr">Description de l'annonce</label>
                                                                 <div class='input-group'>
                                                                     <textarea id="desc-fr" class="form-control m-input" name="desc_add_fr" rows="8">@if(isset($dataTypeContent->desc_add_fr)){{ $dataTypeContent->desc_add_fr }}@endif</textarea>
                                                                 </div>
