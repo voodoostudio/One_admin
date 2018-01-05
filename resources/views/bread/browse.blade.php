@@ -462,7 +462,7 @@
                         </div>\
                     </div>\
                     <div class="modal-footer">\
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>\
                         <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
                                                 </div>\
                                             </div>\
@@ -569,7 +569,7 @@
                         </div>\
                     </div>\
                     <div class="modal-footer">\
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>\
                         <a href="{{ Request::url() }}/' + row.id + '" class="btn btn-primary disabled" >Voir</a>\
                                                 </div>\
                                             </div>\
@@ -637,16 +637,16 @@
                                     <div class="modal-dialog modal-sm" role="document">\
                                         <div class="modal-content">\
                                             <div class="modal-header">\
-                                                <h5 class="modal-title" id="exampleModalLabel">Remove object</h5>\
+                                                <h5 class="modal-title" id="exampleModalLabel">Supprimer cet bien immobilier</h5>\
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
                                                     <span aria-hidden="true">×</span>\
                                                 </button>\
                                             </div>\
                                             <div class="modal-body">\
-                                                <p>Are you sure you want to delete this object?</p>\
+                                                <p>Etes-vous sûr de vouloir supprimer cet bien immobilier ?</p>\
                                             </div>\
                                             <div class="modal-footer">\
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>\
                                                 <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
                                                     {{ method_field("DELETE") }}\
                                                     {{ csrf_field() }}\
@@ -673,12 +673,12 @@
                                     <option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }} {{ $user->last_name }}</option>\
                                                             <?php }?>
                                     </select>\
-                                <div class="message_status_' + row.id + '"></div>\
+                                    <div class="message_status_' + row.id + '"></div>\
                                                         <input type="hidden" name="property_id" value="' + row.id + '" />\
                                                     </div>\
                                                 </div>\
                                                 <div class="modal-footer">\
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>\
                                                     <button type="submit" id="submit_vip" class="btn btn-primary">Envoyer</button>\
                                                 </div>\
                                             </form>\
@@ -789,11 +789,31 @@
                                         <div class="dropdown-menu dropdown-menu-right">\
                                             <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
                                             <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
-                                            <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
-                                                {{ method_field("DELETE") }}\
-                                                {{ csrf_field() }}\
-                                                <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
-                                            </form>\
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_clients_modal_' + row.id + '"><i class="la la-edit"></i>Add clients</a>\
+                                            <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal"><i class="la la-times-circle"></i>Effacer</button>\
+                                        </div>\
+                                        <div class="modal fade" id="remove_confirm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                            <div class="modal-dialog modal-sm" role="document">\
+                                                <div class="modal-content">\
+                                                    <div class="modal-header">\
+                                                        <h5 class="modal-title" id="exampleModalLabel">Supprimer cet utilisateur</h5>\
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                                            <span aria-hidden="true">×</span>\
+                                                        </button>\
+                                                    </div>\
+                                                    <div class="modal-body">\
+                                                        <p>Êtes-vous sûr de vouloir supprimer cet utilisateur ?</p>\
+                                                    </div>\
+                                                    <div class="modal-footer">\
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>\
+                                                        <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                                            {{ method_field("DELETE") }}\
+                                                            {{ csrf_field() }}\
+                                                            <button type="submit" class="btn btn-primary">Effacer</button>\
+                                                        </form>\
+                                                    </div>\
+                                                </div>\
+                                            </div>\
                                         </div>\
                                     </div>\
                                     ';
@@ -846,12 +866,32 @@
                                             </a>\
                                             <div class="dropdown-menu dropdown-menu-right">\
                                                 <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
-                                                <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
-                                                <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
-                                                    {{ method_field("DELETE") }}\
-                                                    {{ csrf_field() }}\
-                                                    <button type="submit" class="dropdown-item"><i class="la la-times-circle"></i>Effacer</button>\
-                                                </form>\
+                                                    <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
+                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_clients_modal_' + row.id + '"><i class="la la-edit"></i>Add clients</a>\
+                                                <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal"><i class="la la-times-circle"></i>Effacer</button>\
+                                            </div>\
+                                            <div class="modal fade" id="remove_confirm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                                <div class="modal-dialog modal-sm" role="document">\
+                                                    <div class="modal-content">\
+                                                        <div class="modal-header">\
+                                                            <h5 class="modal-title" id="exampleModalLabel">Supprimer cet client</h5>\
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                                                                <span aria-hidden="true">×</span>\
+                                                            </button>\
+                                                        </div>\
+                                                        <div class="modal-body">\
+                                                            <p>Êtes-vous sûr de vouloir supprimer cet client ?</p>\
+                                                        </div>\
+                                                        <div class="modal-footer">\
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>\
+                                                            <form action="{{ Request::url() }}/' + row.id + '" method="POST">\
+                                                                {{ method_field("DELETE") }}\
+                                                                {{ csrf_field() }}\
+                                                                <button type="submit" class="btn btn-primary">Effacer</button>\
+                                                            </form>\
+                                                        </div>\
+                                                    </div>\
+                                                </div>\
                                             </div>\
                                         </div>\
                                         ';
