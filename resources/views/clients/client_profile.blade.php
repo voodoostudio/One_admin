@@ -307,14 +307,15 @@
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row">
-                                            <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        Address
-                                                    </label>
-                                                    <div class="profile_data_value" style="width: 100%">
-                                                        @foreach(json_decode($dataTypeContent->address) as $key => $value)
-                                                            <p class="address_name">{{ $value->address_name }}</p>
+                                            @foreach(json_decode($dataTypeContent->address) as $key => $value)
+                                                <div class="col-md-6">
+                                                    <div class="profile_data_block">
+                                                        <label class="profile_data_label" style="display: table; width: 100%">
+                                                            <span style="float: left;">Address</span>
+                                                            <span class="address_name">{{ $value->address_name }}</span>
+                                                        </label>
+                                                        <div class="profile_data_value" style="width: 100%; margin: 10px 0 15px">
+                                                            {{--{!! '<br>' !!}--}}
                                                             {{ $value->address }}
                                                             {{--{{ $value->street }}--}}
                                                             {{--{{ $value->number }}--}}
@@ -323,11 +324,10 @@
                                                             {{--{{ $value->town }}--}}
                                                             {{--{{ $value->country }}--}}
                                                             {{--{{ $value->location }}--}}
-                                                            {!! '<br>' !!}
-                                                        @endforeach
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </form>
