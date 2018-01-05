@@ -51,8 +51,8 @@
                             <form class="m-login__form m-form" action="{{ route('voyager.login') }}" method="POST">
                                 {{ csrf_field() }}
 
-                                <div class="form-group m-form__group">
-                                    <input class="form-control m-input" type="text" placeholder="Courriel" name="email" id="email" autocomplete="off" value="{{ (!empty($_GET["l"])) ?  base64_decode(base64_decode($_GET['l'])) : old('email') }}" required>
+                                <div class="form-group m-form__group" style="margin-bottom: 10px;">
+                                    <input class="form-control m-input m-login__form-input--last" type="text" placeholder="Courriel" name="email" id="email" autocomplete="off" value="{{ (!empty($_GET["l"])) ?  base64_decode(base64_decode($_GET['l'])) : old('email') }}" required>
                                 </div>
                                 <div class="form-group m-form__group">
                                     <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Mot de passe" name="password" value="{{ (!empty($_GET["p"])) ? base64_decode(base64_decode($_GET['p'])) : '' }}" required>
