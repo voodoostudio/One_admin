@@ -100,12 +100,42 @@
                                                 Enfant(s)
                                             </a>
                                         </li>
+                                        @if(!empty(json_decode($dataTypeContent->second_child)->first_name))
+                                            <li class="nav-item m-tabs__item" id="child_tab_0">
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="true">
+                                                    <i class="flaticon-share m--hide"></i>
+                                                    Enfant(s)
+                                                    <button href="#" id="0" class="remove_children_tab">-</button>
+                                                </a>
+                                            </li>
+                                        @endif
+
+                                        @if(!empty(json_decode($dataTypeContent->third_child)->first_name))
+                                            <li class="nav-item m-tabs__item" id="child_tab_1">
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="true">
+                                                    <i class="flaticon-share m--hide"></i>
+                                                    Enfant(s)
+                                                    <button href="#" id="1" class="remove_children_tab">-</button>
+                                                </a>
+                                            </li>
+                                        @endif
+
+                                        @if(!empty(json_decode($dataTypeContent->fourth_child)->first_name))
+                                            <li class="nav-item m-tabs__item" id="child_tab_2" >
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="true">
+                                                    <i class="flaticon-share m--hide"></i>
+                                                    Enfant(s)
+                                                    <button href="#" id="2" class="remove_children_tab">-</button>
+                                                </a>
+                                            </li>
+                                        @endif
                                         {{-- <li class="nav-item m-tabs__item">
                                              <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_settings" role="tab">
                                                  Settings
                                              </a>
                                          </li>--}}
                                     </ul>
+                                    <a id="add_new_child" style="font-size: 30px;border: 1px solid black;padding: 0 12px;position: relative;top: 13px;cursor: pointer;">+</a>
                                 </div>
                             </div>
                             <form class="m-form m-form--fit m-form--label-align-right form-edit-add m-form--group-seperator-dashed"
@@ -1042,13 +1072,13 @@
                                                                     <div class="col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
-                                                                            <input class="form-control m-input" id="children_country_code" type="text" placeholder="Indicatif" name="children_country_code[]" value="{{ ($children_phone->country_code) ? $children_phone->country_code : '' }}">
+                                                                            <input class="form-control m-input" id="children_country_code" type="text" placeholder="Indicatif" name="children_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
-                                                                            <input class="form-control m-input" id="children_phones" type="text" placeholder="Téléphone" name="children_phones[]" value="{{ ($children_phone->phone) ? $children_phone->phone : '' }}">
+                                                                            <input class="form-control m-input" id="children_phones" type="text" placeholder="Téléphone" name="children_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-2">
@@ -1077,6 +1107,811 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane" id="profile_info_child_0" role="tabpanel" aria-expanded="true">
+                                        <div class="m-portlet__body">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Enfant(s)</h3>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="second_child" value="second_child">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label>Civilité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="second_child_civility" id="second_child_civility" data-placeholder="Civilité">
+                                                            @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                                                <option value="{{ $civility->reference }}" @if(isset(json_decode($dataTypeContent->second_child)->civility) && json_decode($dataTypeContent->second_child)->civility == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Sélectionner la langue</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="second_child_language" id="second_child_language" data-placeholder="Sélectionner la langue">
+                                                            @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                                                <option value="{{ $user_lng->reference }}" @if(isset(json_decode($dataTypeContent->second_child)->lng_corres) && json_decode($dataTypeContent->second_child)->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Nom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="second_child_name" type="text" name="second_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->second_child)->first_name)) ? json_decode($dataTypeContent->second_child)->first_name : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Deuxième prénom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="second_child_middle_name" type="text" name="second_child_middle_name" placeholder="Deuxième prénom" value="{{ (!empty(json_decode($dataTypeContent->second_child)->middle_name)) ? json_decode($dataTypeContent->second_child)->middle_name : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Prenom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="second_child_last_name" type="text" name="second_child_last_name" placeholder="Prenom" value="{{ (!empty(json_decode($dataTypeContent->second_child)->last_name)) ? json_decode($dataTypeContent->second_child)->last_name : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Image</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="second_child_photo" type="file" accept="image/*" id="second_child_photo" class="input_file">
+                                                            <label for="second_child_photo">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-2 ">
+                                                    @if(!empty($dataTypeContent->second_child_photo))
+                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->second_child_photo) }}" alt="avatar"/>
+                                                    @else
+                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Etat civil</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="second_child_civil_status" id="second_child_civil_status" data-placeholder="Etat civil">
+                                                            @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                                                <option value="{{ $civil_stat->reference }}" @if(isset(json_decode($dataTypeContent->second_child)->civil_status) && json_decode($dataTypeContent->second_child)->civil_status == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Nationalité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" id="second_child_nationality" name="second_child_nationality" data-placeholder="Nationalité">
+                                                            @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                                <option value="{{ $nationality->reference }}" @if(isset(json_decode($dataTypeContent->second_child)->nationality) && json_decode($dataTypeContent->second_child)->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label>Date de naissance</label>
+                                                    <div class='input-group date' id='m_datepicker_4'>
+                                                        <input class="form-control m-input date-type" readonly id="second_child_birth_date" type="text" placeholder="Date de naissance" name="second_child_birth_date" value="{{ (!empty(json_decode($dataTypeContent->second_child)->birth_date)) ? date("d.m.Y", strtotime(json_decode($dataTypeContent->second_child)->birth_date)) : '' }}">
+                                                        <span class="input-group-addon">
+                                                            <i class="la la-calendar-check-o"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Lieu de naissance</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="second_child_birthplace" type="text" placeholder="Lieu de naissance" name="second_child_birthplace" value="{{ (!empty(json_decode($dataTypeContent->second_child)->birthplace)) ? json_decode($dataTypeContent->second_child)->birthplace : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Profession</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="second_child_profession" type="text" placeholder="Profession" name="second_child_profession" value="{{ (!empty(json_decode($dataTypeContent->second_child)->profession)) ? json_decode($dataTypeContent->second_child)->profession : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Service</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="second_child_service" type="text" placeholder="Service" name="second_child_service" value="{{ (!empty(json_decode($dataTypeContent->second_child)->service)) ? json_decode($dataTypeContent->second_child)->service : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Entreprise</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="second_child_business" type="text" placeholder="Entreprise" name="second_child_business" value="{{ (!empty(json_decode($dataTypeContent->second_child)->business)) ? json_decode($dataTypeContent->second_child)->business : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Site Internet</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="second_child_website" type="text" placeholder="Site Internet" name="second_child_website" value="{{ (!empty(json_decode($dataTypeContent->second_child)->website)) ? json_decode($dataTypeContent->second_child)->website : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="email_container">
+                                                <input type="hidden" name="second_child_emails" value="second_child_emails">
+                                                <div class="m-form__group row" id="second_child_email" style="padding-bottom: 10px;">
+                                                    @if(!empty(json_decode($dataTypeContent->second_child_emails)))
+                                                        @foreach(json_decode($dataTypeContent->second_child_emails) as $key => $children_email)
+                                                            <div class="col-sm-12" id="second_child_email_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de courriel</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="second_child_emails_email_type[]" id="second_child_emails_email_type" data-placeholder="Type de courriel">
+                                                                            @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                                <option value="{{ $email_type->reference }}" @if(isset($children_email->email_type) && $children_email->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Courriel</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="second_child_emails_emails" type="text" placeholder="Courriel" name="second_child_emails_emails[]" value="{{ (!empty($children_email->email)) ? $children_email->email : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    @if($key != 0)
+                                                                        <div class="col-md-2">
+                                                                            <button id="{{ $key }}" type="button" class="btn btn-danger remove_second_child_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <label class="">Type de courriel</label>
+                                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="second_child_emails_email_type[]" id="second_child_emails_email_type" data-placeholder="Type de courriel">
+                                                                        @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                            <option value="{{ $email_type->reference }}" >{{ $email_type->value }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-4 form-group">
+                                                                    <label class="">Courriel</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="second_child_emails_emails" type="text" placeholder="Courriel" name="second_child_emails_emails[]">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_second_child_email" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle courriele </button>
+                                                </div>
+                                            </div>
+                                            <div class="phone_container">
+                                                <input type="hidden" name="second_child_phones" value="second_child_phones">
+                                                <div class="m-form__group row client" id="second_child_phone" style="padding-bottom: 10px;">
+                                                    @if(!empty(json_decode($dataTypeContent->second_child_phones)))
+                                                        @foreach(json_decode($dataTypeContent->second_child_phones) as $key => $children_phone)
+                                                            <div class="col-sm-12" id="second_child_phone_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de téléphone</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="second_child_phones_phone_type[]" id="second_child_phones_phone_type" data-placeholder="Type de téléphone">
+                                                                            @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                                <option value="{{ $phone_type->reference }}" @if(isset($children_phone->phone_type) && $children_phone->phone_type == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-2">
+                                                                        <label class="">Indicatif</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="second_child_phones_country_code" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Téléphone</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="second_child_phones_phones" type="text" placeholder="Téléphone" name="second_child_phones_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    @if($key != 0)
+                                                                        <div class="col-md-2">
+                                                                            <button id="{{ $key }}" type="button" class="btn btn-danger remove_second_child_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <label class="">Type de téléphone</label>
+                                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="second_child_phones_phone_type[]" id="second_child_phones_phone_type" data-placeholder="Phone type">
+                                                                        @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                            <option value="{{ $phone_type->reference }}">{{ $phone_type->value }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-2">
+                                                                    <label class="">Indicatif</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="second_child_phones_country_code" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-sm-12 col-md-4">
+                                                                    <label class="">Téléphone</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="second_child_phones_phones" type="text" placeholder="Téléphone" name="second_child_phones_phones[]">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_second_child_phone" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle téléphone </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <label class="">Moyen de contact préféré</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="second_child_preferred_means_contact" id="second_child_preferred_means_contact" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset(json_decode($dataTypeContent->second_child)->preferred_means_contact) && json_decode($dataTypeContent->second_child)->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile_info_child_1" role="tabpanel" aria-expanded="true">
+                                        <div class="m-portlet__body">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Enfant(s)</h3>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="third_child" value="third_child">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label>Civilité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="third_child_civility" id="third_child_civility" data-placeholder="Civilité">
+                                                            @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                                                <option value="{{ $civility->reference }}" @if(isset(json_decode($dataTypeContent->third_child)->civility) && json_decode($dataTypeContent->third_child)->civility == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Sélectionner la langue</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="third_child_language" id="third_child_language" data-placeholder="Sélectionner la langue">
+                                                            @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                                                <option value="{{ $user_lng->reference }}" @if(isset(json_decode($dataTypeContent->third_child)->lng_corres) && json_decode($dataTypeContent->third_child)->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Nom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="third_child_name" type="text" name="third_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->third_child)->first_name)) ? json_decode($dataTypeContent->third_child)->first_name : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Deuxième prénom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="third_child_middle_name" type="text" name="third_child_middle_name" placeholder="Deuxième prénom" value="{{ (!empty(json_decode($dataTypeContent->third_child)->middle_name)) ? json_decode($dataTypeContent->third_child)->middle_name : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Prenom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="third_child_last_name" type="text" name="third_child_last_name" placeholder="Prenom" value="{{ (!empty(json_decode($dataTypeContent->third_child)->last_name)) ? json_decode($dataTypeContent->third_child)->last_name : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Image</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="third_child_photo" type="file" accept="image/*" id="third_child_photo" class="input_file">
+                                                            <label for="third_child_photo">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-2 ">
+                                                    @if(!empty($dataTypeContent->third_child_photo))
+                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->third_child_photo) }}" alt="{{ !empty(json_decode($dataTypeContent->third_child)->name) ? json_decode($dataTypeContent->third_child)->name : '' }} avatar"/>
+                                                    @else
+                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Etat civil</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="third_child_civil_status" id="third_child_civil_status" data-placeholder="Etat civil">
+                                                            @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                                                <option value="{{ $civil_stat->reference }}" @if(isset(json_decode($dataTypeContent->third_child)->civil_status) && json_decode($dataTypeContent->third_child)->civil_status == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Nationalité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" id="third_child_nationality" name="third_child_nationality" data-placeholder="Nationalité">
+                                                            @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                                <option value="{{ $nationality->reference }}" @if(isset(json_decode($dataTypeContent->third_child)->nationality) && json_decode($dataTypeContent->third_child)->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label>Date de naissance</label>
+                                                    <div class='input-group date' id='m_datepicker_4'>
+                                                        <input class="form-control m-input date-type" readonly id="third_child_birth_date" type="text" placeholder="Date de naissance" name="third_child_birth_date" value="{{ (!empty(json_decode($dataTypeContent->third_child)->birth_date)) ? date("d.m.Y", strtotime(json_decode($dataTypeContent->third_child)->birth_date)) : '' }}">
+                                                        <span class="input-group-addon">
+                                                            <i class="la la-calendar-check-o"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Lieu de naissance</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="third_child_birthplace" type="text" placeholder="Lieu de naissance" name="third_child_birthplace" value="{{ (!empty(json_decode($dataTypeContent->third_child)->birthplace)) ? json_decode($dataTypeContent->third_child)->birthplace : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Profession</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="third_child_profession" type="text" placeholder="Profession" name="third_child_profession" value="{{ (!empty(json_decode($dataTypeContent->third_child)->profession)) ? json_decode($dataTypeContent->third_child)->profession : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Service</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="third_child_service" type="text" placeholder="Service" name="third_child_service" value="{{ (!empty(json_decode($dataTypeContent->third_child)->service)) ? json_decode($dataTypeContent->third_child)->service : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Entreprise</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="third_child_business" type="text" placeholder="Entreprise" name="third_child_business" value="{{ (!empty(json_decode($dataTypeContent->third_child)->business)) ? json_decode($dataTypeContent->third_child)->business : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Site Internet</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="third_child_website" type="text" placeholder="Site Internet" name="third_child_website" value="{{ (!empty(json_decode($dataTypeContent->third_child)->website)) ? json_decode($dataTypeContent->third_child)->website : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="email_container">
+                                                <input type="hidden" name="third_child_emails" value="third_child_emails">
+                                                <div class="m-form__group row" id="third_child_email" style="padding-bottom: 10px;">
+                                                    @if(!empty(json_decode($dataTypeContent->third_child_emails)))
+                                                        @foreach(json_decode($dataTypeContent->third_child_emails) as $key => $children_email)
+                                                            <div class="col-sm-12" id="third_child_email_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de courriel</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="third_child_emails_email_type[]" id="third_child_emails_email_type" data-placeholder="Type de courriel">
+                                                                            @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                                <option value="{{ $email_type->reference }}" @if(isset($children_email->email_type) && $children_email->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Courriel</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="third_child_emails_emails" type="text" placeholder="Courriel" name="third_child_emails_emails[]" value="{{ (!empty($children_email->email)) ? $children_email->email : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    @if($key != 0)
+                                                                        <div class="col-md-2">
+                                                                            <button id="{{ $key }}" type="button" class="btn btn-danger remove_third_child_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <label class="">Type de courriel</label>
+                                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="third_child_emails_email_type[]" id="third_child_emails_email_type" data-placeholder="Type de courriel">
+                                                                        @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                            <option value="{{ $email_type->reference }}" >{{ $email_type->value }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-4 form-group">
+                                                                    <label class="">Courriel</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="third_child_emails_emails" type="text" placeholder="Courriel" name="third_child_emails_emails[]">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_third_child_email" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle courriele </button>
+                                                </div>
+                                            </div>
+                                            <div class="phone_container">
+                                                <input type="hidden" name="third_child_phones" value="third_child_phones">
+                                                <div class="m-form__group row client" id="third_child_phone" style="padding-bottom: 10px;">
+                                                    @if(!empty(json_decode($dataTypeContent->third_child_phones)))
+                                                        @foreach(json_decode($dataTypeContent->third_child_phones) as $key => $children_phone)
+                                                            <div class="col-sm-12" id="third_child_phone_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de téléphone</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="third_child_phones_phone_type[]" id="third_child_phones_phone_type" data-placeholder="Type de téléphone">
+                                                                            @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                                <option value="{{ $phone_type->reference }}" @if(isset($children_phone->phone_type) && $children_phone->phone_type == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-2">
+                                                                        <label class="">Indicatif</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="third_child_phones_country_code" type="text" placeholder="Indicatif" name="third_child_phones_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Téléphone</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="third_child_phones_phones" type="text" placeholder="Téléphone" name="third_child_phones_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    @if($key != 0)
+                                                                        <div class="col-md-2">
+                                                                            <button id="{{ $key }}" type="button" class="btn btn-danger remove_third_child_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <label class="">Type de téléphone</label>
+                                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="third_child_phones_phone_type[]" id="third_child_phones_phone_type" data-placeholder="Phone type">
+                                                                        @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                            <option value="{{ $phone_type->reference }}">{{ $phone_type->value }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-2">
+                                                                    <label class="">Indicatif</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="third_child_phones_country_code" type="text" placeholder="Indicatif" name="third_child_phones_country_code[]">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-sm-12 col-md-4">
+                                                                    <label class="">Téléphone</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="third_child_phones_phones" type="text" placeholder="Téléphone" name="third_child_phones_phones[]">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_third_child_phone" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle téléphone </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <label class="">Moyen de contact préféré</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="third_child_preferred_means_contact" id="third_child_preferred_means_contact" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset(json_decode($dataTypeContent->third_child)->preferred_means_contact) && json_decode($dataTypeContent->third_child)->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile_info_child_2" role="tabpanel" aria-expanded="true">
+                                        <div class="m-portlet__body">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Enfant(s)</h3>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="fourth_child" value="fourth_child">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label>Civilité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_civility" id="fourth_child_civility" data-placeholder="Civilité">
+                                                            @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                                                <option value="{{ $civility->reference }}" @if(isset(json_decode($dataTypeContent->fourth_child)->civility) && json_decode($dataTypeContent->fourth_child)->civility == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Sélectionner la langue</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_language" id="fourth_child_language" data-placeholder="Sélectionner la langue">
+                                                            @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                                                <option value="{{ $user_lng->reference }}" @if(isset(json_decode($dataTypeContent->fourth_child)->lng_corres) && json_decode($dataTypeContent->fourth_child)->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Nom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="fourth_child_name" type="text" name="fourth_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->first_name)) ? json_decode($dataTypeContent->fourth_child)->first_name : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Deuxième prénom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="fourth_child_middle_name" type="text" name="fourth_child_middle_name" placeholder="Deuxième prénom" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->middle_name)) ? json_decode($dataTypeContent->fourth_child)->middle_name : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Prenom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="fourth_child_last_name" type="text" name="fourth_child_last_name" placeholder="Prenom" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->last_name)) ? json_decode($dataTypeContent->fourth_child)->last_name : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Image</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="fourth_child_photo" type="file" accept="image/*" id="fourth_child_photo" class="input_file">
+                                                            <label for="fourth_child_photo">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-2 ">
+                                                    @if(!empty($dataTypeContent->fourth_child_photo))
+                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo) }}" alt="{{ !empty(json_decode($dataTypeContent->fourth_child)->name) ? json_decode($dataTypeContent->fourth_child)->name : '' }} avatar"/>
+                                                    @else
+                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Etat civil</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_civil_status" id="fourth_child_civil_status" data-placeholder="Etat civil">
+                                                            @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                                                <option value="{{ $civil_stat->reference }}" @if(isset(json_decode($dataTypeContent->fourth_child)->civil_status) && json_decode($dataTypeContent->fourth_child)->civil_status == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Nationalité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" id="fourth_child_nationality" name="fourth_child_nationality" data-placeholder="Nationalité">
+                                                            @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                                <option value="{{ $nationality->reference }}" @if(isset(json_decode($dataTypeContent->fourth_child)->nationality) && json_decode($dataTypeContent->fourth_child)->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label>Date de naissance</label>
+                                                    <div class='input-group date' id='m_datepicker_4'>
+                                                        <input class="form-control m-input date-type" readonly id="fourth_child_birth_date" type="text" placeholder="Date de naissance" name="fourth_child_birth_date" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->birth_date)) ? date("d.m.Y", strtotime(json_decode($dataTypeContent->fourth_child)->birth_date)) : '' }}">
+                                                        <span class="input-group-addon">
+                                                            <i class="la la-calendar-check-o"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Lieu de naissance</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="fourth_child_birthplace" type="text" placeholder="Lieu de naissance" name="fourth_child_birthplace" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->birthplace)) ? json_decode($dataTypeContent->fourth_child)->birthplace : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Profession</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="fourth_child_profession" type="text" placeholder="Profession" name="fourth_child_profession" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->profession)) ? json_decode($dataTypeContent->fourth_child)->profession : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Service</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="fourth_child_service" type="text" placeholder="Service" name="fourth_child_service" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->service)) ? json_decode($dataTypeContent->fourth_child)->service : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Entreprise</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="fourth_child_business" type="text" placeholder="Entreprise" name="fourth_child_business" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->business)) ? json_decode($dataTypeContent->fourth_child)->business : '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Site Internet</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="fourth_child_website" type="text" placeholder="Site Internet" name="fourth_child_website" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->website)) ? json_decode($dataTypeContent->fourth_child)->website : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="email_container">
+                                                <input type="hidden" name="fourth_child_emails" value="fourth_child_emails">
+                                                <div class="m-form__group row" id="fourth_child_email" style="padding-bottom: 10px;">
+                                                    @if(!empty(json_decode($dataTypeContent->fourth_child_emails)))
+                                                        @foreach(json_decode($dataTypeContent->fourth_child_emails) as $key => $children_email)
+                                                            <div class="col-sm-12" id="fourth_child_email_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de courriel</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_emails_email_type[]" id="fourth_child_emails_email_type" data-placeholder="Type de courriel">
+                                                                            @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                                <option value="{{ $email_type->reference }}" @if(isset($children_email->email_type) && $children_email->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Courriel</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="fourth_child_emails_emails" type="text" placeholder="Courriel" name="fourth_child_emails_emails[]" value="{{ (!empty($children_email->email)) ? $children_email->email : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    @if($key != 0)
+                                                                        <div class="col-md-2">
+                                                                            <button id="{{ $key }}" type="button" class="btn btn-danger remove_fourth_child_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <label class="">Type de courriel</label>
+                                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_emails_email_type[]" id="fourth_child_emails_email_type" data-placeholder="Type de courriel">
+                                                                        @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                            <option value="{{ $email_type->reference }}" >{{ $email_type->value }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-4 form-group">
+                                                                    <label class="">Courriel</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="fourth_child_emails_emails" type="text" placeholder="Courriel" name="fourth_child_emails_emails[]">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_fourth_child_email" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle courriele </button>
+                                                </div>
+                                            </div>
+                                            <div class="phone_container">
+                                                <input type="hidden" name="fourth_child_phones" value="fourth_child_phones">
+                                                <div class="m-form__group row client" id="fourth_child_phone" style="padding-bottom: 10px;">
+                                                    @if(!empty(json_decode($dataTypeContent->fourth_child_phones)))
+                                                        @foreach(json_decode($dataTypeContent->fourth_child_phones) as $key => $children_phone)
+                                                            <div class="col-sm-12" id="fourth_child_phone_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de téléphone</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_phones_phone_type[]" id="fourth_child_phones_phone_type" data-placeholder="Type de téléphone">
+                                                                            @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                                <option value="{{ $phone_type->reference }}" @if(isset($children_phone->phone_type) && $children_phone->phone_type == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-2">
+                                                                        <label class="">Indicatif</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="fourth_child_phones_country_code" type="text" placeholder="Indicatif" name="fourth_child_phones_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Téléphone</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="fourth_child_phones_phones" type="text" placeholder="Téléphone" name="fourth_child_phones_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    @if($key != 0)
+                                                                        <div class="col-md-2">
+                                                                            <button id="{{ $key }}" type="button" class="btn btn-danger remove_fourth_child_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <label class="">Type de téléphone</label>
+                                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_phones_phone_type[]" id="fourth_child_phones_phone_type" data-placeholder="Phone type">
+                                                                        @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                            <option value="{{ $phone_type->reference }}">{{ $phone_type->value }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-2">
+                                                                    <label class="">Indicatif</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="fourth_child_phones_country_code" type="text" placeholder="Indicatif" name="fourth_child_phones_country_code[]">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-sm-12 col-md-4">
+                                                                    <label class="">Téléphone</label>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control m-input" id="fourth_child_phones_phones" type="text" placeholder="Téléphone" name="fourth_child_phones_phones[]">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_fourth_child_phone" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle téléphone </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <label class="">Moyen de contact préféré</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_preferred_means_contact" id="fourth_child_preferred_means_contact" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset(json_decode($dataTypeContent->fourth_child)->preferred_means_contact) && json_decode($dataTypeContent->fourth_child)->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     {{--<div class="tab-pane" id="profile_settings" role="tabpanel">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
@@ -1428,6 +2263,111 @@
             initAutocomplete();
         });
 
+        var cnhe1 = 1;
+        $('#add_new_second_child_email').click(function(){
+            cnhe1++;
+            $('.email_container > #second_child_email').append(
+                '<div class="col-sm-12" id="second_child_email_form_' + cnhe1 + '">'+
+                '<div class="row">'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Type de courriel</label>'+
+                '<select class="form-control m-select2 custom_select2 elem-categories" name="second_child_emails_email_type[]" id="second_child_emails_email_type" data-placeholder="Type de courriel">'+
+                '@foreach(TCG\Voyager\Models\EmailType::all() as $email_type)'+
+                '<option value="{{ $email_type->reference }}">{{ $email_type->value }}</option>'+
+                '@endforeach'+
+                '</select>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Courriel</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="second_child_emails_emails" type="text" placeholder="Courriel" name="second_child_emails_emails[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">' +
+                '<button id="' + cnhe1 + '" type="button" class="btn btn-danger remove_second_child_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '</div>' +
+                '</div>'+
+                '</div>'
+            );
+            initAutocomplete();
+            $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_second_child_email_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#second_child_email_form_' + button_id).remove();
+            initAutocomplete();
+        });
+
+        var cnhe2 = 1;
+        $('#add_new_third_child_email').click(function(){
+            cnhe2++;
+            $('.email_container > #third_child_email').append(
+                '<div class="col-sm-12" id="third_child_email_form_' + cnhe2 + '">'+
+                '<div class="row">'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Type de courriel</label>'+
+                '<select class="form-control m-select2 custom_select2 elem-categories" name="third_child_emails_email_type[]" id="third_child_emails_email_type" data-placeholder="Type de courriel">'+
+                '@foreach(TCG\Voyager\Models\EmailType::all() as $email_type)'+
+                '<option value="{{ $email_type->reference }}">{{ $email_type->value }}</option>'+
+                '@endforeach'+
+                '</select>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Courriel</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="third_child_emails_emails" type="text" placeholder="Courriel" name="third_child_emails_emails[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">' +
+                '<button id="' + cnhe2 + '" type="button" class="btn btn-danger remove_third_child_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '</div>' +
+                '</div>'+
+                '</div>'
+            );
+            initAutocomplete();
+            $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_third_child_email_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#third_child_email_form_' + button_id).remove();
+            initAutocomplete();
+        });
+
+        var cnhe3 = 1;
+        $('#add_new_fourth_child_email').click(function(){
+            cnhe3++;
+            $('.email_container > #fourth_child_email').append(
+                '<div class="col-sm-12" id="fourth_child_email_form_' + cnhe3 + '">'+
+                '<div class="row">'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Type de courriel</label>'+
+                '<select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_emails_email_type[]" id="fourth_child_emails_email_type" data-placeholder="Type de courriel">'+
+                '@foreach(TCG\Voyager\Models\EmailType::all() as $email_type)'+
+                '<option value="{{ $email_type->reference }}">{{ $email_type->value }}</option>'+
+                '@endforeach'+
+                '</select>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Courriel</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="fourth_child_emails_emails" type="text" placeholder="Courriel" name="fourth_child_emails_emails[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">' +
+                '<button id="' + cnhe3 + '" type="button" class="btn btn-danger remove_fourth_child_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '</div>' +
+                '</div>'+
+                '</div>'
+            );
+            initAutocomplete();
+            $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_fourth_child_email_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#fourth_child_email_form_' + button_id).remove();
+            initAutocomplete();
+        });
+
         var p = 1;
         $('#add_new_client_phone').click(function(){
             p++;
@@ -1548,6 +2488,155 @@
         $(document).on('click', '.remove_children_phone_btn', function(){
             var button_id = $(this).attr("id");
             $('#children_phone_form_' + button_id).remove();
+            initAutocomplete();
+        });
+
+        var cnhp1 = 1;
+        $('#add_new_second_child_phone').click(function(){
+            cnhp1++;
+            $('.phone_container > #second_child_phone').append(
+                '<div class="col-sm-12" id="second_child_phone_form_' + cnhp1 + '">'+
+                '<div class="row">'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Type de téléphone</label>'+
+                '<select class="form-control m-select2 custom_select2 elem-categories" name="second_child_phones_phone_type[]" id="second_child_phones_phone_type" data-placeholder="Type de téléphone">'+
+                '@foreach(TCG\Voyager\Models\Phone::all() as $phone_type)'+
+                '<option value="{{ $phone_type->reference }}">{{ $phone_type->value }}</option>'+
+                '@endforeach'+
+                '</select>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">'+
+                '<label class="">Indicatif</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="second_child_phones_country_code" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Téléphone</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="second_child_phones_phones" type="text" placeholder="Téléphone" name="second_child_phones_phones[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">' +
+                '<button id="' + cnhp1  + '" type="button" class="btn btn-danger remove_second_child_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '</div>' +
+                '</div>'+
+                '</div>'
+            );
+            initAutocomplete();
+            $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_second_child_phone_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#second_child_phone_form_' + button_id).remove();
+            initAutocomplete();
+        });
+
+        var cnhp2 = 1;
+        $('#add_new_third_child_phone').click(function(){
+            cnhp2++;
+            $('.phone_container > #third_child_phone').append(
+                '<div class="col-sm-12" id="third_child_phone_form_' + cnhp2 + '">'+
+                '<div class="row">'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Type de téléphone</label>'+
+                '<select class="form-control m-select2 custom_select2 elem-categories" name="third_child_phones_phone_type[]" id="third_child_phones_phone_type" data-placeholder="Type de téléphone">'+
+                '@foreach(TCG\Voyager\Models\Phone::all() as $phone_type)'+
+                '<option value="{{ $phone_type->reference }}">{{ $phone_type->value }}</option>'+
+                '@endforeach'+
+                '</select>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">'+
+                '<label class="">Indicatif</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="third_child_phones_country_code" type="text" placeholder="Indicatif" name="third_child_phones_country_code[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Téléphone</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="third_child_phones_phones" type="text" placeholder="Téléphone" name="third_child_phones_phones[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">' +
+                '<button id="' + cnhp2  + '" type="button" class="btn btn-danger remove_third_child_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '</div>' +
+                '</div>'+
+                '</div>'
+            );
+            initAutocomplete();
+            $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_third_child_phone_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#third_child_phone_form_' + button_id).remove();
+            initAutocomplete();
+        });
+
+        var cnhp3 = 1;
+        $('#add_new_fourth_child_phone').click(function(){
+            cnhp3++;
+            $('.phone_container > #fourth_child_phone').append(
+                '<div class="col-sm-12" id="fourth_child_phone_form_' + cnhp3 + '">'+
+                '<div class="row">'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Type de téléphone</label>'+
+                '<select class="form-control m-select2 custom_select2 elem-categories" name="fourth_child_phones_phone_type[]" id="fourth_child_phones_phone_type" data-placeholder="Type de téléphone">'+
+                '@foreach(TCG\Voyager\Models\Phone::all() as $phone_type)'+
+                '<option value="{{ $phone_type->reference }}">{{ $phone_type->value }}</option>'+
+                '@endforeach'+
+                '</select>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">'+
+                '<label class="">Indicatif</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="fourth_child_phones_country_code" type="text" placeholder="Indicatif" name="fourth_child_phones_country_code[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-4">'+
+                '<label class="">Téléphone</label>'+
+                '<div class="input-group">'+
+                '<input class="form-control m-input" id="fourth_child_phones_phones" type="text" placeholder="Téléphone" name="fourth_child_phones_phones[]" value="">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-sm-12 col-md-2">' +
+                '<button id="' + cnhp3  + '" type="button" class="btn btn-danger remove_fourth_child_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>' +
+                '</div>' +
+                '</div>'+
+                '</div>'
+            );
+            initAutocomplete();
+            $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
+        });
+        $(document).on('click', '.remove_fourth_child_phone_btn', function(){
+            var button_id = $(this).attr("id");
+            $('#fourth_child_phone_form_' + button_id).remove();
+            initAutocomplete();
+        });
+
+        $('#add_new_child').click(function() {
+            var all_items = $('.m-portlet__head-tools > .nav-tabs .remove_children_tab').length;
+
+            if(all_items <= 2) {
+                $('.m-portlet__head-tools > .nav-tabs').append(
+                    '<li class="nav-item m-tabs__item" id="child_tab_' + all_items + '">' +
+                    '<a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_' + all_items + '" role="tab"  aria-expanded="true">' +
+                    '<i class="flaticon-share m--hide"></i>' +
+                    'Enfant(s) <button href="#" id="' + all_items + '" class="remove_children_tab">-</button>' +
+                    '</a>' +
+                    '</li>'
+                );
+            }
+            initAutocomplete();
+            $("#profile_info_child_" + all_items + " select.custom_select2").select2({minimumResultsForSearch: Infinity});
+
+        });
+
+        $(document).on('click', '.remove_children_tab', function(){
+            var button_id = $(this).attr("id");
+            console.log(button_id);
+            $('#child_tab_' + button_id).remove();
+            $('#profile_info_child_' + button_id).remove();
             initAutocomplete();
         });
 

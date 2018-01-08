@@ -90,6 +90,24 @@ class CreateUsersTable extends Migration
             $table->text('children_emails')->nullable();
             $table->text('children_phones')->nullable();
 
+            /* Second child */
+            $table->text('second_child')->nullable();
+            $table->string('second_child_photo')->nullable();
+            $table->text('second_child_emails')->nullable();
+            $table->text('second_child_phones')->nullable();
+
+            /* Third child */
+            $table->text('third_child')->nullable();
+            $table->string('third_child_photo')->nullable();
+            $table->text('third_child_emails')->nullable();
+            $table->text('third_child_phones')->nullable();
+
+            /* Fourth child */
+            $table->text('fourth_child')->nullable();
+            $table->string('fourth_child_photo')->nullable();
+            $table->text('fourth_child_emails')->nullable();
+            $table->text('fourth_child_phones')->nullable();
+
             /**/
             $table->string('user_info')->nullable();
 

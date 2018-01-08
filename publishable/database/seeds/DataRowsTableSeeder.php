@@ -5840,6 +5840,198 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($userDataType, 'second_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'new_child',
+                'display_name' => 'Second child',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 18,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'third_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'new_child',
+                'display_name' => 'Third child',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 19,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'fourth_child');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'new_child',
+                'display_name' => 'Fourth child',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 20,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'second_child_photo');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'image',
+                'display_name' => 'Second child photo',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 21,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'third_child_photo');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'image',
+                'display_name' => 'Third child photo',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 22,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'fourth_child_photo');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'image',
+                'display_name' => 'Fourth child photo',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 23,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'second_child_emails');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_emails_new_child',
+                'display_name' => 'Second child emails',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 24,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'third_child_emails');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_emails_new_child',
+                'display_name' => 'Third child emails',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 25,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'fourth_child_emails');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_emails_new_child',
+                'display_name' => 'Fourth child emails',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 26,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'second_child_phones');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_phones_new_child',
+                'display_name' => 'Second child phones',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 27,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'third_child_phones');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_phones_new_child',
+                'display_name' => 'Third child phones',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 28,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'fourth_child_phones');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'multiple_phones_new_child',
+                'display_name' => 'Fourth child phones',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 29,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($menuDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([

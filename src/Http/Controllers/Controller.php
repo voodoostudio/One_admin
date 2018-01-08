@@ -84,6 +84,17 @@ abstract class Controller extends BaseController
                     $content = $data->{$row->field};
                 }
 
+                /* if($request->second_child_photo != null ) {
+                     $content = $data->{$row->second_child_photo};
+                    // dd($data->{$row->second_child_photo});
+                 } else {
+                    //dd($data->{$row->second_child_photo} = null);
+                     //dd($data->second_child_photo = '');
+                     $content = $data->second_child_photo = 'users/default.png';
+                 }*/
+
+                //|| $request->third_child_photo != null || $request->fourth_child_photo != null
+
                 // If the file upload is null and it has a current file keep the current file
                 if ($row->type == 'file') {
                     $content = $data->{$row->field};
@@ -294,6 +305,80 @@ abstract class Controller extends BaseController
                             }
                         }
                         $content = $newContent;
+                    }
+                }
+                return json_encode($content);
+                break;
+
+            case 'new_child':
+                $content = $request->input($row->field);
+                if ($content === null) {
+                    $content = [];
+                } else {
+                    $children_array = [
+                        'civility'                  => Input::get(''. $row->field . '_civility'),
+                        'lng_corres'                => Input::get(''. $row->field . '_language'),
+                        'first_name'                => Input::get(''. $row->field . '_name'),
+                        'middle_name'               => Input::get(''. $row->field . '_middle_name'),
+                        'last_name'                 => Input::get(''. $row->field . '_last_name'),
+                        'photo'                     => Input::get(''. $row->field . '_photo'),
+                        'civil_status'              => Input::get(''. $row->field . '_civil_status'),
+                        'nationality'               => Input::get(''. $row->field . '_nationality'),
+                        'birth_date'                => Input::get(''. $row->field . '_birth_date'),
+                        'birthplace'                => Input::get(''. $row->field . '_birthplace'),
+                        'profession'                => Input::get(''. $row->field . '_profession'),
+                        'service'                   => Input::get(''. $row->field . '_service'),
+                        'business'                  => Input::get(''. $row->field . '_business'),
+                        'website'                   => Input::get(''. $row->field . '_website'),
+                        'preferred_means_contact'   => Input::get(''. $row->field . '_preferred_means_contact'),
+                    ];
+
+                    $content = $children_array;
+                }
+                return json_encode($content);
+                break;
+
+            case 'multiple_emails_new_child':
+                $content = $request->input($row->field);
+                if ($content === null) {
+                    $content = [];
+                } else {
+                    $emails = [];
+                    $number_email = count(Input::get(''. $row->field . '_email_type'));
+                    if($number_email > 0) {
+                        for($i = 0; $i < $number_email; $i++) {
+                            if(trim(Input::get(''. $row->field . '_email_type')[$i] != '')) {
+                                $emails[$i] =  [
+                                    'email_type'    => Input::get(''. $row->field . '_email_type')[$i],
+                                    'email'         => Input::get(''. $row->field . '_emails')[$i]
+                                ];
+                            }
+                        }
+                        $content = $emails;
+                    }
+
+                }
+                return json_encode($content);
+                break;
+
+            case 'multiple_phones_new_child':
+                $content = $request->input($row->field);
+                if ($content === null) {
+                    $content = [];
+                } else {
+                    $phones = [];
+                    $number_email = count(Input::get(''. $row->field . '_phone_type'));
+                    if($number_email > 0) {
+                        for($i = 0; $i < $number_email; $i++) {
+                            if(trim(Input::get(''. $row->field . '_phone_type')[$i] != '')) {
+                                $phones[$i] = [
+                                    'phone_type'    => Input::get(''. $row->field . '_phone_type')[$i],
+                                    'country_code'  => Input::get(''. $row->field . '_country_code')[$i],
+                                    'phone'         => Input::get(''. $row->field . '_phones')[$i]
+                                ];
+                            }
+                        }
+                        $content = $phones;
                     }
                 }
                 return json_encode($content);
