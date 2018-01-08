@@ -1,6 +1,6 @@
 @extends('voyager::master_metronic')
 
-{{--{{ dd(Auth::user()->toArray()) }}--}}
+{{--{{ dd(json_decode(Auth::user()->second_child)) }}--}}
 
 @section('css')
     {{--<link rel="stylesheet" type="text/css" href="{{ voyager_asset('css/ga-embed.css') }}">--}}
@@ -96,6 +96,37 @@
                                                 Enfant(s)
                                             </a>
                                         </li>
+
+                                        @if(!empty(json_decode(Auth::user()->second_child)->first_name))
+                                            <li class="nav-item m-tabs__item" id="child_tab_0">
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="true">
+                                                    <i class="flaticon-share m--hide"></i>
+                                                    Enfant(s)
+                                                    <button href="#" id="0" class="remove_children_tab">-</button>
+                                                </a>
+                                            </li>
+                                        @endif
+
+                                        @if(!empty(json_decode(Auth::user()->third_child)->first_name))
+                                            <li class="nav-item m-tabs__item" id="child_tab_1">
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="true">
+                                                    <i class="flaticon-share m--hide"></i>
+                                                    Enfant(s)
+                                                    <button href="#" id="1" class="remove_children_tab">-</button>
+                                                </a>
+                                            </li>
+                                        @endif
+
+                                        @if(!empty(json_decode(Auth::user()->fourth_child)->first_name))
+                                            <li class="nav-item m-tabs__item" id="child_tab_2" >
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="true">
+                                                    <i class="flaticon-share m--hide"></i>
+                                                    Enfant(s)
+                                                    <button href="#" id="2" class="remove_children_tab">-</button>
+                                                </a>
+                                            </li>
+                                        @endif
+
                                         <li class="nav-item m-tabs__item">
                                             <a id="client_param" class="nav-link m-tabs__link {{ (Auth::user()->counter == 1) ? 'active' : '' }}" data-toggle="tab" href="#profile_settings" role="tab">
                                                 Paramètres
@@ -1103,6 +1134,787 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="tab-pane" id="profile_info_child_0" role="tabpanel" aria-expanded="true">
+                                        <div class="m-portlet__body">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Enfant(s)</h3>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label>Civilité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="civility_child" id="civility_child" data-placeholder="Civilité">
+                                                            @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                                                <option value="{{ $civility->reference }}" @if(isset(json_decode(Auth::user()->second_child)->civility) && json_decode(Auth::user()->second_child)->civility == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Sélectionner la langue</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres_child" id="lng_corres_child" data-placeholder="Sélectionner la langue">
+                                                            @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                                                <option value="{{ $user_lng->reference }}" @if(isset(json_decode(Auth::user()->second_child)->lng_corres) &&json_decode(Auth::user()->second_child)->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Nom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="first_name_child" type="text" name="first_name_child" placeholder="Nom" value="@if(isset(json_decode(Auth::user()->second_child)->first_name)){{ json_decode(Auth::user()->second_child)->first_name }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Deuxième prénom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="middle_name_child" type="text" name="middle_name_child" placeholder="Deuxième prénom" value="@if(isset(json_decode(Auth::user()->second_child)->middle_name)){{ json_decode(Auth::user()->second_child)->middle_name }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Prenom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="last_name_child" type="text" name="last_name_child" placeholder="Prenom" value="@if(isset(json_decode(Auth::user()->second_child)->last_name)){{ json_decode(Auth::user()->second_child)->last_name }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Image</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="photo_child" type="file" accept="image/*" id="photo_child" class="input_file">
+                                                            <label for="photo_child">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-2 ">
+                                                    @if(Auth::user()->photo_child != null)
+                                                        <img class="avatar_preview" src="{{ Voyager::image( json_decode(Auth::user()->second_child)->photo ) }}" alt="{{ json_decode(Auth::user()->second_child)->first_name }} avatar"/>
+                                                    @else
+                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Etat civil</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status_child" id="civil_status_child" data-placeholder="Etat civil">
+                                                            @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                                                <option value="{{ $civil_stat->reference }}" @if(isset(json_decode(Auth::user()->second_child)->civil_status) && json_decode(Auth::user()->second_child)->civil_status == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Nationalité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" id="nationality_child" name="nationality_child" data-placeholder="Nationalité">
+                                                            @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                                <option value="{{ $nationality->reference }}" @if(isset(json_decode(Auth::user()->second_child)->nationality) && json_decode(Auth::user()->second_child)->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label>Date de naissance</label>
+                                                    <div class='input-group date' id='m_datepicker_4'>
+                                                        <input class="form-control m-input date-type" readonly id="birth_date_child" type="text" placeholder="Date de naissance" name="birth_date_child" value="@if(isset(json_decode(Auth::user()->second_child)->birth_date)){{ json_decode(Auth::user()->second_child)->birth_date }}@endif">
+                                                        <span class="input-group-addon">
+                                                            <i class="la la-calendar-check-o"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Lieu de naissance</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="birthplace_child" type="text" placeholder="Lieu de naissance" name="birthplace_child" value="@if(isset(json_decode(Auth::user()->second_child)->birthplace)){{ json_decode(Auth::user()->second_child)->birthplace }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Profession</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="profession_child" type="text" placeholder="Profession" name="profession_child" value="@if(isset(json_decode(Auth::user()->second_child)->profession)){{ json_decode(Auth::user()->second_child)->profession }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Service</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="service_child" type="text" placeholder="Service" name="service_child" value="@if(isset(json_decode(Auth::user()->second_child)->service)){{ json_decode(Auth::user()->second_child)->service }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Entreprise</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="example-text-input" type="text" placeholder="Entreprise" name="business_child" value="@if(isset(json_decode(Auth::user()->second_child)->business)){{ json_decode(Auth::user()->second_child)->business }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Site Internet</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="website_child" type="text" placeholder="Site Internet" name="website_child" value="@if(isset(json_decode(Auth::user()->second_child)->website)){{ json_decode(Auth::user()->second_child)->website }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="email_container">
+                                                <div class="m-form__group row" id="children_email">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <label class="">Type de courriel</label>
+                                                                <select class="form-control m-select2 custom_select2 elem-categories" name="email_type_child" id="email_type_child" data-placeholder="Type de courriel">
+                                                                    @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                        <option value="{{ $email_type->reference }}" @if(isset(Auth::user()->email_type_child) && Auth::user()->email_type_child == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-4 form-group">
+                                                                <label class="">Courriel</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="email_child" type="text" placeholder="Courriel" name="email_child" value="{{ (Auth::user()->email_child) ? Auth::user()->email_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @if(!empty(Auth::user()->children_emails))
+                                                        @foreach(json_decode(Auth::user()->children_emails) as $key => $children_email)
+                                                            <div class="col-sm-12" id="children_email_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de courriel</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="children_email_type[]" id="children_email_type" data-placeholder="Type de courriel">
+                                                                            @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                                <option value="{{ $email_type->reference }}" @if(isset($children_email->email_type) && $children_email->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Courriel</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_email" type="text" placeholder="Courriel" name="children_emails[]" value="{{ ($children_email->email) ? $children_email->email : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button id="{{ $key }}" type="button" class="btn btn-danger remove_children_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_children_email" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle courriele </button>
+                                                </div>
+                                            </div>
+                                            <div class="phone_container">
+                                                <div class="m-form__group row client" id="children_phone">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <label class="">Type de téléphone</label>
+                                                                <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type_child" id="phone_type_child" data-placeholder="Phone type">
+                                                                    @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                        <option value="{{ $phone_type->reference }}" @if(isset(Auth::user()->phone_type_child) && Auth::user()->phone_type_child == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-2">
+                                                                <label class="">Indicatif</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="country_code_child" type="text" placeholder="Indicatif" name="country_code_child" value="{{ (Auth::user()->country_code_child) ? Auth::user()->country_code_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-sm-12 col-md-4">
+                                                                <label class="">Téléphone</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="phone_child" type="text" placeholder="Téléphone" name="phone_child" value="{{ (Auth::user()->phone_child) ? Auth::user()->phone_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @if(!empty(Auth::user()->children_phones))
+                                                        @foreach(json_decode(Auth::user()->children_phones) as $key => $children_phone)
+                                                            <div class="col-sm-12" id="children_phone_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de téléphone</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="children_phone_type[]" id="children_phone_type" data-placeholder="Type de téléphone">
+                                                                            @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                                <option value="{{ $phone_type->reference }}" @if(isset($children_phone->phone_type) && $children_phone->phone_type == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-2">
+                                                                        <label class="">Indicatif</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_country_code" type="text" placeholder="Indicatif" name="children_country_code[]" value="{{ ($children_phone->country_code) ? $children_phone->country_code : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Téléphone</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_phones" type="text" placeholder="Téléphone" name="children_phones[]" value="{{ ($children_phone->phone) ? $children_phone->phone : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button id="{{ $key }}" type="button" class="btn btn-danger remove_children_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_children_phone" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle téléphone </button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <label class="">Moyen de contact préféré</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_child" id="preferred_means_contact_child" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset(json_decode(Auth::user()->second_child)->preferred_means_contact) && json_decode(Auth::user()->second_child)->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane" id="profile_info_child_1" role="tabpanel" aria-expanded="true">
+                                        <div class="m-portlet__body">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Enfant(s)</h3>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label>Civilité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="civility_child" id="civility_child" data-placeholder="Civilité">
+                                                            @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                                                <option value="{{ $civility->reference }}" @if(isset(json_decode(Auth::user()->third_child)->civility) && json_decode(Auth::user()->third_child)->civility == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Sélectionner la langue</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres_child" id="lng_corres_child" data-placeholder="Sélectionner la langue">
+                                                            @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                                                <option value="{{ $user_lng->reference }}" @if(isset(json_decode(Auth::user()->third_child)->lng_corres) &&json_decode(Auth::user()->third_child)->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Nom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="first_name_child" type="text" name="first_name_child" placeholder="Nom" value="@if(isset(json_decode(Auth::user()->third_child)->first_name)){{ json_decode(Auth::user()->third_child)->first_name }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Deuxième prénom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="middle_name_child" type="text" name="middle_name_child" placeholder="Deuxième prénom" value="@if(isset(json_decode(Auth::user()->third_child)->middle_name)){{ json_decode(Auth::user()->third_child)->middle_name }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Prenom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="last_name_child" type="text" name="last_name_child" placeholder="Prenom" value="@if(isset(json_decode(Auth::user()->third_child)->last_name)){{ json_decode(Auth::user()->third_child)->last_name }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Image</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="photo_child" type="file" accept="image/*" id="photo_child" class="input_file">
+                                                            <label for="photo_child">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-2 ">
+                                                    @if(Auth::user()->photo_child != null)
+                                                        <img class="avatar_preview" src="{{ Voyager::image( json_decode(Auth::user()->third_child)->photo ) }}" alt="{{ json_decode(Auth::user()->third_child)->first_name }} avatar"/>
+                                                    @else
+                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Etat civil</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status_child" id="civil_status_child" data-placeholder="Etat civil">
+                                                            @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                                                <option value="{{ $civil_stat->reference }}" @if(isset(json_decode(Auth::user()->third_child)->civil_status) && json_decode(Auth::user()->third_child)->civil_status == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Nationalité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" id="nationality_child" name="nationality_child" data-placeholder="Nationalité">
+                                                            @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                                <option value="{{ $nationality->reference }}" @if(isset(json_decode(Auth::user()->third_child)->nationality) && json_decode(Auth::user()->third_child)->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label>Date de naissance</label>
+                                                    <div class='input-group date' id='m_datepicker_4'>
+                                                        <input class="form-control m-input date-type" readonly id="birth_date_child" type="text" placeholder="Date de naissance" name="birth_date_child" value="@if(isset(json_decode(Auth::user()->third_child)->birth_date)){{ json_decode(Auth::user()->third_child)->birth_date }}@endif">
+                                                        <span class="input-group-addon">
+                                                            <i class="la la-calendar-check-o"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Lieu de naissance</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="birthplace_child" type="text" placeholder="Lieu de naissance" name="birthplace_child" value="@if(isset(json_decode(Auth::user()->third_child)->birthplace)){{ json_decode(Auth::user()->third_child)->birthplace }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Profession</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="profession_child" type="text" placeholder="Profession" name="profession_child" value="@if(isset(json_decode(Auth::user()->third_child)->profession)){{ json_decode(Auth::user()->third_child)->profession }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Service</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="service_child" type="text" placeholder="Service" name="service_child" value="@if(isset(json_decode(Auth::user()->third_child)->service)){{ json_decode(Auth::user()->third_child)->service }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Entreprise</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="example-text-input" type="text" placeholder="Entreprise" name="business_child" value="@if(isset(json_decode(Auth::user()->third_child)->business)){{ json_decode(Auth::user()->third_child)->business }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Site Internet</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="website_child" type="text" placeholder="Site Internet" name="website_child" value="@if(isset(json_decode(Auth::user()->third_child)->website)){{ json_decode(Auth::user()->third_child)->website }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="email_container">
+                                                <div class="m-form__group row" id="children_email">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <label class="">Type de courriel</label>
+                                                                <select class="form-control m-select2 custom_select2 elem-categories" name="email_type_child" id="email_type_child" data-placeholder="Type de courriel">
+                                                                    @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                        <option value="{{ $email_type->reference }}" @if(isset(Auth::user()->email_type_child) && Auth::user()->email_type_child == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-4 form-group">
+                                                                <label class="">Courriel</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="email_child" type="text" placeholder="Courriel" name="email_child" value="{{ (Auth::user()->email_child) ? Auth::user()->email_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @if(!empty(Auth::user()->children_emails))
+                                                        @foreach(json_decode(Auth::user()->children_emails) as $key => $children_email)
+                                                            <div class="col-sm-12" id="children_email_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de courriel</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="children_email_type[]" id="children_email_type" data-placeholder="Type de courriel">
+                                                                            @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                                <option value="{{ $email_type->reference }}" @if(isset($children_email->email_type) && $children_email->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Courriel</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_email" type="text" placeholder="Courriel" name="children_emails[]" value="{{ ($children_email->email) ? $children_email->email : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button id="{{ $key }}" type="button" class="btn btn-danger remove_children_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_children_email" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle courriele </button>
+                                                </div>
+                                            </div>
+                                            <div class="phone_container">
+                                                <div class="m-form__group row client" id="children_phone">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <label class="">Type de téléphone</label>
+                                                                <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type_child" id="phone_type_child" data-placeholder="Phone type">
+                                                                    @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                        <option value="{{ $phone_type->reference }}" @if(isset(Auth::user()->phone_type_child) && Auth::user()->phone_type_child == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-2">
+                                                                <label class="">Indicatif</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="country_code_child" type="text" placeholder="Indicatif" name="country_code_child" value="{{ (Auth::user()->country_code_child) ? Auth::user()->country_code_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-sm-12 col-md-4">
+                                                                <label class="">Téléphone</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="phone_child" type="text" placeholder="Téléphone" name="phone_child" value="{{ (Auth::user()->phone_child) ? Auth::user()->phone_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @if(!empty(Auth::user()->children_phones))
+                                                        @foreach(json_decode(Auth::user()->children_phones) as $key => $children_phone)
+                                                            <div class="col-sm-12" id="children_phone_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de téléphone</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="children_phone_type[]" id="children_phone_type" data-placeholder="Type de téléphone">
+                                                                            @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                                <option value="{{ $phone_type->reference }}" @if(isset($children_phone->phone_type) && $children_phone->phone_type == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-2">
+                                                                        <label class="">Indicatif</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_country_code" type="text" placeholder="Indicatif" name="children_country_code[]" value="{{ ($children_phone->country_code) ? $children_phone->country_code : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Téléphone</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_phones" type="text" placeholder="Téléphone" name="children_phones[]" value="{{ ($children_phone->phone) ? $children_phone->phone : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button id="{{ $key }}" type="button" class="btn btn-danger remove_children_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_children_phone" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle téléphone </button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <label class="">Moyen de contact préféré</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_child" id="preferred_means_contact_child" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset(json_decode(Auth::user()->third_child)->preferred_means_contact) && json_decode(Auth::user()->third_child)->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile_info_child_2" role="tabpanel" aria-expanded="true">
+                                        <div class="m-portlet__body">
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-12 ml-auto">
+                                                    <h3>Enfant(s)</h3>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label>Civilité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="civility_child" id="civility_child" data-placeholder="Civilité">
+                                                            @foreach(TCG\Voyager\Models\Civility::all() as $civility)
+                                                                <option value="{{ $civility->reference }}" @if(isset(json_decode(Auth::user()->fourth_child)->civility) && json_decode(Auth::user()->fourth_child)->civility == $civility->reference){{ 'selected="selected"' }} @endif>{{ $civility->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Sélectionner la langue</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="lng_corres_child" id="lng_corres_child" data-placeholder="Sélectionner la langue">
+                                                            @foreach(TCG\Voyager\Models\UserLanguage::all() as $user_lng)
+                                                                <option value="{{ $user_lng->reference }}" @if(isset(json_decode(Auth::user()->fourth_child)->lng_corres) &&json_decode(Auth::user()->fourth_child)->lng_corres == $user_lng->reference){{ 'selected="selected"' }} @endif>{{ $user_lng->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Nom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="first_name_child" type="text" name="first_name_child" placeholder="Nom" value="@if(isset(json_decode(Auth::user()->fourth_child)->first_name)){{ json_decode(Auth::user()->fourth_child)->first_name }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Deuxième prénom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="middle_name_child" type="text" name="middle_name_child" placeholder="Deuxième prénom" value="@if(isset(json_decode(Auth::user()->fourth_child)->middle_name)){{ json_decode(Auth::user()->fourth_child)->middle_name }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Prenom</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="last_name_child" type="text" name="last_name_child" placeholder="Prenom" value="@if(isset(json_decode(Auth::user()->fourth_child)->last_name)){{ json_decode(Auth::user()->fourth_child)->last_name }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4 ">
+                                                    <label class="">Image</label>
+                                                    <div class="img_upload_container">
+                                                        <div class="img_upload">
+                                                            <input name="photo_child" type="file" accept="image/*" id="photo_child" class="input_file">
+                                                            <label for="photo_child">
+                                                                <span>Choisissez une image d'en-tête</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-2 ">
+                                                    @if(Auth::user()->photo_child != null)
+                                                        <img class="avatar_preview" src="{{ Voyager::image( json_decode(Auth::user()->fourth_child)->photo ) }}" alt="{{ json_decode(Auth::user()->fourth_child)->first_name }} avatar"/>
+                                                    @else
+                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Etat civil</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="civil_status_child" id="civil_status_child" data-placeholder="Etat civil">
+                                                            @foreach(TCG\Voyager\Models\CivilStatus::all() as $civil_stat)
+                                                                <option value="{{ $civil_stat->reference }}" @if(isset(json_decode(Auth::user()->fourth_child)->civil_status) && json_decode(Auth::user()->fourth_child)->civil_status == $civil_stat->reference){{ 'selected="selected"' }} @endif>{{ $civil_stat->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Nationalité</label>
+                                                    <div class="input-group">
+                                                        <select class="form-control m-select2 custom_select2 elem-categories" id="nationality_child" name="nationality_child" data-placeholder="Nationalité">
+                                                            @foreach(TCG\Voyager\Models\Nationality::all() as $nationality)
+                                                                <option value="{{ $nationality->reference }}" @if(isset(json_decode(Auth::user()->fourth_child)->nationality) && json_decode(Auth::user()->fourth_child)->nationality == $nationality->reference){{ 'selected="selected"' }} @endif>{{ $nationality->value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label>Date de naissance</label>
+                                                    <div class='input-group date' id='m_datepicker_4'>
+                                                        <input class="form-control m-input date-type" readonly id="birth_date_child" type="text" placeholder="Date de naissance" name="birth_date_child" value="@if(isset(json_decode(Auth::user()->fourth_child)->birth_date)){{ json_decode(Auth::user()->fourth_child)->birth_date }}@endif">
+                                                        <span class="input-group-addon">
+                                                            <i class="la la-calendar-check-o"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Lieu de naissance</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="birthplace_child" type="text" placeholder="Lieu de naissance" name="birthplace_child" value="@if(isset(json_decode(Auth::user()->fourth_child)->birthplace)){{ json_decode(Auth::user()->fourth_child)->birthplace }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Profession</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="profession_child" type="text" placeholder="Profession" name="profession_child" value="@if(isset(json_decode(Auth::user()->fourth_child)->profession)){{ json_decode(Auth::user()->fourth_child)->profession }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Service</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="service_child" type="text" placeholder="Service" name="service_child" value="@if(isset(json_decode(Auth::user()->fourth_child)->service)){{ json_decode(Auth::user()->fourth_child)->service }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Entreprise</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="example-text-input" type="text" placeholder="Entreprise" name="business_child" value="@if(isset(json_decode(Auth::user()->fourth_child)->business)){{ json_decode(Auth::user()->fourth_child)->business }}@endif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 ">
+                                                    <label class="">Site Internet</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control m-input" id="website_child" type="text" placeholder="Site Internet" name="website_child" value="@if(isset(json_decode(Auth::user()->fourth_child)->website)){{ json_decode(Auth::user()->fourth_child)->website }}@endif">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="email_container">
+                                                <div class="m-form__group row" id="children_email">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <label class="">Type de courriel</label>
+                                                                <select class="form-control m-select2 custom_select2 elem-categories" name="email_type_child" id="email_type_child" data-placeholder="Type de courriel">
+                                                                    @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                        <option value="{{ $email_type->reference }}" @if(isset(Auth::user()->email_type_child) && Auth::user()->email_type_child == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-4 form-group">
+                                                                <label class="">Courriel</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="email_child" type="text" placeholder="Courriel" name="email_child" value="{{ (Auth::user()->email_child) ? Auth::user()->email_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @if(!empty(Auth::user()->children_emails))
+                                                        @foreach(json_decode(Auth::user()->children_emails) as $key => $children_email)
+                                                            <div class="col-sm-12" id="children_email_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de courriel</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="children_email_type[]" id="children_email_type" data-placeholder="Type de courriel">
+                                                                            @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
+                                                                                <option value="{{ $email_type->reference }}" @if(isset($children_email->email_type) && $children_email->email_type == $email_type->reference){{ 'selected="selected"' }} @endif>{{ $email_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Courriel</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_email" type="text" placeholder="Courriel" name="children_emails[]" value="{{ ($children_email->email) ? $children_email->email : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button id="{{ $key }}" type="button" class="btn btn-danger remove_children_email_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_children_email" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle courriele </button>
+                                                </div>
+                                            </div>
+                                            <div class="phone_container">
+                                                <div class="m-form__group row client" id="children_phone">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-4">
+                                                                <label class="">Type de téléphone</label>
+                                                                <select class="form-control m-select2 custom_select2 elem-categories" name="phone_type_child" id="phone_type_child" data-placeholder="Phone type">
+                                                                    @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                        <option value="{{ $phone_type->reference }}" @if(isset(Auth::user()->phone_type_child) && Auth::user()->phone_type_child == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-2">
+                                                                <label class="">Indicatif</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="country_code_child" type="text" placeholder="Indicatif" name="country_code_child" value="{{ (Auth::user()->country_code_child) ? Auth::user()->country_code_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-sm-12 col-md-4">
+                                                                <label class="">Téléphone</label>
+                                                                <div class="input-group">
+                                                                    <input class="form-control m-input" id="phone_child" type="text" placeholder="Téléphone" name="phone_child" value="{{ (Auth::user()->phone_child) ? Auth::user()->phone_child : '' }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @if(!empty(Auth::user()->children_phones))
+                                                        @foreach(json_decode(Auth::user()->children_phones) as $key => $children_phone)
+                                                            <div class="col-sm-12" id="children_phone_form_{{ $key }}">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Type de téléphone</label>
+                                                                        <select class="form-control m-select2 custom_select2 elem-categories" name="children_phone_type[]" id="children_phone_type" data-placeholder="Type de téléphone">
+                                                                            @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
+                                                                                <option value="{{ $phone_type->reference }}" @if(isset($children_phone->phone_type) && $children_phone->phone_type == $phone_type->reference){{ 'selected="selected"' }} @endif>{{ $phone_type->value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-2">
+                                                                        <label class="">Indicatif</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_country_code" type="text" placeholder="Indicatif" name="children_country_code[]" value="{{ ($children_phone->country_code) ? $children_phone->country_code : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-4">
+                                                                        <label class="">Téléphone</label>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control m-input" id="children_phones" type="text" placeholder="Téléphone" name="children_phones[]" value="{{ ($children_phone->phone) ? $children_phone->phone : '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button id="{{ $key }}" type="button" class="btn btn-danger remove_children_phone_btn" style="margin-top: 28px; width: 100%;">Effacer</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row" style="padding-top: 0">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <button id="add_new_children_phone" type="button" class="btn btn-accent" style="width: 100%;">Ajouter une nouvelle téléphone </button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <label class="">Moyen de contact préféré</label>
+                                                    <select class="form-control m-select2 custom_select2 elem-categories" name="preferred_means_contact_child" id="preferred_means_contact_child" data-placeholder="Phone type">
+                                                        @foreach(TCG\Voyager\Models\Contact::all() as $contact)
+                                                            <option value="{{ $contact->reference }}" @if(isset(json_decode(Auth::user()->fourth_child)->preferred_means_contact) && json_decode(Auth::user()->fourth_child)->preferred_means_contact == $contact->reference){{ 'selected="selected"' }} @endif>{{ $contact->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                                 <div class="m-portlet__foot m-portlet__foot--fit">
                                     <div class="m-form__actions">
