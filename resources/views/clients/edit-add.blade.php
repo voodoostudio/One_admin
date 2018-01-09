@@ -2737,7 +2737,13 @@
                     "client_emails[]": {
                         email: true
                     },
+                    email_coup: {
+                        email: true
+                    },
                     "coup_emails[]": {
+                        email: true
+                    },
+                    email_child: {
                         email: true
                     },
                     "children_emails[]": {
@@ -2760,7 +2766,15 @@
                         number: true,
                         maxlength: 15
                     },
+                    phone_coup: {
+                        number: true,
+                        maxlength: 15
+                    },
                     "coup_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    phone_child: {
                         number: true,
                         maxlength: 15
                     },
@@ -2815,26 +2829,126 @@
                     "fourth_child_phones_country_code[]": {
                         number: true,
                         maxlength: 15
-                    },
-                    email_coup: {
-                        email: true
-                    },
-                    phone_coup: {
-                        number: true,
-                        maxlength: 15
-                    },
-                    email_child: {
-                        email: true
-                    },
-                    phone_child: {
-                        number: true,
-                        maxlength: 15
                     }
                 },
                 messages: {
                     email: {
-                        email: 'Enter a valid email',
-                        required: 'Email is required'
+                        email: 'Entrez une courriel valide',
+                        required: 'Le courriel est requis'
+                    },
+                    "client_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    email_coup: {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "coup_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    email_child: {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "children_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "second_child_emails_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "third_child_emails_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "fourth_child_emails_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "client_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "coup_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "children_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "second_child_emails_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "third_child_emails_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    "fourth_child_emails_emails[]": {
+                        email: 'Entrez une courriel valide'
+                    },
+                    phone: {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "client_phones[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    phone_coup: {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "coup_phones[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    phone_child: {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "children_phones[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "second_child_phones_phones[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "third_child_phones_phones[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "fourth_child_phones_phones[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    country_code: {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "client_country_code[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    country_code_coup: {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "coup_country_code[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    country_code_child: {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "children_country_code[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "second_child_phones_country_code[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "third_child_phones_country_code[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
+                    },
+                    "fourth_child_phones_country_code[]": {
+                        number: 'Entrez un nombre valide',
+                        maxlength: 'N\'entrez pas plus de 15 caractères'
                     }
                 },
                 submitHandler: function (form) {
