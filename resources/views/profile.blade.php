@@ -47,6 +47,21 @@
                                             @else
                                                 <img id="child_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
+                                            @if(Auth::user()->second_child_photo != null)
+                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( Auth::user()->second_child_photo ) }}" alt="{{ json_decode(Auth::user()->second_child)->first_name }} avatar"/>
+                                            @else
+                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                            @endif
+                                            @if(Auth::user()->third_child_photo != null)
+                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( Auth::user()->third_child_photo ) }}" alt="{{ json_decode(Auth::user()->third_child)->first_name }} avatar"/>
+                                            @else
+                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                            @endif
+                                            @if(Auth::user()->fourth_child_photo != null)
+                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( Auth::user()->fourth_child_photo ) }}" alt="{{ json_decode(Auth::user()->fourth_child)->first_name }} avatar"/>
+                                            @else
+                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="m-card-profile__details">
@@ -58,6 +73,19 @@
 
                                         <span id="child_name" style="display:none;" class="m-card-profile__name">{{ Auth::user()->first_name_child }}</span>
                                         <a id="child_email" style="display:none;" href="" class="m-card-profile__email m-link">{{ Auth::user()->email_child }}</a>
+                                        <!--------->
+                                        <span id="child_name_s" style="display:none;" class="m-card-profile__name">{{ json_decode(Auth::user()->second_child)->first_name }}</span>
+                                        @for($i = 0; $i < 1;$i++)
+                                            <a id="child_email_s" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->second_child_emails)[$i]->email }}</a>
+                                        @endfor
+                                        <span id="child_name_t" style="display:none;" class="m-card-profile__name">{{ json_decode(Auth::user()->third_child)->first_name }}</span>
+                                        @for($i = 0; $i < 1;$i++)
+                                            <a id="child_email_t" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->third_child_emails)[$i]->email }}</a>
+                                        @endfor
+                                        <span id="child_name_f" style="display:none;" class="m-card-profile__name">{{ json_decode(Auth::user()->fourth_child)->first_name }}</span>
+                                        @for($i = 0; $i < 1;$i++)
+                                            <a id="child_email_f" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->fourth_child_emails)[$i]->email }}</a>
+                                        @endfor
                                     </div>
                                 </div>
                                 <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
@@ -2870,6 +2898,7 @@
         });
 
         /* Switching info */
+        /*-- show bio on sidebar --*/
         $('#client').click(function () {
             $('#client_photo').css('display','block');
             $('#coup_photo').css('display','none');
@@ -2882,6 +2911,20 @@
             $('#client_email').css('display','block');
             $('#coup_email').css('display','none');
             $('#child_email').css('display','none');
+
+            /*-----*/
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*-----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
         });
         $('#client_spouse').click(function () {
             $('#client_photo').css('display','none');
@@ -2895,6 +2938,19 @@
             $('#client_email').css('display','none');
             $('#coup_email').css('display','block');
             $('#child_email').css('display','none');
+            /*-----*/
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*-----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
         });
         $('#client_child').click(function () {
             $('#client_photo').css('display','none');
@@ -2908,6 +2964,121 @@
             $('#client_email').css('display','none');
             $('#coup_email').css('display','none');
             $('#child_email').css('display','block');
+            /*-----*/
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*-----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
+        });
+        /* second_child*/
+        $('li a[href="#profile_info_child_0"]').click(function(){
+            $('#client_photo').css('display','none');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','none');
+
+            $('#child_photo_s').css('display','block');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*----*/
+            $('#client_name').css('display','none');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','none');
+
+            $('#client_email').css('display','none');
+            $('#coup_email').css('display','none');
+            $('#child_email').css('display','none');
+            /*----*/
+            $('#child_name_s').css('display','block');
+            $('#child_email_s').css('display','block');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
+        });
+        $('li a[href="#profile_info_child_1"]').click(function(){
+            $('#client_photo').css('display','none');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','none');
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','block');
+            $('#child_photo_f').css('display','none');
+            /*----*/
+            $('#client_name').css('display','none');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','none');
+
+            $('#client_email').css('display','none');
+            $('#coup_email').css('display','none');
+            $('#child_email').css('display','none');
+            /*----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','block');
+            $('#child_email_t').css('display','block');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
+        });
+        $('li a[href="#profile_info_child_2"]').click(function(){
+            $('#client_photo').css('display','none');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','none');
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','block');
+            /*----*/
+            $('#client_name').css('display','none');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','none');
+
+            $('#client_email').css('display','none');
+            $('#coup_email').css('display','none');
+            $('#child_email').css('display','none');
+            /*----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','block');
+            $('#child_email_f').css('display','block');
+        });
+        $('#client_param').click(function () {
+            $('#client_photo').css('display','block');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','none');
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*----*/
+            $('#client_name').css('display','block');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','none');
+
+            $('#client_email').css('display','block');
+            $('#coup_email').css('display','none');
+            $('#child_email').css('display','none');
+            /*----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
         });
 
     </script>

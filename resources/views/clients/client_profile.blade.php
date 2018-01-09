@@ -36,20 +36,37 @@
                                 </div>
                                 <div class="m-card-profile__pic">
                                     <div class="m-card-profile__pic-wrapper">
-                                        <img id="client_img" src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
-                                        <img id="spouse_img" style="display: none;" src="{{ ($dataTypeContent->photo_coup) ? Voyager::image( $dataTypeContent->photo_coup ) : '/img/admin/default-coup.png' }}" alt="{{ $dataTypeContent->first_name_coup }} avatar"/>
-                                        <img id="child_img" style="display: none;" src="{{ ($dataTypeContent->photo_child) ? Voyager::image( $dataTypeContent->photo_child ) : '/img/admin/default-coup.png' }}" alt="{{ $dataTypeContent->first_name_child }} avatar"/>
+                                        <img id="client_photo" src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                        <img id="coup_photo" style="display: none;" src="{{ ($dataTypeContent->photo_coup) ? Voyager::image( $dataTypeContent->photo_coup ) : '/img/admin/default-coup.png' }}" alt="{{ $dataTypeContent->first_name_coup }} avatar"/>
+                                        <img id="child_photo" style="display: none;" src="{{ ($dataTypeContent->photo_child) ? Voyager::image( $dataTypeContent->photo_child ) : '/img/admin/default-coup.png' }}" alt="{{ $dataTypeContent->first_name_child }} avatar"/>
+                                        <img id="child_photo_s" style="display: none;" src="{{ ($dataTypeContent->second_child_photo) ? Voyager::image( $dataTypeContent->second_child_photo ) : '/img/admin/default-coup.png' }}" alt="{{ json_decode($dataTypeContent->second_child)->first_name }} avatar"/>
+                                        <img id="child_photo_t" style="display: none;" src="{{ ($dataTypeContent->third_child_photo) ? Voyager::image( $dataTypeContent->third_child_photo ) : '/img/admin/default-coup.png' }}" alt="{{ json_decode($dataTypeContent->third_child)->first_name }} avatar"/>
+                                        <img id="child_photo_f" style="display: none;" src="{{ ($dataTypeContent->fourth_child_photo) ? Voyager::image( $dataTypeContent->fourth_child_photo ) : '/img/admin/default-coup.png' }}" alt="{{ json_decode($dataTypeContent->fourth_child)->first_name }} avatar"/>
                                     </div>
                                 </div>
                                 <div class="m-card-profile__details">
                                     <span id="client_name" class="m-card-profile__name">{{ $dataTypeContent->name . " " . $dataTypeContent->middle_name . " " . $dataTypeContent->last_name  }}</span>
                                     <a id="client_email" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email }}</a>
 
-                                    <span id="spouse_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_coup . " " . $dataTypeContent->middle_name_coup . " " . $dataTypeContent->last_name_coup  }}</span>
-                                    <a id="spouse_email" href="" style="display: none;" class="m-card-profile__email m-link">{{ $dataTypeContent->email_coup }}</a>
+                                    <span id="coup_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_coup . " " . $dataTypeContent->middle_name_coup . " " . $dataTypeContent->last_name_coup  }}</span>
+                                    <a id="coup_email" href="" style="display: none;" class="m-card-profile__email m-link">{{ $dataTypeContent->email_coup }}</a>
 
                                     <span id="child_name" style="display: none;" class="m-card-profile__name hide">{{ $dataTypeContent->first_name_child . " " . $dataTypeContent->middle_name_child . " " . $dataTypeContent->last_name_child }}</span>
                                     <a id="child_email" href="" style="display: none;" class="m-card-profile__email m-link">{{ $dataTypeContent->email_child }}</a>
+
+                                    <!----------->
+                                    <span id="child_name_s" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->second_child)->first_name . " " . json_decode($dataTypeContent->second_child)->middle_name . " " . json_decode($dataTypeContent->second_child)->last_name }}</span>
+                                    @for($i = 0; $i < 1;$i++)
+                                        <a id="child_email_s" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->second_child_emails)[$i]->email }}</a>
+                                    @endfor
+                                    <span id="child_name_t" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->third_child)->first_name . " " . json_decode($dataTypeContent->third_child)->middle_name . " " . json_decode($dataTypeContent->third_child)->last_name }}</span>
+                                    @for($i = 0; $i < 1;$i++)
+                                        <a id="child_email_t" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->third_child_emails)[$i]->email }}</a>
+                                    @endfor
+                                    <span id="child_name_f" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->fourth_child)->first_name . " " . json_decode($dataTypeContent->fourth_child)->middle_name . " " . json_decode($dataTypeContent->fourth_child)->last_name }}</span>
+                                    @for($i = 0; $i < 1;$i++)
+                                        <a id="child_email_f" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->fourth_child_emails)[$i]->email }}</a>
+                                    @endfor
                                     {{--<p>{{ Auth::user()->bio }}</p>--}}
                                 </div>
                             </div>
@@ -1455,51 +1472,162 @@
 
 @section('javascript')
     <script>
-
+        /*-- show bio on sidebar --*/
         $('#client_tab').click(function () {
-            /* photos */
-            $('#client_img').css('display','block');
-            $('#spouse_img').css('display','none');
-            $('#child_img').css('display','none');
+            $('#client_photo').css('display','block');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','none');
 
-            /* data */
             $('#client_name').css('display','block');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','none');
+
             $('#client_email').css('display','block');
-            $('#spouse_name').css('display','none');
-            $('#spouse_email').css('display','none');
-            $('#child_name').css('display','none');
+            $('#coup_email').css('display','none');
             $('#child_email').css('display','none');
-        });
 
+            /*-----*/
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*-----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
+        });
         $('#spose_tab').click(function () {
-            /* photos */
-            $('#client_img').css('display','none');
-            $('#spouse_img').css('display','block');
-            $('#child_img').css('display','none');
+            $('#client_photo').css('display','none');
+            $('#coup_photo').css('display','block');
+            $('#child_photo').css('display','none');
 
-            /* data */
             $('#client_name').css('display','none');
-            $('#client_email').css('display','none');
-            $('#spouse_name').css('display','block');
-            $('#spouse_email').css('display','block');
+            $('#coup_name').css('display','block');
             $('#child_name').css('display','none');
-            $('#child_email').css('display','none');
-        });
 
-        $('#child_tab').click(function () {
-            /* photos */
-            $('#client_img').css('display','none');
-            $('#spouse_img').css('display','none');
-            $('#child_img').css('display','block');
-
-            /* data */
-            $('#client_name').css('display','none');
             $('#client_email').css('display','none');
-            $('#spouse_name').css('display','none');
-            $('#spouse_email').css('display','none');
-            $('#child_name').css('display','block');
-            $('#child_email').css('display','block');
-        });
+            $('#coup_email').css('display','block');
+            $('#child_email').css('display','none');
+            /*-----*/
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*-----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
 
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
+        });
+        $('#child_tab').click(function () {
+            $('#client_photo').css('display','none');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','block');
+
+            $('#client_name').css('display','none');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','block');
+
+            $('#client_email').css('display','none');
+            $('#coup_email').css('display','none');
+            $('#child_email').css('display','block');
+            /*-----*/
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*-----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
+        });
+        /* second_child*/
+        $('li a[href="#profile_info_child_0"]').click(function(){
+            $('#client_photo').css('display','none');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','none');
+
+            $('#child_photo_s').css('display','block');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','none');
+            /*----*/
+            $('#client_name').css('display','none');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','none');
+
+            $('#client_email').css('display','none');
+            $('#coup_email').css('display','none');
+            $('#child_email').css('display','none');
+            /*----*/
+            $('#child_name_s').css('display','block');
+            $('#child_email_s').css('display','block');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
+        });
+        $('li a[href="#profile_info_child_1"]').click(function(){
+            $('#client_photo').css('display','none');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','none');
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','block');
+            $('#child_photo_f').css('display','none');
+            /*----*/
+            $('#client_name').css('display','none');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','none');
+
+            $('#client_email').css('display','none');
+            $('#coup_email').css('display','none');
+            $('#child_email').css('display','none');
+            /*----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','block');
+            $('#child_email_t').css('display','block');
+
+            $('#child_name_f').css('display','none');
+            $('#child_email_f').css('display','none');
+        });
+        $('li a[href="#profile_info_child_2"]').click(function(){
+            $('#client_photo').css('display','none');
+            $('#coup_photo').css('display','none');
+            $('#child_photo').css('display','none');
+            $('#child_photo_s').css('display','none');
+            $('#child_photo_t').css('display','none');
+            $('#child_photo_f').css('display','block');
+            /*----*/
+            $('#client_name').css('display','none');
+            $('#coup_name').css('display','none');
+            $('#child_name').css('display','none');
+
+            $('#client_email').css('display','none');
+            $('#coup_email').css('display','none');
+            $('#child_email').css('display','none');
+            /*----*/
+            $('#child_name_s').css('display','none');
+            $('#child_email_s').css('display','none');
+
+            $('#child_name_t').css('display','none');
+            $('#child_email_t').css('display','none');
+
+            $('#child_name_f').css('display','block');
+            $('#child_email_f').css('display','block');
+        });
     </script>
 @stop
