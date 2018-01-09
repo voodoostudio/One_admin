@@ -130,14 +130,14 @@
                                         <li class="nav-item m-tabs__item">
                                             <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child" role="tab"  aria-expanded="false">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Enfant(s)
+                                                Enfant
                                             </a>
                                         </li>
                                         @if(!empty(json_decode($dataTypeContent->second_child)->first_name))
                                             <li class="nav-item m-tabs__item" id="child_tab_0">
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="false">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant(s)
+                                                    Enfant
                                                     <button href="#" id="0" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
@@ -157,7 +157,7 @@
                                             <li class="nav-item m-tabs__item" id="child_tab_2" >
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="false">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant(s)
+                                                    Enfant
                                                     <button href="#" id="2" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
@@ -2210,7 +2210,7 @@
                 '<div class="col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="client_emails" type="text" placeholder="Courriel" name="client_emails[]" value="">'+
+                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="client_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-offset-2 col-md-2">' +
@@ -2243,7 +2243,7 @@
                 '<div class="col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="coup_emails" type="text" placeholder="Courriel" name="coup_emails[]" value="">'+
+                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="coup_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 offset-col-2 col-md-2">' +
@@ -2276,7 +2276,7 @@
                 '<div class="col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="children_emails" type="text" placeholder="Courriel" name="children_emails[]" value="">'+
+                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="children_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2643,7 +2643,7 @@
                     '<li class="nav-item m-tabs__item" id="child_tab_' + index + '">' +
                     '<a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_' + index + '" role="tab"  aria-expanded="true">' +
                     '<i class="flaticon-share m--hide"></i>' +
-                    'Enfant(s) <button href="#" id="' + index + '" class="remove_children_tab"><i class="la la-close"></i></button>' +
+                    'Enfant <button href="#" id="' + index + '" class="remove_children_tab"><i class="la la-close"></i></button>' +
                     '</a>' +
                     '</li>'
                 );
@@ -2724,27 +2724,27 @@
                         required: true
                     },
                     email: {
-                        email: true,
+//                        email: true,
                         required: true
                     },
-                    phone: {
-                        number: true,
-                        maxlength: 15
-                    },
-                    email_coup: {
-                        email: true
-                    },
-                    phone_coup: {
-                        number: true,
-                        maxlength: 15
-                    },
-                    email_child: {
-                        email: true
-                    },
-                    phone_child: {
-                        number: true,
-                        maxlength: 15
-                    }
+//                    phone: {
+//                        number: true,
+//                        maxlength: 15
+//                    },
+//                    email_coup: {
+//                        email: true
+//                    },
+//                    phone_coup: {
+//                        number: true,
+//                        maxlength: 15
+//                    },
+//                    email_child: {
+//                        email: true
+//                    },
+//                    phone_child: {
+//                        number: true,
+//                        maxlength: 15
+//                    }
                 },
                 submitHandler: function (form) {
                     form.submit();
