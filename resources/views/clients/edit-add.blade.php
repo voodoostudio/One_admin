@@ -328,7 +328,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-4">
+                                                            <div class="form-group col-sm-12 col-md-4">
                                                                 <label class="">Courriel</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="{{ ($dataTypeContent->email) ? $dataTypeContent->email : '' }}">
@@ -348,7 +348,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="client_email" type="text" placeholder="Courriel" name="client_emails[]" value="{{ ($client_email->email) ? $client_email->email : '' }}">
@@ -380,7 +380,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-2">
+                                                            <div class="form-group col-sm-12 col-md-2">
                                                                 <label class="">Indicatif</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="country_code" type="text" placeholder="Indicatif" name="country_code" value="{{ ($dataTypeContent->country_code) ? $dataTypeContent->country_code : '' }}">
@@ -406,13 +406,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="client_country_code" type="text" placeholder="Indicatif" name="client_country_code[]" value="{{ ($client_phone->country_code) ? $client_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="client_phones" type="text" placeholder="Téléphone" name="client_phones[]" value="{{ ($client_phone->phone) ? $client_phone->phone : '' }}">
@@ -774,7 +774,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-4 form-group">
+                                                            <div class="form-group col-sm-12 col-md-4">
                                                                 <label class="">Courriel</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="email_coup" type="text" placeholder="Courriel" name="email_coup" value="{{ ($dataTypeContent->email_coup) ? $dataTypeContent->email_coup : '' }}">
@@ -794,7 +794,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="coup_email" type="text" placeholder="Courriel" name="coup_emails[]" value="{{ ($coup_email->email) ? $coup_email->email : '' }}">
@@ -826,7 +826,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-2">
+                                                            <div class="form-group col-sm-12 col-md-2">
                                                                 <label class="">Indicatif</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="country_code_coup" type="text" placeholder="Indicatif" name="country_code_coup" value="{{ ($dataTypeContent->country_code_coup) ? $dataTypeContent->country_code_coup : '' }}">
@@ -852,13 +852,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="coup_country_code" type="text" placeholder="Indicatif" name="coup_country_code[]" value="{{ ($coup_phone->country_code) ? $coup_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="coup_phones" type="text" placeholder="Téléphone" name="coup_phones[]" value="{{ ($coup_phone->phone) ? $coup_phone->phone : '' }}">
@@ -1033,7 +1033,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-4 form-group">
+                                                            <div class="form-group col-sm-12 col-md-4 form-group">
                                                                 <label class="">Courriel</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="email_child" type="text" placeholder="Courriel" name="email_child" value="{{ ($dataTypeContent->email_child) ? $dataTypeContent->email_child : '' }}">
@@ -1053,7 +1053,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="children_email" type="text" placeholder="Courriel" name="children_emails[]" value="{{ ($children_email->email) ? $children_email->email : '' }}">
@@ -1085,7 +1085,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-2">
+                                                            <div class="form-group col-sm-12 col-md-2">
                                                                 <label class="">Indicatif</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="country_code_child" type="text" placeholder="Indicatif" name="country_code_child" value="{{ ($dataTypeContent->country_code_child) ? $dataTypeContent->country_code_child : '' }}">
@@ -1111,13 +1111,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="children_country_code" type="text" placeholder="Indicatif" name="children_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="children_phones" type="text" placeholder="Téléphone" name="children_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
@@ -1295,7 +1295,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="second_child_emails_emails" type="text" placeholder="Courriel" name="second_child_emails_emails[]" value="{{ (!empty($children_email->email)) ? $children_email->email : '' }}">
@@ -1320,7 +1320,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-sm-12 col-md-4 form-group">
+                                                                <div class="form-group col-sm-12 col-md-4">
                                                                     <label class="">Courriel</label>
                                                                     <div class="input-group">
                                                                         <input class="form-control m-input" id="second_child_emails_emails" type="text" placeholder="Courriel" name="second_child_emails_emails[]">
@@ -1351,13 +1351,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="second_child_phones_country_code" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="second_child_phones_phones" type="text" placeholder="Téléphone" name="second_child_phones_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
@@ -1382,7 +1382,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-sm-12 col-md-2">
+                                                                <div class="form-group col-sm-12 col-md-2">
                                                                     <label class="">Indicatif</label>
                                                                     <div class="input-group">
                                                                         <input class="form-control m-input" id="second_child_phones_country_code" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]">
@@ -1563,7 +1563,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="third_child_emails_emails" type="text" placeholder="Courriel" name="third_child_emails_emails[]" value="{{ (!empty($children_email->email)) ? $children_email->email : '' }}">
@@ -1588,7 +1588,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-sm-12 col-md-4 form-group">
+                                                                <div class="form-group col-sm-12 col-md-4">
                                                                     <label class="">Courriel</label>
                                                                     <div class="input-group">
                                                                         <input class="form-control m-input" id="third_child_emails_emails" type="text" placeholder="Courriel" name="third_child_emails_emails[]">
@@ -1619,13 +1619,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="third_child_phones_country_code" type="text" placeholder="Indicatif" name="third_child_phones_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="third_child_phones_phones" type="text" placeholder="Téléphone" name="third_child_phones_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
@@ -1650,7 +1650,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-sm-12 col-md-2">
+                                                                <div class="form-group col-sm-12 col-md-2">
                                                                     <label class="">Indicatif</label>
                                                                     <div class="input-group">
                                                                         <input class="form-control m-input" id="third_child_phones_country_code" type="text" placeholder="Indicatif" name="third_child_phones_country_code[]">
@@ -1831,7 +1831,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="fourth_child_emails_emails" type="text" placeholder="Courriel" name="fourth_child_emails_emails[]" value="{{ (!empty($children_email->email)) ? $children_email->email : '' }}">
@@ -1856,7 +1856,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-sm-12 col-md-4 form-group">
+                                                                <div class="form-group col-sm-12 col-md-4">
                                                                     <label class="">Courriel</label>
                                                                     <div class="input-group">
                                                                         <input class="form-control m-input" id="fourth_child_emails_emails" type="text" placeholder="Courriel" name="fourth_child_emails_emails[]">
@@ -1887,13 +1887,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="fourth_child_phones_country_code" type="text" placeholder="Indicatif" name="fourth_child_phones_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" id="fourth_child_phones_phones" type="text" placeholder="Téléphone" name="fourth_child_phones_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
@@ -1918,7 +1918,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-sm-12 col-md-2">
+                                                                <div class="form-group col-sm-12 col-md-2">
                                                                     <label class="">Indicatif</label>
                                                                     <div class="input-group">
                                                                         <input class="form-control m-input" id="fourth_child_phones_country_code" type="text" placeholder="Indicatif" name="fourth_child_phones_country_code[]">
@@ -2131,65 +2131,65 @@
                 '<div class="col-sm-12 col-md-4 ">' +
                 '<button type="button" id="open_map_btn_' + i  + '" disabled="disabled" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
                 '</div>' +
-                    {{--'<div class="col-sm-12 col-md-3 ">' +--}}
-                            {{--'<label>Rue</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<input type="text" id="route_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue" name="street[]">' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div class="col-sm-12 col-md-2 ">' +--}}
-                            {{--'<label>N°</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<input type="text" id="street_number_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div class="col-sm-12 col-md-2 ">' +--}}
-                            {{--'<label>CP</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div class="col-sm-12 col-md-2 ">' +--}}
-                            {{--'<label>NPA</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<input type="text" id="postal_code_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA" name="zip_code[]">' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div class="col-sm-12 col-md-3 ">' +--}}
-                            {{--'<label>Ville</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<input type="text" id="locality_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville" name="town[]">' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div class="col-sm-12 col-md-3 ">' +--}}
-                            {{--'<label>Pays</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<input type="text" id="country_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays" name="country[]">' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div class="col-sm-12 col-md-3">' +--}}
-                            {{--'<label>Longitude</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div class="col-sm-12 col-md-3">' +--}}
-                            {{--'<label>Latitude</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +--}}
-                            {{--'</div> ' +--}}
-                            {{--'</div>' +--}}
-                            {{--'<div class="col-sm-12 col-md-3 ">' +--}}
-                            {{--'<label>Localisation</label>' +--}}
-                            {{--'<div class="input-group">' +--}}
-                            {{--'<select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">' +--}}
-                            {{--@foreach(TCG\Voyager\Models\Location::all() as $location)--}}
-                            {{--'<option value="{{ $location->reference }}">{{ $location->value }}</option>' +--}}
-                            {{--@endforeach--}}
-                            {{--'</select>' +--}}
-                            {{--'</div>' +--}}
-                            {{--'</div>' +--}}
-                        '</div>'
+                {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                        {{--'<label>Rue</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="route_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue" name="street[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                        {{--'<label>N°</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="street_number_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                        {{--'<label>CP</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                        {{--'<label>NPA</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="postal_code_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA" name="zip_code[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                        {{--'<label>Ville</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="locality_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville" name="town[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                        {{--'<label>Pays</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="country_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays" name="country[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3">' +--}}
+                        {{--'<label>Longitude</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3">' +--}}
+                        {{--'<label>Latitude</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +--}}
+                        {{--'</div> ' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                        {{--'<label>Localisation</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">' +--}}
+                        {{--@foreach(TCG\Voyager\Models\Location::all() as $location)--}}
+                        {{--'<option value="{{ $location->reference }}">{{ $location->value }}</option>' +--}}
+                        {{--@endforeach--}}
+                        {{--'</select>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                    '</div>'
             );
             initAutocomplete();
             $("#address_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
@@ -2214,10 +2214,10 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="client_emails[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Courriel" name="client_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-offset-2 col-md-2">' +
@@ -2247,10 +2247,10 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="coup_emails[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Courriel" name="coup_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 offset-col-2 col-md-2">' +
@@ -2280,10 +2280,10 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="children_emails[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Courriel" name="children_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2313,10 +2313,10 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="second_child_emails_emails" type="text" placeholder="Courriel" name="second_child_emails_emails[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Courriel" name="second_child_emails_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2346,10 +2346,10 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="third_child_emails_emails" type="text" placeholder="Courriel" name="third_child_emails_emails[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Courriel" name="third_child_emails_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2379,10 +2379,10 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="fourth_child_emails_emails" type="text" placeholder="Courriel" name="fourth_child_emails_emails[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Courriel" name="fourth_child_emails_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2412,16 +2412,16 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="client_country_code" type="text" placeholder="Indicatif" name="client_country_code[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Indicatif" name="client_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="client_phones" type="text" placeholder="Téléphone" name="client_phones[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Téléphone" name="client_phones[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2451,16 +2451,16 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="coup_country_code" type="text" placeholder="Indicatif" name="coup_country_code[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Indicatif" name="coup_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="coup_phones" type="text" placeholder="Téléphone" name="coup_phones[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Téléphone" name="coup_phones[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2490,16 +2490,16 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="children_country_code" type="text" placeholder="Indicatif" name="children_country_code[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Indicatif" name="children_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="children_phones" type="text" placeholder="Téléphone" name="children_phones[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Téléphone" name="children_phones[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2530,16 +2530,16 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="second_child_phones_country_code" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="second_child_phones_phones" type="text" placeholder="Téléphone" name="second_child_phones_phones[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Téléphone" name="second_child_phones_phones[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2569,16 +2569,16 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="third_child_phones_country_code" type="text" placeholder="Indicatif" name="third_child_phones_country_code[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Indicatif" name="third_child_phones_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="third_child_phones_phones" type="text" placeholder="Téléphone" name="third_child_phones_phones[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Téléphone" name="third_child_phones_phones[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2608,16 +2608,16 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="fourth_child_phones_country_code" type="text" placeholder="Indicatif" name="fourth_child_phones_country_code[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Indicatif" name="fourth_child_phones_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input" id="fourth_child_phones_phones" type="text" placeholder="Téléphone" name="fourth_child_phones_phones[]" value="">'+
+                '<input class="form-control m-input" type="text" placeholder="Téléphone" name="fourth_child_phones_phones[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2731,27 +2731,111 @@
                         required: true
                     },
                     email: {
-//                        email: true,
+                        email: true,
                         required: true
                     },
-//                    phone: {
-//                        number: true,
-//                        maxlength: 15
-//                    },
-//                    email_coup: {
-//                        email: true
-//                    },
-//                    phone_coup: {
-//                        number: true,
-//                        maxlength: 15
-//                    },
-//                    email_child: {
-//                        email: true
-//                    },
-//                    phone_child: {
-//                        number: true,
-//                        maxlength: 15
-//                    }
+                    "client_emails[]": {
+                        email: true
+                    },
+                    "coup_emails[]": {
+                        email: true
+                    },
+                    "children_emails[]": {
+                        email: true
+                    },
+                    "second_child_emails_emails[]": {
+                        email: true
+                    },
+                    "third_child_emails_emails[]": {
+                        email: true
+                    },
+                    "fourth_child_emails_emails[]": {
+                        email: true
+                    },
+                    phone: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "client_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "coup_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "children_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "second_child_phones_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "third_child_phones_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "fourth_child_phones_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    country_code: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "client_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    country_code_coup: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "coup_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    country_code_child: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "children_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "second_child_phones_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "third_child_phones_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "fourth_child_phones_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    email_coup: {
+                        email: true
+                    },
+                    phone_coup: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    email_child: {
+                        email: true
+                    },
+                    phone_child: {
+                        number: true,
+                        maxlength: 15
+                    }
+                },
+                messages: {
+                    email: {
+                        email: 'Enter a valid email',
+                        required: 'Email is required'
+                    }
                 },
                 submitHandler: function (form) {
                     form.submit();
