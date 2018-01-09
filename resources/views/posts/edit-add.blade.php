@@ -145,17 +145,17 @@
                                                 </div>
                                             </div>
                                             {{--<div class="m-portlet__head-tools">--}}
-                                                {{--<ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--right m-tabs-line-danger">--}}
-                                                    {{--<li class="nav-item m-tabs__item">--}}
-                                                        {{--<a class="nav-link m-tabs__link active" data-toggle="tab" href="#fr_redaction" role="tab" aria-expanded="false">Français</a>--}}
-                                                    {{--</li>--}}
-                                                    {{--<li class="nav-item m-tabs__item">--}}
-                                                        {{--<a class="nav-link m-tabs__link" data-toggle="tab" href="#en_redaction" role="tab" aria-expanded="true">Anglais</a>--}}
-                                                    {{--</li>--}}
-                                                    {{--<li class="nav-item m-tabs__item">--}}
-                                                        {{--<a class="nav-link m-tabs__link" data-toggle="tab" href="#es_redaction" role="tab" aria-expanded="true">Espagnol</a>--}}
-                                                    {{--</li>--}}
-                                                {{--</ul>--}}
+                                            {{--<ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--right m-tabs-line-danger">--}}
+                                            {{--<li class="nav-item m-tabs__item">--}}
+                                            {{--<a class="nav-link m-tabs__link active" data-toggle="tab" href="#fr_redaction" role="tab" aria-expanded="false">Français</a>--}}
+                                            {{--</li>--}}
+                                            {{--<li class="nav-item m-tabs__item">--}}
+                                            {{--<a class="nav-link m-tabs__link" data-toggle="tab" href="#en_redaction" role="tab" aria-expanded="true">Anglais</a>--}}
+                                            {{--</li>--}}
+                                            {{--<li class="nav-item m-tabs__item">--}}
+                                            {{--<a class="nav-link m-tabs__link" data-toggle="tab" href="#es_redaction" role="tab" aria-expanded="true">Espagnol</a>--}}
+                                            {{--</li>--}}
+                                            {{--</ul>--}}
                                             {{--</div>--}}
                                         </div>
                                         <div class="m-portlet__body">
@@ -196,36 +196,36 @@
                                                         </div>
                                                     </div>
                                                     {{--<div class="tab-pane" id="en_redaction" role="tabpanel" aria-expanded="false">--}}
-                                                        {{--<div class="row">--}}
-                                                            {{--<div class="col-12 margin_bottom_10 lang-en form-group">--}}
-                                                                {{--<label>Titre de l'annonce EN</label>--}}
-                                                                {{--<div class='input-group'>--}}
-                                                                    {{--<input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_en" required="required">--}}
-                                                                {{--</div>--}}
-                                                            {{--</div>--}}
-                                                            {{--<div class="col-12 margin_bottom_10 lang-en">--}}
-                                                                {{--<label>Description de l'annonce EN</label>--}}
-                                                                {{--<div class='input-group'>--}}
-                                                                    {{--<textarea class="form-control m-input" name="desc_add_en" rows="8">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>--}}
-                                                                {{--</div>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
+                                                    {{--<div class="row">--}}
+                                                    {{--<div class="col-12 margin_bottom_10 lang-en form-group">--}}
+                                                    {{--<label>Titre de l'annonce EN</label>--}}
+                                                    {{--<div class='input-group'>--}}
+                                                    {{--<input type="text" value="{{ $dataTypeContent->title_en }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_en" required="required">--}}
+                                                    {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-12 margin_bottom_10 lang-en">--}}
+                                                    {{--<label>Description de l'annonce EN</label>--}}
+                                                    {{--<div class='input-group'>--}}
+                                                    {{--<textarea class="form-control m-input" name="desc_add_en" rows="8">@if(isset($dataTypeContent->desc_add_en)){{ $dataTypeContent->desc_add_en }}@endif</textarea>--}}
+                                                    {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--</div>--}}
                                                     {{--</div>--}}
                                                     {{--<div class="tab-pane" id="es_redaction" role="tabpanel" aria-expanded="false">--}}
-                                                        {{--<div class="row">--}}
-                                                            {{--<div class="col-12 margin_bottom_10 lang-es form-group">--}}
-                                                                {{--<label>Titre de l'annonce ES</label>--}}
-                                                                {{--<div class='input-group'>--}}
-                                                                    {{--<input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_es" required="required">--}}
-                                                                {{--</div>--}}
-                                                            {{--</div>--}}
-                                                            {{--<div class="col-12 margin_bottom_10 lang-es">--}}
-                                                                {{--<label>Description de l'annonce ES</label>--}}
-                                                                {{--<div class='input-group'>--}}
-                                                                    {{--<textarea class="form-control m-input" name="desc_add_es" rows="8">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>--}}
-                                                                {{--</div>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
+                                                    {{--<div class="row">--}}
+                                                    {{--<div class="col-12 margin_bottom_10 lang-es form-group">--}}
+                                                    {{--<label>Titre de l'annonce ES</label>--}}
+                                                    {{--<div class='input-group'>--}}
+                                                    {{--<input type="text" value="{{ $dataTypeContent->title_es }}" class="form-control m-input" placeholder="Titre de l'annonce" name="title_es" required="required">--}}
+                                                    {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-12 margin_bottom_10 lang-es">--}}
+                                                    {{--<label>Description de l'annonce ES</label>--}}
+                                                    {{--<div class='input-group'>--}}
+                                                    {{--<textarea class="form-control m-input" name="desc_add_es" rows="8">@if(isset($dataTypeContent->desc_add_es)){{ $dataTypeContent->desc_add_es }}@endif</textarea>--}}
+                                                    {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--</div>--}}
                                                     {{--</div>--}}
                                                 </div>
                                             </div>
@@ -253,17 +253,17 @@
                                         <div class="m-portlet__body">
                                             <div class="row">
                                                 {{--<div class="col-lg-3">--}}
-                                                    {{--<div class="form-group">--}}
-                                                        {{--<label>Courtier</label>--}}
-                                                        {{--<select class="form-control m-select2 custom_select2" name="broker" data-placeholder="Sélectionner un courtier">--}}
-                                                            {{--@foreach(TCG\Voyager\Models\User::where('role_id','<>','5')->get(['id','role_id','name']) as $user)--}}
-                                                                {{--<option value="{{ $user->id }}">{{  $user->name }}</option>--}}
-                                                            {{--@endforeach--}}
-                                                        {{--</select>--}}
-                                                        {{----}}
-                                                    {{--</div>--}}
+                                                {{--<div class="form-group">--}}
+                                                {{--<label>Courtier</label>--}}
+                                                {{--<select class="form-control m-select2 custom_select2" name="broker" data-placeholder="Sélectionner un courtier">--}}
+                                                {{--@foreach(TCG\Voyager\Models\User::where('role_id','<>','5')->get(['id','role_id','name']) as $user)--}}
+                                                {{--<option value="{{ $user->id }}">{{  $user->name }}</option>--}}
+                                                {{--@endforeach--}}
+                                                {{--</select>--}}
+                                                {{----}}
                                                 {{--</div>--}}
-                                            {{--<input type="hidden" name="broker" value="{{ Auth::user()->id }}">--}}
+                                                {{--</div>--}}
+                                                {{--<input type="hidden" name="broker" value="{{ Auth::user()->id }}">--}}
                                                 @php
                                                     foreach (explode(',', Illuminate\Support\Facades\DB::table('posts')->value('vip_users')) as $users) {
                                                         $user_id[$users] = $users;
@@ -2996,7 +2996,6 @@
         }
 
         function setSelectedCurrency(currency) {
-            console.log(currency)
             $('#price_tab .input-group-addon .currency').html(currency);
         }
 
@@ -3052,7 +3051,6 @@
                 jQuery.each( summable_input_group, function( i, val ) {
                     var summable_input_val = $(this).find('input:not(.custom_input_for_coefficient)').val();
                     var summable_input_coef_val = $(this).find('input.custom_input_for_coefficient').val();
-                    console.log(summable_input_val*summable_input_coef_val);
                     if(summable_input_val) {
                         if(summable_input_coef_val) {
                             summ += parseInt(summable_input_val * summable_input_coef_val);
@@ -3451,7 +3449,6 @@
                 setTimeout(function(){
                     if($(document).find(".has-danger").length !== 0 ) {
                         var first_error_block_container_id = $(".has-danger:first").closest('.tab-pane').attr('id');
-                        console.log(first_error_block_container_id);
                         $('#main_tabs_nav .nav-link[href="#'+first_error_block_container_id+'"]').trigger('click');
                     }
                 }, 1000);
@@ -3491,15 +3488,15 @@
                         /*minlength: 2*/
                     },
                     /*title_en: {
-                        required: true,
-                        noSpace: true
-                        /!*minlength: 2*!/
-                    },
-                    title_es: {
-                        noSpace: true,
-                        required: true,
-                        /!*minlength: 2*!/
-                    }*/
+                     required: true,
+                     noSpace: true
+                     /!*minlength: 2*!/
+                     },
+                     title_es: {
+                     noSpace: true,
+                     required: true,
+                     /!*minlength: 2*!/
+                     }*/
                 },
                 /*messages: {
                  title_fr: {
@@ -3516,6 +3513,58 @@
                     form.submit();
                 }
             });
+
+            /*
+             * Translated default messages for the jQuery validation plugin.
+             * Locale: FR (French; français)
+             */
+            $.extend( $.validator.messages, {
+                required: "Ce champ est obligatoire.",
+                remote: "Veuillez corriger ce champ.",
+                email: "Veuillez fournir une adresse électronique valide.",
+                url: "Veuillez fournir une adresse URL valide.",
+                date: "Veuillez fournir une date valide.",
+                dateISO: "Veuillez fournir une date valide (ISO).",
+                number: "Veuillez fournir un numéro valide.",
+                digits: "Veuillez fournir seulement des chiffres.",
+                creditcard: "Veuillez fournir un numéro de carte de crédit valide.",
+                equalTo: "Veuillez fournir encore la même valeur.",
+                notEqualTo: "Veuillez fournir une valeur différente, les valeurs ne doivent pas être identiques.",
+                extension: "Veuillez fournir une valeur avec une extension valide.",
+                maxlength: $.validator.format( "Veuillez fournir au plus {0} caractères." ),
+                minlength: $.validator.format( "Veuillez fournir au moins {0} caractères." ),
+                rangelength: $.validator.format( "Veuillez fournir une valeur qui contient entre {0} et {1} caractères." ),
+                range: $.validator.format( "Veuillez fournir une valeur entre {0} et {1}." ),
+                max: $.validator.format( "Veuillez fournir une valeur inférieure ou égale à {0}." ),
+                min: $.validator.format( "Veuillez fournir une valeur supérieure ou égale à {0}." ),
+                step: $.validator.format( "Veuillez fournir une valeur multiple de {0}." ),
+                maxWords: $.validator.format( "Veuillez fournir au plus {0} mots." ),
+                minWords: $.validator.format( "Veuillez fournir au moins {0} mots." ),
+                rangeWords: $.validator.format( "Veuillez fournir entre {0} et {1} mots." ),
+                letterswithbasicpunc: "Veuillez fournir seulement des lettres et des signes de ponctuation.",
+                alphanumeric: "Veuillez fournir seulement des lettres, nombres, espaces et soulignages.",
+                lettersonly: "Veuillez fournir seulement des lettres.",
+                nowhitespace: "Veuillez ne pas inscrire d'espaces blancs.",
+                ziprange: "Veuillez fournir un code postal entre 902xx-xxxx et 905-xx-xxxx.",
+                integer: "Veuillez fournir un nombre non décimal qui est positif ou négatif.",
+                vinUS: "Veuillez fournir un numéro d'identification du véhicule (VIN).",
+                dateITA: "Veuillez fournir une date valide.",
+                time: "Veuillez fournir une heure valide entre 00:00 et 23:59.",
+                phoneUS: "Veuillez fournir un numéro de téléphone valide.",
+                phoneUK: "Veuillez fournir un numéro de téléphone valide.",
+                mobileUK: "Veuillez fournir un numéro de téléphone mobile valide.",
+                strippedminlength: $.validator.format( "Veuillez fournir au moins {0} caractères." ),
+                email2: "Veuillez fournir une adresse électronique valide.",
+                url2: "Veuillez fournir une adresse URL valide.",
+                creditcardtypes: "Veuillez fournir un numéro de carte de crédit valide.",
+                ipv4: "Veuillez fournir une adresse IP v4 valide.",
+                ipv6: "Veuillez fournir une adresse IP v6 valide.",
+                require_from_group: $.validator.format( "Veuillez fournir au moins {0} de ces champs." ),
+                nifES: "Veuillez fournir un numéro NIF valide.",
+                nieES: "Veuillez fournir un numéro NIE valide.",
+                cifES: "Veuillez fournir un numéro CIF valide.",
+                postalCodeCA: "Veuillez fournir un code postal valide."
+            } );
         });
     </script>
 
@@ -3632,8 +3681,6 @@
                 draggable: true
                 //icon: '/images/pin_map_white.svg'
             });
-
-            console.log(current_position);
 
             google.maps.event.addListener(marker, 'dragend', function(e){
                 myLatlng = marker.getPosition();
