@@ -154,7 +154,7 @@
                                             <li class="nav-item m-tabs__item" id="child_tab_1">
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="false">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant(s)
+                                                    Enfant
                                                     <button href="#" id="1" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
@@ -894,7 +894,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant(s)</h3>
+                                                    <h3>Enfant</h3>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -1153,7 +1153,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant(s)</h3>
+                                                    <h3>Enfant</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="second_child" value="second_child">
@@ -1421,7 +1421,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant(s)</h3>
+                                                    <h3>Enfant</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="third_child" value="third_child">
@@ -1689,7 +1689,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant(s)</h3>
+                                                    <h3>Enfant</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="fourth_child" value="fourth_child">

@@ -116,7 +116,7 @@
                                     </li>
                                     <li class="nav-item m-tabs__item">
                                         <a id="child_tab" class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3" role="tab">
-                                            Enfant(s)
+                                            Enfant
                                         </a>
                                     </li>
 
@@ -124,7 +124,7 @@
                                         <li class="nav-item m-tabs__item">
                                             <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Enfant(s)
+                                                Enfant
                                             </a>
                                         </li>
                                     @endif
@@ -133,7 +133,7 @@
                                         <li class="nav-item m-tabs__item">
                                             <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Enfant(s)
+                                                Enfant
                                             </a>
                                         </li>
                                     @endif
@@ -142,7 +142,7 @@
                                         <li class="nav-item m-tabs__item">
                                             <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Enfant(s)
+                                                Enfant
                                             </a>
                                         </li>
                                     @endif
