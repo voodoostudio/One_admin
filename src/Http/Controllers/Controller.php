@@ -84,22 +84,24 @@ abstract class Controller extends BaseController
                     $content = $data->{$row->field};
                 }
 
-                if($request->second_child_name != null) {
-                    $data->second_child_photo = $data->second_child_photo;
-                } else {
-                    $data->second_child_photo = '';
-                }
+                if ($slug == 'users') {
+                    if ($request->second_child_name != null) {
+                        $data->second_child_photo = $data->second_child_photo;
+                    } else {
+                        $data->second_child_photo = '';
+                    }
 
-                if($request->third_child_name != null ) {
-                    $data->third_child_photo = $data->third_child_photo;
-                } else {
-                    $data->third_child_photo = '';
-                }
+                    if ($request->third_child_name != null) {
+                        $data->third_child_photo = $data->third_child_photo;
+                    } else {
+                        $data->third_child_photo = '';
+                    }
 
-                if($request->fourth_child_name != null ) {
-                    $data->fourth_child_photo = $data->fourth_child_photo;
-                } else {
-                    $data->fourth_child_photo = '';
+                    if ($request->fourth_child_name != null) {
+                        $data->fourth_child_photo = $data->fourth_child_photo;
+                    } else {
+                        $data->fourth_child_photo = '';
+                    }
                 }
 
                 // If the file upload is null and it has a current file keep the current file
