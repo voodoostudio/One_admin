@@ -67,17 +67,29 @@
                                     <a id="child_email" href="" style="display: none;" class="m-card-profile__email m-link">{{ $dataTypeContent->email_child }}</a>
 
                                     <!----------->
-                                    <span id="child_name_s" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->second_child)->first_name . " " . json_decode($dataTypeContent->second_child)->middle_name . " " . json_decode($dataTypeContent->second_child)->last_name }}</span>
+                                    @if(isset(json_decode($dataTypeContent->second_child)->first_name) || isset(json_decode($dataTypeContent->second_child)->middle_name) || isset(json_decode($dataTypeContent->second_child)->last_name))
+                                        <span id="child_name_s" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->second_child)->first_name . " " . json_decode($dataTypeContent->second_child)->middle_name . " " . json_decode($dataTypeContent->second_child)->last_name }}</span>
+                                    @endif
                                     @for($i = 0; $i < 1;$i++)
-                                        <a id="child_email_s" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->second_child_emails)[$i]->email }}</a>
+                                        @if(json_decode($dataTypeContent->second_child_emails) != null)
+                                            <a id="child_email_s" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->second_child_emails)[$i]->email }}</a>
+                                        @endif
                                     @endfor
-                                    <span id="child_name_t" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->third_child)->first_name . " " . json_decode($dataTypeContent->third_child)->middle_name . " " . json_decode($dataTypeContent->third_child)->last_name }}</span>
+                                    @if(isset(json_decode($dataTypeContent->third_child)->first_name) || isset(json_decode($dataTypeContent->third_child)->middle_name) || isset(json_decode($dataTypeContent->third_child)->last_name))
+                                        <span id="child_name_t" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->third_child)->first_name . " " . json_decode($dataTypeContent->third_child)->middle_name . " " . json_decode($dataTypeContent->third_child)->last_name }}</span>
+                                    @endif
                                     @for($i = 0; $i < 1;$i++)
-                                        <a id="child_email_t" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->third_child_emails)[$i]->email }}</a>
+                                        @if(json_decode($dataTypeContent->third_child_emails) != null)
+                                            <a id="child_email_t" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->third_child_emails)[$i]->email }}</a>
+                                        @endif
                                     @endfor
-                                    <span id="child_name_f" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->fourth_child)->first_name . " " . json_decode($dataTypeContent->fourth_child)->middle_name . " " . json_decode($dataTypeContent->fourth_child)->last_name }}</span>
+                                    @if(isset(json_decode($dataTypeContent->fourth_child)->first_name) || isset(json_decode($dataTypeContent->fourth_child)->middle_name) || isset(json_decode($dataTypeContent->fourth_child)->last_name))
+                                        <span id="child_name_f" style="display: none;" class="m-card-profile__name hide">{{ json_decode($dataTypeContent->fourth_child)->first_name . " " . json_decode($dataTypeContent->fourth_child)->middle_name . " " . json_decode($dataTypeContent->fourth_child)->last_name }}</span>
+                                    @endif
                                     @for($i = 0; $i < 1;$i++)
-                                        <a id="child_email_f" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->fourth_child_emails)[$i]->email }}</a>
+                                        @if(json_decode($dataTypeContent->fourth_child_emails) != null)
+                                            <a id="child_email_f" href="" style="display: none;" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->fourth_child_emails)[$i]->email }}</a>
+                                        @endif
                                     @endfor
                                     {{--<p>{{ Auth::user()->bio }}</p>--}}
                                 </div>
