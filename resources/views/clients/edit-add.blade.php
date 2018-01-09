@@ -39,7 +39,7 @@
                                     <div class="m-card-profile__pic">
                                         <div class="m-card-profile__pic-wrapper">
                                             <img id="client_photo" style="display: block;" src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
-                                            @if($dataTypeContent->photo_coup != 0)
+                                            @if($dataTypeContent->photo_coup)
                                                 <img id="coup_photo" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                             @else
                                                 <img id="coup_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
