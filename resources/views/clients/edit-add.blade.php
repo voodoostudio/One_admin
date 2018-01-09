@@ -42,31 +42,31 @@
                                             @if($dataTypeContent->photo_coup)
                                                 <img id="coup_photo" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                             @else
-                                                <img id="coup_photo" style="display: none;" src="{{ Voyager::image( 'storage/users/default.png' ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                <img id="coup_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                             @endif
 
                                             @if($dataTypeContent->photo_child)
                                                 <img id="child_photo" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="Avatar"/>
                                             @else
-                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( 'storage/users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         <!-- Second Child photo -->
                                             @if($dataTypeContent->second_child_photo)
                                                 <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( $dataTypeContent->second_child_photo ) }}" alt=" Avatar"/>
                                             @else
-                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( 'storage/users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         <!-- Third Child photo -->
                                             @if($dataTypeContent->third_child_photo)
                                                 <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( $dataTypeContent->third_child_photo ) }}" alt="Avatar"/>
                                             @else
-                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( 'storage/users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         <!-- Fourth Child photo -->
                                             @if($dataTypeContent->third_child_photo)
                                                 <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo ) }}" alt="Avatar"/>
                                             @else
-                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( 'storage/users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         </div>
                                     </div>
