@@ -437,60 +437,60 @@
                                                                 <button type="button" id="open_map_btn_1" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                             </div>
 
-                                                            <div class="col-sm-12 col-md-3 ">
-                                                                <label>Rue</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" id="route_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Rue" value="{{ (isset($address->street)) ? $address->street : '' }}" name="street[]">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-2 ">
-                                                                <label>N°</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" id="street_number_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="N°" value="{{ (isset($address->number)) ? $address->number : '' }}" name="number[]">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-2 ">
-                                                                <label>CP</label>
-                                                                <div class="input-group">
-                                                                    <input type="number" min="0" class="form-control m-input switchable_form_item" placeholder="CP" value="{{ (isset($address->po_box)) ? $address->po_box : '' }}" name="po_box[]">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-2 ">
-                                                                <label>NPA</label>
-                                                                <input type="text" id="postal_code_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="NPA" value="{{ (isset($address->zip_code)) ? $address->zip_code : '' }}" name="zip_code[]">
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-3 ">
-                                                                <label>Ville</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" id="locality_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Ville" value="{{ (isset($address->town)) ? $address->town : '' }}" name="town[]">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-3 ">
-                                                                <label>Pays</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" id="country_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Pays" value="{{ (isset($address->country)) ? $address->country : '' }}" name="country[]">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-3">
-                                                                <label>Longitude</label>
-                                                                <div class="input-group">
-                                                                    <input disabled="disabled" type="number" min="0" id="longitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->longitude)) ? $address->longitude : '' }}" name="longitude[]">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-3">
-                                                                <label>Latitude</label>
-                                                                <div class="input-group">
-                                                                    <input disabled="disabled" type="number" min="0" id="latitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->latitude)) ? $address->latitude : '' }}" name="latitude[]">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-3 ">
-                                                                <label>Localisation</label>
-                                                                <select class="form-control m-select2 custom_select2 switchable_form_item" name="location[]" data-placeholder="Select Location">
-                                                                    @foreach(TCG\Voyager\Models\Location::all() as $location)
-                                                                        <option value="{{ $location->reference }}" @if(isset($address->location) && $address->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
+                                                            {{--<div class="col-sm-12 col-md-3 ">--}}
+                                                            {{--<label>Rue</label>--}}
+                                                            {{--<div class="input-group">--}}
+                                                            {{--<input type="text" id="route_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Rue" value="{{ (isset($address->street)) ? $address->street : '' }}" name="street[]">--}}
+                                                            {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                            {{--<label>N°</label>--}}
+                                                            {{--<div class="input-group">--}}
+                                                            {{--<input type="text" id="street_number_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="N°" value="{{ (isset($address->number)) ? $address->number : '' }}" name="number[]">--}}
+                                                            {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                            {{--<label>CP</label>--}}
+                                                            {{--<div class="input-group">--}}
+                                                            {{--<input type="number" min="0" class="form-control m-input switchable_form_item" placeholder="CP" value="{{ (isset($address->po_box)) ? $address->po_box : '' }}" name="po_box[]">--}}
+                                                            {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                            {{--<label>NPA</label>--}}
+                                                            {{--<input type="text" id="postal_code_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="NPA" value="{{ (isset($address->zip_code)) ? $address->zip_code : '' }}" name="zip_code[]">--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-sm-12 col-md-3 ">--}}
+                                                            {{--<label>Ville</label>--}}
+                                                            {{--<div class="input-group">--}}
+                                                            {{--<input type="text" id="locality_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Ville" value="{{ (isset($address->town)) ? $address->town : '' }}" name="town[]">--}}
+                                                            {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-sm-12 col-md-3 ">--}}
+                                                            {{--<label>Pays</label>--}}
+                                                            {{--<div class="input-group">--}}
+                                                            {{--<input type="text" id="country_{{ $key }}" readonly="readonly" class="form-control m-input switchable_form_item" placeholder="Pays" value="{{ (isset($address->country)) ? $address->country : '' }}" name="country[]">--}}
+                                                            {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-sm-12 col-md-3">--}}
+                                                            {{--<label>Longitude</label>--}}
+                                                            {{--<div class="input-group">--}}
+                                                            {{--<input disabled="disabled" type="number" min="0" id="longitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->longitude)) ? $address->longitude : '' }}" name="longitude[]">--}}
+                                                            {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-sm-12 col-md-3">--}}
+                                                            {{--<label>Latitude</label>--}}
+                                                            {{--<div class="input-group">--}}
+                                                            {{--<input disabled="disabled" type="number" min="0" id="latitude_{{ $key }}" class="form-control m-input" placeholder="Longitude" value="{{ (isset($address->latitude)) ? $address->latitude : '' }}" name="latitude[]">--}}
+                                                            {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-sm-12 col-md-3 ">--}}
+                                                            {{--<label>Localisation</label>--}}
+                                                            {{--<select class="form-control m-select2 custom_select2 switchable_form_item" name="location[]" data-placeholder="Select Location">--}}
+                                                            {{--@foreach(TCG\Voyager\Models\Location::all() as $location)--}}
+                                                            {{--<option value="{{ $location->reference }}" @if(isset($address->location) && $address->location == $location->reference){{ 'selected="selected"' }}@endif>{{ $location->value }}</option>--}}
+                                                            {{--@endforeach--}}
+                                                            {{--</select>--}}
+                                                            {{--</div>--}}
                                                         </div>
                                                     @endforeach
                                                 @else
@@ -516,64 +516,64 @@
                                                             <button type="button" id="open_map_btn_1" disabled="disabled" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>
                                                         </div>
 
-                                                        <div class="col-sm-12 col-md-3 ">
-                                                            <label>Rue</label>
-                                                            <div class="input-group">
-                                                                <input type="text" id="route_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue"  name="street[]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-2 ">
-                                                            <label>N°</label>
-                                                            <div class="input-group">
-                                                                <input type="text" id="street_number_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-2 ">
-                                                            <label>CP</label>
-                                                            <div class="input-group">
-                                                                <input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-2 ">
-                                                            <label>NPA</label>
-                                                            <div class="input-group">
-                                                                <input type="text" id="postal_code_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA"  name="zip_code[]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-3 ">
-                                                            <label>Ville</label>
-                                                            <div class="input-group">
-                                                                <input type="text" id="locality_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville"  name="town[]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-3 ">
-                                                            <label>Pays</label>
-                                                            <div class="input-group">
-                                                                <input type="text" id="country_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays"  name="country[]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-3">
-                                                            <label>Longitude</label>
-                                                            <div class="input-group">
-                                                                <input disabled="disabled" type="number" min="0" id="longitude_1" class="form-control m-input" placeholder="Longitude" name="longitude[]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-3">
-                                                            <label>Latitude</label>
-                                                            <div class="input-group">
-                                                                <input disabled="disabled" type="number" min="0" id="latitude_1" class="form-control m-input" placeholder="Longitude" name="latitude[]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-3 ">
-                                                            <label>Localisation</label>
-                                                            <div class="input-group">
-                                                                <select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">
-                                                                    @foreach(TCG\Voyager\Models\Location::all() as $location)
-                                                                        <option value="{{ $location->reference }}">{{ $location->value }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
+                                                        {{--<div class="col-sm-12 col-md-3 ">--}}
+                                                        {{--<label>Rue</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<input type="text" id="route_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue"  name="street[]">--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                        {{--<label>N°</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<input type="text" id="street_number_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                        {{--<label>CP</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                        {{--<label>NPA</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<input type="text" id="postal_code_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA"  name="zip_code[]">--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-sm-12 col-md-3 ">--}}
+                                                        {{--<label>Ville</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<input type="text" id="locality_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville"  name="town[]">--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-sm-12 col-md-3 ">--}}
+                                                        {{--<label>Pays</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<input type="text" id="country_1" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays"  name="country[]">--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-sm-12 col-md-3">--}}
+                                                        {{--<label>Longitude</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<input disabled="disabled" type="number" min="0" id="longitude_1" class="form-control m-input" placeholder="Longitude" name="longitude[]">--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-sm-12 col-md-3">--}}
+                                                        {{--<label>Latitude</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<input disabled="disabled" type="number" min="0" id="latitude_1" class="form-control m-input" placeholder="Longitude" name="latitude[]">--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-sm-12 col-md-3 ">--}}
+                                                        {{--<label>Localisation</label>--}}
+                                                        {{--<div class="input-group">--}}
+                                                        {{--<select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">--}}
+                                                        {{--@foreach(TCG\Voyager\Models\Location::all() as $location)--}}
+                                                        {{--<option value="{{ $location->reference }}">{{ $location->value }}</option>--}}
+                                                        {{--@endforeach--}}
+                                                        {{--</select>--}}
+                                                        {{--</div>--}}
+                                                        {{--</div>--}}
                                                     </div>
                                                 @endif
                                             </div>
@@ -2245,65 +2245,65 @@
                 '<div class="col-sm-12 col-md-4 ">' +
                 '<button type="button" id="open_map_btn_' + i  + '" disabled="disabled" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
                 '</div>' +
-                '<div class="col-sm-12 col-md-3 ">' +
-                '<label>Rue</label>' +
-                '<div class="input-group">' +
-                '<input type="text" id="route_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue" name="street[]">' +
-                '</div>' +
-                '</div>' +
-                '<div class="col-sm-12 col-md-2 ">' +
-                '<label>N°</label>' +
-                '<div class="input-group">' +
-                '<input type="text" id="street_number_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">' +
-                '</div>' +
-                '</div>' +
-                '<div class="col-sm-12 col-md-2 ">' +
-                '<label>CP</label>' +
-                '<div class="input-group">' +
-                '<input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">' +
-                '</div>' +
-                '</div>' +
-                '<div class="col-sm-12 col-md-2 ">' +
-                '<label>NPA</label>' +
-                '<div class="input-group">' +
-                '<input type="text" id="postal_code_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA" name="zip_code[]">' +
-                '</div>' +
-                '</div>' +
-                '<div class="col-sm-12 col-md-3 ">' +
-                '<label>Ville</label>' +
-                '<div class="input-group">' +
-                '<input type="text" id="locality_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville" name="town[]">' +
-                '</div>' +
-                '</div>' +
-                '<div class="col-sm-12 col-md-3 ">' +
-                '<label>Pays</label>' +
-                '<div class="input-group">' +
-                '<input type="text" id="country_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays" name="country[]">' +
-                '</div>' +
-                '</div>' +
-                '<div class="col-sm-12 col-md-3">' +
-                '<label>Longitude</label>' +
-                '<div class="input-group">' +
-                '<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +
-                '</div>' +
-                '</div>' +
-                '<div class="col-sm-12 col-md-3">' +
-                '<label>Latitude</label>' +
-                '<div class="input-group">' +
-                '<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +
-                '</div> ' +
-                '</div>' +
-                '<div class="col-sm-12 col-md-3 ">' +
-                '<label>Localisation</label>' +
-                '<div class="input-group">' +
-                '<select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">' +
-                @foreach(TCG\Voyager\Models\Location::all() as $location)
-                    '<option value="{{ $location->reference }}">{{ $location->value }}</option>' +
-                @endforeach
-                    '</select>' +
-                '</div>' +
-                '</div>' +
-                '</div>'
+                {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                        {{--'<label>Rue</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="route_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue" name="street[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                        {{--'<label>N°</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="street_number_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                        {{--'<label>CP</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                        {{--'<label>NPA</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="postal_code_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA" name="zip_code[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                        {{--'<label>Ville</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="locality_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville" name="town[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                        {{--'<label>Pays</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input type="text" id="country_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays" name="country[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3">' +--}}
+                        {{--'<label>Longitude</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3">' +--}}
+                        {{--'<label>Latitude</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +--}}
+                        {{--'</div> ' +--}}
+                        {{--'</div>' +--}}
+                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                        {{--'<label>Localisation</label>' +--}}
+                        {{--'<div class="input-group">' +--}}
+                        {{--'<select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">' +--}}
+                        {{--@foreach(TCG\Voyager\Models\Location::all() as $location)--}}
+                        {{--'<option value="{{ $location->reference }}">{{ $location->value }}</option>' +--}}
+                        {{--@endforeach--}}
+                        {{--'</select>' +--}}
+                        {{--'</div>' +--}}
+                        {{--'</div>' +--}}
+                    '</div>'
             );
             initAutocomplete();
             $("#address_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
@@ -2340,13 +2340,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_client_email_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#client_email_form_' + button_id).remove();
-            // initAutocomplete();
         });
 
         var c = 1;
@@ -2375,13 +2373,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_coup_email_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#coup_email_form_' + button_id).remove();
-            // initAutocomplete();
         });
 
         var che = 1;
@@ -2410,7 +2406,6 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
 
@@ -2418,7 +2413,6 @@
         $(document).on('click', '.remove_children_email_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#children_email_form_' + button_id).remove();
-            //  initAutocomplete();
         });
 
         var cnhe1 = 1;
@@ -2447,7 +2441,6 @@
                 '</div>'+
                 '</div>'
             );
-            //  initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_second_child_email_btn', function(){
@@ -2482,13 +2475,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_third_child_email_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#third_child_email_form_' + button_id).remove();
-            //  initAutocomplete();
         });
 
         var cnhe3 = 1;
@@ -2517,13 +2508,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_fourth_child_email_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#fourth_child_email_form_' + button_id).remove();
-            // initAutocomplete();
         });
 
         var p = 1;
@@ -2558,13 +2547,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_client_phone_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#client_phone_form_' + button_id).remove();
-            // initAutocomplete();
         });
 
         var cp = 1;
@@ -2599,7 +2586,6 @@
                 '</div>'+
                 '</div>'
             );
-            //  initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_coup_phone_btn', function(){
@@ -2640,13 +2626,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_children_phone_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#children_phone_form_' + button_id).remove();
-            //  initAutocomplete();
         });
 
         var cnhp1 = 1;
@@ -2681,13 +2665,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_second_child_phone_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#second_child_phone_form_' + button_id).remove();
-            // initAutocomplete();
         });
 
         var cnhp2 = 1;
@@ -2722,13 +2704,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_third_child_phone_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#third_child_phone_form_' + button_id).remove();
-            // initAutocomplete();
         });
 
         var cnhp3 = 1;
@@ -2763,13 +2743,11 @@
                 '</div>'+
                 '</div>'
             );
-            // initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_fourth_child_phone_btn', function(){
             var button_id = $(this).attr("data-id");
             $('#fourth_child_phone_form_' + button_id).remove();
-            // initAutocomplete();
         });
 
         $('#add_new_child').click(function() {
@@ -2785,21 +2763,15 @@
                     '</li>'
                 );
             }
-            // initAutocomplete();
             $("#profile_info_child_" + all_items + " select.custom_select2").select2({minimumResultsForSearch: Infinity});
 
         });
 
         $(document).on('click', '.remove_children_tab', function(){
             var button_id = $(this).attr("id");
-            // console.log(button_id);
             $('#child_tab_' + button_id).remove();
-            // $('#profile_info_child_' + button_id + ' > input').attr('value', '');
             $('#profile_info_child_' + button_id + ' .m-form__group > .col-sm-12 .input-group input').attr('value', '');
-            //$('#fourth_child_email_form_0').after('div').remove();
 
-
-            // initAutocomplete();
             if(button_id === "2" || button_id === "1" || button_id === "0"){
                 $('#client').trigger('click');
             }
@@ -2972,7 +2944,7 @@
 
                 // When the user selects an address from the dropdown, populate the address
                 // fields in the form.
-                autocomplete.addListener('place_changed', fillInAddress);
+//                autocomplete.addListener('place_changed', fillInAddress);
             });
         }
 
