@@ -80,31 +80,28 @@
                                     </li>
 
                                     @if(!empty(json_decode($dataTypeContent->second_child)->first_name))
-                                        <li class="nav-item m-tabs__item" id="child_tab_0">
+                                        <li class="nav-item m-tabs__item">
                                             <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
                                                 Enfant(s)
-                                                <button href="#" id="0" class="remove_children_tab">-</button>
                                             </a>
                                         </li>
                                     @endif
 
                                     @if(!empty(json_decode($dataTypeContent->third_child)->first_name))
-                                        <li class="nav-item m-tabs__item" id="child_tab_1">
+                                        <li class="nav-item m-tabs__item">
                                             <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
                                                 Enfant(s)
-                                                <button href="#" id="1" class="remove_children_tab">-</button>
                                             </a>
                                         </li>
                                     @endif
 
                                     @if(!empty(json_decode($dataTypeContent->fourth_child)->first_name))
-                                        <li class="nav-item m-tabs__item" id="child_tab_2" >
+                                        <li class="nav-item m-tabs__item">
                                             <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
                                                 Enfant(s)
-                                                <button href="#" id="2" class="remove_children_tab">-</button>
                                             </a>
                                         </li>
                                     @endif
@@ -974,18 +971,8 @@
                                         </div>
                                         <div class="form-group m-form__group row">
                                             <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
-                                                            <span>{{ ($dataTypeContent->email_type_child === $email_type->reference) ? $email_type->value : '' }}</span>
-                                                        @endforeach
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        {{ $dataTypeContent->email_child }}
-                                                    </div>
-                                                </div>
-                                                @if(!empty($dataTypeContent->children_emails))
-                                                    @foreach(json_decode($dataTypeContent->children_emails) as $email)
+                                                @if(!empty(json_decode($dataTypeContent->second_child_emails)))
+                                                    @foreach(json_decode($dataTypeContent->second_child_emails) as $email)
                                                         <div class="profile_data_block">
                                                             <label class="profile_data_label">
                                                                 @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
@@ -1000,18 +987,8 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        @foreach(TCG\Voyager\Models\Phone::all() as $phone)
-                                                            <span>{{ ($dataTypeContent->phone_type_child === $phone->reference) ? $phone->value : '' }}</span>
-                                                        @endforeach
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        <span> {{ ($dataTypeContent->country_code_child) ?  "+(" .$dataTypeContent->country_code_child . ") " . $dataTypeContent->phone_child : $dataTypeContent->phone_child }}</span>
-                                                    </div>
-                                                </div>
-                                                @if(!empty($dataTypeContent->children_phones))
-                                                    @foreach(json_decode($dataTypeContent->children_phones) as $phone)
+                                                @if(!empty(json_decode($dataTypeContent->second_child_phones)))
+                                                    @foreach(json_decode($dataTypeContent->second_child_phones) as $phone)
                                                         <div class="profile_data_block">
                                                             <label class="profile_data_label">
                                                                 @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
@@ -1032,7 +1009,7 @@
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
-                                                            <span>{{ ($dataTypeContent->preferred_means_contact_child === $contact->reference) ? $contact->value : '' }}</span>
+                                                            <span>{{ (isset(json_decode($dataTypeContent->second_child)->preferred_means_contact) && json_decode($dataTypeContent->second_child)->preferred_means_contact == $contact->reference) ? $contact->value : '' }}</span>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -1207,18 +1184,8 @@
                                         </div>
                                         <div class="form-group m-form__group row">
                                             <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
-                                                            <span>{{ ($dataTypeContent->email_type_child === $email_type->reference) ? $email_type->value : '' }}</span>
-                                                        @endforeach
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        {{ $dataTypeContent->email_child }}
-                                                    </div>
-                                                </div>
-                                                @if(!empty($dataTypeContent->children_emails))
-                                                    @foreach(json_decode($dataTypeContent->children_emails) as $email)
+                                                @if(!empty(json_decode($dataTypeContent->third_child_emails)))
+                                                    @foreach(json_decode($dataTypeContent->third_child_emails) as $email)
                                                         <div class="profile_data_block">
                                                             <label class="profile_data_label">
                                                                 @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
@@ -1233,18 +1200,8 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        @foreach(TCG\Voyager\Models\Phone::all() as $phone)
-                                                            <span>{{ ($dataTypeContent->phone_type_child === $phone->reference) ? $phone->value : '' }}</span>
-                                                        @endforeach
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        <span> {{ ($dataTypeContent->country_code_child) ?  "+(" .$dataTypeContent->country_code_child . ") " . $dataTypeContent->phone_child : $dataTypeContent->phone_child }}</span>
-                                                    </div>
-                                                </div>
-                                                @if(!empty($dataTypeContent->children_phones))
-                                                    @foreach(json_decode($dataTypeContent->children_phones) as $phone)
+                                                @if(!empty(json_decode($dataTypeContent->third_child_phones)))
+                                                    @foreach(json_decode($dataTypeContent->third_child_phones) as $phone)
                                                         <div class="profile_data_block">
                                                             <label class="profile_data_label">
                                                                 @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
@@ -1265,7 +1222,7 @@
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
-                                                            <span>{{ ($dataTypeContent->preferred_means_contact_child === $contact->reference) ? $contact->value : '' }}</span>
+                                                            <span>{{ (isset(json_decode($dataTypeContent->third_child)->preferred_means_contact) && json_decode($dataTypeContent->third_child)->preferred_means_contact == $contact->reference) ? $contact->value : '' }}</span>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -1439,18 +1396,8 @@
                                         </div>
                                         <div class="form-group m-form__group row">
                                             <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
-                                                            <span>{{ ($dataTypeContent->email_type_child === $email_type->reference) ? $email_type->value : '' }}</span>
-                                                        @endforeach
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        {{ $dataTypeContent->email_child }}
-                                                    </div>
-                                                </div>
-                                                @if(!empty($dataTypeContent->children_emails))
-                                                    @foreach(json_decode($dataTypeContent->children_emails) as $email)
+                                                @if(!empty(json_decode($dataTypeContent->fourth_child_emails)))
+                                                    @foreach(json_decode($dataTypeContent->fourth_child_emails) as $email)
                                                         <div class="profile_data_block">
                                                             <label class="profile_data_label">
                                                                 @foreach(TCG\Voyager\Models\EmailType::all() as $email_type)
@@ -1465,18 +1412,8 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="profile_data_block">
-                                                    <label class="profile_data_label">
-                                                        @foreach(TCG\Voyager\Models\Phone::all() as $phone)
-                                                            <span>{{ ($dataTypeContent->phone_type_child === $phone->reference) ? $phone->value : '' }}</span>
-                                                        @endforeach
-                                                    </label>
-                                                    <div class="profile_data_value">
-                                                        <span> {{ ($dataTypeContent->country_code_child) ?  "+(" .$dataTypeContent->country_code_child . ") " . $dataTypeContent->phone_child : $dataTypeContent->phone_child }}</span>
-                                                    </div>
-                                                </div>
-                                                @if(!empty($dataTypeContent->children_phones))
-                                                    @foreach(json_decode($dataTypeContent->children_phones) as $phone)
+                                                @if(!empty($dataTypeContent->fourth_child_phones))
+                                                    @foreach(json_decode($dataTypeContent->fourth_child_phones) as $phone)
                                                         <div class="profile_data_block">
                                                             <label class="profile_data_label">
                                                                 @foreach(TCG\Voyager\Models\Phone::all() as $phone_type)
@@ -1497,7 +1434,7 @@
                                                     </label>
                                                     <div class="profile_data_value">
                                                         @foreach(TCG\Voyager\Models\Contact::all() as $contact)
-                                                            <span>{{ ($dataTypeContent->preferred_means_contact_child === $contact->reference) ? $contact->value : '' }}</span>
+                                                            <span>{{ (isset(json_decode($dataTypeContent->fourth_child)->preferred_means_contact) && json_decode($dataTypeContent->fourth_child)->preferred_means_contact == $contact->reference) ? $contact->value : '' }}</span>
                                                         @endforeach
                                                     </div>
                                                 </div>
