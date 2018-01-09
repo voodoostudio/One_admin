@@ -39,21 +39,21 @@
                                         <img id="client_photo" src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                         <img id="coup_photo" style="display: none;" src="{{ ($dataTypeContent->photo_coup) ? Voyager::image( $dataTypeContent->photo_coup ) : '/img/admin/default-coup.png' }}" alt="{{ $dataTypeContent->first_name_coup }} avatar"/>
                                         <img id="child_photo" style="display: none;" src="{{ ($dataTypeContent->photo_child) ? Voyager::image( $dataTypeContent->photo_child ) : '/img/admin/default-coup.png' }}" alt="{{ $dataTypeContent->first_name_child }} avatar"/>
-                                        @if($dataTypeContent->second_child_photo != null)
-                                            <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( $dataTypeContent->second_child_photo ) }}" alt="{{ json_decode($dataTypeContent->second_child)->first_name }} avatar"/>
-                                        @else
-                                            <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( '/img/admin/default-coup.png' ) }}" alt="Avatar"/>
-                                        @endif
-                                        @if($dataTypeContent->third_child_photo != null)
-                                            <img id="child_photo_t" style="display: none;" src="{{ ( Voyager::image( $dataTypeContent->third_child_photo ) }}" alt="{{ json_decode($dataTypeContent->third_child)->first_name }} avatar"/>
-                                        @else
-                                            <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( '/img/admin/default-coup.png' ) }}" alt="Avatar"/>
-                                        @endif
-                                        @if($dataTypeContent->fourth_child_photo != null)
-                                            <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo ) }}" alt="{{ json_decode($dataTypeContent->fourth_child)->first_name }} avatar"/>
-                                        @else
-                                            <img id="child_photo_f" style="display: none;" src="{{ Voyager::image('/img/admin/default-coup.png') }}" alt="Avatar"/>
-                                        @endif
+                                        {{--@if($dataTypeContent->second_child_photo != null)--}}
+                                            {{--<img id="child_photo_s" style="display: none;" src="{{ Voyager::image( $dataTypeContent->second_child_photo ) }}" alt="{{ json_decode($dataTypeContent->second_child)->first_name }} avatar"/>--}}
+                                        {{--@else--}}
+                                            {{--<img id="child_photo_s" style="display: none;" src="{{ Voyager::image( '/img/admin/default-coup.png' ) }}" alt="Avatar"/>--}}
+                                        {{--@endif--}}
+                                        {{--@if($dataTypeContent->third_child_photo != null)--}}
+                                            {{--<img id="child_photo_t" style="display: none;" src="{{ ( Voyager::image( $dataTypeContent->third_child_photo ) }}" alt="{{ json_decode($dataTypeContent->third_child)->first_name }} avatar"/>--}}
+                                        {{--@else--}}
+                                            {{--<img id="child_photo_t" style="display: none;" src="{{ Voyager::image( '/img/admin/default-coup.png' ) }}" alt="Avatar"/>--}}
+                                        {{--@endif--}}
+                                        {{--@if($dataTypeContent->fourth_child_photo != null)--}}
+                                            {{--<img id="child_photo_f" style="display: none;" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo ) }}" alt="{{ json_decode($dataTypeContent->fourth_child)->first_name }} avatar"/>--}}
+                                        {{--@else--}}
+                                            {{--<img id="child_photo_f" style="display: none;" src="{{ Voyager::image('/img/admin/default-coup.png') }}" alt="Avatar"/>--}}
+                                        {{--@endif--}}
                                     </div>
                                 </div>
                                 <div class="m-card-profile__details">
