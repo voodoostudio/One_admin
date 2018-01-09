@@ -74,18 +74,24 @@
                                         <span id="child_name" style="display:none;" class="m-card-profile__name">{{ Auth::user()->first_name_child }}</span>
                                         <a id="child_email" style="display:none;" href="" class="m-card-profile__email m-link">{{ Auth::user()->email_child }}</a>
                                         <!--------->
-                                        <span id="child_name_s" style="display:none;" class="m-card-profile__name">{{ json_decode(Auth::user()->second_child)->first_name }}</span>
-                                        @for($i = 0; $i < 1;$i++)
-                                            <a id="child_email_s" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->second_child_emails)[$i]->email }}</a>
-                                        @endfor
-                                        <span id="child_name_t" style="display:none;" class="m-card-profile__name">{{ json_decode(Auth::user()->third_child)->first_name }}</span>
-                                        @for($i = 0; $i < 1;$i++)
-                                            <a id="child_email_t" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->third_child_emails)[$i]->email }}</a>
-                                        @endfor
-                                        <span id="child_name_f" style="display:none;" class="m-card-profile__name">{{ json_decode(Auth::user()->fourth_child)->first_name }}</span>
-                                        @for($i = 0; $i < 1;$i++)
-                                            <a id="child_email_f" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->fourth_child_emails)[$i]->email }}</a>
-                                        @endfor
+                                        <span id="child_name_s" style="display:none;" class="m-card-profile__name">@if(isset(json_decode(Auth::user()->second_child)->first_name)){{ json_decode(Auth::user()->second_child)->first_name }}@endif</span>
+                                        @if(json_decode(Auth::user()->second_child_emails) != null)
+                                            @for($i = 0; $i < 1;$i++)
+                                                <a id="child_email_s" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->second_child_emails)[$i]->email }}</a>
+                                            @endfor
+                                        @endif
+                                        <span id="child_name_t" style="display:none;" class="m-card-profile__name">@if(isset(json_decode(Auth::user()->third_child)->first_name)){{ json_decode(Auth::user()->third_child)->first_name }}@endif</span>
+                                        @if(json_decode(Auth::user()->third_child_emails) != null)
+                                            @for($i = 0; $i < 1;$i++)
+                                                <a id="child_email_t" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->third_child_emails)[$i]->email }}</a>
+                                            @endfor
+                                        @endif
+                                        <span id="child_name_f" style="display:none;" class="m-card-profile__name">@if(json_decode(Auth::user()->fourth_child)){{ json_decode(Auth::user()->fourth_child)->first_name }}@endif</span>
+                                        @if(json_decode(Auth::user()->fourth_child_emails) != null)
+                                            @for($i = 0; $i < 1;$i++)
+                                                <a id="child_email_f" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->fourth_child_emails)[$i]->email }}</a>
+                                            @endfor
+                                        @endif
                                     </div>
                                 </div>
                                 <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">

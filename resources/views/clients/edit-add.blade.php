@@ -46,25 +46,25 @@
                                             @endif
 
                                             @if($dataTypeContent->photo_child)
-                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="Avatar"/>
+                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="Default avatar"/>
                                             @else
                                                 <img id="child_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
-                                        <!-- Second Child photo -->
+                                            <!-- Second Child photo -->
                                             @if($dataTypeContent->second_child_photo)
-                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( $dataTypeContent->second_child_photo ) }}" alt=" Avatar"/>
+                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( $dataTypeContent->second_child_photo ) }}" alt="Default avatar"/>
                                             @else
                                                 <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
-                                        <!-- Third Child photo -->
+                                            <!-- Third Child photo -->
                                             @if($dataTypeContent->third_child_photo)
-                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( $dataTypeContent->third_child_photo ) }}" alt="Avatar"/>
+                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( $dataTypeContent->third_child_photo ) }}" alt="Default avatar"/>
                                             @else
                                                 <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
-                                        <!-- Fourth Child photo -->
+                                            <!-- Fourth Child photo -->
                                             @if($dataTypeContent->third_child_photo)
-                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo ) }}" alt="Avatar"/>
+                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo ) }}" alt="Default avatar"/>
                                             @else
                                                 <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
@@ -79,16 +79,18 @@
 
                                         <span id="child_name" style="display: none;" class="m-card-profile__name">{{ $dataTypeContent->first_name_child }}</span>
                                         <a id="child_email" style="display: none;" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email_child }}</a>
+
+                                        <!-- Second Child photo -->
                                         <span id="child_name_s" style="display: none;" class="m-card-profile__name">{{ json_decode($dataTypeContent->second_child)->first_name }}</span>
                                         @for($i = 0; $i < 1;$i++)
                                             <a id="child_email_s" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->fourth_child_emails)[$i]->email }}</a>
                                         @endfor
-                                    <!-- Third Child photo -->
+                                        <!-- Third Child photo -->
                                         <span id="child_name_t" style="display: none;" class="m-card-profile__name">{{ json_decode($dataTypeContent->third_child)->first_name }}</span>
                                         @for($i = 0; $i < 1;$i++)
                                             <a id="child_email_t" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->third_child_emails)[$i]->email }}</a>
                                         @endfor
-                                    <!-- Fourth Child photo -->
+                                        <!-- Fourth Child photo -->
                                         <span id="child_name_f" style="display: none;" class="m-card-profile__name">{{ json_decode($dataTypeContent->fourth_child)->first_name }}</span>
                                         @for($i = 0; $i < 1;$i++)
                                             <a id="child_email_f" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->fourth_child_emails)[$i]->email }}</a>
@@ -122,55 +124,53 @@
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
-                                            <a id="client_spouse" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_spouse" role="tab"  aria-expanded="false">
+                                            <a id="client_spouse" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_spouse" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
                                                 Epoux/Epouse
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
-                                            <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child" role="tab"  aria-expanded="false">
+                                            <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child" role="tab"  aria-expanded="true">
                                                 <i class="flaticon-share m--hide"></i>
-                                                Enfant
+                                                Enfant(s)
                                             </a>
                                         </li>
                                         @if(!empty(json_decode($dataTypeContent->second_child)->first_name))
                                             <li class="nav-item m-tabs__item" id="child_tab_0">
-                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="false">
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="true">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant
-                                                    <button href="#" id="0" class="remove_children_tab"><i class="la la-close"></i></button>
+                                                    Enfant(s)
+                                                    <button href="#" id="0" class="remove_children_tab">-</button>
                                                 </a>
                                             </li>
                                         @endif
 
                                         @if(!empty(json_decode($dataTypeContent->third_child)->first_name))
                                             <li class="nav-item m-tabs__item" id="child_tab_1">
-                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="false">
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="true">
                                                     <i class="flaticon-share m--hide"></i>
                                                     Enfant(s)
-                                                    <button href="#" id="1" class="remove_children_tab"><i class="la la-close"></i></button>
+                                                    <button href="#" id="1" class="remove_children_tab">-</button>
                                                 </a>
                                             </li>
                                         @endif
 
                                         @if(!empty(json_decode($dataTypeContent->fourth_child)->first_name))
                                             <li class="nav-item m-tabs__item" id="child_tab_2" >
-                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="false">
+                                                <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="true">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant
-                                                    <button href="#" id="2" class="remove_children_tab"><i class="la la-close"></i></button>
+                                                    Enfant(s)
+                                                    <button href="#" id="2" class="remove_children_tab">-</button>
                                                 </a>
                                             </li>
                                         @endif
+                                        {{-- <li class="nav-item m-tabs__item">
+                                             <a class="nav-link m-tabs__link" data-toggle="tab" href="#profile_settings" role="tab">
+                                                 Settings
+                                             </a>
+                                         </li>--}}
                                     </ul>
-                                    <button id="add_new_child" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" style="margin: 17px 0;">
-                                        <span>
-                                            <i class="la la-cart-plus"></i>
-                                            <span>
-                                                Nouveau Enfant
-                                            </span>
-                                        </span>
-                                    </button>
+                                    <a id="add_new_child" style="font-size: 30px;border: 1px solid black;padding: 0 12px;position: relative;top: 13px;cursor: pointer;">+</a>
                                 </div>
                             </div>
                             <form class="m-form m-form--fit m-form--label-align-right form-edit-add m-form--group-seperator-dashed"
@@ -624,7 +624,7 @@
                                                 </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="profile_info_spouse" role="tabpanel" aria-expanded="false">
+                                    <div class="tab-pane" id="profile_info_spouse" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -883,7 +883,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="profile_info_child" role="tabpanel" aria-expanded="false">
+                                    <div class="tab-pane" id="profile_info_child" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -1142,7 +1142,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="profile_info_child_0" role="tabpanel" aria-expanded="false">
+                                    <div class="tab-pane" id="profile_info_child_0" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -1410,7 +1410,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="profile_info_child_1" role="tabpanel" aria-expanded="false">
+                                    <div class="tab-pane" id="profile_info_child_1" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -1678,7 +1678,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="profile_info_child_2" role="tabpanel" aria-expanded="false">
+                                    <div class="tab-pane" id="profile_info_child_2" role="tabpanel" aria-expanded="true">
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
@@ -2124,65 +2124,65 @@
                 '<div class="col-sm-12 col-md-4 ">' +
                 '<button type="button" id="open_map_btn_' + i  + '" disabled="disabled" class="btn btn-secondary open_map_btn switchable_form_item" data-toggle="modal" data-target="#address_map_modal" style="margin-top: 28px; width: 100%;">Placer l’adresse sur la carte</button>' +
                 '</div>' +
-                {{--'<div class="col-sm-12 col-md-3 ">' +--}}
-                        {{--'<label>Rue</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<input type="text" id="route_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue" name="street[]">' +--}}
-                        {{--'</div>' +--}}
-                        {{--'</div>' +--}}
-                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
-                        {{--'<label>N°</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<input type="text" id="street_number_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">' +--}}
-                        {{--'</div>' +--}}
-                        {{--'</div>' +--}}
-                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
-                        {{--'<label>CP</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">' +--}}
-                        {{--'</div>' +--}}
-                        {{--'</div>' +--}}
-                        {{--'<div class="col-sm-12 col-md-2 ">' +--}}
-                        {{--'<label>NPA</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<input type="text" id="postal_code_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA" name="zip_code[]">' +--}}
-                        {{--'</div>' +--}}
-                        {{--'</div>' +--}}
-                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
-                        {{--'<label>Ville</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<input type="text" id="locality_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville" name="town[]">' +--}}
-                        {{--'</div>' +--}}
-                        {{--'</div>' +--}}
-                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
-                        {{--'<label>Pays</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<input type="text" id="country_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays" name="country[]">' +--}}
-                        {{--'</div>' +--}}
-                        {{--'</div>' +--}}
-                        {{--'<div class="col-sm-12 col-md-3">' +--}}
-                        {{--'<label>Longitude</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +--}}
-                        {{--'</div>' +--}}
-                        {{--'</div>' +--}}
-                        {{--'<div class="col-sm-12 col-md-3">' +--}}
-                        {{--'<label>Latitude</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +--}}
-                        {{--'</div> ' +--}}
-                        {{--'</div>' +--}}
-                        {{--'<div class="col-sm-12 col-md-3 ">' +--}}
-                        {{--'<label>Localisation</label>' +--}}
-                        {{--'<div class="input-group">' +--}}
-                        {{--'<select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">' +--}}
-                        {{--@foreach(TCG\Voyager\Models\Location::all() as $location)--}}
-                        {{--'<option value="{{ $location->reference }}">{{ $location->value }}</option>' +--}}
-                        {{--@endforeach--}}
-                        {{--'</select>' +--}}
-                        {{--'</div>' +--}}
-                        {{--'</div>' +--}}
-                    '</div>'
+                    {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                            {{--'<label>Rue</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<input type="text" id="route_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Rue" name="street[]">' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                            {{--'<label>N°</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<input type="text" id="street_number_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="N°" name="number[]">' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                            {{--'<label>CP</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<input type="number" min="0" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="CP" name="po_box[]">' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div class="col-sm-12 col-md-2 ">' +--}}
+                            {{--'<label>NPA</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<input type="text" id="postal_code_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="NPA" name="zip_code[]">' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                            {{--'<label>Ville</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<input type="text" id="locality_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Ville" name="town[]">' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                            {{--'<label>Pays</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<input type="text" id="country_' + i  + '" readonly="readonly" disabled="disabled" class="form-control m-input switchable_form_item" placeholder="Pays" name="country[]">' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div class="col-sm-12 col-md-3">' +--}}
+                            {{--'<label>Longitude</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<input disabled="disabled" type="number" min="0" id="longitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="longitude[]">' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div class="col-sm-12 col-md-3">' +--}}
+                            {{--'<label>Latitude</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<input disabled="disabled" type="number" min="0" id="latitude_' + i  + '" class="form-control m-input" placeholder="Longitude" name="latitude[]">' +--}}
+                            {{--'</div> ' +--}}
+                            {{--'</div>' +--}}
+                            {{--'<div class="col-sm-12 col-md-3 ">' +--}}
+                            {{--'<label>Localisation</label>' +--}}
+                            {{--'<div class="input-group">' +--}}
+                            {{--'<select class="form-control m-select2 custom_select2 switchable_form_item" disabled="disabled" name="location[]" data-placeholder="Select Location">' +--}}
+                            {{--@foreach(TCG\Voyager\Models\Location::all() as $location)--}}
+                            {{--'<option value="{{ $location->reference }}">{{ $location->value }}</option>' +--}}
+                            {{--@endforeach--}}
+                            {{--'</select>' +--}}
+                            {{--'</div>' +--}}
+                            {{--'</div>' +--}}
+                        '</div>'
             );
             initAutocomplete();
             $("#address_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
@@ -2210,7 +2210,7 @@
                 '<div class="col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="client_emails[]" value="">'+
+                '<input class="form-control m-input" id="client_emails" type="text" placeholder="Courriel" name="client_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-offset-2 col-md-2">' +
@@ -2219,11 +2219,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_client_email_btn', function(){
             var button_id = $(this).attr("id");
             $('#client_email_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var c = 1;
@@ -2243,7 +2245,7 @@
                 '<div class="col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="coup_emails[]" value="">'+
+                '<input class="form-control m-input" id="coup_emails" type="text" placeholder="Courriel" name="coup_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 offset-col-2 col-md-2">' +
@@ -2252,11 +2254,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_coup_email_btn', function(){
             var button_id = $(this).attr("id");
             $('#coup_email_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var che = 1;
@@ -2276,7 +2280,7 @@
                 '<div class="col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
-                '<input class="form-control m-input dynamic_email" type="text" placeholder="Courriel" name="children_emails[]" value="">'+
+                '<input class="form-control m-input" id="children_emails" type="text" placeholder="Courriel" name="children_emails[]" value="">'+
                 '</div>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-2">' +
@@ -2285,11 +2289,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_children_email_btn', function(){
             var button_id = $(this).attr("id");
             $('#children_email_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var cnhe1 = 1;
@@ -2318,11 +2324,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_second_child_email_btn', function(){
             var button_id = $(this).attr("id");
             $('#second_child_email_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var cnhe2 = 1;
@@ -2351,11 +2359,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_third_child_email_btn', function(){
             var button_id = $(this).attr("id");
             $('#third_child_email_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var cnhe3 = 1;
@@ -2384,11 +2394,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".email_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_fourth_child_email_btn', function(){
             var button_id = $(this).attr("id");
             $('#fourth_child_email_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var p = 1;
@@ -2423,11 +2435,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_client_phone_btn', function(){
             var button_id = $(this).attr("id");
             $('#client_phone_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var cp = 1;
@@ -2462,11 +2476,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_coup_phone_btn', function(){
             var button_id = $(this).attr("id");
             $('#coup_phone_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var chp = 1;
@@ -2501,12 +2517,13 @@
                 '</div>'+
                 '</div>'
             );
-
+            initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_children_phone_btn', function(){
             var button_id = $(this).attr("id");
             $('#children_phone_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var cnhp1 = 1;
@@ -2541,11 +2558,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_second_child_phone_btn', function(){
             var button_id = $(this).attr("id");
             $('#second_child_phone_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var cnhp2 = 1;
@@ -2580,11 +2599,13 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_third_child_phone_btn', function(){
             var button_id = $(this).attr("id");
             $('#third_child_phone_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         var cnhp3 = 1;
@@ -2619,43 +2640,39 @@
                 '</div>'+
                 '</div>'
             );
+            initAutocomplete();
             $(".phone_container select.custom_select2").select2({minimumResultsForSearch: Infinity});
         });
         $(document).on('click', '.remove_fourth_child_phone_btn', function(){
             var button_id = $(this).attr("id");
             $('#fourth_child_phone_form_' + button_id).remove();
+            initAutocomplete();
         });
 
         $('#add_new_child').click(function() {
             var all_items = $('.m-portlet__head-tools > .nav-tabs .remove_children_tab').length;
-            var index;
+
             if(all_items <= 2) {
-                if($("#child_tab_" + all_items).length == 0) {
-                    index = all_items;
-                } else if($("#child_tab_0").length == 0) {
-                    index = 0;
-                } else if($("#child_tab_1").length == 0) {
-                    index = 1;
-                } else if($("#child_tab_2").length == 0) {
-                    index = 2;
-                }
                 $('.m-portlet__head-tools > .nav-tabs').append(
-                    '<li class="nav-item m-tabs__item" id="child_tab_' + index + '">' +
-                    '<a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_' + index + '" role="tab"  aria-expanded="true">' +
+                    '<li class="nav-item m-tabs__item" id="child_tab_' + all_items + '">' +
+                    '<a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_' + all_items + '" role="tab"  aria-expanded="true">' +
                     '<i class="flaticon-share m--hide"></i>' +
-                    'Enfant <button href="#" id="' + index + '" class="remove_children_tab"><i class="la la-close"></i></button>' +
+                    'Enfant(s) <button href="#" id="' + all_items + '" class="remove_children_tab">-</button>' +
                     '</a>' +
                     '</li>'
                 );
             }
+            initAutocomplete();
             $("#profile_info_child_" + all_items + " select.custom_select2").select2({minimumResultsForSearch: Infinity});
 
         });
 
         $(document).on('click', '.remove_children_tab', function(){
             var button_id = $(this).attr("id");
+            // console.log(button_id);
             $('#child_tab_' + button_id).remove();
-            $('#profile_info_child_' + button_id + ' .m-form__group > .col-sm-12 .input-group input').attr('value', '');
+            $('#profile_info_child_' + button_id).remove();
+            initAutocomplete();
             if(button_id === "2" || button_id === "1" || button_id === "0"){
                 $('#client').trigger('click');
             }
@@ -2724,27 +2741,27 @@
                         required: true
                     },
                     email: {
-//                        email: true,
+                        email: true,
                         required: true
                     },
-//                    phone: {
-//                        number: true,
-//                        maxlength: 15
-//                    },
-//                    email_coup: {
-//                        email: true
-//                    },
-//                    phone_coup: {
-//                        number: true,
-//                        maxlength: 15
-//                    },
-//                    email_child: {
-//                        email: true
-//                    },
-//                    phone_child: {
-//                        number: true,
-//                        maxlength: 15
-//                    }
+                    phone: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    email_coup: {
+                        email: true
+                    },
+                    phone_coup: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    email_child: {
+                        email: true
+                    },
+                    phone_child: {
+                        number: true,
+                        maxlength: 15
+                    }
                 },
                 submitHandler: function (form) {
                     form.submit();
@@ -2784,7 +2801,6 @@
 
         /*-- show bio on sidebar --*/
         $('#client').click(function () {
-            $(this).tab('show');
             $('#client_photo').css('display','block');
             $('#coup_photo').css('display','none');
             $('#child_photo').css('display','none');
@@ -2977,7 +2993,7 @@
 
                 // When the user selects an address from the dropdown, populate the address
                 // fields in the form.
-//                autocomplete.addListener('place_changed', fillInAddress);
+                autocomplete.addListener('place_changed', fillInAddress);
             });
         }
 
