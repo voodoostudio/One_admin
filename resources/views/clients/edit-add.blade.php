@@ -1181,7 +1181,7 @@
                                                 <div class="form-group col-sm-12 col-md-4 ">
                                                     <label class="">Nom</label>
                                                     <div class="input-group">
-                                                        <input class="form-control m-input" id="second_child_name" type="text" name="second_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->second_child)->first_name)) ? json_decode($dataTypeContent->second_child)->first_name : '' }}">
+                                                        <input class="form-control m-input created_child_name" id="second_child_name" type="text" name="second_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->second_child)->first_name)) ? json_decode($dataTypeContent->second_child)->first_name : '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-4 ">
@@ -1425,7 +1425,7 @@
                                                 </div>
                                             </div>
                                             <input type="hidden" name="third_child" value="third_child">
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
                                                     <label>Civilité</label>
                                                     <div class="input-group">
@@ -1446,10 +1446,10 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
+                                                <div class="form-group col-sm-12 col-md-4 ">
                                                     <label class="">Nom</label>
                                                     <div class="input-group">
-                                                        <input class="form-control m-input" id="third_child_name" type="text" name="third_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->third_child)->first_name)) ? json_decode($dataTypeContent->third_child)->first_name : '' }}">
+                                                        <input class="form-control m-input created_child_name" id="third_child_name" type="text" name="third_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->third_child)->first_name)) ? json_decode($dataTypeContent->third_child)->first_name : '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-4 ">
@@ -1693,7 +1693,7 @@
                                                 </div>
                                             </div>
                                             <input type="hidden" name="fourth_child" value="fourth_child">
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
                                                     <label>Civilité</label>
                                                     <div class="input-group">
@@ -1714,10 +1714,10 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
+                                                <div class="form-group col-sm-12 col-md-4 ">
                                                     <label class="">Nom</label>
                                                     <div class="input-group">
-                                                        <input class="form-control m-input" id="fourth_child_name" type="text" name="fourth_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->first_name)) ? json_decode($dataTypeContent->fourth_child)->first_name : '' }}">
+                                                        <input class="form-control m-input created_child_name" id="fourth_child_name" type="text" name="fourth_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->fourth_child)->first_name)) ? json_decode($dataTypeContent->fourth_child)->first_name : '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-4 ">
@@ -2654,6 +2654,7 @@
                     '</a>' +
                     '</li>'
                 );
+                $('#profile_info_child_' + index + ' .created_child_name').attr('required', 'required')
             }
 
             $('a[href="#profile_info_child_' + index + '"]').click(function () {
@@ -2670,10 +2671,23 @@
         $(document).on('click', '.remove_children_tab', function(){
             var button_id = $(this).attr("id");
             $('#child_tab_' + button_id).remove();
+
+            $('#profile_info_child_' + button_id + ' .created_child_name').attr('required', false)
             $('#profile_info_child_' + button_id + ' .m-form__group > .col-sm-12 .input-group input').attr('value', '');
             if(button_id === "2" || button_id === "1" || button_id === "0"){
                 $('#client').trigger('click');
             }
+        });
+
+        $('button[type="submit"]').click(function() {
+            setTimeout(function(){
+                if($(document).find(".has-danger").length !== 0 ) {
+                    var first_error_block_container_id = $(".has-danger:first").closest('.tab-pane').attr('id');
+                    $('.nav-tabs .nav-link[href="#'+first_error_block_container_id+'"]').trigger('click');
+                    console.log(first_error_block_container_id);
+                }
+            }, 1000);
+
         });
 
         $('.add_new_address').on('click', function () {
@@ -2735,6 +2749,15 @@
                     name: {
                         required: true
                     },
+//                    second_child_name: {
+//                        required: true
+//                    },
+//                    third_child_name: {
+//                        required: true
+//                    },
+//                    fourth_child_name: {
+//                        required: true
+//                    },
                     last_name: {
                         required: true
                     },
