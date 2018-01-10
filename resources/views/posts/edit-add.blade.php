@@ -635,7 +635,7 @@
                                                         <label>Prix</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->price)){{ $dataTypeContent->price }}@endif" name="price">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -644,7 +644,7 @@
                                                         <label>Prix au m<sup>2</sup></label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->price_m2)){{ $dataTypeContent->price_m2 }}@endif" name="price_m2">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span>/m<sup>2</sup></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span>/m<sup>2</sup></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -673,7 +673,7 @@
                                                         <label>Montant négociable <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation du prix de vente possible honoraires inclus - ou - simulation du prix de location honoraires exclus" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->negotiable_amount)){{ $dataTypeContent->negotiable_amount }}@endif" name="negotiable_amount">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -682,7 +682,7 @@
                                                         <label>Montant estimé <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="A titre indicatif le prix estimé pour vos avis de valeur" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->estimate_price)){{ $dataTypeContent->estimate_price }}@endif" name="estimate_price">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -691,7 +691,7 @@
                                                         <label>Montant propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_amount)){{ $dataTypeContent->owner_amount }}@endif" name="owner_amount">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -700,7 +700,7 @@
                                                         <label>Honoraire client <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du client acheteur. Dans le cadre d'une location : constitution du dossier, visite et rédaction du contrat" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->client_fees)){{ $dataTypeContent->client_fees }}@endif" name="client_fees">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -709,7 +709,7 @@
                                                         <label>Honoraire propriétaire <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Dans le cadre d'une vente : somme des honoraires à charge du vendeur. Dans le cadre d'une location : honoraires pour l'entrée du locataire" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->owner_fees)){{ $dataTypeContent->owner_fees }}@endif" name="owner_fees">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -718,7 +718,7 @@
                                                         <label>Droits d’enregistrement <a tabindex="0" class="tooltip_btn" role="button" data-toggle="m-popover" data-placement="top" data-trigger="hover" title="" data-content="Simulation des frais de notaire et des droits de mutation" data-original-title=""><i class="la la-question-circle"></i></a></label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->recording_rights)){{ $dataTypeContent->recording_rights }}@endif" name="recording_rights">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -729,7 +729,7 @@
                                                         <label>Charges de chauffage</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->heating_loads)){{ $dataTypeContent->heating_loads }}@endif" name="heating_loads">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -738,7 +738,7 @@
                                                         <label>Charges PPE</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->ppe_charges)){{ $dataTypeContent->ppe_charges }}@endif" name="ppe_charges">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -747,7 +747,7 @@
                                                         <label>Charges de copropriété</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->condominium_fees)){{ $dataTypeContent->condominium_fees }}@endif" name="condominium_fees">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -756,7 +756,7 @@
                                                         <label>Charges annuelles</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->annual_charges)){{ $dataTypeContent->annual_charges }}@endif" name="annual_charges">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -765,7 +765,7 @@
                                                         <label>Taxe d'habitation</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->taxes_1)){{ $dataTypeContent->taxes_1 }}@endif" name="taxes_1">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -774,7 +774,7 @@
                                                         <label>Taxe foncière</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->property_tax)){{ $dataTypeContent->property_tax }}@endif" name="property_tax">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -783,7 +783,7 @@
                                                         <label>Caution locative</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->rental_security)){{ $dataTypeContent->rental_security }}@endif" name="rental_security">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -792,7 +792,7 @@
                                                         <label>Fonds de rénovation</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->renovation_fund)){{ $dataTypeContent->renovation_fund }}@endif" name="renovation_fund">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -801,7 +801,7 @@
                                                         <label>Revenus</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input elem-categories" placeholder="..." value="@if(isset($dataTypeContent->earnings)){{ $dataTypeContent->earnings }}@endif" name="earnings">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -810,7 +810,7 @@
                                                         <label>Impôts</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input" placeholder="..." value="@if(isset($dataTypeContent->taxes)){{ $dataTypeContent->taxes }}@endif" name="taxes">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -819,7 +819,7 @@
                                                         <label>Fonds de commerce</label>
                                                         <div class="input-group">
                                                             <input type="number" min="0" class="form-control m-input disabled_element elem-categories" placeholder="..." value="@if(isset($dataTypeContent->commercial_property)){{ $dataTypeContent->commercial_property }}@endif" name="commercial_property">
-                                                            <span class="input-group-addon"><span class="currency">CHF</span></span>
+                                                            <span class="input-group-addon"><span class="currency">€</span></span>
                                                         </div>
                                                     </div>
                                                 </div>
