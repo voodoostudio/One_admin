@@ -552,9 +552,9 @@
                                     <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
                                     <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_clients_modal_' + row.id + '"><i class="la la-edit"></i>Add clients</a>\
-                                    <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal"><i class="la la-times-circle"></i>Effacer</button>\
+                                    <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal_' + row.id + '"><i class="la la-times-circle"></i>Effacer</button>\
                                 </div>\
-                                <div class="modal fade" id="remove_confirm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                <div class="modal fade" id="remove_confirm_modal_' + row.id + '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
                                     <div class="modal-dialog modal-sm" role="document">\
                                         <div class="modal-content">\
                                             <div class="modal-header">\
@@ -712,9 +712,9 @@
                                         <div class="dropdown-menu dropdown-menu-right">\
                                             <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
                                             <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
-                                            <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal"><i class="la la-times-circle"></i>Effacer</button>\
+                                            <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal_' + row.id + '"><i class="la la-times-circle"></i>Effacer</button>\
                                         </div>\
-                                        <div class="modal fade" id="remove_confirm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                        <div class="modal fade" id="remove_confirm_modal_' + row.id + '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
                                             <div class="modal-dialog modal-sm" role="document">\
                                                 <div class="modal-content">\
                                                     <div class="modal-header">\
@@ -789,9 +789,9 @@
                                             <div class="dropdown-menu dropdown-menu-right">\
                                                 <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '"><i class="la la-eye"></i>Voir</a>\
                                                 <a class="dropdown-item" href="{{ Request::url() }}/' + row.id + '/edit"><i class="la la-edit"></i>Editer</a>\
-                                                <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal"><i class="la la-times-circle"></i>Effacer</button>\
+                                                <button class="dropdown-item" data-toggle="modal" data-target="#remove_confirm_modal_' + row.id + '"><i class="la la-times-circle"></i>Effacer</button>\
                                             </div>\
-                                            <div class="modal fade" id="remove_confirm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
+                                            <div class="modal fade" id="remove_confirm_modal_' + row.id + '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">\
                                                 <div class="modal-dialog modal-sm" role="document">\
                                                     <div class="modal-content">\
                                                         <div class="modal-header">\
