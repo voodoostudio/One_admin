@@ -38,66 +38,66 @@
                                     </div>
                                     <div class="m-card-profile__pic">
                                         <div class="m-card-profile__pic-wrapper">
-                                            <img id="client_photo" style="display: block;" src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                            <img id="client_photo" class="hide-all" style="display: block;" src="{{ Voyager::image( $dataTypeContent->avatar ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                             @if($dataTypeContent->photo_coup)
-                                                <img id="coup_photo" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                <img id="coup_photo" class="hide-all" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                             @else
-                                                <img id="coup_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
+                                                <img id="coup_photo" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
                                             @endif
 
                                             @if($dataTypeContent->photo_child)
-                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="Avatar"/>
+                                                <img id="child_photo" class="hide-all" style="display: none;" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="Avatar"/>
                                             @else
-                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         <!-- Second Child photo -->
                                             @if($dataTypeContent->second_child_photo)
-                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( $dataTypeContent->second_child_photo ) }}" alt=" Avatar"/>
+                                                <img id="child_photo_s" class="hide-all" style="display: none;" src="{{ Voyager::image( $dataTypeContent->second_child_photo ) }}" alt=" Avatar"/>
                                             @else
-                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_s" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         <!-- Third Child photo -->
                                             @if($dataTypeContent->third_child_photo)
-                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( $dataTypeContent->third_child_photo ) }}" alt="Avatar"/>
+                                                <img id="child_photo_t" class="hide-all" style="display: none;" src="{{ Voyager::image( $dataTypeContent->third_child_photo ) }}" alt="Avatar"/>
                                             @else
-                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_t" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         <!-- Fourth Child photo -->
                                             @if($dataTypeContent->third_child_photo)
-                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo ) }}" alt="Avatar"/>
+                                                <img id="child_photo_f" class="hide-all" style="display: none;" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo ) }}" alt="Avatar"/>
                                             @else
-                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_f" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="m-card-profile__details">
-                                        <span id="client_name" style="display: block;" class="m-card-profile__name">{{ $dataTypeContent->name }}</span>
-                                        <a id="client_email" style="display: block;" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email }}</a>
+                                        <span id="client_name" class="hide-all" style="display: block;" class="m-card-profile__name">{{ $dataTypeContent->name }}</span>
+                                        <a id="client_email" class="hide-all" style="display: block;" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email }}</a>
 
-                                        <span id="coup_name" style="display: none;" class="m-card-profile__name">{{ $dataTypeContent->first_name_coup }}</span>
-                                        <a id="coup_email" style="display: none;" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email_coup }}</a>
+                                        <span id="coup_name" class="hide-all" style="display: none;" class="m-card-profile__name">{{ $dataTypeContent->first_name_coup }}</span>
+                                        <a id="coup_email" class="hide-all" style="display: none;" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email_coup }}</a>
 
-                                        <span id="child_name" style="display: none;" class="m-card-profile__name">{{ $dataTypeContent->first_name_child }}</span>
-                                        <a id="child_email" style="display: none;" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email_child }}</a>
+                                        <span id="child_name" class="hide-all" style="display: none;" class="m-card-profile__name">{{ $dataTypeContent->first_name_child }}</span>
+                                        <a id="child_email" class="hide-all" style="display: none;" href="" class="m-card-profile__email m-link">{{ $dataTypeContent->email_child }}</a>
 
-                                        <span id="child_name_s" style="display: none;" class="m-card-profile__name">@if(isset(json_decode($dataTypeContent->second_child)->first_name)){{ json_decode($dataTypeContent->second_child)->first_name }}@endif</span>
+                                        <span id="child_name_s" class="hide-all" style="display: none;" class="m-card-profile__name">@if(isset(json_decode($dataTypeContent->second_child)->first_name)){{ json_decode($dataTypeContent->second_child)->first_name }}@endif</span>
                                         @if($dataTypeContent->fourth_child_emails != null)
                                             @for($i = 0; $i < 1;$i++)
-                                                <a id="child_email_s" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->second_child_emails)[$i]->email }}</a>
+                                                <a id="child_email_s" class="hide-all" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->second_child_emails)[$i]->email }}</a>
                                             @endfor
                                         @endif
                                     <!-- Third Child photo -->
-                                        <span id="child_name_t" style="display: none;" class="m-card-profile__name">@if(isset(json_decode($dataTypeContent->third_child)->first_name)){{ json_decode($dataTypeContent->third_child)->first_name }}@endif</span>
+                                        <span id="child_name_t" class="hide-all" style="display: none;" class="m-card-profile__name">@if(isset(json_decode($dataTypeContent->third_child)->first_name)){{ json_decode($dataTypeContent->third_child)->first_name }}@endif</span>
                                         @if($dataTypeContent->third_child_emails != null)
                                             @for($i = 0; $i < 1;$i++)
-                                                <a id="child_email_t" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->third_child_emails)[$i]->email }}</a>
+                                                <a id="child_email_t" class="hide-all" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->third_child_emails)[$i]->email }}</a>
                                             @endfor
                                         @endif
                                     <!-- Fourth Child photo -->
-                                        <span id="child_name_f" style="display: none;" class="m-card-profile__name">@if(isset(json_decode($dataTypeContent->fourth_child)->first_name)){{ json_decode($dataTypeContent->fourth_child)->first_name }}@endif</span>
+                                        <span id="child_name_f" class="hide-all" style="display: none;" class="m-card-profile__name">@if(isset(json_decode($dataTypeContent->fourth_child)->first_name)){{ json_decode($dataTypeContent->fourth_child)->first_name }}@endif</span>
                                         @if($dataTypeContent->fourth_child_emails != null)
                                             @for($i = 0; $i < 1;$i++)
-                                                <a id="child_email_f" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->fourth_child_emails)[$i]->email }}</a>
+                                                <a id="child_email_f" class="hide-all" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode($dataTypeContent->fourth_child_emails)[$i]->email }}</a>
                                             @endfor
                                         @endif
                                     </div>
@@ -2655,6 +2655,14 @@
                     '</li>'
                 );
             }
+
+            $('a[href="#profile_info_child_' + index + '"]').click(function () {
+                $('.hide-all').css('display', 'none');
+                $('.m-card-profile__pic-wrapper').append(
+                    '<img id="img_default'+index+'" class="hide-all default" style="display: block;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>'
+                );
+            });
+
             $("#profile_info_child_" + all_items + " select.custom_select2").select2({minimumResultsForSearch: Infinity});
 
         });
@@ -2956,6 +2964,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         $('#client_spouse').click(function () {
             $('#client_photo').css('display','none');
@@ -2982,6 +2991,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         $('#client_child').click(function () {
             $('#client_photo').css('display','none');
@@ -3008,6 +3018,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         /* second_child*/
         $('li a[href="#profile_info_child_0"]').click(function(){
@@ -3035,6 +3046,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         $('li a[href="#profile_info_child_1"]').click(function(){
             $('#client_photo').css('display','none');
@@ -3060,6 +3072,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         $('li a[href="#profile_info_child_2"]').click(function(){
             $('#client_photo').css('display','none');
@@ -3085,6 +3098,7 @@
 
             $('#child_name_f').css('display','block');
             $('#child_email_f').css('display','block');
+            $('.default').css('display','none');
         });
 
 
