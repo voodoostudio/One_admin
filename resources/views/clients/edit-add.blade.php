@@ -2735,15 +2735,6 @@
                     name: {
                         required: true
                     },
-                    second_child_name: {
-                        required: true
-                    },
-                    third_child_name: {
-                        required: true
-                    },
-                    fourth_child_name: {
-                        required: true
-                    },
                     last_name: {
                         required: true
                     },
