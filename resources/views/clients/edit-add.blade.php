@@ -170,7 +170,11 @@
                                             </li>
                                         @endif
                                     </ul>
-                                    <button id="add_new_child" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" style="margin: 17px 0;">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 m--align-right">
+                                    <button id="add_new_child" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" style="margin: 15px 15px 0;">
                                         <span>
                                             <i class="la la-cart-plus"></i>
                                             <span>
@@ -1153,7 +1157,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant</h3>
+                                                    <h3>Enfant(2)</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="second_child" value="second_child">
@@ -1421,7 +1425,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant</h3>
+                                                    <h3>Enfant(3)</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="third_child" value="third_child">
@@ -1689,7 +1693,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant</h3>
+                                                    <h3>Enfant(4)</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="fourth_child" value="fourth_child">
@@ -2646,11 +2650,12 @@
                 } else if($("#child_tab_2").length == 0) {
                     index = 2;
                 }
+                var child_number = index+2;
                 $('.m-portlet__head-tools > .nav-tabs').append(
                     '<li class="nav-item m-tabs__item" id="child_tab_' + index + '">' +
                     '<a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_' + index + '" role="tab"  aria-expanded="true">' +
                     '<i class="flaticon-share m--hide"></i>' +
-                    'Enfant <button href="#" id="' + index + '" class="remove_children_tab"><i class="la la-close"></i></button>' +
+                    'Enfant('+ child_number +') <button href="#" id="' + index + '" class="remove_children_tab"><i class="la la-close"></i></button>' +
                     '</a>' +
                     '</li>'
                 );
@@ -2952,7 +2957,6 @@
 
         /*-- show bio on sidebar --*/
         $('#client').click(function () {
-            $(this).tab('show');
             $('#client_photo').css('display','block');
             $('#coup_photo').css('display','none');
             $('#child_photo').css('display','none');

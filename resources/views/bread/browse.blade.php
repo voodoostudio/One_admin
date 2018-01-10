@@ -668,7 +668,7 @@
                                             <form action="{{ URL::to('/admin/add-vip-users') }}" id="vip_users_add_' + row.id + '" method="POST">{{ csrf_field() }}\
                                                 <div class="modal-body">\
                                                     <div class="form-group">\
-                                                        <select class="form-control m-select2 custom_select2" name="vip_users[]" multiple="multiple" data-placeholder="Sélectionner un client">\
+                                                        <select class="form-control m-select2 custom_select2" name="vip_users[]" multiple="multiple">\
                                                             <?php foreach(TCG\Voyager\Models\IndividualView::where('role_id', 5)->get() as $user) {?>
                                     <option ' + ((jQuery.inArray( "{{ $user->id }}", arr ) !== -1) ? "selected" : " ") + '  value="{{ $user->id }}">{{ $user->name }} {{ $user->last_name }}</option>\
                                                             <?php }?>

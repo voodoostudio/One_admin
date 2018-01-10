@@ -27,7 +27,7 @@
             <!-- END: Subheader -->
             <div class="m-content">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-xl-3">
                         <div class="m-portlet m-portlet--full-height ">
                             <div class="m-portlet__body">
                                 <div class="m-card-profile">
@@ -36,60 +36,60 @@
                                     </div>
                                     <div class="m-card-profile__pic">
                                         <div class="m-card-profile__pic-wrapper">
-                                            <img id="client_photo" style="display: block;" src="{{ Voyager::image( Auth::user()->avatar ) }}" alt="{{ Auth::user()->name }} avatar"/>
+                                            <img id="client_photo" class="hide-all" style="display: block;" src="{{ Voyager::image( Auth::user()->avatar ) }}" alt="{{ Auth::user()->name }} avatar"/>
                                             @if(Auth::user()->photo_coup != null)
-                                                <img id="coup_photo" style="display: none;" src="{{ Voyager::image( Auth::user()->photo_coup ) }}" alt="{{ Auth::user()->first_name_coup }} avatar"/>
+                                                <img id="coup_photo" class="hide-all" style="display: none;" src="{{ Voyager::image( Auth::user()->photo_coup ) }}" alt="{{ Auth::user()->first_name_coup }} avatar"/>
                                             @else
-                                                <img id="coup_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="coup_photo" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                             @if(Auth::user()->photo_child != null)
-                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( Auth::user()->photo_child ) }}" alt="{{ Auth::user()->first_name_child }} avatar"/>
+                                                <img id="child_photo" class="hide-all" style="display: none;" src="{{ Voyager::image( Auth::user()->photo_child ) }}" alt="{{ Auth::user()->first_name_child }} avatar"/>
                                             @else
-                                                <img id="child_photo" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                             @if(Auth::user()->second_child_photo != null)
-                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( Auth::user()->second_child_photo ) }}" alt="{{ json_decode(Auth::user()->second_child)->first_name }} avatar"/>
+                                                <img id="child_photo_s" class="hide-all" style="display: none;" src="{{ Voyager::image( Auth::user()->second_child_photo ) }}" alt="{{ json_decode(Auth::user()->second_child)->first_name }} avatar"/>
                                             @else
-                                                <img id="child_photo_s" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_s" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                             @if(Auth::user()->third_child_photo != null)
-                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( Auth::user()->third_child_photo ) }}" alt="{{ json_decode(Auth::user()->third_child)->first_name }} avatar"/>
+                                                <img id="child_photo_t" class="hide-all" style="display: none;" src="{{ Voyager::image( Auth::user()->third_child_photo ) }}" alt="{{ json_decode(Auth::user()->third_child)->first_name }} avatar"/>
                                             @else
-                                                <img id="child_photo_t" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_t" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                             @if(Auth::user()->fourth_child_photo != null)
-                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( Auth::user()->fourth_child_photo ) }}" alt="{{ json_decode(Auth::user()->fourth_child)->first_name }} avatar"/>
+                                                <img id="child_photo_f" class="hide-all" style="display: none;" src="{{ Voyager::image( Auth::user()->fourth_child_photo ) }}" alt="{{ json_decode(Auth::user()->fourth_child)->first_name }} avatar"/>
                                             @else
-                                                <img id="child_photo_f" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
+                                                <img id="child_photo_f" class="hide-all" style="display: none;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="m-card-profile__details">
-                                        <span id="client_name" class="m-card-profile__name">{{ Auth::user()->name }}</span>
-                                        <a id="client_email" href="" class="m-card-profile__email m-link">{{ Auth::user()->email }}</a>
+                                        <span id="client_name" class="hide-all m-card-profile__name">{{ Auth::user()->name }}</span>
+                                        <a id="client_email" href="" class="hide-all m-card-profile__email m-link">{{ Auth::user()->email }}</a>
 
-                                        <span id="coup_name" style="display:none;" class="m-card-profile__name">{{ Auth::user()->first_name_coup }}</span>
-                                        <a id="coup_email" style="display:none;" href="" class="m-card-profile__email m-link">{{ Auth::user()->email_coup }}</a>
+                                        <span id="coup_name" style="display:none;" class="hide-all m-card-profile__name">{{ Auth::user()->first_name_coup }}</span>
+                                        <a id="coup_email" style="display:none;" href="" class="hide-all m-card-profile__email m-link">{{ Auth::user()->email_coup }}</a>
 
-                                        <span id="child_name" style="display:none;" class="m-card-profile__name">{{ Auth::user()->first_name_child }}</span>
-                                        <a id="child_email" style="display:none;" href="" class="m-card-profile__email m-link">{{ Auth::user()->email_child }}</a>
+                                        <span id="child_name" style="display:none;" class="hide-all m-card-profile__name">{{ Auth::user()->first_name_child }}</span>
+                                        <a id="child_email" style="display:none;" href="" class="hide-all m-card-profile__email m-link">{{ Auth::user()->email_child }}</a>
                                         <!--------->
-                                        <span id="child_name_s" style="display:none;" class="m-card-profile__name">@if(isset(json_decode(Auth::user()->second_child)->first_name)){{ json_decode(Auth::user()->second_child)->first_name }}@endif</span>
+                                        <span id="child_name_s" style="display:none;" class="hide-all m-card-profile__name">@if(isset(json_decode(Auth::user()->second_child)->first_name)){{ json_decode(Auth::user()->second_child)->first_name }}@endif</span>
                                         @if(json_decode(Auth::user()->second_child_emails) != null)
                                             @for($i = 0; $i < 1;$i++)
-                                                <a id="child_email_s" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->second_child_emails)[$i]->email }}</a>
+                                                <a id="child_email_s" style="display: none;" href="" class="hide-all m-card-profile__email m-link">{{ json_decode(Auth::user()->second_child_emails)[$i]->email }}</a>
                                             @endfor
                                         @endif
-                                        <span id="child_name_t" style="display:none;" class="m-card-profile__name">@if(isset(json_decode(Auth::user()->third_child)->first_name)){{ json_decode(Auth::user()->third_child)->first_name }}@endif</span>
+                                        <span id="child_name_t" style="display:none;" class="hide-all m-card-profile__name">@if(isset(json_decode(Auth::user()->third_child)->first_name)){{ json_decode(Auth::user()->third_child)->first_name }}@endif</span>
                                         @if(json_decode(Auth::user()->third_child_emails) != null)
                                             @for($i = 0; $i < 1;$i++)
-                                                <a id="child_email_t" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->third_child_emails)[$i]->email }}</a>
+                                                <a id="child_email_t" style="display: none;" href="" class="hide-all m-card-profile__email m-link">{{ json_decode(Auth::user()->third_child_emails)[$i]->email }}</a>
                                             @endfor
                                         @endif
-                                        <span id="child_name_f" style="display:none;" class="m-card-profile__name">@if(json_decode(Auth::user()->fourth_child)){{ json_decode(Auth::user()->fourth_child)->first_name }}@endif</span>
+                                        <span id="child_name_f" style="display:none;" class="hide-all m-card-profile__name">@if(json_decode(Auth::user()->fourth_child)){{ json_decode(Auth::user()->fourth_child)->first_name }}@endif</span>
                                         @if(json_decode(Auth::user()->fourth_child_emails) != null)
                                             @for($i = 0; $i < 1;$i++)
-                                                <a id="child_email_f" style="display: none;" href="" class="m-card-profile__email m-link">{{ json_decode(Auth::user()->fourth_child_emails)[$i]->email }}</a>
+                                                <a id="child_email_f" style="display: none;" href="" class="hide-all m-card-profile__email m-link">{{ json_decode(Auth::user()->fourth_child_emails)[$i]->email }}</a>
                                             @endfor
                                         @endif
                                     </div>
@@ -109,7 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-xl-9">
                         <div class="m-portlet m-portlet--full-height m-portlet--tabs ">
                             <div class="m-portlet__head">
                                 <div class="m-portlet__head-tools">
@@ -127,7 +127,7 @@
                                         </li>
                                         <li class="nav-item m-tabs__item">
                                             <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child" role="tab">
-                                                Enfant(s)
+                                                Enfant
                                             </a>
                                         </li>
 
@@ -135,8 +135,8 @@
                                             <li class="nav-item m-tabs__item" id="child_tab_0">
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="true">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant(s)
-                                                    <button href="#" id="0" class="remove_children_tab">-</button>
+                                                    Enfant(2)
+                                                    <button href="#" id="0" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
                                         @endif
@@ -145,8 +145,8 @@
                                             <li class="nav-item m-tabs__item" id="child_tab_1">
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="true">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant(s)
-                                                    <button href="#" id="1" class="remove_children_tab">-</button>
+                                                    Enfant(3)
+                                                    <button href="#" id="1" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
                                         @endif
@@ -155,8 +155,8 @@
                                             <li class="nav-item m-tabs__item" id="child_tab_2" >
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="true">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant(s)
-                                                    <button href="#" id="2" class="remove_children_tab">-</button>
+                                                    Enfant(4)
+                                                    <button href="#" id="2" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
                                         @endif
@@ -167,7 +167,18 @@
                                             </a>
                                         </li>
                                     </ul>
-                                    <a id="add_new_child" style="font-size: 30px;border: 1px solid black;padding: 0 12px;position: relative;top: 13px;cursor: pointer;">+</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 m--align-right">
+                                    <button id="add_new_child" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" style="margin: 15px 15px 0;">
+                                        <span>
+                                            <i class="la la-cart-plus"></i>
+                                            <span>
+                                                Nouveau Enfant
+                                            </span>
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
                             <form class="m-form m-form--fit m-form--label-align-right form-edit-add m-form--group-seperator-dashed"
@@ -325,7 +336,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-4">
+                                                            <div class="form-group col-sm-12 col-md-4">
                                                                 <label class="">Courriel</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="email" type="text" placeholder="Courriel" name="email" value="{{ (Auth::user()->email) ? Auth::user()->email : '' }}">
@@ -345,7 +356,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Courriel" name="client_emails[]" value="{{ ($client_email->email) ? $client_email->email : '' }}">
@@ -377,7 +388,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-2">
+                                                            <div class="form-group col-sm-12 col-md-2">
                                                                 <label class="">Indicatif</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="country_code" type="text" placeholder="Indicatif" name="country_code" value="{{ (Auth::user()->country_code) ? Auth::user()->country_code : '' }}">
@@ -403,13 +414,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Indicatif" name="client_country_code[]" value="{{ ($client_phone->country_code) ? $client_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Téléphone" name="client_phones[]" value="{{ ($client_phone->phone) ? $client_phone->phone : '' }}">
@@ -812,7 +823,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Courriel" name="coup_emails[]" value="{{ ($coup_email->email) ? $coup_email->email : '' }}">
@@ -844,7 +855,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-2">
+                                                            <div class="form-group col-sm-12 col-md-2">
                                                                 <label class="">Indicatif</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="country_code_coup" type="text" placeholder="Indicatif" name="country_code_coup" value="{{ (Auth::user()->country_code_coup) ? Auth::user()->country_code_coup : '' }}">
@@ -870,13 +881,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Indicatif" name="coup_country_code[]" value="{{ ($coup_phone->country_code) ? $coup_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Téléphone" name="coup_phones[]" value="{{ ($coup_phone->phone) ? $coup_phone->phone : '' }}">
@@ -912,7 +923,7 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant(s)</h3>
+                                                    <h3>Enfant</h3>
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -1071,7 +1082,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Courriel" name="children_emails[]" value="{{ ($children_email->email) ? $children_email->email : '' }}">
@@ -1103,7 +1114,7 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-2">
+                                                            <div class="form-group col-sm-12 col-md-2">
                                                                 <label class="">Indicatif</label>
                                                                 <div class="input-group">
                                                                     <input class="form-control m-input" id="country_code_child" type="text" placeholder="Indicatif" name="country_code_child" value="{{ (Auth::user()->country_code_child) ? Auth::user()->country_code_child : '' }}">
@@ -1129,13 +1140,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Indicatif" name="children_country_code[]" value="{{ ($children_phone->country_code) ? $children_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Téléphone" name="children_phones[]" value="{{ ($children_phone->phone) ? $children_phone->phone : '' }}">
@@ -1171,11 +1182,11 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant(s)</h3>
+                                                    <h3>Enfant(2)</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="second_child" value="second_child">
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
                                                     <label>Civilité</label>
                                                     <div class="input-group">
@@ -1196,10 +1207,10 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
+                                                <div class="form-group col-sm-12 col-md-4 ">
                                                     <label class="">Nom</label>
                                                     <div class="input-group">
-                                                        <input class="form-control m-input" id="second_child_name" type="text" name="second_child_name" placeholder="Nom" value="{{ (!empty(json_decode(Auth::user()->second_child)->first_name)) ? json_decode(Auth::user()->second_child)->first_name : '' }}">
+                                                        <input class="form-control m-input created_child_name" id="second_child_name" type="text" name="second_child_name" placeholder="Nom" value="{{ (!empty(json_decode(Auth::user()->second_child)->first_name)) ? json_decode(Auth::user()->second_child)->first_name : '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-4 ">
@@ -1313,7 +1324,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Courriel</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Courriel" name="second_child_emails_emails[]" value="{{ (!empty($children_email->email)) ? $children_email->email : '' }}">
@@ -1369,13 +1380,13 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-2">
+                                                                    <div class="form-group col-sm-12 col-md-2">
                                                                         <label class="">Indicatif</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]" value="{{ (!empty($children_phone->country_code)) ? $children_phone->country_code : '' }}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-12 col-md-4">
+                                                                    <div class="form-group col-sm-12 col-md-4">
                                                                         <label class="">Téléphone</label>
                                                                         <div class="input-group">
                                                                             <input class="form-control m-input" type="text" placeholder="Téléphone" name="second_child_phones_phones[]" value="{{ (!empty($children_phone->phone)) ? $children_phone->phone : '' }}">
@@ -1400,7 +1411,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-sm-12 col-md-2">
+                                                                <div class="form-group col-sm-12 col-md-2">
                                                                     <label class="">Indicatif</label>
                                                                     <div class="input-group">
                                                                         <input class="form-control m-input" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]">
@@ -1439,11 +1450,11 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant(s)</h3>
+                                                    <h3>Enfant(3)</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="third_child" value="third_child">
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
                                                     <label>Civilité</label>
                                                     <div class="input-group">
@@ -1464,10 +1475,10 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
+                                                <div class="form-group col-sm-12 col-md-4 ">
                                                     <label class="">Nom</label>
                                                     <div class="input-group">
-                                                        <input class="form-control m-input" type="text" name="third_child_name" placeholder="Nom" value="{{ (!empty(json_decode(Auth::user()->third_child)->first_name)) ? json_decode(Auth::user()->third_child)->first_name : '' }}">
+                                                        <input class="form-control m-input created_child_name" type="text" name="third_child_name" placeholder="Nom" value="{{ (!empty(json_decode(Auth::user()->third_child)->first_name)) ? json_decode(Auth::user()->third_child)->first_name : '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-4 ">
@@ -1707,11 +1718,11 @@
                                         <div class="m-portlet__body">
                                             <div class="form-group m-form__group row">
                                                 <div class="col-12 ml-auto">
-                                                    <h3>Enfant(s)</h3>
+                                                    <h3>Enfant(4)</h3>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="fourth_child" value="fourth_child">
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
                                                     <label>Civilité</label>
                                                     <div class="input-group">
@@ -1732,10 +1743,10 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
+                                                <div class="form-group col-sm-12 col-md-4 ">
                                                     <label class="">Nom</label>
                                                     <div class="input-group">
-                                                        <input class="form-control m-input" id="fourth_child_name" type="text" name="fourth_child_name" placeholder="Nom" value="{{ (!empty(json_decode(Auth::user()->fourth_child)->first_name)) ? json_decode(Auth::user()->fourth_child)->first_name : '' }}">
+                                                        <input class="form-control m-input created_child_name" id="fourth_child_name" type="text" name="fourth_child_name" placeholder="Nom" value="{{ (!empty(json_decode(Auth::user()->fourth_child)->first_name)) ? json_decode(Auth::user()->fourth_child)->first_name : '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-4 ">
@@ -2362,7 +2373,7 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Courriel" name="client_emails[]" value="">'+
@@ -2395,7 +2406,7 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Courriel" name="coup_emails[]" value="">'+
@@ -2428,7 +2439,7 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Courriel" name="children_emails[]" value="">'+
@@ -2463,7 +2474,7 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Courriel" name="second_child_emails_emails[]" value="">'+
@@ -2497,7 +2508,7 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Courriel" name="third_child_emails_emails[]" value="">'+
@@ -2530,7 +2541,7 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Courriel</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Courriel" name="fourth_child_emails_emails[]" value="">'+
@@ -2563,13 +2574,13 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Indicatif" name="client_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Téléphone" name="client_phones[]" value="">'+
@@ -2602,13 +2613,13 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Indicatif" name="coup_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Téléphone" name="coup_phones[]" value="">'+
@@ -2642,13 +2653,13 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Indicatif" name="children_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Téléphone" name="children_phones[]" value="">'+
@@ -2681,13 +2692,13 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Indicatif" name="second_child_phones_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Téléphone" name="second_child_phones_phones[]" value="">'+
@@ -2720,13 +2731,13 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Indicatif" name="third_child_phones_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Téléphone" name="third_child_phones_phones[]" value="">'+
@@ -2759,13 +2770,13 @@
                 '@endforeach'+
                 '</select>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-2">'+
+                '<div class="form-group col-sm-12 col-md-2">'+
                 '<label class="">Indicatif</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Indicatif" name="fourth_child_phones_country_code[]" value="">'+
                 '</div>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-4">'+
+                '<div class="form-group col-sm-12 col-md-4">'+
                 '<label class="">Téléphone</label>'+
                 '<div class="input-group">'+
                 '<input class="form-control m-input" type="text" placeholder="Téléphone" name="fourth_child_phones_phones[]" value="">'+
@@ -2786,17 +2797,36 @@
 
         $('#add_new_child').click(function() {
             var all_items = $('.m-portlet__head-tools > .nav-tabs .remove_children_tab').length;
-
+            var index;
             if(all_items <= 2) {
-                $('.m-portlet__head-tools > .nav-tabs li:nth-child(3)').after(
-                    '<li class="nav-item m-tabs__item" id="child_tab_' + all_items + '">' +
-                    '<a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_' + all_items + '" role="tab"  aria-expanded="true">' +
+                if($("#child_tab_" + all_items).length == 0) {
+                    index = all_items;
+                } else if($("#child_tab_0").length == 0) {
+                    index = 0;
+                } else if($("#child_tab_1").length == 0) {
+                    index = 1;
+                } else if($("#child_tab_2").length == 0) {
+                    index = 2;
+                }
+                var child_number = index+2;
+                $('.m-portlet__head-tools > .nav-tabs').append(
+                    '<li class="nav-item m-tabs__item" id="child_tab_' + index + '">' +
+                    '<a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_' + index + '" role="tab"  aria-expanded="true">' +
                     '<i class="flaticon-share m--hide"></i>' +
-                    'Enfant(s) <button href="#" id="' + all_items + '" class="remove_children_tab">-</button>' +
+                    'Enfant('+ child_number +') <button href="#" id="' + index + '" class="remove_children_tab"><i class="la la-close"></i></button>' +
                     '</a>' +
                     '</li>'
                 );
+                $('#profile_info_child_' + index + ' .created_child_name').attr('required', 'required')
             }
+
+            $('a[href="#profile_info_child_' + index + '"]').click(function () {
+                $('.hide-all').css('display', 'none');
+                $('.m-card-profile__pic-wrapper').append(
+                    '<img id="img_default'+index+'" class="hide-all default" style="display: block;" src="{{ Voyager::image( 'users/default.png' ) }}" alt="Default avatar"/>'
+                );
+            });
+
             $("#profile_info_child_" + all_items + " select.custom_select2").select2({minimumResultsForSearch: Infinity});
 
         });
@@ -2804,11 +2834,24 @@
         $(document).on('click', '.remove_children_tab', function(){
             var button_id = $(this).attr("id");
             $('#child_tab_' + button_id).remove();
+
+            $('#profile_info_child_' + button_id + ' .created_child_name').attr('required', false)
             $('#profile_info_child_' + button_id + ' .m-form__group > .col-sm-12 .input-group input').attr('value', '');
 
             if(button_id === "2" || button_id === "1" || button_id === "0"){
                 $('#client').trigger('click');
             }
+        });
+
+        $('button[type="submit"]').click(function() {
+            setTimeout(function(){
+                if($(document).find(".has-danger").length !== 0 ) {
+                    var first_error_block_container_id = $(".has-danger:first").closest('.tab-pane').attr('id');
+                    $('.nav-tabs .nav-link[href="#'+first_error_block_container_id+'"]').trigger('click');
+                    console.log(first_error_block_container_id);
+                }
+            }, 1000);
+
         });
 
         $('.add_new_address').on('click', function () {
@@ -2878,6 +2921,15 @@
                     name: {
                         required: true
                     },
+//                    second_child_name: {
+//                        required: true
+//                    },
+//                    third_child_name: {
+//                        required: true
+//                    },
+//                    fourth_child_name: {
+//                        required: true
+//                    },
                     last_name: {
                         required: true
                     },
@@ -2885,16 +2937,101 @@
                         email: true,
                         required: true
                     },
+                    "client_emails[]": {
+                        email: true
+                    },
+                    email_coup: {
+                        email: true
+                    },
+                    "coup_emails[]": {
+                        email: true
+                    },
+                    email_child: {
+                        email: true
+                    },
+                    "children_emails[]": {
+                        email: true
+                    },
+                    "second_child_emails_emails[]": {
+                        email: true
+                    },
+                    "third_child_emails_emails[]": {
+                        email: true
+                    },
+                    "fourth_child_emails_emails[]": {
+                        email: true
+                    },
                     phone: {
                         number: true,
                         maxlength: 15
                     },
-                    password: {
-                        minlength: 3
+                    "client_phones[]": {
+                        number: true,
+                        maxlength: 15
                     },
-                    password_confirm: {
-                        minlength: 3,
-                        passwordMatch: true
+                    phone_coup: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "coup_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    phone_child: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "children_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "second_child_phones_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "third_child_phones_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "fourth_child_phones_phones[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    country_code: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "client_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    country_code_coup: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "coup_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    country_code_child: {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "children_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "second_child_phones_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "third_child_phones_country_code[]": {
+                        number: true,
+                        maxlength: 15
+                    },
+                    "fourth_child_phones_country_code[]": {
+                        number: true,
+                        maxlength: 15
                     }
                 },
                 submitHandler: function (form) {
@@ -2931,6 +3068,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         $('#client_spouse').click(function () {
             $('#client_photo').css('display','none');
@@ -2957,6 +3095,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         $('#client_child').click(function () {
             $('#client_photo').css('display','none');
@@ -2983,6 +3122,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         /* second_child*/
         $('li a[href="#profile_info_child_0"]').click(function(){
@@ -3010,6 +3150,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         $('li a[href="#profile_info_child_1"]').click(function(){
             $('#client_photo').css('display','none');
@@ -3035,6 +3176,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
         $('li a[href="#profile_info_child_2"]').click(function(){
             $('#client_photo').css('display','none');
@@ -3060,7 +3202,9 @@
 
             $('#child_name_f').css('display','block');
             $('#child_email_f').css('display','block');
+            $('.default').css('display','none');
         });
+
         $('#client_param').click(function () {
             $('#client_photo').css('display','block');
             $('#coup_photo').css('display','none');
@@ -3085,6 +3229,7 @@
 
             $('#child_name_f').css('display','none');
             $('#child_email_f').css('display','none');
+            $('.default').css('display','none');
         });
 
     </script>
