@@ -138,9 +138,10 @@
                     <td class="content">
                         <h4>Bonjour {{ $name }} {{ $last_name }},</h4>
 
-                        <p>House Invest Spain vous invite à utiliser sa plateforme de biens immobilier.<br>
-                            Cliquez sur le bouton ci-dessous pour vous rendre dans votre espace personnel, les identifiants sont spécifiés dans ce courriel juste en-dessous du bouton de connexion.<br>
-                            Nous vous invitons dès maintenant à changer votre mot de passe dans votre espace personnel.</p>
+                        <p>House Invest Spain vous invite à utiliser sa plateforme de biens immobiliers.</p>
+                        <p>Cliquez sur le bouton ci-dessous, pour vous rendre dans votre espace personnel.</p>
+                        <p>Les identifiants sont spécifiés dans ce courriel, juste en-dessous de bouton de connexion.</p>
+                        <p>Nous vous invitons, dès maintenant, à changer votre mot de passe dans votre espace personnel.</p>
                         <table>
                             <tr>
                                 <td align="center">

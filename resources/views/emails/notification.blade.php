@@ -136,7 +136,8 @@
                 <tr>
                     <td class="content">
                         <h4>Bonjour {{ $name }} {{ $last_name }},</h4>
-                        <p>House Invest Spain a publié un nouveau bien immobilier dans votre espace personnel. Nous vous invitons à le découvrir dès maintenant en cliquant sur le bouton ci-dessous.</p>
+                        <p>House Invest Spain a publié un nouveau bien immobilier dans votre espace personnel.</p>
+                        <p>Nous vous invitons à le découvrir, dès maintenant, en cliquant sur le bouton ci-dessous.</p>
                         <p style="margin-bottom: 5px;">Réf. : <span style="font-weight: 500;">{{ $reference }}</span></p>
                         <p>Titre : <span style="font-weight: 500;">{{ $title }}</span></p>
                         <table>
