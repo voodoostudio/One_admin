@@ -173,6 +173,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
+                            @if(Auth::user()->role_id != 5)
                             <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
@@ -198,6 +199,7 @@
                                 </div>
                                 <!--end::Widget 14 Item-->
                             </div>
+                            @endif
                             <div class="param_container col-sm-6 col-md-6 col-lg-4 col-xl-12">
                                 <!--begin::Widget 14 Item-->
                                 <div class="m-widget4__item">
