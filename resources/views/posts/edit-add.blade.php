@@ -2737,7 +2737,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="m-portlet__body">
+                                        <div class="m-portlet__body" style="padding: 2.2rem 2.2rem;">
                                             <div class="row">
                                                 <div class="col-lg-12 margin_bottom_10">
                                                     {{--<label>Gallery images dropzone</label>--}}
