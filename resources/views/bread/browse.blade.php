@@ -104,6 +104,11 @@
                         <p>Voici les objets que nous avons sélectionnés pour vous.</p>
                     @endif
                 </div>
+                @if(Auth::user()->role_id == 5)
+                    <div class="m--align-right">
+                        <img src="{{ asset('assets/house_invest_spain/img/his_logo.svg') }}" style="width: 70px">
+                    </div>
+                @endif
             </div>
         </div>
         <!-- END: Subheader -->
