@@ -389,25 +389,10 @@
                                             <div class="modal-content">\
                                                 <div class="modal-header">\
                                                     <h5 class="modal-title" id="exampleModalLabel">\
-                                                        <?php
-                                    switch (Auth::user()->lng_corres) {
-                                        case 1:
-                                            echo "' + client_cgu_title_de + '";
-                                            break;
-                                        case 2:
-                                            echo "' + client_cgu_title_en + '";
-                                            break;
-                                        case 3:
-                                            echo "' + client_cgu_title_es + '";
-                                            break;
-                                        case 4:
-                                            echo "' + client_cgu_title_fr + '";
-                                            break;
-                                        case 5:
-                                            echo "' + client_cgu_title_it + '";
-                                            break;
-                                    }?>
-                                    </h5>\
+                                                        ' + client_cgu_title_fr + '<br>\
+                                                        ' + client_cgu_title_en + '<br>\
+                                                        ' + client_cgu_title_es + '<br>\
+                                                        </h5>\
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
                                         <span aria-hidden="true">×</span>\
                                     </button>\
@@ -415,24 +400,12 @@
                                 <div class="modal-body">\
                                     <div class="row">\
                                         <div class="col-lg-12">\
-<?php
-                                    switch (Auth::user()->lng_corres) {
-                                        case 1:
-                                            echo "<p>' + client_cgu_de + '</p>";
-                                            break;
-                                        case 2:
-                                            echo "<p>' + client_cgu_en + '</p>";
-                                            break;
-                                        case 3:
-                                            echo "<p>' + client_cgu_es + '</p>";
-                                            break;
-                                        case 4:
-                                            echo "<p>' + client_cgu_fr + '</p>";
-                                            break;
-                                        case 5:
-                                            echo "<p>' + client_cgu_it + '</p>";
-                                            break;
-                                    }?>
+                                        <h5>FR</h5>\
+                                            <p>' + client_cgu_fr + '</p>\
+                                            <h5>EN</h5>\
+                                            <p>' + client_cgu_en + '</p>\
+                                            <h5>ES</h5>\
+                                            <p>' + client_cgu_es + '</p>\
                                     </div>\
                                     <div class="col-lg-12">\
                                         <div class="pure_switch">\
@@ -443,25 +416,10 @@
                                                 </label>\
                                             </span>\
                                             <label class="pure_switch_label">\
-<?php
-                                    switch (Auth::user()->lng_corres) {
-                                        case 1:
-                                            echo "' + client_cgu_check_text_de + '";
-                                            break;
-                                        case 2:
-                                            echo "' + client_cgu_check_text_en + '";
-                                            break;
-                                        case 3:
-                                            echo "' + client_cgu_check_text_es + '";
-                                            break;
-                                        case 4:
-                                            echo "' + client_cgu_check_text_fr + '";
-                                            break;
-                                        case 5:
-                                            echo "' + client_cgu_check_text_it + '";
-                                            break;
-                                    }?>
-                                    </label>\
+                                            ' + client_cgu_check_text_fr + '<br>\
+                                            ' + client_cgu_check_text_en + '<br>\
+                                            ' + client_cgu_check_text_es + '<br>\
+                                            </label>\
                                 </div>\
                             </div>\
                         </div>\
@@ -496,25 +454,10 @@
                                             <div class="modal-content">\
                                                 <div class="modal-header">\
                                                     <h5 class="modal-title" id="exampleModalLabel">\
-                                                        <?php
-                                    switch (Auth::user()->lng_corres) {
-                                        case 1:
-                                            echo "' + client_cgu_title_de + '";
-                                            break;
-                                        case 2:
-                                            echo "' + client_cgu_title_en + '";
-                                            break;
-                                        case 3:
-                                            echo "' + client_cgu_title_es + '";
-                                            break;
-                                        case 4:
-                                            echo "' + client_cgu_title_fr + '";
-                                            break;
-                                        case 5:
-                                            echo "' + client_cgu_title_it + '";
-                                            break;
-                                    }?>
-                                    </h5>\
+                                                        ' + client_cgu_title_fr + '<br>\
+                                                        ' + client_cgu_title_en + '<br>\
+                                                        ' + client_cgu_title_es + '<br>\
+                                                        </h5>\
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
                                         <span aria-hidden="true">×</span>\
                                     </button>\
@@ -522,53 +465,26 @@
                                 <div class="modal-body">\
                                     <div class="row">\
                                         <div class="col-lg-12">\
-<?php
-                                    switch (Auth::user()->lng_corres) {
-                                        case 1:
-                                            echo "<p>' + client_cgu_de + '</p>";
-                                            break;
-                                        case 2:
-                                            echo "<p>' + client_cgu_en + '</p>";
-                                            break;
-                                        case 3:
-                                            echo "<p>' + client_cgu_es + '</p>";
-                                            break;
-                                        case 4:
-                                            echo "<p>' + client_cgu_fr + '</p>";
-                                            break;
-                                        case 5:
-                                            echo "<p>' + client_cgu_it + '</p>";
-                                            break;
-                                    }?>
+                                            <h5>FR</h5>\
+                                            <p>' + client_cgu_fr + '</p>\
+                                            <h5>EN</h5>\
+                                            <p>' + client_cgu_en + '</p>\
+                                            <h5>ES</h5>\
+                                            <p>' + client_cgu_es + '</p>\
                                     </div>\
                                     <div class="col-lg-12">\
                                         <div class="pure_switch">\
-                                            <span class="m-switch m-switch--outline m-switch--brand">\
-                                                <label>\
-                                                    <input type="checkbox" name="save_check1" onchange="checkViewPostCheckbox();">\
-                                                    <span></span>\
-                                                </label>\
-                                            </span>\
-                                            <label class="pure_switch_label">\
-<?php
-                                    switch (Auth::user()->lng_corres) {
-                                        case 1:
-                                            echo "' + client_cgu_check_text_de + '";
-                                            break;
-                                        case 2:
-                                            echo "' + client_cgu_check_text_en + '";
-                                            break;
-                                        case 3:
-                                            echo "' + client_cgu_check_text_es + '";
-                                            break;
-                                        case 4:
-                                            echo "' + client_cgu_check_text_fr + '";
-                                            break;
-                                        case 5:
-                                            echo "' + client_cgu_check_text_it + '";
-                                            break;
-                                    }?>
-                                    </label>\
+                                        <span class="m-switch m-switch--outline m-switch--brand">\
+                                            <label>\
+                                                <input type="checkbox" name="save_check1" onchange="checkViewPostCheckbox();">\
+                                                <span></span>\
+                                            </label>\
+                                        </span>\
+                                        <label class="pure_switch_label">\
+                                        ' + client_cgu_check_text_fr + '<br>\
+                                        ' + client_cgu_check_text_en + '<br>\
+                                        ' + client_cgu_check_text_es + '<br>\
+                                        </label>\
                                 </div>\
                             </div>\
                         </div>\
