@@ -690,13 +690,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
-                                                    @if($dataTypeContent->photo_coup != null)
-                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
-                                                    @else
-                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default coup avatar"/>
-                                                    @endif
-                                                </div>
+                                                {{--<div class="col-sm-12 col-md-4 ">--}}
+                                                {{--@if($dataTypeContent->photo_coup != null)--}}
+                                                {{--<img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->photo_coup ) }}" alt="{{ $dataTypeContent->name }} avatar"/>--}}
+                                                {{--@else--}}
+                                                {{--<img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default coup avatar"/>--}}
+                                                {{--@endif--}}
+                                                {{--</div>--}}
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
@@ -949,13 +949,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-2 ">
-                                                    @if($dataTypeContent->photo_coup != null)
-                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>
-                                                    @else
-                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
-                                                    @endif
-                                                </div>
+                                                {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                {{--@if($dataTypeContent->photo_coup != null)--}}
+                                                {{--<img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->photo_child ) }}" alt="{{ $dataTypeContent->name }} avatar"/>--}}
+                                                {{--@else--}}
+                                                {{--<img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>--}}
+                                                {{--@endif--}}
+                                                {{--</div>--}}
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
@@ -1209,13 +1209,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-2 ">
-                                                    @if(!empty($dataTypeContent->second_child_photo))
-                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->second_child_photo) }}" alt="avatar"/>
-                                                    @else
-                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
-                                                    @endif
-                                                </div>
+                                                {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                {{--@if(!empty($dataTypeContent->second_child_photo))--}}
+                                                {{--<img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->second_child_photo) }}" alt="avatar"/>--}}
+                                                {{--@else--}}
+                                                {{--<img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>--}}
+                                                {{--@endif--}}
+                                                {{--</div>--}}
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
@@ -1477,13 +1477,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-2 ">
-                                                    @if(!empty($dataTypeContent->third_child_photo))
-                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->third_child_photo) }}" alt="{{ !empty(json_decode($dataTypeContent->third_child)->name) ? json_decode($dataTypeContent->third_child)->name : '' }} avatar"/>
-                                                    @else
-                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
-                                                    @endif
-                                                </div>
+                                                {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                {{--@if(!empty($dataTypeContent->third_child_photo))--}}
+                                                {{--<img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->third_child_photo) }}" alt="{{ !empty(json_decode($dataTypeContent->third_child)->name) ? json_decode($dataTypeContent->third_child)->name : '' }} avatar"/>--}}
+                                                {{--@else--}}
+                                                {{--<img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>--}}
+                                                {{--@endif--}}
+                                                {{--</div>--}}
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
@@ -1745,13 +1745,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-2 ">
-                                                    @if(!empty($dataTypeContent->fourth_child_photo))
-                                                        <img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo) }}" alt="{{ !empty(json_decode($dataTypeContent->fourth_child)->name) ? json_decode($dataTypeContent->fourth_child)->name : '' }} avatar"/>
-                                                    @else
-                                                        <img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>
-                                                    @endif
-                                                </div>
+                                                {{--<div class="col-sm-12 col-md-2 ">--}}
+                                                {{--@if(!empty($dataTypeContent->fourth_child_photo))--}}
+                                                {{--<img class="avatar_preview" src="{{ Voyager::image( $dataTypeContent->fourth_child_photo) }}" alt="{{ !empty(json_decode($dataTypeContent->fourth_child)->name) ? json_decode($dataTypeContent->fourth_child)->name : '' }} avatar"/>--}}
+                                                {{--@else--}}
+                                                {{--<img class="avatar_preview" src="/img/admin/default-coup.png" alt="Default child avatar"/>--}}
+                                                {{--@endif--}}
+                                                {{--</div>--}}
                                             </div>
                                             <div class="form-group m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
