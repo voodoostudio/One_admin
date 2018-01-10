@@ -675,6 +675,8 @@
                                     </select>\
                                     <div class="message_status_' + row.id + '"></div>\
                                                         <input type="hidden" name="property_id" value="' + row.id + '" />\
+                                                        <input type="hidden" name="property_ref" value="' + row.reference + '" />\
+                                                        <input type="hidden" name="property_title" value="' + row.title_fr + '" />\
                                                     </div>\
                                                 </div>\
                                                 <div class="modal-footer">\

@@ -84,6 +84,8 @@ class VoyagerController extends Controller
 
     public function individualProperty(Request $request) {
         $property_id = $request->property_id;
+        $reference = $request->property_ref;
+        $title = $request->property_title;
         $vip_users = (!empty($request->vip_users)) ? implode(",", $request->vip_users ) : '0';
         $client_id = "" . $vip_users . "";
         $ids = explode(",", $client_id);
@@ -103,7 +105,9 @@ class VoyagerController extends Controller
                                             and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             'name'      => $email->name,
                             'last_name' => $email->last_name,
-                            'email'     => $email->email
+                            'email'     => $email->email,
+                            'reference' => $reference,
+                            'title'     => $title,
                         ];
 
                         Mail::send('voyager::emails.notification', $data, function ($message) use ($data) {
