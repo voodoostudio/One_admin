@@ -220,7 +220,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4">
+                                                <div class="form-group col-sm-12 col-md-4">
                                                     <label class="">Nom</label>
                                                     <div class="input-group">
                                                         <input class="form-control m-input" id="name" type="text" name="name" placeholder="Nom" value="{{ ($dataTypeContent->name) ? $dataTypeContent->name : '' }}">
@@ -1157,7 +1157,7 @@
                                                 </div>
                                             </div>
                                             <input type="hidden" name="second_child" value="second_child">
-                                            <div class="form-group m-form__group row">
+                                            <div class="m-form__group row">
                                                 <div class="col-sm-12 col-md-6 ">
                                                     <label>Civilité</label>
                                                     <div class="input-group">
@@ -1178,7 +1178,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-4 ">
+                                                <div class="form-group col-sm-12 col-md-4 ">
                                                     <label class="">Nom</label>
                                                     <div class="input-group">
                                                         <input class="form-control m-input" id="second_child_name" type="text" name="second_child_name" placeholder="Nom" value="{{ (!empty(json_decode($dataTypeContent->second_child)->first_name)) ? json_decode($dataTypeContent->second_child)->first_name : '' }}">
@@ -2725,6 +2725,15 @@
             jQuery("#profile_edit_form").validate({
                 rules: {
                     name: {
+                        required: true
+                    },
+                    second_child_name: {
+                        required: true
+                    },
+                    third_child_name: {
+                        required: true
+                    },
+                    fourth_child_name: {
                         required: true
                     },
                     last_name: {
