@@ -144,7 +144,7 @@
                                             <li class="nav-item m-tabs__item" id="child_tab_0">
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_0" role="tab"  aria-expanded="false">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant
+                                                    Enfant(2)
                                                     <button href="#" id="0" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
@@ -154,7 +154,7 @@
                                             <li class="nav-item m-tabs__item" id="child_tab_1">
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_1" role="tab"  aria-expanded="false">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant
+                                                    Enfant(3)
                                                     <button href="#" id="1" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
@@ -164,7 +164,7 @@
                                             <li class="nav-item m-tabs__item" id="child_tab_2" >
                                                 <a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_2" role="tab"  aria-expanded="false">
                                                     <i class="flaticon-share m--hide"></i>
-                                                    Enfant
+                                                    Enfant(4)
                                                     <button href="#" id="2" class="remove_children_tab"><i class="la la-close"></i></button>
                                                 </a>
                                             </li>
