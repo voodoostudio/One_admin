@@ -2809,14 +2809,15 @@
                     index = 2;
                 }
                 var child_number = index+2;
-                $('.m-portlet__head-tools > .nav-tabs li:nth-child(3)').after(
-                    '<li class="nav-item m-tabs__item" id="child_tab_' + index + '">' +
+
+                $(  '<li class="nav-item m-tabs__item" id="child_tab_' + index + '">' +
                     '<a id="client_child" class="nav-link m-tabs__link" data-toggle="tab" href="#profile_info_child_' + index + '" role="tab"  aria-expanded="true">' +
                     '<i class="flaticon-share m--hide"></i>' +
                     'Enfant('+ child_number +') <button href="#" id="' + index + '" class="remove_children_tab"><i class="la la-close"></i></button>' +
                     '</a>' +
                     '</li>'
-                );
+                ).insertBefore($(".m-portlet__head-tools > .nav-tabs li:last-child"));
+
                 $('#profile_info_child_' + index + ' .created_child_name').attr('required', 'required')
             }
 
