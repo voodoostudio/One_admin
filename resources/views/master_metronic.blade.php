@@ -120,6 +120,117 @@ if ((substr(Auth::user()->avatar, 0, 7) == 'http://') || (substr(Auth::user()->a
 <script src="{{ asset('assets/metronic_5/theme/dist/html/default/assets/demo/default/custom/components/forms/widgets/select2.js') }}" type="text/javascript"></script>
 <!--end::Page Resources -->
 
+<script>
+    MyOutdatedBrowser();
+    function MyOutdatedBrowser() {
+        //TODO create a public api to have these set from the cloud rather than having them hardcoded in typescript
+        var browsers = {
+            GoogleChrome: {
+                name: "chrome",
+                version: 53
+            },
+            MozillaFirefox: {
+                name: "firefox",
+                version: 46
+            },
+            InternetExplorer: {
+                name: "msie",
+                version: 11
+            },
+            InternetExplorerElse: {
+                name: "ie",
+                version: 11
+            },
+            AppleSafari: {
+                name: "safari",
+                version: 5
+            },
+            Opera: {
+                name: "opera",
+                version: 38
+            }
+        };
+
+
+        function getBrowserKeys() {
+            return Object.getOwnPropertyNames(browsers)
+        }
+
+        function isBrowserOutdated(curBrowser) {
+            var curBrowserName = curBrowser.name.toLowerCase();
+
+            var keys = getBrowserKeys();
+
+            var browser_version = curBrowser.version;
+
+            for(var i=0; i< keys.length ; i++) {
+                var browser = browsers[keys[i]];
+
+                console.log(curBrowserName);
+                console.log(browser_version);
+                console.log(browser.version);
+
+                if(curBrowserName == browser.name) {
+                    return curBrowser.version <= browser.version;
+                } else {
+                    //continue
+                }
+            }
+            return true;  //browser is found and version is equal or greater than ours
+        }
+
+        function get_browser_info() {
+            var ua = navigator.userAgent, tem, M = ua.match(/(opera|chrome|safari|firefox|msie|ie|trident(?=\/))\/?\s*(\d+)/i) || [];
+            if (/trident/i.test(M[1])) {
+                tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+                return {name: 'ie', version: (tem[1] || '')};
+            }
+            if (M[1] === 'Chrome') {
+                tem = ua.match(/\bOPR\/(\d+)/);
+                if (tem != null) {
+                    return {name: 'Opera', version: tem[1]};
+                }
+            }
+            M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
+            if ((tem = ua.match(/version\/(\d+)/i)) != null) {
+                M.splice(1, 1, tem[1]);
+            }
+            return {
+                name: M[0],
+                version: M[1]
+            };
+
+        }
+
+        function addLoadEvent(func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            } else {
+                window.onload = function() {
+                    if (oldonload) {
+                        oldonload();
+                    }
+                    func();
+                }
+            }
+        }
+
+        var blockID = "outdated";
+        var closeButtonID = "btnCloseUpdateBrowser";
+
+        addLoadEvent(function() {
+            if(isBrowserOutdated(get_browser_info())) {
+                //var block = document.getElementById(blockID);
+                //show
+                $('#outdated_browser_alert').show();
+                //block.setAttribute("style", "display: block;");
+            } else {
+                //nop
+            }
+        })
+    }
+</script>
 @yield('javascript')
 
 @if(!empty(config('voyager.additional_js')))<!-- Additional Javascript -->

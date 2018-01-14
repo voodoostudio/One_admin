@@ -47,6 +47,14 @@
                     </ul>
                 </div>
                 <!-- END: Horizontal Menu -->
+                <div id="outdated_browser_alert">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        </button>
+                        <strong>Attention!</strong> Pour une meilleure expérience, veuillez mettre votre navigateur à jour parmi les
+                        <a href="http://outdatedbrowser.com/fr" target="_blank">navigateurs suivants</a>.
+                    </div>
+                </div>
                 <!-- BEGIN: Topbar -->
                 <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
                     <div class="m-stack__item m-topbar__nav-wrapper">
