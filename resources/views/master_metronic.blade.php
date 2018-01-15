@@ -135,7 +135,7 @@ if ((substr(Auth::user()->avatar, 0, 7) == 'http://') || (substr(Auth::user()->a
             },
             InternetExplorer: {
                 name: "msie",
-                version: 11
+                version: 10
             },
             InternetExplorerElse: {
                 name: "ie",
