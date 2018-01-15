@@ -135,7 +135,7 @@ if ((substr(Auth::user()->avatar, 0, 7) == 'http://') || (substr(Auth::user()->a
             },
             InternetExplorer: {
                 name: "msie",
-                version: 10
+                version: 14
             },
             InternetExplorerElse: {
                 name: "ie",
@@ -183,7 +183,7 @@ if ((substr(Auth::user()->avatar, 0, 7) == 'http://') || (substr(Auth::user()->a
             var ua = navigator.userAgent, tem, M = ua.match(/(opera|chrome|safari|firefox|msie|ie|trident(?=\/))\/?\s*(\d+)/i) || [];
             if (/trident/i.test(M[1])) {
                 tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
-                return {name: 'msie', version: (tem[1] || '')};
+                return {name: 'ie', version: (tem[1] || '')};
             }
             if (M[1] === 'Chrome') {
                 tem = ua.match(/\bOPR\/(\d+)/);
