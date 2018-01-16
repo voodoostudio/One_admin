@@ -553,13 +553,13 @@
                                     <div class="modal-dialog modal-sm" role="document">\
                                         <div class="modal-content">\
                                             <div class="modal-header">\
-                                                <h5 class="modal-title" id="exampleModalLabel">Supprimer cet bien immobilier</h5>\
+                                                <h5 class="modal-title" id="exampleModalLabel">Supprimer ce bien immobilier</h5>\
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
                                                     <span aria-hidden="true">×</span>\
                                                 </button>\
                                             </div>\
                                             <div class="modal-body">\
-                                                <p>Etes-vous sûr de vouloir supprimer cet bien immobilier ?</p>\
+                                                <p>Etes-vous sûr de vouloir supprimer ce bien immobilier ?</p>\
                                             </div>\
                                             <div class="modal-footer">\
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>\
@@ -790,13 +790,13 @@
                                                 <div class="modal-dialog modal-sm" role="document">\
                                                     <div class="modal-content">\
                                                         <div class="modal-header">\
-                                                            <h5 class="modal-title" id="exampleModalLabel">Supprimer cet client</h5>\
+                                                            <h5 class="modal-title" id="exampleModalLabel">Supprimer ce client</h5>\
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
                                                                 <span aria-hidden="true">×</span>\
                                                             </button>\
                                                         </div>\
                                                         <div class="modal-body">\
-                                                            <p>Êtes-vous sûr de vouloir supprimer cet client ?</p>\
+                                                            <p>Êtes-vous sûr de vouloir supprimer ce client ?</p>\
                                                         </div>\
                                                         <div class="modal-footer">\
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>\

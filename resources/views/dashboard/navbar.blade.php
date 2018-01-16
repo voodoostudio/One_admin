@@ -40,9 +40,9 @@
                 <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
                     <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
                         <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" >
-                            <a href="http://houseinvestspain.com" class="m-menu__link m-menu__toggle">
+                            {{--<a href="http://houseinvestspain.com" class="m-menu__link m-menu__toggle">--}}
                                 <img src="{{ asset('assets/house_invest_spain/img/his_logo.svg') }}" style="width: 59px; padding: 5px 0;">
-                            </a>
+                            {{--</a>--}}
                         </li>
                     </ul>
                 </div>
